@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AStar.Dev.Api.Usage.Sdk</name>
+    </assembly>
+    <members>
+        <member name="T:AStar.Dev.Api.Usage.Sdk.ApiUsageConfiguration">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Api.Usage.Sdk.ApiUsageConfiguration.ConfigurationSectionName">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Api.Usage.Sdk.ApiUsageConfiguration.HostName">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Api.Usage.Sdk.ApiUsageConfiguration.UserName">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Api.Usage.Sdk.ApiUsageConfiguration.Password">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Api.Usage.Sdk.ApiUsageConfiguration.QueueName">
+            <summary></summary>
+        </member>
+        <member name="T:AStar.Dev.Api.Usage.Sdk.ApiUsageEvent">
+            <summary>
+            </summary>
+            <param name="ApiName"></param>
+            <param name="ApiEndpoint"></param>
+            <param name="HttpMethod"></param>
+            <param name="ElapsedMilliseconds"></param>
+            <param name="StatusCode"></param>
+        </member>
+        <member name="M:AStar.Dev.Api.Usage.Sdk.ApiUsageEvent.#ctor(System.String,System.String,System.String,System.Double,System.Int32)">
+            <summary>
+            </summary>
+            <param name="ApiName"></param>
+            <param name="ApiEndpoint"></param>
+            <param name="HttpMethod"></param>
+            <param name="ElapsedMilliseconds"></param>
+            <param name="StatusCode"></param>
+        </member>
+        <member name="P:AStar.Dev.Api.Usage.Sdk.ApiUsageEvent.ApiName">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Api.Usage.Sdk.ApiUsageEvent.ApiEndpoint">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Api.Usage.Sdk.ApiUsageEvent.HttpMethod">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Api.Usage.Sdk.ApiUsageEvent.ElapsedMilliseconds">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Api.Usage.Sdk.ApiUsageEvent.StatusCode">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Api.Usage.Sdk.ApiUsageEvent.Id">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Api.Usage.Sdk.ApiUsageEvent.Timestamp">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Api.Usage.Sdk.Metrics.IEndpointName">
+            <summary>
+                The <see cref="T:AStar.Dev.Api.Usage.Sdk.Metrics.IEndpointName" /> interface contains additional information for logging the API Usage.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Api.Usage.Sdk.Metrics.IEndpointName.Name">
+            <summary>
+                Gets the name of the Endpoint.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Api.Usage.Sdk.Metrics.IEndpointName.HttpMethod">
+            <summary>
+                Gets the HTTP Method type of the Endpoint.
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Api.Usage.Sdk.Metrics.UsageMetricHandler">
+            <summary>
+            </summary>
+            <param name="next"></param>
+            <param name="send"></param>
+        </member>
+        <member name="M:AStar.Dev.Api.Usage.Sdk.Metrics.UsageMetricHandler.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,AStar.Dev.Api.Usage.Sdk.Send)">
+            <summary>
+            </summary>
+            <param name="next"></param>
+            <param name="send"></param>
+        </member>
+        <member name="M:AStar.Dev.Api.Usage.Sdk.Metrics.UsageMetricHandler.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            </summary>
+            <param name="context"></param>
+        </member>
+        <member name="T:AStar.Dev.Api.Usage.Sdk.Metrics.UsageMetricHandlerExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Api.Usage.Sdk.Metrics.UsageMetricHandlerExtensions.UseMetrics(Microsoft.AspNetCore.Builder.IApplicationBuilder)">
+            <summary>
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AStar.Dev.Api.Usage.Sdk.Send">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Api.Usage.Sdk.Send.#ctor(RabbitMQ.Client.IConnection,Microsoft.Extensions.Options.IOptions{AStar.Dev.Api.Usage.Sdk.ApiUsageConfiguration})">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Api.Usage.Sdk.Send.SendUsageEventAsync(AStar.Dev.Api.Usage.Sdk.ApiUsageEvent,System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+            <param name="usageEvent"></param>
+            <param name="cancellationToken"></param>
+        </member>
+        <member name="T:AStar.Dev.Api.Usage.Sdk.ServiceCollectionExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Api.Usage.Sdk.ServiceCollectionExtensions.AddUsageServices(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.ConfigurationManager,System.Reflection.Assembly)">
+            <summary>
+            </summary>
+            <param name="services"></param>
+            <param name="configurationManager"></param>
+            <param name="executingAssembly"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
