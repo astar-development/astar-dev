@@ -3,5 +3,5 @@
 internal enum AnyEnum
 {
     NotDefined,
-    Defined,
+    Defined
 }

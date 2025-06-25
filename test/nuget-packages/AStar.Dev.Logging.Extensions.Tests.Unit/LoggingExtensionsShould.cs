@@ -23,7 +23,7 @@ public sealed class LoggingExtensionsShould
     {
         var       builder              = WebApplication.CreateBuilder();
         const int expectedServiceCount = 147;
-        var       testConfig           = new SerilogConfig { Serilog = { WriteTo = [new() { Args = new() { ServerUrl = "https://example.com", }, },], }, };
+        var       testConfig           = new SerilogConfig { Serilog = { WriteTo = [new() { Args = new() { ServerUrl = "https://example.com" } }] } };
 
         File.WriteAllText("serilog.config", testConfig.ToJson()); // OK, not a true unit test but...
 

@@ -17,15 +17,15 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\apis\AStar.Dev.Admin.Api\AStar.Dev.Admin.Api.csproj" />
-      <ProjectReference Include="..\..\apis\AStar.Dev.Files.Api\AStar.Dev.Files.Api.csproj" />
-      <ProjectReference Include="..\..\apis\AStar.Dev.Images.Api\AStar.Dev.Images.Api.csproj" />
-      <ProjectReference Include="..\..\apis\AStar.Dev.ToDo.Api\AStar.Dev.ToDo.Api.csproj" />
-      <ProjectReference Include="..\..\services\astar-dev-database-updater\AStar.Dev.Database.Updater\AStar.Dev.Database.Updater.csproj" />
-      <ProjectReference Include="..\..\services\AStar.Dev.Usage.Logger\AStar.Dev.Usage.Logger.csproj" />
-      <ProjectReference Include="..\..\services\migrations\AStar.Dev.FilesDb.MigrationService\AStar.Dev.FilesDb.MigrationService.csproj" />
-      <ProjectReference Include="..\..\uis\AStar.Dev.Web\AStar.Dev.Web.csproj" />
-      <ProjectReference Include="..\AStar.Dev.Aspire.Common\AStar.Dev.Aspire.Common.csproj" IsAspireProjectResource="false"/>
+        <ProjectReference Include="..\..\apis\AStar.Dev.Admin.Api\AStar.Dev.Admin.Api.csproj"/>
+        <ProjectReference Include="..\..\apis\AStar.Dev.Files.Api\AStar.Dev.Files.Api.csproj"/>
+        <ProjectReference Include="..\..\apis\AStar.Dev.Images.Api\AStar.Dev.Images.Api.csproj"/>
+        <ProjectReference Include="..\..\apis\AStar.Dev.ToDo.Api\AStar.Dev.ToDo.Api.csproj"/>
+        <ProjectReference Include="..\..\services\astar-dev-database-updater\AStar.Dev.Database.Updater\AStar.Dev.Database.Updater.csproj"/>
+        <ProjectReference Include="..\..\services\AStar.Dev.Usage.Logger\AStar.Dev.Usage.Logger.csproj"/>
+        <ProjectReference Include="..\..\services\migrations\AStar.Dev.FilesDb.MigrationService\AStar.Dev.FilesDb.MigrationService.csproj"/>
+        <ProjectReference Include="..\..\uis\AStar.Dev.Web\AStar.Dev.Web.csproj"/>
+        <ProjectReference Include="..\AStar.Dev.Aspire.Common\AStar.Dev.Aspire.Common.csproj" IsAspireProjectResource="false"/>
     </ItemGroup>
 
 </Project>

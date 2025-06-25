@@ -25,6 +25,7 @@ public sealed class FilesContext : DbContext
         : base(new DbContextOptions<FilesContext>() )
     {
     }
+
     /// <summary>
     ///     The list of files in the dB
     /// </summary>
@@ -71,10 +72,10 @@ public sealed class FilesContext : DbContext
         _ = modelBuilder.ApplyConfigurationsFromAssembly(typeof(FilesContext).Assembly);
 
         modelBuilder
-           .Entity<DuplicatesDetails>(eb =>
-                                      {
-                                          eb.HasNoKey();
-                                          eb.ToView("vw_DuplicatesDetails");
-                                      });
+            .Entity<DuplicatesDetails>(eb =>
+                                       {
+                                           eb.HasNoKey();
+                                           eb.ToView("vw_DuplicatesDetails");
+                                       });
     }
 }

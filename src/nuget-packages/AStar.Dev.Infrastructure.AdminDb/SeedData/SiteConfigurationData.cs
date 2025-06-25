@@ -30,7 +30,7 @@ public static class SiteConfigurationData
                         LoginEmailAddress     = "jason.j.barden2@outlook.com",
                         Password              = "E0CfdJnTMl04OzxqWnxsb0gQutz5dFTyD/0b/KkfDbU=",
                         Username              = "jbarden",
-                        SiteConfigurationSlug = "https---wallhaven-cc",
+                        SiteConfigurationSlug = "https---wallhaven-cc"
                     });
 
         context.SaveChanges();

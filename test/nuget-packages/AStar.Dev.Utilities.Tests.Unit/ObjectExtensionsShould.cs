@@ -5,6 +5,6 @@ public sealed class ObjectExtensionsShould
     [Fact]
     public void ContainTheToJsonMethodWhichReturnsTheExpectedString() =>
         new AnyClass()
-           .ToJson()
-           .ShouldMatchApproved();
+            .ToJson()
+            .ShouldMatchApproved();
 }

@@ -12,7 +12,7 @@ public sealed class ImagesApiClientShould
     {
         var handler = new MockHttpRequestExceptionErrorHttpMessageHandler();
 
-        var httpClient = new HttpClient(handler) { BaseAddress = new("https://doesnot.matter.com"), };
+        var httpClient = new HttpClient(handler) { BaseAddress = new("https://doesnot.matter.com") };
 
         var sut = new ImagesApiClient(httpClient, NullLogger<ImagesApiClient>.Instance);
 
@@ -26,7 +26,7 @@ public sealed class ImagesApiClientShould
     {
         var handler = new MockInternalServerErrorHttpMessageHandler("Health Check failed - Internal Server Error.");
 
-        var httpClient = new HttpClient(handler) { BaseAddress = new("https://doesnot.matter.com"), };
+        var httpClient = new HttpClient(handler) { BaseAddress = new("https://doesnot.matter.com") };
 
         var sut = new ImagesApiClient(httpClient, NullLogger<ImagesApiClient>.Instance);
 
@@ -40,7 +40,7 @@ public sealed class ImagesApiClientShould
     {
         var handler = new MockSuccessHttpMessageHandler("");
 
-        var httpClient = new HttpClient(handler) { BaseAddress = new("https://doesnot.matter.com"), };
+        var httpClient = new HttpClient(handler) { BaseAddress = new("https://doesnot.matter.com") };
 
         var sut = new ImagesApiClient(httpClient, NullLogger<ImagesApiClient>.Instance);
 

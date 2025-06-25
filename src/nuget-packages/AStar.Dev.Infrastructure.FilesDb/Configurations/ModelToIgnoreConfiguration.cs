@@ -12,8 +12,8 @@ public class ModelToIgnoreConfiguration : IEntityTypeConfiguration<ModelToIgnore
     public void Configure(EntityTypeBuilder<ModelToIgnore> builder)
     {
         _ = builder
-           .ToTable(nameof(ModelToIgnore), Constants.SchemaName)
-           .HasKey(fileDetail => fileDetail.Id);
+            .ToTable(nameof(ModelToIgnore), Constants.SchemaName)
+            .HasKey(fileDetail => fileDetail.Id);
 
         builder.Property(fileDetail => fileDetail.Value).HasMaxLength(300);
     }

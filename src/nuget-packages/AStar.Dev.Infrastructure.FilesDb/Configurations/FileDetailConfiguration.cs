@@ -12,8 +12,8 @@ public class FileDetailConfiguration : IEntityTypeConfiguration<FileDetail>
     public void Configure(EntityTypeBuilder<FileDetail> builder)
     {
         _ = builder
-           .ToTable(nameof(FileDetail), Constants.SchemaName)
-           .HasKey(fileDetail => fileDetail.Id);
+            .ToTable(nameof(FileDetail), Constants.SchemaName)
+            .HasKey(fileDetail => fileDetail.Id);
 
         builder.Property(fileDetail => fileDetail.FileName).HasMaxLength(300);
         builder.Property(fileDetail => fileDetail.DirectoryName).HasMaxLength(300);

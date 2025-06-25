@@ -7,5 +7,5 @@ public sealed class MockInternalServerErrorHttpMessageHandler(string errorMessag
     protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,
                                                            CancellationToken  cancellationToken) =>
         Task.FromResult(
-                        new HttpResponseMessage(HttpStatusCode.InternalServerError) { Content = new StringContent(errorMessage), });
+                        new HttpResponseMessage(HttpStatusCode.InternalServerError) { Content = new StringContent(errorMessage) });
 }

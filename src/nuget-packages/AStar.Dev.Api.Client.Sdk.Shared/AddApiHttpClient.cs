@@ -41,7 +41,7 @@ public static class AddApiHttpClient
                                                                  FallbackAction = _ => Outcome.FromResultAsValueTask(
                                                                                                                      new
                                                                                                                          HttpResponseMessage(HttpStatusCode
-                                                                                                                                                .ServiceUnavailable)),
+                                                                                                                                                 .ServiceUnavailable))
                                                              })
                                                 .AddConcurrencyLimiter(100)
                                                 .AddRetry(new HttpRetryStrategyOptions())

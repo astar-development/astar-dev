@@ -15,7 +15,7 @@ internal static class FilesApiClientFactory
     public static FilesApiClient Create(HttpMessageHandler mockHttpMessageHandler)
     {
         var tokenAcquisitionServiceMock = Substitute.For<ITokenAcquisition>();
-        var httpClient                  = new HttpClient(mockHttpMessageHandler) { BaseAddress = new(IrrelevantUrl), };
+        var httpClient                  = new HttpClient(mockHttpMessageHandler) { BaseAddress = new(IrrelevantUrl) };
 
         return new(httpClient, /* tokenAcquisitionServiceMock, */ DummyLogger);
     }
@@ -24,7 +24,7 @@ internal static class FilesApiClientFactory
     {
         var tokenAcquisitionServiceMock = Substitute.For<ITokenAcquisition>();
         var handler                     = new MockInternalServerErrorHttpMessageHandler(errorMessage);
-        var httpClient                  = new HttpClient(handler) { BaseAddress = new(IrrelevantUrl), };
+        var httpClient                  = new HttpClient(handler) { BaseAddress = new(IrrelevantUrl) };
 
         return new(httpClient, /* tokenAcquisitionServiceMock, */ DummyLogger);
     }

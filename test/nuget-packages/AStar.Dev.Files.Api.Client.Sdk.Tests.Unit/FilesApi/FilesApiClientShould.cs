@@ -1,6 +1,5 @@
 using AStar.Dev.Files.Api.Client.Sdk.Helpers;
 using AStar.Dev.Files.Api.Client.Sdk.MockMessageHandlers;
-using AStar.Dev.Files.Api.Client.SDK.Models;
 
 namespace AStar.Dev.Files.Api.Client.Sdk.FilesApi;
 
@@ -64,7 +63,7 @@ public sealed class FilesApiClientShould
     public async Task ReturnExpectedResponseFromTheCountDuplicatesEndpoint()
     {
         const int mockDuplicatesCountValue = 1234;
-        var       handler                  = new MockSuccessHttpMessageHandler("CountDuplicates") { Counter = mockDuplicatesCountValue, };
+        var       handler                  = new MockSuccessHttpMessageHandler("CountDuplicates") { Counter = mockDuplicatesCountValue };
         var       sut                      = FilesApiClientFactory.Create(handler);
 
         var response = await sut.GetDuplicateFilesCountAsync(new());

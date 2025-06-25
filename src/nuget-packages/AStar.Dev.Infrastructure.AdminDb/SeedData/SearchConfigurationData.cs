@@ -37,7 +37,7 @@ public static class SearchConfigurationData
                         StartingPageNumber              = 1,
                         TopWallpapersTotalPages         = 0,
                         TopWallpapersStartingPageNumber = 1,
-                        UseHeadless                     = false,
+                        UseHeadless                     = false
                     });
     }
 }

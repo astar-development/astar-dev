@@ -25,8 +25,8 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<Send>();
 
         services
-           .AddOptions<ApiUsageConfiguration>()
-           .Bind(configurationManager.GetSection(ApiUsageConfiguration.ConfigurationSectionName));
+            .AddOptions<ApiUsageConfiguration>()
+            .Bind(configurationManager.GetSection(ApiUsageConfiguration.ConfigurationSectionName));
 
         return services;
     }

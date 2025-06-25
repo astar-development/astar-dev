@@ -23,5 +23,5 @@ public enum SortOrder
     /// <summary>
     ///     Order by the name ascending
     /// </summary>
-    NameAscending,
+    NameAscending
 }

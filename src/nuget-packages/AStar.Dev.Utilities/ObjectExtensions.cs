@@ -8,7 +8,7 @@ namespace AStar.Dev.Utilities;
 /// </summary>
 public static class ObjectExtensions
 {
-    private static readonly JsonSerializerOptions Options = new(JsonSerializerDefaults.Web) { WriteIndented = true, };
+    private static readonly JsonSerializerOptions Options = new(JsonSerializerDefaults.Web) { WriteIndented = true };
 
     /// <summary>
     ///     The ToJson method, as you might expect, converts the supplied object to its JSON equivalent (using the

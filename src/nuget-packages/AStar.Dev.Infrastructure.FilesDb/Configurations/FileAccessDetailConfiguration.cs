@@ -11,6 +11,6 @@ public class FileAccessDetailConfiguration : IEntityTypeConfiguration<FileAccess
     /// <inheritdoc />
     public void Configure(EntityTypeBuilder<FileAccessDetail> builder) =>
         _ = builder
-           .ToTable(nameof(FileAccessDetail), Constants.SchemaName)
-           .HasKey(fileDetail => fileDetail.Id);
+            .ToTable(nameof(FileAccessDetail), Constants.SchemaName)
+            .HasKey(fileDetail => fileDetail.Id);
 }

@@ -17,8 +17,8 @@ public sealed class ApiUsageEventConfiguration : IEntityTypeConfiguration<ApiUsa
     public void Configure(EntityTypeBuilder<ApiUsageEvent> builder)
     {
         _ = builder
-           .ToTable("ApiUsageEvent", "usage")
-           .HasKey(apiUsageEvent => apiUsageEvent.Id);
+            .ToTable("ApiUsageEvent", "usage")
+            .HasKey(apiUsageEvent => apiUsageEvent.Id);
 
         builder.Property(usageEvent => usageEvent.ApiName).HasMaxLength(300);
         builder.Property(usageEvent => usageEvent.ApiEndpoint).HasMaxLength(300);

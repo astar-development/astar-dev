@@ -12,8 +12,8 @@ public class FileClassificationConfiguration : IEntityTypeConfiguration<FileClas
     public void Configure(EntityTypeBuilder<FileClassification> builder)
     {
         _ = builder
-           .ToTable(nameof(FileClassification), Constants.SchemaName)
-           .HasKey(fileClassification =>  fileClassification.Id);
+            .ToTable(nameof(FileClassification), Constants.SchemaName)
+            .HasKey(fileClassification =>  fileClassification.Id);
 
         _ = builder.HasMany<FileNamePart>();
         _ = builder.Property(fileClassification => fileClassification.Name).HasMaxLength(150);

@@ -17,7 +17,7 @@ public sealed class ScrapeDirectoryConfiguration : IEntityTypeConfiguration<Scra
     public void Configure(EntityTypeBuilder<ScrapeDirectory> builder)
     {
         _ = builder
-           .ToTable("ScrapeDirectory", "admin").HasKey(scrapeDirectory => scrapeDirectory.Id);
+            .ToTable("ScrapeDirectory", "admin").HasKey(scrapeDirectory => scrapeDirectory.Id);
 
         builder.Property(p => p.RootDirectory).HasMaxLength(300);
         builder.Property(p => p.BaseDirectory).HasMaxLength(300);

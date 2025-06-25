@@ -52,7 +52,7 @@ public sealed class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logge
                                                             Title      = "An unexpected error occurred",
                                                             Detail     = detailMessage,
                                                             Instance   = $"{httpContext.Request.Method} {httpContext.Request.Path}",
-                                                            Extensions = { { "traceId", Activity.Current?.Id ?? httpContext.TraceIdentifier }, },
+                                                            Extensions = { { "traceId", Activity.Current?.Id ?? httpContext.TraceIdentifier } }
                                                         }, cancellationToken);
 
             return true;

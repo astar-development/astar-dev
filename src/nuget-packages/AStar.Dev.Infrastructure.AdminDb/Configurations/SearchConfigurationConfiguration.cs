@@ -17,7 +17,7 @@ public sealed class SearchConfigurationConfiguration : IEntityTypeConfiguration<
     public void Configure(EntityTypeBuilder<SearchConfiguration> builder)
     {
         _ = builder
-           .ToTable("SearchConfiguration", "admin").HasKey(searchConfiguration => searchConfiguration.Id);
+            .ToTable("SearchConfiguration", "admin").HasKey(searchConfiguration => searchConfiguration.Id);
 
         builder.Property(p => p.SearchString).HasMaxLength(300);
         builder.Property(p => p.TopWallpapers).HasMaxLength(300);

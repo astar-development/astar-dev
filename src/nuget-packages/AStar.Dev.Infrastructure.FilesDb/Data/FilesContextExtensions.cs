@@ -105,6 +105,6 @@ public static class FilesContextExtensions
                                                         DateTime.UtcNow.AddDays(-7));
         }
 
-        return cancellationToken.IsCancellationRequested ? [] : [.. filesToReturn,];
+        return cancellationToken.IsCancellationRequested ? [] : [.. filesToReturn];
     }
 }

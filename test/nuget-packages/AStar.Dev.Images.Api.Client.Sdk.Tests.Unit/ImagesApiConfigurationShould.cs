@@ -6,7 +6,7 @@ public sealed class ImagesApiConfigurationShould
 {
     [Fact]
     public void ReturnTheExpectedDefaultValue() =>
-        new ImagesApiConfiguration { Scopes = [], }.BaseUrl.ShouldBe(new("https://not.set.com/"));
+        new ImagesApiConfiguration { Scopes = [] }.BaseUrl.ShouldBe(new("https://not.set.com/"));
 
     [Fact]
     public void ReturnTheExpectedSectionLocationValue() =>

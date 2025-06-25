@@ -63,7 +63,7 @@ public sealed class RootDocument(ILogger<RootDocument> logger)
 
                 if (route.IsNotNullOrWhiteSpace())
                 {
-                    links.Add(new() { Rel = rel ?? "self", Href = route, Method = httpMethod, });
+                    links.Add(new() { Rel = rel ?? "self", Href = route, Method = httpMethod });
                 }
             }
         }

@@ -7,7 +7,7 @@ public sealed class FluentAssignmentsExtensionsShould
     [Fact]
     public void AssignTheValueWhenTheCriteriaIsMatched()
     {
-        var sut = new AnyClass { Id = 10.WillBeSet().IfItIs().NotNull().And().ItIsGreaterThan(5).And().ItIsLessThan(11), };
+        var sut = new AnyClass { Id = 10.WillBeSet().IfItIs().NotNull().And().ItIsGreaterThan(5).And().ItIsLessThan(11) };
 
         sut.Id.ShouldBe(10);
     }

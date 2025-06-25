@@ -12,8 +12,8 @@ public class FileNamePartConfiguration : IEntityTypeConfiguration<FileNamePart>
     public void Configure(EntityTypeBuilder<FileNamePart> builder)
     {
         _ = builder
-           .ToTable(nameof(FileNamePart), Constants.SchemaName)
-           .HasKey(fileNamePart =>  fileNamePart.Id);
+            .ToTable(nameof(FileNamePart), Constants.SchemaName)
+            .HasKey(fileNamePart =>  fileNamePart.Id);
 
         _ = builder.Property(fileNamePart => fileNamePart.Text).HasMaxLength(150);
     }

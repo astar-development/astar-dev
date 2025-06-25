@@ -39,7 +39,7 @@ public static class EnumerableExtensions
             SortOrder.NameDescending => files.OrderByDescending(f => f.FileName),
             SortOrder.SizeAscending  => files.OrderBy(f => f.FileSize),
             SortOrder.SizeDescending => files.OrderByDescending(f => f.FileSize),
-            _                        => files,
+            _                        => files
         };
 
     /// <summary>
@@ -77,8 +77,8 @@ public static class EnumerableExtensions
     /// </returns>
     public static IEnumerable<IGrouping<FileSize, FileDetail>> GetDuplicates(this IEnumerable<FileDetail> files) =>
         files
-           .GroupBy(file => FileSize.Create(file.FileSize, file.Height, file.Width),
-                    new FileSizeEqualityComparer()).Where(fileGroups => fileGroups.Count() > 1);
+            .GroupBy(file => FileSize.Create(file.FileSize, file.Height, file.Width),
+                     new FileSizeEqualityComparer()).Where(fileGroups => fileGroups.Count() > 1);
 
     private static IEnumerable<FileDetail> FilterImagesIfApplicable(IEnumerable<FileDetail> files, string searchType) =>
         searchType != "Images"

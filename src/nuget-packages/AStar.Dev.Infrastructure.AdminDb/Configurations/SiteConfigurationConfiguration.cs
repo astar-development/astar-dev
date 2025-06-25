@@ -17,8 +17,8 @@ public sealed class SiteConfigurationConfiguration : IEntityTypeConfiguration<Si
     public void Configure(EntityTypeBuilder<SiteConfiguration> builder)
     {
         _ = builder
-           .ToTable("SiteConfiguration", "admin")
-           .HasKey(siteConfiguration => siteConfiguration.Id);
+            .ToTable("SiteConfiguration", "admin")
+            .HasKey(siteConfiguration => siteConfiguration.Id);
 
         builder.Property(p => p.LoginEmailAddress).HasMaxLength(255);
         builder.Property(p => p.Username).HasMaxLength(50);

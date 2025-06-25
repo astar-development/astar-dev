@@ -8,7 +8,7 @@ namespace AStar.Dev.Test.Helpers.Minimal.Api;
 // ReSharper disable once InconsistentNaming
 public sealed class IResultExtensionsShould
 {
-    private static readonly string[] Expected = ["a", "b", "c",];
+    private static readonly string[] Expected = ["a", "b", "c"];
 
     [Fact]
     public void ReturnTheExpectedValueFromTheGetResultValueMethodWhenCalledOnGetEndpoint()

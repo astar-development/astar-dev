@@ -17,8 +17,8 @@ public static class DistributedApplicationBuilderExtensions
                                                             .WithExternalHttpEndpoints()
                                                             .WithDataBindMount("/home/jason-barden/Documents/database"); // ToDo - get from configuration
 
-        var adminDb   = sqlServer.AddDatabase(AspireConstants.Sql.AdminDb);
-        var filesDb   = sqlServer.AddDatabase(AspireConstants.Sql.FilesDb);
+        var adminDb = sqlServer.AddDatabase(AspireConstants.Sql.AdminDb);
+        var filesDb = sqlServer.AddDatabase(AspireConstants.Sql.FilesDb);
 
         var rabbitmq  = AddRabbitMq(distributedApplicationBuilder);
         var adminApi  = AddAdminApi(distributedApplicationBuilder, adminDb, rabbitmq);

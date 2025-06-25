@@ -13,7 +13,7 @@ public sealed class MockSuccessHttpMessageHandler(string responseRequired) : Htt
     {
         HttpContent content;
 
-        #pragma warning disable IDE0045 // Convert to conditional expression
+#pragma warning disable IDE0045 // Convert to conditional expression
         if (responseRequired == "Count")
         {
             content = new StringContent(Counter.ToString());
@@ -24,14 +24,14 @@ public sealed class MockSuccessHttpMessageHandler(string responseRequired) : Htt
         }
         else if (responseRequired == "Health")
         {
-            content = new StringContent(JsonSerializer.Serialize(new HealthStatusResponse { Status = "OK", }));
+            content = new StringContent(JsonSerializer.Serialize(new HealthStatusResponse { Status = "OK" }));
         }
         else
         {
-            content = new StringContent(JsonSerializer.Serialize(new HealthStatusResponse { Status = "OK", }));
+            content = new StringContent(JsonSerializer.Serialize(new HealthStatusResponse { Status = "OK" }));
         }
-        #pragma warning restore IDE0045 // Convert to conditional expression
+#pragma warning restore IDE0045 // Convert to conditional expression
 
-        return Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK) { Content = content, });
+        return Task.FromResult(new HttpResponseMessage(HttpStatusCode.OK) { Content = content });
     }
 }

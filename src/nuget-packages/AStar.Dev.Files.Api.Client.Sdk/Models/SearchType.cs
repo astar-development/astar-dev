@@ -23,5 +23,5 @@ public enum SearchType
     /// <summary>
     ///     Search for duplicate images
     /// </summary>
-    DuplicateImages,
+    DuplicateImages
 }
