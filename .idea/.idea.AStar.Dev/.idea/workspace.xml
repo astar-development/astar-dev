@@ -25,12 +25,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Admin.Api/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Admin.Api/Properties/launchSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/Properties/launchSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Images.Api/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Images.Api/Properties/launchSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.ToDo.Api/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.ToDo.Api/Properties/launchSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/AStar.Dev.Usage.Logger/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AStar.Dev.Usage.Logger/Properties/launchSettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Properties/launchSettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Properties/launchSettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Admin.Api/AStar.Dev.Admin.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Admin.Api/AStar.Dev.Admin.Api.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Images.Api/AStar.Dev.Images.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Images.Api/AStar.Dev.Images.Api.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.ToDo.Api/AStar.Dev.ToDo.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.ToDo.Api/AStar.Dev.ToDo.Api.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/AStar.Dev.Usage.Logger/AStar.Dev.Usage.Logger.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AStar.Dev.Usage.Logger/AStar.Dev.Usage.Logger.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/AStar.Dev.Web.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/AStar.Dev.Web.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +50,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/_aspire/AStar.Dev.AppHost/AppHost.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/apis/AStar.Dev.Admin.Api/Properties/launchSettings.json" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -68,7 +69,7 @@
   "keyToString": {
     ".NET Launch Settings Profile.AStar.Dev.Web: https.executor": "Run",
     "Aspire Host.AStar.Dev.AppHost: http.executor": "Run",
-    "Aspire Host.AStar.Dev.AppHost: https.executor": "Debug",
+    "Aspire Host.AStar.Dev.AppHost: https.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -284,7 +285,7 @@
       <workItem from="1750877364877" duration="1055000" />
       <workItem from="1750878473273" duration="249000" />
       <workItem from="1750878730440" duration="703000" />
-      <workItem from="1750879487067" duration="5041000" />
+      <workItem from="1750879487067" duration="5499000" />
     </task>
     <task id="LOCAL-00001" summary="Created the base Aspire Host project">
       <option name="closed" value="true" />
@@ -326,7 +327,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750883695064</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Remove http profiles and ports">
+      <option name="closed" value="true" />
+      <created>1750884582692</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1750884582692</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -351,7 +360,8 @@
     <MESSAGE value="Add initial projects bar NuGet" />
     <MESSAGE value="Add links between projects and AppHost" />
     <MESSAGE value="RabbitMQ, SQL, Db Updater and Migrations healthy" />
-    <option name="LAST_COMMIT_MESSAGE" value="RabbitMQ, SQL, Db Updater and Migrations healthy" />
+    <MESSAGE value="Remove http profiles and ports" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove http profiles and ports" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

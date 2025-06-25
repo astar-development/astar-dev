@@ -3,7 +3,11 @@ builder.AddServiceDefaults();
 
 builder.Services.AddOpenApi();
 
+builder.Services.AddHealthChecks();
+
 var app = builder.Build();
+
+app.MapHealthChecks("/health");
 
 if (app.Environment.IsDevelopment())
 {
