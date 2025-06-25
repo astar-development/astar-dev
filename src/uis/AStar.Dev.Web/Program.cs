@@ -6,7 +6,11 @@ builder.AddServiceDefaults();
 builder.Services.AddRazorComponents()
        .AddInteractiveServerComponents();
 
+builder.Services.AddHealthChecks();
+
 var app = builder.Build();
+
+app.MapHealthChecks("/health");
 
 if (!app.Environment.IsDevelopment())
 {
