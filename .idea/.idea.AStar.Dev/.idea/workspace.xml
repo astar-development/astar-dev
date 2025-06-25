@@ -28,8 +28,53 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/DuplicatesDetails.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/DuplicatesList.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileGrouping.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileSizeDetail.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DuplicatesDetailsShould.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DuplicatesListShould.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDetailClassificationShould.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDetailClassificationsShould.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileGroupingShould.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileSizeDetailShould.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/GetDuplicatesCountQueryResponseShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/FilesApi/FilesApiClientShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/FilesApi/FilesApiClientShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.Client.Sdk.Shared/AStar.Dev.Api.Client.Sdk.Shared.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.Client.Sdk.Shared/AStar.Dev.Api.Client.Sdk.Shared.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.HealthChecks/AStar.Dev.Api.HealthChecks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.HealthChecks/AStar.Dev.Api.HealthChecks.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.Usage.Sdk/AStar.Dev.Api.Usage.Sdk.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.Usage.Sdk/AStar.Dev.Api.Usage.Sdk.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.AspNet.Extensions/AStar.Dev.AspNet.Extensions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.AspNet.Extensions/AStar.Dev.AspNet.Extensions.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/AStar.Dev.Files.Api.Client.Sdk.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/AStar.Dev.Files.Api.Client.Sdk.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/DuplicateGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/DuplicateGroup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/Duplicates.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/Duplicates.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Fluent.Assignments/AStar.Dev.Fluent.Assignments.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Fluent.Assignments/AStar.Dev.Fluent.Assignments.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/AStar.Dev.Functional.Extensions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/AStar.Dev.Functional.Extensions.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Images.Api.Client.Sdk/AStar.Dev.Images.Api.Client.Sdk.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Images.Api.Client.Sdk/AStar.Dev.Images.Api.Client.Sdk.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/AStar.Dev.Infrastructure.FilesDb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/AStar.Dev.Infrastructure.FilesDb.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure/AStar.Dev.Infrastructure.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure/AStar.Dev.Infrastructure.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Logging.Extensions/AStar.Dev.Logging.Extensions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Logging.Extensions/AStar.Dev.Logging.Extensions.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Minimal.Api.Extensions/AStar.Dev.Minimal.Api.Extensions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Minimal.Api.Extensions/AStar.Dev.Minimal.Api.Extensions.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Restful.Root.Document/AStar.Dev.Restful.Root.Document.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Restful.Root.Document/AStar.Dev.Restful.Root.Document.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Technical.Debt.Reporting/AStar.Dev.Technical.Debt.Reporting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Technical.Debt.Reporting/AStar.Dev.Technical.Debt.Reporting.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Utilities/AStar.Dev.Utilities.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Utilities/AStar.Dev.Utilities.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/FilesApi/FilesApiConfigurationShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/FilesApi/FilesApiConfigurationShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DirectoryChangeRequestShould.ReturnTheExpectedToString.approved.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DirectoryChangeRequestShould.ReturnTheExpectedToString.approved.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DirectoryChangeRequestShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DirectoryChangeRequestShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DuplicateGroupShould.ReturnTheExpectedToString.approved.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DuplicateGroupShould.ReturnTheExpectedToString.approved.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DuplicateGroupShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DuplicateGroupShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/ExcludedViewSettingsShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/ExcludedViewSettingsShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileAccessDetailShould.ReturnTheExpectedToString.approved.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileAccessDetailShould.ReturnTheExpectedToString.approved.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileAccessDetailShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileAccessDetailShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDetailShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDetailShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDimensionsWithSizeShould.ReturnTheExpectedToString.approved.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDimensionsWithSizeShould.ReturnTheExpectedToString.approved.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDimensionsWithSizeShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDimensionsWithSizeShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/HealthStatusResponseShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/HealthStatusResponseShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/SearchParametersShould.ReturnTheExpectedToQueryString.approved.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/SearchParametersShould.ReturnTheExpectedToQueryString.approved.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/SearchParametersShould.ReturnTheExpectedToString.approved.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/SearchParametersShould.ReturnTheExpectedToString.approved.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/SearchParametersShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/SearchParametersShould.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,8 +118,8 @@
   }
 }]]></component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/_aspire/AStar.Dev.AppHost/AppHost.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/apis/AStar.Dev.Admin.Api/Properties/launchSettings.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Api.Client.Sdk.Shared/AddApiHttpClient.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/FilesApi/FilesApiClientShould.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -448,11 +493,138 @@
       <option name="project" value="LOCAL" />
       <updated>1750889062852</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Skip failing test">
+      <option name="closed" value="true" />
+      <created>1750889777135</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1750889777135</updated>
+    </task>
+    <task id="LOCAL-00011" summary="A 'little' code cleanup">
+      <option name="closed" value="true" />
+      <created>1750889949027</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1750889949027</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnitTestsCoverage.Settings">
+    <option name="coveragePercentColumnWidth" value="150" />
+    <option name="sortOrder" value="DESCENDING" />
+    <option name="sortedColumn" value="1" />
+    <option name="symbolColumnWidth" value="295" />
+    <coverage-tree-state>
+      <expand>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 20% 2263/2831" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 20% 2263/2831" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 20% 2263/2831" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 20% 2263/2831" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 20% 2263/2831" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="nuget-packages 22% 1991/2559" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 20% 2263/2831" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 20% 2263/2831" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="nuget-packages 22% 1991/2559" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Files.Api.Client.Sdk 93% 24/335" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 20% 2263/2831" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 20% 2263/2831" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="nuget-packages 22% 1991/2559" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Files.Api.Client.Sdk 93% 24/335" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Files.Api.Client.SDK 93% 24/335" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 20% 2263/2831" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 20% 2263/2831" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="nuget-packages 22% 1991/2559" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Files.Api.Client.Sdk 93% 24/335" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Files.Api.Client.SDK 93% 24/335" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Models 99% 2/184" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 20% 2263/2831" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 20% 2263/2831" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="nuget-packages 22% 1991/2559" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Files.Api.Client.Sdk 93% 24/335" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Files.Api.Client.SDK 93% 24/335" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Models 99% 2/184" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="FileAccessDetail 100% 0/15" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 20% 2263/2831" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 20% 2263/2831" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="nuget-packages 22% 1991/2559" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Files.Api.Client.Sdk 93% 24/335" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Files.Api.Client.SDK 93% 24/335" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="FilesApi 85% 22/151" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 20% 2263/2831" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 20% 2263/2831" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="nuget-packages 22% 1991/2559" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Files.Api.Client.Sdk 93% 24/335" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Files.Api.Client.SDK 93% 24/335" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="FilesApi 85% 22/151" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="FilesApiConfiguration 100% 0/5" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 20% 2263/2831" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 20% 2263/2831" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="nuget-packages 22% 1991/2559" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Files.Api.Client.Sdk 93% 24/335" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Files.Api.Client.SDK 93% 24/335" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="FilesApi 85% 22/151" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="FilesApiClient 85% 22/146" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 20% 2263/2831" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 20% 2263/2831" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="nuget-packages 22% 1991/2559" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Files.Api.Client.Sdk 93% 24/335" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Files.Api.Client.SDK 93% 24/335" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="FilesApi 85% 22/151" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="FilesApiClient 85% 22/146" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="GetDuplicateFilesAsync(SearchParameters) 67% 3/9" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 20% 2263/2831" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 20% 2263/2831" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="nuget-packages 22% 1991/2559" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Files.Api.Client.Sdk 93% 24/335" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Files.Api.Client.SDK 93% 24/335" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="FilesApi 85% 22/151" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="FilesApiClient 85% 22/146" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="GetFileAccessDetail(int) 33% 4/6" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+      </expand>
+      <select />
+    </coverage-tree-state>
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
@@ -477,7 +649,9 @@
     <MESSAGE value="Add health checks to APIs and UI&#10;&#10;ALL projects startup correctly across the solution" />
     <MESSAGE value="Add the remaining NuGet packages" />
     <MESSAGE value="Add the NuGet packages test projects" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add the NuGet packages test projects" />
+    <MESSAGE value="Skip failing test" />
+    <MESSAGE value="A 'little' code cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="A 'little' code cleanup" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -494,71 +668,6 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/FilesApi/FilesApiClient.cs</url>
-          <line>123</line>
-          <properties documentPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/FilesApi/FilesApiClient.cs" containingFunctionPresentation="Method 'GetDuplicateFilesCountAsync'">
-            <startOffsets>
-              <option value="5701" />
-            </startOffsets>
-            <endOffsets>
-              <option value="5825" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/FilesApi/FilesApiClientShould.cs</url>
-          <line>80</line>
-          <properties documentPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/FilesApi/FilesApiClientShould.cs" containingFunctionPresentation="Method 'ReturnExpectedResponseFromTheCountDuplicatesEndpointWhenAnErrorOccurs'">
-            <startOffsets>
-              <option value="2742" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2802" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/FilesApi/FilesApiClientShould.cs</url>
-          <line>82</line>
-          <properties documentPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/FilesApi/FilesApiClientShould.cs" containingFunctionPresentation="Method 'ReturnExpectedResponseFromTheCountDuplicatesEndpointWhenAnErrorOccurs'">
-            <startOffsets>
-              <option value="2812" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2840" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="7" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/FilesApi/FilesApiClient.cs</url>
-          <line>117</line>
-          <properties documentPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/FilesApi/FilesApiClient.cs" containingFunctionPresentation="Method 'GetDuplicateFilesCountAsync'">
-            <startOffsets>
-              <option value="5377" />
-            </startOffsets>
-            <endOffsets>
-              <option value="5485" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/FilesApi/FilesApiClientShould.cs</url>
-          <line>83</line>
-          <properties documentPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/FilesApi/FilesApiClientShould.cs" containingFunctionPresentation="Method 'ReturnExpectedResponseFromTheCountDuplicatesEndpointWhenAnErrorOccurs'">
-            <startOffsets>
-              <option value="2849" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2869" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

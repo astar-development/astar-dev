@@ -1,1 +1,1 @@
-﻿SearchFolder=&CurrentPage=1&ItemsPerPage=10&SearchType=Images&Recursive=True&IncludeSoftDeleted=False&IncludeMarkedForDeletion=False&ExcludeViewed=True&SortOrder=SizeDescending&MaximumSizeOfThumbnail=850&MaximumSizeOfImage=1500&ExcludeViewedPeriodInDays=7&SearchText=
+﻿SearchFolder=MockSearchFolder&CurrentPage=1&ItemsPerPage=12&SearchType=All&Recursive=True&IncludeSoftDeleted=True&IncludeMarkedForDeletion=True&ExcludeViewed=True&SortOrder=NameAscending&MaximumSizeOfThumbnail=456&MaximumSizeOfImage=123&ExcludeViewedPeriodInDays=12&SearchText=MockSearchText

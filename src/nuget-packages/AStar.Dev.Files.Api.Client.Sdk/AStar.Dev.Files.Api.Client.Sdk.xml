@@ -236,6 +236,98 @@
             </summary>
             <returns>This object serialized as a JSON object</returns>
         </member>
+        <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates">
+            <summary>
+            </summary>
+            <param name="Id"></param>
+            <param name="FileAccessDetailId"></param>
+            <param name="FileName"></param>
+            <param name="DirectoryName"></param>
+            <param name="Height"></param>
+            <param name="Width"></param>
+            <param name="FileSize"></param>
+            <param name="FileHandle"></param>
+            <param name="IsImage"></param>
+            <param name="Instances"></param>
+            <param name="DetailsLastUpdated"></param>
+            <param name="LastViewed"></param>
+            <param name="SoftDeleted"></param>
+            <param name="SoftDeletePending"></param>
+            <param name="MoveRequired"></param>
+            <param name="HardDeletePending"></param>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.#ctor(System.Int32,System.Int32,System.String,System.String,System.Int32,System.Int32,System.Int32,System.String,System.Boolean,System.Int32,System.DateTimeOffset,System.Nullable{System.DateTimeOffset},System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            </summary>
+            <param name="Id"></param>
+            <param name="FileAccessDetailId"></param>
+            <param name="FileName"></param>
+            <param name="DirectoryName"></param>
+            <param name="Height"></param>
+            <param name="Width"></param>
+            <param name="FileSize"></param>
+            <param name="FileHandle"></param>
+            <param name="IsImage"></param>
+            <param name="Instances"></param>
+            <param name="DetailsLastUpdated"></param>
+            <param name="LastViewed"></param>
+            <param name="SoftDeleted"></param>
+            <param name="SoftDeletePending"></param>
+            <param name="MoveRequired"></param>
+            <param name="HardDeletePending"></param>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.Id">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.FileAccessDetailId">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.FileName">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.DirectoryName">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.Height">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.Width">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.FileSize">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.FileHandle">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.IsImage">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.Instances">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.DetailsLastUpdated">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.LastViewed">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.SoftDeleted">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.SoftDeletePending">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.MoveRequired">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.HardDeletePending">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.FullNameWithPath">
+            <summary>
+            </summary>
+        </member>
         <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails">
             <summary>
             </summary>
@@ -328,22 +420,6 @@
             <summary>
             </summary>
         </member>
-        <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.FileGrouping">
-            <summary>
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileGrouping.FileSize">
-            <summary>
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileGrouping.Height">
-            <summary>
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileGrouping.Width">
-            <summary>
-            </summary>
-        </member>
         <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesList">
             <summary>
             </summary>
@@ -361,126 +437,6 @@
         </member>
         <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesList.Duplicates">
             <summary></summary>
-        </member>
-        <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail">
-            <summary>
-            </summary>
-            <param name="FileSize"></param>
-            <param name="Height"></param>
-            <param name="Width"></param>
-        </member>
-        <member name="M:AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail.#ctor(System.Int32,System.Int32,System.Int32)">
-            <summary>
-            </summary>
-            <param name="FileSize"></param>
-            <param name="Height"></param>
-            <param name="Width"></param>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail.FileSize">
-            <summary></summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail.Height">
-            <summary></summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail.Width">
-            <summary></summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail.FileSizeForDisplay">
-            <summary>
-                Gets the FileSize in a nicer, display-friendly, style
-            </summary>
-        </member>
-        <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates">
-            <summary>
-            </summary>
-            <param name="Id"></param>
-            <param name="FileAccessDetailId"></param>
-            <param name="FileName"></param>
-            <param name="DirectoryName"></param>
-            <param name="Height"></param>
-            <param name="Width"></param>
-            <param name="FileSize"></param>
-            <param name="FileHandle"></param>
-            <param name="IsImage"></param>
-            <param name="Instances"></param>
-            <param name="DetailsLastUpdated"></param>
-            <param name="LastViewed"></param>
-            <param name="SoftDeleted"></param>
-            <param name="SoftDeletePending"></param>
-            <param name="MoveRequired"></param>
-            <param name="HardDeletePending"></param>
-        </member>
-        <member name="M:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.#ctor(System.Int32,System.Int32,System.String,System.String,System.Int32,System.Int32,System.Int32,System.String,System.Boolean,System.Int32,System.DateTimeOffset,System.Nullable{System.DateTimeOffset},System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
-            <summary>
-            </summary>
-            <param name="Id"></param>
-            <param name="FileAccessDetailId"></param>
-            <param name="FileName"></param>
-            <param name="DirectoryName"></param>
-            <param name="Height"></param>
-            <param name="Width"></param>
-            <param name="FileSize"></param>
-            <param name="FileHandle"></param>
-            <param name="IsImage"></param>
-            <param name="Instances"></param>
-            <param name="DetailsLastUpdated"></param>
-            <param name="LastViewed"></param>
-            <param name="SoftDeleted"></param>
-            <param name="SoftDeletePending"></param>
-            <param name="MoveRequired"></param>
-            <param name="HardDeletePending"></param>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.Id">
-            <summary></summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.FileAccessDetailId">
-            <summary></summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.FileName">
-            <summary></summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.DirectoryName">
-            <summary></summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.Height">
-            <summary></summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.Width">
-            <summary></summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.FileSize">
-            <summary></summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.FileHandle">
-            <summary></summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.IsImage">
-            <summary></summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.Instances">
-            <summary></summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.DetailsLastUpdated">
-            <summary></summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.LastViewed">
-            <summary></summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.SoftDeleted">
-            <summary></summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.SoftDeletePending">
-            <summary></summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.MoveRequired">
-            <summary></summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.HardDeletePending">
-            <summary></summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.FullNameWithPath">
-            <summary>
-            </summary>
         </member>
         <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.ExcludedViewSettings">
             <summary>
@@ -672,6 +628,50 @@
                 Returns this object in JSON format
             </summary>
             <returns>This object serialized as a JSON object</returns>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.FileGrouping">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileGrouping.FileSize">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileGrouping.Height">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileGrouping.Width">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail">
+            <summary>
+            </summary>
+            <param name="FileSize"></param>
+            <param name="Height"></param>
+            <param name="Width"></param>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            </summary>
+            <param name="FileSize"></param>
+            <param name="Height"></param>
+            <param name="Width"></param>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail.FileSize">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail.Height">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail.Width">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail.FileSizeForDisplay">
+            <summary>
+                Gets the FileSize in a nicer, display-friendly, style
+            </summary>
         </member>
         <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.GetDuplicatesCountQueryResponse">
             <summary>

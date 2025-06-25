@@ -1,5 +1,5 @@
 ﻿{
-  "oldDirectoryName": "",
-  "newDirectoryName": "",
-  "fileName": ""
+  "oldDirectoryName": "MockOldDirectoryName",
+  "newDirectoryName": "NewMockDirectoryName",
+  "fileName": "MockFileName"
 }
