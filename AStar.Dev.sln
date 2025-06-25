@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AStar.Dev.AppHost", "src\_aspire\AStar.Dev.AppHost\AStar.Dev.AppHost.csproj", "{95CA9F54-6C9B-4394-B949-4899A4D815E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AStar.Dev.ServiceDefaults", "src\_aspire\AStar.Dev.ServiceDefaults\AStar.Dev.ServiceDefaults.csproj", "{E4A8A101-E7A4-4938-B634-5F691D9AF6E8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95CA9F54-6C9B-4394-B949-4899A4D815E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95CA9F54-6C9B-4394-B949-4899A4D815E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95CA9F54-6C9B-4394-B949-4899A4D815E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95CA9F54-6C9B-4394-B949-4899A4D815E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4A8A101-E7A4-4938-B634-5F691D9AF6E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4A8A101-E7A4-4938-B634-5F691D9AF6E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4A8A101-E7A4-4938-B634-5F691D9AF6E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4A8A101-E7A4-4938-B634-5F691D9AF6E8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
