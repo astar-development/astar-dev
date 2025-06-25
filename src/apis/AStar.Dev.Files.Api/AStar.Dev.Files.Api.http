@@ -1,0 +1,6 @@
+@AStar.Dev.Files.Api_HostAddress = http://localhost:5288
+
+GET {{AStar.Dev.Files.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
