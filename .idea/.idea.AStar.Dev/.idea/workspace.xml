@@ -13,6 +13,9 @@
     <projectFile profileName="http">src/apis/AStar.Dev.ToDo.Api/AStar.Dev.ToDo.Api.csproj</projectFile>
     <projectFile profileName="https">src/apis/AStar.Dev.ToDo.Api/AStar.Dev.ToDo.Api.csproj</projectFile>
     <projectFile>src/console-applications/astar-dev-backupapp/AStar.Dev.BackupApp/AStar.Dev.BackupApp.csproj</projectFile>
+    <projectFile profileName="AStar.Dev.Api.HealthChecks">src/nuget-packages/AStar.Dev.Api.HealthChecks/AStar.Dev.Api.HealthChecks.csproj</projectFile>
+    <projectFile>src/nuget-packages/AStar.Dev.Restful.Root.Document/AStar.Dev.Restful.Root.Document.csproj</projectFile>
+    <projectFile>src/nuget-packages/AStar.Dev.Test.Helpers.Minimal.Api/AStar.Dev.Test.Helpers.Minimal.Api.csproj</projectFile>
     <projectFile profileName="http">src/services/AStar.Dev.Usage.Logger/AStar.Dev.Usage.Logger.csproj</projectFile>
     <projectFile profileName="https">src/services/AStar.Dev.Usage.Logger/AStar.Dev.Usage.Logger.csproj</projectFile>
     <projectFile profileName="AStar.Dev.Database.Updater">src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/AStar.Dev.Database.Updater.csproj</projectFile>
@@ -24,7 +27,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="" />
+    <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/FilesApi/FilesApiClientShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/FilesApi/FilesApiClientShould.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,6 +47,31 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "jaybarden1"
+  }
+}]]></component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="f9c22371-cf58-42d1-9b87-e435736fe8b6" />
+  </component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/astar-development/astar-dev.git",
+    "accountId": "f9c22371-cf58-42d1-9b87-e435736fe8b6"
+  },
+  "recentNewPullRequestHead": {
+    "server": {
+      "useHttp": false,
+      "host": "github.com",
+      "port": null,
+      "suffix": null
+    },
+    "owner": "astar-development",
+    "repository": "astar-dev"
+  }
+}]]></component>
   <component name="HighlightingSettingsPerFile">
     <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/_aspire/AStar.Dev.AppHost/AppHost.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/apis/AStar.Dev.Admin.Api/Properties/launchSettings.json" root0="FORCE_HIGHLIGHTING" />
@@ -58,25 +89,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.AStar.Dev.Web: https.executor&quot;: &quot;Run&quot;,
-    &quot;Aspire Host.AStar.Dev.AppHost: http.executor&quot;: &quot;Run&quot;,
-    &quot;Aspire Host.AStar.Dev.AppHost: https.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;features/continue-setting-up-solution&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/jason-barden/RiderProjects/AStar.Dev/.github/workflows/main_astar-dev.yml&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.AStar.Dev.Web: https.executor": "Run",
+    "5394ae1f-e1ba-4997-9785-ae0f83daa327.executor": "Debug",
+    "Aspire Host.AStar.Dev.AppHost: http.executor": "Run",
+    "Aspire Host.AStar.Dev.AppHost: https.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "features/add-nuget-packages-test-projects",
+    "last_opened_file_path": "/home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Utilities.Tests.Unit/AStar.Dev.Utilities.Tests.Unit.csproj",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Aspire Host.AStar.Dev.AppHost: https">
     <configuration name="AStar.Dev.AppHost: https" type="AspireHostConfiguration" factoryName="Aspire Host" activateToolWindowBeforeRun="false">
       <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/_aspire/AStar.Dev.AppHost/AStar.Dev.AppHost.csproj" />
@@ -127,6 +159,52 @@
         <option name="Build" />
       </method>
     </configuration>
+    <configuration name="AStar.Dev.Restful.Root.Document" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="ENV_FILE_PATHS" value="" />
+      <option name="REDIRECT_INPUT_PATH" value="" />
+      <option name="PTY_MODE" value="Auto" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Restful.Root.Document/AStar.Dev.Restful.Root.Document.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="AStar.Dev.Test.Helpers.Minimal.Api" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="ENV_FILE_PATHS" value="" />
+      <option name="REDIRECT_INPUT_PATH" value="" />
+      <option name="PTY_MODE" value="Auto" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Test.Helpers.Minimal.Api/AStar.Dev.Test.Helpers.Minimal.Api.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
     <configuration name="AStar.Dev.Admin.Api: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/apis/AStar.Dev.Admin.Api/AStar.Dev.Admin.Api.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net9.0" />
@@ -135,6 +213,21 @@
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
       <browser name="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="AStar.Dev.Api.HealthChecks" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.HealthChecks/AStar.Dev.Api.HealthChecks.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net9.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="AStar.Dev.Api.HealthChecks" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
       <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="1" />
@@ -256,6 +349,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue=".NET Launch Settings Profile.AStar.Dev.Api.HealthChecks" />
       <item itemvalue=".NET Launch Settings Profile.AStar.Dev.Admin.Api: https" />
       <item itemvalue=".NET Launch Settings Profile.AStar.Dev.Database.Updater" />
       <item itemvalue=".NET Launch Settings Profile.AStar.Dev.Files.Api: https" />
@@ -264,6 +358,8 @@
       <item itemvalue=".NET Launch Settings Profile.AStar.Dev.ToDo.Api: https" />
       <item itemvalue=".NET Launch Settings Profile.AStar.Dev.Usage.Logger: https" />
       <item itemvalue=".NET Launch Settings Profile.AStar.Dev.Web: https" />
+      <item itemvalue=".NET Project.AStar.Dev.Restful.Root.Document" />
+      <item itemvalue=".NET Project.AStar.Dev.Test.Helpers.Minimal.Api" />
       <item itemvalue=".NET Project.AStar.Dev.BackupApp" />
       <item itemvalue="Aspire Host.AStar.Dev.AppHost: https" />
     </list>
@@ -336,7 +432,23 @@
       <option name="project" value="LOCAL" />
       <updated>1750885264677</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Add the remaining NuGet packages">
+      <option name="closed" value="true" />
+      <created>1750887865584</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1750887865584</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add the NuGet packages test projects">
+      <option name="closed" value="true" />
+      <created>1750889062852</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1750889062852</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,7 +475,9 @@
     <MESSAGE value="RabbitMQ, SQL, Db Updater and Migrations healthy" />
     <MESSAGE value="Remove http profiles and ports" />
     <MESSAGE value="Add health checks to APIs and UI&#10;&#10;ALL projects startup correctly across the solution" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add health checks to APIs and UI&#10;&#10;ALL projects startup correctly across the solution" />
+    <MESSAGE value="Add the remaining NuGet packages" />
+    <MESSAGE value="Add the NuGet packages test projects" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add the NuGet packages test projects" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -380,6 +494,71 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/FilesApi/FilesApiClient.cs</url>
+          <line>123</line>
+          <properties documentPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/FilesApi/FilesApiClient.cs" containingFunctionPresentation="Method 'GetDuplicateFilesCountAsync'">
+            <startOffsets>
+              <option value="5701" />
+            </startOffsets>
+            <endOffsets>
+              <option value="5825" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/FilesApi/FilesApiClientShould.cs</url>
+          <line>80</line>
+          <properties documentPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/FilesApi/FilesApiClientShould.cs" containingFunctionPresentation="Method 'ReturnExpectedResponseFromTheCountDuplicatesEndpointWhenAnErrorOccurs'">
+            <startOffsets>
+              <option value="2742" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2802" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/FilesApi/FilesApiClientShould.cs</url>
+          <line>82</line>
+          <properties documentPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/FilesApi/FilesApiClientShould.cs" containingFunctionPresentation="Method 'ReturnExpectedResponseFromTheCountDuplicatesEndpointWhenAnErrorOccurs'">
+            <startOffsets>
+              <option value="2812" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2840" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/FilesApi/FilesApiClient.cs</url>
+          <line>117</line>
+          <properties documentPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/FilesApi/FilesApiClient.cs" containingFunctionPresentation="Method 'GetDuplicateFilesCountAsync'">
+            <startOffsets>
+              <option value="5377" />
+            </startOffsets>
+            <endOffsets>
+              <option value="5485" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/FilesApi/FilesApiClientShould.cs</url>
+          <line>83</line>
+          <properties documentPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/FilesApi/FilesApiClientShould.cs" containingFunctionPresentation="Method 'ReturnExpectedResponseFromTheCountDuplicatesEndpointWhenAnErrorOccurs'">
+            <startOffsets>
+              <option value="2849" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2869" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
