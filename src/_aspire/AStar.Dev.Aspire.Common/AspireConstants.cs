@@ -19,8 +19,10 @@ public static class AspireConstants
         public const string AdminDb   = "adminDb";
     }
 
-    public static class Common
+    public static class Services
     {
-        public const string AstarMessaging = "astar-dev-messaging";
+        public const string AstarMessaging  = "astar-dev-messaging";
+        public const string FileMigrations  = "file-migrations";
+        public const string DatabaseUpdater = "database-updater";
     }
 }
