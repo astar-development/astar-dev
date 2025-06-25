@@ -1,0 +1,6 @@
+﻿{
+  "baseUrl": "https://mock.url.com",
+  "scopes": [
+    "MockScope"
+  ]
+}

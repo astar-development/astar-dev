@@ -1,0 +1,6 @@
+﻿{
+  "fileSize": 123456,
+  "height": 789,
+  "width": 987,
+  "fileSizeForDisplay": "120.56 Kb"
+}

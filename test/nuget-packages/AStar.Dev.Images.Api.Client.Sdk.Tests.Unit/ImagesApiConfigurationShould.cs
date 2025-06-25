@@ -1,4 +1,5 @@
 ﻿using AStar.Dev.Images.Api.Client.SDK.ImagesApi;
+using AStar.Dev.Utilities;
 
 namespace AStar.Dev.Images.Api.Client.Sdk;
 
@@ -6,7 +7,15 @@ public sealed class ImagesApiConfigurationShould
 {
     [Fact]
     public void ReturnTheExpectedDefaultValue() =>
-        new ImagesApiConfiguration { Scopes = [] }.BaseUrl.ShouldBe(new("https://not.set.com/"));
+        new ImagesApiConfiguration { Scopes = [] }
+            .ToJson()
+            .ShouldMatchApproved();
+
+    [Fact]
+    public void ContainTheExpectedProperties() =>
+        new ImagesApiConfiguration { Scopes = ["Mock Scope"], BaseUrl = new("https://doesnt.matter.com") }
+            .ToJson()
+            .ShouldMatchApproved();
 
     [Fact]
     public void ReturnTheExpectedSectionLocationValue() =>

@@ -1,17 +1,17 @@
 ﻿{
-  "searchFolder": "",
-  "searchType": 0,
+  "searchFolder": "MockSearchFolder",
+  "searchType": 1,
   "recursive": true,
-  "includeSoftDeleted": false,
-  "includeMarkedForDeletion": false,
+  "includeSoftDeleted": true,
+  "includeMarkedForDeletion": true,
   "currentPage": 1,
-  "itemsPerPage": 10,
-  "maximumSizeOfThumbnail": 850,
-  "maximumSizeOfImage": 1500,
-  "sortOrder": 0,
-  "searchText": null,
+  "itemsPerPage": 12,
+  "maximumSizeOfThumbnail": 456,
+  "maximumSizeOfImage": 123,
+  "sortOrder": 3,
+  "searchText": "MockSearchText",
   "excludedViewSettings": {
-    "excludeViewedPeriodInDays": 7,
+    "excludeViewedPeriodInDays": 12,
     "excludeViewed": true
   }
 }

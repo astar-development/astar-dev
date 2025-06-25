@@ -6,5 +6,5 @@ public sealed class ExcludedViewSettingsShould
 {
     [Fact]
     public void ReturnTheExpectedToString() =>
-        new ExcludedViewSettings().ToString().ShouldMatchApproved();
+        new ExcludedViewSettings { ExcludeViewedPeriodInDays = 7, ExcludeViewed = true }.ToString().ShouldMatchApproved();
 }

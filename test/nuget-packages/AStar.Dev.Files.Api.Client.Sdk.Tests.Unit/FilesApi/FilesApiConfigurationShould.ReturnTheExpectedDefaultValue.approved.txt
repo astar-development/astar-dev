@@ -1,0 +1,4 @@
+﻿{
+  "baseUrl": "https://not.set.com",
+  "scopes": []
+}
