@@ -411,6 +411,8 @@
       <workItem from="1750878473273" duration="249000" />
       <workItem from="1750878730440" duration="703000" />
       <workItem from="1750879487067" duration="5831000" />
+      <workItem from="1750926672717" duration="1265000" />
+      <workItem from="1750943910837" duration="39000" />
     </task>
     <task id="LOCAL-00001" summary="Created the base Aspire Host project">
       <option name="closed" value="true" />
@@ -508,17 +510,25 @@
       <option name="project" value="LOCAL" />
       <updated>1750942141220</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Add additional tests - mainly for the models">
+      <option name="closed" value="true" />
+      <created>1750897733175</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1750897733175</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="UnitTestsCoverage.Settings">
-    <option name="coveragePercentColumnWidth" value="150" />
+    <option name="coveragePercentColumnWidth" value="144" />
     <option name="sortOrder" value="DESCENDING" />
     <option name="sortedColumn" value="1" />
-    <option name="symbolColumnWidth" value="295" />
+    <option name="symbolColumnWidth" value="283" />
     <coverage-tree-state>
       <expand>
         <path>
@@ -622,6 +632,7 @@
           <item name="GetFileAccessDetail(int) 33% 4/6" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
       </expand>
+      <expand />
       <select />
     </coverage-tree-state>
   </component>

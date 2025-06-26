@@ -1,11 +1,12 @@
 using AStar.Dev.Images.Api.Client.SDK.ImagesApi;
 using AStar.Dev.Images.Api.Client.Sdk.MockMessageHandlers;
+using JetBrains.Annotations;
 using Microsoft.Extensions.Logging.Abstractions;
 
-namespace AStar.Dev.Images.Api.Client.Sdk;
+namespace AStar.Dev.Images.Api.Client.Sdk.ImagesApi;
 
-public sealed class ImagesApiClientShould
-
+[TestSubject(typeof(ImagesApiClient))]
+public class ImagesApiClientShould
 {
     [Fact]
     public async Task ReturnExpectedFailureFromGetHealthAsyncWhenTheApIsiUnreachable()
@@ -48,4 +49,10 @@ public sealed class ImagesApiClientShould
 
         response.Status.ShouldBe("OK");
     }
+
+    [Fact]
+    public void ReturnTheExpectedResponseFromGetImageAsyncWhenCalledWithValidDetails() => throw new NotImplementedException();
+
+    [Fact]
+    public void ReturnTheExpectedResponseFromGetImageAsyncWhenCalledWithInvalidDetails() => throw new NotImplementedException();
 }
