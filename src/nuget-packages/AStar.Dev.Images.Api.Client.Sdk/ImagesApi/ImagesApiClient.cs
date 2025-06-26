@@ -61,7 +61,6 @@ public sealed class ImagesApiClient(HttpClient httpClient, /*ITokenAcquisition t
     public async Task<Stream> GetImageAsync(string imagePath, int maximumSizeInPixels, bool thumbnail)
     {
         try
-
         {
             logger.LogDebug("imagePath: {ImagePath}", imagePath);
             var requestUri = $"image?imagePath={Uri.EscapeDataString(imagePath.Replace("\\", "/"))}&maximumSizeInPixels={maximumSizeInPixels}&thumbnail={thumbnail}&version=1.0";
