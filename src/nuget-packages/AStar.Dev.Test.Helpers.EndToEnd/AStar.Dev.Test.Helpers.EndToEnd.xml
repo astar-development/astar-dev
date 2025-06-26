@@ -4,5 +4,126 @@
         <name>AStar.Dev.Test.Helpers.EndToEnd</name>
     </assembly>
     <members>
+        <member name="T:AStar.Dev.Test.Helpers.EndToEnd.DictionaryExtensions">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Test.Helpers.EndToEnd.DictionaryExtensions.Merge``2(System.Collections.Generic.Dictionary{``0,``1},System.Collections.Generic.IEnumerable{System.Collections.Generic.Dictionary{``0,``1}})">
+            <summary>
+
+            </summary>
+            <param name="dictionary"></param>
+            <param name="additionalDictionaries"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Test.Helpers.EndToEnd.DictionaryExtensions.SetExtraHttpHeaders(System.Collections.Generic.Dictionary{System.String,System.String},Microsoft.Playwright.IBrowser)">
+            <summary>
+
+            </summary>
+            <param name="dictionary"></param>
+            <param name="browser"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AStar.Dev.Test.Helpers.EndToEnd.Models.ApplicationSettings">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Test.Helpers.EndToEnd.Models.ApplicationSettings"/>
+                class defines the default application settings that the EndToEnd tests require
+                <para>
+                    This class has not been sealed as the intention is to leave it open for extension should your project require it
+                </para>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Test.Helpers.EndToEnd.Models.ApplicationSettings.ConfigurationSectionName">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Test.Helpers.EndToEnd.Models.ApplicationSettings.BaseUri">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Test.Helpers.EndToEnd.Models.ApplicationSettings.UseHeadless">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Test.Helpers.EndToEnd.Models.ApplicationSettings.IsDevelopment">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Test.Helpers.EndToEnd.Models.ApplicationSettings.HomePageTitle">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Test.Helpers.EndToEnd.Models.UserDetails">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Test.Helpers.EndToEnd.Models.UserDetails.ConfigurationSectionName">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Test.Helpers.EndToEnd.Models.UserDetails.Username">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Test.Helpers.EndToEnd.Models.UserDetails.Password">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Test.Helpers.EndToEnd.PlaywrightBase">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Test.Helpers.EndToEnd.PlaywrightBase.#ctor(Microsoft.Extensions.Options.IOptions{AStar.Dev.Test.Helpers.EndToEnd.Models.ApplicationSettings},Xunit.Abstractions.ITestOutputHelper)">
+            <summary>
+
+            </summary>
+            <param name="applicationSettings"></param>
+            <param name="output"></param>
+        </member>
+        <member name="P:AStar.Dev.Test.Helpers.EndToEnd.PlaywrightBase.Page">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Test.Helpers.EndToEnd.PlaywrightBase.OutputHelper">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Test.Helpers.EndToEnd.PlaywrightBase.AppSettings">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Test.Helpers.EndToEnd.PlaywrightBase.SetHeadersAndCreatePage(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+
+            </summary>
+            <param name="additionalHeaders"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Test.Helpers.EndToEnd.PlaywrightBase.IsLocalHostUri">
+            <summary>
+                Firefox doesn't like connecting to localhost, even over http... hence we have this method to see if we need to change the browser type
+            </summary>
+            <returns>
+                <c>true</c>
+                when the URI is for the localhost, else <c>false</c> is returned
+            </returns>
+        </member>
     </members>
 </doc>

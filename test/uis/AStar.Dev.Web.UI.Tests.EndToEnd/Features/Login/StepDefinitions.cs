@@ -1,4 +1,5 @@
-using AStar.Dev.Web.UI.Models;
+using AStar.Dev.Test.Helpers.EndToEnd;
+using AStar.Dev.Test.Helpers.EndToEnd.Models;
 using Microsoft.Extensions.Options;
 using Xunit.Abstractions;
 

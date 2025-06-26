@@ -1,4 +1,4 @@
-using AStar.Dev.Web.UI.Models;
+using AStar.Dev.Test.Helpers.EndToEnd.Models;
 using Microsoft.Extensions.Options;
 using Reqnroll.BoDi;
 
@@ -19,7 +19,6 @@ public sealed class Hooks
         var serviceProvider     = services.BuildServiceProvider();
         var userDetails         = serviceProvider.GetRequiredService<IOptions<UserDetails>>();
         var applicationSettings = serviceProvider.GetRequiredService<IOptions<ApplicationSettings>>();
-        applicationSettings.Value.IsDevelopment = builder.Environment.IsDevelopment();
         objectContainer.RegisterInstanceAs(userDetails.Value);
         objectContainer.RegisterInstanceAs(applicationSettings);
     }
