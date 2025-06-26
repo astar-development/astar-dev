@@ -1,0 +1,11 @@
+﻿{
+  "id": 1,
+  "scrapeDirectoryId": "00000000-0000-0000-0000-000000000000",
+  "rootDirectory": "RootDirectory",
+  "baseSaveDirectory": "BaseSaveDirectory",
+  "baseDirectory": "BaseDirectory",
+  "baseDirectoryFamous": "BaseDirectoryFamous",
+  "subDirectoryName": "SubDirectoryName",
+  "updatedBy": "UpdatedBy",
+  "updatedOn": "2001-01-01T00:00:00"
+}
