@@ -6,8 +6,7 @@
     <members>
         <member name="T:AStar.Dev.Infrastructure.Data.AStarDbContextOptions">
             <summary>
-                The <see href="AStarDbContextOptions"></see> class is used to aid configuring the
-                <see href="DbContext"></see>
+                The <see href="AStarDbContextOptions"></see> class is used to aid configuring the <see href="DbContext"></see>
             </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.Data.AStarDbContextOptions.EnableLogging">
@@ -22,9 +21,7 @@
         </member>
         <member name="T:AStar.Dev.Infrastructure.Data.AuditableEntity">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Infrastructure.Data.AuditableEntity"/>
-                class defines the audit properties to be set on all relevant entities
+                The <see cref="T:AStar.Dev.Infrastructure.Data.AuditableEntity" /> class defines the audit properties to be set on all relevant entities
             </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.Data.AuditableEntity.UpdatedBy">
@@ -49,28 +46,16 @@
         </member>
         <member name="M:AStar.Dev.Infrastructure.Data.ConnectionString.op_Implicit(AStar.Dev.Infrastructure.Data.ConnectionString)~System.String">
             <summary>
-                The implicit convertor from
-                <see cref="T:AStar.Dev.Infrastructure.Data.ConnectionString"/>
-                to a simple
-                <see cref="T:System.String"/>
+                The implicit convertor from <see cref="T:AStar.Dev.Infrastructure.Data.ConnectionString" /> to a simple <see cref="T:System.String" />
             </summary>
-            <param name="connectionString">The instance of
-                <see cref="T:AStar.Dev.Infrastructure.Data.ConnectionString"/>
-                to convert.
-            </param>
+            <param name="connectionString">The instance of <see cref="T:AStar.Dev.Infrastructure.Data.ConnectionString" /> to convert.</param>
             <returns>The simple string representation</returns>
         </member>
         <member name="M:AStar.Dev.Infrastructure.Data.ConnectionString.op_Implicit(System.String)~AStar.Dev.Infrastructure.Data.ConnectionString">
             <summary>
-                The implicit convertor from a simple
-                <see cref="T:System.String"/>
-                to a
-                <see cref="T:AStar.Dev.Infrastructure.Data.ConnectionString"/>
+                The implicit convertor from a simple <see cref="T:System.String" /> to a <see cref="T:AStar.Dev.Infrastructure.Data.ConnectionString" />
             </summary>
-            <param name="connectionString">The instance of
-                <see cref="T:System.String"/>
-                to convert.
-            </param>
+            <param name="connectionString">The instance of <see cref="T:System.String" /> to convert.</param>
             <returns>The converted representation</returns>
         </member>
     </members>

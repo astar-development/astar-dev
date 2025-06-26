@@ -6,9 +6,7 @@
     <members>
         <member name="T:AStar.Dev.Technical.Debt.Reporting.RefactorAttribute">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Technical.Debt.Reporting.RefactorAttribute"/>
-                attribute
+                The <see cref="T:AStar.Dev.Technical.Debt.Reporting.RefactorAttribute" /> attribute
             </summary>
             <param name="painEstimate">The estimated hours to resolve</param>
             <param name="hoursToResolve">The estimated pain level</param>
@@ -16,9 +14,7 @@
         </member>
         <member name="M:AStar.Dev.Technical.Debt.Reporting.RefactorAttribute.#ctor(System.Int32,System.Int32,System.String)">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Technical.Debt.Reporting.RefactorAttribute"/>
-                attribute
+                The <see cref="T:AStar.Dev.Technical.Debt.Reporting.RefactorAttribute" /> attribute
             </summary>
             <param name="painEstimate">The estimated hours to resolve</param>
             <param name="hoursToResolve">The estimated pain level</param>

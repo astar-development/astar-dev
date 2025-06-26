@@ -10,16 +10,12 @@
         </member>
         <member name="T:AStar.Dev.Restful.Root.Document.RootDocument">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Restful.Root.Document.RootDocument"/>
-                class used to retrieve the default root document
+                The <see cref="T:AStar.Dev.Restful.Root.Document.RootDocument" /> class used to retrieve the default root document
             </summary>
         </member>
         <member name="M:AStar.Dev.Restful.Root.Document.RootDocument.#ctor(Microsoft.Extensions.Logging.ILogger{AStar.Dev.Restful.Root.Document.RootDocument})">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Restful.Root.Document.RootDocument"/>
-                class used to retrieve the default root document
+                The <see cref="T:AStar.Dev.Restful.Root.Document.RootDocument" /> class used to retrieve the default root document
             </summary>
         </member>
         <member name="M:AStar.Dev.Restful.Root.Document.RootDocument.GetLinks(System.Reflection.Assembly,System.Threading.CancellationToken)">
@@ -31,9 +27,7 @@
         </member>
         <member name="T:AStar.Dev.Restful.Root.Document.LinkResponse">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Restful.Root.Document.LinkResponse"/>
-                class containing the HATEOAS links.
+                The <see cref="T:AStar.Dev.Restful.Root.Document.LinkResponse" /> class containing the HATEOAS links.
             </summary>
         </member>
         <member name="P:AStar.Dev.Restful.Root.Document.LinkResponse.Rel">
@@ -43,7 +37,7 @@
         </member>
         <member name="P:AStar.Dev.Restful.Root.Document.LinkResponse.Href">
             <summary>
-                The HRef<see langword="for"/>the link
+                The HRef <see langword="for" />the link
             </summary>
         </member>
         <member name="P:AStar.Dev.Restful.Root.Document.LinkResponse.Method">
