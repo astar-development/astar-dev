@@ -31,11 +31,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Images.Api.Client.Sdk.Tests.Unit/Models/NotFoundShould.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Images.Api.Client.Sdk/ImagesApi/ImagesApiClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Images.Api.Client.Sdk/ImagesApi/ImagesApiClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Images.Api.Client.Sdk.Tests.Unit/ImagesApi/ImagesApiClientShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Images.Api.Client.Sdk.Tests.Unit/ImagesApi/ImagesApiClientShould.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Images.Api.Client.Sdk.Tests.Unit/MockMessageHandlers/MockSuccessHttpMessageHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Images.Api.Client.Sdk.Tests.Unit/MockMessageHandlers/MockSuccessHttpMessageHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Models/TagToIgnore.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Models/TagToIgnore.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -567,17 +564,25 @@
       <option name="project" value="LOCAL" />
       <updated>1750961422298</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Additional tests on ImagesApiClient.cs">
+      <option name="closed" value="true" />
+      <created>1750962973446</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1750962973446</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="UnitTestsCoverage.Settings">
-    <option name="coveragePercentColumnWidth" value="144" />
+    <option name="coveragePercentColumnWidth" value="141" />
     <option name="sortOrder" value="DESCENDING" />
     <option name="sortedColumn" value="1" />
-    <option name="symbolColumnWidth" value="283" />
+    <option name="symbolColumnWidth" value="277" />
     <coverage-tree-state>
       <expand>
         <path>
@@ -640,6 +645,30 @@
           <item name="NotFound 0% 1/1" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
           <item name="Image 0% 1/1" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 22% 2249/2901" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 22% 2249/2901" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="nuget-packages 25% 1980/2632" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Infrastructure.FilesDb 8% 787/854" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 22% 2249/2901" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 22% 2249/2901" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="nuget-packages 25% 1980/2632" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Infrastructure.FilesDb 8% 787/854" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Infrastructure.FilesDb 8% 787/854" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 22% 2249/2901" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 22% 2249/2901" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="nuget-packages 25% 1980/2632" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Infrastructure.FilesDb 8% 787/854" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Infrastructure.FilesDb 8% 787/854" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Models 35% 92/142" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
       </expand>
       <select />
     </coverage-tree-state>
@@ -671,7 +700,8 @@
     <MESSAGE value="A 'little' code cleanup" />
     <MESSAGE value="Add the test projects (well some of them)&#10;&#10;Tests commented out as code isn't there" />
     <MESSAGE value="Post merge issues fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Post merge issues fixes" />
+    <MESSAGE value="Additional tests on ImagesApiClient.cs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Additional tests on ImagesApiClient.cs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
