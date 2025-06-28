@@ -53,7 +53,7 @@ public sealed class FilesContext : DbContext
     /// <summary>
     ///     Gets or sets the DuplicatesDetails loaded from the configured view in the database
     /// </summary>
-    public DbSet<DuplicatesDetails> DuplicatesDetails { get;    set; } = null!;
+    public DbSet<DuplicatesDetails> DuplicatesDetails { get; set; } = null!;
 
     // /// <inheritdoc />
     // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

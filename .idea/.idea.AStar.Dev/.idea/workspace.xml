@@ -44,13 +44,13 @@
       <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Data/FilesContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Data/FilesContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Data/FilesContextExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Data/FilesContextExtensions.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/EnumerableExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/EnumerableExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250625090429_InitialCreation.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250625090429_InitialCreation.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250625090834_AddDuplicatesCountView.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250625090834_AddDuplicatesCountView.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250625090933_AddDuplicatesDetailsView.Designer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250625090933_AddDuplicatesDetailsView.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/FilesContextModelSnapshot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250625090429_InitialCreation.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250628205318_AddDuplicatesDetailView.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250625090429_InitialCreation.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250628205218_RecreateDatabase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250625090834_AddDuplicatesCountView.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250628205237_AddDuplicatesCountView.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250625090834_AddDuplicatesCountView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250628205237_AddDuplicatesCountView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250625090933_AddDuplicatesDetailsView.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250628205218_RecreateDatabase.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250625090933_AddDuplicatesDetailsView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250628205318_AddDuplicatesDetailView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/FilesContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/FilesContextModelSnapshot.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Models/DuplicatesDetails.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Models/DuplicatesDetails.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Models/FileAccessDetail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Models/ImageDetails.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Models/FileDetail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Models/FileDetail.cs" afterDir="false" />
@@ -488,7 +488,7 @@
       <workItem from="1750879487067" duration="5831000" />
       <workItem from="1750926672717" duration="1265000" />
       <workItem from="1750943910837" duration="39000" />
-      <workItem from="1751138445685" duration="6695000" />
+      <workItem from="1751138445685" duration="6995000" />
     </task>
     <task id="LOCAL-00001" summary="Created the base Aspire Host project">
       <option name="closed" value="true" />
@@ -610,7 +610,15 @@
       <option name="project" value="LOCAL" />
       <updated>1750962973446</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Recreate the migrations with the potential Events table">
+      <option name="closed" value="true" />
+      <created>1751145559644</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1751145559644</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -739,7 +747,8 @@
     <MESSAGE value="Add the test projects (well some of them)&#10;&#10;Tests commented out as code isn't there" />
     <MESSAGE value="Post merge issues fixes" />
     <MESSAGE value="Additional tests on ImagesApiClient.cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Additional tests on ImagesApiClient.cs" />
+    <MESSAGE value="Recreate the migrations with the potential Events table" />
+    <option name="LAST_COMMIT_MESSAGE" value="Recreate the migrations with the potential Events table" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

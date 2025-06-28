@@ -298,69 +298,56 @@
             </summary>
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.Events">
-             <summary>
-            
-             </summary>
+            <summary>
+            </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Events.Id">
-             <summary>
-            
-             </summary>
+            <summary>
+            </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Events.EventType">
-             <summary>
-            
-             </summary>
+            <summary>
+            </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Events.EventOccurredAt">
-             <summary>
-            
-             </summary>
+            <summary>
+            </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Events.FileName">
-             <summary>
-            
-             </summary>
+            <summary>
+            </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Events.DirectoryName">
-             <summary>
-            
-             </summary>
+            <summary>
+            </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Events.Handle">
-             <summary>
-            
-             </summary>
+            <summary>
+            </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Events.Width">
-             <summary>
-            
-             </summary>
+            <summary>
+            </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Events.Height">
-             <summary>
-            
-             </summary>
+            <summary>
+            </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Events.FileSize">
-             <summary>
-            
-             </summary>
+            <summary>
+            </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Events.FileCreated">
-             <summary>
-            
-             </summary>
+            <summary>
+            </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Events.FileLastModified">
-             <summary>
-            
-             </summary>
+            <summary>
+            </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Events.ModifiedBy">
-             <summary>
-            
-             </summary>
+            <summary>
+            </summary>
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.FileClassification">
             <summary>
@@ -448,19 +435,16 @@
             </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.FileCreated">
-             <summary>
-            
-             </summary>
+            <summary>
+            </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.FileLastModified">
-             <summary>
-            
-             </summary>
+            <summary>
+            </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.FileLastViewed">
-             <summary>
-            
-             </summary>
+            <summary>
+            </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.SoftDeleted">
             <summary>
@@ -488,14 +472,12 @@
             </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.DetailsModified">
-             <summary>
-            
-             </summary>
+            <summary>
+            </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.ModifiedBy">
-             <summary>
-            
-             </summary>
+            <summary>
+            </summary>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.ToString">
             <summary>

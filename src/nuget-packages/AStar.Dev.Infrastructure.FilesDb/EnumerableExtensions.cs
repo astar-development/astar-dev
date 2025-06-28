@@ -77,13 +77,12 @@ public static class EnumerableExtensions
     /// </param>
     /// <returns>
     /// </returns>
-    public static IEnumerable<IGrouping<FileSize, FileDetail>> GetDuplicates(this IEnumerable<FileDetail> files)
-    {
+    public static IEnumerable<IGrouping<FileSize, FileDetail>> GetDuplicates(this IEnumerable<FileDetail> files) =>
+
         // return files
         //        .GroupBy(file => FileSize.Create(file.FileSize, file.Height, file.Width),
         //                 new FileSizeEqualityComparer()).Where(fileGroups => fileGroups.Count() > 1);
-        return [];
-    }
+        [];
 
     private static IEnumerable<FileDetail> FilterImagesIfApplicable(IEnumerable<FileDetail> files, string searchType) =>
         searchType != "Images"

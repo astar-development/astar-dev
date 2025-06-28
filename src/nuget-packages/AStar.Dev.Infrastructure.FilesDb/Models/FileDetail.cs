@@ -72,17 +72,14 @@ public sealed class FileDetail
     public string FileHandle { get; set; } = string.Empty;
 
     /// <summary>
-    ///
     /// </summary>
     public DateTimeOffset FileCreated { get; set; }
 
     /// <summary>
-    ///
     /// </summary>
     public DateTimeOffset FileLastModified { get; set; }
 
     /// <summary>
-    ///
     /// </summary>
     public DateTimeOffset? FileLastViewed { get; set; }
 
@@ -112,12 +109,10 @@ public sealed class FileDetail
     public bool HardDeleted { get; set; }
 
     /// <summary>
-    ///
     /// </summary>
     public DateTimeOffset DetailsModified { get; set; }
 
     /// <summary>
-    ///
     /// </summary>
     public string ModifiedBy { get; set; } = string.Empty;
 
