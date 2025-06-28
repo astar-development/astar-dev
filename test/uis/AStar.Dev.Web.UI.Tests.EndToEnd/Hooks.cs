@@ -29,9 +29,9 @@ public sealed class Hooks
         var configurationBuilder = new ConfigurationBuilder();
 
         configurationBuilder
-           .SetBasePath(Directory.GetCurrentDirectory())
-           .AddJsonFile("appSettings.json")
-           .AddUserSecrets<Hooks>();
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appSettings.json")
+            .AddUserSecrets<Hooks>();
 
         return configurationBuilder.Build();
     }

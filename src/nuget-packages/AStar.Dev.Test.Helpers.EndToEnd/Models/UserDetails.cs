@@ -15,16 +15,16 @@ public class UserDetails
     public static string ConfigurationSectionName => "UserDetails";
 
     /// <summary>
-    /// Gets or sets the Username to be used when a login is required
+    ///     Gets or sets the Username to be used when a login is required
     /// </summary>
     [Required]
     public string Username { get; set; } = string.Empty;
 
     /// <summary>
-    /// Gets or sets the password to be used when a login is required
-    /// <para>
-    /// This should be the real password. For tests that require an incorrect password, the setter is public so the password can be broken
-    /// </para>
+    ///     Gets or sets the password to be used when a login is required
+    ///     <para>
+    ///         This should be the real password. For tests that require an incorrect password, the setter is public so the password can be broken
+    ///     </para>
     /// </summary>
     [Required]
     public string Password { get; set; } = string.Empty;

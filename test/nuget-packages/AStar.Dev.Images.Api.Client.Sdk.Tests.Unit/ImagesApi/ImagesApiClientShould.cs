@@ -11,9 +11,9 @@ public class ImagesApiClientShould
     [Fact]
     public async Task ReturnExpectedFailureFromGetHealthAsyncWhenTheApIsiUnreachable()
     {
-        var handler = new MockHttpRequestExceptionErrorHttpMessageHandler();
+        var handler    = new MockHttpRequestExceptionErrorHttpMessageHandler();
         var httpClient = new HttpClient(handler) { BaseAddress = new("https://doesnot.matter.com") };
-        var sut = new ImagesApiClient(httpClient, NullLogger<ImagesApiClient>.Instance);
+        var sut        = new ImagesApiClient(httpClient, NullLogger<ImagesApiClient>.Instance);
 
         var response = await sut.GetHealthAsync();
 
@@ -23,9 +23,9 @@ public class ImagesApiClientShould
     [Fact]
     public async Task ReturnExpectedFailureMessageFromGetHealthAsyncWhenCheckFails()
     {
-        var handler = new MockInternalServerErrorHttpMessageHandler("Health Check failed - Internal Server Error.");
+        var handler    = new MockInternalServerErrorHttpMessageHandler("Health Check failed - Internal Server Error.");
         var httpClient = new HttpClient(handler) { BaseAddress = new("https://doesnot.matter.com") };
-        var sut = new ImagesApiClient(httpClient, NullLogger<ImagesApiClient>.Instance);
+        var sut        = new ImagesApiClient(httpClient, NullLogger<ImagesApiClient>.Instance);
 
         var response = await sut.GetHealthAsync();
 
@@ -35,9 +35,9 @@ public class ImagesApiClientShould
     [Fact]
     public async Task ReturnExpectedMessageFromGetHealthAsyncWhenCheckSucceeds()
     {
-        var handler = new MockSuccessHttpMessageHandler("");
+        var handler    = new MockSuccessHttpMessageHandler("");
         var httpClient = new HttpClient(handler) { BaseAddress = new("https://doesnot.matter.com") };
-        var sut = new ImagesApiClient(httpClient, NullLogger<ImagesApiClient>.Instance);
+        var sut        = new ImagesApiClient(httpClient, NullLogger<ImagesApiClient>.Instance);
 
         var response = await sut.GetHealthAsync();
 
@@ -47,9 +47,9 @@ public class ImagesApiClientShould
     [Fact]
     public async Task ReturnTheExpectedResponseFromGetImageAsyncWhenCalledWithValidDetails()
     {
-        var handler = new MockSuccessHttpMessageHandler("Image");
+        var handler    = new MockSuccessHttpMessageHandler("Image");
         var httpClient = new HttpClient(handler) { BaseAddress = new("https://doesnot.matter.com") };
-        var sut = new ImagesApiClient(httpClient, NullLogger<ImagesApiClient>.Instance);
+        var sut        = new ImagesApiClient(httpClient, NullLogger<ImagesApiClient>.Instance);
 
         var response = await sut.GetImageAsync("MockPath", 850, true);
 
@@ -59,9 +59,9 @@ public class ImagesApiClientShould
     [Fact]
     public async Task ReturnTheExpectedResponseFromGetImageAsyncWhenCalledWithInvalidDetails()
     {
-        var handler = new MockSuccessHttpMessageHandler("ImageMissing");
+        var handler    = new MockSuccessHttpMessageHandler("ImageMissing");
         var httpClient = new HttpClient(handler) { BaseAddress = new("https://doesnot.matter.com") };
-        var sut = new ImagesApiClient(httpClient, NullLogger<ImagesApiClient>.Instance);
+        var sut        = new ImagesApiClient(httpClient, NullLogger<ImagesApiClient>.Instance);
 
         var response = await sut.GetImageAsync("MockPath", 850, true);
 

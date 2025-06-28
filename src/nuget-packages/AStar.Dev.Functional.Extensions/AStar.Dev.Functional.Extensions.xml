@@ -261,7 +261,10 @@
         </member>
         <member name="T:AStar.Dev.Functional.Extensions.None">
             <summary>
-                The <see cref="T:AStar.Dev.Functional.Extensions.None" /> object which is 1 half of the possible states of <see cref="T:AStar.Dev.Functional.Extensions.Option`1" />
+                The
+                <see cref="T:AStar.Dev.Functional.Extensions.None"/>
+                object which is 1 half of the possible states of
+                <see cref="T:AStar.Dev.Functional.Extensions.Option`1"/>
             </summary>
         </member>
         <member name="P:AStar.Dev.Functional.Extensions.None.Value">
@@ -272,14 +275,22 @@
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.None.Of``1">
             <summary>
-                A helper method to create a <see cref="T:AStar.Dev.Functional.Extensions.None`1" /> in a more fluent style
+                A helper method to create a
+                <see cref="T:AStar.Dev.Functional.Extensions.None`1"/>
+                in a more fluent style
             </summary>
             <typeparam name="T">The type of the parameter</typeparam>
-            <returns>An instance of <see cref="T:AStar.Dev.Functional.Extensions.None`1" /> where T is the specified type</returns>
+            <returns>An instance of
+                <see cref="T:AStar.Dev.Functional.Extensions.None`1"/>
+                where T is the specified type
+            </returns>
         </member>
         <member name="T:AStar.Dev.Functional.Extensions.None`1">
             <summary>
-                The <see cref="T:AStar.Dev.Functional.Extensions.None" /> object which is 1 half of the possible states of <see cref="T:AStar.Dev.Functional.Extensions.Option`1" />
+                The
+                <see cref="T:AStar.Dev.Functional.Extensions.None"/>
+                object which is 1 half of the possible states of
+                <see cref="T:AStar.Dev.Functional.Extensions.Option`1"/>
             </summary>
             <typeparam name="T">The type of the parameter</typeparam>
         </member>
@@ -291,81 +302,167 @@
         </member>
         <member name="T:AStar.Dev.Functional.Extensions.Option">
             <summary>
-                The <see cref="T:AStar.Dev.Functional.Extensions.Option" /> class as the base of the discriminated union of <see cref="T:AStar.Dev.Functional.Extensions.Some`1" /> and <see cref="T:AStar.Dev.Functional.Extensions.None`1" />
+                The
+                <see cref="T:AStar.Dev.Functional.Extensions.Option"/>
+                class as the base of the discriminated union of
+                <see cref="T:AStar.Dev.Functional.Extensions.Some`1"/>
+                and
+                <see cref="T:AStar.Dev.Functional.Extensions.None`1"/>
             </summary>
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.Option.Optional``1(``0)">
             <summary>
-                The extension method to optionally map the <see cref="T:AStar.Dev.Functional.Extensions.Option`1" /> to a <see cref="T:AStar.Dev.Functional.Extensions.Some`1" />
+                The extension method to optionally map the
+                <see cref="T:AStar.Dev.Functional.Extensions.Option`1"/>
+                to a
+                <see cref="T:AStar.Dev.Functional.Extensions.Some`1"/>
             </summary>
             <typeparam name="T">The type of the parameter</typeparam>
-            <param name="obj">The actual parameter - a runtime instance of <see cref="T:AStar.Dev.Functional.Extensions.Some`1" /> or <see cref="T:AStar.Dev.Functional.Extensions.None`1" /></param>
-            <returns>Optionally a new <see cref="T:AStar.Dev.Functional.Extensions.Some`1" /></returns>
+            <param name="obj">The actual parameter - a runtime instance of
+                <see cref="T:AStar.Dev.Functional.Extensions.Some`1"/>
+                or
+                <see cref="T:AStar.Dev.Functional.Extensions.None`1"/>
+            </param>
+            <returns>Optionally a new
+                <see cref="T:AStar.Dev.Functional.Extensions.Some`1"/>
+            </returns>
         </member>
         <member name="T:AStar.Dev.Functional.Extensions.OptionExtensions">
             <summary>
-                The <see cref="T:AStar.Dev.Functional.Extensions.OptionExtensions" /> class containing the current extension for the <see cref="T:AStar.Dev.Functional.Extensions.Option`1" />
+                The
+                <see cref="T:AStar.Dev.Functional.Extensions.OptionExtensions"/>
+                class containing the current extension for the
+                <see cref="T:AStar.Dev.Functional.Extensions.Option`1"/>
             </summary>
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.OptionExtensions.Map``2(AStar.Dev.Functional.Extensions.Option{``0},System.Func{``0,``1})">
             <summary>
-                The <see cref="M:AStar.Dev.Functional.Extensions.OptionExtensions.Map``2(AStar.Dev.Functional.Extensions.Option{``0},System.Func{``0,``1})" /> to map the <see cref="T:AStar.Dev.Functional.Extensions.Some`1" /> to a new instance of <see cref="T:AStar.Dev.Functional.Extensions.Some`1" /> or <see cref="T:AStar.Dev.Functional.Extensions.None`1" /> if the original object was
-                <see cref="T:AStar.Dev.Functional.Extensions.None`1" />
+                The
+                <see cref="M:AStar.Dev.Functional.Extensions.OptionExtensions.Map``2(AStar.Dev.Functional.Extensions.Option{``0},System.Func{``0,``1})"/>
+                to map the
+                <see cref="T:AStar.Dev.Functional.Extensions.Some`1"/>
+                to a new instance of
+                <see cref="T:AStar.Dev.Functional.Extensions.Some`1"/>
+                or
+                <see cref="T:AStar.Dev.Functional.Extensions.None`1"/>
+                if the original object was
+                <see cref="T:AStar.Dev.Functional.Extensions.None`1"/>
             </summary>
             <typeparam name="T">The type of the parameter</typeparam>
             <typeparam name="TResult">The type of the result</typeparam>
-            <param name="obj">The actual parameter - a runtime instance of <see cref="T:AStar.Dev.Functional.Extensions.Some`1" /> or <see cref="T:AStar.Dev.Functional.Extensions.None`1" /></param>
+            <param name="obj">The actual parameter - a runtime instance of
+                <see cref="T:AStar.Dev.Functional.Extensions.Some`1"/>
+                or
+                <see cref="T:AStar.Dev.Functional.Extensions.None`1"/>
+            </param>
             <param name="map"></param>
-            <returns>The newly mapped <see cref="T:AStar.Dev.Functional.Extensions.Some`1" /> or new instance of <see cref="T:AStar.Dev.Functional.Extensions.None`1" /></returns>
+            <returns>The newly mapped
+                <see cref="T:AStar.Dev.Functional.Extensions.Some`1"/>
+                or new instance of
+                <see cref="T:AStar.Dev.Functional.Extensions.None`1"/>
+            </returns>
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.OptionExtensions.Filter``1(AStar.Dev.Functional.Extensions.Option{``0},System.Func{``0,System.Boolean})">
             <summary>
-                The <see cref="M:AStar.Dev.Functional.Extensions.OptionExtensions.Filter``1(AStar.Dev.Functional.Extensions.Option{``0},System.Func{``0,System.Boolean})" /> (aka WHERE) to filter teh <see cref="T:AStar.Dev.Functional.Extensions.Some`1" /> based on the supplied predicate
+                The
+                <see cref="M:AStar.Dev.Functional.Extensions.OptionExtensions.Filter``1(AStar.Dev.Functional.Extensions.Option{``0},System.Func{``0,System.Boolean})"/>
+                (aka WHERE) to filter teh
+                <see cref="T:AStar.Dev.Functional.Extensions.Some`1"/>
+                based on the supplied predicate
             </summary>
             <typeparam name="T">The type of the parameter</typeparam>
-            <param name="obj">The actual parameter - a runtime instance of <see cref="T:AStar.Dev.Functional.Extensions.Some`1" /> or <see cref="T:AStar.Dev.Functional.Extensions.None`1" /></param>
+            <param name="obj">The actual parameter - a runtime instance of
+                <see cref="T:AStar.Dev.Functional.Extensions.Some`1"/>
+                or
+                <see cref="T:AStar.Dev.Functional.Extensions.None`1"/>
+            </param>
             <param name="predicate"></param>
-            <returns>The original object when the runtime type is <see cref="T:AStar.Dev.Functional.Extensions.Some`1" /> and the object passes the predicate or an instance of <see cref="T:AStar.Dev.Functional.Extensions.None`1" /></returns>
+            <returns>The original object when the runtime type is
+                <see cref="T:AStar.Dev.Functional.Extensions.Some`1"/>
+                and the object passes the predicate or an instance of
+                <see cref="T:AStar.Dev.Functional.Extensions.None`1"/>
+            </returns>
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.OptionExtensions.Reduce``1(AStar.Dev.Functional.Extensions.Option{``0},``0)">
             <summary>
-                The <see cref="M:AStar.Dev.Functional.Extensions.OptionExtensions.Reduce``1(AStar.Dev.Functional.Extensions.Option{``0},``0)" /> to supply the final, default, object when the <see cref="T:AStar.Dev.Functional.Extensions.Option`1" /> is, in fact, <see cref="T:AStar.Dev.Functional.Extensions.None`1" />
+                The
+                <see cref="M:AStar.Dev.Functional.Extensions.OptionExtensions.Reduce``1(AStar.Dev.Functional.Extensions.Option{``0},``0)"/>
+                to supply the final, default, object when the
+                <see cref="T:AStar.Dev.Functional.Extensions.Option`1"/>
+                is, in fact,
+                <see cref="T:AStar.Dev.Functional.Extensions.None`1"/>
             </summary>
             <typeparam name="T">The type of the parameter</typeparam>
-            <param name="obj">The actual parameter - a runtime instance of <see cref="T:AStar.Dev.Functional.Extensions.Some`1" /> or <see cref="T:AStar.Dev.Functional.Extensions.None`1" /></param>
-            <param name="substitute">A substitute object to use when the runtime type is <see cref="T:AStar.Dev.Functional.Extensions.None`1" /></param>
-            <returns>The underlying object when the runtime type is <see cref="T:AStar.Dev.Functional.Extensions.Some`1" /> or the substitute supplied when the runtime type is <see cref="T:AStar.Dev.Functional.Extensions.None`1" /></returns>
+            <param name="obj">The actual parameter - a runtime instance of
+                <see cref="T:AStar.Dev.Functional.Extensions.Some`1"/>
+                or
+                <see cref="T:AStar.Dev.Functional.Extensions.None`1"/>
+            </param>
+            <param name="substitute">A substitute object to use when the runtime type is
+                <see cref="T:AStar.Dev.Functional.Extensions.None`1"/>
+            </param>
+            <returns>The underlying object when the runtime type is
+                <see cref="T:AStar.Dev.Functional.Extensions.Some`1"/>
+                or the substitute supplied when the runtime type is
+                <see cref="T:AStar.Dev.Functional.Extensions.None`1"/>
+            </returns>
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.OptionExtensions.Reduce``1(AStar.Dev.Functional.Extensions.Option{``0},System.Func{``0})">
             <summary>
-                The <see cref="M:AStar.Dev.Functional.Extensions.OptionExtensions.Reduce``1(AStar.Dev.Functional.Extensions.Option{``0},System.Func{``0})" /> to supply the final, default, object when the <see cref="T:AStar.Dev.Functional.Extensions.Option`1" /> is, in fact, <see cref="T:AStar.Dev.Functional.Extensions.None`1" />
+                The
+                <see cref="M:AStar.Dev.Functional.Extensions.OptionExtensions.Reduce``1(AStar.Dev.Functional.Extensions.Option{``0},System.Func{``0})"/>
+                to supply the final, default, object when the
+                <see cref="T:AStar.Dev.Functional.Extensions.Option`1"/>
+                is, in fact,
+                <see cref="T:AStar.Dev.Functional.Extensions.None`1"/>
                 <para>
-                    This version differs from the <see cref="M:AStar.Dev.Functional.Extensions.OptionExtensions.Reduce``1(AStar.Dev.Functional.Extensions.Option{``0},``0)" /> version as the default object will not be created if the <see cref="T:AStar.Dev.Functional.Extensions.Option`1" /> is, in
-                    fact, <see cref="T:AStar.Dev.Functional.Extensions.Some`1" />
+                    This version differs from the
+                    <see cref="M:AStar.Dev.Functional.Extensions.OptionExtensions.Reduce``1(AStar.Dev.Functional.Extensions.Option{``0},``0)"/>
+                    version as the default object will not be created if the
+                    <see cref="T:AStar.Dev.Functional.Extensions.Option`1"/>
+                    is, in
+                    fact,
+                    <see cref="T:AStar.Dev.Functional.Extensions.Some`1"/>
                 </para>
             </summary>
             <typeparam name="T">The type of the parameter</typeparam>
-            <param name="obj">The actual parameter - a runtime instance of <see cref="T:AStar.Dev.Functional.Extensions.Some`1" /> or <see cref="T:AStar.Dev.Functional.Extensions.None`1" /></param>
-            <param name="substitute">A function that can create the substitute object to use when the runtime type is <see cref="T:AStar.Dev.Functional.Extensions.None`1" /></param>
-            <returns>The underlying object when the runtime type is <see cref="T:AStar.Dev.Functional.Extensions.Some`1" /> or the substitute created by the supplied function when the runtime type is <see cref="T:AStar.Dev.Functional.Extensions.None`1" /></returns>
+            <param name="obj">The actual parameter - a runtime instance of
+                <see cref="T:AStar.Dev.Functional.Extensions.Some`1"/>
+                or
+                <see cref="T:AStar.Dev.Functional.Extensions.None`1"/>
+            </param>
+            <param name="substitute">A function that can create the substitute object to use when the runtime type is
+                <see cref="T:AStar.Dev.Functional.Extensions.None`1"/>
+            </param>
+            <returns>The underlying object when the runtime type is
+                <see cref="T:AStar.Dev.Functional.Extensions.Some`1"/>
+                or the substitute created by the supplied function when the runtime type is
+                <see cref="T:AStar.Dev.Functional.Extensions.None`1"/>
+            </returns>
         </member>
         <member name="T:AStar.Dev.Functional.Extensions.Option`1">
             <summary>
-                /// The <see cref="T:AStar.Dev.Functional.Extensions.Option`1" /> base class
+                /// The
+                <see cref="T:AStar.Dev.Functional.Extensions.Option`1"/>
+                base class
             </summary>
             <typeparam name="T">The type of the parameter</typeparam>
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.Option`1.op_Implicit(AStar.Dev.Functional.Extensions.None)~AStar.Dev.Functional.Extensions.Option{`0}">
             <summary>
-                The implicit conversion operator to simplify creating a <see cref="T:AStar.Dev.Functional.Extensions.None`1" />
+                The implicit conversion operator to simplify creating a
+                <see cref="T:AStar.Dev.Functional.Extensions.None`1"/>
             </summary>
             <param name="_">Not used</param>
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.Option`1.op_Implicit(`0)~AStar.Dev.Functional.Extensions.Option{`0}">
             <summary>
-                The implicit conversion operator to simplify creating a <see cref="T:AStar.Dev.Functional.Extensions.Some`1" />
+                The implicit conversion operator to simplify creating a
+                <see cref="T:AStar.Dev.Functional.Extensions.Some`1"/>
             </summary>
-            <param name="value">The value to assign to the <see cref="T:AStar.Dev.Functional.Extensions.Some`1" /></param>
+            <param name="value">The value to assign to the
+                <see cref="T:AStar.Dev.Functional.Extensions.Some`1"/>
+            </param>
         </member>
         <member name="T:AStar.Dev.Functional.Extensions.Result`2">
             <summary>
@@ -404,14 +501,20 @@
                 The implicit operator to create a new success Result
             </summary>
             <param name="success">The success object to set as the success value</param>
-            <returns>An instance of <see cref="T:AStar.Dev.Functional.Extensions.Result`2" /> configured as a success</returns>
+            <returns>An instance of
+                <see cref="T:AStar.Dev.Functional.Extensions.Result`2"/>
+                configured as a success
+            </returns>
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.Result`2.op_Implicit(`1)~AStar.Dev.Functional.Extensions.Result{`0,`1}">
             <summary>
                 The implicit operator to create a new failure Result
             </summary>
             <param name="error">The error object to set as the error value</param>
-            <returns>An instance of <see cref="T:AStar.Dev.Functional.Extensions.Result`2" /> configured as a failure</returns>
+            <returns>An instance of
+                <see cref="T:AStar.Dev.Functional.Extensions.Result`2"/>
+                configured as a failure
+            </returns>
         </member>
         <member name="T:AStar.Dev.Functional.Extensions.Some`1">
             <summary>

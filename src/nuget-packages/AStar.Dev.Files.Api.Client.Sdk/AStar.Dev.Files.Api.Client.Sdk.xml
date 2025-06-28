@@ -6,7 +6,9 @@
     <members>
         <member name="T:AStar.Dev.Files.Api.Client.SDK.Constants">
             <summary>
-                The <see cref="T:AStar.Dev.Files.Api.Client.SDK.Constants" /> class containing the project-specific constants
+                The
+                <see cref="T:AStar.Dev.Files.Api.Client.SDK.Constants"/>
+                class containing the project-specific constants
             </summary>
         </member>
         <member name="F:AStar.Dev.Files.Api.Client.SDK.Constants.ApiName">
@@ -29,7 +31,7 @@
             <param name="logger"></param>
         </member>
         <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient.GetHealthAsync(System.Threading.CancellationToken)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient.GetFilesCountAsync(AStar.Dev.Files.Api.Client.SDK.Models.SearchParameters)">
             <summary>
@@ -49,7 +51,8 @@
                 An instance of the <see href="SearchParameters"></see> class defining the search
                 criteria for the files search
             </param>
-            <returns>An enumerable list of <see href="FileDetail"></see> instances</returns>
+            <returns>An enumerable list of <see href="FileDetail"></see> instances
+            </returns>
             <exception cref="T:System.InvalidOperationException"></exception>
         </member>
         <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient.GetDuplicateFilesAsync(AStar.Dev.Files.Api.Client.SDK.Models.SearchParameters)">
@@ -62,7 +65,8 @@
                 criteria for the duplicate files search
             </param>
             {
-            <returns>An enumerable list of <see href="DuplicateGroup"></see> instances</returns>
+            <returns>An enumerable list of <see href="DuplicateGroup"></see> instances
+            </returns>
             <exception cref="T:System.InvalidOperationException"></exception>
         </member>
         <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient.GetDuplicateFilesCountAsync(AStar.Dev.Files.Api.Client.SDK.Models.SearchParameters)">
@@ -80,7 +84,8 @@
                 The GetFileAccessDetail method will, as its name suggests, get the file access details for the specified file
             </summary>
             <param name="fileId">The ID of the file to retrieve the File Access Details from the database</param>
-            <returns>An instance of <see href="FileAccessDetail"></see> for the specified File ID</returns>
+            <returns>An instance of <see href="FileAccessDetail"></see> for the specified File ID
+            </returns>
             <exception cref="T:System.InvalidOperationException"></exception>
         </member>
         <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient.GetFileDetail(System.Int32)">
@@ -144,15 +149,20 @@
             <param name="directoryChangeRequest">
                 An instance of the <see href="DirectoryChangeRequest"></see> class used to control the file update
             </param>
-            <returns>An awaitable task of <see cref="T:System.String" /></returns>
+            <returns>An awaitable task of
+                <see cref="T:System.String"/>
+            </returns>
         </member>
         <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient.GetDirectoriesAsync(System.String,System.Threading.CancellationToken)">
             <summary>
                 The GetDirectoriesAsync method returns all directories under the supplied root Directory
             </summary>
             <param name="rootDirectory">The root (starting) directory</param>
-            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken" />...I know...</param>
-            <returns>An awaitable task of enumerable of <see cref="T:System.String" /></returns>
+            <param name="cancellationToken">The<see cref="T:System.Threading.CancellationToken"/>...I know...
+            </param>
+            <returns>An awaitable task of enumerable of
+                <see cref="T:System.String"/>
+            </returns>
         </member>
         <member name="T:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiConfiguration">
             <summary>
@@ -165,10 +175,10 @@
             </summary>
         </member>
         <member name="P:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiConfiguration.BaseUrl">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiConfiguration.Scopes">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.DirectoryChangeRequest">
             <summary>
@@ -324,12 +334,16 @@
         </member>
         <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.Id">
             <summary>
-                The ID of the <see cref="T:AStar.Dev.Files.Api.Client.SDK.Models.FileDetail" /> in the Duplicates list
+                The ID of the
+                <see cref="T:AStar.Dev.Files.Api.Client.SDK.Models.FileDetail"/>
+                in the Duplicates list
             </summary>
         </member>
         <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.FileAccessDetailId">
             <summary>
-                The FileAccessDetailId of the joined <see cref="T:AStar.Dev.Files.Api.Client.SDK.Models.FileAccessDetail" /> table. The joined data is not in the Duplicates list
+                The FileAccessDetailId of the joined
+                <see cref="T:AStar.Dev.Files.Api.Client.SDK.Models.FileAccessDetail"/>
+                table. The joined data is not in the Duplicates list
             </summary>
         </member>
         <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.FileName">
@@ -437,7 +451,8 @@
         <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.ExcludedViewSettings.ExcludeViewed">
             <summary>
                 Gets or sets the Exclude Viewed flag. The time period is configurable via the
-                <see href="ExcludeViewedPeriodInDays"></see> property
+                <see href="ExcludeViewedPeriodInDays"></see>
+                property
             </summary>
         </member>
         <member name="M:AStar.Dev.Files.Api.Client.SDK.Models.ExcludedViewSettings.ToString">

@@ -9,28 +9,28 @@
             </summary>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Configurations.FileClassificationConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{AStar.Dev.Infrastructure.FilesDb.Models.FileClassification})">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Configurations.FileDetailConfiguration">
             <summary>
             </summary>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Configurations.FileDetailConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail})">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Configurations.FileNamePartConfiguration">
             <summary>
             </summary>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Configurations.FileNamePartConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{AStar.Dev.Infrastructure.FilesDb.Models.FileNamePart})">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Configurations.ImageDetailsConfiguration">
             <summary>
             </summary>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Configurations.ImageDetailsConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{AStar.Dev.Infrastructure.FilesDb.Models.ImageDetails})">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Constants">
             <summary>
@@ -42,7 +42,9 @@
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext">
             <summary>
-                The <see cref="T:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext" /> class
+                The
+                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext"/>
+                class
             </summary>
             <remarks>
                 The list of files in the dB
@@ -177,54 +179,60 @@
             </returns>
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Migrations.RecreateDatabase">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.RecreateDatabase.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.RecreateDatabase.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.RecreateDatabase.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Migrations.AddDuplicatesCountView">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddDuplicatesCountView.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddDuplicatesCountView.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddDuplicatesCountView.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Migrations.AddDuplicatesDetailView">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddDuplicatesDetailView.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddDuplicatesDetailView.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddDuplicatesDetailView.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails">
             <summary>
-                The <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails" /> class defines the fields that will be mapped from the vw_DuplicatesDetails in the database
+                The
+                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails"/>
+                class defines the fields that will be mapped from the vw_DuplicatesDetails in the database
             </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails.Id">
             <summary>
-                The ID of the <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail" /> in the Duplicates list
+                The ID of the
+                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail"/>
+                in the Duplicates list
             </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails.ImageDetailsId">
             <summary>
-                The FileAccessDetailId of the joined <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.ImageDetails" /> table. The joined data is not in the Duplicates list
+                The FileAccessDetailId of the joined
+                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.ImageDetails"/>
+                table. The joined data is not in the Duplicates list
             </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails.FileName">
@@ -524,7 +532,9 @@
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.FileSize.Create(System.Int64,System.Int64,System.Int64)">
             <summary>
-                The Create method will return a populated instance of the <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileSize" /> class
+                The Create method will return a populated instance of the
+                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileSize"/>
+                class
             </summary>
             <param name="fileLength">
                 The length of the file
@@ -536,7 +546,7 @@
                 The width of the file if an image
             </param>
             <returns>
-                A populated instance of <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileSize" />.
+                A populated instance of<see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileSize"/>.
             </returns>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.FileSize.ToString">
@@ -558,13 +568,18 @@
                 Height, Width and Length - making this more of an ImageComparer...
             </summary>
             <param name="leftFileSize">
-                An instance of the <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileSize" /> class to compare
+                An instance of the
+                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileSize"/>
+                class to compare
             </param>
             <param name="rightFileSize">
-                The other instance of the <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileSize" /> class to compare
+                The other instance of the
+                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileSize"/>
+                class to compare
             </param>
             <returns>
-                <c>true</c> if the files are deemed to be the same size, <c>false</c> otherwise
+                <c>true</c>
+                if the files are deemed to be the same size, <c>false</c> otherwise
             </returns>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.FileSizeEqualityComparer.GetHashCode(AStar.Dev.Infrastructure.FilesDb.Models.FileSize)">
@@ -573,7 +588,9 @@
                 method
             </summary>
             <param name="fileSize">
-                The <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileSize" /> to calculate the appropriate hash-code for
+                The
+                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileSize"/>
+                to calculate the appropriate hash-code for
             </param>
             <returns>
                 The hash-code, combined from the relevant properties own hash-codes

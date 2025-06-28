@@ -11,16 +11,16 @@ public sealed class CustomWebApplicationFactory<TProgram>
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
         _ = builder
-           .ConfigureTestServices(services =>
-                                  {
-                                      // var dbContextDescriptor = services.SingleOrDefault(d => d.ServiceType == typeof(DbContextOptions<AdminContext>));
-                                      //
-                                      // services.Remove(dbContextDescriptor!);
+            .ConfigureTestServices(services =>
+                                   {
+                                       // var dbContextDescriptor = services.SingleOrDefault(d => d.ServiceType == typeof(DbContextOptions<AdminContext>));
+                                       //
+                                       // services.Remove(dbContextDescriptor!);
 
-                                      // services.AddScoped<AdminContext>(_ => new(
-                                      //                                           $"Server=sql1;Database=AdminDb-{Guid.CreateVersion7()};User Id=sa;Password=E&IY!Q65fcMA6J$x;TrustServerCertificate=true;",
-                                      //                                           new()));
-                                  });
+                                       // services.AddScoped<AdminContext>(_ => new(
+                                       //                                           $"Server=sql1;Database=AdminDb-{Guid.CreateVersion7()};User Id=sa;Password=E&IY!Q65fcMA6J$x;TrustServerCertificate=true;",
+                                       //                                           new()));
+                                   });
 
         _ = builder.UseEnvironment("Development");
     }

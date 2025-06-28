@@ -12,7 +12,7 @@ public class StepDefinitions(IOptions<ApplicationSettings> applicationSettings, 
     [Given("I have accessed the home page")]
     public async Task GivenIHaveAccessedTheHomePage()
     {
-        var dummyHeaders = new Dictionary<string, string> { { "an-irrelevant-header", "an equally irrelevant value..." }, };
+        var dummyHeaders = new Dictionary<string, string> { { "an-irrelevant-header", "an equally irrelevant value..." } };
         Page = SetHeadersAndCreatePage(dummyHeaders);
 
         await Page.GotoAsync(AppSettings.BaseUri);
@@ -30,7 +30,7 @@ public class StepDefinitions(IOptions<ApplicationSettings> applicationSettings, 
         var title = await Page.TitleAsync();
 
         title.ShouldContain("AStar Dev: Welcome!");
-        await Page.ScreenshotAsync(new() { Path = "screenshot.png", FullPage = true, });
+        await Page.ScreenshotAsync(new() { Path = "screenshot.png", FullPage = true });
         await Task.Delay(5_000);
     }
 }

@@ -6,7 +6,9 @@
     <members>
         <member name="T:AStar.Dev.Usage.Api.Client.SDK.Constants">
             <summary>
-                The <see cref="T:AStar.Dev.Usage.Api.Client.SDK.Constants" /> class containing the project-specific constants
+                The
+                <see cref="T:AStar.Dev.Usage.Api.Client.SDK.Constants"/>
+                class containing the project-specific constants
             </summary>
         </member>
         <member name="F:AStar.Dev.Usage.Api.Client.SDK.Constants.ApiName">
@@ -25,10 +27,10 @@
             </summary>
         </member>
         <member name="P:AStar.Dev.Usage.Api.Client.SDK.UsageApi.UsageApiConfiguration.BaseUrl">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:AStar.Dev.Usage.Api.Client.SDK.UsageApi.UsageApiConfiguration.Scopes">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:AStar.Dev.Usage.Api.Client.SDK.UsageApi.UsageApiClient">
             <summary>
@@ -45,7 +47,7 @@
             <param name="logger"></param>
         </member>
         <member name="M:AStar.Dev.Usage.Api.Client.SDK.UsageApi.UsageApiClient.GetHealthAsync(System.Threading.CancellationToken)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:AStar.Dev.Usage.Api.Client.SDK.UsageApi.UsageApiClient.GetApiUsageEventsAsync">
             <summary>

@@ -50,3 +50,5 @@
 //     protected override void NavigateToCore(string uri, bool forceLoad) =>
 //         NotifyLocationChanged(false);
 // }
+
+

@@ -26,7 +26,9 @@
         </member>
         <member name="T:AStar.Dev.Test.Helpers.EndToEnd.Models.ApplicationSettings">
             <summary>
-                The <see cref="T:AStar.Dev.Test.Helpers.EndToEnd.Models.ApplicationSettings" /> class defines the default application settings that the EndToEnd tests require
+                The
+                <see cref="T:AStar.Dev.Test.Helpers.EndToEnd.Models.ApplicationSettings"/>
+                class defines the default application settings that the EndToEnd tests require
                 <para>
                     This class has not been sealed as the intention is to leave it open for extension should your project require it
                 </para>
@@ -48,7 +50,8 @@
         </member>
         <member name="P:AStar.Dev.Test.Helpers.EndToEnd.Models.ApplicationSettings.UseHeadless">
             <summary>
-                Gets or sets the Use Headless setting that, as you might expect, controls whether the browser is opened 'headed' (visible) or 'headless' (invisible). The default is <c>true</c>
+                Gets or sets the Use Headless setting that, as you might expect, controls whether the browser is opened 'headed' (visible) or 'headless' (invisible). The default is
+                <c>true</c>
             </summary>
         </member>
         <member name="P:AStar.Dev.Test.Helpers.EndToEnd.Models.ApplicationSettings.HomePageTitle">
@@ -58,7 +61,9 @@
         </member>
         <member name="T:AStar.Dev.Test.Helpers.EndToEnd.Models.UserDetails">
             <summary>
-                The <see cref="T:AStar.Dev.Test.Helpers.EndToEnd.Models.UserDetails" /> class contains the default user details that are required, as a minimum, for the tests to run
+                The
+                <see cref="T:AStar.Dev.Test.Helpers.EndToEnd.Models.UserDetails"/>
+                class contains the default user details that are required, as a minimum, for the tests to run
                 <para>This class has not been sealed so that it can be extended if / when required by your tests</para>
             </summary>
         </member>
@@ -70,53 +75,74 @@
         </member>
         <member name="P:AStar.Dev.Test.Helpers.EndToEnd.Models.UserDetails.Username">
             <summary>
-            Gets or sets the Username to be used when a login is required
+                Gets or sets the Username to be used when a login is required
             </summary>
         </member>
         <member name="P:AStar.Dev.Test.Helpers.EndToEnd.Models.UserDetails.Password">
             <summary>
-            Gets or sets the password to be used when a login is required
-            <para>
-            This should be the real password. For tests that require an incorrect password, the setter is public so the password can be broken
-            </para>
+                Gets or sets the password to be used when a login is required
+                <para>
+                    This should be the real password. For tests that require an incorrect password, the setter is public so the password can be broken
+                </para>
             </summary>
         </member>
         <member name="T:AStar.Dev.Test.Helpers.EndToEnd.PlaywrightBase">
             <summary>
-                The abstract <see cref="T:AStar.Dev.Test.Helpers.EndToEnd.PlaywrightBase" /> class supplies some default functionality that can be used by the tests within your project
+                The abstract
+                <see cref="T:AStar.Dev.Test.Helpers.EndToEnd.PlaywrightBase"/>
+                class supplies some default functionality that can be used by the tests within your project
             </summary>
         </member>
         <member name="M:AStar.Dev.Test.Helpers.EndToEnd.PlaywrightBase.#ctor(Microsoft.Extensions.Options.IOptions{AStar.Dev.Test.Helpers.EndToEnd.Models.ApplicationSettings},Xunit.Abstractions.ITestOutputHelper)">
             <summary>
                 The default constructor
             </summary>
-            <param name="applicationSettings">An instance of <see cref="T:Microsoft.Extensions.Options.IOptions`1" /> that will be injected by the Reqnroll IoC</param>
-            <param name="output">An instance of the <see cref="T:Xunit.Abstractions.ITestOutputHelper" /> that, optionally, can be used to write debug information to the console during test runs</param>
+            <param name="applicationSettings">An instance of
+                <see cref="T:Microsoft.Extensions.Options.IOptions`1"/>
+                that will be injected by the Reqnroll IoC
+            </param>
+            <param name="output">An instance of the
+                <see cref="T:Xunit.Abstractions.ITestOutputHelper"/>
+                that, optionally, can be used to write debug information to the console during test runs
+            </param>
         </member>
         <member name="P:AStar.Dev.Test.Helpers.EndToEnd.PlaywrightBase.Page">
             <summary>
-                Gets an instance of <see cref="T:Microsoft.Playwright.IPage" /> that can be used in the tests
+                Gets an instance of
+                <see cref="T:Microsoft.Playwright.IPage"/>
+                that can be used in the tests
             </summary>
         </member>
         <member name="P:AStar.Dev.Test.Helpers.EndToEnd.PlaywrightBase.OutputHelper">
             <summary>
-                Gets an instance of the <see cref="T:Xunit.Abstractions.ITestOutputHelper" /> that, optionally, can be used to write debug information to the console during test runs
+                Gets an instance of the
+                <see cref="T:Xunit.Abstractions.ITestOutputHelper"/>
+                that, optionally, can be used to write debug information to the console during test runs
             </summary>
         </member>
         <member name="P:AStar.Dev.Test.Helpers.EndToEnd.PlaywrightBase.AppSettings">
             <summary>
-                Gets an instance of the <see cref="T:AStar.Dev.Test.Helpers.EndToEnd.Models.ApplicationSettings" /> class - this is the 'value' from the injected IOptions instance from the constructor
+                Gets an instance of the
+                <see cref="T:AStar.Dev.Test.Helpers.EndToEnd.Models.ApplicationSettings"/>
+                class - this is the 'value' from the injected IOptions instance from the constructor
             </summary>
         </member>
         <member name="M:AStar.Dev.Test.Helpers.EndToEnd.PlaywrightBase.SetHeadersAndCreatePage(System.Collections.Generic.Dictionary{System.String,System.String})">
             <summary>
-                This optional method can be used to add extra headers to the <see cref="T:Microsoft.Playwright.IPage" /> instance.
+                This optional method can be used to add extra headers to the
+                <see cref="T:Microsoft.Playwright.IPage"/>
+                instance.
                 <para>
                     When called, as well as the supplied headers, the User-Agent will be set to 'Playwright Tests'
                 </para>
             </summary>
-            <param name="additionalHeaders">The dictionary of string key/values to add to the <see cref="T:Microsoft.Playwright.IPage" /></param>
-            <returns>The updated <see cref="T:Microsoft.Playwright.IPage" /> instance</returns>
+            <param name="additionalHeaders">The dictionary of string key/values to add to the
+                <see cref="T:Microsoft.Playwright.IPage"/>
+            </param>
+            <returns>The updated
+                <see cref="T:Microsoft.Playwright.IPage"/>
+                instance
+            </returns>
         </member>
     </members>
 </doc>

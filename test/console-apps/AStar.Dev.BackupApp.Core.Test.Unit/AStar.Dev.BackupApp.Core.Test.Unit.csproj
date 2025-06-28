@@ -32,7 +32,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\src\console-applications\astar-dev-backupapp\AStar.Dev.BackupApp.Core\AStar.Dev.BackupApp.Core.csproj" />
+        <ProjectReference Include="..\..\..\src\console-applications\astar-dev-backupapp\AStar.Dev.BackupApp.Core\AStar.Dev.BackupApp.Core.csproj"/>
     </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

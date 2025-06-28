@@ -24,3 +24,5 @@
 //         sut.ShouldBeAssignableTo<IEndpointName>();
 //     }
 // }
+
+

@@ -13,7 +13,7 @@ public class StepDefinitions(IOptions<ApplicationSettings> applicationSettings, 
     public async Task GivenIHaveValidCredentials()
     {
         await Task.Delay(1);
-        var dummyHeaders = new Dictionary<string, string> { { "an-irrelevant-header", "an equally irrelevant value..." }, };
+        var dummyHeaders = new Dictionary<string, string> { { "an-irrelevant-header", "an equally irrelevant value..." } };
         Page = SetHeadersAndCreatePage(dummyHeaders);
 
         // await Page.GotoAsync(AppSettings.BaseUri);
@@ -40,6 +40,7 @@ public class StepDefinitions(IOptions<ApplicationSettings> applicationSettings, 
     {
         await Task.Delay(1);
         await Task.Delay(1);
+
         // var title = await Page.TitleAsync();
         // title.ShouldContain("Something to confirm the login has been successful");
     }
