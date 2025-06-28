@@ -222,7 +222,7 @@
                 The ID of the <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail" /> in the Duplicates list
             </summary>
         </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails.FileAccessDetailId">
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails.ImageDetailsId">
             <summary>
                 The FileAccessDetailId of the joined <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.ImageDetails" /> table. The joined data is not in the Duplicates list
             </summary>

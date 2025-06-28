@@ -16,7 +16,7 @@ public class DuplicatesDetails
     /// <summary>
     ///     The FileAccessDetailId of the joined <see cref="ImageDetails" /> table. The joined data is not in the Duplicates list
     /// </summary>
-    public int FileAccessDetailId { get; set; }
+    public int ImageDetailsId { get; set; }
 
     /// <summary>
     ///     Gets or sets the File Name
@@ -61,12 +61,12 @@ public class DuplicatesDetails
     /// <summary>
     ///     Gets or sets the Details Last Updated
     /// </summary>
-    public DateTime DetailsLastUpdated { get; set; }
+    public DateTimeOffset DetailsLastUpdated { get; set; }
 
     /// <summary>
     ///     Gets or sets the Last Viewed date
     /// </summary>
-    public DateTime? LastViewed { get; set; }
+    public DateTimeOffset? LastViewed { get; set; }
 
     /// <summary>
     ///     Gets or sets the Soft Deleted flag

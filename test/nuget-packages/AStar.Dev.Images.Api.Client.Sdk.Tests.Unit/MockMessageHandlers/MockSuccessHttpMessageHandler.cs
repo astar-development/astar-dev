@@ -1,8 +1,6 @@
 ﻿using System.Net;
 using System.Text.Json;
 using AStar.Dev.Api.HealthChecks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace AStar.Dev.Images.Api.Client.Sdk.MockMessageHandlers;
 

@@ -1,0 +1,18 @@
+﻿{
+  "id": 1,
+  "imageDetailsId": 1,
+  "fileName": "MockFileName",
+  "directoryName": "MockDirectoryName",
+  "height": 456,
+  "width": 123,
+  "fileSize": 1234,
+  "fileHandle": "MockFileHandle",
+  "isImage": true,
+  "instances": 987,
+  "detailsLastUpdated": "2025-06-28T22:30:37+00:00",
+  "lastViewed": "2025-06-28T22:20:37+00:00",
+  "softDeleted": true,
+  "softDeletePending": true,
+  "moveRequired": true,
+  "hardDeletePending": true
+}

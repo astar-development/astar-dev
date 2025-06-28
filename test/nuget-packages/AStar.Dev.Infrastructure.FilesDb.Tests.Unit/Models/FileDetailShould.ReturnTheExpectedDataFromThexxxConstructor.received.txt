@@ -1,0 +1,26 @@
+{
+  "fileClassifications": [],
+  "id": 0,
+  "imageDetails": {
+    "id": 0,
+    "width": 0,
+    "height": 0,
+    "fileDetailsId": 0
+  },
+  "fileName": "MockFileName",
+  "directoryName": "MockDirectoryName",
+  "fullNameWithPath": "MockDirectoryName/MockFileName",
+  "fileSize": 1234,
+  "isImage": false,
+  "fileHandle": "",
+  "fileCreated": "0001-01-01T00:00:00+00:00",
+  "fileLastModified": "0001-01-01T00:00:00+00:00",
+  "fileLastViewed": null,
+  "softDeleted": false,
+  "softDeletePending": false,
+  "moveRequired": false,
+  "hardDeletePending": false,
+  "hardDeleted": false,
+  "detailsModified": "0001-01-01T00:00:00+00:00",
+  "modifiedBy": ""
+}

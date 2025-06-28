@@ -1,0 +1,13 @@
+﻿{
+  "id": 1,
+  "text": "Mock Text",
+  "fileClassifications": [
+    {
+      "id": 1,
+      "name": "Mock Classification",
+      "fileDetails": [],
+      "celebrity": true,
+      "fileNameParts": []
+    }
+  ]
+}

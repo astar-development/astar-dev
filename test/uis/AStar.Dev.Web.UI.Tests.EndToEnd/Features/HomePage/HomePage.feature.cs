@@ -10,7 +10,6 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-using Reqnroll;
 namespace AStar.Dev.Web.UI.Features.HomePage
 {
     
@@ -165,12 +164,12 @@ namespace AStar.Dev.Web.UI.Features.HomePage
             
             async global::System.Threading.Tasks.Task Xunit.IAsyncLifetime.InitializeAsync()
             {
-                await HomePageFeature.FeatureSetupAsync();
+                await FeatureSetupAsync();
             }
             
             async global::System.Threading.Tasks.Task Xunit.IAsyncLifetime.DisposeAsync()
             {
-                await HomePageFeature.FeatureTearDownAsync();
+                await FeatureTearDownAsync();
             }
         }
     }

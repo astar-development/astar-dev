@@ -1,0 +1,40 @@
+﻿{
+  "id": 1,
+  "name": "Mock Name",
+  "fileDetails": [
+    {
+      "fileClassifications": [],
+      "id": 1,
+      "imageDetails": {
+        "id": 0,
+        "width": 0,
+        "height": 0,
+        "fileDetailsId": 0
+      },
+      "fileName": "Mock File Name",
+      "directoryName": "Mock Directory",
+      "fullNameWithPath": "Mock Directory/Mock File Name",
+      "fileSize": 0,
+      "isImage": false,
+      "fileHandle": "",
+      "fileCreated": "0001-01-01T00:00:00+00:00",
+      "fileLastModified": "0001-01-01T00:00:00+00:00",
+      "fileLastViewed": null,
+      "softDeleted": false,
+      "softDeletePending": false,
+      "moveRequired": false,
+      "hardDeletePending": false,
+      "hardDeleted": false,
+      "detailsModified": "0001-01-01T00:00:00+00:00",
+      "modifiedBy": ""
+    }
+  ],
+  "celebrity": true,
+  "fileNameParts": [
+    {
+      "id": 1,
+      "text": "Mock Text Part",
+      "fileClassifications": []
+    }
+  ]
+}
