@@ -6,7 +6,9 @@
     <members>
         <member name="T:AStar.Dev.Files.Api.Client.SDK.Constants">
             <summary>
-                The <see cref="T:AStar.Dev.Files.Api.Client.SDK.Constants" /> class containing the project-specific constants
+                The
+                <see cref="T:AStar.Dev.Files.Api.Client.SDK.Constants"/>
+                class containing the project-specific constants
             </summary>
         </member>
         <member name="F:AStar.Dev.Files.Api.Client.SDK.Constants.ApiName">
@@ -29,7 +31,7 @@
             <param name="logger"></param>
         </member>
         <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient.GetHealthAsync(System.Threading.CancellationToken)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient.GetFilesCountAsync(AStar.Dev.Files.Api.Client.SDK.Models.SearchParameters)">
             <summary>
@@ -49,7 +51,8 @@
                 An instance of the <see href="SearchParameters"></see> class defining the search
                 criteria for the files search
             </param>
-            <returns>An enumerable list of <see href="FileDetail"></see> instances</returns>
+            <returns>An enumerable list of <see href="FileDetail"></see> instances
+            </returns>
             <exception cref="T:System.InvalidOperationException"></exception>
         </member>
         <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient.GetDuplicateFilesAsync(AStar.Dev.Files.Api.Client.SDK.Models.SearchParameters)">
@@ -62,7 +65,8 @@
                 criteria for the duplicate files search
             </param>
             {
-            <returns>An enumerable list of <see href="DuplicateGroup"></see> instances</returns>
+            <returns>An enumerable list of <see href="DuplicateGroup"></see> instances
+            </returns>
             <exception cref="T:System.InvalidOperationException"></exception>
         </member>
         <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient.GetDuplicateFilesCountAsync(AStar.Dev.Files.Api.Client.SDK.Models.SearchParameters)">
@@ -80,7 +84,8 @@
                 The GetFileAccessDetail method will, as its name suggests, get the file access details for the specified file
             </summary>
             <param name="fileId">The ID of the file to retrieve the File Access Details from the database</param>
-            <returns>An instance of <see href="FileAccessDetail"></see> for the specified File ID</returns>
+            <returns>An instance of <see href="FileAccessDetail"></see> for the specified File ID
+            </returns>
             <exception cref="T:System.InvalidOperationException"></exception>
         </member>
         <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient.GetFileDetail(System.Int32)">
@@ -144,15 +149,20 @@
             <param name="directoryChangeRequest">
                 An instance of the <see href="DirectoryChangeRequest"></see> class used to control the file update
             </param>
-            <returns>An awaitable task of <see cref="T:System.String" /></returns>
+            <returns>An awaitable task of
+                <see cref="T:System.String"/>
+            </returns>
         </member>
         <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient.GetDirectoriesAsync(System.String,System.Threading.CancellationToken)">
             <summary>
                 The GetDirectoriesAsync method returns all directories under the supplied root Directory
             </summary>
             <param name="rootDirectory">The root (starting) directory</param>
-            <param name="cancellationToken">The <see cref="T:System.Threading.CancellationToken" />...I know...</param>
-            <returns>An awaitable task of enumerable of <see cref="T:System.String" /></returns>
+            <param name="cancellationToken">The<see cref="T:System.Threading.CancellationToken"/>...I know...
+            </param>
+            <returns>An awaitable task of enumerable of
+                <see cref="T:System.String"/>
+            </returns>
         </member>
         <member name="T:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiConfiguration">
             <summary>
@@ -165,10 +175,10 @@
             </summary>
         </member>
         <member name="P:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiConfiguration.BaseUrl">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiConfiguration.Scopes">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.DirectoryChangeRequest">
             <summary>
@@ -225,156 +235,6 @@
                 Returns this object in JSON format
             </summary>
             <returns>This object serialized as a JSON object</returns>
-        </member>
-        <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails">
-            <summary>
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.Id">
-            <summary>
-                The ID of the <see cref="T:AStar.Dev.Files.Api.Client.SDK.Models.FileDetail" /> in the Duplicates list
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.FileAccessDetailId">
-            <summary>
-                The FileAccessDetailId of the joined <see cref="T:AStar.Dev.Files.Api.Client.SDK.Models.FileAccessDetail" /> table. The joined data is not in the Duplicates list
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.FileName">
-            <summary>
-                Gets or sets the File Name
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.DirectoryName">
-            <summary>
-                Gets or sets the Directory Name
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.Height">
-            <summary>
-                Gets or sets the File Height
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.Width">
-            <summary>
-                Gets or sets the File Width
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.FileSize">
-            <summary>
-                Gets or sets the File Size
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.FileHandle">
-            <summary>
-                Gets or sets the File Handle
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.IsImage">
-            <summary>
-                Gets or sets whether File is an image
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.Instances">
-            <summary>
-                Gets or sets the Instance count for the duplicate group
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.DetailsLastUpdated">
-            <summary>
-                Gets or sets the Details Last Updated
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.LastViewed">
-            <summary>
-                Gets or sets the Last Viewed date
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.SoftDeleted">
-            <summary>
-                Gets or sets the Soft Deleted flag
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.SoftDeletePending">
-            <summary>
-                Gets or sets the SoftDeletePending flag
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.MoveRequired">
-            <summary>
-                Gets or sets the Move Required flag
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.HardDeletePending">
-            <summary>
-                Gets or sets the Hard Delete Pending flag
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.FullNameWithPath">
-            <summary>
-            </summary>
-        </member>
-        <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.FileGrouping">
-            <summary>
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileGrouping.FileSize">
-            <summary>
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileGrouping.Height">
-            <summary>
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileGrouping.Width">
-            <summary>
-            </summary>
-        </member>
-        <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesList">
-            <summary>
-            </summary>
-            <param name="FileSize"></param>
-            <param name="Duplicates"></param>
-        </member>
-        <member name="M:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesList.#ctor(AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail,AStar.Dev.Files.Api.Client.SDK.Models.Duplicates[])">
-            <summary>
-            </summary>
-            <param name="FileSize"></param>
-            <param name="Duplicates"></param>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesList.FileSize">
-            <summary></summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesList.Duplicates">
-            <summary></summary>
-        </member>
-        <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail">
-            <summary>
-            </summary>
-            <param name="FileSize"></param>
-            <param name="Height"></param>
-            <param name="Width"></param>
-        </member>
-        <member name="M:AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail.#ctor(System.Int32,System.Int32,System.Int32)">
-            <summary>
-            </summary>
-            <param name="FileSize"></param>
-            <param name="Height"></param>
-            <param name="Width"></param>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail.FileSize">
-            <summary></summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail.Height">
-            <summary></summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail.Width">
-            <summary></summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail.FileSizeForDisplay">
-            <summary>
-                Gets the FileSize in a nicer, display-friendly, style
-            </summary>
         </member>
         <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates">
             <summary>
@@ -468,6 +328,116 @@
             <summary>
             </summary>
         </member>
+        <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.Id">
+            <summary>
+                The ID of the
+                <see cref="T:AStar.Dev.Files.Api.Client.SDK.Models.FileDetail"/>
+                in the Duplicates list
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.FileAccessDetailId">
+            <summary>
+                The FileAccessDetailId of the joined
+                <see cref="T:AStar.Dev.Files.Api.Client.SDK.Models.FileAccessDetail"/>
+                table. The joined data is not in the Duplicates list
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.FileName">
+            <summary>
+                Gets or sets the File Name
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.DirectoryName">
+            <summary>
+                Gets or sets the Directory Name
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.Height">
+            <summary>
+                Gets or sets the File Height
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.Width">
+            <summary>
+                Gets or sets the File Width
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.FileSize">
+            <summary>
+                Gets or sets the File Size
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.FileHandle">
+            <summary>
+                Gets or sets the File Handle
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.IsImage">
+            <summary>
+                Gets or sets whether File is an image
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.Instances">
+            <summary>
+                Gets or sets the Instance count for the duplicate group
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.DetailsLastUpdated">
+            <summary>
+                Gets or sets the Details Last Updated
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.LastViewed">
+            <summary>
+                Gets or sets the Last Viewed date
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.SoftDeleted">
+            <summary>
+                Gets or sets the Soft Deleted flag
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.SoftDeletePending">
+            <summary>
+                Gets or sets the SoftDeletePending flag
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.MoveRequired">
+            <summary>
+                Gets or sets the Move Required flag
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.HardDeletePending">
+            <summary>
+                Gets or sets the Hard Delete Pending flag
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.FullNameWithPath">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesList">
+            <summary>
+            </summary>
+            <param name="FileSize"></param>
+            <param name="Duplicates"></param>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesList.#ctor(AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail,AStar.Dev.Files.Api.Client.SDK.Models.Duplicates[])">
+            <summary>
+            </summary>
+            <param name="FileSize"></param>
+            <param name="Duplicates"></param>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesList.FileSize">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesList.Duplicates">
+            <summary></summary>
+        </member>
         <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.ExcludedViewSettings">
             <summary>
                 The <see href="ExcludedViewSettings"></see> class.
@@ -481,7 +451,8 @@
         <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.ExcludedViewSettings.ExcludeViewed">
             <summary>
                 Gets or sets the Exclude Viewed flag. The time period is configurable via the
-                <see href="ExcludeViewedPeriodInDays"></see> property
+                <see href="ExcludeViewedPeriodInDays"></see>
+                property
             </summary>
         </member>
         <member name="M:AStar.Dev.Files.Api.Client.SDK.Models.ExcludedViewSettings.ToString">
@@ -657,6 +628,50 @@
                 Returns this object in JSON format
             </summary>
             <returns>This object serialized as a JSON object</returns>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.FileGrouping">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileGrouping.FileSize">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileGrouping.Height">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileGrouping.Width">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail">
+            <summary>
+            </summary>
+            <param name="FileSize"></param>
+            <param name="Height"></param>
+            <param name="Width"></param>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            </summary>
+            <param name="FileSize"></param>
+            <param name="Height"></param>
+            <param name="Width"></param>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail.FileSize">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail.Height">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail.Width">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail.FileSizeForDisplay">
+            <summary>
+                Gets the FileSize in a nicer, display-friendly, style
+            </summary>
         </member>
         <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.GetDuplicatesCountQueryResponse">
             <summary>

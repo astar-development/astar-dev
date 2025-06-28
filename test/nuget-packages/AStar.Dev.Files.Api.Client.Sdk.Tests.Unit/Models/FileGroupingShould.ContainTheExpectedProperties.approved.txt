@@ -1,0 +1,5 @@
+﻿{
+  "fileSize": 1234,
+  "height": 123,
+  "width": 456
+}

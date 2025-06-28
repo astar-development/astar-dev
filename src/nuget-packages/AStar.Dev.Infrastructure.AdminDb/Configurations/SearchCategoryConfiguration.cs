@@ -17,7 +17,7 @@ public sealed class SearchCategoryConfiguration : IEntityTypeConfiguration<Searc
     public void Configure(EntityTypeBuilder<SearchCategory> builder)
     {
         _ = builder
-           .ToTable("SearchCategory", "admin").HasKey(searchCategory => searchCategory.Id);
+            .ToTable("SearchCategory", "admin").HasKey(searchCategory => searchCategory.Id);
 
         builder.Property(p => p.Name).HasMaxLength(300);
         builder.Property(category => category.Id).ValueGeneratedNever();

@@ -34,7 +34,7 @@ public sealed class UsageApiClient(HttpClient httpClient, /*ITokenAcquisition to
         {
             logger.LogError(500, ex, "Error: {ErrorMessage}", ex.Message);
 
-            return new() { Status = $"Could not get a response from the {Constants.ApiName}.", };
+            return new() { Status = $"Could not get a response from the {Constants.ApiName}." };
         }
     }
 
@@ -51,7 +51,7 @@ public sealed class UsageApiClient(HttpClient httpClient, /*ITokenAcquisition to
         logger.LogInformation("The {ApiName} Health failed - {FailureReason}.", Constants.ApiName,
                               response.ReasonPhrase);
 
-        return new() { Status = $"Health Check failed - {response.ReasonPhrase}.", };
+        return new() { Status = $"Health Check failed - {response.ReasonPhrase}." };
     }
 
     /// <summary>

@@ -24,7 +24,7 @@ public sealed class AdminContext : DbContext
     [Refactor(1, 1, "Remove the hard-coded connection string")]
     public AdminContext()
         : this(
-               new() { Value = "Data Source=sql1;Initial Catalog=AdminDb;Trusted_Connection=True;TrustServerCertificate=true", },
+               new() { Value = "Data Source=sql1;Initial Catalog=AdminDb;Trusted_Connection=True;TrustServerCertificate=true" },
                new())
     {
     }
@@ -99,18 +99,18 @@ public sealed class AdminContext : DbContext
         _ = optionsBuilder.UseSqlServer(connectionString.Value);
 
         optionsBuilder
-           .UseSeeding((context, _) =>
-                       {
-                           SeedData(context);
+            .UseSeeding((context, _) =>
+                        {
+                            SeedData(context);
 
-                           context.SaveChanges();
-                       })
-           .UseAsyncSeeding(async (context, _, cancellationToken) =>
-                            {
-                                SeedData(context);
+                            context.SaveChanges();
+                        })
+            .UseAsyncSeeding(async (context, _, cancellationToken) =>
+                             {
+                                 SeedData(context);
 
-                                await context.SaveChangesAsync(cancellationToken);
-                            });
+                                 await context.SaveChangesAsync(cancellationToken);
+                             });
 
         if (astarDbContextOptions.EnableLogging)
         {
@@ -141,5 +141,5 @@ public sealed class AdminContext : DbContext
 
     private static ILoggerFactory CreateLoggerFactory() =>
         LoggerFactory.Create(static builder => builder
-                                .AddFilter((category, level) => category == DbLoggerCategory.Database.Command.Name && level == LogLevel.Information));
+                                 .AddFilter((category, level) => category == DbLoggerCategory.Database.Command.Name && level == LogLevel.Information));
 }

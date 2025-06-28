@@ -22,9 +22,9 @@ public static class ConfigurationManagerExtensions
                                                          string                     configurationSectionKey)
         where T : class, new() =>
         new ServiceCollection()
-           .AddOptions()
-           .Configure<T>(configuration.GetSection(configurationSectionKey))
-           .BuildServiceProvider()
-           .GetService<IOptions<T>>()?
-           .Value;
+            .AddOptions()
+            .Configure<T>(configuration.GetSection(configurationSectionKey))
+            .BuildServiceProvider()
+            .GetService<IOptions<T>>()?
+            .Value;
 }

@@ -1,0 +1,1 @@
+﻿SearchFolder=MockSearchFolder&CurrentPage=1&ItemsPerPage=12&SearchType=All&Recursive=True&IncludeSoftDeleted=True&IncludeMarkedForDeletion=True&ExcludeViewed=True&SortOrder=NameAscending&MaximumSizeOfThumbnail=456&MaximumSizeOfImage=123&ExcludeViewedPeriodInDays=12&SearchText=MockSearchText

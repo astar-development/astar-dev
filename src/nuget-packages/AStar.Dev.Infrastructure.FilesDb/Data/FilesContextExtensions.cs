@@ -47,7 +47,7 @@ public static class FilesContextExtensions
                                                            bool                   excludeViewed,
                                                            CancellationToken      cancellationToken)
     {
-        var filesToReturn = files.Include(fileDetail => fileDetail.FileAccessDetail).AsNoTracking().AsQueryable();
+        var filesToReturn = files.Include(fileDetail => fileDetail.ImageDetails).AsNoTracking().AsQueryable();
 
         if (cancellationToken.IsCancellationRequested)
         {
@@ -65,7 +65,7 @@ public static class FilesContextExtensions
 
         filesToReturn = includeSoftDeleted
                             ? filesToReturn
-                            : filesToReturn.Where(file => !file.FileAccessDetail.SoftDeleted);
+                            : filesToReturn.Where(file => !file.SoftDeleted);
 
         if (cancellationToken.IsCancellationRequested)
         {
@@ -74,7 +74,7 @@ public static class FilesContextExtensions
 
         if (!includeMarkedForDeletion)
         {
-            filesToReturn = filesToReturn.Where(file => !file.FileAccessDetail.SoftDeletePending && !file.FileAccessDetail.HardDeletePending);
+            filesToReturn = filesToReturn.Where(file => !file.SoftDeletePending && !file.HardDeletePending);
         }
 
         if (cancellationToken.IsCancellationRequested)
@@ -100,11 +100,11 @@ public static class FilesContextExtensions
 
         if (excludeViewed)
         {
-            filesToReturn = filesToReturn.Where(file => file.FileAccessDetail.LastViewed == null ||
-                                                        file.FileAccessDetail.LastViewed <=
+            filesToReturn = filesToReturn.Where(file => file.FileLastViewed == null ||
+                                                        file.FileLastViewed <=
                                                         DateTime.UtcNow.AddDays(-7));
         }
 
-        return cancellationToken.IsCancellationRequested ? [] : [.. filesToReturn,];
+        return cancellationToken.IsCancellationRequested ? [] : [.. filesToReturn];
     }
 }

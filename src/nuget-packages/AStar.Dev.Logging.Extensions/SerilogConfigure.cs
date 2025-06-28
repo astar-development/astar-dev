@@ -16,7 +16,7 @@ internal static class SerilogConfigure
     /// <returns></returns>
     public static LoggerConfiguration Configure(this LoggerConfiguration loggerConfiguration, IConfiguration configuration, TelemetryConfiguration telemetryConfiguration) =>
         loggerConfiguration
-           .WriteTo.ApplicationInsights(telemetryConfiguration,
-                                        TelemetryConverter.Traces).WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {Level}] {Message:lj}{NewLine}{Exception}")
-           .ReadFrom.Configuration(configuration);
+            .WriteTo.ApplicationInsights(telemetryConfiguration,
+                                         TelemetryConverter.Traces).WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {Level}] {Message:lj}{NewLine}{Exception}")
+            .ReadFrom.Configuration(configuration);
 }

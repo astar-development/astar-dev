@@ -1,0 +1,17 @@
+﻿{
+  "searchFolder": "MockSearchFolder",
+  "searchType": 1,
+  "recursive": true,
+  "includeSoftDeleted": true,
+  "includeMarkedForDeletion": true,
+  "currentPage": 1,
+  "itemsPerPage": 12,
+  "maximumSizeOfThumbnail": 456,
+  "maximumSizeOfImage": 123,
+  "sortOrder": 3,
+  "searchText": "MockSearchText",
+  "excludedViewSettings": {
+    "excludeViewedPeriodInDays": 12,
+    "excludeViewed": true
+  }
+}

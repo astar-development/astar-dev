@@ -25,6 +25,7 @@ public sealed class FilesContext : DbContext
         : base(new DbContextOptions<FilesContext>() )
     {
     }
+
     /// <summary>
     ///     The list of files in the dB
     /// </summary>
@@ -33,21 +34,16 @@ public sealed class FilesContext : DbContext
     /// <summary>
     ///     The list of file access details in the dB
     /// </summary>
-    public DbSet<FileAccessDetail> FileAccessDetails { get; set; } = null!;
+    public DbSet<ImageDetails> FileAccessDetails { get; set; } = null!;
 
     /// <summary>
     /// </summary>
     public DbSet<FileNamePart> FileNameParts { get;        set; } = null!;
 
     /// <summary>
-    ///     The list of tags to ignore
+    ///     The list of Events
     /// </summary>
-    public DbSet<TagToIgnore> TagsToIgnore { get; set; } = null!;
-
-    /// <summary>
-    ///     The list of models to ignore completely
-    /// </summary>
-    public DbSet<ModelToIgnore> ModelsToIgnore { get; set; } = null!;
+    public DbSet<Events> Events { get; set; } = null!;
 
     /// <summary>
     ///     Gets or sets the File Classifications
@@ -57,7 +53,14 @@ public sealed class FilesContext : DbContext
     /// <summary>
     ///     Gets or sets the DuplicatesDetails loaded from the configured view in the database
     /// </summary>
-    public DbSet<DuplicatesDetails> DuplicatesDetails { get;    set; } = null!;
+    public DbSet<DuplicatesDetails> DuplicatesDetails { get; set; } = null!;
+
+    // /// <inheritdoc />
+    // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    // {
+    //     base.OnConfiguring(optionsBuilder);
+    //     optionsBuilder.UseSqlServer("Data Source=localhost,nnnnn;Initial Catalog=FilesDb;User ID=sa;Password=<SomeSecurePasswordHere1!>;TrustServerCertificate=True");
+    // }
 
     /// <summary>
     ///     The overridden OnModelCreating method
@@ -71,10 +74,10 @@ public sealed class FilesContext : DbContext
         _ = modelBuilder.ApplyConfigurationsFromAssembly(typeof(FilesContext).Assembly);
 
         modelBuilder
-           .Entity<DuplicatesDetails>(eb =>
-                                      {
-                                          eb.HasNoKey();
-                                          eb.ToView("vw_DuplicatesDetails");
-                                      });
+            .Entity<DuplicatesDetails>(eb =>
+                                       {
+                                           eb.HasNoKey();
+                                           eb.ToView("vw_DuplicatesDetails");
+                                       });
     }
 }

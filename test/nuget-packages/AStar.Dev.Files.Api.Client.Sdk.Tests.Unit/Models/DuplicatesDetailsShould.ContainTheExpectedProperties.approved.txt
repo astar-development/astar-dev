@@ -1,0 +1,19 @@
+﻿{
+  "id": 1,
+  "fileAccessDetailId": 567,
+  "fileName": "MockFileName",
+  "directoryName": "MockDirectory",
+  "height": 123,
+  "width": 456,
+  "fileSize": 1234,
+  "fileHandle": "MockHandle",
+  "isImage": true,
+  "instances": 2,
+  "detailsLastUpdated": "9999-12-31T23:59:59.9999999",
+  "lastViewed": "2025-12-23T00:00:00",
+  "softDeleted": true,
+  "softDeletePending": true,
+  "moveRequired": true,
+  "hardDeletePending": true,
+  "fullNameWithPath": "MockDirectory/MockFileName"
+}

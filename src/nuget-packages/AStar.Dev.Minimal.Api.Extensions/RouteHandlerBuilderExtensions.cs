@@ -17,9 +17,9 @@ public static class RouteHandlerBuilderExtensions
     /// <returns>The original <see cref="RouteHandlerBuilder" /> to facilitate further chaining</returns>
     public static RouteHandlerBuilder AddBasicProduces<T>(this RouteHandlerBuilder routeBuilder) =>
         routeBuilder
-           .Produces<T>()
-           .Produces(401)
-           .Produces(500);
+            .Produces<T>()
+            .Produces(401)
+            .Produces(500);
 
     /// <summary>
     ///     The AddBasicWithAdditionalProduces method extends the <seealso cref="AddBasicProduces{T}" /> method to add:

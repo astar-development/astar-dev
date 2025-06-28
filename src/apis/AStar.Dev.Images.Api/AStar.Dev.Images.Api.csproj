@@ -20,11 +20,11 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\_aspire\AStar.Dev.ServiceDefaults\AStar.Dev.ServiceDefaults.csproj" />
+        <ProjectReference Include="..\..\_aspire\AStar.Dev.ServiceDefaults\AStar.Dev.ServiceDefaults.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <Content Remove="appsettings.Development.json" />
+        <Content Remove="appsettings.Development.json"/>
     </ItemGroup>
 
 </Project>

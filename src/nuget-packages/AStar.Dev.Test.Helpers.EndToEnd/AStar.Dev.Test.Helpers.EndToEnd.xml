@@ -4,5 +4,145 @@
         <name>AStar.Dev.Test.Helpers.EndToEnd</name>
     </assembly>
     <members>
+        <member name="T:AStar.Dev.Test.Helpers.EndToEnd.DictionaryExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Test.Helpers.EndToEnd.DictionaryExtensions.Merge``2(System.Collections.Generic.Dictionary{``0,``1},System.Collections.Generic.IEnumerable{System.Collections.Generic.Dictionary{``0,``1}})">
+            <summary>
+            </summary>
+            <param name="dictionary"></param>
+            <param name="additionalDictionaries"></param>
+            <typeparam name="TKey"></typeparam>
+            <typeparam name="TValue"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Test.Helpers.EndToEnd.DictionaryExtensions.SetExtraHttpHeaders(System.Collections.Generic.Dictionary{System.String,System.String},Microsoft.Playwright.IBrowser)">
+            <summary>
+            </summary>
+            <param name="dictionary"></param>
+            <param name="browser"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AStar.Dev.Test.Helpers.EndToEnd.Models.ApplicationSettings">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Test.Helpers.EndToEnd.Models.ApplicationSettings"/>
+                class defines the default application settings that the EndToEnd tests require
+                <para>
+                    This class has not been sealed as the intention is to leave it open for extension should your project require it
+                </para>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Test.Helpers.EndToEnd.Models.ApplicationSettings.ConfigurationSectionName">
+            <summary>
+                Gets the Configuration Section Name - i.e. the name of the section that must exist in the AppSettings.json - it exists to avoid the use of 'magic strings'.
+                <para>The value is 'ApplicationSettings'</para>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Test.Helpers.EndToEnd.Models.ApplicationSettings.BaseUri">
+            <summary>
+                Gets or sets the BaseUri of the UI being tested - if it ends with a /, the get will remove to ensure combinations visually make sense. e.g.:
+                <para>
+                    BaseUri + "/some-uri" (Please don't use + though ;-)!)
+                </para>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Test.Helpers.EndToEnd.Models.ApplicationSettings.UseHeadless">
+            <summary>
+                Gets or sets the Use Headless setting that, as you might expect, controls whether the browser is opened 'headed' (visible) or 'headless' (invisible). The default is
+                <c>true</c>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Test.Helpers.EndToEnd.Models.ApplicationSettings.HomePageTitle">
+            <summary>
+                Gets or sets the Home Page Title - intended to be used as a basic test parameter - i.e. to confirm the test has logged into the correct site
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Test.Helpers.EndToEnd.Models.UserDetails">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Test.Helpers.EndToEnd.Models.UserDetails"/>
+                class contains the default user details that are required, as a minimum, for the tests to run
+                <para>This class has not been sealed so that it can be extended if / when required by your tests</para>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Test.Helpers.EndToEnd.Models.UserDetails.ConfigurationSectionName">
+            <summary>
+                Gets the Configuration Section Name - i.e. the name of the section that must exist in the AppSettings.json - it exists to avoid the use of 'magic strings'.
+                <para>The value is 'UserDetails'</para>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Test.Helpers.EndToEnd.Models.UserDetails.Username">
+            <summary>
+                Gets or sets the Username to be used when a login is required
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Test.Helpers.EndToEnd.Models.UserDetails.Password">
+            <summary>
+                Gets or sets the password to be used when a login is required
+                <para>
+                    This should be the real password. For tests that require an incorrect password, the setter is public so the password can be broken
+                </para>
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Test.Helpers.EndToEnd.PlaywrightBase">
+            <summary>
+                The abstract
+                <see cref="T:AStar.Dev.Test.Helpers.EndToEnd.PlaywrightBase"/>
+                class supplies some default functionality that can be used by the tests within your project
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Test.Helpers.EndToEnd.PlaywrightBase.#ctor(Microsoft.Extensions.Options.IOptions{AStar.Dev.Test.Helpers.EndToEnd.Models.ApplicationSettings},Xunit.Abstractions.ITestOutputHelper)">
+            <summary>
+                The default constructor
+            </summary>
+            <param name="applicationSettings">An instance of
+                <see cref="T:Microsoft.Extensions.Options.IOptions`1"/>
+                that will be injected by the Reqnroll IoC
+            </param>
+            <param name="output">An instance of the
+                <see cref="T:Xunit.Abstractions.ITestOutputHelper"/>
+                that, optionally, can be used to write debug information to the console during test runs
+            </param>
+        </member>
+        <member name="P:AStar.Dev.Test.Helpers.EndToEnd.PlaywrightBase.Page">
+            <summary>
+                Gets an instance of
+                <see cref="T:Microsoft.Playwright.IPage"/>
+                that can be used in the tests
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Test.Helpers.EndToEnd.PlaywrightBase.OutputHelper">
+            <summary>
+                Gets an instance of the
+                <see cref="T:Xunit.Abstractions.ITestOutputHelper"/>
+                that, optionally, can be used to write debug information to the console during test runs
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Test.Helpers.EndToEnd.PlaywrightBase.AppSettings">
+            <summary>
+                Gets an instance of the
+                <see cref="T:AStar.Dev.Test.Helpers.EndToEnd.Models.ApplicationSettings"/>
+                class - this is the 'value' from the injected IOptions instance from the constructor
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Test.Helpers.EndToEnd.PlaywrightBase.SetHeadersAndCreatePage(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+                This optional method can be used to add extra headers to the
+                <see cref="T:Microsoft.Playwright.IPage"/>
+                instance.
+                <para>
+                    When called, as well as the supplied headers, the User-Agent will be set to 'Playwright Tests'
+                </para>
+            </summary>
+            <param name="additionalHeaders">The dictionary of string key/values to add to the
+                <see cref="T:Microsoft.Playwright.IPage"/>
+            </param>
+            <returns>The updated
+                <see cref="T:Microsoft.Playwright.IPage"/>
+                instance
+            </returns>
+        </member>
     </members>
 </doc>

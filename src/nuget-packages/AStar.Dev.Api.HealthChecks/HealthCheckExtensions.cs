@@ -13,7 +13,7 @@ public static class HealthCheckExtensions
                                                                           {
                                                                               WriteIndented          = true,
                                                                               DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
-                                                                              PropertyNamingPolicy   = JsonNamingPolicy.CamelCase,
+                                                                              PropertyNamingPolicy   = JsonNamingPolicy.CamelCase
                                                                           };
 
     /// <summary>
@@ -31,9 +31,9 @@ public static class HealthCheckExtensions
                                     {
                                         [HealthStatus.Degraded]  = StatusCodes.Status424FailedDependency,
                                         [HealthStatus.Healthy]   = StatusCodes.Status200OK,
-                                        [HealthStatus.Unhealthy] = StatusCodes.Status500InternalServerError,
+                                        [HealthStatus.Unhealthy] = StatusCodes.Status500InternalServerError
                                     },
-                                    Predicate = _ => true,
+                                    Predicate = _ => true
                                 });
 
         _ = app.MapHealthChecks("/health/ready",
@@ -44,9 +44,9 @@ public static class HealthCheckExtensions
                                     {
                                         [HealthStatus.Degraded]  = StatusCodes.Status424FailedDependency,
                                         [HealthStatus.Healthy]   = StatusCodes.Status200OK,
-                                        [HealthStatus.Unhealthy] = StatusCodes.Status500InternalServerError,
+                                        [HealthStatus.Unhealthy] = StatusCodes.Status500InternalServerError
                                     },
-                                    Predicate = _ => true,
+                                    Predicate = _ => true
                                 });
 
         return app;
@@ -66,14 +66,14 @@ public static class HealthCheckExtensions
                                                                                      DurationInMilliseconds = entry.Value.Duration
                                                                                                                    .TotalMilliseconds,
                                                                                      Data      = entry.Value.Data,
-                                                                                     Exception = entry.Value.Exception?.Message,
+                                                                                     Exception = entry.Value.Exception?.Message
                                                                                  });
 
         var healthCheckResponse = new
                                   {
                                       Status                                = healthReport.Status.ToString(),
                                       TotalCheckExecutionTimeInMilliseconds = healthReport.TotalDuration.TotalMilliseconds,
-                                      DependencyHealthChecks                = dependencyHealthChecks,
+                                      DependencyHealthChecks                = dependencyHealthChecks
                                   };
 
         var responseString = JsonSerializer.Serialize(healthCheckResponse, JsonSerializerOptions);

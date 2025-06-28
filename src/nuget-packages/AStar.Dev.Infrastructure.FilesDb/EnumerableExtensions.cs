@@ -39,7 +39,7 @@ public static class EnumerableExtensions
             SortOrder.NameDescending => files.OrderByDescending(f => f.FileName),
             SortOrder.SizeAscending  => files.OrderBy(f => f.FileSize),
             SortOrder.SizeDescending => files.OrderByDescending(f => f.FileSize),
-            _                        => files,
+            _                        => files
         };
 
     /// <summary>
@@ -59,12 +59,14 @@ public static class EnumerableExtensions
             return 0;
         }
 
-        var duplicatesBySize = files.AsEnumerable()
-                                    .GroupBy(file => FileSize.Create(file.FileSize, file.Height, file.Width),
-                                             new FileSizeEqualityComparer()).Where(fileGroups => fileGroups.Count() > 1)
-                                    .ToArray();
-
-        return duplicatesBySize.Length;
+        // var duplicatesBySize = files
+        //                        .Join(f=>f.ImageDetails).AsEnumerable()
+        //                             .GroupBy(file => FileSize.Create(file.FileSize, file.Height, file.Width),
+        //                                      new FileSizeEqualityComparer()).Where(fileGroups => fileGroups.Count() > 1)
+        //                             .ToArray();
+        //
+        // return duplicatesBySize.Length;
+        return 0;
     }
 
     /// <summary>
@@ -76,9 +78,11 @@ public static class EnumerableExtensions
     /// <returns>
     /// </returns>
     public static IEnumerable<IGrouping<FileSize, FileDetail>> GetDuplicates(this IEnumerable<FileDetail> files) =>
-        files
-           .GroupBy(file => FileSize.Create(file.FileSize, file.Height, file.Width),
-                    new FileSizeEqualityComparer()).Where(fileGroups => fileGroups.Count() > 1);
+
+        // return files
+        //        .GroupBy(file => FileSize.Create(file.FileSize, file.Height, file.Width),
+        //                 new FileSizeEqualityComparer()).Where(fileGroups => fileGroups.Count() > 1);
+        [];
 
     private static IEnumerable<FileDetail> FilterImagesIfApplicable(IEnumerable<FileDetail> files, string searchType) =>
         searchType != "Images"

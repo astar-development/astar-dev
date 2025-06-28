@@ -28,7 +28,7 @@ public static class ScrapeDirectoryData
                         BaseSaveDirectory   = @"/home/jason-barden/snap/onedrive-cli/current/OneDrive/Wallpapers\",
                         BaseDirectory       = @"/home/jason-barden/snap/onedrive-cli/current/OneDrive/Wallpapers\Wallhaven\",
                         BaseDirectoryFamous = @"/home/jason-barden/snap/onedrive-cli/current/OneDrive/Famous\",
-                        SubDirectoryName    = "New-Subscription-Wallpapers",
+                        SubDirectoryName    = "New-Subscription-Wallpapers"
                     });
     }
 }

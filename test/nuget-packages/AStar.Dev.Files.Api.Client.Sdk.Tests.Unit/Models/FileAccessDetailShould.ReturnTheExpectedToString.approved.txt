@@ -1,0 +1,9 @@
+﻿{
+  "id": 1,
+  "detailsLastUpdated": "2025-12-23T00:00:00",
+  "lastViewed": "2025-12-24T00:00:00",
+  "softDeleted": true,
+  "softDeletePending": true,
+  "moveRequired": true,
+  "hardDeletePending": true
+}

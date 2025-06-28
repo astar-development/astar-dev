@@ -20,7 +20,7 @@ public sealed class JwtEvents(ILogger<JwtEvents> logger)
             OnAuthenticationFailed = async context => await LogAuthenticationFailureAsync(send, applicationName, context),
             OnForbidden            = async context => await LogAuthorisationFailedAsync(send, applicationName, context),
             OnTokenValidated       = ValidateUserIdIsPopulates,
-            OnChallenge            = async context => await LogChallengeFailureAsync(send, applicationName, context),
+            OnChallenge            = async context => await LogChallengeFailureAsync(send, applicationName, context)
         };
 
     private async Task LogAuthenticationFailureAsync(Send send, string applicationName, AuthenticationFailedContext context)
@@ -28,8 +28,8 @@ public sealed class JwtEvents(ILogger<JwtEvents> logger)
         logger.LogError(context.Exception, "Authentication failed: {ErrorMessage}", context.Exception.Message);
 
         await send
-           .SendUsageEventAsync(new(applicationName, context.Request.Path, context.Request.Method, 0, StatusCodes.Status401Unauthorized),
-                                CancellationToken.None);
+            .SendUsageEventAsync(new(applicationName, context.Request.Path, context.Request.Method, 0, StatusCodes.Status401Unauthorized),
+                                 CancellationToken.None);
     }
 
     private async Task LogAuthorisationFailedAsync(Send send, string applicationName, ForbiddenContext context)
@@ -37,8 +37,8 @@ public sealed class JwtEvents(ILogger<JwtEvents> logger)
         logger.LogWarning("Authorisation failed: {ErrorMessage}", "Forbidden");
 
         await send
-           .SendUsageEventAsync(new(applicationName, context.Request.Path, context.Request.Method, 0, StatusCodes.Status403Forbidden),
-                                CancellationToken.None);
+            .SendUsageEventAsync(new(applicationName, context.Request.Path, context.Request.Method, 0, StatusCodes.Status403Forbidden),
+                                 CancellationToken.None);
     }
 
     private static Task ValidateUserIdIsPopulates(TokenValidatedContext context)
@@ -60,7 +60,7 @@ public sealed class JwtEvents(ILogger<JwtEvents> logger)
                         context.ErrorDescription ?? "No description available");
 
         await send
-           .SendUsageEventAsync(new(applicationName, context.Request.Path, context.Request.Method, 0, StatusCodes.Status401Unauthorized),
-                                CancellationToken.None);
+            .SendUsageEventAsync(new(applicationName, context.Request.Path, context.Request.Method, 0, StatusCodes.Status401Unauthorized),
+                                 CancellationToken.None);
     }
 }

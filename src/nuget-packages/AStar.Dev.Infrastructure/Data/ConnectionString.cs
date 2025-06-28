@@ -24,5 +24,5 @@ public sealed class ConnectionString
     /// <param name="connectionString">The instance of <see cref="string" /> to convert.</param>
     /// <returns>The converted representation</returns>
     public static implicit operator ConnectionString(string connectionString) =>
-        new() { Value = connectionString, };
+        new() { Value = connectionString };
 }

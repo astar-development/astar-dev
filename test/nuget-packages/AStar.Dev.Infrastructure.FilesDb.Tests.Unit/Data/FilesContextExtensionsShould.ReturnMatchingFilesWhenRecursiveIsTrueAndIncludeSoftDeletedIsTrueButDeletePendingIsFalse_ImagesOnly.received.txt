@@ -1,0 +1,1023 @@
+﻿[
+  {
+    Id: Guid_1,
+    FileAccessDetail: {
+      Id: Guid_1,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: wallhaven-8568w2.png,
+    DirectoryName: c:\temp,
+    FullNameWithPath: c:\temp\wallhaven-8568w2.png,
+    FileSize: 2448120,
+    IsImage: true
+  },
+  {
+    Id: Guid_2,
+    FileAccessDetail: {
+      Id: Guid_2,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: wallhaven-85819j.jpg,
+    DirectoryName: c:\temp,
+    FullNameWithPath: c:\temp\wallhaven-85819j.jpg,
+    FileSize: 946171,
+    IsImage: true
+  },
+  {
+    Id: Guid_3,
+    FileAccessDetail: {
+      Id: Guid_3,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: wallhaven-eo3198.jpg,
+    DirectoryName: c:\temp,
+    FullNameWithPath: c:\temp\wallhaven-eo3198.jpg,
+    FileSize: 929888,
+    IsImage: true
+  },
+  {
+    Id: Guid_4,
+    FileAccessDetail: {
+      Id: Guid_4,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: wallhaven-ex221l.jpg,
+    DirectoryName: c:\temp,
+    FullNameWithPath: c:\temp\wallhaven-ex221l.jpg,
+    FileSize: 2004996,
+    IsImage: true
+  },
+  {
+    Id: Guid_5,
+    FileAccessDetail: {
+      Id: Guid_5,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: wallhaven-expvqk.jpg,
+    DirectoryName: c:\temp,
+    FullNameWithPath: c:\temp\wallhaven-expvqk.jpg,
+    FileSize: 796946,
+    IsImage: true
+  },
+  {
+    Id: Guid_6,
+    FileAccessDetail: {
+      Id: Guid_6,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: wallhaven-exrqrr.jpg,
+    DirectoryName: c:\temp,
+    FullNameWithPath: c:\temp\wallhaven-exrqrr.jpg,
+    FileSize: 2649255,
+    IsImage: true
+  },
+  {
+    Id: Guid_7,
+    FileAccessDetail: {
+      Id: Guid_7,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: wallhaven-kxvj57.jpg,
+    DirectoryName: c:\temp,
+    FullNameWithPath: c:\temp\wallhaven-kxvj57.jpg,
+    FileSize: 869917,
+    IsImage: true
+  },
+  {
+    Id: Guid_8,
+    FileAccessDetail: {
+      Id: Guid_8,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: wallhaven-l8g7yl.jpg,
+    DirectoryName: c:\temp,
+    FullNameWithPath: c:\temp\wallhaven-l8g7yl.jpg,
+    FileSize: 6193170,
+    IsImage: true
+  },
+  {
+    Id: Guid_9,
+    FileAccessDetail: {
+      Id: Guid_9,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: wallhaven-l8r85q.jpg,
+    DirectoryName: c:\temp,
+    FullNameWithPath: c:\temp\wallhaven-l8r85q.jpg,
+    FileSize: 1973207,
+    IsImage: true
+  },
+  {
+    Id: Guid_10,
+    FileAccessDetail: {
+      Id: Guid_10,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: wallhaven-l8v112.jpg,
+    DirectoryName: c:\temp,
+    FullNameWithPath: c:\temp\wallhaven-l8v112.jpg,
+    FileSize: 791713,
+    IsImage: true
+  },
+  {
+    Id: Guid_11,
+    FileAccessDetail: {
+      Id: Guid_11,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: wallhaven-l8vgvr.jpg,
+    DirectoryName: c:\temp,
+    FullNameWithPath: c:\temp\wallhaven-l8vgvr.jpg,
+    FileSize: 2631479,
+    IsImage: true
+  },
+  {
+    Id: Guid_12,
+    FileAccessDetail: {
+      Id: Guid_12,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: wallhaven-vq2rpl.jpg,
+    DirectoryName: c:\temp,
+    FullNameWithPath: c:\temp\wallhaven-vq2rpl.jpg,
+    FileSize: 1540381,
+    IsImage: true
+  },
+  {
+    Id: Guid_13,
+    FileAccessDetail: {
+      Id: Guid_13,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: wallhaven-zy3v6g.jpg,
+    DirectoryName: c:\temp,
+    FullNameWithPath: c:\temp\wallhaven-zy3v6g.jpg,
+    FileSize: 699033,
+    IsImage: true
+  },
+  {
+    Id: Guid_14,
+    FileAccessDetail: {
+      Id: Guid_14,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: wallhaven-zyvrdv.jpg,
+    DirectoryName: c:\temp,
+    FullNameWithPath: c:\temp\wallhaven-zyvrdv.jpg,
+    FileSize: 6970497,
+    IsImage: true
+  },
+  {
+    Id: Guid_15,
+    FileAccessDetail: {
+      Id: Guid_15,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: 100000102_hd_638509609800324210_hd.jpg,
+    DirectoryName: c:\temp\AI,
+    FullNameWithPath: c:\temp\AI\100000102_hd_638509609800324210_hd.jpg,
+    FileSize: 7321172,
+    IsImage: true
+  },
+  {
+    Id: Guid_16,
+    FileAccessDetail: {
+      Id: Guid_16,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: 100000110_hd_638511176661199240_hd.jpg,
+    DirectoryName: c:\temp\AI,
+    FullNameWithPath: c:\temp\AI\100000110_hd_638511176661199240_hd.jpg,
+    FileSize: 8204752,
+    IsImage: true
+  },
+  {
+    Id: Guid_17,
+    FileAccessDetail: {
+      Id: Guid_17,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: 100000145_638523103212069150.jpg,
+    DirectoryName: c:\temp\AI,
+    FullNameWithPath: c:\temp\AI\100000145_638523103212069150.jpg,
+    FileSize: 815142,
+    IsImage: true
+  },
+  {
+    Id: Guid_18,
+    FileAccessDetail: {
+      Id: Guid_18,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: 100000146_638523184773955790.jpg,
+    DirectoryName: c:\temp\AI,
+    FullNameWithPath: c:\temp\AI\100000146_638523184773955790.jpg,
+    FileSize: 743367,
+    IsImage: true
+  },
+  {
+    Id: Guid_19,
+    FileAccessDetail: {
+      Id: Guid_19,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: 100000150_638524300326765720.jpg,
+    DirectoryName: c:\temp\AI,
+    FullNameWithPath: c:\temp\AI\100000150_638524300326765720.jpg,
+    FileSize: 843031,
+    IsImage: true
+  },
+  {
+    Id: Guid_20,
+    FileAccessDetail: {
+      Id: Guid_20,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: 100000205_638509236020965080.jpg,
+    DirectoryName: c:\temp\AI,
+    FullNameWithPath: c:\temp\AI\100000205_638509236020965080.jpg,
+    FileSize: 837731,
+    IsImage: true
+  },
+  {
+    Id: Guid_21,
+    FileAccessDetail: {
+      Id: Guid_21,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: 100000212_638509618854517090.jpg,
+    DirectoryName: c:\temp\AI,
+    FullNameWithPath: c:\temp\AI\100000212_638509618854517090.jpg,
+    FileSize: 809024,
+    IsImage: true
+  },
+  {
+    Id: Guid_22,
+    FileAccessDetail: {
+      Id: Guid_22,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: 100000213_638509620054640660.jpg,
+    DirectoryName: c:\temp\AI,
+    FullNameWithPath: c:\temp\AI\100000213_638509620054640660.jpg,
+    FileSize: 687518,
+    IsImage: true
+  },
+  {
+    Id: Guid_23,
+    FileAccessDetail: {
+      Id: Guid_23,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: 100000378_638523099978008470.jpg,
+    DirectoryName: c:\temp\AI,
+    FullNameWithPath: c:\temp\AI\100000378_638523099978008470.jpg,
+    FileSize: 718263,
+    IsImage: true
+  },
+  {
+    Id: Guid_24,
+    FileAccessDetail: {
+      Id: Guid_24,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: 100000381_638523108344006410.jpg,
+    DirectoryName: c:\temp\AI,
+    FullNameWithPath: c:\temp\AI\100000381_638523108344006410.jpg,
+    FileSize: 653393,
+    IsImage: true
+  },
+  {
+    Id: Guid_25,
+    FileAccessDetail: {
+      Id: Guid_25,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: 100000383_638523178079943390.jpg,
+    DirectoryName: c:\temp\AI,
+    FullNameWithPath: c:\temp\AI\100000383_638523178079943390.jpg,
+    FileSize: 910120,
+    IsImage: true
+  },
+  {
+    Id: Guid_26,
+    FileAccessDetail: {
+      Id: Guid_26,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: 100000384_638523239000544620.jpg,
+    DirectoryName: c:\temp\AI,
+    FullNameWithPath: c:\temp\AI\100000384_638523239000544620.jpg,
+    FileSize: 910873,
+    IsImage: true
+  },
+  {
+    Id: Guid_27,
+    FileAccessDetail: {
+      Id: Guid_27,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: 100000386_638523244486106450.jpg,
+    DirectoryName: c:\temp\AI,
+    FullNameWithPath: c:\temp\AI\100000386_638523244486106450.jpg,
+    FileSize: 756590,
+    IsImage: true
+  },
+  {
+    Id: Guid_28,
+    FileAccessDetail: {
+      Id: Guid_28,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: 100000396_638523351409444560.jpg,
+    DirectoryName: c:\temp\AI,
+    FullNameWithPath: c:\temp\AI\100000396_638523351409444560.jpg,
+    FileSize: 873340,
+    IsImage: true
+  },
+  {
+    Id: Guid_29,
+    FileAccessDetail: {
+      Id: Guid_29,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: _data_user_0_com.onet.connect.puzzle.match.game.wh_files_0cabdd0e-c709-4914-ac66-d91c90cf1e45.jp.jpg,
+    DirectoryName: c:\temp\AI,
+    FullNameWithPath: c:\temp\AI\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_0cabdd0e-c709-4914-ac66-d91c90cf1e45.jp.jpg,
+    FileSize: 270787,
+    IsImage: true
+  },
+  {
+    Id: Guid_30,
+    FileAccessDetail: {
+      Id: Guid_30,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: _data_user_0_com.onet.connect.puzzle.match.game.wh_files_17ffc39c-57ec-4ebf-ad7f-069a42aece0d.jp.jpg,
+    DirectoryName: c:\temp\AI,
+    FullNameWithPath: c:\temp\AI\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_17ffc39c-57ec-4ebf-ad7f-069a42aece0d.jp.jpg,
+    FileSize: 191687,
+    IsImage: true
+  },
+  {
+    Id: Guid_31,
+    FileAccessDetail: {
+      Id: Guid_31,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: _data_user_0_com.onet.connect.puzzle.match.game.wh_files_2354c904-2a34-48b5-9d32-8d493bab63d2.jp.jpg,
+    DirectoryName: c:\temp\AI,
+    FullNameWithPath: c:\temp\AI\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_2354c904-2a34-48b5-9d32-8d493bab63d2.jp.jpg,
+    FileSize: 279911,
+    IsImage: true
+  },
+  {
+    Id: Guid_32,
+    FileAccessDetail: {
+      Id: Guid_32,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: _data_user_0_com.onet.connect.puzzle.match.game.wh_files_29efb32a-eafd-4f5e-a70b-05253ce9179c.jp.jpg,
+    DirectoryName: c:\temp\AI,
+    FullNameWithPath: c:\temp\AI\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_29efb32a-eafd-4f5e-a70b-05253ce9179c.jp.jpg,
+    FileSize: 261851,
+    IsImage: true
+  },
+  {
+    Id: Guid_33,
+    FileAccessDetail: {
+      Id: Guid_33,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: _data_user_0_com.onet.connect.puzzle.match.game.wh_files_2de744e4-aa31-4545-81de-7463493b9a8d.jp.jpg,
+    DirectoryName: c:\temp\AI,
+    FullNameWithPath: c:\temp\AI\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_2de744e4-aa31-4545-81de-7463493b9a8d.jp.jpg,
+    FileSize: 173279,
+    IsImage: true
+  },
+  {
+    Id: Guid_34,
+    FileAccessDetail: {
+      Id: Guid_34,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: _data_user_0_com.onet.connect.puzzle.match.game.wh_files_3b675081-3ec5-4353-bc55-2841d8ab18c1.jp.jpg,
+    DirectoryName: c:\temp\AI,
+    FullNameWithPath: c:\temp\AI\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_3b675081-3ec5-4353-bc55-2841d8ab18c1.jp.jpg,
+    FileSize: 231008,
+    IsImage: true
+  },
+  {
+    Id: Guid_35,
+    FileAccessDetail: {
+      Id: Guid_35,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: _data_user_0_com.onet.connect.puzzle.match.game.wh_files_e62a63c5-d42c-4d2e-82d2-daad6d1a274b.jp.jpg,
+    DirectoryName: c:\temp\AI,
+    FullNameWithPath: c:\temp\AI\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_e62a63c5-d42c-4d2e-82d2-daad6d1a274b.jp.jpg,
+    FileSize: 297112,
+    IsImage: true
+  },
+  {
+    Id: Guid_36,
+    FileAccessDetail: {
+      Id: Guid_36,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: wallhaven-eo3198.jpg,
+    DirectoryName: c:\temp\Pages,
+    FullNameWithPath: c:\temp\Pages\wallhaven-eo3198.jpg,
+    FileSize: 929888,
+    IsImage: true
+  },
+  {
+    Id: Guid_37,
+    FileAccessDetail: {
+      Id: Guid_37,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: 100000102_hd_638509609800324210_hd.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\AI,
+    FullNameWithPath: c:\temp\wwwroot - Copy\AI\100000102_hd_638509609800324210_hd.jpg,
+    FileSize: 7321172,
+    IsImage: true
+  },
+  {
+    Id: Guid_38,
+    FileAccessDetail: {
+      Id: Guid_38,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: 100000145_638523103212069150.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\AI,
+    FullNameWithPath: c:\temp\wwwroot - Copy\AI\100000145_638523103212069150.jpg,
+    FileSize: 815142,
+    IsImage: true
+  },
+  {
+    Id: Guid_39,
+    FileAccessDetail: {
+      Id: Guid_39,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: 100000150_638524300326765720.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\AI,
+    FullNameWithPath: c:\temp\wwwroot - Copy\AI\100000150_638524300326765720.jpg,
+    FileSize: 843031,
+    IsImage: true
+  },
+  {
+    Id: Guid_40,
+    FileAccessDetail: {
+      Id: Guid_40,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: 100000205_638509236020965080.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\AI,
+    FullNameWithPath: c:\temp\wwwroot - Copy\AI\100000205_638509236020965080.jpg,
+    FileSize: 837731,
+    IsImage: true
+  },
+  {
+    Id: Guid_41,
+    FileAccessDetail: {
+      Id: Guid_41,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: 100000212_638509618854517090.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\AI,
+    FullNameWithPath: c:\temp\wwwroot - Copy\AI\100000212_638509618854517090.jpg,
+    FileSize: 809024,
+    IsImage: true
+  },
+  {
+    Id: Guid_42,
+    FileAccessDetail: {
+      Id: Guid_42,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: 100000213_638509620054640660.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\AI,
+    FullNameWithPath: c:\temp\wwwroot - Copy\AI\100000213_638509620054640660.jpg,
+    FileSize: 687518,
+    IsImage: true
+  },
+  {
+    Id: Guid_43,
+    FileAccessDetail: {
+      Id: Guid_43,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: 100000378_638523099978008470.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\AI,
+    FullNameWithPath: c:\temp\wwwroot - Copy\AI\100000378_638523099978008470.jpg,
+    FileSize: 718263,
+    IsImage: true
+  },
+  {
+    Id: Guid_44,
+    FileAccessDetail: {
+      Id: Guid_44,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: 100000383_638523178079943390.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\AI,
+    FullNameWithPath: c:\temp\wwwroot - Copy\AI\100000383_638523178079943390.jpg,
+    FileSize: 910120,
+    IsImage: true
+  },
+  {
+    Id: Guid_45,
+    FileAccessDetail: {
+      Id: Guid_45,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: 100000384_638523239000544620.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\AI,
+    FullNameWithPath: c:\temp\wwwroot - Copy\AI\100000384_638523239000544620.jpg,
+    FileSize: 910873,
+    IsImage: true
+  },
+  {
+    Id: Guid_46,
+    FileAccessDetail: {
+      Id: Guid_46,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: 100000386_638523244486106450.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\AI,
+    FullNameWithPath: c:\temp\wwwroot - Copy\AI\100000386_638523244486106450.jpg,
+    FileSize: 756590,
+    IsImage: true
+  },
+  {
+    Id: Guid_47,
+    FileAccessDetail: {
+      Id: Guid_47,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: 100000396_638523351409444560.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\AI,
+    FullNameWithPath: c:\temp\wwwroot - Copy\AI\100000396_638523351409444560.jpg,
+    FileSize: 873340,
+    IsImage: true
+  },
+  {
+    Id: Guid_48,
+    FileAccessDetail: {
+      Id: Guid_48,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: _data_user_0_com.onet.connect.puzzle.match.game.wh_files_0cabdd0e-c709-4914-ac66-d91c90cf1e45.jp.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\AI,
+    FullNameWithPath: c:\temp\wwwroot - Copy\AI\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_0cabdd0e-c709-4914-ac66-d91c90cf1e45.jp.jpg,
+    FileSize: 270787,
+    IsImage: true
+  },
+  {
+    Id: Guid_49,
+    FileAccessDetail: {
+      Id: Guid_49,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: _data_user_0_com.onet.connect.puzzle.match.game.wh_files_17ffc39c-57ec-4ebf-ad7f-069a42aece0d.jp.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\AI,
+    FullNameWithPath: c:\temp\wwwroot - Copy\AI\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_17ffc39c-57ec-4ebf-ad7f-069a42aece0d.jp.jpg,
+    FileSize: 191687,
+    IsImage: true
+  },
+  {
+    Id: Guid_50,
+    FileAccessDetail: {
+      Id: Guid_50,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: _data_user_0_com.onet.connect.puzzle.match.game.wh_files_2354c904-2a34-48b5-9d32-8d493bab63d2.jp.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\AI,
+    FullNameWithPath: c:\temp\wwwroot - Copy\AI\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_2354c904-2a34-48b5-9d32-8d493bab63d2.jp.jpg,
+    FileSize: 279911,
+    IsImage: true
+  },
+  {
+    Id: Guid_51,
+    FileAccessDetail: {
+      Id: Guid_51,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: _data_user_0_com.onet.connect.puzzle.match.game.wh_files_29efb32a-eafd-4f5e-a70b-05253ce9179c.jp.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\AI,
+    FullNameWithPath: c:\temp\wwwroot - Copy\AI\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_29efb32a-eafd-4f5e-a70b-05253ce9179c.jp.jpg,
+    FileSize: 261851,
+    IsImage: true
+  },
+  {
+    Id: Guid_52,
+    FileAccessDetail: {
+      Id: Guid_52,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: _data_user_0_com.onet.connect.puzzle.match.game.wh_files_2de744e4-aa31-4545-81de-7463493b9a8d.jp.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\AI,
+    FullNameWithPath: c:\temp\wwwroot - Copy\AI\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_2de744e4-aa31-4545-81de-7463493b9a8d.jp.jpg,
+    FileSize: 173279,
+    IsImage: true
+  },
+  {
+    Id: Guid_53,
+    FileAccessDetail: {
+      Id: Guid_53,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: _data_user_0_com.onet.connect.puzzle.match.game.wh_files_e62a63c5-d42c-4d2e-82d2-daad6d1a274b.jp.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\AI,
+    FullNameWithPath: c:\temp\wwwroot - Copy\AI\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_e62a63c5-d42c-4d2e-82d2-daad6d1a274b.jp.jpg,
+    FileSize: 297112,
+    IsImage: true
+  },
+  {
+    Id: Guid_54,
+    FileAccessDetail: {
+      Id: Guid_54,
+      SoftDeleted: true,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: 100000212_638509618854517090.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\AI\New folder,
+    FullNameWithPath: c:\temp\wwwroot - Copy\AI\New folder\100000212_638509618854517090.jpg,
+    FileSize: 809024,
+    IsImage: true
+  },
+  {
+    Id: Guid_55,
+    FileAccessDetail: {
+      Id: Guid_55,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: 100000378_638523099978008470.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\AI\New folder,
+    FullNameWithPath: c:\temp\wwwroot - Copy\AI\New folder\100000378_638523099978008470.jpg,
+    FileSize: 718263,
+    IsImage: true
+  },
+  {
+    Id: Guid_56,
+    FileAccessDetail: {
+      Id: Guid_56,
+      SoftDeleted: true,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: 100000383_638523178079943390.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\AI\New folder,
+    FullNameWithPath: c:\temp\wwwroot - Copy\AI\New folder\100000383_638523178079943390.jpg,
+    FileSize: 910120,
+    IsImage: true
+  },
+  {
+    Id: Guid_57,
+    FileAccessDetail: {
+      Id: Guid_57,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: 100000384_638523239000544620.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\AI\New folder,
+    FullNameWithPath: c:\temp\wwwroot - Copy\AI\New folder\100000384_638523239000544620.jpg,
+    FileSize: 910873,
+    IsImage: true
+  },
+  {
+    Id: Guid_58,
+    FileAccessDetail: {
+      Id: Guid_58,
+      LastViewed: DateTime_1,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: _data_user_0_com.onet.connect.puzzle.match.game.wh_files_0cabdd0e-c709-4914-ac66-d91c90cf1e45.jp.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\AI\New folder,
+    FullNameWithPath: c:\temp\wwwroot - Copy\AI\New folder\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_0cabdd0e-c709-4914-ac66-d91c90cf1e45.jp.jpg,
+    FileSize: 270787,
+    IsImage: true
+  },
+  {
+    Id: Guid_59,
+    FileAccessDetail: {
+      Id: Guid_59,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: _data_user_0_com.onet.connect.puzzle.match.game.wh_files_17ffc39c-57ec-4ebf-ad7f-069a42aece0d.jp.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\AI\New folder,
+    FullNameWithPath: c:\temp\wwwroot - Copy\AI\New folder\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_17ffc39c-57ec-4ebf-ad7f-069a42aece0d.jp.jpg,
+    FileSize: 191687,
+    IsImage: true
+  },
+  {
+    Id: Guid_60,
+    FileAccessDetail: {
+      Id: Guid_60,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: _data_user_0_com.onet.connect.puzzle.match.game.wh_files_2354c904-2a34-48b5-9d32-8d493bab63d2.jp.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\AI\New folder,
+    FullNameWithPath: c:\temp\wwwroot - Copy\AI\New folder\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_2354c904-2a34-48b5-9d32-8d493bab63d2.jp.jpg,
+    FileSize: 279911,
+    IsImage: true
+  },
+  {
+    Id: Guid_61,
+    FileAccessDetail: {
+      Id: Guid_61,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: _data_user_0_com.onet.connect.puzzle.match.game.wh_files_29efb32a-eafd-4f5e-a70b-05253ce9179c.jp.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\AI\New folder,
+    FullNameWithPath: c:\temp\wwwroot - Copy\AI\New folder\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_29efb32a-eafd-4f5e-a70b-05253ce9179c.jp.jpg,
+    FileSize: 261851,
+    IsImage: true
+  },
+  {
+    Id: Guid_62,
+    FileAccessDetail: {
+      Id: Guid_62,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: _data_user_0_com.onet.connect.puzzle.match.game.wh_files_2de744e4-aa31-4545-81de-7463493b9a8d.jp.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\AI\New folder,
+    FullNameWithPath: c:\temp\wwwroot - Copy\AI\New folder\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_2de744e4-aa31-4545-81de-7463493b9a8d.jp.jpg,
+    FileSize: 173279,
+    IsImage: true
+  },
+  {
+    Id: Guid_63,
+    FileAccessDetail: {
+      Id: Guid_63,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: wallhaven-vq2v65.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\css\open-iconic,
+    FullNameWithPath: c:\temp\wwwroot - Copy\css\open-iconic\wallhaven-vq2v65.jpg,
+    FileSize: 3472385,
+    IsImage: true
+  },
+  {
+    Id: Guid_64,
+    FileAccessDetail: {
+      Id: Guid_64,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: wallhaven-vq313m.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\css\open-iconic,
+    FullNameWithPath: c:\temp\wwwroot - Copy\css\open-iconic\wallhaven-vq313m.jpg,
+    FileSize: 557495,
+    IsImage: true
+  },
+  {
+    Id: Guid_65,
+    FileAccessDetail: {
+      Id: Guid_65,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: wallhaven-vqvwx5.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\css\open-iconic,
+    FullNameWithPath: c:\temp\wwwroot - Copy\css\open-iconic\wallhaven-vqvwx5.jpg,
+    FileSize: 1935012,
+    IsImage: true
+  },
+  {
+    Id: Guid_66,
+    FileAccessDetail: {
+      Id: Guid_66,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: wallhaven-we3pxr.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\css\open-iconic,
+    FullNameWithPath: c:\temp\wwwroot - Copy\css\open-iconic\wallhaven-we3pxr.jpg,
+    FileSize: 1102360,
+    IsImage: true
+  },
+  {
+    Id: Guid_67,
+    FileAccessDetail: {
+      Id: Guid_67,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: wallhaven-yx9wdk.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\css\open-iconic,
+    FullNameWithPath: c:\temp\wwwroot - Copy\css\open-iconic\wallhaven-yx9wdk.jpg,
+    FileSize: 657977,
+    IsImage: true
+  },
+  {
+    Id: Guid_68,
+    FileAccessDetail: {
+      Id: Guid_68,
+      SoftDeleted: false,
+      SoftDeletePending: false,
+      MoveRequired: false,
+      HardDeletePending: false
+    },
+    FileName: wallhaven-zy2gyg.jpg,
+    DirectoryName: c:\temp\wwwroot - Copy\css\open-iconic,
+    FullNameWithPath: c:\temp\wwwroot - Copy\css\open-iconic\wallhaven-zy2gyg.jpg,
+    FileSize: 1727518,
+    IsImage: true
+  }
+]

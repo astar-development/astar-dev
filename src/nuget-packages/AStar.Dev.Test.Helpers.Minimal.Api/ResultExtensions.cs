@@ -17,7 +17,7 @@ public static class ResultExtensions
     public static T? GetResultValue<T>(this IResult result) =>
         (T?)result.GetType()
                   .GetProperty("Value", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
-                 ?.GetValue(result);
+                  ?.GetValue(result);
 
     /// <summary>
     ///     The GetResultStatusCode method will return the Status Code property from the <see cref="IResult" /> object
@@ -28,5 +28,5 @@ public static class ResultExtensions
     public static int? GetResultStatusCode(this IResult result) =>
         (int?)result.GetType()
                     .GetProperty("StatusCode", BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public)
-                   ?.GetValue(result);
+                    ?.GetValue(result);
 }

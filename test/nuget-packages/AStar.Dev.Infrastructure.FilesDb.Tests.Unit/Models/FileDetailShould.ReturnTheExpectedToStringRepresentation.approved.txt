@@ -1,0 +1,34 @@
+﻿{
+  "fileClassifications": [
+    {
+      "id": 1,
+      "name": "Test Classification",
+      "fileDetails": [],
+      "celebrity": true,
+      "fileNameParts": []
+    }
+  ],
+  "id": 1,
+  "imageDetails": {
+    "id": 1,
+    "width": 456,
+    "height": 123,
+    "fileDetailsId": 1
+  },
+  "fileName": "MockFileName",
+  "directoryName": "MockDirectoryName",
+  "fullNameWithPath": "MockDirectoryName/MockFileName",
+  "fileSize": 1234,
+  "isImage": true,
+  "fileHandle": "MockFileHandle",
+  "fileCreated": "2025-06-28T22:15:37+00:00",
+  "fileLastModified": "2025-06-28T22:15:37+00:00",
+  "fileLastViewed": "2025-06-28T22:20:37+00:00",
+  "softDeleted": true,
+  "softDeletePending": true,
+  "moveRequired": true,
+  "hardDeletePending": true,
+  "hardDeleted": true,
+  "detailsModified": "2025-06-28T22:30:37+00:00",
+  "modifiedBy": "Test User"
+}

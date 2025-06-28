@@ -6,7 +6,9 @@
     <members>
         <member name="T:AStar.Dev.Images.Api.Client.SDK.Constants">
             <summary>
-                The <see cref="T:AStar.Dev.Images.Api.Client.SDK.Constants" /> class containing the project-specific constants
+                The
+                <see cref="T:AStar.Dev.Images.Api.Client.SDK.Constants"/>
+                class containing the project-specific constants
             </summary>
         </member>
         <member name="F:AStar.Dev.Images.Api.Client.SDK.Constants.ApiName">
@@ -29,7 +31,7 @@
             <param name="logger"></param>
         </member>
         <member name="M:AStar.Dev.Images.Api.Client.SDK.ImagesApi.ImagesApiClient.GetHealthAsync(System.Threading.CancellationToken)">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="M:AStar.Dev.Images.Api.Client.SDK.ImagesApi.ImagesApiClient.GetImageAsync(System.String,System.Int32,System.Boolean)">
             <summary>
@@ -50,20 +52,10 @@
             </summary>
         </member>
         <member name="P:AStar.Dev.Images.Api.Client.SDK.ImagesApi.ImagesApiConfiguration.BaseUrl">
-            <inheritdoc />
+            <inheritdoc/>
         </member>
         <member name="P:AStar.Dev.Images.Api.Client.SDK.ImagesApi.ImagesApiConfiguration.Scopes">
-            <inheritdoc />
-        </member>
-        <member name="T:AStar.Dev.Images.Api.Client.SDK.Models.NotFound">
-            <summary>
-                The <see cref="T:AStar.Dev.Images.Api.Client.SDK.Models.NotFound" /> class that can be used to supply an image for the "not found" event
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Images.Api.Client.SDK.Models.NotFound.Image">
-            <summary>
-                Gets the <see cref="T:System.Byte" /> array representing the "not found" image
-            </summary>
+            <inheritdoc/>
         </member>
     </members>
 </doc>

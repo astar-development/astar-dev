@@ -19,10 +19,7 @@ namespace AStar.Dev.AspNet.Extensions.ServiceCollectionExtensions;
 /// </summary>
 public static class ServiceCollectionExtensions
 {
-    private static ApiUsageConfiguration ApiUsageConfiguration { get; set; } = new()
-                                                                               {
-                                                                                   UserName = "NotSet", Password = "NotSet", HostName = "NotSet", QueueName = "NotSet",
-                                                                               };
+    private static ApiUsageConfiguration ApiUsageConfiguration { get; set; } = new() { UserName = "NotSet", Password = "NotSet", HostName = "NotSet", QueueName = "NotSet" };
 
     /// <summary>
     ///     The <see cref="ConfigureUi" /> will do exactly what it says on the tin...this time around, this is for the UI
@@ -40,7 +37,7 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection ConfigureUi(this IServiceCollection services)
     {
         _ = services
-           .AddControllers();
+            .AddControllers();
 
         return services;
     }
@@ -64,8 +61,8 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddApiConfiguration(this IServiceCollection services, ConfigurationManager configurationManager)
     {
         _ = services
-           .AddOptions<ApiUsageConfiguration>()
-           .Bind(configurationManager.GetSection(ApiUsageConfiguration.ConfigurationSectionName));
+            .AddOptions<ApiUsageConfiguration>()
+            .Bind(configurationManager.GetSection(ApiUsageConfiguration.ConfigurationSectionName));
 
         ApiUsageConfiguration = services.BuildServiceProvider().GetRequiredService<IOptions<ApiUsageConfiguration>>().Value;
         services.AddProblemDetails();
@@ -102,7 +99,7 @@ public static class ServiceCollectionExtensions
                                                                                Name   = "Authorization",
                                                                                In     = ParameterLocation.Header,
                                                                                Type   = SecuritySchemeType.Http,
-                                                                               Scheme = "Bearer",
+                                                                               Scheme = "Bearer"
                                                                            });
 
                                    options.AddSecurityRequirement(new()
@@ -110,13 +107,13 @@ public static class ServiceCollectionExtensions
                                                                       {
                                                                           new()
                                                                           {
-                                                                              Reference = new() { Type = ReferenceType.SecurityScheme, Id = "Bearer", },
+                                                                              Reference = new() { Type = ReferenceType.SecurityScheme, Id = "Bearer" },
                                                                               Scheme    = "oauth2",
                                                                               Name      = "Bearer",
-                                                                              In        = ParameterLocation.Header,
+                                                                              In        = ParameterLocation.Header
                                                                           },
                                                                           new List<string>()
-                                                                      },
+                                                                      }
                                                                   });
                                });
 
@@ -126,8 +123,8 @@ public static class ServiceCollectionExtensions
     private static void CreateValidatedApiConfiguration(this IServiceCollection services,
                                                         ConfigurationManager    configurationManager) =>
         services
-           .AddOptions<ApiConfiguration>()
-           .Bind(configurationManager.GetSection(ApiConfiguration.ConfigurationSectionName))
-           .ValidateDataAnnotations()
-           .ValidateOnStart();
+            .AddOptions<ApiConfiguration>()
+            .Bind(configurationManager.GetSection(ApiConfiguration.ConfigurationSectionName))
+            .ValidateDataAnnotations()
+            .ValidateOnStart();
 }

@@ -1,0 +1,7 @@
+﻿{
+  "directories": [],
+  "filesApiConfiguration": {
+    "baseUrl": "https://not.set.com",
+    "scopes": []
+  }
+}

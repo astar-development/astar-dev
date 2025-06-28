@@ -22,7 +22,7 @@ public static class SearchCategoryData
         }
 
         context.Set<SearchCategory>()
-               .Add(new() { Id = 2401, Name = "Initial Category", });
+               .Add(new() { Id = 2401, Name = "Initial Category" });
 
         context.SaveChanges();
     }

@@ -1,0 +1,30 @@
+﻿{
+  "fileSize": 123456,
+  "fileSizeForDisplay": "120.56 Kb",
+  "fileGrouping": {
+    "fileSize": 2345,
+    "height": 1432,
+    "width": 2221
+  },
+  "duplicates": [
+    {
+      "id": 2,
+      "fileAccessDetailId": 1,
+      "fileName": "MockFileName",
+      "directoryName": "MockDirectoryName",
+      "height": 345,
+      "width": 567,
+      "fileSize": 1234,
+      "fileHandle": "MockFileHandle",
+      "isImage": true,
+      "instances": 3,
+      "detailsLastUpdated": "2025-12-23T00:00:00",
+      "lastViewed": "2025-12-24T00:00:00",
+      "softDeleted": true,
+      "softDeletePending": true,
+      "moveRequired": true,
+      "hardDeletePending": true,
+      "fullNameWithPath": "MockDirectoryName/MockFileName"
+    }
+  ]
+}

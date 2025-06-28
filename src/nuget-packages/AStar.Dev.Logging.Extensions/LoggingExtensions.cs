@@ -71,8 +71,8 @@ public static class LoggingExtensions
         var serviceProvider = builder.Services.BuildServiceProvider();
 
         var logger = new LoggerConfiguration()
-                    .Configure(builder.Configuration, serviceProvider.GetRequiredService<TelemetryConfiguration>())
-                    .CreateLogger();
+                     .Configure(builder.Configuration, serviceProvider.GetRequiredService<TelemetryConfiguration>())
+                     .CreateLogger();
 
         logger.Debug("Serilog has been configured.");
 

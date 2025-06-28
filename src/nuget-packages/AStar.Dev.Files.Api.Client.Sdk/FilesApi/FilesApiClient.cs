@@ -35,7 +35,7 @@ public sealed class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition to
         {
             logger.LogError(500, ex, "Error: {ErrorMessage}", ex.Message);
 
-            return new() { Status = $"Could not get a response from the {Constants.ApiName}.", };
+            return new() { Status = $"Could not get a response from the {Constants.ApiName}." };
         }
     }
 
@@ -176,7 +176,7 @@ public sealed class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition to
         {
             logger.LogInformation("Marking the fileId: {FileId} for soft deletion.", fileId);
 
-            var content = new StringContent(JsonSerializer.Serialize(new { fileId, }), Encoding.UTF8,
+            var content = new StringContent(JsonSerializer.Serialize(new { fileId }), Encoding.UTF8,
                                             "application/json");
 
             var response = await httpClient.PutAsync("soft-delete/mark?version=1", content);
@@ -206,7 +206,7 @@ public sealed class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition to
         {
             logger.LogInformation("Unmarking the fileId: {FileId} for soft deletion.", fileId);
 
-            var content = new StringContent(JsonSerializer.Serialize(new { fileId, }), Encoding.UTF8,
+            var content = new StringContent(JsonSerializer.Serialize(new { fileId }), Encoding.UTF8,
                                             "application/json");
 
             var response = await httpClient.PutAsync("soft-delete/unmark?version=1", content);
@@ -236,7 +236,7 @@ public sealed class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition to
         {
             logger.LogInformation("Marking the fileId: {FileId} for hard deletion.", fileId);
 
-            var content = new StringContent(JsonSerializer.Serialize(new { fileId, }), Encoding.UTF8,
+            var content = new StringContent(JsonSerializer.Serialize(new { fileId }), Encoding.UTF8,
                                             "application/json");
 
             var response = await httpClient.PutAsync("hard-delete/mark?version=1", content);
@@ -266,7 +266,7 @@ public sealed class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition to
         {
             logger.LogInformation("Unmarking the fileId: {FileId} for hard deletion.", fileId);
 
-            var content = new StringContent(JsonSerializer.Serialize(new { fileId, }), Encoding.UTF8,
+            var content = new StringContent(JsonSerializer.Serialize(new { fileId }), Encoding.UTF8,
                                             "application/json");
 
             var response = await httpClient.PutAsync("hard-delete/unmark?version=1", content);
@@ -296,7 +296,7 @@ public sealed class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition to
         {
             logger.LogInformation("Marking the fileId: {FileId} for moving.", fileId);
 
-            var content = new StringContent(JsonSerializer.Serialize(new { fileId, }), Encoding.UTF8,
+            var content = new StringContent(JsonSerializer.Serialize(new { fileId }), Encoding.UTF8,
                                             "application/json");
 
             var response = await httpClient.PutAsync("move/mark?version=1", content);
@@ -326,7 +326,7 @@ public sealed class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition to
         {
             logger.LogInformation("Unmarking the fileId: {FileId} for moving.", fileId);
 
-            var content = new StringContent(JsonSerializer.Serialize(new { fileId, }), Encoding.UTF8,
+            var content = new StringContent(JsonSerializer.Serialize(new { fileId }), Encoding.UTF8,
                                             "application/json");
 
             var response = await httpClient.PutAsync("move/unmark?version=1", content);
@@ -404,6 +404,6 @@ public sealed class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition to
         logger.LogInformation("The {ApiName} Health failed - {FailureReason}.", Constants.ApiName,
                               response.ReasonPhrase);
 
-        return new() { Status = $"Health Check failed - {response.ReasonPhrase}.", };
+        return new() { Status = $"Health Check failed - {response.ReasonPhrase}." };
     }
 }
