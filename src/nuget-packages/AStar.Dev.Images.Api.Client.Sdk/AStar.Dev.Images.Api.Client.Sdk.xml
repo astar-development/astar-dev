@@ -55,15 +55,5 @@
         <member name="P:AStar.Dev.Images.Api.Client.SDK.ImagesApi.ImagesApiConfiguration.Scopes">
             <inheritdoc />
         </member>
-        <member name="T:AStar.Dev.Images.Api.Client.SDK.Models.NotFound">
-            <summary>
-                The <see cref="T:AStar.Dev.Images.Api.Client.SDK.Models.NotFound" /> class that can be used to supply an image for the "not found" event
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Images.Api.Client.SDK.Models.NotFound.Image">
-            <summary>
-                Gets the <see cref="T:System.Byte" /> array representing the "not found" image
-            </summary>
-        </member>
     </members>
 </doc>

@@ -14,7 +14,7 @@ public class DuplicatesDetails
     public int Id { get; set; }
 
     /// <summary>
-    ///     The FileAccessDetailId of the joined <see cref="FileAccessDetail" /> table. The joined data is not in the Duplicates list
+    ///     The FileAccessDetailId of the joined <see cref="ImageDetails" /> table. The joined data is not in the Duplicates list
     /// </summary>
     public int FileAccessDetailId { get; set; }
 

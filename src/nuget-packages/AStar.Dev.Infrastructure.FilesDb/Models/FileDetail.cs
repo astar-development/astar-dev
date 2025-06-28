@@ -39,7 +39,7 @@ public sealed class FileDetail
 
     /// <summary>
     /// </summary>
-    public FileAccessDetail FileAccessDetail { get; set; } = new();
+    public ImageDetails ImageDetails { get; set; } = new();
 
     /// <summary>
     ///     Gets or sets the file name. I know, shocking...
@@ -57,16 +57,6 @@ public sealed class FileDetail
     public string FullNameWithPath => Path.Combine(DirectoryName, FileName);
 
     /// <summary>
-    ///     Gets or sets the height of the image. I know, shocking...
-    /// </summary>
-    public int Height { get; set; }
-
-    /// <summary>
-    ///     Gets or sets the width of the image. I know, shocking...
-    /// </summary>
-    public int Width { get; set; }
-
-    /// <summary>
     ///     Gets or sets the file size. I know, shocking...
     /// </summary>
     public long FileSize { get; set; }
@@ -80,6 +70,56 @@ public sealed class FileDetail
     ///     Gets or sets the file handle. I know, shocking...
     /// </summary>
     public string FileHandle { get; set; } = string.Empty;
+
+    /// <summary>
+    ///
+    /// </summary>
+    public DateTimeOffset FileCreated { get; set; }
+
+    /// <summary>
+    ///
+    /// </summary>
+    public DateTimeOffset FileLastModified { get; set; }
+
+    /// <summary>
+    ///
+    /// </summary>
+    public DateTimeOffset? FileLastViewed { get; set; }
+
+    /// <summary>
+    ///     Gets or sets whether the file has been 'soft deleted'. I know, shocking...
+    /// </summary>
+    public bool SoftDeleted { get; set; }
+
+    /// <summary>
+    ///     Gets or sets whether the file has been marked as 'delete pending'. I know, shocking...
+    /// </summary>
+    public bool SoftDeletePending { get; set; }
+
+    /// <summary>
+    ///     Gets or sets whether the file has been marked as 'needs to move'. I know, shocking...
+    /// </summary>
+    public bool MoveRequired { get; set; }
+
+    /// <summary>
+    ///     Gets or sets whether the file has been marked as 'delete permanently pending'. I know, shocking...
+    /// </summary>
+    public bool HardDeletePending { get; set; }
+
+    /// <summary>
+    ///     Gets or sets whether the file has been permanently deleted. I know, shocking...
+    /// </summary>
+    public bool HardDeleted { get; set; }
+
+    /// <summary>
+    ///
+    /// </summary>
+    public DateTimeOffset DetailsModified { get; set; }
+
+    /// <summary>
+    ///
+    /// </summary>
+    public string ModifiedBy { get; set; } = string.Empty;
 
     /// <summary>
     ///     Returns this object in JSON format

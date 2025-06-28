@@ -5,7 +5,7 @@
 namespace AStar.Dev.Infrastructure.FilesDb.Migrations
 {
     /// <inheritdoc />
-    public partial class AddDuplicatesDetailsView : Migration
+    public partial class AddDuplicatesDetailView : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,26 +15,25 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                                  BEGIN
                                     EXEC sys.sp_executesql N'CREATE VIEW [files].[vw_DuplicatesDetails]
                                     AS
-                                     SELECT FD.[Id]
-                                       ,[FileAccessDetailId]
+                                    SELECT FD.[Id]
                                        ,[FileName]
                                        ,[DirectoryName]
-                                       ,FD.[Height]
-                                       ,FD.[Width]
+                                       ,[Dups].[Height]
+                                       ,[Dups].[Width]
                                        ,FD.[FileSize]
                                        ,[FileHandle]
                                        ,[IsImage]
                                        , Dups.Instances
-                                       , FAD.DetailsLastUpdated
-                                       , LastViewed
+                                       , DetailsModified
+                                       , FileLastViewed
                                        , SoftDeleted
                                        , SoftDeletePending
                                        , MoveRequired
                                        , HardDeletePending
-                                     FROM files.FileDetail as FD
-                                     INNER JOIN [files].[vw_DuplicateCounts] AS Dups ON FD.FileSize = Dups.FileSize AND FD.Height = Dups.Height AND FD.Width = Dups.Width
-                                     INNER JOIN [files].[FileAccessDetail] as FAD ON FAD.Id = FD.FileAccessDetailId
-                                     WHERE HardDeleted = 0;'
+                                 FROM files.FileDetail as FD
+                                 LEFT JOIN [files].[ImageDetails] as ImageD ON ImageD.Id = FD.ImageDetailsId
+                                 INNER JOIN [files].[vw_DuplicateCounts] AS Dups ON FD.FileSize = Dups.FileSize AND ImageD.Height = Dups.Height AND ImageD.Width = Dups.Width
+                                 WHERE HardDeleted = 0;'
                                  END
                                  """);
         }

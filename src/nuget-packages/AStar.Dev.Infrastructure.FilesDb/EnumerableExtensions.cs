@@ -59,12 +59,14 @@ public static class EnumerableExtensions
             return 0;
         }
 
-        var duplicatesBySize = files.AsEnumerable()
-                                    .GroupBy(file => FileSize.Create(file.FileSize, file.Height, file.Width),
-                                             new FileSizeEqualityComparer()).Where(fileGroups => fileGroups.Count() > 1)
-                                    .ToArray();
-
-        return duplicatesBySize.Length;
+        // var duplicatesBySize = files
+        //                        .Join(f=>f.ImageDetails).AsEnumerable()
+        //                             .GroupBy(file => FileSize.Create(file.FileSize, file.Height, file.Width),
+        //                                      new FileSizeEqualityComparer()).Where(fileGroups => fileGroups.Count() > 1)
+        //                             .ToArray();
+        //
+        // return duplicatesBySize.Length;
+        return 0;
     }
 
     /// <summary>
@@ -75,10 +77,13 @@ public static class EnumerableExtensions
     /// </param>
     /// <returns>
     /// </returns>
-    public static IEnumerable<IGrouping<FileSize, FileDetail>> GetDuplicates(this IEnumerable<FileDetail> files) =>
-        files
-            .GroupBy(file => FileSize.Create(file.FileSize, file.Height, file.Width),
-                     new FileSizeEqualityComparer()).Where(fileGroups => fileGroups.Count() > 1);
+    public static IEnumerable<IGrouping<FileSize, FileDetail>> GetDuplicates(this IEnumerable<FileDetail> files)
+    {
+        // return files
+        //        .GroupBy(file => FileSize.Create(file.FileSize, file.Height, file.Width),
+        //                 new FileSizeEqualityComparer()).Where(fileGroups => fileGroups.Count() > 1);
+        return [];
+    }
 
     private static IEnumerable<FileDetail> FilterImagesIfApplicable(IEnumerable<FileDetail> files, string searchType) =>
         searchType != "Images"

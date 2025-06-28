@@ -6,15 +6,11 @@ namespace AStar.Dev.Infrastructure.FilesDb.Configurations;
 
 /// <summary>
 /// </summary>
-public class TagToIgnoreConfiguration : IEntityTypeConfiguration<TagToIgnore>
+public class ImageDetailsConfiguration : IEntityTypeConfiguration<ImageDetails>
 {
     /// <inheritdoc />
-    public void Configure(EntityTypeBuilder<TagToIgnore> builder)
-    {
+    public void Configure(EntityTypeBuilder<ImageDetails> builder) =>
         _ = builder
-            .ToTable(nameof(TagToIgnore), Constants.SchemaName)
+            .ToTable(nameof(ImageDetails), Constants.SchemaName)
             .HasKey(fileDetail => fileDetail.Id);
-
-        builder.Property(fileDetail => fileDetail.Value).HasMaxLength(300);
-    }
 }

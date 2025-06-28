@@ -3,19 +3,28 @@
 namespace AStar.Dev.Infrastructure.FilesDb.Models;
 
 /// <summary>
-///     The <see href="ModelToIgnore"></see> class
 /// </summary>
-public sealed class ModelToIgnore
+public sealed class ImageDetails
 {
     /// <summary>
-    ///     Gets or sets The ID of the <see href="ModelToIgnore"></see>. I know, shocking...
+    ///     Gets or sets The ID of the <see href="FileAccessDetail"></see>. I know, shocking...
     /// </summary>
     public int Id { get; set; }
 
     /// <summary>
-    ///     Gets or sets the value of the Model to ignore completely. I know, shocking...
+    ///     Gets or sets The Width
     /// </summary>
-    public string Value { get; set; } = string.Empty;
+    public int Width { get; set; }
+
+    /// <summary>
+    ///     Gets or sets The Height
+    /// </summary>
+    public int Height { get; set; }
+
+    /// <summary>
+    ///     Gets or sets The FileDetailsId
+    /// </summary>
+    public int FileDetailsId { get; set; }
 
     /// <summary>
     ///     Returns this object in JSON format

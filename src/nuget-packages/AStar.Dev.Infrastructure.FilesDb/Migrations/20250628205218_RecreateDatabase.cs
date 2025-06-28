@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace AStar.Dev.Infrastructure.FilesDb.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreation : Migration
+    public partial class RecreateDatabase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,23 +15,27 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                 name: "files");
 
             migrationBuilder.CreateTable(
-                name: "FileAccessDetail",
+                name: "Events",
                 schema: "files",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    DetailsLastUpdated = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    LastViewed = table.Column<DateTime>(type: "datetime2", nullable: true),
-                    SoftDeleted = table.Column<bool>(type: "bit", nullable: false),
-                    SoftDeletePending = table.Column<bool>(type: "bit", nullable: false),
-                    MoveRequired = table.Column<bool>(type: "bit", nullable: false),
-                    HardDeletePending = table.Column<bool>(type: "bit", nullable: false),
-                    HardDeleted = table.Column<bool>(type: "bit", nullable: false)
+                    EventType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    EventOccurredAt = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
+                    FileName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DirectoryName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Handle = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Width = table.Column<int>(type: "int", nullable: true),
+                    Height = table.Column<int>(type: "int", nullable: true),
+                    FileSize = table.Column<long>(type: "bigint", nullable: false),
+                    FileCreated = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
+                    FileLastModified = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FileAccessDetail", x => x.Id);
+                    table.PrimaryKey("PK_Events", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -50,60 +54,19 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "ModelToIgnore",
+                name: "ImageDetails",
                 schema: "files",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Value = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_ModelToIgnore", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "TagToIgnore",
-                schema: "files",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Value = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false),
-                    IgnoreImage = table.Column<bool>(type: "bit", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_TagToIgnore", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "FileDetail",
-                schema: "files",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    FileAccessDetailId = table.Column<int>(type: "int", nullable: false),
-                    FileName = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false),
-                    DirectoryName = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false),
-                    Height = table.Column<int>(type: "int", nullable: false),
                     Width = table.Column<int>(type: "int", nullable: false),
-                    FileSize = table.Column<long>(type: "bigint", nullable: false),
-                    IsImage = table.Column<bool>(type: "bit", nullable: false),
-                    FileHandle = table.Column<string>(type: "nvarchar(350)", maxLength: 350, nullable: false)
+                    Height = table.Column<int>(type: "int", nullable: false),
+                    FileDetailsId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FileDetail", x => x.Id);
-                    table.ForeignKey(
-                        name: "FK_FileDetail_FileAccessDetail_FileAccessDetailId",
-                        column: x => x.FileAccessDetailId,
-                        principalSchema: "files",
-                        principalTable: "FileAccessDetail",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                    table.PrimaryKey("PK_ImageDetails", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -128,28 +91,37 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "FileClassificationFileDetail",
+                name: "FileDetail",
                 schema: "files",
                 columns: table => new
                 {
-                    FileClassificationsId = table.Column<int>(type: "int", nullable: false),
-                    FileDetailsId = table.Column<int>(type: "int", nullable: false)
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ImageDetailsId = table.Column<int>(type: "int", nullable: false),
+                    FileName = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false),
+                    DirectoryName = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false),
+                    FileSize = table.Column<long>(type: "bigint", nullable: false),
+                    IsImage = table.Column<bool>(type: "bit", nullable: false),
+                    FileHandle = table.Column<string>(type: "nvarchar(350)", maxLength: 350, nullable: false),
+                    FileCreated = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
+                    FileLastModified = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
+                    FileLastViewed = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
+                    SoftDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    SoftDeletePending = table.Column<bool>(type: "bit", nullable: false),
+                    MoveRequired = table.Column<bool>(type: "bit", nullable: false),
+                    HardDeletePending = table.Column<bool>(type: "bit", nullable: false),
+                    HardDeleted = table.Column<bool>(type: "bit", nullable: false),
+                    DetailsModified = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
+                    ModifiedBy = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FileClassificationFileDetail", x => new { x.FileClassificationsId, x.FileDetailsId });
+                    table.PrimaryKey("PK_FileDetail", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_FileClassificationFileDetail_FileClassification_FileClassificationsId",
-                        column: x => x.FileClassificationsId,
+                        name: "FK_FileDetail_ImageDetails_ImageDetailsId",
+                        column: x => x.ImageDetailsId,
                         principalSchema: "files",
-                        principalTable: "FileClassification",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_FileClassificationFileDetail_FileDetail_FileDetailsId",
-                        column: x => x.FileDetailsId,
-                        principalSchema: "files",
-                        principalTable: "FileDetail",
+                        principalTable: "ImageDetails",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -181,6 +153,33 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "FileClassificationFileDetail",
+                schema: "files",
+                columns: table => new
+                {
+                    FileClassificationsId = table.Column<int>(type: "int", nullable: false),
+                    FileDetailsId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FileClassificationFileDetail", x => new { x.FileClassificationsId, x.FileDetailsId });
+                    table.ForeignKey(
+                        name: "FK_FileClassificationFileDetail_FileClassification_FileClassificationsId",
+                        column: x => x.FileClassificationsId,
+                        principalSchema: "files",
+                        principalTable: "FileClassification",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_FileClassificationFileDetail_FileDetail_FileDetailsId",
+                        column: x => x.FileDetailsId,
+                        principalSchema: "files",
+                        principalTable: "FileDetail",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_FileClassificationFileDetail_FileDetailsId",
                 schema: "files",
@@ -194,17 +193,17 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                 column: "FileNamePartsId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_FileDetail_FileAccessDetailId",
-                schema: "files",
-                table: "FileDetail",
-                column: "FileAccessDetailId");
-
-            migrationBuilder.CreateIndex(
                 name: "IX_FileDetail_FileHandle",
                 schema: "files",
                 table: "FileDetail",
                 column: "FileHandle",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FileDetail_ImageDetailsId",
+                schema: "files",
+                table: "FileDetail",
+                column: "ImageDetailsId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_FileNamePart_FileClassificationId",
@@ -217,19 +216,15 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Events",
+                schema: "files");
+
+            migrationBuilder.DropTable(
                 name: "FileClassificationFileDetail",
                 schema: "files");
 
             migrationBuilder.DropTable(
                 name: "FileClassificationFileNamePart",
-                schema: "files");
-
-            migrationBuilder.DropTable(
-                name: "ModelToIgnore",
-                schema: "files");
-
-            migrationBuilder.DropTable(
-                name: "TagToIgnore",
                 schema: "files");
 
             migrationBuilder.DropTable(
@@ -241,7 +236,7 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                 schema: "files");
 
             migrationBuilder.DropTable(
-                name: "FileAccessDetail",
+                name: "ImageDetails",
                 schema: "files");
 
             migrationBuilder.DropTable(
