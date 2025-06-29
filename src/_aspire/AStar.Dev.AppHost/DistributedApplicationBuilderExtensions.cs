@@ -9,7 +9,7 @@ public static class DistributedApplicationBuilderExtensions
 
     public static void AddApplicationProjects(this IDistributedApplicationBuilder distributedApplicationBuilder, string sqlMountDirectory)
     {
-        var sqlPassword      = distributedApplicationBuilder.AddParameter("sql1-password", true);
+        var sqlPassword      = distributedApplicationBuilder.AddParameter(AspireConstants.Sql.SqlPasswordParameter, true);
 
         var sqlServer        = distributedApplicationBuilder.AddSqlServer(AspireConstants.Sql.SqlServer, sqlPassword, 1433)
                                                             .WithLifetime(ContainerLifetime.Persistent)
