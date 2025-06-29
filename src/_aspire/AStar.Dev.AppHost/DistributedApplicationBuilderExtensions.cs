@@ -7,15 +7,14 @@ public static class DistributedApplicationBuilderExtensions
 {
     private const string HealthEndpoint = "/health";
 
-    public static
-        void AddApplicationProjects(this IDistributedApplicationBuilder distributedApplicationBuilder)
+    public static void AddApplicationProjects(this IDistributedApplicationBuilder distributedApplicationBuilder, string sqlMountDirectory)
     {
         var sqlPassword      = distributedApplicationBuilder.AddParameter("sql1-password", true);
 
         var sqlServer        = distributedApplicationBuilder.AddSqlServer(AspireConstants.Sql.SqlServer, sqlPassword, 1433)
                                                             .WithLifetime(ContainerLifetime.Persistent)
                                                             .WithExternalHttpEndpoints()
-                                                            .WithDataBindMount("/home/jason-barden/Documents/database"); // ToDo - get from configuration
+                                                            .WithDataBindMount(sqlMountDirectory);
 
         var adminDb = sqlServer.AddDatabase(AspireConstants.Sql.AdminDb);
         var filesDb = sqlServer.AddDatabase(AspireConstants.Sql.FilesDb);
