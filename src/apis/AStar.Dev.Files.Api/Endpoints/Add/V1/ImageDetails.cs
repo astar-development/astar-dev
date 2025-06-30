@@ -1,4 +1,4 @@
-namespace AStar.Dev.Files.Api.Files.Add.V1;
+namespace AStar.Dev.Files.Api.Endpoints.Add.V1;
 
 /// <summary>
 /// </summary>

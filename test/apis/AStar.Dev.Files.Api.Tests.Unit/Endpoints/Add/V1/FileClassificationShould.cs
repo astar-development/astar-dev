@@ -1,12 +1,12 @@
 using AStar.Dev.Utilities;
 using JetBrains.Annotations;
 
-namespace AStar.Dev.Files.Api.Files.Add.V1;
+namespace AStar.Dev.Files.Api.Endpoints.Add.V1;
 
 [TestSubject(typeof(FileClassification))]
-public class ImageDetailsShould
+public class FileClassificationShould
 {
     [Fact]
     public void ContainTheAddTheExpectedProperties()
-        => new ImageDetails().ToJson().ShouldMatchApproved();
+        => new FileClassification().ToJson().ShouldMatchApproved();
 }

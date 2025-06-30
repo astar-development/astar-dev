@@ -50,4 +50,11 @@
         <NoWarn>1701;1702;</NoWarn>
     </PropertyGroup>
 
+    <PropertyGroup>
+        <Company>AStar Development</Company>
+        <Copyright>AStar Development, 2024</Copyright>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
+        <DocumentationFile>$(AssemblyName).xml</DocumentationFile>
+    </PropertyGroup>
+
 </Project>

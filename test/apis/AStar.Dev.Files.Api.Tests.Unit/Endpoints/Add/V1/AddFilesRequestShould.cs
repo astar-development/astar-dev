@@ -1,7 +1,7 @@
 using AStar.Dev.Utilities;
 using JetBrains.Annotations;
 
-namespace AStar.Dev.Files.Api.Files.Add.V1;
+namespace AStar.Dev.Files.Api.Endpoints.Add.V1;
 
 [TestSubject(typeof(AddFilesRequest))]
 public class AddFilesRequestShould

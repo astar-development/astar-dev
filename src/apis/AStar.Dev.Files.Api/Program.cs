@@ -10,6 +10,7 @@ using AStar.Dev.AspNet.Extensions.ServiceCollectionExtensions;
 using AStar.Dev.AspNet.Extensions.WebApplicationBuilderExtensions;
 using AStar.Dev.Auth.Extensions;
 using AStar.Dev.Files.Api;
+using AStar.Dev.Files.Api.Endpoints.Add.V1;
 using AStar.Dev.Infrastructure.FilesDb.Data;
 using AStar.Dev.Logging.Extensions;
 using Microsoft.AspNetCore.Http.Json;
@@ -87,9 +88,11 @@ try
     app.ConfigureRootPage(applicationName.Replace(".", " "))
        .UseMetrics();
 
+    app.MapDefaultEndpoints();
+
     // the below will use reflection to add the endpoints - makes sure we don't forget but also hides the way they are added
     // app.AddApplicationEndpoints();
-    app.MapDefaultEndpoints();
+    app.MapFilesPostEndpoint(); // clearly, this approach relies on us manually adding
 
     app.Run();
 }
@@ -102,7 +105,10 @@ finally
     Log.CloseAndFlush();
 }
 
-internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
+namespace AStar.Dev.Files.Api
 {
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
+    {
+        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    }
 }
