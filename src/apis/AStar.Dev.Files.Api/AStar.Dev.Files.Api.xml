@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AStar.Dev.Files.Api</name>
+    </assembly>
+    <members>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesRequest">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesRequest"/>
+                contains the detail of the files being added.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesRequest.FilesToAdd">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse"/>
+                contains the detail of the file being added.
+                The name is pluralised as we actually return a list and the endpoint is pluralised...
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Add.V1.FileClassification">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.FileClassification.Name">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.FileClassification.Celebrity">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd"/>
+                class contains the details of the file to add
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd.FileClassifications">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd.Id">
+            <summary>
+                Gets or sets the ID of the <see href="FileDetail"></see>. I know, shocking...
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd.ImageDetails">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd.FileName">
+            <summary>
+                Gets or sets the file name. I know, shocking...
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd.DirectoryName">
+            <summary>
+                Gets or sets the name of the directory containing the file detail. I know, shocking...
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd.FullNameWithPath">
+            <summary>
+                Gets the full name of the file with the path combined
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd.FileSize">
+            <summary>
+                Gets or sets the file size. I know, shocking...
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd.IsImage">
+            <summary>
+                Gets or sets whether the file is of a supported image type
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd.FileHandle">
+            <summary>
+                Gets or sets the file handle. I know, shocking...
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd.FileCreated">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd.FileLastModified">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd.FileLastViewed">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Add.V1.ImageDetails">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.ImageDetails.Width">
+            <summary>
+                Gets or sets The Width
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.ImageDetails.Height">
+            <summary>
+                Gets or sets The Height
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Add.V1.MapFilesEndpoint">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.Add.V1.MapFilesEndpoint.MapFilesPostEndpoint(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder)">
+            <summary>
+            </summary>
+            <param name="endpointRouteBuilder"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.EndpointConstants">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.EndpointConstants.AddFilesGroupName">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.EndpointConstants.AddFilesEndpoint">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.IAssemblyMarker">
+            <summary>
+                The IAssemblyMarker interface is used where a class/interface is required to identify the assembly
+                <para>No functionality is (nor should any be) defined by this marker interface</para>
+            </summary>
+        </member>
+    </members>
+</doc>
