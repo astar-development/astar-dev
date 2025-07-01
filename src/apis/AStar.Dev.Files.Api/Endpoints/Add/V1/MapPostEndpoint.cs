@@ -1,3 +1,6 @@
+using AStar.Dev.Infrastructure.FilesDb.Data;
+using Microsoft.AspNetCore.Mvc;
+
 namespace AStar.Dev.Files.Api.Endpoints.Add.V1;
 
 /// <summary>
@@ -6,7 +9,7 @@ namespace AStar.Dev.Files.Api.Endpoints.Add.V1;
 ///     However, I may use this as the entry point into a set of other classes, which, hopefully, will allow me to avoid the biggest
 ///     issue I have with this class and its method - the desire to have both called the same thing...
 /// </summary>
-public static class MapFilesEndpoint
+public static class MapPostEndpoint
 {
     /// <summary>
     ///     As the name suggests, this method will map the Files (Post) endpoint specifically
@@ -20,17 +23,10 @@ public static class MapFilesEndpoint
                        .MapGroup(EndpointConstants.AddFilesEndpoint)
                        .HasApiVersion(1.0);
 
-        apiGroup.MapPost("/", async (IReadOnlyCollection<AddFilesRequest> files,
-                                     CancellationToken                    cancellationToken) => await Handle(files, cancellationToken))
+        apiGroup.MapPost("/", async (AddFilesRequest   files, [FromServices] FilesContext filesContext, CancellationToken cancellationToken)
+                                  => await PostedFiles.Handle(files, filesContext, TimeProvider.System, cancellationToken))
                 .Produces<IReadOnlyCollection<AddFilesResponse>>(201)
                 .Produces(401)
                 .Produces(403);
-    }
-
-    private static async Task<IResult> Handle(IReadOnlyCollection<AddFilesRequest> files, CancellationToken cancellationToken)
-    {
-        await Task.CompletedTask;
-
-        return TypedResults.Ok(new List<AddFilesResponse>());
     }
 }

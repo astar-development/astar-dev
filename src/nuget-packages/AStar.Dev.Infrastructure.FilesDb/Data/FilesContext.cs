@@ -9,7 +9,7 @@ namespace AStar.Dev.Infrastructure.FilesDb.Data;
 /// <remarks>
 ///     The list of files in the dB
 /// </remarks>
-public sealed class FilesContext : DbContext
+public class FilesContext : DbContext
 {
     /// <summary>
     /// </summary>
@@ -29,7 +29,7 @@ public sealed class FilesContext : DbContext
     /// <summary>
     ///     The list of files in the dB
     /// </summary>
-    public DbSet<FileDetail> Files { get; set; } = null!;
+    public virtual DbSet<FileDetail> Files { get; set; } = null!;
 
     /// <summary>
     ///     The list of file access details in the dB

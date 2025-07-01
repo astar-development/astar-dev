@@ -23,6 +23,53 @@
                 The name is pluralised as we actually return a list and the endpoint is pluralised...
             </summary>
         </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse.Id">
+            <summary>
+                Gets or sets the ID of the <see href="FileDetail"></see>. I know, shocking...
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse.ImageDetails">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse.FileName">
+            <summary>
+                Gets or sets the file name. I know, shocking...
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse.DirectoryName">
+            <summary>
+                Gets or sets the name of the directory containing the file detail. I know, shocking...
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse.FullNameWithPath">
+            <summary>
+                Gets the full name of the file with the path combined
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse.FileSize">
+            <summary>
+                Gets or sets the file size. I know, shocking...
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse.IsImage">
+            <summary>
+                Gets or sets whether the file is of a supported image type
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse.FileHandle">
+            <summary>
+                Gets or sets the file handle. I know, shocking...
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse.FileCreated">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse.FileLastModified">
+            <summary>
+            </summary>
+        </member>
         <member name="T:AStar.Dev.Files.Api.Endpoints.Add.V1.FileClassification">
             <summary>
             </summary>
@@ -34,6 +81,26 @@
         <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.FileClassification.Celebrity">
             <summary>
             </summary>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailExtensions">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailExtensions.ToAddFilesResponse(System.Collections.Generic.IList{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail})">
+            <summary>
+
+            </summary>
+            <param name="fileDetails"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailExtensions.ToFileDetailsList(System.Collections.Generic.IReadOnlyCollection{AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd},System.TimeProvider)">
+            <summary>
+                1
+            </summary>
+            <param name="fileDetails"></param>
+            <param name="time"></param>
+            <returns></returns>
         </member>
         <member name="T:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd">
             <summary>
@@ -111,30 +178,45 @@
                 Gets or sets The Height
             </summary>
         </member>
-        <member name="T:AStar.Dev.Files.Api.Endpoints.Add.V1.MapFilesEndpoint">
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Add.V1.MapPostEndpoint">
+            <summary>
+                As the name suggests, this class contains the Map Files Endpoint method(s)
+                Currently, it only supports the Post, and this may remain as, directly adding Get etc. would, IMO, violate SRP
+                However, I may use this as the entry point into a set of other classes, which, hopefully, will allow me to avoid the biggest
+                issue I have with this class and its method - the desire to have both called the same thing...
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.Add.V1.MapPostEndpoint.MapFilesPostEndpoint(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder)">
+            <summary>
+                As the name suggests, this method will map the Files (Post) endpoint specifically
+            </summary>
+            <param name="endpointRouteBuilder"></param>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Add.V1.PostedFiles">
             <summary>
 
             </summary>
         </member>
-        <member name="M:AStar.Dev.Files.Api.Endpoints.Add.V1.MapFilesEndpoint.MapFilesPostEndpoint(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder)">
+        <member name="M:AStar.Dev.Files.Api.Endpoints.Add.V1.PostedFiles.Handle(AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesRequest,AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,System.TimeProvider,System.Threading.CancellationToken)">
             <summary>
+
             </summary>
-            <param name="endpointRouteBuilder"></param>
+            <param name="files"></param>
+            <param name="filesContext"></param>
+            <param name="time"></param>
+            <param name="cancellationToken"></param>
             <returns></returns>
         </member>
         <member name="T:AStar.Dev.Files.Api.Endpoints.EndpointConstants">
             <summary>
-
             </summary>
         </member>
         <member name="P:AStar.Dev.Files.Api.Endpoints.EndpointConstants.AddFilesGroupName">
             <summary>
-
             </summary>
         </member>
         <member name="P:AStar.Dev.Files.Api.Endpoints.EndpointConstants.AddFilesEndpoint">
             <summary>
-
             </summary>
         </member>
         <member name="T:AStar.Dev.Files.Api.IAssemblyMarker">

@@ -3,7 +3,7 @@ using JetBrains.Annotations;
 
 namespace AStar.Dev.Files.Api.Endpoints.Add.V1;
 
-[TestSubject(typeof(MapFilesEndpoint))]
+[TestSubject(typeof(MapPostEndpoint))]
 public class MapFilesEndpointShould
 {
     [Fact]
@@ -13,7 +13,7 @@ public class MapFilesEndpointShould
 
         builder.MapFilesPostEndpoint();
 
-        const string endpointName = "POST /files";
+        const string endpointName = "/files";
         builder.ContainsEndpointWithDisplayName(endpointName).ShouldBeTrue();
 
         builder.GetEndpointMetadataTags(endpointName).ContainsTag("Add Files").ShouldBeTrue();

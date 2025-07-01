@@ -15,7 +15,7 @@ public sealed class IResultExtensionsShould
     {
         IResult sut = TestEndpoints.GetAll();
 
-        var result = sut.GetResultValue<object>();
+        var result = sut.ResultValue<object>();
 
         result.ShouldBeEquivalentTo(Expected);
     }
@@ -25,7 +25,7 @@ public sealed class IResultExtensionsShould
     {
         IResult sut = TestEndpoints.GetAll();
 
-        var result = sut.GetResultStatusCode();
+        var result = sut.ResultStatusCode();
 
         result.ShouldBe((int)HttpStatusCode.OK);
     }
@@ -35,7 +35,7 @@ public sealed class IResultExtensionsShould
     {
         IResult sut = TestEndpoints.Create();
 
-        var result = sut.GetResultValue<object>();
+        var result = sut.ResultValue<object>();
 
         result.ShouldBeEquivalentTo(new());
     }
@@ -45,7 +45,7 @@ public sealed class IResultExtensionsShould
     {
         IResult sut = TestEndpoints.Create();
 
-        var result = sut.GetResultStatusCode();
+        var result = sut.ResultStatusCode();
 
         result.ShouldBe((int)HttpStatusCode.Created);
     }
