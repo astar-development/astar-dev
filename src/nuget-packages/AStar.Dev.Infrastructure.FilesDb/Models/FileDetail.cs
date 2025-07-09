@@ -1,4 +1,5 @@
 ﻿using System.IO.Abstractions;
+using AStar.Dev.Infrastructure.Data;
 using AStar.Dev.Utilities;
 
 namespace AStar.Dev.Infrastructure.FilesDb.Models;
@@ -6,10 +7,10 @@ namespace AStar.Dev.Infrastructure.FilesDb.Models;
 /// <summary>
 ///     The FileDetail class containing the current properties
 /// </summary>
-public sealed class FileDetail
+public sealed class FileDetail : AuditableEntity
 {
     /// <summary>
-    ///     The default constructor required by EF Core
+    ///     The default constructor required by EF Core etc
     /// </summary>
     public FileDetail()
     {
@@ -39,7 +40,7 @@ public sealed class FileDetail
 
     /// <summary>
     /// </summary>
-    public ImageDetails ImageDetails { get; set; } = new();
+    public ImageDetail ImageDetail { get; set; } = null!;
 
     /// <summary>
     ///     Gets or sets the file name. I know, shocking...
@@ -107,14 +108,6 @@ public sealed class FileDetail
     ///     Gets or sets whether the file has been permanently deleted. I know, shocking...
     /// </summary>
     public bool HardDeleted { get; set; }
-
-    /// <summary>
-    /// </summary>
-    public DateTimeOffset DetailsModified { get; set; }
-
-    /// <summary>
-    /// </summary>
-    public string ModifiedBy { get; set; } = string.Empty;
 
     /// <summary>
     ///     Returns this object in JSON format

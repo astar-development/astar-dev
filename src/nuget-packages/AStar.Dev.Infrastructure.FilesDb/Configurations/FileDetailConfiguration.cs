@@ -11,14 +11,12 @@ public class FileDetailConfiguration : IEntityTypeConfiguration<FileDetail>
     /// <inheritdoc />
     public void Configure(EntityTypeBuilder<FileDetail> builder)
     {
-        _ = builder
-            .ToTable(nameof(FileDetail), Constants.SchemaName)
-            .HasKey(fileDetail => fileDetail.Id);
+        builder.HasKey(file => file.Id);
 
-        builder.Property(fileDetail => fileDetail.FileName).HasMaxLength(300);
-        builder.Property(fileDetail => fileDetail.DirectoryName).HasMaxLength(300);
-        builder.Property(fileDetail => fileDetail.FileHandle).HasMaxLength(350);
-        builder.HasIndex(fileDetail => fileDetail.FileHandle).IsUnique();
-        builder.Ignore(fileDetail => fileDetail.FullNameWithPath);
+        builder.Property(file => file.FileName).HasColumnType("nvarchar(256)");
+
+        builder.Property(file => file.DirectoryName).HasColumnType("nvarchar(256)");
+
+        builder.ComplexProperty(fileDetail => fileDetail.ImageDetail).Configure(new ImageDetailConfiguration());
     }
 }

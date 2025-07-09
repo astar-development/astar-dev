@@ -1,17 +1,17 @@
-﻿#nullable disable
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-using Microsoft.EntityFrameworkCore.Migrations;
+#nullable disable
 
 namespace AStar.Dev.Infrastructure.FilesDb.Migrations
 {
     /// <inheritdoc />
-    public partial class AddDuplicatesCountView : Migration
+    public partial class Recreatevw_DuplicateCounts : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.Sql("""
-                                 IF OBJECT_ID(N'[files].[vw_DuplicatesDetails]', N'V') IS NULL
+                                 IF OBJECT_ID(N'[files].[vw_DuplicateCounts]', N'V') IS NULL
                                  BEGIN
                                     EXEC sys.sp_executesql N'CREATE VIEW [files].[vw_DuplicateCounts]
                                  AS
@@ -37,7 +37,7 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.Sql("""
-                                 IF OBJECT_ID(N'[files].[vw_DuplicatesDetails]', N'V') IS NOT NULL
+                                 IF OBJECT_ID(N'[files].[vw_DuplicateCounts]', N'V') IS NOT NULL
                                  BEGIN
                                     EXEC sys.sp_executesql N'DROP VIEW [files].[vw_DuplicatesDetails];'
                                  END

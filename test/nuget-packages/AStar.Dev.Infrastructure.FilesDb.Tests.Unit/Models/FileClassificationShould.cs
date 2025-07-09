@@ -13,7 +13,10 @@ public class FileClassificationShould
                Id            = 1,
                Celebrity     = true,
                Name          = "Mock Name",
-               FileDetails   = new List<FileDetail> { new() { Id    = 1, DirectoryName = "Mock Directory", FileName = "Mock File Name" } },
+               FileDetails   = new List<FileDetail>
+                               {
+                                   new() { Id    = 1, DirectoryName = "Mock Directory", FileName = "Mock File Name", UpdatedOn = new (new (2025, 6, 28, 22, 20, 37, DateTimeKind.Utc)) }
+                               },
                FileNameParts = new List<FileNamePart> { new()  { Id = 1, Text          = "Mock Text Part" } }
            }.ToJson().ShouldMatchApproved();
 }

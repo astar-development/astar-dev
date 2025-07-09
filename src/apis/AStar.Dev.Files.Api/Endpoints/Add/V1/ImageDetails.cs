@@ -7,10 +7,10 @@ public sealed class ImageDetails
     /// <summary>
     ///     Gets or sets The Width
     /// </summary>
-    public int Width { get; set; }
+    public int? Width { get; set; }
 
     /// <summary>
     ///     Gets or sets The Height
     /// </summary>
-    public int Height { get; set; }
+    public int? Height { get; set; }
 }

@@ -32,34 +32,24 @@ public class FilesContext : DbContext
     public virtual DbSet<FileDetail> Files { get; set; } = null!;
 
     /// <summary>
-    ///     The list of file access details in the dB
-    /// </summary>
-    public DbSet<ImageDetails> FileAccessDetails { get; set; } = null!;
-
-    /// <summary>
     /// </summary>
     public DbSet<FileNamePart> FileNameParts { get;        set; } = null!;
 
     /// <summary>
     ///     The list of Events
     /// </summary>
-    public DbSet<Events> Events { get; set; } = null!;
+    public virtual DbSet<Event> Events { get; set; } = null!;
 
     /// <summary>
     ///     Gets or sets the File Classifications
     /// </summary>
     public DbSet<FileClassification> FileClassifications { get; set; } = null!;
 
-    /// <summary>
-    ///     Gets or sets the DuplicatesDetails loaded from the configured view in the database
-    /// </summary>
-    public DbSet<DuplicatesDetails> DuplicatesDetails { get; set; } = null!;
-
     // /// <inheritdoc />
     // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     // {
     //     base.OnConfiguring(optionsBuilder);
-    //     optionsBuilder.UseSqlServer("Data Source=localhost,nnnnn;Initial Catalog=FilesDb;User ID=sa;Password=<SomeSecurePasswordHere1!>;TrustServerCertificate=True");
+    //     optionsBuilder.UseSqlServer("Data Source=localhost,1433;Initial Catalog=FilesDb;User ID=sa;Password=<SomeSecurePasswordHere1!>;TrustServerCertificate=True");
     // }
 
     /// <summary>
@@ -73,11 +63,12 @@ public class FilesContext : DbContext
         _ = modelBuilder.HasDefaultSchema(Constants.SchemaName);
         _ = modelBuilder.ApplyConfigurationsFromAssembly(typeof(FilesContext).Assembly);
 
+        modelBuilder.Entity<DuplicateDetails>().ToView("vw_DuplicatesDetails");
         modelBuilder
-            .Entity<DuplicatesDetails>(eb =>
-                                       {
-                                           eb.HasNoKey();
-                                           eb.ToView("vw_DuplicatesDetails");
-                                       });
+            .Entity<DuplicateDetails>(eb =>
+                                      {
+                                          eb.HasNoKey();
+                                          eb.ToView("vw_DuplicatesDetails");
+                                      });
     }
 }

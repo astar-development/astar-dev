@@ -3,12 +3,12 @@ using JetBrains.Annotations;
 
 namespace AStar.Dev.Infrastructure.FilesDb.Models;
 
-[TestSubject(typeof(Events))]
-public class EventsShould
+[TestSubject(typeof(Event))]
+public class EventShould
 {
     [Fact]
     public void ContainTheExpectedProperties()
-        => new Events
+        => new Event
            {
                Id               = 1,
                Height           = 123,
@@ -19,7 +19,7 @@ public class EventsShould
                FileSize         = 1234,
                ModifiedBy       = "Test User",
                EventOccurredAt  = new (new (2025,               6, 28, 22, 15, 37, DateTimeKind.Utc)),
-               EventType        = "Mock Event",
+               Type             = EventType.Delete,
                FileLastModified = new (new (2025,               6, 28, 22, 10, 37, DateTimeKind.Utc)),
                Handle           = "Mock Handle"
            }.ToJson().ShouldMatchApproved();

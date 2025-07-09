@@ -10,10 +10,8 @@
   ],
   "id": 1,
   "imageDetails": {
-    "id": 1,
-    "width": 456,
-    "height": 123,
-    "fileDetailsId": 1
+    "width": 1234,
+    "height": 5678
   },
   "fileName": "MockFileName",
   "directoryName": "MockDirectoryName",
@@ -29,6 +27,6 @@
   "moveRequired": true,
   "hardDeletePending": true,
   "hardDeleted": true,
-  "detailsModified": "2025-06-28T22:30:37+00:00",
-  "modifiedBy": "Test User"
+  "updatedBy": "Test User",
+  "updatedOn": "2025-06-28T22:30:37+00:00"
 }

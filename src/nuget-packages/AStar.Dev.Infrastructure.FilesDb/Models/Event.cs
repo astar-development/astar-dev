@@ -2,7 +2,7 @@ namespace AStar.Dev.Infrastructure.FilesDb.Models;
 
 /// <summary>
 /// </summary>
-public class Events
+public class Event
 {
     /// <summary>
     /// </summary>
@@ -10,7 +10,7 @@ public class Events
 
     /// <summary>
     /// </summary>
-    public string EventType { get; set; } = string.Empty;
+    public EventType Type { get; set; } = EventType.Update;
 
     /// <summary>
     /// </summary>

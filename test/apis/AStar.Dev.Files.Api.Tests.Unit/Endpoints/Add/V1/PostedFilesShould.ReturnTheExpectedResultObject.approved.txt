@@ -2,8 +2,8 @@
   {
     "id": 0,
     "imageDetails": {
-      "width": 0,
-      "height": 0
+      "width": null,
+      "height": null
     },
     "fileName": "",
     "directoryName": "",

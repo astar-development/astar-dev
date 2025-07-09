@@ -79,10 +79,10 @@ public class Worker(IServiceProvider serviceProvider, IHostApplicationLifetime h
                                                                  FileHandle    = "MockFileHandle",
                                                                  FileSize      = 12345,
                                                                  IsImage       = true,
-                                                                 ImageDetails  = new() { Width = 1234, Height = 5678 }
+                                                                 ImageDetail   = new(1234, 5678)
                                                              };
 
-                                            var             @event      = new Events
+                                            var             @event      = new Event
                                                                           {
                                                                               DirectoryName    = "MockDirectoryName",
                                                                               FileName         = "MockFileName.jpg",
@@ -91,7 +91,7 @@ public class Worker(IServiceProvider serviceProvider, IHostApplicationLifetime h
                                                                               Height           = 5678,
                                                                               Width            = 1234,
                                                                               EventOccurredAt  = DateTimeOffset.UtcNow,
-                                                                              EventType        = "AddFile",
+                                                                              Type             = EventType.Add,
                                                                               FileLastModified = DateTimeOffset.UtcNow,
                                                                               Handle           = "MockFileHandle",
                                                                               ModifiedBy       = "Jason Barden"

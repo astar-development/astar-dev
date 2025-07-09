@@ -3,15 +3,13 @@ using JetBrains.Annotations;
 
 namespace AStar.Dev.Infrastructure.FilesDb.Models;
 
-[TestSubject(typeof(DuplicatesDetails))]
+[TestSubject(typeof(DuplicateDetails))]
 public class DuplicatesDetailsShould
 {
     [Fact]
     public void ContainTheExpectedProperties()
-        => new DuplicatesDetails
+        => new DuplicateDetails
            {
-               Id                 = 1,
-               ImageDetailsId     = 1,
                DirectoryName      = "MockDirectoryName",
                SoftDeleted        = true,
                FileName           = "MockFileName",

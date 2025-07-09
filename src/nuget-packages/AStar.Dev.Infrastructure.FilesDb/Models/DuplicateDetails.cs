@@ -3,21 +3,11 @@ using Microsoft.EntityFrameworkCore;
 namespace AStar.Dev.Infrastructure.FilesDb.Models;
 
 /// <summary>
-///     The <see cref="DuplicatesDetails" /> class defines the fields that will be mapped from the vw_DuplicatesDetails in the database
+///     The <see cref="DuplicateDetails" /> class defines the fields that will be mapped from the vw_DuplicatesDetails in the database
 /// </summary>
 [Keyless]
-public class DuplicatesDetails
+public class DuplicateDetails
 {
-    /// <summary>
-    ///     The ID of the <see cref="FileDetail" /> in the Duplicates list
-    /// </summary>
-    public int Id { get; set; }
-
-    /// <summary>
-    ///     The FileAccessDetailId of the joined <see cref="ImageDetails" /> table. The joined data is not in the Duplicates list
-    /// </summary>
-    public int ImageDetailsId { get; set; }
-
     /// <summary>
     ///     Gets or sets the File Name
     /// </summary>

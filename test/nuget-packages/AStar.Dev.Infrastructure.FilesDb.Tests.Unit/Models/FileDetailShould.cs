@@ -22,9 +22,9 @@ public sealed class FileDetailShould
                              FileHandle          = "MockFileHandle",
                              FileLastViewed      = new DateTimeOffset(new (2025, 6, 28, 22, 20, 37, DateTimeKind.Utc)),
                              IsImage             = true,
-                             ImageDetails        = new() { FileDetailsId = 1, Height = 123, Width = 456, Id = 1 },
-                             ModifiedBy          = "Test User",
-                             DetailsModified     = new (new (2025, 6, 28, 22, 30, 37, DateTimeKind.Utc)),
+                             ImageDetail         = new(1234, 5678),
+                             UpdatedBy           = "Test User",
+                             UpdatedOn           = new (new (2025, 6, 28, 22, 30, 37, DateTimeKind.Utc)),
                              FileClassifications = [new () { Id = 1, Name = "Test Classification", Celebrity = true }],
                              HardDeleted         = true,
                              HardDeletePending   = true,
@@ -38,12 +38,12 @@ public sealed class FileDetailShould
     [Fact]
     public void ReturnTheExpectedDataFromTheCopyConstructor()
     {
-        var fInfo      = Substitute.For<IFileInfo>();
-        fInfo.Name.Returns("MockFileName");
-        fInfo.DirectoryName.Returns("MockDirectoryName");
-        fInfo.Length.Returns(1234);
+        var mockFileInfo      = Substitute.For<IFileInfo>();
+        mockFileInfo.Name.Returns("MockFileName");
+        mockFileInfo.DirectoryName.Returns("MockDirectoryName");
+        mockFileInfo.Length.Returns(1234);
 
-        var fileDetail = new FileDetail(fInfo);
+        var fileDetail = new FileDetail(mockFileInfo) { UpdatedOn = new (new (2025, 6, 28, 22, 20, 37, DateTimeKind.Utc)) };
 
         fileDetail.ToString().ShouldMatchApproved();
     }

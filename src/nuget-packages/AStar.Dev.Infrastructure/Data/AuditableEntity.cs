@@ -11,7 +11,7 @@ public abstract class AuditableEntity
     public string UpdatedBy { get; set; } = "Jay Barden";
 
     /// <summary>
-    ///     Sets the date and time of the update. This is specified in UTC
+    ///     Gets or sets the date and time of the update. This is specified in UTC
     /// </summary>
-    public DateTime UpdatedOn { get; set; } = DateTime.UtcNow;
+    public DateTimeOffset UpdatedOn { get; set; } = DateTimeOffset.UtcNow;
 }

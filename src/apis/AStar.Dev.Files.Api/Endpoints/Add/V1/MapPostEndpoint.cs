@@ -1,3 +1,4 @@
+using System.Security.Claims;
 using AStar.Dev.Infrastructure.FilesDb.Data;
 using Microsoft.AspNetCore.Mvc;
 
@@ -23,8 +24,8 @@ public static class MapPostEndpoint
                        .MapGroup(EndpointConstants.AddFilesEndpoint)
                        .HasApiVersion(1.0);
 
-        apiGroup.MapPost("/", async (AddFilesRequest   files, [FromServices] FilesContext filesContext, CancellationToken cancellationToken)
-                                  => await PostedFiles.Handle(files, filesContext, TimeProvider.System, cancellationToken))
+        apiGroup.MapPost("/", async (AddFilesRequest   files, [FromServices] FilesContext filesContext, ClaimsPrincipal claimsPrincipal, CancellationToken cancellationToken)
+                                  => await PostedFiles.Handle(files, filesContext, TimeProvider.System, claimsPrincipal.Identity?.Name ?? "Jay Barden", cancellationToken))
                 .Produces<IReadOnlyCollection<AddFilesResponse>>(201)
                 .Produces(401)
                 .Produces(403);

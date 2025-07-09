@@ -6,12 +6,10 @@
     <members>
         <member name="T:AStar.Dev.Test.Helpers.Unit.DbContextMockFactory">
             <summary>
-
             </summary>
         </member>
         <member name="M:AStar.Dev.Test.Helpers.Unit.DbContextMockFactory.CreateMockDbSet``1(System.Collections.Generic.IList{``0})">
             <summary>
-
             </summary>
             <param name="backingStore"></param>
             <typeparam name="T"></typeparam>
@@ -19,7 +17,6 @@
         </member>
         <member name="M:AStar.Dev.Test.Helpers.Unit.DbContextMockFactory.CreateMockDbContext``2(System.Collections.Generic.IList{``1},System.Linq.Expressions.Expression{System.Func{``0,Microsoft.EntityFrameworkCore.DbSet{``1}}})">
             <summary>
-
             </summary>
             <param name="backingStore"></param>
             <param name="dbSetSelector"></param>
@@ -29,17 +26,14 @@
         </member>
         <member name="T:AStar.Dev.Test.Helpers.Unit.ExampleTests">
             <summary>
-
             </summary>
         </member>
         <member name="M:AStar.Dev.Test.Helpers.Unit.ExampleTests.SaveFile_AddsEntityAndCallsSaveChanges">
             <summary>
-
             </summary>
         </member>
         <member name="M:AStar.Dev.Test.Helpers.Unit.ExampleTests.SaveFileAsync_AddsAndSaves">
             <summary>
-
             </summary>
         </member>
         <member name="T:AStar.Dev.Test.Helpers.Unit.FileDetail">
@@ -124,7 +118,6 @@
         </member>
         <member name="P:AStar.Dev.Test.Helpers.Unit.FileDetail.Id">
             <summary>
-
             </summary>
         </member>
         <member name="T:AStar.Dev.Test.Helpers.Unit.FilesContext">
@@ -153,25 +146,21 @@
         </member>
         <member name="T:AStar.Dev.Test.Helpers.Unit.FileService">
             <summary>
-
             </summary>
             <param name="context"></param>
         </member>
         <member name="M:AStar.Dev.Test.Helpers.Unit.FileService.#ctor(AStar.Dev.Test.Helpers.Unit.FilesContext)">
             <summary>
-
             </summary>
             <param name="context"></param>
         </member>
         <member name="M:AStar.Dev.Test.Helpers.Unit.FileService.SaveFile(AStar.Dev.Test.Helpers.Unit.FileDetail)">
             <summary>
-
             </summary>
             <param name="file"></param>
         </member>
         <member name="M:AStar.Dev.Test.Helpers.Unit.FileService.SaveFileAsync(AStar.Dev.Test.Helpers.Unit.FileDetail)">
             <summary>
-
             </summary>
             <param name="file"></param>
         </member>

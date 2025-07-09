@@ -2,10 +2,8 @@
   "fileClassifications": [],
   "id": 0,
   "imageDetails": {
-    "id": 0,
-    "width": 0,
-    "height": 0,
-    "fileDetailsId": 0
+    "width": null,
+    "height": null
   },
   "fileName": "MockFileName",
   "directoryName": "MockDirectoryName",
@@ -21,6 +19,6 @@
   "moveRequired": false,
   "hardDeletePending": false,
   "hardDeleted": false,
-  "detailsModified": "0001-01-01T00:00:00+00:00",
-  "modifiedBy": ""
+  "updatedBy": "Jay Barden",
+  "updatedOn": "2025-06-28T22:20:37+00:00"
 }
