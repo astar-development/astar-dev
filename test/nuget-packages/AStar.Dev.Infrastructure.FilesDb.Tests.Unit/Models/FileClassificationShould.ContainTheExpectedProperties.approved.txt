@@ -5,7 +5,7 @@
     {
       "fileClassifications": [],
       "id": 1,
-      "imageDetails": {
+      "imageDetail": {
         "width": null,
         "height": null
       },
@@ -18,11 +18,12 @@
       "fileCreated": "0001-01-01T00:00:00+00:00",
       "fileLastModified": "0001-01-01T00:00:00+00:00",
       "fileLastViewed": null,
-      "softDeleted": false,
-      "softDeletePending": false,
       "moveRequired": false,
-      "hardDeletePending": false,
-      "hardDeleted": false,
+      "deletionStatus": {
+        "softDeleted": null,
+        "softDeletePending": null,
+        "hardDeletePending": null
+      },
       "updatedBy": "Jay Barden",
       "updatedOn": "2025-06-28T22:20:37+00:00"
     }

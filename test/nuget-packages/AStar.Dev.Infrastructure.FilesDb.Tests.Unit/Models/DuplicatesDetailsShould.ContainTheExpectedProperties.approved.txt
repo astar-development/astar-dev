@@ -1,6 +1,4 @@
 ﻿{
-  "id": 1,
-  "imageDetailsId": 1,
   "fileName": "MockFileName",
   "directoryName": "MockDirectoryName",
   "height": 456,

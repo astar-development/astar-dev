@@ -1,10 +1,8 @@
-using AStar.Dev.Infrastructure.Data;
-
 namespace AStar.Dev.Infrastructure.FilesDb.Models;
 
 /// <summary>
 /// </summary>
-public class Event : AuditableEntity
+public class Event
 {
     /// <summary>
     /// </summary>
@@ -49,4 +47,9 @@ public class Event : AuditableEntity
     /// <summary>
     /// </summary>
     public DateTimeOffset FileLastModified { get; set; }
+
+    /// <summary>
+    ///     Gets or sets the Updated By property to track who made the change
+    /// </summary>
+    public string UpdatedBy { get; set; } = "Jay Barden";
 }

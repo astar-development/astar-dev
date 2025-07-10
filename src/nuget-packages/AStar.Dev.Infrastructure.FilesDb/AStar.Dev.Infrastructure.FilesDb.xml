@@ -382,6 +382,11 @@
             <summary>
             </summary>
         </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Event.UpdatedBy">
+            <summary>
+                Gets or sets the Updated By property to track who made the change
+            </summary>
+        </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.EventType">
             <summary>
                 Represents a sealed class for defining distinct event types such as Add, Update, and Delete.
