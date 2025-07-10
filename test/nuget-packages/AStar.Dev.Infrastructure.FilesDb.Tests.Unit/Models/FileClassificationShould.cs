@@ -10,9 +10,9 @@ public class FileClassificationShould
     public void ContainTheExpectedProperties()
         => new FileClassification
            {
-               Id            = 1,
-               Celebrity     = true,
-               Name          = "Mock Name",
+               Id        = 1,
+               Celebrity = true,
+               Name      = "Mock Name",
                FileDetails   = new List<FileDetail>
                                {
                                    new() { Id    = 1, DirectoryName = "Mock Directory", FileName = "Mock File Name", UpdatedOn = new (new (2025, 6, 28, 22, 20, 37, DateTimeKind.Utc)) }

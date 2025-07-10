@@ -2,12 +2,6 @@ namespace AStar.Dev.Test.Helpers.Minimal.Api;
 
 public class TestEndpointRouteBuilder : IEndpointRouteBuilder
 {
-    public IServiceProvider ServiceProvider { get; }
-
-    public ICollection<EndpointDataSource> DataSources { get; } = new List<EndpointDataSource>();
-
-    public IApplicationBuilder CreateApplicationBuilder() => new ApplicationBuilder(ServiceProvider);
-
     public TestEndpointRouteBuilder()
     {
         var services = new ServiceCollection();
@@ -21,4 +15,10 @@ public class TestEndpointRouteBuilder : IEndpointRouteBuilder
 
         ServiceProvider = services.BuildServiceProvider();
     }
+
+    public IServiceProvider ServiceProvider { get; }
+
+    public ICollection<EndpointDataSource> DataSources { get; } = new List<EndpointDataSource>();
+
+    public IApplicationBuilder CreateApplicationBuilder() => new ApplicationBuilder(ServiceProvider);
 }

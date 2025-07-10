@@ -52,5 +52,4 @@ public class AddFilesResponse
     /// <summary>
     /// </summary>
     public DateTimeOffset FileLastModified { get; set; }
-
 }

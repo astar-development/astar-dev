@@ -49,12 +49,6 @@ public sealed class EventType : IEquatable<EventType>
     /// </summary>
     public string Name  { get; }
 
-    /// <summary>
-    ///     Returns the string name of the event type, useful for debugging and display.
-    /// </summary>
-    /// <returns>The name of the event type.</returns>
-    public override string ToString() => Name;
-
     /// <inheritdoc />
     public bool Equals(EventType? other)
     {
@@ -70,6 +64,12 @@ public sealed class EventType : IEquatable<EventType>
 
         return Value == other.Value && Name == other.Name;
     }
+
+    /// <summary>
+    ///     Returns the string name of the event type, useful for debugging and display.
+    /// </summary>
+    /// <returns>The name of the event type.</returns>
+    public override string ToString() => Name;
 
     /// <inheritdoc />
     public override bool Equals(object? obj) => ReferenceEquals(this, obj) || obj is EventType other && Equals(other);

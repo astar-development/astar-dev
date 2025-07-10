@@ -12,10 +12,10 @@ public sealed class FileDetailShould
     {
         var fileDetail = new FileDetail
                          {
-                             Id                  = 1,
-                             DirectoryName       = "MockDirectoryName",
-                             FileCreated         = new (new (2025,               6, 28, 22, 15, 37, DateTimeKind.Utc)),
-                             FileLastModified    = new (new (2025, 6, 28, 22, 15, 37, DateTimeKind.Utc)),
+                             Id               = 1,
+                             DirectoryName    = "MockDirectoryName",
+                             FileCreated      = new (new (2025,               6, 28, 22, 15, 37, DateTimeKind.Utc)),
+                             FileLastModified = new (new (2025, 6, 28, 22, 15, 37, DateTimeKind.Utc)),
                              DeletionStatus      = new()
                                                    {
                                                        SoftDeleted       = new DateTimeOffset(new (2025, 6, 28, 22, 21, 37, DateTimeKind.Utc)),
