@@ -21,10 +21,17 @@ public class EventTypeShould
     }
 
     [Fact]
-    public void InitializeDeleteCorrectly()
+    public void InitializeSoftDeleteCorrectly()
     {
-        EventType.Delete.Value.ShouldBe(3);
-        EventType.Delete.Name.ShouldBe("Delete");
+        EventType.SoftDelete.Value.ShouldBe(3);
+        EventType.SoftDelete.Name.ShouldBe("SoftDelete");
+    }
+
+    [Fact]
+    public void InitializeHardDeleteCorrectly()
+    {
+        EventType.HardDelete.Value.ShouldBe(4);
+        EventType.HardDelete.Name.ShouldBe("HardDelete");
     }
 
     [Fact]
@@ -32,7 +39,8 @@ public class EventTypeShould
     {
         EventType.Add.ToString().ShouldBe("Add");
         EventType.Update.ToString().ShouldBe("Update");
-        EventType.Delete.ToString().ShouldBe("Delete");
+        EventType.HardDelete.ToString().ShouldBe("HardDelete");
+        EventType.SoftDelete.ToString().ShouldBe("SoftDelete");
     }
 
     [Fact]
@@ -111,7 +119,7 @@ public class EventTypeShould
     public void HaveDifferentHashCodesForDifferentInstances()
     {
         EventType.Add.GetHashCode().ShouldNotBe(EventType.Update.GetHashCode());
-        EventType.Add.GetHashCode().ShouldNotBe(EventType.Delete.GetHashCode());
-        EventType.Update.GetHashCode().ShouldNotBe(EventType.Delete.GetHashCode());
+        EventType.Add.GetHashCode().ShouldNotBe(EventType.SoftDelete.GetHashCode());
+        EventType.Add.GetHashCode().ShouldNotBe(EventType.HardDelete.GetHashCode());
     }
 }

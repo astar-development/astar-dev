@@ -59,7 +59,7 @@
             <summary>
             </summary>
         </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext.Files">
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext.FileDetails">
             <summary>
                 The list of files in the dB
             </summary>
@@ -77,6 +77,14 @@
             <summary>
                 Gets or sets the File Classifications
             </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext.DuplicateDetails">
+            <summary>
+                Gets or sets the Duplicate Details
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <inheritdoc/>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <summary>
@@ -168,6 +176,86 @@
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.Recreatevw_DuplicateDetails.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc/>
+        </member>
+        <member name="T:AStar.Dev.Infrastructure.FilesDb.Migrations.AddVwDuplicateDetailsToContext">
+            <inheritdoc/>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddVwDuplicateDetailsToContext.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddVwDuplicateDetailsToContext.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddVwDuplicateDetailsToContext.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="T:AStar.Dev.Infrastructure.FilesDb.Migrations.InitialCreation">
+            <inheritdoc/>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.InitialCreation.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.InitialCreation.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.InitialCreation.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="T:AStar.Dev.Infrastructure.FilesDb.Migrations.AddVwDuplicateCounts">
+            <inheritdoc/>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddVwDuplicateCounts.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddVwDuplicateCounts.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddVwDuplicateCounts.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="T:AStar.Dev.Infrastructure.FilesDb.Migrations.AddVwDuplicateDetails">
+            <inheritdoc/>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddVwDuplicateDetails.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddVwDuplicateDetails.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddVwDuplicateDetails.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="T:AStar.Dev.Infrastructure.FilesDb.Migrations.AddDuplicatesToContext">
+            <inheritdoc/>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddDuplicatesToContext.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddDuplicatesToContext.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddDuplicatesToContext.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.DeletionStatus">
+            <summary>
+                Defines dates/times for soft and hard deletion
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DeletionStatus.SoftDeleted">
+            <summary>
+                Gets or sets when the file was 'soft deleted'. I know, shocking...
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DeletionStatus.SoftDeletePending">
+            <summary>
+                Gets or sets when the file was marked as 'soft delete pending'. I know, shocking...
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DeletionStatus.HardDeletePending">
+            <summary>
+                Gets or sets when the file was marked as 'hard delete pending'. I know, shocking...
+            </summary>
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetails">
             <summary>
@@ -294,10 +382,6 @@
             <summary>
             </summary>
         </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Event.ModifiedBy">
-            <summary>
-            </summary>
-        </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.EventType">
             <summary>
                 Represents a sealed class for defining distinct event types such as Add, Update, and Delete.
@@ -315,9 +399,14 @@
                 Represents an 'Update' event type, typically used for modifying existing records.
             </summary>
         </member>
-        <member name="F:AStar.Dev.Infrastructure.FilesDb.Models.EventType.Delete">
+        <member name="F:AStar.Dev.Infrastructure.FilesDb.Models.EventType.SoftDelete">
             <summary>
-                Represents a 'Delete' event type, typically used for removing records.
+                Represents a 'SoftDelete' event type, typically used for 'soft' removing records.
+            </summary>
+        </member>
+        <member name="F:AStar.Dev.Infrastructure.FilesDb.Models.EventType.HardDelete">
+            <summary>
+                Represents a 'HardDelete' event type, typically used for permanently removing records.
             </summary>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.EventType.#ctor(System.Int32,System.String)">
@@ -492,29 +581,14 @@
             <summary>
             </summary>
         </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.SoftDeleted">
-            <summary>
-                Gets or sets whether the file has been 'soft deleted'. I know, shocking...
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.SoftDeletePending">
-            <summary>
-                Gets or sets whether the file has been marked as 'delete pending'. I know, shocking...
-            </summary>
-        </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.MoveRequired">
             <summary>
                 Gets or sets whether the file has been marked as 'needs to move'. I know, shocking...
             </summary>
         </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.HardDeletePending">
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.DeletionStatus">
             <summary>
-                Gets or sets whether the file has been marked as 'delete permanently pending'. I know, shocking...
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.HardDeleted">
-            <summary>
-                Gets or sets whether the file has been permanently deleted. I know, shocking...
+                Gets or sets the file deletion status. I know, shocking...
             </summary>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.ToString">

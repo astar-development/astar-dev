@@ -26,11 +26,11 @@ public class PostedFilesShould
     {
         var store       = new List<FileDetail>();
         var mockTime    = Substitute.For<TimeProvider>();
-        var mockContext = DbContextMockFactory.CreateMockDbContext<FilesContext, FileDetail>(store, ctx => ctx.Files);
+        var mockContext = DbContextMockFactory.CreateMockDbContext<FilesContext, FileDetail>(store, ctx => ctx.FileDetails);
 
         _ = await PostedFiles.Handle(new () { FilesToAdd = [new ()] }, mockContext, mockTime, "Mock User", CancellationToken.None);
 
-        await mockContext.Files.Received(1).AddRangeAsync(Arg.Any<List<FileDetail>>());
+        await mockContext.FileDetails.Received(1).AddRangeAsync(Arg.Any<List<FileDetail>>());
     }
 
     [Fact]
@@ -50,7 +50,7 @@ public class PostedFilesShould
     {
         var store       = new List<FileDetail>();
         var mockTime    = Substitute.For<TimeProvider>();
-        var mockContext = DbContextMockFactory.CreateMockDbContext<FilesContext, FileDetail>(store, ctx => ctx.Files);
+        var mockContext = DbContextMockFactory.CreateMockDbContext<FilesContext, FileDetail>(store, ctx => ctx.FileDetails);
 
         var response = await PostedFiles.Handle(new () { FilesToAdd = [new ()] }, mockContext, mockTime, "Mock User", CancellationToken.None);
 

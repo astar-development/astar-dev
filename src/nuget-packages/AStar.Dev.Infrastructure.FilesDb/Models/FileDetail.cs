@@ -40,7 +40,7 @@ public sealed class FileDetail : AuditableEntity
 
     /// <summary>
     /// </summary>
-    public ImageDetail ImageDetail { get; set; } = null!;
+    public ImageDetail ImageDetail { get; set; } = new(null, null);
 
     /// <summary>
     ///     Gets or sets the file name. I know, shocking...
@@ -85,29 +85,14 @@ public sealed class FileDetail : AuditableEntity
     public DateTimeOffset? FileLastViewed { get; set; }
 
     /// <summary>
-    ///     Gets or sets whether the file has been 'soft deleted'. I know, shocking...
-    /// </summary>
-    public bool SoftDeleted { get; set; }
-
-    /// <summary>
-    ///     Gets or sets whether the file has been marked as 'delete pending'. I know, shocking...
-    /// </summary>
-    public bool SoftDeletePending { get; set; }
-
-    /// <summary>
     ///     Gets or sets whether the file has been marked as 'needs to move'. I know, shocking...
     /// </summary>
     public bool MoveRequired { get; set; }
 
     /// <summary>
-    ///     Gets or sets whether the file has been marked as 'delete permanently pending'. I know, shocking...
+    ///     Gets or sets the file deletion status. I know, shocking...
     /// </summary>
-    public bool HardDeletePending { get; set; }
-
-    /// <summary>
-    ///     Gets or sets whether the file has been permanently deleted. I know, shocking...
-    /// </summary>
-    public bool HardDeleted { get; set; }
+    public DeletionStatus DeletionStatus { get; set; } = new();
 
     /// <summary>
     ///     Returns this object in JSON format

@@ -18,6 +18,7 @@ public class EventConfiguration : IEntityTypeConfiguration<Event>
         builder.Property(fileDetail => fileDetail.FileName).HasMaxLength(256);
         builder.Property(fileDetail => fileDetail.DirectoryName).HasMaxLength(256);
         builder.Property(fileDetail => fileDetail.Handle).HasMaxLength(256);
+        builder.Property(fileDetail => fileDetail.UpdatedBy).HasMaxLength(30);
 
         builder.ComplexProperty(fileDetail => fileDetail.Type).Configure(new EventTypeConfiguration());
     }

@@ -8,8 +8,8 @@ internal class EventTypeConfiguration : IComplexPropertyConfiguration<EventType>
 {
     public ComplexPropertyBuilder<EventType> Configure(ComplexPropertyBuilder<EventType> builder)
     {
-        builder.Property(image => image.Value).HasColumnName("EventType").IsRequired();
-        builder.Property(image => image.Name).HasColumnName("EventName").IsRequired();
+        builder.Property(eventType => eventType.Value).HasColumnName("EventType").IsRequired();
+        builder.Property(eventType => eventType.Name).HasColumnName("EventName").IsRequired();
 
         return builder;
     }

@@ -1,8 +1,10 @@
+using AStar.Dev.Infrastructure.Data;
+
 namespace AStar.Dev.Infrastructure.FilesDb.Models;
 
 /// <summary>
 /// </summary>
-public class Event
+public class Event : AuditableEntity
 {
     /// <summary>
     /// </summary>
@@ -47,8 +49,4 @@ public class Event
     /// <summary>
     /// </summary>
     public DateTimeOffset FileLastModified { get; set; }
-
-    /// <summary>
-    /// </summary>
-    public string ModifiedBy { get; set; } = string.Empty;
 }

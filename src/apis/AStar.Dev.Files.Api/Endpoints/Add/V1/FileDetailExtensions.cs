@@ -66,7 +66,7 @@ public static class FileDetailExtensions
                                                      FileCreated      = fileDetailToAdd.FileCreated,
                                                      FileLastModified = fileDetailToAdd.FileLastModified,
                                                      FileSize         = fileDetailToAdd.FileSize,
-                                                     ModifiedBy       = username,
+                                                     UpdatedBy        = username,
                                                      EventOccurredAt  = time.GetUtcNow(),
                                                      Type             = EventType.Add,
                                                      Handle           = "???",

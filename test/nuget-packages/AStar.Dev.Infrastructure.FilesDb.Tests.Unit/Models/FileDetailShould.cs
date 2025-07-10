@@ -16,7 +16,12 @@ public sealed class FileDetailShould
                              DirectoryName       = "MockDirectoryName",
                              FileCreated         = new (new (2025,               6, 28, 22, 15, 37, DateTimeKind.Utc)),
                              FileLastModified    = new (new (2025, 6, 28, 22, 15, 37, DateTimeKind.Utc)),
-                             SoftDeleted         = true,
+                             DeletionStatus      = new()
+                                                   {
+                                                       SoftDeleted       = new DateTimeOffset(new (2025, 6, 28, 22, 21, 37, DateTimeKind.Utc)),
+                                                       SoftDeletePending = new DateTimeOffset(new (2025, 6, 28, 22, 22, 37, DateTimeKind.Utc)),
+                                                       HardDeletePending = new DateTimeOffset(new (2025, 6, 28, 22, 23, 37, DateTimeKind.Utc))
+                                                   },
                              FileName            = "MockFileName",
                              FileSize            = 1234,
                              FileHandle          = "MockFileHandle",
@@ -26,10 +31,7 @@ public sealed class FileDetailShould
                              UpdatedBy           = "Test User",
                              UpdatedOn           = new (new (2025, 6, 28, 22, 30, 37, DateTimeKind.Utc)),
                              FileClassifications = [new () { Id = 1, Name = "Test Classification", Celebrity = true }],
-                             HardDeleted         = true,
-                             HardDeletePending   = true,
-                             MoveRequired        = true,
-                             SoftDeletePending   = true
+                             MoveRequired        = true
                          };
 
         fileDetail.ToString().ShouldMatchApproved();

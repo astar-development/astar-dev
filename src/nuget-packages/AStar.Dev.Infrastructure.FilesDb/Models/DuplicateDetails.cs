@@ -1,21 +1,22 @@
-using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace AStar.Dev.Infrastructure.FilesDb.Models;
 
 /// <summary>
 ///     The <see cref="DuplicateDetails" /> class defines the fields that will be mapped from the vw_DuplicatesDetails in the database
 /// </summary>
-[Keyless]
 public class DuplicateDetails
 {
     /// <summary>
     ///     Gets or sets the File Name
     /// </summary>
+    [MaxLength(256)]
     public string FileName { get; set; } = string.Empty;
 
     /// <summary>
     ///     Gets or sets the Directory Name
     /// </summary>
+    [MaxLength(256)]
     public string DirectoryName { get; set; } = string.Empty;
 
     /// <summary>
@@ -36,6 +37,7 @@ public class DuplicateDetails
     /// <summary>
     ///     Gets or sets the File Handle
     /// </summary>
+    [MaxLength(256)]
     public string FileHandle { get; set; } = string.Empty;
 
     /// <summary>

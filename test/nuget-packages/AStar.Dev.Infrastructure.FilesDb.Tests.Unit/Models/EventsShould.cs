@@ -17,9 +17,9 @@ public class EventShould
                FileCreated      = new (new (2025,               6, 28, 22, 05, 37, DateTimeKind.Utc)),
                FileName         = "Mock Filename",
                FileSize         = 1234,
-               ModifiedBy       = "Test User",
+               UpdatedBy        = "Test User",
                EventOccurredAt  = new (new (2025,               6, 28, 22, 15, 37, DateTimeKind.Utc)),
-               Type             = EventType.Delete,
+               Type             = EventType.HardDelete,
                FileLastModified = new (new (2025,               6, 28, 22, 10, 37, DateTimeKind.Utc)),
                Handle           = "Mock Handle"
            }.ToJson().ShouldMatchApproved();

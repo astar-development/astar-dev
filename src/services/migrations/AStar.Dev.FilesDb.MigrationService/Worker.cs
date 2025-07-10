@@ -69,7 +69,7 @@ public class Worker(IServiceProvider serviceProvider, IHostApplicationLifetime h
 
         await strategy.ExecuteAsync(async () =>
                                     {
-                                        if (!await dbContext.Files.AnyAsync(stoppingToken))
+                                        if (!await dbContext.FileDetails.AnyAsync(stoppingToken))
                                         {
                                             var fileDetail = new FileDetail
                                                              {
@@ -94,13 +94,13 @@ public class Worker(IServiceProvider serviceProvider, IHostApplicationLifetime h
                                                                               Type             = EventType.Add,
                                                                               FileLastModified = DateTimeOffset.UtcNow,
                                                                               Handle           = "MockFileHandle",
-                                                                              ModifiedBy       = "Jason Barden"
+                                                                              UpdatedBy        = "Jason Barden"
                                                                           };
 
                                             await using var transaction = await dbContext.Database.BeginTransactionAsync(stoppingToken);
 
                                             await dbContext.Events.AddAsync(@event, stoppingToken);
-                                            await dbContext.Files.AddAsync(fileDetail, stoppingToken);
+                                            await dbContext.FileDetails.AddAsync(fileDetail, stoppingToken);
                                             await dbContext.SaveChangesAsync(stoppingToken);
                                             await transaction.CommitAsync(stoppingToken);
                                         }

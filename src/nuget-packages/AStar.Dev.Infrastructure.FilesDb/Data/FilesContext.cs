@@ -29,7 +29,7 @@ public class FilesContext : DbContext
     /// <summary>
     ///     The list of files in the dB
     /// </summary>
-    public virtual DbSet<FileDetail> Files { get; set; } = null!;
+    public virtual DbSet<FileDetail> FileDetails { get; set; } = null!;
 
     /// <summary>
     /// </summary>
@@ -45,12 +45,17 @@ public class FilesContext : DbContext
     /// </summary>
     public DbSet<FileClassification> FileClassifications { get; set; } = null!;
 
-    // /// <inheritdoc />
-    // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    // {
-    //     base.OnConfiguring(optionsBuilder);
-    //     optionsBuilder.UseSqlServer("Data Source=localhost,1433;Initial Catalog=FilesDb;User ID=sa;Password=<SomeSecurePasswordHere1!>;TrustServerCertificate=True");
-    // }
+    /// <summary>
+    ///     Gets or sets the Duplicate Details
+    /// </summary>
+    public DbSet<DuplicateDetails> DuplicateDetails { get; set; }
+
+    /// <inheritdoc />
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        base.OnConfiguring(optionsBuilder);
+        optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=filesDb;Trusted_Connection=True;");
+    }
 
     /// <summary>
     ///     The overridden OnModelCreating method
@@ -63,7 +68,6 @@ public class FilesContext : DbContext
         _ = modelBuilder.HasDefaultSchema(Constants.SchemaName);
         _ = modelBuilder.ApplyConfigurationsFromAssembly(typeof(FilesContext).Assembly);
 
-        modelBuilder.Entity<DuplicateDetails>().ToView("vw_DuplicatesDetails");
         modelBuilder
             .Entity<DuplicateDetails>(eb =>
                                       {

@@ -18,9 +18,14 @@ public sealed class EventType : IEquatable<EventType>
     public static readonly EventType Update = new (2, "Update");
 
     /// <summary>
-    ///     Represents a 'Delete' event type, typically used for removing records.
+    ///     Represents a 'SoftDelete' event type, typically used for 'soft' removing records.
     /// </summary>
-    public static readonly EventType Delete = new (3, "Delete");
+    public static readonly EventType SoftDelete = new (3, "SoftDelete");
+
+    /// <summary>
+    ///     Represents a 'HardDelete' event type, typically used for permanently removing records.
+    /// </summary>
+    public static readonly EventType HardDelete = new (4, "HardDelete");
 
     /// <summary>
     ///     Private constructor to prevent external instantiation.

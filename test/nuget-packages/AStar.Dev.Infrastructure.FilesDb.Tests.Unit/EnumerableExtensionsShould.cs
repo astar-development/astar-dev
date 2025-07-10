@@ -11,7 +11,7 @@ public sealed class EnumerableExtensionsShould(FilesContextFixture filesContextF
     [Fact(Skip = "The underlying code is broken")]
     public void ReturnCorrectCountWhenFilteringImages()
     {
-        var response = sut.Files.FilterImagesIfApplicable("Images", CancellationToken.None);
+        var response = sut.FileDetails.FilterImagesIfApplicable("Images", CancellationToken.None);
 
         response.ToString()!.ShouldMatchApproved();
     }
@@ -19,7 +19,7 @@ public sealed class EnumerableExtensionsShould(FilesContextFixture filesContextF
     [Fact(Skip = "The underlying code is broken")]
     public void ReturnCorrectCountWhenAllFileTypesSpecified()
     {
-        var response = sut.Files.FilterImagesIfApplicable("AllFiles", CancellationToken.None);
+        var response = sut.FileDetails.FilterImagesIfApplicable("AllFiles", CancellationToken.None);
 
         response.ToString()!.ShouldMatchApproved();
     }
@@ -27,7 +27,7 @@ public sealed class EnumerableExtensionsShould(FilesContextFixture filesContextF
     [Fact(Skip = "The underlying code is broken")]
     public void ReturnCorrectCountWhenDuplicatesSpecified()
     {
-        var response = sut.Files.FilterImagesIfApplicable("Duplicates", CancellationToken.None);
+        var response = sut.FileDetails.FilterImagesIfApplicable("Duplicates", CancellationToken.None);
 
         response.ToString()!.ShouldMatchApproved();
     }
@@ -35,7 +35,7 @@ public sealed class EnumerableExtensionsShould(FilesContextFixture filesContextF
     [Fact(Skip = "The underlying code is broken")]
     public void ReturnTheExpectedFilesListByNameAscending()
     {
-        var response = sut.Files.OrderFiles(SortOrder.NameAscending);
+        var response = sut.FileDetails.OrderFiles(SortOrder.NameAscending);
 
         response.ToString()!.ShouldMatchApproved();
     }
@@ -43,7 +43,7 @@ public sealed class EnumerableExtensionsShould(FilesContextFixture filesContextF
     [Fact(Skip = "The underlying code is broken")]
     public void ReturnTheExpectedFilesListByNameDescending()
     {
-        var response = sut.Files.OrderFiles(SortOrder.NameDescending);
+        var response = sut.FileDetails.OrderFiles(SortOrder.NameDescending);
 
         response.ToString()!.ShouldMatchApproved();
     }
@@ -51,7 +51,7 @@ public sealed class EnumerableExtensionsShould(FilesContextFixture filesContextF
     [Fact(Skip = "The underlying code is broken")]
     public void ReturnTheExpectedFilesListBySizeAscending()
     {
-        var response = sut.Files.OrderFiles(SortOrder.SizeAscending);
+        var response = sut.FileDetails.OrderFiles(SortOrder.SizeAscending);
 
         response.ToString()!.ShouldMatchApproved();
     }
@@ -59,7 +59,7 @@ public sealed class EnumerableExtensionsShould(FilesContextFixture filesContextF
     [Fact(Skip = "The underlying code is broken")]
     public void ReturnTheExpectedFilesListBySizeDescending()
     {
-        var response = sut.Files.OrderFiles(SortOrder.SizeDescending);
+        var response = sut.FileDetails.OrderFiles(SortOrder.SizeDescending);
 
         response.ToString()!.ShouldMatchApproved();
     }
@@ -67,7 +67,7 @@ public sealed class EnumerableExtensionsShould(FilesContextFixture filesContextF
     [Fact(Skip = "The underlying code is broken")]
     public void ReturnTheCorrectDuplicatesCount()
     {
-        var response = sut.Files.GetDuplicatesCount(CancellationToken.None);
+        var response = sut.FileDetails.GetDuplicatesCount(CancellationToken.None);
 
         response.ShouldBe(30);
     }
@@ -75,7 +75,7 @@ public sealed class EnumerableExtensionsShould(FilesContextFixture filesContextF
     [Fact(Skip = "The underlying code is broken")]
     public void ReturnTheCorrectDuplicates()
     {
-        var response = sut.Files.GetDuplicates();
+        var response = sut.FileDetails.GetDuplicates();
 
         response.ToString()!.ShouldMatchApproved();
     }

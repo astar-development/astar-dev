@@ -6,12 +6,10 @@
     <members>
         <member name="T:AStar.Dev.Infrastructure.ComplexPropertyBuilderConfiguration">
             <summary>
-
             </summary>
         </member>
         <member name="M:AStar.Dev.Infrastructure.ComplexPropertyBuilderConfiguration.Configure``1(Microsoft.EntityFrameworkCore.Metadata.Builders.ComplexPropertyBuilder{``0},AStar.Dev.Infrastructure.IComplexPropertyConfiguration{``0})">
             <summary>
-
             </summary>
             <param name="propertyBuilder"></param>
             <param name="configuration"></param>
@@ -89,13 +87,11 @@
         </member>
         <member name="T:AStar.Dev.Infrastructure.IComplexPropertyConfiguration`1">
             <summary>
-
             </summary>
             <typeparam name="TEntity"></typeparam>
         </member>
         <member name="M:AStar.Dev.Infrastructure.IComplexPropertyConfiguration`1.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.ComplexPropertyBuilder{`0})">
             <summary>
-
             </summary>
             <param name="builder"></param>
             <returns></returns>
