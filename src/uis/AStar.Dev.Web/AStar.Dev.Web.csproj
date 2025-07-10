@@ -9,6 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="AStar.Dev.Functional.Extensions" Version="0.2.2-alpha"/>
         <PackageReference Include="Blazorise" Version="1.8.0"/>
         <PackageReference Include="Blazorise.Animate" Version="1.8.0"/>
         <PackageReference Include="Blazorise.Bootstrap5" Version="1.8.0"/>

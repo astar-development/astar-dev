@@ -24,6 +24,10 @@
         <None Include="Readme.md" Pack="true" PackagePath=""/>
     </ItemGroup>
 
+    <ItemGroup>
+        <PackageReference Include="AStar.Dev.Functional.Extensions" Version="0.2.2-alpha"/>
+    </ItemGroup>
+
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
         <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
         <NoWarn>1701;1702;</NoWarn>

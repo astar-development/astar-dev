@@ -8,6 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="AStar.Dev.Functional.Extensions" Version="0.2.2-alpha"/>
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.7"/>
     </ItemGroup>
 

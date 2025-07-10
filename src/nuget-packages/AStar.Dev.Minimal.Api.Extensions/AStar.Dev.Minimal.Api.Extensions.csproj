@@ -62,4 +62,8 @@
         <ProjectReference Include="..\AStar.Dev.Logging.Extensions\AStar.Dev.Logging.Extensions.csproj"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <PackageReference Include="AStar.Dev.Functional.Extensions" Version="0.2.2-alpha"/>
+    </ItemGroup>
+
 </Project>
