@@ -18,20 +18,16 @@ public sealed class Send(IConnection connection, ILogger<Send> logger, IOptions<
     {
         try
         {
-            logger.LogInformation("In Send > SendUsageEventAsync");
+            logger.LogDebug("In Send > SendUsageEventAsync");
 
-            // Hack to keep the original async method signature
-            await Task.CompletedTask;
+            var             config  = usageConfiguration.Value;
+            await using var channel = await connection.CreateChannelAsync(cancellationToken: cancellationToken);
 
-            var config = usageConfiguration.Value;
-
-            using var channel    = connection.CreateModel();
-
-            channel.QueueDeclare(config.QueueName, true, false, false);
+            await channel.QueueDeclareAsync(config.QueueName, true, false, false, cancellationToken: cancellationToken);
 
             var body = Encoding.UTF8.GetBytes(usageEvent.ToJson());
 
-            channel.BasicPublish(string.Empty, config.QueueName, true, null, body);
+            await channel.BasicPublishAsync(string.Empty, config.QueueName, body, cancellationToken);
         }
         catch(Exception ex)
         {

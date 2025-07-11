@@ -24,8 +24,8 @@ public sealed class UsageMetricHandler(RequestDelegate next, ILogger<UsageMetric
 
             var startTimestamp = Stopwatch.GetTimestamp();
 
-            logger.LogDebug("In UsageMetricHandler > InvokeAsync with - request: {Request}, Method: {Method}, apiEndpoint: {ApiEndpoint}, apiName: {ApiName}", httpRequest, httpMethod, apiEndpoint,
-                            apiName);
+            logger.LogDebug("In UsageMetricHandler > InvokeAsync with - request: {Request}, Method: {Method}, apiEndpoint: {ApiEndpoint}, apiName: {ApiName}",
+                            httpRequest, httpMethod, apiEndpoint, apiName);
 
             await next(context);
 
