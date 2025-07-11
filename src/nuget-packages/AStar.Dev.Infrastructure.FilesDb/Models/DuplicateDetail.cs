@@ -3,9 +3,9 @@ using System.ComponentModel.DataAnnotations;
 namespace AStar.Dev.Infrastructure.FilesDb.Models;
 
 /// <summary>
-///     The <see cref="DuplicateDetails" /> class defines the fields that will be mapped from the vw_DuplicatesDetails in the database
+///     The <see cref="DuplicateDetail" /> class defines the fields that will be mapped from the vw_DuplicatesDetails in the database
 /// </summary>
-public class DuplicateDetails
+public class DuplicateDetail
 {
     /// <summary>
     ///     Gets or sets the File Name
@@ -22,12 +22,12 @@ public class DuplicateDetails
     /// <summary>
     ///     Gets or sets the File Height
     /// </summary>
-    public int    Height     { get; set; }
+    public int    ImageHeight     { get; set; }
 
     /// <summary>
     ///     Gets or sets the File Width
     /// </summary>
-    public int    Width      { get; set; }
+    public int    ImageWidth      { get; set; }
 
     /// <summary>
     ///     Gets or sets the File Size
@@ -53,22 +53,22 @@ public class DuplicateDetails
     /// <summary>
     ///     Gets or sets the Details Last Updated
     /// </summary>
-    public DateTimeOffset DetailsLastUpdated { get; set; }
+    public DateTimeOffset UpdatedOn { get; set; }
 
     /// <summary>
     ///     Gets or sets the Last Viewed date
     /// </summary>
-    public DateTimeOffset? LastViewed { get; set; }
+    public DateTimeOffset? FileLastViewed { get; set; }
 
     /// <summary>
     ///     Gets or sets the Soft Deleted flag
     /// </summary>
-    public bool SoftDeleted { get; set; }
+    public DateTimeOffset? SoftDeleted { get; set; }
 
     /// <summary>
     ///     Gets or sets the SoftDeletePending flag
     /// </summary>
-    public bool SoftDeletePending { get; set; }
+    public DateTimeOffset? SoftDeletePending { get; set; }
 
     /// <summary>
     ///     Gets or sets the Move Required flag
@@ -78,5 +78,5 @@ public class DuplicateDetails
     /// <summary>
     ///     Gets or sets the Hard Delete Pending flag
     /// </summary>
-    public bool HardDeletePending { get; set; }
+    public DateTimeOffset? HardDeletePending { get; set; }
 }

@@ -18,7 +18,6 @@
     </ItemGroup>
 
     <PropertyGroup>
-        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
         <Title>AStar Dev Api Usage Sdk</Title>
         <Company>AStar Development</Company>
         <Copyright>AStar Development, 2024</Copyright>

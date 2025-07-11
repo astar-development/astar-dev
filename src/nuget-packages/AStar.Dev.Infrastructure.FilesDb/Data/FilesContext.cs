@@ -48,7 +48,7 @@ public class FilesContext : DbContext
     /// <summary>
     ///     Gets or sets the Duplicate Details
     /// </summary>
-    public DbSet<DuplicateDetails> DuplicateDetails { get; set; }
+    public DbSet<DuplicateDetail> DuplicateDetails { get; set; }
 
     /// <inheritdoc />
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -69,10 +69,10 @@ public class FilesContext : DbContext
         _ = modelBuilder.ApplyConfigurationsFromAssembly(typeof(FilesContext).Assembly);
 
         modelBuilder
-            .Entity<DuplicateDetails>(eb =>
-                                      {
-                                          eb.HasNoKey();
-                                          eb.ToView("vw_DuplicatesDetails");
-                                      });
+            .Entity<DuplicateDetail>(eb =>
+                                     {
+                                         eb.HasNoKey();
+                                         eb.ToView("vw_DuplicatesDetails");
+                                     });
     }
 }

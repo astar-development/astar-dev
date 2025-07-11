@@ -43,11 +43,16 @@ public static class FileDetailExtensions
                                                      FileCreated      = fileDetailToAdd.FileCreated,
                                                      FileLastModified = fileDetailToAdd.FileLastModified,
                                                      FileSize         = fileDetailToAdd.FileSize,
-                                                     FileHandle       = "???",
+                                                     FileHandle       = string.Concat("-", fileDetailToAdd.FileName, fileDetailToAdd.FileClassifications.Take(3)).Replace(" ", "-"),
                                                      UpdatedBy        = username,
                                                      ImageDetail      = new(fileDetailToAdd.ImageDetails.Width, fileDetailToAdd.ImageDetails.Height),
                                                      IsImage          = true,
-                                                     UpdatedOn        = time.GetUtcNow()
+                                                     UpdatedOn        = time.GetUtcNow(),
+                                                     FileClassifications = fileDetailToAdd.FileClassifications
+                                                                                          .Select(classification => new Infrastructure.FilesDb.Models.FileClassification
+                                                                                                                    {
+                                                                                                                        Name = classification.Name, Celebrity = classification.Celebrity
+                                                                                                                    }).ToList()
                                                  })
                       .ToList();
 

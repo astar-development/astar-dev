@@ -6,7 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <ApplicationIcon>astar.ico</ApplicationIcon>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
         <Authors>AStar Developement, Jason Barden</Authors>
         <Company>AStar Development</Company>
         <Copyright>AStar Developement, 2025</Copyright>

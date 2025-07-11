@@ -10,7 +10,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+
         <Title>AStar API HealthChecks</Title>
         <Company>AStar</Company>
         <Copyright>AStar Development, 2025</Copyright>

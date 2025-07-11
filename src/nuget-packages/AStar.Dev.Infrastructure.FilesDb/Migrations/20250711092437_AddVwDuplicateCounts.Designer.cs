@@ -13,8 +13,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AStar.Dev.Infrastructure.FilesDb.Migrations
 {
     [DbContext(typeof(FilesContext))]
-    [Migration("20250709220056_AddVwDuplicateDetailsToContext")]
-    partial class AddVwDuplicateDetailsToContext
+    [Migration("20250711092437_AddVwDuplicateCounts")]
+    partial class AddVwDuplicateCounts
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,21 +35,24 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
 
                     b.Property<string>("DirectoryName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("FileHandle")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<string>("FileName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<long>("FileSize")
                         .HasColumnType("bigint");
 
-                    b.Property<bool>("HardDeletePending")
-                        .HasColumnType("bit");
+                    b.Property<DateTimeOffset?>("HardDeletePending")
+                        .HasColumnType("datetimeoffset");
 
                     b.Property<int>("Height")
                         .HasColumnType("int");
@@ -66,11 +69,11 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                     b.Property<bool>("MoveRequired")
                         .HasColumnType("bit");
 
-                    b.Property<bool>("SoftDeletePending")
-                        .HasColumnType("bit");
+                    b.Property<DateTimeOffset?>("SoftDeletePending")
+                        .HasColumnType("datetimeoffset");
 
-                    b.Property<bool>("SoftDeleted")
-                        .HasColumnType("bit");
+                    b.Property<DateTimeOffset?>("SoftDeleted")
+                        .HasColumnType("datetimeoffset");
 
                     b.Property<int>("Width")
                         .HasColumnType("int");
@@ -118,9 +121,10 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                     b.Property<int?>("Height")
                         .HasColumnType("int");
 
-                    b.Property<string>("ModifiedBy")
+                    b.Property<string>("UpdatedBy")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(30)
+                        .HasColumnType("nvarchar(30)");
 
                     b.Property<int?>("Width")
                         .HasColumnType("int");
@@ -182,7 +186,7 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
 
                     b.Property<string>("FileHandle")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(256)");
 
                     b.Property<DateTimeOffset>("FileLastModified")
                         .HasColumnType("datetimeoffset");
@@ -197,22 +201,10 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                     b.Property<long>("FileSize")
                         .HasColumnType("bigint");
 
-                    b.Property<bool>("HardDeletePending")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("HardDeleted")
-                        .HasColumnType("bit");
-
                     b.Property<bool>("IsImage")
                         .HasColumnType("bit");
 
                     b.Property<bool>("MoveRequired")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("SoftDeletePending")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("SoftDeleted")
                         .HasColumnType("bit");
 
                     b.Property<string>("UpdatedBy")
@@ -221,6 +213,23 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
 
                     b.Property<DateTimeOffset>("UpdatedOn")
                         .HasColumnType("datetimeoffset");
+
+                    b.ComplexProperty<Dictionary<string, object>>("DeletionStatus", "AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.DeletionStatus#DeletionStatus", b1 =>
+                        {
+                            b1.IsRequired();
+
+                            b1.Property<DateTimeOffset?>("HardDeletePending")
+                                .HasColumnType("datetimeoffset")
+                                .HasColumnName("HardDeletePending");
+
+                            b1.Property<DateTimeOffset?>("SoftDeletePending")
+                                .HasColumnType("datetimeoffset")
+                                .HasColumnName("SoftDeletePending");
+
+                            b1.Property<DateTimeOffset?>("SoftDeleted")
+                                .HasColumnType("datetimeoffset")
+                                .HasColumnName("SoftDeleted");
+                        });
 
                     b.ComplexProperty<Dictionary<string, object>>("ImageDetail", "AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.ImageDetail#ImageDetail", b1 =>
                         {
@@ -237,7 +246,7 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Files", "files");
+                    b.ToTable("FileDetail", "files");
                 });
 
             modelBuilder.Entity("AStar.Dev.Infrastructure.FilesDb.Models.FileNamePart", b =>

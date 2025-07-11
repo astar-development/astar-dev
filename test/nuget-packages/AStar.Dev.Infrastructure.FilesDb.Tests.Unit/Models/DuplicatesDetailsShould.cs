@@ -3,27 +3,27 @@ using JetBrains.Annotations;
 
 namespace AStar.Dev.Infrastructure.FilesDb.Models;
 
-[TestSubject(typeof(DuplicateDetails))]
+[TestSubject(typeof(DuplicateDetail))]
 public class DuplicatesDetailsShould
 {
     [Fact]
     public void ContainTheExpectedProperties()
-        => new DuplicateDetails
+        => new DuplicateDetail
            {
-               DirectoryName      = "MockDirectoryName",
-               SoftDeleted        = true,
-               FileName           = "MockFileName",
-               FileSize           = 1234,
-               FileHandle         = "MockFileHandle",
-               LastViewed         = new DateTimeOffset(new (2025, 6, 28, 22, 20, 37, DateTimeKind.Utc)),
-               IsImage            = true,
-               DetailsLastUpdated = new (new (2025, 6, 28, 22, 30, 37, DateTimeKind.Utc)),
-               HardDeletePending  = true,
-               MoveRequired       = true,
-               SoftDeletePending  = true,
-               Height             = 456,
-               Width              = 123,
-               Instances          = 987
+               DirectoryName     = "MockDirectoryName",
+               SoftDeleted       = new (new (2025, 6, 28, 22, 33, 37, DateTimeKind.Utc)),
+               FileName          = "MockFileName",
+               FileSize          = 1234,
+               FileHandle        = "MockFileHandle",
+               FileLastViewed    = new DateTimeOffset(new (2025, 6, 28, 22, 20, 37, DateTimeKind.Utc)),
+               IsImage           = true,
+               UpdatedOn         = new (new (2025, 6, 28, 22, 30, 37, DateTimeKind.Utc)),
+               HardDeletePending = new (new (2025, 6, 28, 22, 31, 37, DateTimeKind.Utc)),
+               MoveRequired      = true,
+               SoftDeletePending = new (new (2025, 6, 28, 22, 32, 37, DateTimeKind.Utc)),
+               ImageHeight       = 456,
+               ImageWidth        = 123,
+               Instances         = 987
            }
            .ToJson().ShouldMatchApproved();
 }

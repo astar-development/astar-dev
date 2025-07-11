@@ -7,7 +7,7 @@ public class FileDetailToAdd
 {
     /// <summary>
     /// </summary>
-    public ICollection<FileClassification> FileClassifications { get ; set ; } = [];
+    public IList<FileClassification> FileClassifications { get ; set ; } = [];
 
     /// <summary>
     ///     Gets or sets the ID of the <see href="FileDetail"></see>. I know, shocking...
