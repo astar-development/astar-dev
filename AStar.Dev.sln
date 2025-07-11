@@ -5,6 +5,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AStar.Dev.ServiceDefaults", "src\_aspire\AStar.Dev.ServiceDefaults\AStar.Dev.ServiceDefaults.csproj", "{E4A8A101-E7A4-4938-B634-5F691D9AF6E8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{08F8BC33-6FCA-4DB9-AB20-09D04C75A6C6}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{EF0D1378-2D70-40FA-B190-9F760C75D222}"
 EndProject
