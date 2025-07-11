@@ -50,5 +50,19 @@
       <jdbc-url>Server=127.0.0.1,46737;User ID=sa;Password=&lt;SecurePasswordHere1!&gt;;TrustServerCertificate=true;Initial Catalog=adminDb</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="filesDb" uuid="562e9b7d-ba40-4747-bea9-f724ce94842d">
+      <driver-ref>sqlserver.jb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>
+      <jdbc-url>Server=127.0.0.1,41543;User ID=sa;Password=&lt;SecurePasswordHere1!&gt;;TrustServerCertificate=true;Initial Catalog=filesDb</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="adminDb" uuid="9cc414ba-8ffa-4fab-9583-75f29a76875c">
+      <driver-ref>sqlserver.jb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>
+      <jdbc-url>Server=127.0.0.1,41543;User ID=sa;Password=&lt;SecurePasswordHere1!&gt;;TrustServerCertificate=true;Initial Catalog=adminDb</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>

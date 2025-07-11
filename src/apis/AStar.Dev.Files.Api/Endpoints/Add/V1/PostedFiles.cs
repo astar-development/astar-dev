@@ -32,6 +32,7 @@ public static class PostedFiles // move to non-static and IoC?
 
         var responseList = fileDetailList.ToAddFilesResponse();
 
-        return TypedResults.CreatedAtRoute(responseList, "GetFiles");
+        // Should be Created...
+        return TypedResults.Ok(responseList);
     }
 }

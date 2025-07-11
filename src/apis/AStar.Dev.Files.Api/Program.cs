@@ -13,6 +13,7 @@ using AStar.Dev.Files.Api;
 using AStar.Dev.Files.Api.Endpoints.Add.V1;
 using AStar.Dev.Infrastructure.FilesDb.Data;
 using AStar.Dev.Logging.Extensions;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http.Json;
 using Serilog;
 
@@ -38,36 +39,37 @@ try
     services.AddScoped<IFileSystem, FileSystem>();
     _ = services.AddScoped<JwtEvents>();
 
-    // #pragma warning disable ASP0000
-    // var buildServiceProvider = services.BuildServiceProvider();
-    // var send                 = buildServiceProvider.GetRequiredService<Send>();
-    // var events               = buildServiceProvider.GetRequiredService<JwtEvents>();
-    // #pragma warning restore ASP0000
+    builder.AddRabbitMQClient(AspireConstants.Services.AstarMessaging);
+#pragma warning disable ASP0000
+    var buildServiceProvider = services.BuildServiceProvider();
+    var send                 = buildServiceProvider.GetRequiredService<Send>();
+    var events               = buildServiceProvider.GetRequiredService<JwtEvents>();
+#pragma warning restore ASP0000
 
-    // builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    //        .AddJwtBearer("Bearer", jwtOptions =>
-    //                                {
-    //                                    jwtOptions.MetadataAddress = "https://login.microsoftonline.com/bb7d94aa-36a9-4a59-a0c1-54a757c47ddf/v2.0/.well-known/openid-configuration";
-    //
-    //                                    jwtOptions.TokenValidationParameters = new()
-    //                                                                           {
-    //                                                                               ValidIssuer      = "https://sts.windows.net/bb7d94aa-36a9-4a59-a0c1-54a757c47ddf/",
-    //                                                                               ValidateIssuer   = true,
-    //                                                                               ValidateAudience = true,
-    //                                                                               ValidAudiences =
-    //                                                                               [
-    //                                                                                   "api://11cbc21c-c65d-436e-951e-6b3158357be6",
-    //                                                                                   "api://2ca26585-5929-4aae-86a7-a00c3fc2d061",
-    //                                                                               ],
-    //                                                                               ValidateIssuerSigningKey = true,
-    //                                                                               ValidateLifetime         = true,
-    //                                                                               ClockSkew                = TimeSpan.FromMinutes(3),
-    //                                                                           };
-    //
-    //                                    jwtOptions.MapInboundClaims = false;
-    //                                    jwtOptions.Validate();
-    //                                    jwtOptions.Events = events.AddJwtEvents(send, applicationName);
-    //                                });
+    builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+           .AddJwtBearer("Bearer", jwtOptions =>
+                                   {
+                                       jwtOptions.MetadataAddress = "https://login.microsoftonline.com/bb7d94aa-36a9-4a59-a0c1-54a757c47ddf/v2.0/.well-known/openid-configuration";
+
+                                       jwtOptions.TokenValidationParameters = new()
+                                                                              {
+                                                                                  ValidIssuer      = "https://sts.windows.net/bb7d94aa-36a9-4a59-a0c1-54a757c47ddf/",
+                                                                                  ValidateIssuer   = true,
+                                                                                  ValidateAudience = true,
+                                                                                  ValidAudiences =
+                                                                                  [
+                                                                                      "api://11cbc21c-c65d-436e-951e-6b3158357be6",
+                                                                                      "api://2ca26585-5929-4aae-86a7-a00c3fc2d061"
+                                                                                  ],
+                                                                                  ValidateIssuerSigningKey = true,
+                                                                                  ValidateLifetime         = true,
+                                                                                  ClockSkew                = TimeSpan.FromMinutes(3)
+                                                                              };
+
+                                       jwtOptions.MapInboundClaims = false;
+                                       jwtOptions.Validate();
+                                       jwtOptions.Events = events.AddJwtEvents(send, applicationName);
+                                   });
 
     JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
 
@@ -77,8 +79,7 @@ try
                                         options.SerializerOptions.PropertyNameCaseInsensitive = true;
                                     });
 
-    // services.AddAuthorization();
-    builder.AddRabbitMQClient(AspireConstants.Services.AstarMessaging);
+    services.AddAuthorization();
 
     services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
@@ -90,11 +91,9 @@ try
 
     app.MapDefaultEndpoints();
 
-    // the below will use reflection to add the endpoints - makes sure we don't forget but also hides the way they are added
-    // app.AddApplicationEndpoints();
-    app.MapFilesPostEndpoint(); // clearly, this approach relies on us manually adding
+    app.MapFilesPostEndpoint();
 
-    app.Run();
+    await app.RunAsync();
 }
 catch (Exception ex)
 {
@@ -102,7 +101,7 @@ catch (Exception ex)
 }
 finally
 {
-    Log.CloseAndFlush();
+    await Log.CloseAndFlushAsync();
 }
 
 namespace AStar.Dev.Files.Api
