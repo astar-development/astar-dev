@@ -1,0 +1,14 @@
+﻿{
+  "searchFolder": "",
+  "recursive": true,
+  "excludeViewedWithinDays": 0,
+  "includeMarkedForDeletion": false,
+  "searchText": null,
+  "currentPage": 1,
+  "itemsPerPage": 10,
+  "maximumSizeOfImage": 1500,
+  "sortOrder": "SizeDescending",
+  "searchType": "Duplicates",
+  "name": "Get Files",
+  "httpMethod": "GET"
+}

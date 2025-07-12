@@ -1,10 +1,11 @@
 using AStar.Dev.Infrastructure.FilesDb.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace AStar.Dev.Files.Api.Endpoints.Get.V1;
 
 /// <summary>
 /// </summary>
-public static class GetFiles
+public static class GetFilesHandler
 {
     /// <summary>
     /// </summary>
@@ -16,7 +17,9 @@ public static class GetFiles
     /// <returns></returns>
     public static async Task<IResult> HandleAsync(GetFilesRequest files, FilesContext filesContext, TimeProvider time, string username, CancellationToken cancellationToken)
     {
-        await Task.CompletedTask;
+        await filesContext.FileDetails
+                          .WhereDirectoryNameMatches(files.SearchFolder, files.Recursive)
+                          .ToListAsync(cancellationToken);
 
         throw new NotImplementedException();
     }

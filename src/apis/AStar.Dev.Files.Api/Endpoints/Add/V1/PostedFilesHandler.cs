@@ -4,7 +4,7 @@ namespace AStar.Dev.Files.Api.Endpoints.Add.V1;
 
 /// <summary>
 /// </summary>
-public static class PostedFiles // move to non-static and IoC?
+public static class PostedFilesHandler // move to non-static and IoC?
 {
     private const int MaxFilesToAdd = 100; // From config?
 

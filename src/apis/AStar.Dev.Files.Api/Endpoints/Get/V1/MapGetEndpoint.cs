@@ -22,7 +22,7 @@ public static class MapGetEndpoint
                        .HasApiVersion(1.0);
 
         apiGroup.MapGet("/", async ([AsParameters] GetFilesRequest files, [FromServices] FilesContext filesContext, ClaimsPrincipal claimsPrincipal, CancellationToken cancellationToken)
-                                 => await GetFiles.HandleAsync(files, filesContext, TimeProvider.System, claimsPrincipal.Identity?.Name ?? "Jay Barden", cancellationToken))
+                                 => await GetFilesHandler.HandleAsync(files, filesContext, TimeProvider.System, claimsPrincipal.Identity?.Name ?? "Jay Barden", cancellationToken))
                 .Produces<IReadOnlyCollection<GetFilesResponse>>()
                 .Produces(401)
                 .Produces(403);
