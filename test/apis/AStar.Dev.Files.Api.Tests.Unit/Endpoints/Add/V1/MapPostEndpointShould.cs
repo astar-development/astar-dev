@@ -4,10 +4,10 @@ using JetBrains.Annotations;
 namespace AStar.Dev.Files.Api.Endpoints.Add.V1;
 
 [TestSubject(typeof(MapPostEndpoint))]
-public class MapFilesEndpointShould
+public class MapPostEndpointShould
 {
     [Fact]
-    public void ContainTheMapFilesEndpoint()
+    public void ContainMapFilesPostEndpoint()
     {
         var builder = new TestEndpointRouteBuilder();
 
@@ -19,13 +19,10 @@ public class MapFilesEndpointShould
         builder.GetEndpointMetadataTags(endpointName).ContainsTag("Add Files").ShouldBeTrue();
         builder.GetEndpointMethodData(endpointName).IsPost().ShouldBeTrue();
 
-        // interestingly, Swagger doesn't list 200 as soon as we add 201 etc... not sure how / why this passes - need to look into it more, I guess. Initial look doesn't reveal the cause
-        // builder.GetEndpointResponseTypes(endpointName).DefinesResponseTypeWithStatusCode(200).ShouldBeTrue();
         builder.GetEndpointResponseTypes(endpointName).DefinesResponseTypeWithStatusCode(201).ShouldBeTrue();
         builder.GetEndpointResponseTypes(endpointName).DefinesResponseTypeWithStatusCode(401).ShouldBeTrue();
         builder.GetEndpointResponseTypes(endpointName).DefinesResponseTypeWithStatusCode(403).ShouldBeTrue();
 
-        //builder.GetEndpointResponseTypes("POST /files").DefinesResponseTypeWithType("dunno").ShouldBeTrue();
-        // Add any other extension methods that make sense
+        builder.GetEndpointResponseTypes("POST /files").DefinesResponseTypeWithType("AddFilesResponse").ShouldBeTrue();
     }
 }

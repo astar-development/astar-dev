@@ -1,16 +1,16 @@
 ﻿{
   "fileName": "MockFileName",
   "directoryName": "MockDirectoryName",
-  "height": 456,
-  "width": 123,
+  "imageHeight": 456,
+  "imageWidth": 123,
   "fileSize": 1234,
   "fileHandle": "MockFileHandle",
   "isImage": true,
   "instances": 987,
-  "detailsLastUpdated": "2025-06-28T22:30:37+00:00",
-  "lastViewed": "2025-06-28T22:20:37+00:00",
-  "softDeleted": true,
-  "softDeletePending": true,
+  "updatedOn": "2025-06-28T22:30:37+00:00",
+  "fileLastViewed": "2025-06-28T22:20:37+00:00",
+  "softDeleted": "2025-06-28T22:33:37+00:00",
+  "softDeletePending": "2025-06-28T22:32:37+00:00",
   "moveRequired": true,
-  "hardDeletePending": true
+  "hardDeletePending": "2025-06-28T22:31:37+00:00"
 }

@@ -198,15 +198,12 @@
         </member>
         <member name="T:AStar.Dev.Files.Api.Endpoints.Add.V1.MapPostEndpoint">
             <summary>
-                As the name suggests, this class contains the Map Files Endpoint method(s)
-                Currently, it only supports the Post, and this may remain as, directly adding Get etc. would, IMO, violate SRP
-                However, I may use this as the entry point into a set of other classes, which, hopefully, will allow me to avoid the biggest
-                issue I have with this class and its method - the desire to have both called the same thing...
+                As the name suggests, this class contains the Map Files Endpoint method
             </summary>
         </member>
         <member name="M:AStar.Dev.Files.Api.Endpoints.Add.V1.MapPostEndpoint.MapFilesPostEndpoint(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder)">
             <summary>
-                As the name suggests, this method will map the Files (Post) endpoint specifically
+                As the name suggests, this method will map the Files Post endpoint specifically
             </summary>
             <param name="endpointRouteBuilder"></param>
         </member>
@@ -214,7 +211,7 @@
             <summary>
             </summary>
         </member>
-        <member name="M:AStar.Dev.Files.Api.Endpoints.Add.V1.PostedFiles.Handle(AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesRequest,AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,System.TimeProvider,System.String,System.Threading.CancellationToken)">
+        <member name="M:AStar.Dev.Files.Api.Endpoints.Add.V1.PostedFiles.HandleAsync(AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesRequest,AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,System.TimeProvider,System.String,System.Threading.CancellationToken)">
             <summary>
             </summary>
             <param name="files"></param>
@@ -228,13 +225,55 @@
             <summary>
             </summary>
         </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.EndpointConstants.GetFilesGroupName">
+            <summary>
+            </summary>
+        </member>
         <member name="P:AStar.Dev.Files.Api.Endpoints.EndpointConstants.AddFilesGroupName">
             <summary>
             </summary>
         </member>
-        <member name="P:AStar.Dev.Files.Api.Endpoints.EndpointConstants.AddFilesEndpoint">
+        <member name="P:AStar.Dev.Files.Api.Endpoints.EndpointConstants.FilesEndpoint">
             <summary>
             </summary>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFiles">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFiles.HandleAsync(AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest,AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,System.TimeProvider,System.String,System.Threading.CancellationToken)">
+            <summary>
+
+            </summary>
+            <param name="files"></param>
+            <param name="filesContext"></param>
+            <param name="time"></param>
+            <param name="username"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest"/>
+                contains the search parameters for the Get
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesResponse">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Get.V1.MapGetEndpoint">
+            <summary>
+                As the name suggests, this class contains the Map Files Get Endpoint method
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.Get.V1.MapGetEndpoint.MapFilesGetEndpoint(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder)">
+            <summary>
+                As the name suggests, this method will map the Files Get endpoint specifically
+            </summary>
+            <param name="endpointRouteBuilder"></param>
         </member>
         <member name="T:AStar.Dev.Files.Api.IAssemblyMarker">
             <summary>

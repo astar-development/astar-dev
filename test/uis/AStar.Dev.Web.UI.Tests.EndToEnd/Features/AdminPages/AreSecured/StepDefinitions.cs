@@ -10,7 +10,7 @@ public class StepDefinitions(IOptions<ApplicationSettings> applicationSettings, 
     : PlaywrightBase(applicationSettings, output)
 {
     [Given("I am not logged in to the site")]
-    public async Task GivenIAmNotLoggedInToTheSite() =>
+    public async Task GivenIAmNotLoggedInToTheSiteAsync() =>
         await Page.GotoAsync(AppSettings.BaseUri);
 
     [When("I visit any of the following pages:")]
@@ -18,7 +18,7 @@ public class StepDefinitions(IOptions<ApplicationSettings> applicationSettings, 
         scenarioContext["AdminPages"] = table.CreateSet<AdminPages>();
 
     [Then("I am asked to login")]
-    public async Task ThenIAmAskedToLogin()
+    public async Task ThenIAmAskedToLoginAsync()
     {
         var adminPages = scenarioContext["AdminPages"] as List<AdminPages>;
 

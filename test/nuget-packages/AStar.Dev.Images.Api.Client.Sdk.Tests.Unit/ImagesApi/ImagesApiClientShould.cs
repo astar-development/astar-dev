@@ -9,7 +9,7 @@ namespace AStar.Dev.Images.Api.Client.Sdk.ImagesApi;
 public class ImagesApiClientShould
 {
     [Fact]
-    public async Task ReturnExpectedFailureFromGetHealthAsyncWhenTheApIsiUnreachable()
+    public async Task ReturnExpectedFailureFromGetHealthAsyncWhenTheApIsiUnreachableAsync()
     {
         var handler    = new MockHttpRequestExceptionErrorHttpMessageHandler();
         var httpClient = new HttpClient(handler) { BaseAddress = new("https://doesnot.matter.com") };
@@ -21,7 +21,7 @@ public class ImagesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedFailureMessageFromGetHealthAsyncWhenCheckFails()
+    public async Task ReturnExpectedFailureMessageFromGetHealthAsyncWhenCheckFailsAsync()
     {
         var handler    = new MockInternalServerErrorHttpMessageHandler("Health Check failed - Internal Server Error.");
         var httpClient = new HttpClient(handler) { BaseAddress = new("https://doesnot.matter.com") };
@@ -33,7 +33,7 @@ public class ImagesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedMessageFromGetHealthAsyncWhenCheckSucceeds()
+    public async Task ReturnExpectedMessageFromGetHealthAsyncWhenCheckSucceedsAsync()
     {
         var handler    = new MockSuccessHttpMessageHandler("");
         var httpClient = new HttpClient(handler) { BaseAddress = new("https://doesnot.matter.com") };
@@ -45,7 +45,7 @@ public class ImagesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnTheExpectedResponseFromGetImageAsyncWhenCalledWithValidDetails()
+    public async Task ReturnTheExpectedResponseFromGetImageAsyncWhenCalledWithValidDetailsAsync()
     {
         var handler    = new MockSuccessHttpMessageHandler("Image");
         var httpClient = new HttpClient(handler) { BaseAddress = new("https://doesnot.matter.com") };
@@ -57,7 +57,7 @@ public class ImagesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnTheExpectedResponseFromGetImageAsyncWhenCalledWithInvalidDetails()
+    public async Task ReturnTheExpectedResponseFromGetImageAsyncWhenCalledWithInvalidDetailsAsync()
     {
         var handler    = new MockSuccessHttpMessageHandler("ImageMissing");
         var httpClient = new HttpClient(handler) { BaseAddress = new("https://doesnot.matter.com") };

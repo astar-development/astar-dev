@@ -10,7 +10,7 @@ public class StepDefinitions(IOptions<ApplicationSettings> applicationSettings, 
     : PlaywrightBase(applicationSettings, output)
 {
     [Given("I have valid credentials")]
-    public async Task GivenIHaveValidCredentials()
+    public async Task GivenIHaveValidCredentialsAsync()
     {
         await Task.Delay(1);
         var dummyHeaders = new Dictionary<string, string> { { "an-irrelevant-header", "an equally irrelevant value..." } };
@@ -36,7 +36,7 @@ public class StepDefinitions(IOptions<ApplicationSettings> applicationSettings, 
     }
 
     [Then("I can see I am logged in as expected")]
-    public async Task ThenICanSeeIAmLoggedInAsExpected()
+    public async Task ThenICanSeeIAmLoggedInAsExpectedAsync()
     {
         await Task.Delay(1);
         await Task.Delay(1);

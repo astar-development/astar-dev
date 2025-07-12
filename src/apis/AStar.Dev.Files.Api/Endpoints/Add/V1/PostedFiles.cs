@@ -16,7 +16,7 @@ public static class PostedFiles // move to non-static and IoC?
     /// <param name="username"></param>
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
-    public static async Task<IResult> Handle(AddFilesRequest files, FilesContext filesContext, TimeProvider time, string username, CancellationToken cancellationToken)
+    public static async Task<IResult> HandleAsync(AddFilesRequest files, FilesContext filesContext, TimeProvider time, string username, CancellationToken cancellationToken)
     {
         if(files.FilesToAdd.Count > MaxFilesToAdd)
         {
@@ -32,7 +32,7 @@ public static class PostedFiles // move to non-static and IoC?
 
         var responseList = fileDetailList.ToAddFilesResponse();
 
-        // Should be Created...
-        return TypedResults.Ok(responseList);
+        // Need a "Get this list" version of the new Get Files
+        return TypedResults.CreatedAtRoute(responseList, "Get Files");
     }
 }

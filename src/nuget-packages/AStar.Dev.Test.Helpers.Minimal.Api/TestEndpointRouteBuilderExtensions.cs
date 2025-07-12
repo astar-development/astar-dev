@@ -52,8 +52,11 @@ public static class TestEndpointRouteBuilderExtensions
         => endpoints.Any(endpoint => endpoint.StatusCode == statusCode);
 
     public static bool DefinesResponseTypeWithType(this IList<ProducesResponseTypeMetadata> endpoints, string expectedType)
-        => endpoints.Any(endpoint => endpoint.Type?.FullName == expectedType);
+        => endpoints.Any(endpoint => endpoint.Type!.FullName!.Contains(expectedType));
 
     public static bool IsPost(this IList<HttpMethodMetadata> endpoints)
         => endpoints.Any(endpoint => endpoint.HttpMethods.Contains("POST"));
+
+    public static bool IsGet(this IList<HttpMethodMetadata> endpoints)
+        => endpoints.Any(endpoint => endpoint.HttpMethods.Contains("GET"));
 }

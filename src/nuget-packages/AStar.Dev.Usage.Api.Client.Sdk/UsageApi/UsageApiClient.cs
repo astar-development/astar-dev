@@ -27,7 +27,7 @@ public sealed class UsageApiClient(HttpClient httpClient, /*ITokenAcquisition to
             var response = await httpClient.GetAsync("/health/live", cancellationToken);
 
             return response.IsSuccessStatusCode
-                       ? await ReturnLoggedSuccess(response)
+                       ? await ReturnLoggedSuccessAsync(response)
                        : ReturnLoggedFailure(response);
         }
         catch (HttpRequestException ex)
@@ -38,7 +38,7 @@ public sealed class UsageApiClient(HttpClient httpClient, /*ITokenAcquisition to
         }
     }
 
-    private async Task<HealthStatusResponse> ReturnLoggedSuccess(HttpResponseMessage response)
+    private async Task<HealthStatusResponse> ReturnLoggedSuccessAsync(HttpResponseMessage response)
     {
         logger.LogInformation("The {ApiName} Health check completed successfully.", Constants.ApiName);
 

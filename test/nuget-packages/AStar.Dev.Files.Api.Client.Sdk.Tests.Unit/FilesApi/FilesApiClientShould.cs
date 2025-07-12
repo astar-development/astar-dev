@@ -6,7 +6,7 @@ namespace AStar.Dev.Files.Api.Client.Sdk.FilesApi;
 public sealed class FilesApiClientShould
 {
     [Fact]
-    public async Task ReturnExpectedFailureFromGetHealthAsyncWhenTheApIsiUnreachable()
+    public async Task ReturnExpectedFailureFromGetHealthAsyncWhenTheApIsiUnreachableAsync()
     {
         var handler = new MockHttpRequestExceptionErrorHttpMessageHandler();
         var sut     = FilesApiClientFactory.Create(handler);
@@ -17,7 +17,7 @@ public sealed class FilesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedFailureMessageFromGetHealthAsyncWhenCheckFails()
+    public async Task ReturnExpectedFailureMessageFromGetHealthAsyncWhenCheckFailsAsync()
     {
         var sut = FilesApiClientFactory.CreateInternalServerErrorClient("Health Check failed.");
 
@@ -27,7 +27,7 @@ public sealed class FilesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedMessageFromGetHealthAsyncWhenCheckSucceeds()
+    public async Task ReturnExpectedMessageFromGetHealthAsyncWhenCheckSucceedsAsync()
     {
         var handler = new MockSuccessHttpMessageHandler("");
         var sut     = FilesApiClientFactory.Create(handler);
@@ -38,7 +38,7 @@ public sealed class FilesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedResponseFromTheCountEndpoint()
+    public async Task ReturnExpectedResponseFromTheCountEndpointAsync()
     {
         var handler = new MockSuccessHttpMessageHandler("Count");
         var sut     = FilesApiClientFactory.Create(handler);
@@ -49,7 +49,7 @@ public sealed class FilesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedResponseFromTheCountEndpointWhenAnErrorOccurs()
+    public async Task ReturnExpectedResponseFromTheCountEndpointWhenAnErrorOccursAsync()
     {
         var handler = new MockInternalServerErrorHttpMessageHandler("Count");
         var sut     = FilesApiClientFactory.Create(handler);
@@ -60,7 +60,7 @@ public sealed class FilesApiClientShould
     }
 
     [Fact(Skip = "Mock doesn't work")]
-    public async Task ReturnExpectedResponseFromTheCountDuplicatesEndpoint()
+    public async Task ReturnExpectedResponseFromTheCountDuplicatesEndpointAsync()
     {
         const int mockDuplicatesCountValue = 1234;
         var       handler                  = new MockSuccessHttpMessageHandler("CountDuplicates") { Counter = mockDuplicatesCountValue };
@@ -72,7 +72,7 @@ public sealed class FilesApiClientShould
     }
 
     [Fact(Skip = "Doesn't work")]
-    public async Task ReturnExpectedResponseFromTheCountDuplicatesEndpointWhenAnErrorOccurs()
+    public async Task ReturnExpectedResponseFromTheCountDuplicatesEndpointWhenAnErrorOccursAsync()
     {
         var handler = new MockInternalServerErrorHttpMessageHandler("Count");
         var sut     = FilesApiClientFactory.Create(handler);
@@ -83,7 +83,7 @@ public sealed class FilesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedResponseFromTheListEndpoint()
+    public async Task ReturnExpectedResponseFromTheListEndpointAsync()
     {
         var handler = new MockSuccessHttpMessageHandler("ListFiles");
         var sut     = FilesApiClientFactory.Create(handler);
@@ -94,7 +94,7 @@ public sealed class FilesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedResponseFromTheListEndpointWhenAnErrorOccurs()
+    public async Task ReturnExpectedResponseFromTheListEndpointWhenAnErrorOccursAsync()
     {
         var handler = new MockHttpRequestExceptionErrorHttpMessageHandler();
         var sut     = FilesApiClientFactory.Create(handler);
@@ -105,7 +105,7 @@ public sealed class FilesApiClientShould
     }
 
     [Fact(Skip = "Mock doesn't work")]
-    public async Task ReturnExpectedResponseFromTheListDuplicatesEndpoint()
+    public async Task ReturnExpectedResponseFromTheListDuplicatesEndpointAsync()
     {
         var handler = new MockSuccessHttpMessageHandler("ListDuplicates");
         var sut     = FilesApiClientFactory.Create(handler);
@@ -116,7 +116,7 @@ public sealed class FilesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedResponseFromTheListDuplicatesEndpointWhenAnErrorOccurs()
+    public async Task ReturnExpectedResponseFromTheListDuplicatesEndpointWhenAnErrorOccursAsync()
     {
         var handler = new MockHttpRequestExceptionErrorHttpMessageHandler();
         var sut     = FilesApiClientFactory.Create(handler);
@@ -127,7 +127,7 @@ public sealed class FilesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedMessageFromMarkForSoftDeletionWhenSuccessful()
+    public async Task ReturnExpectedMessageFromMarkForSoftDeletionWhenSuccessfulAsync()
     {
         var handler = new MockSuccessHttpMessageHandler("");
         var sut     = FilesApiClientFactory.Create(handler);
@@ -138,7 +138,7 @@ public sealed class FilesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedMessageFromMarkForSoftDeletionWhenSuccessfulWhenAnErrorOccurs()
+    public async Task ReturnExpectedMessageFromMarkForSoftDeletionWhenSuccessfulWhenAnErrorOccursAsync()
     {
         var handler = new MockHttpRequestExceptionErrorHttpMessageHandler();
         var sut     = FilesApiClientFactory.Create(handler);
@@ -149,7 +149,7 @@ public sealed class FilesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedMessageFromMarkForSoftDeletionWhenFailure()
+    public async Task ReturnExpectedMessageFromMarkForSoftDeletionWhenFailureAsync()
     {
         var sut = FilesApiClientFactory.CreateInternalServerErrorClient("Delete failed...");
 
@@ -159,7 +159,7 @@ public sealed class FilesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedMessageFromUndoMarkForSoftDeletionWhenFailure()
+    public async Task ReturnExpectedMessageFromUndoMarkForSoftDeletionWhenFailureAsync()
     {
         var sut = FilesApiClientFactory.CreateInternalServerErrorClient("Undo mark for deletion failed...");
 
@@ -169,7 +169,7 @@ public sealed class FilesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedMessageFromUndoMarkForSoftDeletionWhenSuccessful()
+    public async Task ReturnExpectedMessageFromUndoMarkForSoftDeletionWhenSuccessfulAsync()
     {
         var handler = new MockDeletionSuccessHttpMessageHandler();
         var sut     = FilesApiClientFactory.Create(handler);
@@ -180,7 +180,7 @@ public sealed class FilesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedMessageFromUndoMarkForSoftDeletionWhenAnErrorOccurs()
+    public async Task ReturnExpectedMessageFromUndoMarkForSoftDeletionWhenAnErrorOccursAsync()
     {
         var handler = new MockHttpRequestExceptionErrorHttpMessageHandler();
         var sut     = FilesApiClientFactory.Create(handler);
@@ -191,7 +191,7 @@ public sealed class FilesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedMessageFromMarkForHardDeletionWhenSuccessful()
+    public async Task ReturnExpectedMessageFromMarkForHardDeletionWhenSuccessfulAsync()
     {
         var handler = new MockDeletionSuccessHttpMessageHandler();
         var sut     = FilesApiClientFactory.Create(handler);
@@ -202,7 +202,7 @@ public sealed class FilesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedMessageFromMarkForHardDeletionWhenAnErrorOccurs()
+    public async Task ReturnExpectedMessageFromMarkForHardDeletionWhenAnErrorOccursAsync()
     {
         var handler = new MockHttpRequestExceptionErrorHttpMessageHandler();
         var sut     = FilesApiClientFactory.Create(handler);
@@ -213,7 +213,7 @@ public sealed class FilesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedMessageFromMarkForHardDeletionWhenFailure()
+    public async Task ReturnExpectedMessageFromMarkForHardDeletionWhenFailureAsync()
     {
         var sut = FilesApiClientFactory.CreateInternalServerErrorClient("Delete failed...");
 
@@ -223,7 +223,7 @@ public sealed class FilesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedMessageFromUndoMarkForHardDeletionWhenSuccessful()
+    public async Task ReturnExpectedMessageFromUndoMarkForHardDeletionWhenSuccessfulAsync()
     {
         var handler = new MockSuccessHttpMessageHandler("");
         var sut     = FilesApiClientFactory.Create(handler);
@@ -234,7 +234,7 @@ public sealed class FilesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedMessageFromUndoMarkForHardDeletionWhenAnErrorOccurs()
+    public async Task ReturnExpectedMessageFromUndoMarkForHardDeletionWhenAnErrorOccursAsync()
     {
         var handler = new MockHttpRequestExceptionErrorHttpMessageHandler();
         var sut     = FilesApiClientFactory.Create(handler);
@@ -245,7 +245,7 @@ public sealed class FilesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedMessageFromUndoMarkForHardDeletionWhenFailure()
+    public async Task ReturnExpectedMessageFromUndoMarkForHardDeletionWhenFailureAsync()
     {
         var sut = FilesApiClientFactory.CreateInternalServerErrorClient("Undo mark for deletion failed...");
 
@@ -255,7 +255,7 @@ public sealed class FilesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedMessageFromMarkForMovingWhenSuccessful()
+    public async Task ReturnExpectedMessageFromMarkForMovingWhenSuccessfulAsync()
     {
         var handler = new MockDeletionSuccessHttpMessageHandler();
         var sut     = FilesApiClientFactory.Create(handler);
@@ -266,7 +266,7 @@ public sealed class FilesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedMessageFromMarkForMovingWhenAnErrorOccurs()
+    public async Task ReturnExpectedMessageFromMarkForMovingWhenAnErrorOccursAsync()
     {
         var handler = new MockHttpRequestExceptionErrorHttpMessageHandler();
         var sut     = FilesApiClientFactory.Create(handler);
@@ -277,7 +277,7 @@ public sealed class FilesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedMessageFromMarkForMovingWhenFailure()
+    public async Task ReturnExpectedMessageFromMarkForMovingWhenFailureAsync()
     {
         var sut = FilesApiClientFactory.CreateInternalServerErrorClient("Delete failed...");
 
@@ -287,7 +287,7 @@ public sealed class FilesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedMessageFromUndoMarkForMovingWhenSuccessful()
+    public async Task ReturnExpectedMessageFromUndoMarkForMovingWhenSuccessfulAsync()
     {
         var handler = new MockSuccessHttpMessageHandler("");
         var sut     = FilesApiClientFactory.Create(handler);
@@ -298,7 +298,7 @@ public sealed class FilesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedMessageFromUndoMarkForMovingWhenAnErrorOccurs()
+    public async Task ReturnExpectedMessageFromUndoMarkForMovingWhenAnErrorOccursAsync()
     {
         var handler = new MockHttpRequestExceptionErrorHttpMessageHandler();
         var sut     = FilesApiClientFactory.Create(handler);
@@ -309,7 +309,7 @@ public sealed class FilesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedMessageFromUndoMarkForMovingWhenFailure()
+    public async Task ReturnExpectedMessageFromUndoMarkForMovingWhenFailureAsync()
     {
         var sut = FilesApiClientFactory.CreateInternalServerErrorClient("Undo mark for deletion failed...");
 
@@ -319,53 +319,53 @@ public sealed class FilesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedResponseFromThGetFileAccessDetailWhenAnErrorOccurs()
+    public async Task ReturnExpectedResponseFromThGetFileAccessDetailWhenAnErrorOccursAsync()
     {
         var handler = new MockHttpRequestExceptionErrorHttpMessageHandler();
         var sut     = FilesApiClientFactory.Create(handler);
 
-        Func<Task> sutMethod = async () => await sut.GetFileAccessDetail(1);
+        Func<Task> sutMethod = async () => await sut.GetFileAccessDetailAsync(1);
 
         await sutMethod.ShouldThrowAsync<HttpRequestException>();
     }
 
     [Fact(Skip = "Doesn't work...")]
-    public async Task ReturnExpectedResponseFromTheGetFileAccessDetailEndpoint()
+    public async Task ReturnExpectedResponseFromTheGetFileAccessDetailEndpointAsync()
     {
         var mockFileId = 1;
 
         var handler = new MockSuccessHttpMessageHandler("FileAccessDetail");
         var sut     = FilesApiClientFactory.Create(handler);
 
-        var response = await sut.GetFileAccessDetail(mockFileId);
+        var response = await sut.GetFileAccessDetailAsync(mockFileId);
 
         response.Id.ShouldBe(4);
     }
 
     [Fact]
-    public async Task ReturnExpectedResponseFromThGetFileDetailWhenAnErrorOccurs()
+    public async Task ReturnExpectedResponseFromThGetFileDetailWhenAnErrorOccursAsync()
     {
         var handler = new MockHttpRequestExceptionErrorHttpMessageHandler();
         var sut     = FilesApiClientFactory.Create(handler);
 
-        Func<Task> sutMethod = async () => await sut.GetFileDetail(1);
+        Func<Task> sutMethod = async () => await sut.GetFileDetailAsync(1);
 
         await sutMethod.ShouldThrowAsync<HttpRequestException>();
     }
 
     [Fact]
-    public async Task ReturnExpectedResponseFromTheGetFileDetailEndpoint()
+    public async Task ReturnExpectedResponseFromTheGetFileDetailEndpointAsync()
     {
         var handler = new MockSuccessHttpMessageHandler("FileDetail");
         var sut     = FilesApiClientFactory.Create(handler);
 
-        var response = await sut.GetFileDetail(1);
+        var response = await sut.GetFileDetailAsync(1);
 
         response.FileName.ShouldBe("Test File FileClassification");
     }
 
     [Fact]
-    public async Task ReturnExpectedResponseFromTheUpdateFileAsyncWhenAnErrorOccurs()
+    public async Task ReturnExpectedResponseFromTheUpdateFileAsyncWhenAnErrorOccursAsync()
     {
         var handler = new MockHttpRequestExceptionErrorHttpMessageHandler();
         var sut     = FilesApiClientFactory.Create(handler);
@@ -376,7 +376,7 @@ public sealed class FilesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedResponseFromTheUpdateFileAsyncEndpoint()
+    public async Task ReturnExpectedResponseFromTheUpdateFileAsyncEndpointAsync()
     {
         var handler = new MockSuccessHttpMessageHandler("FileDetail");
         var sut     = FilesApiClientFactory.Create(handler);
