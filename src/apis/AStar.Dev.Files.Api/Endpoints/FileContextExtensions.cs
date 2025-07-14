@@ -15,18 +15,7 @@ public static class FileContextExtensions
     /// <param name="directoryName"></param>
     /// <param name="recursive"></param>
     /// <returns></returns>
-    public static IQueryable<FileDetail> WhereDirectoryNameMatches(this IQueryable<FileDetail> files, string directoryName, bool recursive)
-        => recursive
-               ? files.Where(fileDetail => fileDetail.DirectoryName.StartsWith(directoryName))
-               : files.Where(fileDetail => fileDetail.DirectoryName == directoryName);
-
-    /// <summary>
-    /// </summary>
-    /// <param name="files"></param>
-    /// <param name="directoryName"></param>
-    /// <param name="recursive"></param>
-    /// <returns></returns>
-    public static IQueryable<DuplicateDetail> WhereDirectoryNameMatches(this IQueryable<DuplicateDetail> files, string directoryName, bool recursive)
+    public static IQueryable<T> WhereDirectoryNameMatches<T>(this IQueryable<T> files, string directoryName, bool recursive) where T : IFileDetail
         => recursive
                ? files.Where(fileDetail => fileDetail.DirectoryName.StartsWith(directoryName))
                : files.Where(fileDetail => fileDetail.DirectoryName == directoryName);
@@ -36,17 +25,7 @@ public static class FileContextExtensions
     /// <param name="files"></param>
     /// <param name="excludeViewedWithinDays"></param>
     /// <returns></returns>
-    public static IQueryable<FileDetail> ExcludeViewed(this IQueryable<FileDetail> files, int excludeViewedWithinDays)
-        => excludeViewedWithinDays == 0
-               ? files
-               : files.Where(fileDetail => fileDetail.FileLastViewed < DateTimeOffset.UtcNow.AddDays(-excludeViewedWithinDays));
-
-    /// <summary>
-    /// </summary>
-    /// <param name="files"></param>
-    /// <param name="excludeViewedWithinDays"></param>
-    /// <returns></returns>
-    public static IQueryable<DuplicateDetail> ExcludeViewed(this IQueryable<DuplicateDetail> files, int excludeViewedWithinDays)
+    public static IQueryable<T> ExcludeViewed<T>(this IQueryable<T> files, int excludeViewedWithinDays) where T : IFileDetail
         => excludeViewedWithinDays == 0
                ? files
                : files.Where(fileDetail => fileDetail.FileLastViewed < DateTimeOffset.UtcNow.AddDays(-excludeViewedWithinDays));
@@ -76,17 +55,7 @@ public static class FileContextExtensions
     /// <param name="files"></param>
     /// <param name="searchText"></param>
     /// <returns></returns>
-    public static IQueryable<FileDetail> SelectFilesMatching(this IQueryable<FileDetail> files, string? searchText)
-        => string.IsNullOrEmpty(searchText)
-               ? files
-               : files.Where(fileDetail => fileDetail.DirectoryName.Contains(searchText) || fileDetail.FileName.Contains(searchText));
-
-    /// <summary>
-    /// </summary>
-    /// <param name="files"></param>
-    /// <param name="searchText"></param>
-    /// <returns></returns>
-    public static IQueryable<DuplicateDetail> SelectFilesMatching(this IQueryable<DuplicateDetail> files, string? searchText)
+    public static IQueryable<T> SelectFilesMatching<T>(this IQueryable<T> files, string? searchText) where T : IFileDetail
         => string.IsNullOrEmpty(searchText)
                ? files
                : files.Where(fileDetail => fileDetail.DirectoryName.Contains(searchText) || fileDetail.FileName.Contains(searchText));
@@ -97,16 +66,7 @@ public static class FileContextExtensions
     /// <param name="currentPage"></param>
     /// <param name="itemsPerPage"></param>
     /// <returns></returns>
-    public static IQueryable<FileDetail> SelectRequestedPage(this IQueryable<FileDetail> files, int currentPage, int itemsPerPage)
-        => files.Skip((currentPage - 1) * itemsPerPage).Take(itemsPerPage);
-
-    /// <summary>
-    /// </summary>
-    /// <param name="files"></param>
-    /// <param name="currentPage"></param>
-    /// <param name="itemsPerPage"></param>
-    /// <returns></returns>
-    public static IQueryable<DuplicateDetail> SelectRequestedPage(this IQueryable<DuplicateDetail> files, int currentPage, int itemsPerPage)
+    public static IQueryable<T> SelectRequestedPage<T>(this IQueryable<T> files, int currentPage, int itemsPerPage) where T : IFileDetail
         => files.Skip((currentPage - 1) * itemsPerPage).Take(itemsPerPage);
 
     /// <summary>
@@ -114,75 +74,37 @@ public static class FileContextExtensions
     /// <param name="files"></param>
     /// <param name="sortOrder"></param>
     /// <returns></returns>
-    public static IQueryable<FileDetail> OrderAsRequested(this IQueryable<FileDetail> files, SortOrder sortOrder) =>
-        sortOrder switch
-        {
-            SortOrder.NameAscending  => files.OrderBy(fileDetail => fileDetail.FileName),
-            SortOrder.NameDescending => files.OrderByDescending(fileDetail => fileDetail.FileName),
-            SortOrder.SizeAscending  => files.OrderBy(fileDetail => fileDetail.FileSize),
-            SortOrder.SizeDescending => files.OrderByDescending(fileDetail => fileDetail.FileSize),
-            _                        => throw new UnreachableException($"Invalid sort order specified: {sortOrder}")
-        };
-
-    /// <summary>
-    /// </summary>
-    /// <param name="files"></param>
-    /// <param name="sortOrder"></param>
-    /// <returns></returns>
-    public static IQueryable<DuplicateDetail> OrderAsRequested(this IQueryable<DuplicateDetail> files, SortOrder sortOrder) =>
-        sortOrder switch
-        {
-            SortOrder.NameAscending  => files.OrderBy(fileDetail => fileDetail.FileName),
-            SortOrder.NameDescending => files.OrderByDescending(fileDetail => fileDetail.FileName),
-            SortOrder.SizeAscending  => files.OrderBy(fileDetail => fileDetail.FileSize),
-            SortOrder.SizeDescending => files.OrderByDescending(fileDetail => fileDetail.FileSize),
-            _                        => throw new UnreachableException($"Invalid sort order specified: {sortOrder}")
-        };
+    public static IQueryable<T> OrderAsRequested<T>(this IQueryable<T> files, SortOrder sortOrder) where T : IFileDetail
+        => sortOrder switch
+           {
+               SortOrder.NameAscending  => files.OrderBy(fileDetail => fileDetail.FileName),
+               SortOrder.NameDescending => files.OrderByDescending(fileDetail => fileDetail.FileName),
+               SortOrder.SizeAscending  => files.OrderBy(fileDetail => fileDetail.FileSize),
+               SortOrder.SizeDescending => files.OrderByDescending(fileDetail => fileDetail.FileSize),
+               _                        => throw new UnreachableException($"Invalid sort order specified: {sortOrder}")
+           };
 
     /// <summary>
     /// </summary>
     /// <param name="files"></param>
     /// <param name="searchType"></param>
     /// <returns></returns>
-    public static IQueryable<FileDetail> SetSearchType(this IQueryable<FileDetail> files, SearchType searchType) =>
-        searchType switch
-        {
-            SearchType.All             => files,
-            SearchType.DuplicateImages => files.OrderByDescending(fileDetail => fileDetail.FileName),
-            SearchType.Duplicates      => files.OrderBy(fileDetail => fileDetail.FileSize),
-            SearchType.Images          => files.OrderByDescending(fileDetail => fileDetail.FileSize),
-            _                          => throw new UnreachableException($"Invalid search type specified: {searchType}")
-        };
+    public static IQueryable<T> SetSearchType<T>(this IQueryable<T> files, SearchType searchType) where T : IFileDetail
+        => searchType switch
+           {
+               SearchType.All             => files,
+               SearchType.DuplicateImages => files.OrderByDescending(fileDetail => fileDetail.FileName),
+               SearchType.Duplicates      => files.OrderBy(fileDetail => fileDetail.FileSize),
+               SearchType.Images          => files.OrderByDescending(fileDetail => fileDetail.FileSize),
+               _                          => throw new UnreachableException($"Invalid search type specified: {searchType}")
+           };
 
     /// <summary>
     /// </summary>
     /// <param name="files"></param>
     /// <param name="searchType"></param>
     /// <returns></returns>
-    public static IQueryable<DuplicateDetail> SetSearchType(this IQueryable<DuplicateDetail> files, SearchType searchType) =>
-        searchType switch
-        {
-            SearchType.DuplicateImages => files.OrderByDescending(fileDetail => fileDetail.FileName),
-            SearchType.Duplicates      => files.OrderBy(fileDetail => fileDetail.FileSize),
-            _                          => throw new UnreachableException($"Invalid search type specified: {searchType}")
-        };
-
-    /// <summary>
-    /// </summary>
-    /// <param name="files"></param>
-    /// <param name="searchType"></param>
-    /// <returns></returns>
-    public static IQueryable<FileDetail> SelectByFileType(this IQueryable<FileDetail> files, SearchType searchType)
-        => searchType == SearchType.Images
-               ? files.Where(fileDetail => fileDetail.IsImage)
-               : files;
-
-    /// <summary>
-    /// </summary>
-    /// <param name="files"></param>
-    /// <param name="searchType"></param>
-    /// <returns></returns>
-    public static IQueryable<DuplicateDetail> SelectByFileType(this IQueryable<DuplicateDetail> files, SearchType searchType)
+    public static IQueryable<T> SelectByFileType<T>(this IQueryable<T> files, SearchType searchType) where T : IFileDetail
         => searchType == SearchType.Images
                ? files.Where(fileDetail => fileDetail.IsImage)
                : files;

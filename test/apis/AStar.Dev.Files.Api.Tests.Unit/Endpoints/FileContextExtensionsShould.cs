@@ -17,11 +17,7 @@ public class FileContextExtensionsShould
 
         response.Expression
                 .ToString()
-                .ShouldStartWith("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => fileDetail.DirectoryName.StartsWith(");
-
-        response.Expression
-                .ToString()
-                .ShouldEndWith(").directoryName))");
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => Convert(fileDetail, IFileDetail).DirectoryName.StartsWith(value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass0_0`1[AStar.Dev.Infrastructure.FilesDb.Models.FileDetail]).directoryName))");
     }
 
     [Fact]
@@ -35,11 +31,7 @@ public class FileContextExtensionsShould
 
         response.Expression
                 .ToString()
-                .ShouldStartWith("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => (fileDetail.DirectoryName ==");
-
-        response.Expression
-                .ToString()
-                .ShouldEndWith(").directoryName))");
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => (Convert(fileDetail, IFileDetail).DirectoryName == value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass0_0`1[AStar.Dev.Infrastructure.FilesDb.Models.FileDetail]).directoryName))");
     }
 
     [Fact]
@@ -53,11 +45,7 @@ public class FileContextExtensionsShould
 
         response.Expression
                 .ToString()
-                .ShouldStartWith("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => fileDetail.DirectoryName.StartsWith(");
-
-        response.Expression
-                .ToString()
-                .ShouldEndWith(").directoryName))");
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => Convert(fileDetail, IFileDetail).DirectoryName.StartsWith(value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass0_0`1[AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail]).directoryName))");
     }
 
     [Fact]
@@ -71,11 +59,7 @@ public class FileContextExtensionsShould
 
         response.Expression
                 .ToString()
-                .ShouldStartWith("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => (fileDetail.DirectoryName ==");
-
-        response.Expression
-                .ToString()
-                .ShouldEndWith(").directoryName))");
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => (Convert(fileDetail, IFileDetail).DirectoryName == value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass0_0`1[AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail]).directoryName))");
     }
 
     [Fact]
@@ -103,7 +87,7 @@ public class FileContextExtensionsShould
 
         response.Expression
                 .ToString()
-                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => (fileDetail.FileLastViewed < Convert(DateTimeOffset.UtcNow.AddDays(Convert(-value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass2_0).excludeViewedWithinDays, Double)), Nullable`1)))");
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => (Convert(fileDetail, IFileDetail).FileLastViewed < Convert(DateTimeOffset.UtcNow.AddDays(Convert(-value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass1_0`1[AStar.Dev.Infrastructure.FilesDb.Models.FileDetail]).excludeViewedWithinDays, Double)), Nullable`1)))");
     }
 
     [Fact]
@@ -131,7 +115,7 @@ public class FileContextExtensionsShould
 
         response.Expression
                 .ToString()
-                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => (fileDetail.FileLastViewed < Convert(DateTimeOffset.UtcNow.AddDays(Convert(-value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass3_0).excludeViewedWithinDays, Double)), Nullable`1)))");
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => (Convert(fileDetail, IFileDetail).FileLastViewed < Convert(DateTimeOffset.UtcNow.AddDays(Convert(-value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass1_0`1[AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail]).excludeViewedWithinDays, Double)), Nullable`1)))");
     }
 
     [Fact]
@@ -215,7 +199,7 @@ public class FileContextExtensionsShould
 
         response.Expression
                 .ToString()
-                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => (fileDetail.DirectoryName.Contains(value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass6_0).searchText) OrElse fileDetail.FileName.Contains(value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass6_0).searchText)))");
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => (Convert(fileDetail, IFileDetail).DirectoryName.Contains(value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass4_0`1[AStar.Dev.Infrastructure.FilesDb.Models.FileDetail]).searchText) OrElse Convert(fileDetail, IFileDetail).FileName.Contains(value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass4_0`1[AStar.Dev.Infrastructure.FilesDb.Models.FileDetail]).searchText)))");
     }
 
     [Fact]
@@ -243,7 +227,7 @@ public class FileContextExtensionsShould
 
         response.Expression
                 .ToString()
-                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => (fileDetail.DirectoryName.Contains(value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass7_0).searchText) OrElse fileDetail.FileName.Contains(value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass7_0).searchText)))");
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => (Convert(fileDetail, IFileDetail).DirectoryName.Contains(value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass4_0`1[AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail]).searchText) OrElse Convert(fileDetail, IFileDetail).FileName.Contains(value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass4_0`1[AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail]).searchText)))");
     }
 
     [Fact]
@@ -285,7 +269,7 @@ public class FileContextExtensionsShould
 
         response.Expression
                 .ToString()
-                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderBy(fileDetail => fileDetail.FileName)");
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderBy(fileDetail => Convert(fileDetail, IFileDetail).FileName)");
     }
 
     [Fact]
@@ -299,7 +283,7 @@ public class FileContextExtensionsShould
 
         response.Expression
                 .ToString()
-                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderByDescending(fileDetail => fileDetail.FileName)");
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderByDescending(fileDetail => Convert(fileDetail, IFileDetail).FileName)");
     }
 
     [Fact]
@@ -313,7 +297,7 @@ public class FileContextExtensionsShould
 
         response.Expression
                 .ToString()
-                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderBy(fileDetail => fileDetail.FileSize)");
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderBy(fileDetail => Convert(fileDetail, IFileDetail).FileSize)");
     }
 
     [Fact]
@@ -327,7 +311,7 @@ public class FileContextExtensionsShould
 
         response.Expression
                 .ToString()
-                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderByDescending(fileDetail => fileDetail.FileSize)");
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderByDescending(fileDetail => Convert(fileDetail, IFileDetail).FileSize)");
     }
 
     [Fact]
@@ -341,7 +325,7 @@ public class FileContextExtensionsShould
 
         response.Expression
                 .ToString()
-                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderBy(fileDetail => fileDetail.FileName)");
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderBy(fileDetail => Convert(fileDetail, IFileDetail).FileName)");
     }
 
     [Fact]
@@ -355,7 +339,7 @@ public class FileContextExtensionsShould
 
         response.Expression
                 .ToString()
-                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderByDescending(fileDetail => fileDetail.FileName)");
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderByDescending(fileDetail => Convert(fileDetail, IFileDetail).FileName)");
     }
 
     [Fact]
@@ -369,7 +353,7 @@ public class FileContextExtensionsShould
 
         response.Expression
                 .ToString()
-                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderBy(fileDetail => fileDetail.FileSize)");
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderBy(fileDetail => Convert(fileDetail, IFileDetail).FileSize)");
     }
 
     [Fact]
@@ -383,7 +367,7 @@ public class FileContextExtensionsShould
 
         response.Expression
                 .ToString()
-                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderByDescending(fileDetail => fileDetail.FileSize)");
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderByDescending(fileDetail => Convert(fileDetail, IFileDetail).FileSize)");
     }
 
     [Fact]
@@ -411,7 +395,7 @@ public class FileContextExtensionsShould
 
         response.Expression
                 .ToString()
-                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderByDescending(fileDetail => fileDetail.FileName)");
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderByDescending(fileDetail => Convert(fileDetail, IFileDetail).FileName)");
     }
 
     [Fact]
@@ -425,7 +409,7 @@ public class FileContextExtensionsShould
 
         response.Expression
                 .ToString()
-                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderBy(fileDetail => fileDetail.FileSize)");
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderBy(fileDetail => Convert(fileDetail, IFileDetail).FileSize)");
     }
 
     [Fact]
@@ -439,7 +423,7 @@ public class FileContextExtensionsShould
 
         response.Expression
                 .ToString()
-                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderByDescending(fileDetail => fileDetail.FileSize)");
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderByDescending(fileDetail => Convert(fileDetail, IFileDetail).FileSize)");
     }
 
     [Fact]
@@ -453,7 +437,7 @@ public class FileContextExtensionsShould
 
         response.Expression
                 .ToString()
-                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderByDescending(fileDetail => fileDetail.FileName)");
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderByDescending(fileDetail => Convert(fileDetail, IFileDetail).FileName)");
     }
 
     [Fact]
@@ -467,7 +451,7 @@ public class FileContextExtensionsShould
 
         response.Expression
                 .ToString()
-                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderBy(fileDetail => fileDetail.FileSize)");
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderBy(fileDetail => Convert(fileDetail, IFileDetail).FileSize)");
     }
 
     [Fact]

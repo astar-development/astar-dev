@@ -642,6 +642,35 @@
                 The hash-code, combined from the relevant properties own hash-codes
             </returns>
         </member>
+        <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.IFileDetail">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.IFileDetail.DirectoryName">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.IFileDetail.FileName">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.IFileDetail.FileSize">
+            <summary>
+                Gets or sets the File Size
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.IFileDetail.IsImage">
+            <summary>
+                Gets or sets whether File is an image
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.IFileDetail.FileLastViewed">
+            <summary>
+            </summary>
+        </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.ImageDetail">
             <summary>
             </summary>

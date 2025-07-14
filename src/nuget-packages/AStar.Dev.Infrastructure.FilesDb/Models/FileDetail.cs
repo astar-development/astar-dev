@@ -7,7 +7,7 @@ namespace AStar.Dev.Infrastructure.FilesDb.Models;
 /// <summary>
 ///     The FileDetail class containing the current properties
 /// </summary>
-public sealed class FileDetail : AuditableEntity
+public sealed class FileDetail : AuditableEntity, IFileDetail
 {
     /// <summary>
     ///     The default constructor required by EF Core etc

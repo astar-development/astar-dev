@@ -247,7 +247,7 @@
             <summary>
             </summary>
         </member>
-        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.WhereDirectoryNameMatches(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},System.String,System.Boolean)">
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.WhereDirectoryNameMatches``1(System.Linq.IQueryable{``0},System.String,System.Boolean)">
             <summary>
             </summary>
             <param name="files"></param>
@@ -255,22 +255,7 @@
             <param name="recursive"></param>
             <returns></returns>
         </member>
-        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.WhereDirectoryNameMatches(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail},System.String,System.Boolean)">
-            <summary>
-            </summary>
-            <param name="files"></param>
-            <param name="directoryName"></param>
-            <param name="recursive"></param>
-            <returns></returns>
-        </member>
-        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.ExcludeViewed(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},System.Int32)">
-            <summary>
-            </summary>
-            <param name="files"></param>
-            <param name="excludeViewedWithinDays"></param>
-            <returns></returns>
-        </member>
-        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.ExcludeViewed(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail},System.Int32)">
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.ExcludeViewed``1(System.Linq.IQueryable{``0},System.Int32)">
             <summary>
             </summary>
             <param name="files"></param>
@@ -291,21 +276,14 @@
             <param name="includeMarkedForDeletion"></param>
             <returns></returns>
         </member>
-        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.SelectFilesMatching(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},System.String)">
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.SelectFilesMatching``1(System.Linq.IQueryable{``0},System.String)">
             <summary>
             </summary>
             <param name="files"></param>
             <param name="searchText"></param>
             <returns></returns>
         </member>
-        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.SelectFilesMatching(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail},System.String)">
-            <summary>
-            </summary>
-            <param name="files"></param>
-            <param name="searchText"></param>
-            <returns></returns>
-        </member>
-        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.SelectRequestedPage(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},System.Int32,System.Int32)">
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.SelectRequestedPage``1(System.Linq.IQueryable{``0},System.Int32,System.Int32)">
             <summary>
             </summary>
             <param name="files"></param>
@@ -313,50 +291,21 @@
             <param name="itemsPerPage"></param>
             <returns></returns>
         </member>
-        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.SelectRequestedPage(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail},System.Int32,System.Int32)">
-            <summary>
-            </summary>
-            <param name="files"></param>
-            <param name="currentPage"></param>
-            <param name="itemsPerPage"></param>
-            <returns></returns>
-        </member>
-        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.OrderAsRequested(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},AStar.Dev.Files.Api.Endpoints.Get.V1.SortOrder)">
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.OrderAsRequested``1(System.Linq.IQueryable{``0},AStar.Dev.Files.Api.Endpoints.Get.V1.SortOrder)">
             <summary>
             </summary>
             <param name="files"></param>
             <param name="sortOrder"></param>
             <returns></returns>
         </member>
-        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.OrderAsRequested(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail},AStar.Dev.Files.Api.Endpoints.Get.V1.SortOrder)">
-            <summary>
-            </summary>
-            <param name="files"></param>
-            <param name="sortOrder"></param>
-            <returns></returns>
-        </member>
-        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.SetSearchType(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},AStar.Dev.Files.Api.Endpoints.Get.V1.SearchType)">
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.SetSearchType``1(System.Linq.IQueryable{``0},AStar.Dev.Files.Api.Endpoints.Get.V1.SearchType)">
             <summary>
             </summary>
             <param name="files"></param>
             <param name="searchType"></param>
             <returns></returns>
         </member>
-        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.SetSearchType(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail},AStar.Dev.Files.Api.Endpoints.Get.V1.SearchType)">
-            <summary>
-            </summary>
-            <param name="files"></param>
-            <param name="searchType"></param>
-            <returns></returns>
-        </member>
-        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.SelectByFileType(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},AStar.Dev.Files.Api.Endpoints.Get.V1.SearchType)">
-            <summary>
-            </summary>
-            <param name="files"></param>
-            <param name="searchType"></param>
-            <returns></returns>
-        </member>
-        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.SelectByFileType(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail},AStar.Dev.Files.Api.Endpoints.Get.V1.SearchType)">
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.SelectByFileType``1(System.Linq.IQueryable{``0},AStar.Dev.Files.Api.Endpoints.Get.V1.SearchType)">
             <summary>
             </summary>
             <param name="files"></param>
@@ -430,6 +379,36 @@
         <member name="T:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesResponse">
             <summary>
             </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesResponse.DirectoryName">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesResponse.FileName">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesResponse.FileHandle">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesResponseExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesResponseExtensions.ToGetFilesResponse(AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail)">
+            <summary>
+            </summary>
+            <param name="detail"></param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesResponseExtensions.ToGetFilesResponse(AStar.Dev.Infrastructure.FilesDb.Models.FileDetail)">
+            <summary>
+            </summary>
+            <param name="detail"></param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
         </member>
         <member name="T:AStar.Dev.Files.Api.Endpoints.Get.V1.MapGetEndpoint">
             <summary>

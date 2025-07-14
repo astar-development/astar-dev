@@ -1,0 +1,5 @@
+﻿{
+  "directoryName": "MockDirectoryName",
+  "fileName": "MockFileName",
+  "fileHandle": "MockFileHandle"
+}

@@ -5,7 +5,7 @@ namespace AStar.Dev.Infrastructure.FilesDb.Models;
 /// <summary>
 ///     The <see cref="DuplicateDetail" /> class defines the fields that will be mapped from the vw_DuplicatesDetails in the database
 /// </summary>
-public class DuplicateDetail
+public class DuplicateDetail : IFileDetail
 {
     /// <summary>
     ///     Gets or sets the File Name
