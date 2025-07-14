@@ -43,17 +43,13 @@ public class GetFilesRequest : IEndpointName
 
     /// <summary>
     /// </summary>
-    [Range(500, 999999, ErrorMessage = "Please specify an image size between 500 and 999999 (999999 returns the original size) pixels")]
-    public int MaximumSizeOfImage { get; set; } = 1500;
-
-    /// <summary>
-    /// </summary>
     [Required]
     [JsonConverter(typeof(JsonStringEnumConverter<SortOrder>))]
     public SortOrder SortOrder { get; set; }
 
     /// <summary>
     /// </summary>
+    [Required]
     [JsonConverter(typeof(JsonStringEnumConverter<SearchType>))]
     public SearchType SearchType { get; set; } = SearchType.Duplicates;
 

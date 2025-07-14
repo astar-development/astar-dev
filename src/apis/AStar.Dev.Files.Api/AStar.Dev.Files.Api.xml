@@ -245,16 +245,122 @@
         </member>
         <member name="T:AStar.Dev.Files.Api.Endpoints.FileContextExtensions">
             <summary>
-
             </summary>
         </member>
         <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.WhereDirectoryNameMatches(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},System.String,System.Boolean)">
             <summary>
-
             </summary>
             <param name="files"></param>
             <param name="directoryName"></param>
             <param name="recursive"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.WhereDirectoryNameMatches(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail},System.String,System.Boolean)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="directoryName"></param>
+            <param name="recursive"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.ExcludeViewed(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},System.Int32)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="excludeViewedWithinDays"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.ExcludeViewed(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail},System.Int32)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="excludeViewedWithinDays"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.IncludeMarkedForDeletion(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},System.Boolean)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="includeMarkedForDeletion"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.IncludeMarkedForDeletion(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail},System.Boolean)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="includeMarkedForDeletion"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.SelectFilesMatching(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},System.String)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="searchText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.SelectFilesMatching(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail},System.String)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="searchText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.SelectRequestedPage(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},System.Int32,System.Int32)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="currentPage"></param>
+            <param name="itemsPerPage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.SelectRequestedPage(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail},System.Int32,System.Int32)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="currentPage"></param>
+            <param name="itemsPerPage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.OrderAsRequested(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},AStar.Dev.Files.Api.Endpoints.Get.V1.SortOrder)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="sortOrder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.OrderAsRequested(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail},AStar.Dev.Files.Api.Endpoints.Get.V1.SortOrder)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="sortOrder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.SetSearchType(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},AStar.Dev.Files.Api.Endpoints.Get.V1.SearchType)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="searchType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.SetSearchType(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail},AStar.Dev.Files.Api.Endpoints.Get.V1.SearchType)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="searchType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.SelectByFileType(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},AStar.Dev.Files.Api.Endpoints.Get.V1.SearchType)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="searchType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.SelectByFileType(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail},AStar.Dev.Files.Api.Endpoints.Get.V1.SearchType)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="searchType"></param>
             <returns></returns>
         </member>
         <member name="T:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesHandler">
@@ -304,10 +410,6 @@
             </summary>
         </member>
         <member name="P:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest.ItemsPerPage">
-            <summary>
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest.MaximumSizeOfImage">
             <summary>
             </summary>
         </member>

@@ -48,7 +48,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="AStar.Dev.Functional.Extensions" Version="0.2.2-alpha"/>
+        <PackageReference Include="AStar.Dev.Functional.Extensions" Version="0.2.0"/>
     </ItemGroup>
 
 </Project>
