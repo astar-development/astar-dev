@@ -13,8 +13,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AStar.Dev.Infrastructure.FilesDb.Migrations
 {
     [DbContext(typeof(FilesContext))]
-    [Migration("20250711092437_AddVwDuplicateCounts")]
-    partial class AddVwDuplicateCounts
+    [Migration("20250715194331_InitialCreation")]
+    partial class InitialCreation
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,61 +27,6 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetails", b =>
-                {
-                    b.Property<DateTimeOffset>("DetailsLastUpdated")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("DirectoryName")
-                        .IsRequired()
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("FileHandle")
-                        .IsRequired()
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("FileName")
-                        .IsRequired()
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<long>("FileSize")
-                        .HasColumnType("bigint");
-
-                    b.Property<DateTimeOffset?>("HardDeletePending")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<int>("Height")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Instances")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("IsImage")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTimeOffset?>("LastViewed")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<bool>("MoveRequired")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTimeOffset?>("SoftDeletePending")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<DateTimeOffset?>("SoftDeleted")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<int>("Width")
-                        .HasColumnType("int");
-
-                    b.ToTable((string)null);
-
-                    b.ToView("vw_DuplicatesDetails", "files");
-                });
 
             modelBuilder.Entity("AStar.Dev.Infrastructure.FilesDb.Models.Event", b =>
                 {

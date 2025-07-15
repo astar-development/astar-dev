@@ -255,21 +255,15 @@
             <param name="recursive"></param>
             <returns></returns>
         </member>
-        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.ExcludeViewed``1(System.Linq.IQueryable{``0},System.Int32)">
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.ExcludeViewed``1(System.Linq.IQueryable{``0},System.Int32,System.TimeProvider)">
             <summary>
             </summary>
             <param name="files"></param>
             <param name="excludeViewedWithinDays"></param>
+            <param name="time"></param>
             <returns></returns>
         </member>
         <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.IncludeMarkedForDeletion(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},System.Boolean)">
-            <summary>
-            </summary>
-            <param name="files"></param>
-            <param name="includeMarkedForDeletion"></param>
-            <returns></returns>
-        </member>
-        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.IncludeMarkedForDeletion(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail},System.Boolean)">
             <summary>
             </summary>
             <param name="files"></param>
@@ -317,7 +311,16 @@
             </summary>
         </member>
         <member name="M:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesHandler.HandleAsync(AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest,AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,System.TimeProvider,System.String,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Get.V1.IGetFilesHandler">
             <summary>
+
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.Get.V1.IGetFilesHandler.HandleAsync(AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest,AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,System.TimeProvider,System.String,System.Threading.CancellationToken)">
+            <summary>
+
             </summary>
             <param name="files"></param>
             <param name="filesContext"></param>
@@ -395,13 +398,6 @@
         <member name="T:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesResponseExtensions">
             <summary>
             </summary>
-        </member>
-        <member name="M:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesResponseExtensions.ToGetFilesResponse(AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail)">
-            <summary>
-            </summary>
-            <param name="detail"></param>
-            <returns></returns>
-            <exception cref="T:System.NotImplementedException"></exception>
         </member>
         <member name="M:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesResponseExtensions.ToGetFilesResponse(AStar.Dev.Infrastructure.FilesDb.Models.FileDetail)">
             <summary>

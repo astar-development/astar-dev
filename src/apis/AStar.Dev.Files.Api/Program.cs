@@ -11,6 +11,7 @@ using AStar.Dev.AspNet.Extensions.WebApplicationBuilderExtensions;
 using AStar.Dev.Auth.Extensions;
 using AStar.Dev.Files.Api;
 using AStar.Dev.Files.Api.Endpoints.Add.V1;
+using AStar.Dev.Files.Api.Endpoints.Get.V1;
 using AStar.Dev.Infrastructure.FilesDb.Data;
 using AStar.Dev.Logging.Extensions;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -82,6 +83,7 @@ try
     services.AddAuthorization();
 
     services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+    services.AddScoped<IGetFilesHandler, GetFilesHandler>();
 
     var app = builder.Build()
                      .UseApiServices();
@@ -92,6 +94,7 @@ try
     app.MapDefaultEndpoints();
 
     app.MapFilesPostEndpoint();
+    app.MapFilesGetEndpoint();
 
     await app.RunAsync();
 }

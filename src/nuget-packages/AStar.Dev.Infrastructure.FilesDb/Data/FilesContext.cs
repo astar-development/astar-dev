@@ -45,10 +45,10 @@ public class FilesContext : DbContext
     /// </summary>
     public DbSet<FileClassification> FileClassifications { get; set; } = null!;
 
-    /// <summary>
-    ///     Gets or sets the Duplicate Details
-    /// </summary>
-    public DbSet<DuplicateDetail> DuplicateDetails { get; set; }
+    // /// <summary>
+    // ///     Gets or sets the Duplicate Details
+    // /// </summary>
+    // public DbSet<DuplicateDetail> DuplicateDetails { get; set; }
 
     /// <summary>
     ///     The overridden OnModelCreating method
@@ -61,11 +61,11 @@ public class FilesContext : DbContext
         _ = modelBuilder.HasDefaultSchema(Constants.SchemaName);
         _ = modelBuilder.ApplyConfigurationsFromAssembly(typeof(FilesContext).Assembly);
 
-        modelBuilder
-            .Entity<DuplicateDetail>(eb =>
-                                     {
-                                         eb.HasNoKey();
-                                         eb.ToView("vw_DuplicatesDetails");
-                                     });
+        // modelBuilder
+        //     .Entity<DuplicateDetail>(eb =>
+        //                              {
+        //                                  eb.HasNoKey();
+        //                                  eb.ToView("vw_DuplicatesDetails");
+        //                              });
     }
 }

@@ -24,11 +24,12 @@ public static class FileContextExtensions
     /// </summary>
     /// <param name="files"></param>
     /// <param name="excludeViewedWithinDays"></param>
+    /// <param name="time"></param>
     /// <returns></returns>
-    public static IQueryable<T> ExcludeViewed<T>(this IQueryable<T> files, int excludeViewedWithinDays) where T : IFileDetail
+    public static IQueryable<T> ExcludeViewed<T>(this IQueryable<T> files, int excludeViewedWithinDays, TimeProvider time) where T : IFileDetail
         => excludeViewedWithinDays == 0
                ? files
-               : files.Where(fileDetail => fileDetail.FileLastViewed < DateTimeOffset.UtcNow.AddDays(-excludeViewedWithinDays));
+               : files.Where(fileDetail => fileDetail.FileLastViewed < time.GetUtcNow().AddDays(-excludeViewedWithinDays));
 
     /// <summary>
     /// </summary>
@@ -40,15 +41,15 @@ public static class FileContextExtensions
                ? files
                : files.Where(fileDetail => fileDetail.DeletionStatus.HardDeletePending == null && fileDetail.DeletionStatus.SoftDeleted == null && fileDetail.DeletionStatus.SoftDeletePending == null);
 
-    /// <summary>
-    /// </summary>
-    /// <param name="files"></param>
-    /// <param name="includeMarkedForDeletion"></param>
-    /// <returns></returns>
-    public static IQueryable<DuplicateDetail> IncludeMarkedForDeletion(this IQueryable<DuplicateDetail> files, bool includeMarkedForDeletion)
-        => includeMarkedForDeletion
-               ? files
-               : files.Where(fileDetail => fileDetail.HardDeletePending == null && fileDetail.SoftDeleted == null && fileDetail.SoftDeletePending == null);
+    // /// <summary>
+    // /// </summary>
+    // /// <param name="files"></param>
+    // /// <param name="includeMarkedForDeletion"></param>
+    // /// <returns></returns>
+    // public static IQueryable<DuplicateDetail> IncludeMarkedForDeletion(this IQueryable<DuplicateDetail> files, bool includeMarkedForDeletion)
+    //     => includeMarkedForDeletion
+    //            ? files
+    //            : files.Where(fileDetail => fileDetail.HardDeletePending == null && fileDetail.SoftDeleted == null && fileDetail.SoftDeletePending == null);
 
     /// <summary>
     /// </summary>

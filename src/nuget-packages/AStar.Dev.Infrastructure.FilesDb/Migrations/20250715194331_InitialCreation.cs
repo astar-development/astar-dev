@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace AStar.Dev.Infrastructure.FilesDb.Migrations
 {
     /// <inheritdoc />
-    public partial class RecreateDatabaseAgain : Migration
+    public partial class InitialCreation : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

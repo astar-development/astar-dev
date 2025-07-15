@@ -78,11 +78,6 @@
                 Gets or sets the File Classifications
             </summary>
         </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext.DuplicateDetails">
-            <summary>
-                Gets or sets the Duplicate Details
-            </summary>
-        </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <summary>
                 The overridden OnModelCreating method
@@ -138,40 +133,16 @@
             <returns>
             </returns>
         </member>
-        <member name="T:AStar.Dev.Infrastructure.FilesDb.Migrations.RecreateDatabaseAgain">
+        <member name="T:AStar.Dev.Infrastructure.FilesDb.Migrations.InitialCreation">
             <inheritdoc/>
         </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.RecreateDatabaseAgain.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.InitialCreation.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc/>
         </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.RecreateDatabaseAgain.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.InitialCreation.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc/>
         </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.RecreateDatabaseAgain.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="T:AStar.Dev.Infrastructure.FilesDb.Migrations.AddVwDuplicateCounts">
-            <inheritdoc/>
-        </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddVwDuplicateCounts.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddVwDuplicateCounts.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddVwDuplicateCounts.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="T:AStar.Dev.Infrastructure.FilesDb.Migrations.AddVwDuplicateDetails">
-            <inheritdoc/>
-        </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddVwDuplicateDetails.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddVwDuplicateDetails.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddVwDuplicateDetails.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.InitialCreation.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc/>
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.DeletionStatus">
@@ -192,83 +163,6 @@
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DeletionStatus.HardDeletePending">
             <summary>
                 Gets or sets when the file was marked as 'hard delete pending'. I know, shocking...
-            </summary>
-        </member>
-        <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail">
-            <summary>
-                The
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail"/>
-                class defines the fields that will be mapped from the vw_DuplicatesDetails in the database
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail.FileName">
-            <summary>
-                Gets or sets the File Name
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail.DirectoryName">
-            <summary>
-                Gets or sets the Directory Name
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail.ImageHeight">
-            <summary>
-                Gets or sets the File Height
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail.ImageWidth">
-            <summary>
-                Gets or sets the File Width
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail.FileSize">
-            <summary>
-                Gets or sets the File Size
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail.FileHandle">
-            <summary>
-                Gets or sets the File Handle
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail.IsImage">
-            <summary>
-                Gets or sets whether File is an image
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail.Instances">
-            <summary>
-                Gets or sets the Instance count for the duplicate group
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail.UpdatedOn">
-            <summary>
-                Gets or sets the Details Last Updated
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail.FileLastViewed">
-            <summary>
-                Gets or sets the Last Viewed date
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail.SoftDeleted">
-            <summary>
-                Gets or sets the Soft Deleted flag
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail.SoftDeletePending">
-            <summary>
-                Gets or sets the SoftDeletePending flag
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail.MoveRequired">
-            <summary>
-                Gets or sets the Move Required flag
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail.HardDeletePending">
-            <summary>
-                Gets or sets the Hard Delete Pending flag
             </summary>
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.Event">
@@ -644,17 +538,14 @@
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.IFileDetail">
             <summary>
-
             </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.IFileDetail.DirectoryName">
             <summary>
-
             </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.IFileDetail.FileName">
             <summary>
-
             </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.IFileDetail.FileSize">

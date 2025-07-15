@@ -18,6 +18,7 @@ public class MapGetEndpointShould
         builder.GetEndpointMethodData(endpointName).IsGet().ShouldBeTrue();
 
         builder.GetEndpointResponseTypes(endpointName).DefinesResponseTypeWithStatusCode(200).ShouldBeTrue();
+        builder.GetEndpointResponseTypes(endpointName).DefinesResponseTypeWithStatusCode(400).ShouldBeTrue();
         builder.GetEndpointResponseTypes(endpointName).DefinesResponseTypeWithStatusCode(401).ShouldBeTrue();
         builder.GetEndpointResponseTypes(endpointName).DefinesResponseTypeWithStatusCode(403).ShouldBeTrue();
 

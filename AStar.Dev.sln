@@ -219,6 +219,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AStar.Dev.Web.UI.Tests.Inte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AStar.Dev.Web.UI.Tests.Unit", "test\uis\AStar.Dev.Web.UI.Tests.Unit\AStar.Dev.Web.UI.Tests.Unit.csproj", "{2ADB402E-0278-4307-9B58-E626ABF32F58}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{346D351A-D80B-4DDF-9435-6FE8BB006931}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -656,5 +661,6 @@ Global
 		{E0DDC3B0-63E6-4521-B9C0-E4E8B96C720F} = {8C8D9DF8-9C4B-43C9-A892-5F45F3696E84}
 		{1AA143D9-AF01-4E4C-914A-36E0A0AE58B0} = {8C8D9DF8-9C4B-43C9-A892-5F45F3696E84}
 		{2ADB402E-0278-4307-9B58-E626ABF32F58} = {8C8D9DF8-9C4B-43C9-A892-5F45F3696E84}
+		{346D351A-D80B-4DDF-9435-6FE8BB006931} = {08F8BC33-6FCA-4DB9-AB20-09D04C75A6C6}
 	EndGlobalSection
 EndGlobal

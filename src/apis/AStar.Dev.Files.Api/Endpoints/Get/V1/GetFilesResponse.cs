@@ -23,13 +23,13 @@ public class GetFilesResponse
 /// </summary>
 public static class GetFilesResponseExtensions
 {
-    /// <summary>
-    /// </summary>
-    /// <param name="detail"></param>
-    /// <returns></returns>
-    /// <exception cref="NotImplementedException"></exception>
-    public static GetFilesResponse ToGetFilesResponse(this DuplicateDetail detail)
-        => new() { DirectoryName = detail.DirectoryName, FileName = detail.FileName, FileHandle = detail.FileHandle };
+    // /// <summary>
+    // /// </summary>
+    // /// <param name="detail"></param>
+    // /// <returns></returns>
+    // /// <exception cref="NotImplementedException"></exception>
+    // public static GetFilesResponse ToGetFilesResponse(this DuplicateDetail detail)
+    //     => new() { DirectoryName = detail.DirectoryName, FileName = detail.FileName, FileHandle = detail.FileHandle };
 
     /// <summary>
     /// </summary>
