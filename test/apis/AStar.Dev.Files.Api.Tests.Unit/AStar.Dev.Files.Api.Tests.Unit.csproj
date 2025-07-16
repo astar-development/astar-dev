@@ -49,6 +49,12 @@
         <ProjectReference Include="..\..\..\src\nuget-packages\AStar.Dev.Test.Helpers.Unit\AStar.Dev.Test.Helpers.Unit.csproj"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <None Update="TestData\files.json">
+            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
         <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
         <NoWarn>1701;1702;IDE0058;</NoWarn>

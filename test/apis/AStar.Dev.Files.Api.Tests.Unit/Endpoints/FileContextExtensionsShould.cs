@@ -208,7 +208,7 @@ public class FileContextExtensionsShould
 
         response.Expression
                 .ToString()
-                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => (Convert(fileDetail, IFileDetail).DirectoryName.Contains(value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass4_0`1[AStar.Dev.Infrastructure.FilesDb.Models.FileDetail]).searchText) OrElse Convert(fileDetail, IFileDetail).FileName.Contains(value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass4_0`1[AStar.Dev.Infrastructure.FilesDb.Models.FileDetail]).searchText)))");
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => (Convert(fileDetail, IFileDetail).DirectoryName.Contains(value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass3_0`1[AStar.Dev.Infrastructure.FilesDb.Models.FileDetail]).searchText) OrElse Convert(fileDetail, IFileDetail).FileName.Contains(value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass3_0`1[AStar.Dev.Infrastructure.FilesDb.Models.FileDetail]).searchText)))");
     }
 
     // [Fact]

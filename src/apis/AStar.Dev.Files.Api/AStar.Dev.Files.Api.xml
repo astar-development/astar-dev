@@ -315,12 +315,10 @@
         </member>
         <member name="T:AStar.Dev.Files.Api.Endpoints.Get.V1.IGetFilesHandler">
             <summary>
-
             </summary>
         </member>
         <member name="M:AStar.Dev.Files.Api.Endpoints.Get.V1.IGetFilesHandler.HandleAsync(AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest,AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,System.TimeProvider,System.String,System.Threading.CancellationToken)">
             <summary>
-
             </summary>
             <param name="files"></param>
             <param name="filesContext"></param>

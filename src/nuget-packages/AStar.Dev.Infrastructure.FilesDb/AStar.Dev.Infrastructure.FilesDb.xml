@@ -85,6 +85,41 @@
             <param name="modelBuilder">
             </param>
         </member>
+        <member name="T:AStar.Dev.Infrastructure.FilesDb.Data.FilesContextExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.FilesContextExtensions.GetMatchingFiles(Microsoft.EntityFrameworkCore.DbSet{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},System.String,System.Boolean,System.String,System.Boolean,System.Boolean,System.Boolean,System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+            <param name="files">
+                The list of files to filter.
+            </param>
+            <param name="startingFolder">
+                The starting folder for the filter to be applied from.
+            </param>
+            <param name="recursive">
+                A boolean to control whether the filter is applied recursively or not.
+            </param>
+            <param name="searchType">
+                A string representation of the required Search Type.
+            </param>
+            <param name="includeSoftDeleted">
+                A boolean to control whether the filter includes files marked as Soft Deleted or not.
+            </param>
+            <param name="includeMarkedForDeletion">
+                A boolean to control whether the filter includes files marked for Deletion or not.
+            </param>
+            <param name="excludeViewed">
+                A boolean to control whether the filter includes files recently viewed or not.
+            </param>
+            <param name="cancellationToken">
+                An instance of <see href="CancellationToken"></see> to cancel the filter when requested.
+            </param>
+            <returns>
+                The original list of files for further filtering.
+            </returns>
+        </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.EnumerableExtensions">
             <summary>
             </summary>
