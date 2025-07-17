@@ -1214,7 +1214,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752779662666</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Just noticed Build not running for PR so this should fix">
+      <option name="closed" value="true" />
+      <created>1752780228850</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1752780228850</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1314,7 +1322,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Update Files API Nuget and Package links&#10;&#10;Add misc files to other projects too" />
     <MESSAGE value="Yet another bunch of cleanup" />
     <MESSAGE value="Add the original Program.cs and start on the AddFilesEndpoint.cs" />
     <MESSAGE value="Starting tests for the MapFilesEndpoint.cs&#10;&#10;Includes some test helpers in the relevant NuGet project" />
@@ -1339,7 +1346,8 @@
     <MESSAGE value="Update the location of the FilesContextExtensions.cs&#10;&#10;Associated changes to support too" />
     <MESSAGE value="Update NuGet packages before make further changes" />
     <MESSAGE value="Update tests to make pass bar 2 UI (known) and 1&#10;&#10;In the FilesAPI which relies on changes yet to be made to the test context" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update tests to make pass bar 2 UI (known) and 1&#10;&#10;In the FilesAPI which relies on changes yet to be made to the test context" />
+    <MESSAGE value="Just noticed Build not running for PR so this should fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Just noticed Build not running for PR so this should fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
