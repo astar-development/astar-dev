@@ -10,8 +10,6 @@ public class GetFilesHandler : IGetFilesHandler
     /// <inheritdoc />
     public async Task<IResult> HandleAsync(GetFilesRequest files, FilesContext filesContext, TimeProvider time, string username, CancellationToken cancellationToken)
     {
-        IList<GetFilesResponse> fileDetails;
-
         if(files.SearchType is SearchType.DuplicateImages or SearchType.Duplicates)
         {
             // fileDetails = await filesContext.DuplicateDetails
@@ -26,19 +24,22 @@ public class GetFilesHandler : IGetFilesHandler
             //                                 .ToListAsync(cancellationToken);
             return Results.BadRequest();
         }
-        else
-        {
-            fileDetails = await filesContext.FileDetails
-                                            .WhereDirectoryNameMatches(files.SearchFolder, files.Recursive)
-                                            .ExcludeViewed(files.ExcludeViewedWithinDays, time)
-                                            .IncludeMarkedForDeletion(files.IncludeMarkedForDeletion)
-                                            .SelectFilesMatching(files.SearchText)
-                                            .OrderAsRequested(files.SortOrder)
-                                            .SelectByFileType(files.SearchType)
-                                            .SelectRequestedPage(files.CurrentPage, files.ItemsPerPage)
-                                            .Select(fileDetail => fileDetail.ToGetFilesResponse())
-                                            .ToListAsync(cancellationToken);
-        }
+
+        var searchType = (Infrastructure.FilesDb.Models.SearchType) Enum.Parse<SearchType>(files.SearchType.ToString());
+
+        var sortOrder = (Infrastructure.FilesDb.Models.SortOrder) Enum.Parse<SortOrder>(files.SortOrder
+                                                                                             .ToString());
+
+        IList<GetFilesResponse> fileDetails = await filesContext.FileDetails
+                                                                .WhereDirectoryNameMatches(files.SearchFolder, files.Recursive)
+                                                                .ExcludeViewed(files.ExcludeViewedWithinDays, time)
+                                                                .IncludeMarkedForDeletion(files.IncludeMarkedForDeletion)
+                                                                .SelectFilesMatching(files.SearchText)
+                                                                .OrderAsRequested(sortOrder)
+                                                                .SelectByFileType(searchType)
+                                                                .SelectRequestedPage(files.CurrentPage, files.ItemsPerPage)
+                                                                .Select(fileDetail => fileDetail.ToGetFilesResponse())
+                                                                .ToListAsync(cancellationToken);
 
         return Results.Ok(fileDetails);
     }

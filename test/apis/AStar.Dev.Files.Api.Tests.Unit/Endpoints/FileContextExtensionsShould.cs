@@ -1,5 +1,5 @@
-using AStar.Dev.Files.Api.Endpoints.Get.V1;
 using AStar.Dev.Infrastructure.FilesDb.Data;
+using AStar.Dev.Infrastructure.FilesDb.Models;
 using Microsoft.EntityFrameworkCore;
 using NSubstitute;
 
