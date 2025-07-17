@@ -31,7 +31,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/main_astar-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main_astar-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,22 +65,22 @@
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="c33e45bc-ba15-45ea-89b8-f9dce31d8655" />
   </component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/astar-development/astar-dev.git",
-    "accountId": "c33e45bc-ba15-45ea-89b8-f9dce31d8655"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/astar-development/astar-dev.git&quot;,
+    &quot;accountId&quot;: &quot;c33e45bc-ba15-45ea-89b8-f9dce31d8655&quot;
   },
-  "recentNewPullRequestHead": {
-    "server": {
-      "useHttp": false,
-      "host": "github.com",
-      "port": null,
-      "suffix": null
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
     },
-    "owner": "astar-development",
-    "repository": "astar-dev"
+    &quot;owner&quot;: &quot;astar-development&quot;,
+    &quot;repository&quot;: &quot;astar-dev&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/08fde0be2260428db1b6a812fd2ad453c3200/43/0e1576ff/IEndpointRouteBuilder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1f12dddc2f0b4ff3a0425a5bd228f00e78a00/92/9610913f/Enumerable.cs" root0="FORCE_HIGHLIGHTING" />
@@ -185,7 +185,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "e1fa419c-f915-45ea-a5b9-af0e54288449.executor": "Debug",
-    "git-widget-placeholder": "features/implement-get-file-duplicates-endpoint",
+    "git-widget-placeholder": "#10 on features/implement-get-file-dupli…point",
     "last_opened_file_path": "/home/jason-barden/RiderProjects/astar-dev/.editorconfig",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -869,6 +869,7 @@
       <workItem from="1752693790696" duration="521000" />
       <workItem from="1752694458158" duration="3988000" />
       <workItem from="1752776272102" duration="1518000" />
+      <workItem from="1752781830128" duration="663000" />
     </task>
     <task id="LOCAL-00001" summary="Created the base Aspire Host project">
       <option name="closed" value="true" />
@@ -1238,7 +1239,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752781114300</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Update the dotnet test path">
+      <option name="closed" value="true" />
+      <created>1752781960454</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1752781960454</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1338,7 +1347,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Starting tests for the MapFilesEndpoint.cs&#10;&#10;Includes some test helpers in the relevant NuGet project" />
     <MESSAGE value="Missed these from the last commit" />
     <MESSAGE value="Initial version of Post for a list of new files" />
     <MESSAGE value="Rework the FilesDb and associated FilesContext.cs" />
@@ -1363,7 +1371,8 @@
     <MESSAGE value="Just noticed Build not running for PR so this should fix" />
     <MESSAGE value="Update the pipeline to run tests correctly&#10; &#10;and exclude e2e tests as wll as set broken unit test to be ignored" />
     <MESSAGE value="Remove extra apostrophe" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove extra apostrophe" />
+    <MESSAGE value="Update the dotnet test path" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update the dotnet test path" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
