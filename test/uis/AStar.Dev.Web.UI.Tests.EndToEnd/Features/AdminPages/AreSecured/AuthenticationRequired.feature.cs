@@ -10,6 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
+using Reqnroll;
 namespace AStar.Dev.Web.UI.Features.AdminPages.AreSecured
 {
     
@@ -194,12 +195,12 @@ namespace AStar.Dev.Web.UI.Features.AdminPages.AreSecured
             
             async global::System.Threading.Tasks.Task Xunit.IAsyncLifetime.InitializeAsync()
             {
-                await FeatureSetupAsync();
+                await AdminPagesRequireAuthenticationFeature.FeatureSetupAsync();
             }
             
             async global::System.Threading.Tasks.Task Xunit.IAsyncLifetime.DisposeAsync()
             {
-                await FeatureTearDownAsync();
+                await AdminPagesRequireAuthenticationFeature.FeatureTearDownAsync();
             }
         }
     }

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using AStar.Dev.Api.Client.Sdk.Shared;
 
-namespace AStar.Dev.Images.Api.Client.SDK.ImagesApi;
+namespace AStar.Dev.Images.Api.Client.Sdk.ImagesApi;
 
 /// <summary>
 ///     The <see href="ImagesApiConfiguration"></see> class containing the current configuration settings

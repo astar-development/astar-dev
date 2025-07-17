@@ -5,7 +5,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <ApplicationIcon>astar.ico</ApplicationIcon>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+
         <Authors>AStar Developement, Jason Barden</Authors>
         <Copyright>AStar Developement, 2025</Copyright>
         <PackageProjectUrl>https://github.com/astar-development/</PackageProjectUrl>
@@ -25,12 +25,13 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.6"/>
-        <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.6"/>
-        <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.6"/>
-        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.6"/>
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.6"/>
-        <PackageReference Include="Microsoft.Extensions.Options" Version="9.0.6"/>
+        <PackageReference Include="AStar.Dev.Functional.Extensions" Version="0.2.0"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.7"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.7"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.7"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.7"/>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.7"/>
+        <PackageReference Include="Microsoft.Extensions.Options" Version="9.0.7"/>
         <PackageReference Include="Reqnroll.xUnit" Version="2.4.1"/>
         <PackageReference Include="Shouldly" Version="4.3.0"/>
         <PackageReference Include="Microsoft.Playwright.Xunit" Version="1.53.0"/>

@@ -1,4 +1,4 @@
-﻿namespace AStar.Dev.Usage.Api.Client.SDK;
+﻿namespace AStar.Dev.Usage.Api.Client.Sdk;
 
 /// <summary>
 ///     The <see cref="Constants" /> class containing the project-specific constants

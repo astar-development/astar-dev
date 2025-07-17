@@ -4,7 +4,7 @@
         <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+
         <Title>AStar Dev AspNet Minimal API Extensions</Title>
         <Company>AStar Development</Company>
         <Copyright>AStar Development, 2024</Copyright>
@@ -60,6 +60,10 @@
 
     <ItemGroup>
         <ProjectReference Include="..\AStar.Dev.Logging.Extensions\AStar.Dev.Logging.Extensions.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AStar.Dev.Functional.Extensions" Version="0.2.0"/>
     </ItemGroup>
 
 </Project>

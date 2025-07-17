@@ -4,7 +4,6 @@
         <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
         <Title>AStar Dev Utilities</Title>
         <Company>AStar Development</Company>
         <Copyright>AStar Development, 2024</Copyright>
@@ -46,6 +45,10 @@
         <None Update="AStar.png">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AStar.Dev.Functional.Extensions" Version="0.2.0"/>
     </ItemGroup>
 
 </Project>

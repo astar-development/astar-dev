@@ -1,3 +1,4 @@
+using AStar.Dev.ServiceDefaults;
 using AStar.Dev.Web.Components;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,8 +28,11 @@ app.MapStaticAssets();
 app.MapRazorComponents<App>()
    .AddInteractiveServerRenderMode();
 
-app.Run();
+await app.RunAsync();
 
-public partial class Program
+namespace AStar.Dev.Web
 {
+    public  class Program
+    {
+    }
 }

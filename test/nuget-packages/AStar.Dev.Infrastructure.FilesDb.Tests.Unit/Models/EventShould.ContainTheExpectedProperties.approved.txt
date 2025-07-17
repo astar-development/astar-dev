@@ -1,0 +1,17 @@
+﻿{
+  "id": 1,
+  "type": {
+    "value": 4,
+    "name": "HardDelete"
+  },
+  "eventOccurredAt": "2025-06-28T22:15:37+00:00",
+  "fileName": "Mock Filename",
+  "directoryName": "Mock Directory Name",
+  "handle": "Mock Handle",
+  "width": 456,
+  "height": 123,
+  "fileSize": 1234,
+  "fileCreated": "2025-06-28T22:05:37+00:00",
+  "fileLastModified": "2025-06-28T22:10:37+00:00",
+  "updatedBy": "Test User"
+}

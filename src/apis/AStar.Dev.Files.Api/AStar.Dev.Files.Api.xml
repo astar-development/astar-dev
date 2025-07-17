@@ -1,0 +1,475 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AStar.Dev.Files.Api</name>
+    </assembly>
+    <members>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesRequest">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesRequest"/>
+                contains the detail of the files being added.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesRequest.FilesToAdd">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesRequest.Name">
+            <inheritdoc/>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesRequest.HttpMethod">
+            <inheritdoc/>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse"/>
+                contains the detail of the file being added.
+                The name is pluralised as we actually return a list and the endpoint is pluralised...
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse.Id">
+            <summary>
+                Gets or sets the ID of the <see href="FileDetail"></see>. I know, shocking...
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse.ImageDetails">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse.FileName">
+            <summary>
+                Gets or sets the file name. I know, shocking...
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse.DirectoryName">
+            <summary>
+                Gets or sets the name of the directory containing the file detail. I know, shocking...
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse.FullNameWithPath">
+            <summary>
+                Gets the full name of the file with the path combined
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse.FileSize">
+            <summary>
+                Gets or sets the file size. I know, shocking...
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse.IsImage">
+            <summary>
+                Gets or sets whether the file is of a supported image type
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse.FileHandle">
+            <summary>
+                Gets or sets the file handle. I know, shocking...
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse.FileCreated">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse.FileLastModified">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Add.V1.FileClassification">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.FileClassification.Name">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.FileClassification.Celebrity">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailExtensions">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailExtensions"/>
+                class contains extensions for the
+                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail"/>
+                class.
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailExtensions.ToAddFilesResponse(System.Collections.Generic.IReadOnlyCollection{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail})">
+            <summary>
+                The ToAddFilesResponse will, as the name suggests, map the list of
+                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail"/>
+                to a list of
+                <see cref="T:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse"/>
+            </summary>
+            <param name="fileDetails">The files to map to
+                <see cref="T:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse"/>
+            </param>
+            <returns>The
+                <see cref="T:System.Collections.Generic.IReadOnlyCollection`1"/>
+            </returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailExtensions.ToFileDetailsList(System.Collections.Generic.IReadOnlyCollection{AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd},System.TimeProvider,System.String)">
+            <summary>
+                The ToFileDetailsList will, as the name suggests, map the list of
+                <see cref="T:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd"/>
+                to a list of
+                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail"/>
+            </summary>
+            <param name="fileDetails">The files to map to
+                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail"/>
+            </param>
+            <param name="time">An instance of the
+                <see cref="T:System.TimeProvider"/>
+            </param>
+            <param name="username">The name of the user performing the update</param>
+            <returns>The
+                <see cref="T:System.Collections.Generic.IReadOnlyCollection`1"/>
+            </returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailExtensions.ToEvents(System.Collections.Generic.IReadOnlyCollection{AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd},System.TimeProvider,System.String)">
+            <summary>
+                The ToEvents will, as the name suggests, map the list of
+                <see cref="T:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd"/>
+                to a list of
+                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.Event"/>
+            </summary>
+            <param name="fileDetails">The files to map to Events</param>
+            <param name="time">An instance of the
+                <see cref="T:System.TimeProvider"/>
+            </param>
+            <param name="username">The name of the user performing the update</param>
+            <returns>The
+                <see cref="T:System.Collections.Generic.IReadOnlyCollection`1"/>
+            </returns>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd"/>
+                class contains the details of the file to add
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd.FileClassifications">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd.Id">
+            <summary>
+                Gets or sets the ID of the <see href="FileDetail"></see>. I know, shocking...
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd.ImageDetails">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd.FileName">
+            <summary>
+                Gets or sets the file name. I know, shocking...
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd.DirectoryName">
+            <summary>
+                Gets or sets the name of the directory containing the file detail. I know, shocking...
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd.FileSize">
+            <summary>
+                Gets or sets the file size. I know, shocking...
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd.FileCreated">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd.FileLastModified">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Add.V1.ImageDetails">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.ImageDetails.Width">
+            <summary>
+                Gets or sets The Width
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.ImageDetails.Height">
+            <summary>
+                Gets or sets The Height
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Add.V1.MapPostEndpoint">
+            <summary>
+                As the name suggests, this class contains the Map Files Endpoint method
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.Add.V1.MapPostEndpoint.MapFilesPostEndpoint(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder)">
+            <summary>
+                As the name suggests, this method will map the Files Post endpoint specifically
+            </summary>
+            <param name="endpointRouteBuilder"></param>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Add.V1.PostedFilesHandler">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.Add.V1.PostedFilesHandler.HandleAsync(AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesRequest,AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,System.TimeProvider,System.String,System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="filesContext"></param>
+            <param name="time"></param>
+            <param name="username"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.EndpointConstants">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.EndpointConstants.GetFilesGroupName">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.EndpointConstants.AddFilesGroupName">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.EndpointConstants.FilesEndpoint">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.FileContextExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.WhereDirectoryNameMatches``1(System.Linq.IQueryable{``0},System.String,System.Boolean)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="directoryName"></param>
+            <param name="recursive"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.ExcludeViewed``1(System.Linq.IQueryable{``0},System.Int32,System.TimeProvider)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="excludeViewedWithinDays"></param>
+            <param name="time"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.IncludeMarkedForDeletion(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},System.Boolean)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="includeMarkedForDeletion"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.SelectFilesMatching``1(System.Linq.IQueryable{``0},System.String)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="searchText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.SelectRequestedPage``1(System.Linq.IQueryable{``0},System.Int32,System.Int32)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="currentPage"></param>
+            <param name="itemsPerPage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.OrderAsRequested``1(System.Linq.IQueryable{``0},AStar.Dev.Files.Api.Endpoints.Get.V1.SortOrder)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="sortOrder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.SetSearchType``1(System.Linq.IQueryable{``0},AStar.Dev.Files.Api.Endpoints.Get.V1.SearchType)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="searchType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileContextExtensions.SelectByFileType``1(System.Linq.IQueryable{``0},AStar.Dev.Files.Api.Endpoints.Get.V1.SearchType)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="searchType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesHandler">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesHandler.HandleAsync(AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest,AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,System.TimeProvider,System.String,System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Get.V1.IGetFilesHandler">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.Get.V1.IGetFilesHandler.HandleAsync(AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest,AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,System.TimeProvider,System.String,System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="filesContext"></param>
+            <param name="time"></param>
+            <param name="username"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest"/>
+                contains the search parameters for the Get
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest.SearchFolder">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest.Recursive">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest.ExcludeViewedWithinDays">
+            <summary>
+                Gets or sets the exclude files viewed with the past N days. 0 should be used to include viewed
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest.IncludeMarkedForDeletion">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest.SearchText">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest.CurrentPage">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest.ItemsPerPage">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest.SortOrder">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest.SearchType">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest.Name">
+            <inheritdoc/>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest.HttpMethod">
+            <inheritdoc/>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesResponse">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesResponse.DirectoryName">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesResponse.FileName">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesResponse.FileHandle">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesResponseExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesResponseExtensions.ToGetFilesResponse(AStar.Dev.Infrastructure.FilesDb.Models.FileDetail)">
+            <summary>
+            </summary>
+            <param name="detail"></param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Get.V1.MapGetEndpoint">
+            <summary>
+                As the name suggests, this class contains the Map Files Get Endpoint method
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.Get.V1.MapGetEndpoint.MapFilesGetEndpoint(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder)">
+            <summary>
+                As the name suggests, this method will map the Files Get endpoint specifically
+            </summary>
+            <param name="endpointRouteBuilder"></param>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Get.V1.SearchType">
+            <summary>
+                The <see href="SearchType"></see> enumeration defining the available search types
+            </summary>
+        </member>
+        <member name="F:AStar.Dev.Files.Api.Endpoints.Get.V1.SearchType.Images">
+            <summary>
+                Search for images only
+            </summary>
+        </member>
+        <member name="F:AStar.Dev.Files.Api.Endpoints.Get.V1.SearchType.All">
+            <summary>
+                Search for all file types
+            </summary>
+        </member>
+        <member name="F:AStar.Dev.Files.Api.Endpoints.Get.V1.SearchType.Duplicates">
+            <summary>
+                Search for duplicates - file type is ignored
+            </summary>
+        </member>
+        <member name="F:AStar.Dev.Files.Api.Endpoints.Get.V1.SearchType.DuplicateImages">
+            <summary>
+                Search for duplicate images
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Get.V1.SortOrder">
+            <summary>
+                The <see href="SortOrder"></see> enumeration containing the supported Sort Orders
+            </summary>
+        </member>
+        <member name="F:AStar.Dev.Files.Api.Endpoints.Get.V1.SortOrder.SizeDescending">
+            <summary>
+                Order by the size descending
+            </summary>
+        </member>
+        <member name="F:AStar.Dev.Files.Api.Endpoints.Get.V1.SortOrder.SizeAscending">
+            <summary>
+                Order by the size ascending
+            </summary>
+        </member>
+        <member name="F:AStar.Dev.Files.Api.Endpoints.Get.V1.SortOrder.NameDescending">
+            <summary>
+                Order by the name descending
+            </summary>
+        </member>
+        <member name="F:AStar.Dev.Files.Api.Endpoints.Get.V1.SortOrder.NameAscending">
+            <summary>
+                Order by the name ascending
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.IAssemblyMarker">
+            <summary>
+                The IAssemblyMarker interface is used where a class/interface is required to identify the assembly
+                <para>No functionality is (nor should any be) defined by this marker interface</para>
+            </summary>
+        </member>
+    </members>
+</doc>

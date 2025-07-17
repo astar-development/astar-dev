@@ -36,5 +36,25 @@
       <secret-storage>master_key</secret-storage>
       <schema-mapping />
     </data-source>
+    <data-source name="filesDb" uuid="562e9b7d-ba40-4747-bea9-f724ce94842d">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
+      <secret-storage>master_key</secret-storage>
+      <schema-mapping />
+    </data-source>
+    <data-source name="adminDb" uuid="9cc414ba-8ffa-4fab-9583-75f29a76875c">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
+      <secret-storage>master_key</secret-storage>
+      <schema-mapping />
+    </data-source>
+    <data-source name="filesDb" uuid="c1294227-f949-4103-b57b-3cec5522b30b">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
+      <secret-storage>master_key</secret-storage>
+      <schema-mapping />
+    </data-source>
+    <data-source name="adminDb" uuid="51d27496-9db4-4564-88e8-828d90a0cb74">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
+      <secret-storage>master_key</secret-storage>
+      <schema-mapping />
+    </data-source>
   </component>
 </project>

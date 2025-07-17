@@ -31,44 +31,65 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/astar-logging-settings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AStar.Dev.sln.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/AStar.Dev.sln.DotSettings" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Admin.Api/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Admin.Api/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Images.Api/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Images.Api/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.ToDo.Api/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.ToDo.Api/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Admin.Api.Client.Sdk/AStar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.Client.Sdk.Shared/AStar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.HealthChecks/AStar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.AspNet.Extensions/AStar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/AStar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Fluent.Assignments/AStar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/AStar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Guard.Clauses/AStar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Images.Api.Client.Sdk/AStar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.AdminDb/AStar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/AStar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.UsageDb/AStar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure/AStar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Logging.Extensions/AStar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Restful.Root.Document/AStar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Technical.Debt.Reporting/AStar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Test.Helpers.EndToEnd/AStar.Dev.Test.Helpers.EndToEnd.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Test.Helpers.EndToEnd/AStar.Dev.Test.Helpers.EndToEnd.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Test.Helpers/AStar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/AStar.Dev.Usage.Logger/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AStar.Dev.Usage.Logger/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/apis/AStar.Dev.Admin.Api.Tests.EndToEnd/AStar.Dev.Admin.Api.Tests.EndToEnd.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/apis/AStar.Dev.Admin.Api.Tests.EndToEnd/AStar.Dev.Admin.Api.Tests.EndToEnd.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.EndToEnd/AStar.Dev.Files.Api.Tests.EndToEnd.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.EndToEnd/AStar.Dev.Files.Api.Tests.EndToEnd.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/apis/AStar.Dev.Images.Api.Tests.EndToEnd/AStar.Dev.Images.Api.Tests.EndToEnd.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/apis/AStar.Dev.Images.Api.Tests.EndToEnd/AStar.Dev.Images.Api.Tests.EndToEnd.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Api.Client.Sdk.Shared.Test.Unit/AStar.Dev.Api.Client.Sdk.Shared.Test.Unit.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Api.Client.Sdk.Shared.Test.Unit/AStar.Dev.Api.Client.Sdk.Shared.Test.Unit.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Api.Usage.Sdk.Tests.Unit/AStar.Dev.Api.Usage.Sdk.Tests.Unit.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Api.Usage.Sdk.Tests.Unit/AStar.Dev.Api.Usage.Sdk.Tests.Unit.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Auth.Extensions.Tests.Unit/AStar.Dev.Auth.Extensions.Tests.Unit.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Auth.Extensions.Tests.Unit/AStar.Dev.Auth.Extensions.Tests.Unit.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Infrastructure.UsageDb.Tests.Unit/AStar.Dev.Infrastructure.UsageDb.Tests.Unit.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Infrastructure.UsageDb.Tests.Unit/AStar.Dev.Infrastructure.UsageDb.Tests.Unit.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Usage.Api.Client.Sdk.Tests.Unit/AStar.Dev.Usage.Api.Client.Sdk.Tests.Unit.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Usage.Api.Client.Sdk.Tests.Unit/AStar.Dev.Usage.Api.Client.Sdk.Tests.Unit.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/uis/AStar.Dev.Web.UI.Tests.EndToEnd/AStar.Dev.Web.UI.Tests.EndToEnd.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/uis/AStar.Dev.Web.UI.Tests.EndToEnd/AStar.Dev.Web.UI.Tests.EndToEnd.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/_aspire/AStar.Dev.ServiceDefaults/Extensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/_aspire/AStar.Dev.ServiceDefaults/Extensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Admin.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Admin.Api/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Images.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Images.Api/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.ToDo.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.ToDo.Api/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Constants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/FilesApi/FilesApiClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/FilesApi/FilesApiClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/FilesApi/FilesApiConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/FilesApi/FilesApiConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/DirectoryChangeRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/DirectoryChangeRequest.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/DuplicateGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/DuplicateGroup.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/Duplicates.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/Duplicates.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/DuplicatesDetails.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/DuplicatesDetails.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/DuplicatesList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/DuplicatesList.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/ExcludedViewSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/ExcludedViewSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileAccessDetail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileAccessDetail.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileDetail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileDetail.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileDetailClassification.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileDetailClassification.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileDetailClassifications.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileDetailClassifications.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileDimensionsWithSize.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileDimensionsWithSize.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileGrouping.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileGrouping.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileSizeDetail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileSizeDetail.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/GetDuplicatesCountQueryResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/GetDuplicatesCountQueryResponse.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/SearchParameters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/SearchParameters.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/SearchType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/SearchType.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/SortOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/SortOrder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Images.Api.Client.Sdk/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Images.Api.Client.Sdk/Constants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Images.Api.Client.Sdk/ImagesApi/ImagesApiClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Images.Api.Client.Sdk/ImagesApi/ImagesApiClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Images.Api.Client.Sdk/ImagesApi/ImagesApiConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Images.Api.Client.Sdk/ImagesApi/ImagesApiConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Data/FilesContextExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Usage.Api.Client.Sdk/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Usage.Api.Client.Sdk/Constants.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Usage.Api.Client.Sdk/UsageApi/ImagesApiConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Usage.Api.Client.Sdk/UsageApi/ImagesApiConfiguration.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Usage.Api.Client.Sdk/UsageApi/UsageApiClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Usage.Api.Client.Sdk/UsageApi/UsageApiClient.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/AStar.Dev.Usage.Logger/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AStar.Dev.Usage.Logger/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/migrations/AStar.Dev.FilesDb.MigrationService/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/migrations/AStar.Dev.FilesDb.MigrationService/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/FilesContextExtensions2Should.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/FilesContextExtensions2Should.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/FilesApi/FilesApiConfigurationShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/FilesApi/FilesApiConfigurationShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Helpers/FilesApiClientFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Helpers/FilesApiClientFactory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/MockMessageHandlers/MockSuccessHttpMessageHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/MockMessageHandlers/MockSuccessHttpMessageHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DirectoryChangeRequestShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DirectoryChangeRequestShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DuplicateGroupShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DuplicateGroupShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DuplicatesDetailsShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DuplicatesDetailsShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DuplicatesListShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DuplicatesListShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/ExcludedViewSettingsShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/ExcludedViewSettingsShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileAccessDetailShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileAccessDetailShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDetailClassificationShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDetailClassificationShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDetailClassificationsShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDetailClassificationsShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDetailShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDetailShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDimensionsWithSizeShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDimensionsWithSizeShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileGroupingShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileGroupingShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileSizeDetailShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileSizeDetailShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/GetDuplicatesCountQueryResponseShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/GetDuplicatesCountQueryResponseShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/SearchParametersShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/SearchParametersShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/SearchTypeShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/SearchTypeShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/SortOrderShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/SortOrderShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Images.Api.Client.Sdk.Tests.Unit/ImagesApi/ImagesApiClientShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Images.Api.Client.Sdk.Tests.Unit/ImagesApi/ImagesApiClientShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Images.Api.Client.Sdk.Tests.Unit/ImagesApiConfigurationShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Images.Api.Client.Sdk.Tests.Unit/ImagesApiConfigurationShould.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +121,7 @@
   }
 }</component>
   <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="f9c22371-cf58-42d1-9b87-e435736fe8b6" />
+    <option name="defaultAccountId" value="c33e45bc-ba15-45ea-89b8-f9dce31d8655" />
   </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
@@ -119,11 +140,80 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250628205218_RecreateDatabase.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/appsettings.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/08fde0be2260428db1b6a812fd2ad453c3200/43/0e1576ff/IEndpointRouteBuilder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1f12dddc2f0b4ff3a0425a5bd228f00e78a00/92/9610913f/Enumerable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/501f8da0306d4dbd8e9648916aa059e74a400/41/cc611478/IEndpointConventionBuilder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/501f8da0306d4dbd8e9648916aa059e74a400/93/f49221ba/IApplicationBuilder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b26d4fa0b4bf47ae94e1c1e8948f5f95d19e00/45/3d6414a3/MethodBaseInvoker.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b26d4fa0b4bf47ae94e1c1e8948f5f95d19e00/52/99335b6b/Type.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b26d4fa0b4bf47ae94e1c1e8948f5f95d19e00/a3/ecf093fc/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c836032321124caf83f2061c194fae48383000/bc/0f47adf2/Expression.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fdc1a16f67d141f5902cf23909127ec7b1e00/40/4cf73a40/RequestDelegateFactory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1f7d81c92c01349f8e68213d932e21041fa2083dc3c66e37a976b86d247666/ShouldBeBooleanExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/503bc2d6a6a2fc2813030bd179bb894b71e248db1ac8ccf469ffe21fb2817aa/IVersionedEndpointRouteBuilder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5e14a4e27990972fa4ae94975603bd298aaf328ee083c03b10569ee4724d57/TestInvoker.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/64e9f866912d5ca4ee4be743b2c6cb89ac29ef6514b08d53eeddf526afa78726/ShouldBeEnumerableTestExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/89d72c3f68b6884a4fc967bb49ef7b3b3bec6384010ab398923d901b767/NavigationExpandingExpressionVisitor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8f01ba41853b8bd86b6d5b7b8e1e669b98673feb6a7a1b2b0a3622f9d4ad/DbContextOptionsBuilder`.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/_aspire/AStar.Dev.ServiceDefaults/Extensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/apis/AStar.Dev.Admin.Api/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/apis/AStar.Dev.Files.Api/Endpoints/Get/V1/GetFilesHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Constants.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/FilesApi/FilesApiClient.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/FilesApi/FilesApiConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/DirectoryChangeRequest.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/DuplicateGroup.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/Duplicates.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/DuplicatesDetails.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/DuplicatesList.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileAccessDetail.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileDetail.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileDetailClassification.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileDetailClassifications.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileDimensionsWithSize.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileGrouping.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileSizeDetail.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/GetDuplicatesCountQueryResponse.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/SearchParameters.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/SearchType.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/SortOrder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Images.Api.Client.Sdk/Constants.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Images.Api.Client.Sdk/ImagesApi/ImagesApiClient.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Images.Api.Client.Sdk/ImagesApi/ImagesApiConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Usage.Api.Client.Sdk/Constants.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Usage.Api.Client.Sdk/UsageApi/ImagesApiConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/FileContextExtensionsShould.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/FilesContextExtensions2Should.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/FilesApi/FilesApiConfigurationShould.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Helpers/FilesApiClientFactory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/MockMessageHandlers/MockSuccessHttpMessageHandler.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DirectoryChangeRequestShould.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DuplicateGroupShould.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DuplicatesDetailsShould.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDetailClassificationShould.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDetailClassificationsShould.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDetailShould.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDimensionsWithSizeShould.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileGroupingShould.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileSizeDetailShould.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/GetDuplicatesCountQueryResponseShould.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/SearchTypeShould.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/SortOrderShould.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/SortOrderShould.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Images.Api.Client.Sdk.Tests.Unit/ImagesApi/ImagesApiClientShould.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Images.Api.Client.Sdk.Tests.Unit/ImagesApiConfigurationShould.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file:///usr/lib/dotnet/sdk/9.0.107/Current/Microsoft.Common.props" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file:///usr/lib/dotnet/sdk/9.0.107/Microsoft.Common.CurrentVersion.targets" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file:///usr/lib/dotnet/sdk/9.0.107/Sdks/NuGet.Build.Tasks.Pack/build/NuGet.Build.Tasks.Pack.targets" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="Toolset" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 5
@@ -136,27 +226,60 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.AStar.Dev.Web: https.executor": "Run",
-    "5394ae1f-e1ba-4997-9785-ae0f83daa327.executor": "Debug",
-    "Aspire Host.AStar.Dev.AppHost: http.executor": "Run",
-    "Aspire Host.AStar.Dev.AppHost: https.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "features/add-nuget-packages-test-projects",
-    "last_opened_file_path": "/home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Utilities.Tests.Unit/AStar.Dev.Utilities.Tests.Unit.csproj",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "RiderDotCoverFilteringPageId",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.AStar.Dev.Web: https.executor&quot;: &quot;Run&quot;,
+    &quot;048590b5-e09c-40ff-b78c-f96a021a888b.executor&quot;: &quot;Debug&quot;,
+    &quot;157d886d-0a11-45b5-b1e8-641349d3cc41.executor&quot;: &quot;Debug&quot;,
+    &quot;22071734-6c60-41bb-aea8-3be1144d15bd.executor&quot;: &quot;Debug&quot;,
+    &quot;37e8db58-7b27-4d30-8126-079f70986791.executor&quot;: &quot;Debug&quot;,
+    &quot;5394ae1f-e1ba-4997-9785-ae0f83daa327.executor&quot;: &quot;Debug&quot;,
+    &quot;74865cb9-5982-44cc-8c44-3e1395390114.executor&quot;: &quot;Debug&quot;,
+    &quot;8fd607c9-dea8-4b95-8264-467bd8bce66a.executor&quot;: &quot;Debug&quot;,
+    &quot;Aspire Host.AStar.Dev.AppHost: http.executor&quot;: &quot;Run&quot;,
+    &quot;Aspire Host.AStar.Dev.AppHost: https.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;e1fa419c-f915-45ea-a5b9-af0e54288449.executor&quot;: &quot;Debug&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;features/add-files-api&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/jason-barden/RiderProjects/astar-dev/.editorconfig&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Aspire Host.AStar.Dev.AppHost: https">
+    <configuration name="AStar.Dev.AppHost: https" type="AspireHostConfiguration" factoryName="Aspire Host" activateToolWindowBeforeRun="false">
+      <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/_aspire/AStar.Dev.AppHost/AStar.Dev.AppHost.csproj" />
+      <option name="PROJECT_TFM" value="net9.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="http" />
+      <option name="TRACK_ARGUMENTS" value="1" />
+      <option name="ARGUMENTS" value="" />
+      <option name="TRACK_WORKING_DIRECTORY" value="1" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/_aspire/AStar.Dev.AppHost" />
+      <option name="TRACK_ENVS" value="1" />
+      <envs>
+        <env name="DOTNET_ENVIRONMENT" value="Development" />
+        <env name="ASPNETCORE_ENVIRONMENT" value="Development" />
+        <env name="ASPIRE_DASHBOARD_OTLP_ENDPOINT_URL" value="http://localhost:19088" />
+        <env name="ASPNETCORE_URLS" value="http://localhost:15275" />
+        <env name="ASPIRE_RESOURCE_SERVICE_ENDPOINT_URL" value="http://localhost:20270" />
+        <env name="DOTNET_LAUNCH_PROFILE" value="http" />
+      </envs>
+      <option name="USE_PODMAN_RUNTIME" value="0" />
+      <option name="TRACK_URL" value="1" />
+      <option name="TRACK_BROWSER_LAUNCH" value="1" />
+      <browser url="http://localhost:15275" name="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" start="true" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
     <configuration name="AStar.Dev.AppHost: https" type="AspireHostConfiguration" factoryName="Aspire Host" activateToolWindowBeforeRun="false">
       <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/_aspire/AStar.Dev.AppHost/AStar.Dev.AppHost.csproj" />
       <option name="PROJECT_TFM" value="net9.0" />
@@ -205,6 +328,29 @@
         <option name="Build" />
       </method>
     </configuration>
+    <configuration name="AStar.Dev.Admin.Api.Tests.Unit" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="ENV_FILE_PATHS" value="" />
+      <option name="REDIRECT_INPUT_PATH" value="" />
+      <option name="PTY_MODE" value="Auto" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/test/apis/AStar.Dev.Admin.Api.Tests.Unit/AStar.Dev.Admin.Api.Tests.Unit.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
     <configuration name="AStar.Dev.BackupApp" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/src/console-applications/astar-dev-backupapp/AStar.Dev.BackupApp/bin/Debug/net9.0/AStar.Dev.BackupApp" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -225,6 +371,53 @@
       <option name="PROJECT_KIND" value="DotNetCore" />
       <option name="PROJECT_TFM" value="net9.0" />
       <browser name="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="AStar.Dev.BackupApp" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/src/console-applications/astar-dev-backupapp/AStar.Dev.BackupApp/bin/Debug/net9.0/AStar.Dev.BackupApp" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/console-applications/astar-dev-backupapp/AStar.Dev.BackupApp/bin/Debug/net9.0" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="ENV_FILE_PATHS" value="" />
+      <option name="REDIRECT_INPUT_PATH" value="" />
+      <option name="PTY_MODE" value="Auto" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/src/console-applications/astar-dev-backupapp/AStar.Dev.BackupApp/AStar.Dev.BackupApp.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="net9.0" />
+      <browser name="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="AStar.Dev.Restful.Root.Document" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="ENV_FILE_PATHS" value="" />
+      <option name="REDIRECT_INPUT_PATH" value="" />
+      <option name="PTY_MODE" value="Auto" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Restful.Root.Document/AStar.Dev.Restful.Root.Document.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -298,6 +491,75 @@
         <option name="Build" />
       </method>
     </configuration>
+    <configuration name="AStar.Dev.Test.Helpers.Minimal.Api.Tests.Unit" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="ENV_FILE_PATHS" value="" />
+      <option name="REDIRECT_INPUT_PATH" value="" />
+      <option name="PTY_MODE" value="Auto" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Test.Helpers.Minimal.Api.Tests.Unit/AStar.Dev.Test.Helpers.Minimal.Api.Tests.Unit.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="AStar.Dev.Test.Helpers.Minimal.Api" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="ENV_FILE_PATHS" value="" />
+      <option name="REDIRECT_INPUT_PATH" value="" />
+      <option name="PTY_MODE" value="Auto" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Test.Helpers.Minimal.Api/AStar.Dev.Test.Helpers.Minimal.Api.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="AStar.Dev.Web.UI.Tests.EndToEnd" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="ENV_FILE_PATHS" value="" />
+      <option name="REDIRECT_INPUT_PATH" value="" />
+      <option name="PTY_MODE" value="Auto" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/test/uis/AStar.Dev.Web.UI.Tests.EndToEnd/AStar.Dev.Web.UI.Tests.EndToEnd.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
     <configuration name="AStar.Dev.Web.UI.Tests.EndToEnd" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -337,6 +599,22 @@
         <option name="Build" />
       </method>
     </configuration>
+    <configuration name="AStar.Dev.Admin.Api: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/apis/AStar.Dev.Admin.Api/AStar.Dev.Admin.Api.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net9.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="https" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <browser name="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
     <configuration name="AStar.Dev.Api.HealthChecks" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.HealthChecks/AStar.Dev.Api.HealthChecks.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net9.0" />
@@ -344,6 +622,37 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <option name="USE_MONO" value="0" />
       <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="AStar.Dev.Api.HealthChecks" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.HealthChecks/AStar.Dev.Api.HealthChecks.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net9.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="AStar.Dev.Api.HealthChecks" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="AStar.Dev.Database.Updater" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/AStar.Dev.Database.Updater.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net9.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="AStar.Dev.Database.Updater" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <browser name="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
       <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
       <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
       <option name="SEND_DEBUG_REQUEST" value="1" />
@@ -384,8 +693,56 @@
         <option name="Build" />
       </method>
     </configuration>
+    <configuration name="AStar.Dev.FilesDb.MigrationService" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/services/migrations/AStar.Dev.FilesDb.MigrationService/AStar.Dev.FilesDb.MigrationService.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net9.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="AStar.Dev.FilesDb.MigrationService" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <browser name="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
     <configuration name="AStar.Dev.Files.Api: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net9.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="https" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <browser name="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="AStar.Dev.Files.Api: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net9.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="https" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <browser name="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="AStar.Dev.Images.Api: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/apis/AStar.Dev.Images.Api/AStar.Dev.Images.Api.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net9.0" />
       <option name="LAUNCH_PROFILE_NAME" value="https" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
@@ -432,8 +789,56 @@
         <option name="Build" />
       </method>
     </configuration>
+    <configuration name="AStar.Dev.ToDo.Api: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/apis/AStar.Dev.ToDo.Api/AStar.Dev.ToDo.Api.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net9.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="https" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <browser name="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
     <configuration name="AStar.Dev.Usage.Logger: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/services/AStar.Dev.Usage.Logger/AStar.Dev.Usage.Logger.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net9.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="https" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <browser name="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="AStar.Dev.Usage.Logger: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/services/AStar.Dev.Usage.Logger/AStar.Dev.Usage.Logger.csproj" />
+      <option name="LAUNCH_PROFILE_TFM" value="net9.0" />
+      <option name="LAUNCH_PROFILE_NAME" value="https" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <browser name="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <option name="GENERATE_APPLICATIONHOST_CONFIG" value="1" />
+      <option name="SHOW_IIS_EXPRESS_OUTPUT" value="0" />
+      <option name="SEND_DEBUG_REQUEST" value="1" />
+      <option name="ADDITIONAL_IIS_EXPRESS_ARGUMENTS" value="" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="AStar.Dev.Web: https" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
+      <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/uis/AStar.Dev.Web/AStar.Dev.Web.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net9.0" />
       <option name="LAUNCH_PROFILE_NAME" value="https" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
@@ -496,7 +901,32 @@
       <workItem from="1750879487067" duration="5831000" />
       <workItem from="1750926672717" duration="1265000" />
       <workItem from="1750943910837" duration="39000" />
-      <workItem from="1751138445685" duration="12389000" />
+      <workItem from="1751138445685" duration="14551000" />
+      <workItem from="1751224729421" duration="21195000" />
+      <workItem from="1751396677896" duration="354000" />
+      <workItem from="1751398089834" duration="11223000" />
+      <workItem from="1751660245636" duration="688000" />
+      <workItem from="1751745994459" duration="1391000" />
+      <workItem from="1751747410007" duration="2156000" />
+      <workItem from="1752001745041" duration="3964000" />
+      <workItem from="1752086884263" duration="6138000" />
+      <workItem from="1752093091847" duration="6057000" />
+      <workItem from="1752177322050" duration="5462000" />
+      <workItem from="1752222997920" duration="1446000" />
+      <workItem from="1752258600444" duration="2660000" />
+      <workItem from="1752261951370" duration="1376000" />
+      <workItem from="1752263753456" duration="3443000" />
+      <workItem from="1752267313222" duration="1234000" />
+      <workItem from="1752346111430" duration="4199000" />
+      <workItem from="1752351248751" duration="117000" />
+      <workItem from="1752435618015" duration="16000" />
+      <workItem from="1752439234503" duration="5361000" />
+      <workItem from="1752518449344" duration="448000" />
+      <workItem from="1752615555018" duration="619000" />
+      <workItem from="1752647190400" duration="315000" />
+      <workItem from="1752693790696" duration="521000" />
+      <workItem from="1752694458158" duration="3988000" />
+      <workItem from="1752776272102" duration="1518000" />
     </task>
     <task id="LOCAL-00001" summary="Created the base Aspire Host project">
       <option name="closed" value="true" />
@@ -650,48 +1080,243 @@
       <option name="project" value="LOCAL" />
       <updated>1751149305614</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Update Files API Nuget and Package links&#10;&#10;Add misc files to other projects too">
+      <option name="closed" value="true" />
+      <created>1751151184418</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1751151184418</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Yet another bunch of cleanup">
+      <option name="closed" value="true" />
+      <created>1751151502453</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1751151502453</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Add the original Program.cs and start on the AddFilesEndpoint.cs">
+      <option name="closed" value="true" />
+      <created>1751162941877</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1751162941877</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Starting tests for the MapFilesEndpoint.cs&#10;&#10;Includes some test helpers in the relevant NuGet project">
+      <option name="closed" value="true" />
+      <created>1751314253128</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1751314253128</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Missed these from the last commit">
+      <option name="closed" value="true" />
+      <created>1751314279530</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1751314279530</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Initial version of Post for a list of new files">
+      <option name="closed" value="true" />
+      <created>1751412730664</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1751412730664</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Rework the FilesDb and associated FilesContext.cs">
+      <option name="closed" value="true" />
+      <created>1752098719809</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1752098719809</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Bring over the updated FilesDb code and apply changes to support">
+      <option name="closed" value="true" />
+      <created>1752178016957</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1752178016957</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Fix the tests post updates to FilesDb">
+      <option name="closed" value="true" />
+      <created>1752178440068</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1752178440068</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Small updates to the formatting">
+      <option name="closed" value="true" />
+      <created>1752178645874</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1752178645874</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Add AStar.Dev.Functional.Extensions to all projects&#10;&#10;Not used yet and may not be needed in all...">
+      <option name="closed" value="true" />
+      <created>1752180482942</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1752180482942</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Update FilesDb and redo migrations">
+      <option name="closed" value="true" />
+      <created>1752260152540</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1752260152540</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Update the RabbitMq code and error handling on sending side&#10;&#10;Tomorrow...consuming code and recreating database">
+      <option name="closed" value="true" />
+      <created>1752266980309</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1752266980309</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Change back to the v7+ RabbitMq client now unrelated issue in...&#10;&#10;FilesApi has been resolved / worked around with &quot;OK&quot;, rather than &quot;Created&quot;">
+      <option name="closed" value="true" />
+      <created>1752267259973</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1752267259973</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Add Async suffix rules to .editorconfig">
+      <option name="closed" value="true" />
+      <created>1752268529646</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1752268529646</updated>
+    </task>
+    <task id="LOCAL-00035" summary="Add the new Get Files - need the actual request and Handle Async still">
+      <option name="closed" value="true" />
+      <created>1752348603257</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1752348603257</updated>
+    </task>
+    <task id="LOCAL-00036" summary="Add 1st part of the GetFilesHandler">
+      <option name="closed" value="true" />
+      <created>1752351360172</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1752351360173</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Nearing the end of the GetFilesHandler.cs updates&#10;&#10;This version does NOT compile at the moment">
+      <option name="closed" value="true" />
+      <created>1752518559640</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1752518559640</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Nearing the end of the GetFilesHandler.cs updates">
+      <option name="closed" value="true" />
+      <created>1752518718780</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1752518718780</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Changing direction on the Files API with the intent of separate for duplicates">
+      <option name="closed" value="true" />
+      <created>1752615626119</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1752615626119</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Add the Previous MockContext classes b4 moving things around">
+      <option name="closed" value="true" />
+      <created>1752699487075</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1752699487075</updated>
+    </task>
+    <task id="LOCAL-00041" summary="Update the location of the FilesContextExtensions.cs&#10;&#10;Associated changes to support too">
+      <option name="closed" value="true" />
+      <created>1752777776679</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1752777776679</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="UnitTestsCoverage.Settings">
-    <option name="coveragePercentColumnWidth" value="141" />
+    <option name="coveragePercentColumnWidth" value="74" />
     <option name="sortOrder" value="DESCENDING" />
     <option name="sortedColumn" value="1" />
-    <option name="symbolColumnWidth" value="291" />
+    <option name="symbolColumnWidth" value="501" />
     <coverage-tree-state>
       <expand>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 8% 2183/2366" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 32% 1780/2610" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 8% 2183/2366" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="src 8% 2183/2366" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 32% 1780/2610" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 32% 1780/2610" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 8% 2183/2366" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="src 8% 2183/2366" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="nuget-packages 9% 1872/2055" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 32% 1780/2610" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 32% 1780/2610" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="nuget-packages 34% 1444/2204" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 8% 2183/2366" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="src 8% 2183/2366" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="nuget-packages 9% 1872/2055" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="AStar.Dev.Infrastructure.FilesDb 65% 97/278" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 32% 1780/2610" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 32% 1780/2610" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="nuget-packages 34% 1444/2204" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Infrastructure.FilesDb 60% 125/310" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 8% 2183/2366" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="src 8% 2183/2366" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="nuget-packages 9% 1872/2055" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="AStar.Dev.Infrastructure.FilesDb 65% 97/278" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="AStar.Dev.Infrastructure.FilesDb 65% 97/278" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 32% 1780/2610" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 32% 1780/2610" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="nuget-packages 34% 1444/2204" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Infrastructure.FilesDb 60% 125/310" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Infrastructure.FilesDb 60% 125/310" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 32% 1780/2610" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 32% 1780/2610" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="nuget-packages 34% 1444/2204" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Infrastructure.FilesDb 60% 125/310" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Infrastructure.FilesDb 60% 125/310" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Models 97% 6/178" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 32% 1780/2610" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 32% 1780/2610" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="nuget-packages 34% 1444/2204" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Infrastructure.FilesDb 60% 125/310" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Infrastructure.FilesDb 60% 125/310" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Models 97% 6/178" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="EventType 100% 0/29" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
       </expand>
       <select />
@@ -699,6 +1324,24 @@
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="dotnet:OpenTelemetry.Api" />
+    <option featureType="dependencySupport" implementationName="dotnet:Microsoft.Identity.Client" />
+    <option featureType="dependencySupport" implementationName="dotnet:Microsoft.ApplicationInsights.AspNetCore" />
+    <option featureType="dependencySupport" implementationName="dotnet:Aspire.Hosting" />
+    <option featureType="dependencySupport" implementationName="dotnet:Microsoft.EntityFrameworkCore.Abstractions" />
+    <option featureType="dependencySupport" implementationName="dotnet:Microsoft.EntityFrameworkCore.Relational" />
+    <option featureType="dependencySupport" implementationName="dotnet:Microsoft.ApplicationInsights" />
+    <option featureType="dependencySupport" implementationName="dotnet:Microsoft.Extensions.Logging.ApplicationInsights" />
+    <option featureType="dependencySupport" implementationName="dotnet:Microsoft.EntityFrameworkCore" />
+    <option featureType="dependencySupport" implementationName="dotnet:OpenTelemetry.Extensions.Hosting" />
+    <option featureType="dependencySupport" implementationName="executable:docker" />
+    <option featureType="dependencySupport" implementationName="dotnet:OpenTelemetry.Instrumentation.AspNetCore" />
+    <option featureType="dependencySupport" implementationName="dotnet:NSubstitute" />
+    <option featureType="dependencySupport" implementationName="dotnet:OpenTelemetry" />
+    <option featureType="dependencySupport" implementationName="dotnet:Microsoft.Identity.Web" />
+    <option featureType="dependencySupport" implementationName="dotnet:Reqnroll" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
@@ -713,23 +1356,32 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Created the base Aspire Host project" />
-    <MESSAGE value="Add initial projects bar NuGet" />
-    <MESSAGE value="Add links between projects and AppHost" />
-    <MESSAGE value="RabbitMQ, SQL, Db Updater and Migrations healthy" />
-    <MESSAGE value="Remove http profiles and ports" />
-    <MESSAGE value="Add health checks to APIs and UI&#10;&#10;ALL projects startup correctly across the solution" />
-    <MESSAGE value="Add the remaining NuGet packages" />
-    <MESSAGE value="Add the NuGet packages test projects" />
-    <MESSAGE value="Skip failing test" />
-    <MESSAGE value="A 'little' code cleanup" />
-    <MESSAGE value="Add the test projects (well some of them)&#10;&#10;Tests commented out as code isn't there" />
-    <MESSAGE value="Post merge issues fixes" />
-    <MESSAGE value="Additional tests on ImagesApiClient.cs" />
-    <MESSAGE value="Recreate the migrations with the potential Events table" />
     <MESSAGE value="Run cleanup prior to setting on commit settings" />
     <MESSAGE value="Add tests for AStar.Dev.Infrastructure.FilesDb.Models" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add tests for AStar.Dev.Infrastructure.FilesDb.Models" />
+    <MESSAGE value="Update Files API Nuget and Package links&#10;&#10;Add misc files to other projects too" />
+    <MESSAGE value="Yet another bunch of cleanup" />
+    <MESSAGE value="Add the original Program.cs and start on the AddFilesEndpoint.cs" />
+    <MESSAGE value="Starting tests for the MapFilesEndpoint.cs&#10;&#10;Includes some test helpers in the relevant NuGet project" />
+    <MESSAGE value="Missed these from the last commit" />
+    <MESSAGE value="Initial version of Post for a list of new files" />
+    <MESSAGE value="Rework the FilesDb and associated FilesContext.cs" />
+    <MESSAGE value="SonarQube file updates" />
+    <MESSAGE value="Bring over the updated FilesDb code and apply changes to support" />
+    <MESSAGE value="Fix the tests post updates to FilesDb" />
+    <MESSAGE value="Small updates to the formatting" />
+    <MESSAGE value="Add AStar.Dev.Functional.Extensions to all projects&#10;&#10;Not used yet and may not be needed in all..." />
+    <MESSAGE value="Update FilesDb and redo migrations" />
+    <MESSAGE value="Update the RabbitMq code and error handling on sending side&#10;&#10;Tomorrow...consuming code and recreating database" />
+    <MESSAGE value="Change back to the v7+ RabbitMq client now unrelated issue in...&#10;&#10;FilesApi has been resolved / worked around with &quot;OK&quot;, rather than &quot;Created&quot;" />
+    <MESSAGE value="Add Async suffix rules to .editorconfig" />
+    <MESSAGE value="Add the new Get Files - need the actual request and Handle Async still" />
+    <MESSAGE value="Add 1st part of the GetFilesHandler" />
+    <MESSAGE value="Nearing the end of the GetFilesHandler.cs updates&#10;&#10;This version does NOT compile at the moment" />
+    <MESSAGE value="Nearing the end of the GetFilesHandler.cs updates" />
+    <MESSAGE value="Changing direction on the Files API with the intent of separate for duplicates" />
+    <MESSAGE value="Add the Previous MockContext classes b4 moving things around" />
+    <MESSAGE value="Update the location of the FilesContextExtensions.cs&#10;&#10;Associated changes to support too" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update the location of the FilesContextExtensions.cs&#10;&#10;Associated changes to support too" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -746,7 +1398,43 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/Get/V1/GetFilesHandlerShould.cs</url>
+          <line>25</line>
+          <properties documentPath="$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/Get/V1/GetFilesHandlerShould.cs" containingFunctionPresentation="Method 'ReturnBadRequestWhenDuplicatesAreRequested'">
+            <startOffsets>
+              <option value="843" />
+            </startOffsets>
+            <endOffsets>
+              <option value="902" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/Get/V1/GetFilesHandlerShould.cs</url>
+          <line>28</line>
+          <properties documentPath="$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/Get/V1/GetFilesHandlerShould.cs" containingFunctionPresentation="Method 'ReturnBadRequestWhenDuplicatesAreRequested'">
+            <startOffsets>
+              <option value="969" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1001" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Type#System.Reflection.TypeInfo" memberName="DeclaredConstructors" />
+      </pinned-members>
+    </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="RiderUnitTests">
+        <watch expression="endpoint != null" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

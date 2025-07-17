@@ -1,4 +1,5 @@
 ﻿using System.IO.Abstractions;
+using AStar.Dev.Infrastructure.Data;
 using AStar.Dev.Utilities;
 
 namespace AStar.Dev.Infrastructure.FilesDb.Models;
@@ -6,10 +7,10 @@ namespace AStar.Dev.Infrastructure.FilesDb.Models;
 /// <summary>
 ///     The FileDetail class containing the current properties
 /// </summary>
-public sealed class FileDetail
+public sealed class FileDetail : AuditableEntity, IFileDetail
 {
     /// <summary>
-    ///     The default constructor required by EF Core
+    ///     The default constructor required by EF Core etc
     /// </summary>
     public FileDetail()
     {
@@ -39,32 +40,12 @@ public sealed class FileDetail
 
     /// <summary>
     /// </summary>
-    public ImageDetails ImageDetails { get; set; } = new();
-
-    /// <summary>
-    ///     Gets or sets the file name. I know, shocking...
-    /// </summary>
-    public string FileName { get; set; } = string.Empty;
-
-    /// <summary>
-    ///     Gets or sets the name of the directory containing the file detail. I know, shocking...
-    /// </summary>
-    public string DirectoryName { get; set; } = string.Empty;
+    public ImageDetail ImageDetail { get; set; } = new(null, null);
 
     /// <summary>
     ///     Gets the full name of the file with the path combined
     /// </summary>
     public string FullNameWithPath => Path.Combine(DirectoryName, FileName);
-
-    /// <summary>
-    ///     Gets or sets the file size. I know, shocking...
-    /// </summary>
-    public long FileSize { get; set; }
-
-    /// <summary>
-    ///     Gets or sets whether the file is of a supported image type
-    /// </summary>
-    public bool IsImage { get; set; }
 
     /// <summary>
     ///     Gets or sets the file handle. I know, shocking...
@@ -80,41 +61,38 @@ public sealed class FileDetail
     public DateTimeOffset FileLastModified { get; set; }
 
     /// <summary>
-    /// </summary>
-    public DateTimeOffset? FileLastViewed { get; set; }
-
-    /// <summary>
-    ///     Gets or sets whether the file has been 'soft deleted'. I know, shocking...
-    /// </summary>
-    public bool SoftDeleted { get; set; }
-
-    /// <summary>
-    ///     Gets or sets whether the file has been marked as 'delete pending'. I know, shocking...
-    /// </summary>
-    public bool SoftDeletePending { get; set; }
-
-    /// <summary>
     ///     Gets or sets whether the file has been marked as 'needs to move'. I know, shocking...
     /// </summary>
     public bool MoveRequired { get; set; }
 
     /// <summary>
-    ///     Gets or sets whether the file has been marked as 'delete permanently pending'. I know, shocking...
+    ///     Gets or sets the file deletion status. I know, shocking...
     /// </summary>
-    public bool HardDeletePending { get; set; }
+    public DeletionStatus DeletionStatus { get; set; } = new();
 
     /// <summary>
-    ///     Gets or sets whether the file has been permanently deleted. I know, shocking...
+    ///     Gets or sets the file name. I know, shocking...
     /// </summary>
-    public bool HardDeleted { get; set; }
+    public string FileName { get; set; } = string.Empty;
+
+    /// <summary>
+    ///     Gets or sets the name of the directory containing the file detail. I know, shocking...
+    /// </summary>
+    public string DirectoryName { get; set; } = string.Empty;
+
+    /// <summary>
+    ///     Gets or sets the file size. I know, shocking...
+    /// </summary>
+    public long FileSize { get; set; }
+
+    /// <summary>
+    ///     Gets or sets whether the file is of a supported image type
+    /// </summary>
+    public bool IsImage { get; set; }
 
     /// <summary>
     /// </summary>
-    public DateTimeOffset DetailsModified { get; set; }
-
-    /// <summary>
-    /// </summary>
-    public string ModifiedBy { get; set; } = string.Empty;
+    public DateTimeOffset? FileLastViewed { get; set; }
 
     /// <summary>
     ///     Returns this object in JSON format

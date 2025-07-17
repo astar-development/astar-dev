@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using System.Text.Json;
 using AStar.Dev.Api.HealthChecks;
-using AStar.Dev.Files.Api.Client.SDK.Models;
+using AStar.Dev.Files.Api.Client.Sdk.Models;
 
 namespace AStar.Dev.Files.Api.Client.Sdk.MockMessageHandlers;
 

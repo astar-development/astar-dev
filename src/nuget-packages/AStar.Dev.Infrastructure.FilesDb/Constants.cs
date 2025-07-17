@@ -2,7 +2,7 @@
 
 /// <summary>
 /// </summary>
-public class Constants
+public static class Constants
 {
     /// <summary>
     /// </summary>

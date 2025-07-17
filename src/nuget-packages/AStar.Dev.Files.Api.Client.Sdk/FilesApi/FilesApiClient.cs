@@ -3,11 +3,11 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using AStar.Dev.Api.HealthChecks;
-using AStar.Dev.Files.Api.Client.SDK.Models;
+using AStar.Dev.Files.Api.Client.Sdk.Models;
 using AStar.Dev.Utilities;
 using Microsoft.Extensions.Logging;
 
-namespace AStar.Dev.Files.Api.Client.SDK.FilesApi;
+namespace AStar.Dev.Files.Api.Client.Sdk.FilesApi;
 
 /// <summary>
 ///     The <see href="FilesApiClient"></see> class
@@ -28,7 +28,7 @@ public sealed class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition to
             var response = await httpClient.GetAsync("/health/ready", cancellationToken);
 
             return response.IsSuccessStatusCode
-                       ? await ReturnLoggedSuccess(response)
+                       ? await ReturnLoggedSuccessAsync(response)
                        : ReturnLoggedFailure(response);
         }
         catch (HttpRequestException ex)
@@ -132,7 +132,7 @@ public sealed class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition to
     /// <param name="fileId">The ID of the file to retrieve the File Access Details from the database</param>
     /// <returns>An instance of <see href="FileAccessDetail"></see> for the specified File ID</returns>
     /// <exception cref="InvalidOperationException"></exception>
-    public async Task<FileAccessDetail> GetFileAccessDetail(int fileId)
+    public async Task<FileAccessDetail> GetFileAccessDetailAsync(int fileId)
     {
         var response = await httpClient.GetAsync($"files/access-detail?request={fileId}&version=1");
 
@@ -153,7 +153,7 @@ public sealed class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition to
     ///     details...
     /// </returns>
     /// <exception cref="InvalidOperationException"></exception>
-    public async Task<FileDetail> GetFileDetail(int fileId)
+    public async Task<FileDetail> GetFileDetailAsync(int fileId)
     {
         var response = await httpClient.GetAsync($"files/detail?request={fileId}&version=1");
 
@@ -391,7 +391,7 @@ public sealed class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition to
         return (await response.Content.ReadFromJsonAsync<string[]>(cancellationToken))!;
     }
 
-    private async Task<HealthStatusResponse> ReturnLoggedSuccess(HttpResponseMessage response)
+    private async Task<HealthStatusResponse> ReturnLoggedSuccessAsync(HttpResponseMessage response)
     {
         logger.LogInformation("The {ApiName} Health check completed successfully.", Constants.ApiName);
 

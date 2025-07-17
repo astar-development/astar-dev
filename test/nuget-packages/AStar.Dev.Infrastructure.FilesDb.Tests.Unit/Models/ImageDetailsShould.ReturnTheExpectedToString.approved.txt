@@ -1,6 +1,1 @@
-﻿{
-  "id": 1,
-  "width": 123,
-  "height": 456,
-  "fileDetailsId": 2
-}
+﻿ImageDetail { Width = 1234, Height = 5678 }

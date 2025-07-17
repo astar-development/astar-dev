@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SonarLintProjectSettings">
+    <option name="fileExclusions">
+      <list>
+        <option value="FILE:src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250709215515_RecreateDatabase.cs" />
+        <option value="FILE:src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250709220056_AddVwDuplicateDetailsToContext.cs" />
+        <option value="FILE:src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Data/FilesContextExtensions.cs" />
+        <option value="FILE:test/nuget-packages/AStar.Dev.Infrastructure.FilesDb.Tests.Unit/Data/FilesContextExtensionsShould.cs" />
+      </list>
+    </option>
+  </component>
+</project>

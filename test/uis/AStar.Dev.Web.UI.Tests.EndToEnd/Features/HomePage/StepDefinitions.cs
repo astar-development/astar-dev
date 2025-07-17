@@ -10,7 +10,7 @@ public class StepDefinitions(IOptions<ApplicationSettings> applicationSettings, 
     : PlaywrightBase(applicationSettings, output)
 {
     [Given("I have accessed the home page")]
-    public async Task GivenIHaveAccessedTheHomePage()
+    public async Task GivenIHaveAccessedTheHomePageAsync()
     {
         var dummyHeaders = new Dictionary<string, string> { { "an-irrelevant-header", "an equally irrelevant value..." } };
         Page = SetHeadersAndCreatePage(dummyHeaders);
@@ -25,7 +25,7 @@ public class StepDefinitions(IOptions<ApplicationSettings> applicationSettings, 
     }
 
     [Then("I can see the expected title")]
-    public async Task ThenICanSeeTheExpectedTitle()
+    public async Task ThenICanSeeTheExpectedTitleAsync()
     {
         var title = await Page.TitleAsync();
 

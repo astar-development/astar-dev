@@ -86,12 +86,14 @@
             <summary>
             </summary>
             <param name="next"></param>
+            <param name="logger"></param>
             <param name="send"></param>
         </member>
-        <member name="M:AStar.Dev.Api.Usage.Sdk.Metrics.UsageMetricHandler.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,AStar.Dev.Api.Usage.Sdk.Send)">
+        <member name="M:AStar.Dev.Api.Usage.Sdk.Metrics.UsageMetricHandler.#ctor(Microsoft.AspNetCore.Http.RequestDelegate,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Api.Usage.Sdk.Metrics.UsageMetricHandler},AStar.Dev.Api.Usage.Sdk.Send)">
             <summary>
             </summary>
             <param name="next"></param>
+            <param name="logger"></param>
             <param name="send"></param>
         </member>
         <member name="M:AStar.Dev.Api.Usage.Sdk.Metrics.UsageMetricHandler.InvokeAsync(Microsoft.AspNetCore.Http.HttpContext)">
@@ -113,7 +115,7 @@
             <summary>
             </summary>
         </member>
-        <member name="M:AStar.Dev.Api.Usage.Sdk.Send.#ctor(RabbitMQ.Client.IConnection,Microsoft.Extensions.Options.IOptions{AStar.Dev.Api.Usage.Sdk.ApiUsageConfiguration})">
+        <member name="M:AStar.Dev.Api.Usage.Sdk.Send.#ctor(RabbitMQ.Client.IConnection,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Api.Usage.Sdk.Send},Microsoft.Extensions.Options.IOptions{AStar.Dev.Api.Usage.Sdk.ApiUsageConfiguration})">
             <summary>
             </summary>
         </member>

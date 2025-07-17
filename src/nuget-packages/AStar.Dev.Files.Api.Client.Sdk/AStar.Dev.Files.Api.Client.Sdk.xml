@@ -79,7 +79,7 @@
             </param>
             <returns>The count of the matching duplicate files or -1 if an error occurred</returns>
         </member>
-        <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient.GetFileAccessDetail(System.Int32)">
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient.GetFileAccessDetailAsync(System.Int32)">
             <summary>
                 The GetFileAccessDetail method will, as its name suggests, get the file access details for the specified file
             </summary>
@@ -88,7 +88,7 @@
             </returns>
             <exception cref="T:System.InvalidOperationException"></exception>
         </member>
-        <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient.GetFileDetail(System.Int32)">
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient.GetFileDetailAsync(System.Int32)">
             <summary>
                 The GetFileDetail method will, as its name suggests, get the file details of the specified file
             </summary>

@@ -3,7 +3,7 @@ using AStar.Dev.Api.HealthChecks;
 using AStar.Dev.Technical.Debt.Reporting;
 using Microsoft.Extensions.Logging;
 
-namespace AStar.Dev.Images.Api.Client.SDK.ImagesApi;
+namespace AStar.Dev.Images.Api.Client.Sdk.ImagesApi;
 
 /// <summary>
 ///     The <see href="Images.ApiClient"></see> class
@@ -25,7 +25,7 @@ public sealed class ImagesApiClient(HttpClient httpClient, /*ITokenAcquisition t
             var response = await httpClient.GetAsync("/health/ready", cancellationToken);
 
             return response.IsSuccessStatusCode
-                       ? await ReturnLoggedSuccess(response)
+                       ? await ReturnLoggedSuccessAsync(response)
                        : ReturnLoggedFailure(response);
         }
         catch (HttpRequestException ex)
@@ -36,7 +36,7 @@ public sealed class ImagesApiClient(HttpClient httpClient, /*ITokenAcquisition t
         }
     }
 
-    private async Task<HealthStatusResponse> ReturnLoggedSuccess(HttpResponseMessage response)
+    private async Task<HealthStatusResponse> ReturnLoggedSuccessAsync(HttpResponseMessage response)
     {
         logger.LogInformation("The {ApiName} Health check completed successfully", Constants.ApiName);
 

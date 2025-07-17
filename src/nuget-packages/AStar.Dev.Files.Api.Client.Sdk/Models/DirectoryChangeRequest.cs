@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using AStar.Dev.Utilities;
 
-namespace AStar.Dev.Files.Api.Client.SDK.Models;
+namespace AStar.Dev.Files.Api.Client.Sdk.Models;
 
 /// <summary>
 ///     The <see href="DirectoryChangeRequest"></see> class

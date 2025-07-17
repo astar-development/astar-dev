@@ -4,6 +4,13 @@
         <name>AStar.Dev.Infrastructure.FilesDb</name>
     </assembly>
     <members>
+        <member name="T:AStar.Dev.Infrastructure.FilesDb.Configurations.EventConfiguration">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Configurations.EventConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{AStar.Dev.Infrastructure.FilesDb.Models.Event})">
+            <inheritdoc/>
+        </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Configurations.FileClassificationConfiguration">
             <summary>
             </summary>
@@ -23,13 +30,6 @@
             </summary>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Configurations.FileNamePartConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{AStar.Dev.Infrastructure.FilesDb.Models.FileNamePart})">
-            <inheritdoc/>
-        </member>
-        <member name="T:AStar.Dev.Infrastructure.FilesDb.Configurations.ImageDetailsConfiguration">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Configurations.ImageDetailsConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{AStar.Dev.Infrastructure.FilesDb.Models.ImageDetails})">
             <inheritdoc/>
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Constants">
@@ -59,14 +59,9 @@
             <summary>
             </summary>
         </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext.Files">
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext.FileDetails">
             <summary>
                 The list of files in the dB
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext.FileAccessDetails">
-            <summary>
-                The list of file access details in the dB
             </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext.FileNameParts">
@@ -81,11 +76,6 @@
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext.FileClassifications">
             <summary>
                 Gets or sets the File Classifications
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext.DuplicatesDetails">
-            <summary>
-                Gets or sets the DuplicatesDetails loaded from the configured view in the database
             </summary>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
@@ -178,184 +168,192 @@
             <returns>
             </returns>
         </member>
-        <member name="T:AStar.Dev.Infrastructure.FilesDb.Migrations.RecreateDatabase">
+        <member name="T:AStar.Dev.Infrastructure.FilesDb.Migrations.InitialCreation">
             <inheritdoc/>
         </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.RecreateDatabase.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.InitialCreation.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc/>
         </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.RecreateDatabase.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.InitialCreation.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc/>
         </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.RecreateDatabase.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.InitialCreation.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc/>
         </member>
-        <member name="T:AStar.Dev.Infrastructure.FilesDb.Migrations.AddDuplicatesCountView">
+        <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.DeletionStatus">
+            <summary>
+                Defines dates/times for soft and hard deletion
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DeletionStatus.SoftDeleted">
+            <summary>
+                Gets or sets when the file was 'soft deleted'. I know, shocking...
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DeletionStatus.SoftDeletePending">
+            <summary>
+                Gets or sets when the file was marked as 'soft delete pending'. I know, shocking...
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DeletionStatus.HardDeletePending">
+            <summary>
+                Gets or sets when the file was marked as 'hard delete pending'. I know, shocking...
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.Event">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Event.Id">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Event.Type">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Event.EventOccurredAt">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Event.FileName">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Event.DirectoryName">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Event.Handle">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Event.Width">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Event.Height">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Event.FileSize">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Event.FileCreated">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Event.FileLastModified">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Event.UpdatedBy">
+            <summary>
+                Gets or sets the Updated By property to track who made the change
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.EventType">
+            <summary>
+                Represents a sealed class for defining distinct event types such as Add, Update, and Delete.
+                This class ensures that only predefined instances of event types can be used,
+                providing type safety and preventing the creation of arbitrary states.
+            </summary>
+        </member>
+        <member name="F:AStar.Dev.Infrastructure.FilesDb.Models.EventType.Add">
+            <summary>
+                Represents an 'Add' event type, typically used for new record creation.
+            </summary>
+        </member>
+        <member name="F:AStar.Dev.Infrastructure.FilesDb.Models.EventType.Update">
+            <summary>
+                Represents an 'Update' event type, typically used for modifying existing records.
+            </summary>
+        </member>
+        <member name="F:AStar.Dev.Infrastructure.FilesDb.Models.EventType.SoftDelete">
+            <summary>
+                Represents a 'SoftDelete' event type, typically used for 'soft' removing records.
+            </summary>
+        </member>
+        <member name="F:AStar.Dev.Infrastructure.FilesDb.Models.EventType.HardDelete">
+            <summary>
+                Represents a 'HardDelete' event type, typically used for permanently removing records.
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.EventType.#ctor(System.Int32,System.String)">
+            <summary>
+                Private constructor to prevent external instantiation.
+                This ensures that only the static readonly instances above can be created.
+            </summary>
+            <param name="value">The integer value representing the event type.</param>
+            <param name="name">The string name of the event type.</param>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.EventType.Value">
+            <summary>
+                Gets the integer value associated with the event type.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.EventType.Name">
+            <summary>
+                Gets the string name of the event type.
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.EventType.Equals(AStar.Dev.Infrastructure.FilesDb.Models.EventType)">
             <inheritdoc/>
         </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddDuplicatesCountView.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.EventType.ToString">
+            <summary>
+                Returns the string name of the event type, useful for debugging and display.
+            </summary>
+            <returns>The name of the event type.</returns>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.EventType.Equals(System.Object)">
             <inheritdoc/>
         </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddDuplicatesCountView.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.EventType.GetHashCode">
             <inheritdoc/>
         </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddDuplicatesCountView.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="T:AStar.Dev.Infrastructure.FilesDb.Migrations.AddDuplicatesDetailView">
-            <inheritdoc/>
-        </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddDuplicatesDetailView.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddDuplicatesDetailView.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddDuplicatesDetailView.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails">
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.EventType.op_Equality(AStar.Dev.Infrastructure.FilesDb.Models.EventType,AStar.Dev.Infrastructure.FilesDb.Models.EventType)">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails"/>
-                class defines the fields that will be mapped from the vw_DuplicatesDetails in the database
+                Overloads the equality operator to compare two
+                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.EventType"/>
+                objects.
             </summary>
+            <param name="left">The first
+                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.EventType"/>
+                to compare.
+            </param>
+            <param name="right">The second
+                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.EventType"/>
+                to compare.
+            </param>
+            <returns>
+                <c>true</c>
+                if the two
+                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.EventType"/>
+                objects are equal; otherwise, <c>false</c>.
+            </returns>
         </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails.Id">
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.EventType.op_Inequality(AStar.Dev.Infrastructure.FilesDb.Models.EventType,AStar.Dev.Infrastructure.FilesDb.Models.EventType)">
             <summary>
-                The ID of the
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail"/>
-                in the Duplicates list
+                Overloads the inequality operator to compare two
+                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.EventType"/>
+                objects.
             </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails.ImageDetailsId">
-            <summary>
-                The FileAccessDetailId of the joined
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.ImageDetails"/>
-                table. The joined data is not in the Duplicates list
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails.FileName">
-            <summary>
-                Gets or sets the File Name
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails.DirectoryName">
-            <summary>
-                Gets or sets the Directory Name
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails.Height">
-            <summary>
-                Gets or sets the File Height
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails.Width">
-            <summary>
-                Gets or sets the File Width
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails.FileSize">
-            <summary>
-                Gets or sets the File Size
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails.FileHandle">
-            <summary>
-                Gets or sets the File Handle
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails.IsImage">
-            <summary>
-                Gets or sets whether File is an image
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails.Instances">
-            <summary>
-                Gets or sets the Instance count for the duplicate group
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails.DetailsLastUpdated">
-            <summary>
-                Gets or sets the Details Last Updated
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails.LastViewed">
-            <summary>
-                Gets or sets the Last Viewed date
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails.SoftDeleted">
-            <summary>
-                Gets or sets the Soft Deleted flag
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails.SoftDeletePending">
-            <summary>
-                Gets or sets the SoftDeletePending flag
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails.MoveRequired">
-            <summary>
-                Gets or sets the Move Required flag
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails.HardDeletePending">
-            <summary>
-                Gets or sets the Hard Delete Pending flag
-            </summary>
-        </member>
-        <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.Events">
-            <summary>
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Events.Id">
-            <summary>
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Events.EventType">
-            <summary>
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Events.EventOccurredAt">
-            <summary>
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Events.FileName">
-            <summary>
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Events.DirectoryName">
-            <summary>
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Events.Handle">
-            <summary>
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Events.Width">
-            <summary>
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Events.Height">
-            <summary>
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Events.FileSize">
-            <summary>
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Events.FileCreated">
-            <summary>
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Events.FileLastModified">
-            <summary>
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.Events.ModifiedBy">
-            <summary>
-            </summary>
+            <param name="left">The first
+                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.EventType"/>
+                to compare.
+            </param>
+            <param name="right">The second
+                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.EventType"/>
+                to compare.
+            </param>
+            <returns>
+                <c>true</c>
+                if the two
+                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.EventType"/>
+                objects are not equal; otherwise, <c>false</c>.
+            </returns>
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.FileClassification">
             <summary>
@@ -388,7 +386,7 @@
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.#ctor">
             <summary>
-                The default constructor required by EF Core
+                The default constructor required by EF Core etc
             </summary>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.#ctor(System.IO.Abstractions.IFileInfo)">
@@ -408,7 +406,7 @@
                 Gets or sets the ID of the <see href="FileDetail"></see>. I know, shocking...
             </summary>
         </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.ImageDetails">
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.ImageDetail">
             <summary>
             </summary>
         </member>
@@ -454,37 +452,14 @@
             <summary>
             </summary>
         </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.SoftDeleted">
-            <summary>
-                Gets or sets whether the file has been 'soft deleted'. I know, shocking...
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.SoftDeletePending">
-            <summary>
-                Gets or sets whether the file has been marked as 'delete pending'. I know, shocking...
-            </summary>
-        </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.MoveRequired">
             <summary>
                 Gets or sets whether the file has been marked as 'needs to move'. I know, shocking...
             </summary>
         </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.HardDeletePending">
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.DeletionStatus">
             <summary>
-                Gets or sets whether the file has been marked as 'delete permanently pending'. I know, shocking...
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.HardDeleted">
-            <summary>
-                Gets or sets whether the file has been permanently deleted. I know, shocking...
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.DetailsModified">
-            <summary>
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.ModifiedBy">
-            <summary>
+                Gets or sets the file deletion status. I know, shocking...
             </summary>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.ToString">
@@ -596,37 +571,39 @@
                 The hash-code, combined from the relevant properties own hash-codes
             </returns>
         </member>
-        <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.ImageDetails">
+        <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.IFileDetail">
             <summary>
             </summary>
         </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.ImageDetails.Id">
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.IFileDetail.DirectoryName">
             <summary>
-                Gets or sets The ID of the <see href="FileAccessDetail"></see>. I know, shocking...
             </summary>
         </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.ImageDetails.Width">
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.IFileDetail.FileName">
             <summary>
-                Gets or sets The Width
             </summary>
         </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.ImageDetails.Height">
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.IFileDetail.FileSize">
             <summary>
-                Gets or sets The Height
+                Gets or sets the File Size
             </summary>
         </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.ImageDetails.FileDetailsId">
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.IFileDetail.IsImage">
             <summary>
-                Gets or sets The FileDetailsId
+                Gets or sets whether File is an image
             </summary>
         </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.ImageDetails.ToString">
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.IFileDetail.FileLastViewed">
             <summary>
-                Returns this object in JSON format
             </summary>
-            <returns>
-                This object serialized as a JSON object
-            </returns>
+        </member>
+        <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.ImageDetail">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.ImageDetail.#ctor(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            </summary>
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.SortOrder">
             <summary>

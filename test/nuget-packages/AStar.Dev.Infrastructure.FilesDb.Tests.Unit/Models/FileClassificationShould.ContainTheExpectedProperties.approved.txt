@@ -5,11 +5,9 @@
     {
       "fileClassifications": [],
       "id": 1,
-      "imageDetails": {
-        "id": 0,
-        "width": 0,
-        "height": 0,
-        "fileDetailsId": 0
+      "imageDetail": {
+        "width": null,
+        "height": null
       },
       "fileName": "Mock File Name",
       "directoryName": "Mock Directory",
@@ -20,13 +18,14 @@
       "fileCreated": "0001-01-01T00:00:00+00:00",
       "fileLastModified": "0001-01-01T00:00:00+00:00",
       "fileLastViewed": null,
-      "softDeleted": false,
-      "softDeletePending": false,
       "moveRequired": false,
-      "hardDeletePending": false,
-      "hardDeleted": false,
-      "detailsModified": "0001-01-01T00:00:00+00:00",
-      "modifiedBy": ""
+      "deletionStatus": {
+        "softDeleted": null,
+        "softDeletePending": null,
+        "hardDeletePending": null
+      },
+      "updatedBy": "Jay Barden",
+      "updatedOn": "2025-06-28T22:20:37+00:00"
     }
   ],
   "celebrity": true,

@@ -9,7 +9,7 @@ namespace AStar.Dev.Infrastructure.FilesDb.Data;
 /// <remarks>
 ///     The list of files in the dB
 /// </remarks>
-public sealed class FilesContext : DbContext
+public class FilesContext : DbContext
 {
     /// <summary>
     /// </summary>
@@ -29,12 +29,7 @@ public sealed class FilesContext : DbContext
     /// <summary>
     ///     The list of files in the dB
     /// </summary>
-    public DbSet<FileDetail> Files { get; set; } = null!;
-
-    /// <summary>
-    ///     The list of file access details in the dB
-    /// </summary>
-    public DbSet<ImageDetails> FileAccessDetails { get; set; } = null!;
+    public virtual DbSet<FileDetail> FileDetails { get; set; } = null!;
 
     /// <summary>
     /// </summary>
@@ -43,24 +38,17 @@ public sealed class FilesContext : DbContext
     /// <summary>
     ///     The list of Events
     /// </summary>
-    public DbSet<Events> Events { get; set; } = null!;
+    public virtual DbSet<Event> Events { get; set; } = null!;
 
     /// <summary>
     ///     Gets or sets the File Classifications
     /// </summary>
     public DbSet<FileClassification> FileClassifications { get; set; } = null!;
 
-    /// <summary>
-    ///     Gets or sets the DuplicatesDetails loaded from the configured view in the database
-    /// </summary>
-    public DbSet<DuplicatesDetails> DuplicatesDetails { get; set; } = null!;
-
-    // /// <inheritdoc />
-    // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    // {
-    //     base.OnConfiguring(optionsBuilder);
-    //     optionsBuilder.UseSqlServer("Data Source=localhost,nnnnn;Initial Catalog=FilesDb;User ID=sa;Password=<SomeSecurePasswordHere1!>;TrustServerCertificate=True");
-    // }
+    // /// <summary>
+    // ///     Gets or sets the Duplicate Details
+    // /// </summary>
+    // public DbSet<DuplicateDetail> DuplicateDetails { get; set; }
 
     /// <summary>
     ///     The overridden OnModelCreating method
@@ -73,11 +61,11 @@ public sealed class FilesContext : DbContext
         _ = modelBuilder.HasDefaultSchema(Constants.SchemaName);
         _ = modelBuilder.ApplyConfigurationsFromAssembly(typeof(FilesContext).Assembly);
 
-        modelBuilder
-            .Entity<DuplicatesDetails>(eb =>
-                                       {
-                                           eb.HasNoKey();
-                                           eb.ToView("vw_DuplicatesDetails");
-                                       });
+        // modelBuilder
+        //     .Entity<DuplicateDetail>(eb =>
+        //                              {
+        //                                  eb.HasNoKey();
+        //                                  eb.ToView("vw_DuplicatesDetails");
+        //                              });
     }
 }

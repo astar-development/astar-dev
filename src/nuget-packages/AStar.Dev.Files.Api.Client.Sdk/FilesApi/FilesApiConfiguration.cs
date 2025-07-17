@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using AStar.Dev.Api.Client.Sdk.Shared;
 
-namespace AStar.Dev.Files.Api.Client.SDK.FilesApi;
+namespace AStar.Dev.Files.Api.Client.Sdk.FilesApi;
 
 /// <summary>
 ///     The <see href="FilesApiConfiguration"></see> class containing the current configuration settings

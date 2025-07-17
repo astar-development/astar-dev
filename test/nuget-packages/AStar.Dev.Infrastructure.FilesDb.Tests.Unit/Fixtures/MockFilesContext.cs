@@ -50,9 +50,9 @@ public class MockFilesContext : IDisposable
 
         foreach (var item in listFromJson)
         {
-            if (mockFilesContext.Files.FirstOrDefault(f => f.FileName == item.FileName && f.DirectoryName == item.DirectoryName) == null)
+            if (mockFilesContext.FileDetails.FirstOrDefault(f => f.FileName == item.FileName && f.DirectoryName == item.DirectoryName) == null)
             {
-                mockFilesContext.Files.Add(item);
+                mockFilesContext.FileDetails.Add(item);
                 mockFilesContext.SaveChanges();
             }
         }
