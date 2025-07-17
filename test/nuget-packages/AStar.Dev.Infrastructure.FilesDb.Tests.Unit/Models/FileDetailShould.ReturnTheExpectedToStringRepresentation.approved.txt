@@ -13,21 +13,21 @@
     "width": 1234,
     "height": 5678
   },
-  "fileName": "MockFileName",
-  "directoryName": "MockDirectoryName",
   "fullNameWithPath": "MockDirectoryName/MockFileName",
-  "fileSize": 1234,
-  "isImage": true,
   "fileHandle": "MockFileHandle",
   "fileCreated": "2025-06-28T22:15:37+00:00",
   "fileLastModified": "2025-06-28T22:15:37+00:00",
-  "fileLastViewed": "2025-06-28T22:20:37+00:00",
   "moveRequired": true,
   "deletionStatus": {
     "softDeleted": "2025-06-28T22:21:37+00:00",
     "softDeletePending": "2025-06-28T22:22:37+00:00",
     "hardDeletePending": "2025-06-28T22:23:37+00:00"
   },
+  "fileName": "MockFileName",
+  "directoryName": "MockDirectoryName",
+  "fileSize": 1234,
+  "isImage": true,
+  "fileLastViewed": "2025-06-28T22:20:37+00:00",
   "updatedBy": "Test User",
   "updatedOn": "2025-06-28T22:30:37+00:00"
 }

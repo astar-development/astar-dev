@@ -40,6 +40,69 @@
             <summary>
             </summary>
         </member>
+        <member name="T:AStar.Dev.Infrastructure.FilesDb.Data.FileContextExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.FileContextExtensions.WhereDirectoryNameMatches``1(System.Linq.IQueryable{``0},System.String,System.Boolean)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="directoryName"></param>
+            <param name="recursive"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.FileContextExtensions.ExcludeViewed``1(System.Linq.IQueryable{``0},System.Int32,System.TimeProvider)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="excludeViewedWithinDays"></param>
+            <param name="time"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.FileContextExtensions.IncludeMarkedForDeletion(System.Linq.IQueryable{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},System.Boolean)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="includeMarkedForDeletion"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.FileContextExtensions.SelectFilesMatching``1(System.Linq.IQueryable{``0},System.String)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="searchText"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.FileContextExtensions.SelectRequestedPage``1(System.Linq.IQueryable{``0},System.Int32,System.Int32)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="currentPage"></param>
+            <param name="itemsPerPage"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.FileContextExtensions.OrderAsRequested``1(System.Linq.IQueryable{``0},AStar.Dev.Infrastructure.FilesDb.Models.SortOrder)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="sortOrder"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.FileContextExtensions.SetSearchType``1(System.Linq.IQueryable{``0},AStar.Dev.Infrastructure.FilesDb.Models.SearchType)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="searchType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.FileContextExtensions.SelectByFileType``1(System.Linq.IQueryable{``0},AStar.Dev.Infrastructure.FilesDb.Models.SearchType)">
+            <summary>
+            </summary>
+            <param name="files"></param>
+            <param name="searchType"></param>
+            <returns></returns>
+        </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext">
             <summary>
                 The
@@ -84,41 +147,6 @@
             </summary>
             <param name="modelBuilder">
             </param>
-        </member>
-        <member name="T:AStar.Dev.Infrastructure.FilesDb.Data.FilesContextExtensions">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.FilesContextExtensions.GetMatchingFiles(Microsoft.EntityFrameworkCore.DbSet{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},System.String,System.Boolean,System.String,System.Boolean,System.Boolean,System.Boolean,System.Threading.CancellationToken)">
-            <summary>
-            </summary>
-            <param name="files">
-                The list of files to filter.
-            </param>
-            <param name="startingFolder">
-                The starting folder for the filter to be applied from.
-            </param>
-            <param name="recursive">
-                A boolean to control whether the filter is applied recursively or not.
-            </param>
-            <param name="searchType">
-                A string representation of the required Search Type.
-            </param>
-            <param name="includeSoftDeleted">
-                A boolean to control whether the filter includes files marked as Soft Deleted or not.
-            </param>
-            <param name="includeMarkedForDeletion">
-                A boolean to control whether the filter includes files marked for Deletion or not.
-            </param>
-            <param name="excludeViewed">
-                A boolean to control whether the filter includes files recently viewed or not.
-            </param>
-            <param name="cancellationToken">
-                An instance of <see href="CancellationToken"></see> to cancel the filter when requested.
-            </param>
-            <returns>
-                The original list of files for further filtering.
-            </returns>
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.EnumerableExtensions">
             <summary>
@@ -410,29 +438,9 @@
             <summary>
             </summary>
         </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.FileName">
-            <summary>
-                Gets or sets the file name. I know, shocking...
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.DirectoryName">
-            <summary>
-                Gets or sets the name of the directory containing the file detail. I know, shocking...
-            </summary>
-        </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.FullNameWithPath">
             <summary>
                 Gets the full name of the file with the path combined
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.FileSize">
-            <summary>
-                Gets or sets the file size. I know, shocking...
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.IsImage">
-            <summary>
-                Gets or sets whether the file is of a supported image type
             </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.FileHandle">
@@ -448,10 +456,6 @@
             <summary>
             </summary>
         </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.FileLastViewed">
-            <summary>
-            </summary>
-        </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.MoveRequired">
             <summary>
                 Gets or sets whether the file has been marked as 'needs to move'. I know, shocking...
@@ -460,6 +464,30 @@
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.DeletionStatus">
             <summary>
                 Gets or sets the file deletion status. I know, shocking...
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.FileName">
+            <summary>
+                Gets or sets the file name. I know, shocking...
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.DirectoryName">
+            <summary>
+                Gets or sets the name of the directory containing the file detail. I know, shocking...
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.FileSize">
+            <summary>
+                Gets or sets the file size. I know, shocking...
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.IsImage">
+            <summary>
+                Gets or sets whether the file is of a supported image type
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.FileLastViewed">
+            <summary>
             </summary>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.ToString">
@@ -603,6 +631,31 @@
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.ImageDetail.#ctor(System.Nullable{System.Int32},System.Nullable{System.Int32})">
             <summary>
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.SearchType">
+            <summary>
+                The <see href="SearchType"></see> enumeration defining the available search types
+            </summary>
+        </member>
+        <member name="F:AStar.Dev.Infrastructure.FilesDb.Models.SearchType.Images">
+            <summary>
+                Search for images only
+            </summary>
+        </member>
+        <member name="F:AStar.Dev.Infrastructure.FilesDb.Models.SearchType.All">
+            <summary>
+                Search for all file types
+            </summary>
+        </member>
+        <member name="F:AStar.Dev.Infrastructure.FilesDb.Models.SearchType.Duplicates">
+            <summary>
+                Search for duplicates - file type is ignored
+            </summary>
+        </member>
+        <member name="F:AStar.Dev.Infrastructure.FilesDb.Models.SearchType.DuplicateImages">
+            <summary>
+                Search for duplicate images
             </summary>
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.SortOrder">
