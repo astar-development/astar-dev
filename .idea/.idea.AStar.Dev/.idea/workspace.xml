@@ -30,9 +30,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -1222,7 +1220,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752780228850</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Update the pipeline to run tests correctly&#10; &#10;and exclude e2e tests as wll as set broken unit test to be ignored">
+      <option name="closed" value="true" />
+      <created>1752780891237</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1752780891237</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1322,7 +1328,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Yet another bunch of cleanup" />
     <MESSAGE value="Add the original Program.cs and start on the AddFilesEndpoint.cs" />
     <MESSAGE value="Starting tests for the MapFilesEndpoint.cs&#10;&#10;Includes some test helpers in the relevant NuGet project" />
     <MESSAGE value="Missed these from the last commit" />
@@ -1347,7 +1352,8 @@
     <MESSAGE value="Update NuGet packages before make further changes" />
     <MESSAGE value="Update tests to make pass bar 2 UI (known) and 1&#10;&#10;In the FilesAPI which relies on changes yet to be made to the test context" />
     <MESSAGE value="Just noticed Build not running for PR so this should fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="Just noticed Build not running for PR so this should fix" />
+    <MESSAGE value="Update the pipeline to run tests correctly&#10; &#10;and exclude e2e tests as wll as set broken unit test to be ignored" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update the pipeline to run tests correctly&#10; &#10;and exclude e2e tests as wll as set broken unit test to be ignored" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1369,10 +1375,10 @@
           <line>25</line>
           <properties documentPath="$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/Get/V1/GetFilesHandlerShould.cs" containingFunctionPresentation="Method 'ReturnBadRequestWhenDuplicatesAreRequested'">
             <startOffsets>
-              <option value="843" />
+              <option value="911" />
             </startOffsets>
             <endOffsets>
-              <option value="902" />
+              <option value="970" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="4" />
@@ -1382,10 +1388,10 @@
           <line>28</line>
           <properties documentPath="$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/Get/V1/GetFilesHandlerShould.cs" containingFunctionPresentation="Method 'ReturnBadRequestWhenDuplicatesAreRequested'">
             <startOffsets>
-              <option value="969" />
+              <option value="1037" />
             </startOffsets>
             <endOffsets>
-              <option value="1001" />
+              <option value="1069" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="7" />
