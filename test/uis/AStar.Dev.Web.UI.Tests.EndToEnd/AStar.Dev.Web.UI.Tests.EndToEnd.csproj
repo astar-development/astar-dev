@@ -50,9 +50,6 @@
     <ItemGroup>
         <Compile Remove="Features\Login\Login.feature.cs"/>
     </ItemGroup>
-    <ItemGroup>
-        <ProjectReference Include="..\..\..\src\nuget-packages\AStar.Dev.Test.Helpers.EndToEnd\AStar.Dev.Test.Helpers.EndToEnd.csproj"/>
-    </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
         <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
