@@ -30,7 +30,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="" />
+    <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/main_astar-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main_astar-dev.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -1228,7 +1230,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752780891237</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="Remove extra apostrophe">
+      <option name="closed" value="true" />
+      <created>1752781114300</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1752781114300</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1328,7 +1338,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Add the original Program.cs and start on the AddFilesEndpoint.cs" />
     <MESSAGE value="Starting tests for the MapFilesEndpoint.cs&#10;&#10;Includes some test helpers in the relevant NuGet project" />
     <MESSAGE value="Missed these from the last commit" />
     <MESSAGE value="Initial version of Post for a list of new files" />
@@ -1353,7 +1362,8 @@
     <MESSAGE value="Update tests to make pass bar 2 UI (known) and 1&#10;&#10;In the FilesAPI which relies on changes yet to be made to the test context" />
     <MESSAGE value="Just noticed Build not running for PR so this should fix" />
     <MESSAGE value="Update the pipeline to run tests correctly&#10; &#10;and exclude e2e tests as wll as set broken unit test to be ignored" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update the pipeline to run tests correctly&#10; &#10;and exclude e2e tests as wll as set broken unit test to be ignored" />
+    <MESSAGE value="Remove extra apostrophe" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove extra apostrophe" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
