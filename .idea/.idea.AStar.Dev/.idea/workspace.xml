@@ -30,7 +30,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="" />
+    <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/main_astar-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main_astar-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -823,30 +826,6 @@
       <workItem from="1752776272102" duration="1518000" />
       <workItem from="1752781830128" duration="3021000" />
     </task>
-    <task id="LOCAL-00005" summary="RabbitMQ, SQL, Db Updater and Migrations healthy">
-      <option name="closed" value="true" />
-      <created>1750883695064</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1750883695064</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Remove http profiles and ports">
-      <option name="closed" value="true" />
-      <created>1750884582692</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1750884582692</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Add health checks to APIs and UI&#10;&#10;ALL projects startup correctly across the solution">
-      <option name="closed" value="true" />
-      <created>1750885264677</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1750885264677</updated>
-    </task>
     <task id="LOCAL-00008" summary="Add the remaining NuGet packages">
       <option name="closed" value="true" />
       <created>1750887865584</created>
@@ -1215,7 +1194,31 @@
       <option name="project" value="LOCAL" />
       <updated>1752787124639</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="change powershell to pwsh which I think sorts next issue">
+      <option name="closed" value="true" />
+      <created>1752787233293</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1752787233293</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Doh, missed one">
+      <option name="closed" value="true" />
+      <created>1752787289930</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1752787289930</updated>
+    </task>
+    <task id="LOCAL-00056" summary="change \ to / as we're on linux&#10;&#10;may be barking up wrong tree but...">
+      <option name="closed" value="true" />
+      <created>1752787498076</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1752787498076</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1345,9 +1348,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Small updates to the formatting" />
-    <MESSAGE value="Add AStar.Dev.Functional.Extensions to all projects&#10;&#10;Not used yet and may not be needed in all..." />
-    <MESSAGE value="Update FilesDb and redo migrations" />
     <MESSAGE value="Update the RabbitMq code and error handling on sending side&#10;&#10;Tomorrow...consuming code and recreating database" />
     <MESSAGE value="Change back to the v7+ RabbitMq client now unrelated issue in...&#10;&#10;FilesApi has been resolved / worked around with &quot;OK&quot;, rather than &quot;Created&quot;" />
     <MESSAGE value="Add Async suffix rules to .editorconfig" />
@@ -1370,7 +1370,10 @@
     <MESSAGE value="remove the next failing project... test helpers unit..." />
     <MESSAGE value="Missed a reference" />
     <MESSAGE value="Add SonarCloud now basic build fffinally works" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add SonarCloud now basic build fffinally works" />
+    <MESSAGE value="change powershell to pwsh which I think sorts next issue" />
+    <MESSAGE value="Doh, missed one" />
+    <MESSAGE value="change \ to / as we're on linux&#10;&#10;may be barking up wrong tree but..." />
+    <option name="LAST_COMMIT_MESSAGE" value="change \ to / as we're on linux&#10;&#10;may be barking up wrong tree but..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
