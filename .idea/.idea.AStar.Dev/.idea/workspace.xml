@@ -65,22 +65,22 @@
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="c33e45bc-ba15-45ea-89b8-f9dce31d8655" />
   </component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/astar-development/astar-dev.git&quot;,
-    &quot;accountId&quot;: &quot;f9c22371-cf58-42d1-9b87-e435736fe8b6&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/astar-development/astar-dev.git",
+    "accountId": "c33e45bc-ba15-45ea-89b8-f9dce31d8655"
   },
-  &quot;recentNewPullRequestHead&quot;: {
-    &quot;server&quot;: {
-      &quot;useHttp&quot;: false,
-      &quot;host&quot;: &quot;github.com&quot;,
-      &quot;port&quot;: null,
-      &quot;suffix&quot;: null
+  "recentNewPullRequestHead": {
+    "server": {
+      "useHttp": false,
+      "host": "github.com",
+      "port": null,
+      "suffix": null
     },
-    &quot;owner&quot;: &quot;astar-development&quot;,
-    &quot;repository&quot;: &quot;astar-dev&quot;
+    "owner": "astar-development",
+    "repository": "astar-dev"
   }
-}</component>
+}]]></component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/08fde0be2260428db1b6a812fd2ad453c3200/43/0e1576ff/IEndpointRouteBuilder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1f12dddc2f0b4ff3a0425a5bd228f00e78a00/92/9610913f/Enumerable.cs" root0="FORCE_HIGHLIGHTING" />
@@ -1198,7 +1198,23 @@
       <option name="project" value="LOCAL" />
       <updated>1752777776679</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="Update NuGet packages before make further changes">
+      <option name="closed" value="true" />
+      <created>1752779120581</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1752779120581</updated>
+    </task>
+    <task id="LOCAL-00043" summary="Update tests to make pass bar 2 UI (known) and 1&#10;&#10;In the FilesAPI which relies on changes yet to be made to the test context">
+      <option name="closed" value="true" />
+      <created>1752779662666</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1752779662666</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1298,8 +1314,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Run cleanup prior to setting on commit settings" />
-    <MESSAGE value="Add tests for AStar.Dev.Infrastructure.FilesDb.Models" />
     <MESSAGE value="Update Files API Nuget and Package links&#10;&#10;Add misc files to other projects too" />
     <MESSAGE value="Yet another bunch of cleanup" />
     <MESSAGE value="Add the original Program.cs and start on the AddFilesEndpoint.cs" />
@@ -1323,7 +1337,9 @@
     <MESSAGE value="Changing direction on the Files API with the intent of separate for duplicates" />
     <MESSAGE value="Add the Previous MockContext classes b4 moving things around" />
     <MESSAGE value="Update the location of the FilesContextExtensions.cs&#10;&#10;Associated changes to support too" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update the location of the FilesContextExtensions.cs&#10;&#10;Associated changes to support too" />
+    <MESSAGE value="Update NuGet packages before make further changes" />
+    <MESSAGE value="Update tests to make pass bar 2 UI (known) and 1&#10;&#10;In the FilesAPI which relies on changes yet to be made to the test context" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update tests to make pass bar 2 UI (known) and 1&#10;&#10;In the FilesAPI which relies on changes yet to be made to the test context" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
