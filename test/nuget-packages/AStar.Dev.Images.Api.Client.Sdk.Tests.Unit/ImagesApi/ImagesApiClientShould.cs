@@ -1,4 +1,3 @@
-using AStar.Dev.Images.Api.Client.SDK.ImagesApi;
 using AStar.Dev.Images.Api.Client.Sdk.MockMessageHandlers;
 using JetBrains.Annotations;
 using Microsoft.Extensions.Logging.Abstractions;

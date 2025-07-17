@@ -2,7 +2,7 @@
 using System.Text;
 using AStar.Dev.Utilities;
 
-namespace AStar.Dev.Files.Api.Client.SDK.Models;
+namespace AStar.Dev.Files.Api.Client.Sdk.Models;
 
 /// <summary>
 ///     The <see href="SearchParameters"></see> class

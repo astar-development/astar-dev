@@ -1,3 +1,4 @@
+using AStar.Dev.ServiceDefaults;
 using AStar.Dev.Web.Components;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -29,6 +30,9 @@ app.MapRazorComponents<App>()
 
 await app.RunAsync();
 
-public partial class Program
+namespace AStar.Dev.Web
 {
+    public  class Program
+    {
+    }
 }

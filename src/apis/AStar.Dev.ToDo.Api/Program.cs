@@ -1,3 +1,6 @@
+using AStar.Dev.ServiceDefaults;
+using AStar.Dev.ToDo.Api;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.AddServiceDefaults();
 
@@ -34,7 +37,10 @@ app.MapGet("/weatherforecast", () =>
 
 await app.RunAsync();
 
-internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
+namespace AStar.Dev.ToDo.Api
 {
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
+    {
+        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    }
 }

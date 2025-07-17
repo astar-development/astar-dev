@@ -1,5 +1,4 @@
-﻿using AStar.Dev.Files.Api.Client.SDK.FilesApi;
-using AStar.Dev.Utilities;
+﻿using AStar.Dev.Utilities;
 
 namespace AStar.Dev.Files.Api.Client.Sdk.FilesApi;
 

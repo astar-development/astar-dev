@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using AStar.Dev.Api.Client.Sdk.Shared;
 
-namespace AStar.Dev.Usage.Api.Client.SDK.UsageApi;
+namespace AStar.Dev.Usage.Api.Client.Sdk.UsageApi;
 
 /// <summary>
 ///     The <see href="UsageApiConfiguration"></see> class containing the current configuration settings

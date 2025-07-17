@@ -59,4 +59,3 @@ public class GetFilesRequest : IEndpointName
     /// <inheritdoc />
     public string HttpMethod => HttpMethods.Get;
 }
-

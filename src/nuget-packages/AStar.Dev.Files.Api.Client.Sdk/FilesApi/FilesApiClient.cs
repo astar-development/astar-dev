@@ -3,11 +3,11 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using AStar.Dev.Api.HealthChecks;
-using AStar.Dev.Files.Api.Client.SDK.Models;
+using AStar.Dev.Files.Api.Client.Sdk.Models;
 using AStar.Dev.Utilities;
 using Microsoft.Extensions.Logging;
 
-namespace AStar.Dev.Files.Api.Client.SDK.FilesApi;
+namespace AStar.Dev.Files.Api.Client.Sdk.FilesApi;
 
 /// <summary>
 ///     The <see href="FilesApiClient"></see> class

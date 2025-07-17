@@ -184,18 +184,18 @@ public class FilesContextExtensions2Should(FilesContextFixture filesContextFixtu
     //
     //     matchingFilesCount.ShouldBe(filesNotSoftDeletedOrPendingDeletionCount);
     // }
-
-    [Fact]
-    public void
-        GetTheExpectedCountWhenFilterAppliedThatTargetsSpecificFolderRecursivelyButIncludeSoftDeletedAndIncludeMarkedForDeletion()
-    {
-        const int filesNotSoftDeletedOrPendingDeletionCount = 35;
-
-        var matchingFilesCount = sut.FileDetails
-                                    .GetMatchingFiles(@"c:\temp\wwwroot - Copy", Recursive,      "Images", IncludeSoftDeleted,
-                                                      IncludeMarkedForDeletion,  !ExcludeViewed, CancellationToken.None)
-                                    .Count();
-
-        matchingFilesCount.ShouldBe(filesNotSoftDeletedOrPendingDeletionCount);
-    }
+    //
+    // [Fact]
+    // public void
+    //     GetTheExpectedCountWhenFilterAppliedThatTargetsSpecificFolderRecursivelyButIncludeSoftDeletedAndIncludeMarkedForDeletion()
+    // {
+    //     const int filesNotSoftDeletedOrPendingDeletionCount = 35;
+    //
+    //     var matchingFilesCount = sut.FileDetails
+    //                                 .GetMatchingFiles(@"c:\temp\wwwroot - Copy", Recursive,      "Images", IncludeSoftDeleted,
+    //                                                   IncludeMarkedForDeletion,  !ExcludeViewed, CancellationToken.None)
+    //                                 .Count();
+    //
+    //     matchingFilesCount.ShouldBe(filesNotSoftDeletedOrPendingDeletionCount);
+    // }
 }

@@ -1,4 +1,4 @@
-﻿using AStar.Dev.Images.Api.Client.SDK.ImagesApi;
+﻿using AStar.Dev.Images.Api.Client.Sdk.ImagesApi;
 using AStar.Dev.Utilities;
 
 namespace AStar.Dev.Images.Api.Client.Sdk;

@@ -3,7 +3,7 @@ using AStar.Dev.Api.HealthChecks;
 using AStar.Dev.Technical.Debt.Reporting;
 using Microsoft.Extensions.Logging;
 
-namespace AStar.Dev.Images.Api.Client.SDK.ImagesApi;
+namespace AStar.Dev.Images.Api.Client.Sdk.ImagesApi;
 
 /// <summary>
 ///     The <see href="Images.ApiClient"></see> class

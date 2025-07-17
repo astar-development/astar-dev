@@ -14,6 +14,7 @@ using AStar.Dev.Files.Api.Endpoints.Add.V1;
 using AStar.Dev.Files.Api.Endpoints.Get.V1;
 using AStar.Dev.Infrastructure.FilesDb.Data;
 using AStar.Dev.Logging.Extensions;
+using AStar.Dev.ServiceDefaults;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http.Json;
 using Serilog;

@@ -1,4 +1,4 @@
-﻿using AStar.Dev.Files.Api.Client.SDK.FilesApi;
+﻿using AStar.Dev.Files.Api.Client.Sdk.FilesApi;
 using AStar.Dev.Files.Api.Client.Sdk.MockMessageHandlers;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;

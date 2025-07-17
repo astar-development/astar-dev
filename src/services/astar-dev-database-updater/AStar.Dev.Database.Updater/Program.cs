@@ -1,4 +1,5 @@
 using AStar.Dev.Database.Updater;
+using AStar.Dev.ServiceDefaults;
 
 var builder = Host.CreateApplicationBuilder(args);
 builder.AddServiceDefaults();

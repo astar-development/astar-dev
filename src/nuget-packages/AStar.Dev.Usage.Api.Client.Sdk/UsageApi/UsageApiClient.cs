@@ -5,7 +5,7 @@ using AStar.Dev.Api.Usage.Sdk;
 using AStar.Dev.Technical.Debt.Reporting;
 using Microsoft.Extensions.Logging;
 
-namespace AStar.Dev.Usage.Api.Client.SDK.UsageApi;
+namespace AStar.Dev.Usage.Api.Client.Sdk.UsageApi;
 
 /// <summary>
 ///     The <see href="Images.ApiClient"></see> class

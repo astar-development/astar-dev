@@ -1,4 +1,4 @@
-﻿namespace AStar.Dev.Files.Api.Client.SDK.Models;
+﻿namespace AStar.Dev.Files.Api.Client.Sdk.Models;
 
 /// <summary>
 ///     The <see href="SearchType"></see> enumeration defining the available search types
