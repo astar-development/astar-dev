@@ -224,6 +224,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{346D351A-D
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AStar.Dev.Functional.Extensions", "src\nuget-packages\AStar.Dev.Functional.Extensions\AStar.Dev.Functional.Extensions.csproj", "{A4375BE8-8CB7-4240-A24A-891857ABA5E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AStar.Dev.Functional.Extensions.Tests.Unit", "test\nuget-packages\AStar.Dev.Functional.Extensions.Tests.Unit\AStar.Dev.Functional.Extensions.Tests.Unit.csproj", "{4DBEE8EE-B119-4354-90E0-25809B8222DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -558,6 +562,14 @@ Global
 		{2ADB402E-0278-4307-9B58-E626ABF32F58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2ADB402E-0278-4307-9B58-E626ABF32F58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2ADB402E-0278-4307-9B58-E626ABF32F58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4375BE8-8CB7-4240-A24A-891857ABA5E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4375BE8-8CB7-4240-A24A-891857ABA5E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4375BE8-8CB7-4240-A24A-891857ABA5E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4375BE8-8CB7-4240-A24A-891857ABA5E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DBEE8EE-B119-4354-90E0-25809B8222DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DBEE8EE-B119-4354-90E0-25809B8222DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DBEE8EE-B119-4354-90E0-25809B8222DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DBEE8EE-B119-4354-90E0-25809B8222DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{F9CAEEA8-9864-4F58-B848-B87E90EEA06A} = {EF0D1378-2D70-40FA-B190-9F760C75D222}
@@ -662,5 +674,7 @@ Global
 		{1AA143D9-AF01-4E4C-914A-36E0A0AE58B0} = {8C8D9DF8-9C4B-43C9-A892-5F45F3696E84}
 		{2ADB402E-0278-4307-9B58-E626ABF32F58} = {8C8D9DF8-9C4B-43C9-A892-5F45F3696E84}
 		{346D351A-D80B-4DDF-9435-6FE8BB006931} = {08F8BC33-6FCA-4DB9-AB20-09D04C75A6C6}
+		{A4375BE8-8CB7-4240-A24A-891857ABA5E9} = {D2BE50A0-BD98-4A58-BF11-D33E3B06B39F}
+		{4DBEE8EE-B119-4354-90E0-25809B8222DF} = {1EEB3A74-F9D6-4D87-AB68-0A4D854DE6E3}
 	EndGlobalSection
 EndGlobal

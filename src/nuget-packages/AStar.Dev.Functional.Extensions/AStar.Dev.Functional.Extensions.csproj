@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <PackageId>AStar.Dev.Functional.Extensions</PackageId>
+        <Version>0.2.2-alpha</Version>
+        <PackageReadmeFile>Readme.md</PackageReadmeFile>
+        <Authors>Jason</Authors>
+        <Company>AStar Development</Company>
+        <Description>F#-inspired Result type with functional combinators, async support, and LINQ integration.</Description>
+        <PackageTags>result functional monad async linq</PackageTags>
+        <RepositoryUrl>https://github.com/astar-development/astar-dev-functional-extensions.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/astar-development/astar-dev-functional-extensions</PackageProjectUrl>
+        <RootNamespace>AStar.Dev.Functional.Extensions</RootNamespace>
+        <LangVersion>latest</LangVersion>
+        <Nullable>enable</Nullable>
+        <IsPackable>true</IsPackable>
+        <Title>AStar.Dev.Functional.Extensions</Title>
+        <Copyright>AStar Development 2025</Copyright>
+        <PackageReleaseNotes>No changes in this version, just extending the documentation</PackageReleaseNotes>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.0.0" PrivateAssets="All"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="Readme.md" Pack="true" PackagePath="\"/>
+        <None Include="Readme-result.md" Pack="true" PackagePath="\"/>
+        <None Include="Readme-option.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
+
+</Project>

@@ -14,7 +14,6 @@
         <PackageReference Include="Aspire.Hosting.AppHost" Version="9.3.1"/>
         <PackageReference Include="Aspire.Hosting.RabbitMQ" Version="9.3.1"/>
         <PackageReference Include="Aspire.Hosting.SqlServer" Version="9.3.2"/>
-        <PackageReference Include="AStar.Dev.Functional.Extensions" Version="0.2.0"/>
     </ItemGroup>
 
     <ItemGroup>
