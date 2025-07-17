@@ -26,7 +26,7 @@ public class FileContextExtensionsShould
 
         response.Expression
                 .ToString()
-                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => Convert(fileDetail, IFileDetail).DirectoryName.StartsWith(value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass0_0`1[AStar.Dev.Infrastructure.FilesDb.Models.FileDetail]).directoryName))");
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => Convert(fileDetail, IFileDetail).DirectoryName.StartsWith(value(AStar.Dev.Infrastructure.FilesDb.Data.FileContextExtensions+<>c__DisplayClass0_0`1[AStar.Dev.Infrastructure.FilesDb.Models.FileDetail]).directoryName))");
     }
 
     [Fact]
@@ -40,7 +40,7 @@ public class FileContextExtensionsShould
 
         response.Expression
                 .ToString()
-                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => (Convert(fileDetail, IFileDetail).DirectoryName == value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass0_0`1[AStar.Dev.Infrastructure.FilesDb.Models.FileDetail]).directoryName))");
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => (Convert(fileDetail, IFileDetail).DirectoryName == value(AStar.Dev.Infrastructure.FilesDb.Data.FileContextExtensions+<>c__DisplayClass0_0`1[AStar.Dev.Infrastructure.FilesDb.Models.FileDetail]).directoryName))");
     }
 
     // [Fact]
@@ -96,7 +96,7 @@ public class FileContextExtensionsShould
 
         response.Expression
                 .ToString()
-                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => (Convert(fileDetail, IFileDetail).FileLastViewed < Convert(value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass1_0`1[AStar.Dev.Infrastructure.FilesDb.Models.FileDetail]).time.GetUtcNow().AddDays(Convert(-value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass1_0`1[AStar.Dev.Infrastructure.FilesDb.Models.FileDetail]).excludeViewedWithinDays, Double)), Nullable`1)))");
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => (Convert(fileDetail, IFileDetail).FileLastViewed < Convert(value(AStar.Dev.Infrastructure.FilesDb.Data.FileContextExtensions+<>c__DisplayClass1_0`1[AStar.Dev.Infrastructure.FilesDb.Models.FileDetail]).time.GetUtcNow().AddDays(Convert(-value(AStar.Dev.Infrastructure.FilesDb.Data.FileContextExtensions+<>c__DisplayClass1_0`1[AStar.Dev.Infrastructure.FilesDb.Models.FileDetail]).excludeViewedWithinDays, Double)), Nullable`1)))");
     }
 
     // [Fact]
@@ -208,7 +208,7 @@ public class FileContextExtensionsShould
 
         response.Expression
                 .ToString()
-                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => (Convert(fileDetail, IFileDetail).DirectoryName.Contains(value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass3_0`1[AStar.Dev.Infrastructure.FilesDb.Models.FileDetail]).searchText) OrElse Convert(fileDetail, IFileDetail).FileName.Contains(value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass3_0`1[AStar.Dev.Infrastructure.FilesDb.Models.FileDetail]).searchText)))");
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => (Convert(fileDetail, IFileDetail).DirectoryName.Contains(value(AStar.Dev.Infrastructure.FilesDb.Data.FileContextExtensions+<>c__DisplayClass3_0`1[AStar.Dev.Infrastructure.FilesDb.Models.FileDetail]).searchText) OrElse Convert(fileDetail, IFileDetail).FileName.Contains(value(AStar.Dev.Infrastructure.FilesDb.Data.FileContextExtensions+<>c__DisplayClass3_0`1[AStar.Dev.Infrastructure.FilesDb.Models.FileDetail]).searchText)))");
     }
 
     // [Fact]

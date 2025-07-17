@@ -32,64 +32,6 @@
   <component name="ChangeListManager">
     <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_aspire/AStar.Dev.ServiceDefaults/Extensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/_aspire/AStar.Dev.ServiceDefaults/Extensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Admin.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Admin.Api/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Images.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Images.Api/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.ToDo.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.ToDo.Api/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Constants.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/FilesApi/FilesApiClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/FilesApi/FilesApiClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/FilesApi/FilesApiConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/FilesApi/FilesApiConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/DirectoryChangeRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/DirectoryChangeRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/DuplicateGroup.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/DuplicateGroup.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/Duplicates.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/Duplicates.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/DuplicatesDetails.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/DuplicatesDetails.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/DuplicatesList.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/DuplicatesList.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/ExcludedViewSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/ExcludedViewSettings.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileAccessDetail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileAccessDetail.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileDetail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileDetail.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileDetailClassification.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileDetailClassification.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileDetailClassifications.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileDetailClassifications.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileDimensionsWithSize.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileDimensionsWithSize.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileGrouping.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileGrouping.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileSizeDetail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileSizeDetail.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/GetDuplicatesCountQueryResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/GetDuplicatesCountQueryResponse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/SearchParameters.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/SearchParameters.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/SearchType.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/SearchType.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/SortOrder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/SortOrder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Images.Api.Client.Sdk/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Images.Api.Client.Sdk/Constants.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Images.Api.Client.Sdk/ImagesApi/ImagesApiClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Images.Api.Client.Sdk/ImagesApi/ImagesApiClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Images.Api.Client.Sdk/ImagesApi/ImagesApiConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Images.Api.Client.Sdk/ImagesApi/ImagesApiConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Data/FilesContextExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Usage.Api.Client.Sdk/Constants.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Usage.Api.Client.Sdk/Constants.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Usage.Api.Client.Sdk/UsageApi/ImagesApiConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Usage.Api.Client.Sdk/UsageApi/ImagesApiConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Usage.Api.Client.Sdk/UsageApi/UsageApiClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Usage.Api.Client.Sdk/UsageApi/UsageApiClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/AStar.Dev.Usage.Logger/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AStar.Dev.Usage.Logger/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/migrations/AStar.Dev.FilesDb.MigrationService/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/migrations/AStar.Dev.FilesDb.MigrationService/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/FilesContextExtensions2Should.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/FilesContextExtensions2Should.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/FilesApi/FilesApiConfigurationShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/FilesApi/FilesApiConfigurationShould.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Helpers/FilesApiClientFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Helpers/FilesApiClientFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/MockMessageHandlers/MockSuccessHttpMessageHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/MockMessageHandlers/MockSuccessHttpMessageHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DirectoryChangeRequestShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DirectoryChangeRequestShould.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DuplicateGroupShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DuplicateGroupShould.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DuplicatesDetailsShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DuplicatesDetailsShould.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DuplicatesListShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DuplicatesListShould.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/ExcludedViewSettingsShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/ExcludedViewSettingsShould.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileAccessDetailShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileAccessDetailShould.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDetailClassificationShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDetailClassificationShould.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDetailClassificationsShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDetailClassificationsShould.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDetailShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDetailShould.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDimensionsWithSizeShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDimensionsWithSizeShould.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileGroupingShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileGroupingShould.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileSizeDetailShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileSizeDetailShould.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/GetDuplicatesCountQueryResponseShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/GetDuplicatesCountQueryResponseShould.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/SearchParametersShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/SearchParametersShould.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/SearchTypeShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/SearchTypeShould.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/SortOrderShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/SortOrderShould.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Images.Api.Client.Sdk.Tests.Unit/ImagesApi/ImagesApiClientShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Images.Api.Client.Sdk.Tests.Unit/ImagesApi/ImagesApiClientShould.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Images.Api.Client.Sdk.Tests.Unit/ImagesApiConfigurationShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Images.Api.Client.Sdk.Tests.Unit/ImagesApiConfigurationShould.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,34 +168,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.AStar.Dev.Web: https.executor&quot;: &quot;Run&quot;,
-    &quot;048590b5-e09c-40ff-b78c-f96a021a888b.executor&quot;: &quot;Debug&quot;,
-    &quot;157d886d-0a11-45b5-b1e8-641349d3cc41.executor&quot;: &quot;Debug&quot;,
-    &quot;22071734-6c60-41bb-aea8-3be1144d15bd.executor&quot;: &quot;Debug&quot;,
-    &quot;37e8db58-7b27-4d30-8126-079f70986791.executor&quot;: &quot;Debug&quot;,
-    &quot;5394ae1f-e1ba-4997-9785-ae0f83daa327.executor&quot;: &quot;Debug&quot;,
-    &quot;74865cb9-5982-44cc-8c44-3e1395390114.executor&quot;: &quot;Debug&quot;,
-    &quot;8fd607c9-dea8-4b95-8264-467bd8bce66a.executor&quot;: &quot;Debug&quot;,
-    &quot;Aspire Host.AStar.Dev.AppHost: http.executor&quot;: &quot;Run&quot;,
-    &quot;Aspire Host.AStar.Dev.AppHost: https.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;e1fa419c-f915-45ea-a5b9-af0e54288449.executor&quot;: &quot;Debug&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;features/add-files-api&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/jason-barden/RiderProjects/astar-dev/.editorconfig&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.C#&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.AStar.Dev.Web: https.executor": "Run",
+    "048590b5-e09c-40ff-b78c-f96a021a888b.executor": "Debug",
+    "157d886d-0a11-45b5-b1e8-641349d3cc41.executor": "Debug",
+    "22071734-6c60-41bb-aea8-3be1144d15bd.executor": "Debug",
+    "37e8db58-7b27-4d30-8126-079f70986791.executor": "Debug",
+    "5394ae1f-e1ba-4997-9785-ae0f83daa327.executor": "Debug",
+    "74865cb9-5982-44cc-8c44-3e1395390114.executor": "Debug",
+    "8fd607c9-dea8-4b95-8264-467bd8bce66a.executor": "Debug",
+    "Aspire Host.AStar.Dev.AppHost: http.executor": "Run",
+    "Aspire Host.AStar.Dev.AppHost: https.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "e1fa419c-f915-45ea-a5b9-af0e54288449.executor": "Debug",
+    "git-widget-placeholder": "features/implement-get-file-duplicates-endpoint",
+    "last_opened_file_path": "/home/jason-barden/RiderProjects/astar-dev/.editorconfig",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Aspire Host.AStar.Dev.AppHost: https">
     <configuration name="AStar.Dev.AppHost: https" type="AspireHostConfiguration" factoryName="Aspire Host" activateToolWindowBeforeRun="false">
       <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/_aspire/AStar.Dev.AppHost/AStar.Dev.AppHost.csproj" />

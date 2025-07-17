@@ -9,21 +9,21 @@
         "width": null,
         "height": null
       },
-      "fileName": "Mock File Name",
-      "directoryName": "Mock Directory",
       "fullNameWithPath": "Mock Directory/Mock File Name",
-      "fileSize": 0,
-      "isImage": false,
       "fileHandle": "",
       "fileCreated": "0001-01-01T00:00:00+00:00",
       "fileLastModified": "0001-01-01T00:00:00+00:00",
-      "fileLastViewed": null,
       "moveRequired": false,
       "deletionStatus": {
         "softDeleted": null,
         "softDeletePending": null,
         "hardDeletePending": null
       },
+      "fileName": "Mock File Name",
+      "directoryName": "Mock Directory",
+      "fileSize": 0,
+      "isImage": false,
+      "fileLastViewed": null,
       "updatedBy": "Jay Barden",
       "updatedOn": "2025-06-28T22:20:37+00:00"
     }
