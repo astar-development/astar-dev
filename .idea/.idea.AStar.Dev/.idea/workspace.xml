@@ -30,9 +30,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/main_astar-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main_astar-dev.yml" afterDir="false" />
-    </list>
+    <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -825,14 +823,6 @@
       <workItem from="1752776272102" duration="1518000" />
       <workItem from="1752781830128" duration="3021000" />
     </task>
-    <task id="LOCAL-00004" summary="Add links between projects and AppHost">
-      <option name="closed" value="true" />
-      <created>1750882295516</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1750882295516</updated>
-    </task>
     <task id="LOCAL-00005" summary="RabbitMQ, SQL, Db Updater and Migrations healthy">
       <option name="closed" value="true" />
       <created>1750883695064</created>
@@ -1217,7 +1207,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752785660394</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="Add SonarCloud now basic build fffinally works">
+      <option name="closed" value="true" />
+      <created>1752787124639</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1752787124639</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1347,7 +1345,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Fix the tests post updates to FilesDb" />
     <MESSAGE value="Small updates to the formatting" />
     <MESSAGE value="Add AStar.Dev.Functional.Extensions to all projects&#10;&#10;Not used yet and may not be needed in all..." />
     <MESSAGE value="Update FilesDb and redo migrations" />
@@ -1372,7 +1369,8 @@
     <MESSAGE value="Whilst not sure will resolve, bring back the Functional.Results project directly" />
     <MESSAGE value="remove the next failing project... test helpers unit..." />
     <MESSAGE value="Missed a reference" />
-    <option name="LAST_COMMIT_MESSAGE" value="Missed a reference" />
+    <MESSAGE value="Add SonarCloud now basic build fffinally works" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add SonarCloud now basic build fffinally works" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
