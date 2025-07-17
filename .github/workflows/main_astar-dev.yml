@@ -25,11 +25,8 @@ jobs:
         with:
           dotnet-version: ${{ env.DOTNET_CORE_VERSION }}
 
-      - name: 🔍 Restore
-        run: dotnet restore "${{ env.WORKING_DIRECTORY }}"
-
-      - name: 🛠 Build
-        run: dotnet build --configuration ${{ env.CONFIGURATION }} --no-restore
+      - name: 🔍 Restore and 🛠 Build
+        run: dotnet build --configuration ${{ env.CONFIGURATION }}
 
       - name: 🧪 Test
         run: dotnet test --filter "FullyQualifiedName\!~EndToEnd"
