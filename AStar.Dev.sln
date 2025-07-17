@@ -121,8 +121,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AStar.Dev.Test.Helpers.Inte
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AStar.Dev.Test.Helpers.Minimal.Api", "src\nuget-packages\AStar.Dev.Test.Helpers.Minimal.Api\AStar.Dev.Test.Helpers.Minimal.Api.csproj", "{9DCAC5BB-7D45-483F-BC99-E73D946BC158}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AStar.Dev.Test.Helpers.Unit", "src\nuget-packages\AStar.Dev.Test.Helpers.Unit\AStar.Dev.Test.Helpers.Unit.csproj", "{287D0803-C796-4C67-BBBE-F069477AE1C0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AStar.Dev.Usage.Api.Client.Sdk", "src\nuget-packages\AStar.Dev.Usage.Api.Client.Sdk\AStar.Dev.Usage.Api.Client.Sdk.csproj", "{47EEE84B-3D88-42BB-B582-550757278B1B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AStar.Dev.Utilities", "src\nuget-packages\AStar.Dev.Utilities\AStar.Dev.Utilities.csproj", "{A8C4D381-F425-482C-A9DB-C795EC0AD327}"
@@ -372,10 +370,6 @@ Global
 		{9DCAC5BB-7D45-483F-BC99-E73D946BC158}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9DCAC5BB-7D45-483F-BC99-E73D946BC158}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9DCAC5BB-7D45-483F-BC99-E73D946BC158}.Release|Any CPU.Build.0 = Release|Any CPU
-		{287D0803-C796-4C67-BBBE-F069477AE1C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{287D0803-C796-4C67-BBBE-F069477AE1C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{287D0803-C796-4C67-BBBE-F069477AE1C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{287D0803-C796-4C67-BBBE-F069477AE1C0}.Release|Any CPU.Build.0 = Release|Any CPU
 		{47EEE84B-3D88-42BB-B582-550757278B1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{47EEE84B-3D88-42BB-B582-550757278B1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47EEE84B-3D88-42BB-B582-550757278B1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
