@@ -32,6 +32,7 @@
   <component name="ChangeListManager">
     <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.github/workflows/main_astar-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main_astar-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -824,14 +825,7 @@
       <workItem from="1752694458158" duration="3988000" />
       <workItem from="1752776272102" duration="1518000" />
       <workItem from="1752781830128" duration="3021000" />
-    </task>
-    <task id="LOCAL-00009" summary="Add the NuGet packages test projects">
-      <option name="closed" value="true" />
-      <created>1750889062852</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1750889062852</updated>
+      <workItem from="1752817607100" duration="865000" />
     </task>
     <task id="LOCAL-00010" summary="Skip failing test">
       <option name="closed" value="true" />
@@ -1217,7 +1211,15 @@
       <option name="project" value="LOCAL" />
       <updated>1752787949465</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Copy over the working yml from Func Ext&#10;&#10;Can't see why previous said &quot;cannot find powershell&quot;...">
+      <option name="closed" value="true" />
+      <created>1752817997624</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1752817997624</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1347,7 +1349,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Change back to the v7+ RabbitMq client now unrelated issue in...&#10;&#10;FilesApi has been resolved / worked around with &quot;OK&quot;, rather than &quot;Created&quot;" />
     <MESSAGE value="Add Async suffix rules to .editorconfig" />
     <MESSAGE value="Add the new Get Files - need the actual request and Handle Async still" />
     <MESSAGE value="Add 1st part of the GetFilesHandler" />
@@ -1372,7 +1373,8 @@
     <MESSAGE value="Doh, missed one" />
     <MESSAGE value="change \ to / as we're on linux&#10;&#10;may be barking up wrong tree but..." />
     <MESSAGE value="Change to Windows build servers as, from memory, always issues on ubuntu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Change to Windows build servers as, from memory, always issues on ubuntu" />
+    <MESSAGE value="Copy over the working yml from Func Ext&#10;&#10;Can't see why previous said &quot;cannot find powershell&quot;..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Copy over the working yml from Func Ext&#10;&#10;Can't see why previous said &quot;cannot find powershell&quot;..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
