@@ -1,12 +1,23 @@
-using AStar.Dev.Infrastructure.FilesDb.Data;
+﻿using AStar.Dev.Infrastructure.FilesDb.Data;
 
-namespace AStar.Dev.Files.Api.TestContext;
+namespace DbContextHelpers.Fixtures;
 
 public class FilesContextFixture : IDisposable
 {
     private bool disposedValue;
 
-    public FilesContext Sut { get; } = new MockFilesContext().Context;
+    public FilesContext Sut { get; } = MockFilesContextFactory.CreateMockFilesContext().Result;
+
+    public FilesContext SutWithFileDetails
+    {
+        get
+        {
+            var c = MockFilesContextFactory.CreateMockFilesContext().Result;
+            c.AddMockFiles();
+
+            return c;
+        }
+    }
 
     public void Dispose()
     {
