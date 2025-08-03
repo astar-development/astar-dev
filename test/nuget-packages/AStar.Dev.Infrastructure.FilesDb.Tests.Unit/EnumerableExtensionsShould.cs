@@ -1,6 +1,6 @@
 ﻿using AStar.Dev.Infrastructure.FilesDb.Data;
-using AStar.Dev.Infrastructure.FilesDb.Fixtures;
 using AStar.Dev.Infrastructure.FilesDb.Models;
+using DbContextHelpers.Fixtures;
 
 namespace AStar.Dev.Infrastructure.FilesDb;
 

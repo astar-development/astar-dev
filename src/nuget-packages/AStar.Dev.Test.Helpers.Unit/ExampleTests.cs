@@ -18,9 +18,8 @@ public class ExampleTests
         var mockSet     = DbContextMockFactory.CreateMockDbSet(store);
         var mockContext = Substitute.For<FilesContext>(new DbContextOptions<FilesContext>());
         mockContext.Files.Returns(mockSet);
-
-        var service   = new FileService(mockContext);
         var newEntity = new FileDetail { Id = 1, FileName = "Test File" };
+        var service   = new FileService(mockContext);
 
         // Act
         service.SaveFile(newEntity);

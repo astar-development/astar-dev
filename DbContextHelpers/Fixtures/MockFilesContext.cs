@@ -1,10 +1,8 @@
-using System.Text.Json;
+﻿using System.Text.Json;
 using AStar.Dev.Infrastructure.FilesDb.Data;
 using AStar.Dev.Infrastructure.FilesDb.Models;
-using Microsoft.Data.Sqlite;
-using Microsoft.EntityFrameworkCore;
 
-namespace AStar.Dev.Files.Api.TestContext;
+namespace DbContextHelpers.Fixtures;
 
 public class MockFilesContext : IDisposable
 {
@@ -12,15 +10,7 @@ public class MockFilesContext : IDisposable
 
     public MockFilesContext()
     {
-        var connection = new SqliteConnection("Filename=:memory:");
-        connection.Open();
-
-        // These options will be used by the context instances in this test suite, including the connection opened above.
-        var contextOptions = new DbContextOptionsBuilder<FilesContext>()
-                             .UseSqlite(connection)
-                             .Options;
-
-        Context = new(contextOptions);
+        Context = new(new ());
 
         _ = Context.Database.EnsureCreated();
 
@@ -54,7 +44,7 @@ public class MockFilesContext : IDisposable
 
     private static void AddMockFiles(FilesContext mockFilesContext)
     {
-        var filesAsJson = File.ReadAllText(@"TestData/files.json");
+        var filesAsJson = File.ReadAllText(@"TestFiles\files.json");
 
         var listFromJson = JsonSerializer.Deserialize<IEnumerable<FileDetail>>(filesAsJson)!;
 
@@ -62,7 +52,6 @@ public class MockFilesContext : IDisposable
         {
             if (mockFilesContext.FileDetails.FirstOrDefault(f => f.FileName == item.FileName && f.DirectoryName == item.DirectoryName) == null)
             {
-                item.FileHandle = $"{item.DirectoryName}-{item.FileName}-{item.Id}";
                 mockFilesContext.FileDetails.Add(item);
                 mockFilesContext.SaveChanges();
             }

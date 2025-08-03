@@ -1,4 +1,7 @@
-﻿@inherits LayoutComponentBase
+﻿@using AStar.Dev.Web.Services
+@inherits LayoutComponentBase
+
+@inject ThemeService ThemeService
 
 <div class="page">
     <div class="sidebar">
@@ -7,6 +10,7 @@
 
     <main>
         <div class="top-row px-4">
+            <ThemeToggle/>
             <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
         </div>
 
@@ -21,3 +25,4 @@
     <a href="." class="reload">Reload</a>
     <span class="dismiss">🗙</span>
 </div>
+v>

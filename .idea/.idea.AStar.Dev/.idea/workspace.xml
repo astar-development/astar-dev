@@ -31,7 +31,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/Endpoints/Get/V1/GetFilesHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/Endpoints/Get/V1/GetFilesHandler.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.Client.Sdk.Shared/AStar.Dev.Api.Client.Sdk.Shared.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.Client.Sdk.Shared/AStar.Dev.Api.Client.Sdk.Shared.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.HealthChecks/AStar.Dev.Api.HealthChecks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.HealthChecks/AStar.Dev.Api.HealthChecks.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.Usage.Sdk/AStar.Dev.Api.Usage.Sdk.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.Usage.Sdk/AStar.Dev.Api.Usage.Sdk.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.AspNet.Extensions/AStar.Dev.AspNet.Extensions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.AspNet.Extensions/AStar.Dev.AspNet.Extensions.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/AStar.Dev.Files.Api.Client.Sdk.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/AStar.Dev.Files.Api.Client.Sdk.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Fluent.Assignments/AStar.Dev.Fluent.Assignments.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Fluent.Assignments/AStar.Dev.Fluent.Assignments.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Images.Api.Client.Sdk/AStar.Dev.Images.Api.Client.Sdk.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Images.Api.Client.Sdk/AStar.Dev.Images.Api.Client.Sdk.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/AStar.Dev.Infrastructure.FilesDb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/AStar.Dev.Infrastructure.FilesDb.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Data/FileContextExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Data/FileContextExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure/AStar.Dev.Infrastructure.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure/AStar.Dev.Infrastructure.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Logging.Extensions/AStar.Dev.Logging.Extensions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Logging.Extensions/AStar.Dev.Logging.Extensions.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Minimal.Api.Extensions/AStar.Dev.Minimal.Api.Extensions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Minimal.Api.Extensions/AStar.Dev.Minimal.Api.Extensions.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Restful.Root.Document/AStar.Dev.Restful.Root.Document.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Restful.Root.Document/AStar.Dev.Restful.Root.Document.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Technical.Debt.Reporting/AStar.Dev.Technical.Debt.Reporting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Technical.Debt.Reporting/AStar.Dev.Technical.Debt.Reporting.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Test.Helpers.Unit/AStar.Dev.Test.Helpers.Unit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Test.Helpers.Unit/AStar.Dev.Test.Helpers.Unit.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Utilities/AStar.Dev.Utilities.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Utilities/AStar.Dev.Utilities.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/migrations/AStar.Dev.FilesDb.MigrationService/AStar.Dev.FilesDb.MigrationService.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/migrations/AStar.Dev.FilesDb.MigrationService/AStar.Dev.FilesDb.MigrationService.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/migrations/AStar.Dev.FilesDb.MigrationService/Worker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/migrations/AStar.Dev.FilesDb.MigrationService/Worker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/Get/V1/GetFilesHandlerShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/Get/V1/GetFilesHandlerShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Infrastructure.FilesDb.Tests.Unit/Data/FilesContextExtensions2Should.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Infrastructure.FilesDb.Tests.Unit/Data/FilesContextExtensions2Should.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Infrastructure.FilesDb.Tests.Unit/Models/FileDetailShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Infrastructure.FilesDb.Tests.Unit/Models/FileDetailShould.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,25 +91,29 @@
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="c33e45bc-ba15-45ea-89b8-f9dce31d8655" />
   </component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/astar-development/astar-dev.git",
-    "accountId": "c33e45bc-ba15-45ea-89b8-f9dce31d8655"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/astar-development/astar-dev.git&quot;,
+    &quot;accountId&quot;: &quot;c33e45bc-ba15-45ea-89b8-f9dce31d8655&quot;
   },
-  "recentNewPullRequestHead": {
-    "server": {
-      "useHttp": false,
-      "host": "github.com",
-      "port": null,
-      "suffix": null
+  &quot;recentNewPullRequestHead&quot;: {
+    &quot;server&quot;: {
+      &quot;useHttp&quot;: false,
+      &quot;host&quot;: &quot;github.com&quot;,
+      &quot;port&quot;: null,
+      &quot;suffix&quot;: null
     },
-    "owner": "astar-development",
-    "repository": "astar-dev"
+    &quot;owner&quot;: &quot;astar-development&quot;,
+    &quot;repository&quot;: &quot;astar-dev&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/08fde0be2260428db1b6a812fd2ad453c3200/43/0e1576ff/IEndpointRouteBuilder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1f12dddc2f0b4ff3a0425a5bd228f00e78a00/92/9610913f/Enumerable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4dc5d2f96678478cb8386b88493a3620d19e00/4f/bc38148b/AsyncTaskMethodBuilder`1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4dc5d2f96678478cb8386b88493a3620d19e00/85/691b3232/Task.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4dc5d2f96678478cb8386b88493a3620d19e00/a0/9c5913b0/AwaitTaskContinuation.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/4dc5d2f96678478cb8386b88493a3620d19e00/b6/33504194/ExecutionContext.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/501f8da0306d4dbd8e9648916aa059e74a400/41/cc611478/IEndpointConventionBuilder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/501f8da0306d4dbd8e9648916aa059e74a400/93/f49221ba/IApplicationBuilder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/b26d4fa0b4bf47ae94e1c1e8948f5f95d19e00/45/3d6414a3/MethodBaseInvoker.cs" root0="FORCE_HIGHLIGHTING" />
@@ -92,65 +122,26 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c836032321124caf83f2061c194fae48383000/bc/0f47adf2/Expression.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fdc1a16f67d141f5902cf23909127ec7b1e00/40/4cf73a40/RequestDelegateFactory.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1f7d81c92c01349f8e68213d932e21041fa2083dc3c66e37a976b86d247666/ShouldBeBooleanExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3b92f859131bde25d0f7a63de08963e995d1e1426e584dfd4b8e833d2d3dba/ExecutionTimer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/503bc2d6a6a2fc2813030bd179bb894b71e248db1ac8ccf469ffe21fb2817aa/IVersionedEndpointRouteBuilder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/55a5e537bdda4a830abbb5dd5db7f4b1cae7ced4fc822284a9e91d6e91bc/ExecutionStrategyExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/5e14a4e27990972fa4ae94975603bd298aaf328ee083c03b10569ee4724d57/TestInvoker.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/64ac869912346e8af45167a035ea61f9342e7317972dc1314264a2b263e134b0/TestRunner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/64e9f866912d5ca4ee4be743b2c6cb89ac29ef6514b08d53eeddf526afa78726/ShouldBeEnumerableTestExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7a6f9555e47e5e4b4d3949244ea2e22bb8141caacfb7145f5ccf83e9eae4c6f/XunitTestRunner.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/89d72c3f68b6884a4fc967bb49ef7b3b3bec6384010ab398923d901b767/NavigationExpandingExpressionVisitor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8f01ba41853b8bd86b6d5b7b8e1e669b98673feb6a7a1b2b0a3622f9d4ad/DbContextOptionsBuilder`.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/_aspire/AStar.Dev.ServiceDefaults/Extensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/apis/AStar.Dev.Admin.Api/Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/apis/AStar.Dev.Files.Api/Endpoints/Get/V1/GetFilesHandler.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Constants.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/FilesApi/FilesApiClient.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/FilesApi/FilesApiConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/DirectoryChangeRequest.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/DuplicateGroup.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/Duplicates.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/DuplicatesDetails.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/DuplicatesList.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileAccessDetail.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileDetail.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileDetailClassification.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileDetailClassifications.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileDimensionsWithSize.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileGrouping.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/FileSizeDetail.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/GetDuplicatesCountQueryResponse.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/SearchParameters.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/SearchType.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/Models/SortOrder.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Images.Api.Client.Sdk/Constants.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Images.Api.Client.Sdk/ImagesApi/ImagesApiClient.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Images.Api.Client.Sdk/ImagesApi/ImagesApiConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Usage.Api.Client.Sdk/Constants.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Usage.Api.Client.Sdk/UsageApi/ImagesApiConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a3224cd781deec2964554220fc9e8d9b7291d373c23d1d64de7128ef192aa849/XunitTestInvoker.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ee54785cc7e75c1f43aa94bce8192ce441aead70a196ebd9aa287b48d25881e/ExceptionAggregator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/17.14.1/build/net8.0/Microsoft.NET.Test.Sdk.Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DbContextHelpers/Fixtures/FilesContextFixture.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DbContextHelpers/Fixtures/MockFilesContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DbContextHelpers/MockFilesContextFactory.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/DbContextHelpers/TestData/files.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/FileContextExtensionsShould.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/FilesContextExtensions2Should.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/FilesApi/FilesApiConfigurationShould.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Helpers/FilesApiClientFactory.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/MockMessageHandlers/MockSuccessHttpMessageHandler.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DirectoryChangeRequestShould.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DuplicateGroupShould.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/DuplicatesDetailsShould.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDetailClassificationShould.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDetailClassificationsShould.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDetailShould.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileDimensionsWithSizeShould.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileGroupingShould.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/FileSizeDetailShould.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/GetDuplicatesCountQueryResponseShould.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/SearchTypeShould.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/SortOrderShould.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/Models/SortOrderShould.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Images.Api.Client.Sdk.Tests.Unit/ImagesApi/ImagesApiClientShould.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/nuget-packages/AStar.Dev.Images.Api.Client.Sdk.Tests.Unit/ImagesApiConfigurationShould.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file:///usr/lib/dotnet/sdk/9.0.107/Current/Microsoft.Common.props" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file:///usr/lib/dotnet/sdk/9.0.107/Microsoft.Common.CurrentVersion.targets" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file:///usr/lib/dotnet/sdk/9.0.107/Sdks/NuGet.Build.Tasks.Pack/build/NuGet.Build.Tasks.Pack.targets" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
@@ -177,22 +168,24 @@
     "37e8db58-7b27-4d30-8126-079f70986791.executor": "Debug",
     "5394ae1f-e1ba-4997-9785-ae0f83daa327.executor": "Debug",
     "74865cb9-5982-44cc-8c44-3e1395390114.executor": "Debug",
+    "8cbff862-16b7-48f9-b845-ce6464b5344d.executor": "Debug",
     "8fd607c9-dea8-4b95-8264-467bd8bce66a.executor": "Debug",
     "Aspire Host.AStar.Dev.AppHost: http.executor": "Run",
-    "Aspire Host.AStar.Dev.AppHost: https.executor": "Run",
+    "Aspire Host.AStar.Dev.AppHost: https.executor": "Debug",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "e1fa419c-f915-45ea-a5b9-af0e54288449.executor": "Debug",
-    "git-widget-placeholder": "features/implement-get-file-duplicates-endpoint",
-    "last_opened_file_path": "/home/jason-barden/RiderProjects/astar-dev/.editorconfig",
+    "ead053aa-6f06-48a9-a614-f676b2fe4dd5.executor": "Debug",
+    "git-widget-placeholder": "#10 on features/implement-get-file-dupli…point",
+    "last_opened_file_path": "/home/jason-barden/RiderProjects/astar-dev-all-private/AStar.Dev.All.sln",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "settings.editor.selected.configurable": "RiderNuGetOptionsPageId",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -869,94 +862,18 @@
       <workItem from="1752693790696" duration="521000" />
       <workItem from="1752694458158" duration="3988000" />
       <workItem from="1752776272102" duration="1518000" />
-    </task>
-    <task id="LOCAL-00001" summary="Created the base Aspire Host project">
-      <option name="closed" value="true" />
-      <created>1750878417808</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1750878417808</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Created the base Aspire Host project">
-      <option name="closed" value="true" />
-      <created>1750878487117</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1750878487117</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Add initial projects bar NuGet">
-      <option name="closed" value="true" />
-      <created>1750880685080</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1750880685080</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Add links between projects and AppHost">
-      <option name="closed" value="true" />
-      <created>1750882295516</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1750882295516</updated>
-    </task>
-    <task id="LOCAL-00005" summary="RabbitMQ, SQL, Db Updater and Migrations healthy">
-      <option name="closed" value="true" />
-      <created>1750883695064</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1750883695064</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Remove http profiles and ports">
-      <option name="closed" value="true" />
-      <created>1750884582692</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1750884582692</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Add health checks to APIs and UI&#10;&#10;ALL projects startup correctly across the solution">
-      <option name="closed" value="true" />
-      <created>1750885264677</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1750885264677</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Add the remaining NuGet packages">
-      <option name="closed" value="true" />
-      <created>1750887865584</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1750887865584</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Add the NuGet packages test projects">
-      <option name="closed" value="true" />
-      <created>1750889062852</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1750889062852</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Skip failing test">
-      <option name="closed" value="true" />
-      <created>1750889777135</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1750889777135</updated>
-    </task>
-    <task id="LOCAL-00011" summary="A 'little' code cleanup">
-      <option name="closed" value="true" />
-      <created>1750889949027</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1750889949027</updated>
+      <workItem from="1752781830128" duration="3021000" />
+      <workItem from="1752817607100" duration="1622000" />
+      <workItem from="1752820157124" duration="4123000" />
+      <workItem from="1752950957117" duration="9259000" />
+      <workItem from="1752960808374" duration="36000" />
+      <workItem from="1753034553036" duration="6761000" />
+      <workItem from="1753083632276" duration="2438000" />
+      <workItem from="1753210572211" duration="645000" />
+      <workItem from="1753790244122" duration="1102000" />
+      <workItem from="1753968433901" duration="108000" />
+      <workItem from="1754167177878" duration="806000" />
+      <workItem from="1754168511018" duration="830000" />
     </task>
     <task id="LOCAL-00012" summary="Add the test projects (well some of them)&#10;&#10;Tests commented out as code isn't there">
       <option name="closed" value="true" />
@@ -965,14 +882,6 @@
       <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
       <updated>1750942141220</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Add additional tests - mainly for the models">
-      <option name="closed" value="true" />
-      <created>1750897733175</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1750897733175</updated>
     </task>
     <task id="LOCAL-00014" summary="Post merge issues fixes">
       <option name="closed" value="true" />
@@ -1214,67 +1123,247 @@
       <option name="project" value="LOCAL" />
       <updated>1752779662666</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Just noticed Build not running for PR so this should fix">
+      <option name="closed" value="true" />
+      <created>1752780228850</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1752780228850</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Update the pipeline to run tests correctly&#10; &#10;and exclude e2e tests as wll as set broken unit test to be ignored">
+      <option name="closed" value="true" />
+      <created>1752780891237</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1752780891237</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Remove extra apostrophe">
+      <option name="closed" value="true" />
+      <created>1752781114300</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1752781114300</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Update the dotnet test path">
+      <option name="closed" value="true" />
+      <created>1752781960454</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1752781960454</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Tests r failing in pipeline&#10;&#10;they work locally and e2e are ignored but noticed the build is only building the UI so changing before continuing">
+      <option name="closed" value="true" />
+      <created>1752782662319</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1752782662319</updated>
+    </task>
+    <task id="LOCAL-00049" summary="As expected, build failed so tweak to build method">
+      <option name="closed" value="true" />
+      <created>1752782882358</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1752782882358</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Whilst not sure will resolve, bring back the Functional.Results project directly">
+      <option name="closed" value="true" />
+      <created>1752783990945</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1752783990946</updated>
+    </task>
+    <task id="LOCAL-00051" summary="remove the next failing project... test helpers unit...">
+      <option name="closed" value="true" />
+      <created>1752785603177</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1752785603177</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Missed a reference">
+      <option name="closed" value="true" />
+      <created>1752785660394</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1752785660394</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Add SonarCloud now basic build fffinally works">
+      <option name="closed" value="true" />
+      <created>1752787124639</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1752787124639</updated>
+    </task>
+    <task id="LOCAL-00054" summary="change powershell to pwsh which I think sorts next issue">
+      <option name="closed" value="true" />
+      <created>1752787233293</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1752787233293</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Doh, missed one">
+      <option name="closed" value="true" />
+      <created>1752787289930</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1752787289930</updated>
+    </task>
+    <task id="LOCAL-00056" summary="change \ to / as we're on linux&#10;&#10;may be barking up wrong tree but...">
+      <option name="closed" value="true" />
+      <created>1752787498076</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1752787498076</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Change to Windows build servers as, from memory, always issues on ubuntu">
+      <option name="closed" value="true" />
+      <created>1752787949465</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1752787949465</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Copy over the working yml from Func Ext&#10;&#10;Can't see why previous said &quot;cannot find powershell&quot;...">
+      <option name="closed" value="true" />
+      <created>1752817997624</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1752817997624</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Doh...">
+      <option name="closed" value="true" />
+      <created>1752818588814</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1752818588814</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Tweak sonar to suppress JRE install">
+      <option name="closed" value="true" />
+      <created>1752820589226</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1752820589226</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Moving to use Sqlite as the database provider in the tests">
+      <option name="closed" value="true" />
+      <created>1752959993933</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1752959993934</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="UnitTestsCoverage.Settings">
-    <option name="coveragePercentColumnWidth" value="74" />
+    <option name="coveragePercentColumnWidth" value="61" />
     <option name="sortOrder" value="DESCENDING" />
     <option name="sortedColumn" value="1" />
-    <option name="symbolColumnWidth" value="501" />
+    <option name="symbolColumnWidth" value="389" />
     <coverage-tree-state>
       <expand>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 32% 1780/2610" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 38% 1786/2874" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 32% 1780/2610" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="src 32% 1780/2610" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 38% 1786/2874" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 37% 1745/2788" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 32% 1780/2610" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="src 32% 1780/2610" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="nuget-packages 34% 1444/2204" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 38% 1786/2874" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 37% 1745/2788" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="apis 44% 137/243" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 32% 1780/2610" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="src 32% 1780/2610" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="nuget-packages 34% 1444/2204" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="AStar.Dev.Infrastructure.FilesDb 60% 125/310" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 38% 1786/2874" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 37% 1745/2788" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="apis 44% 137/243" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Files.Api 59% 74/180" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 32% 1780/2610" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="src 32% 1780/2610" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="nuget-packages 34% 1444/2204" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="AStar.Dev.Infrastructure.FilesDb 60% 125/310" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="AStar.Dev.Infrastructure.FilesDb 60% 125/310" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 38% 1786/2874" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 37% 1745/2788" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="apis 44% 137/243" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Files.Api 59% 74/180" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="(1.0.0.0, net9.0) 59% 74/180" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 32% 1780/2610" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="src 32% 1780/2610" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="nuget-packages 34% 1444/2204" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="AStar.Dev.Infrastructure.FilesDb 60% 125/310" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="AStar.Dev.Infrastructure.FilesDb 60% 125/310" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Models 97% 6/178" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 38% 1786/2874" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 37% 1745/2788" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="apis 44% 137/243" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Files.Api 59% 74/180" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="(1.0.0.0, net9.0) 59% 74/180" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Files.Api 79% 28/134" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 32% 1780/2610" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="src 32% 1780/2610" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="nuget-packages 34% 1444/2204" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="AStar.Dev.Infrastructure.FilesDb 60% 125/310" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="AStar.Dev.Infrastructure.FilesDb 60% 125/310" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="Models 97% 6/178" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="EventType 100% 0/29" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 38% 1786/2874" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 37% 1745/2788" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="apis 44% 137/243" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Files.Api 59% 74/180" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="(1.0.0.0, net9.0) 59% 74/180" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Files.Api 79% 28/134" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Endpoints 80% 26/132" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 38% 1786/2874" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 37% 1745/2788" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="apis 44% 137/243" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Files.Api 59% 74/180" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="(1.0.0.0, net9.0) 59% 74/180" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Files.Api 79% 28/134" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Endpoints 80% 26/132" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Get.V1 70% 14/47" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 38% 1786/2874" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 37% 1745/2788" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="apis 44% 137/243" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Files.Api 59% 74/180" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="(1.0.0.0, net9.0) 59% 74/180" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Files.Api 79% 28/134" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Endpoints 80% 26/132" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Get.V1 70% 14/47" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="GetFilesHandler 56% 4/9" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 38% 1786/2874" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 37% 1745/2788" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="apis 44% 137/243" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Files.Api 59% 74/180" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="(1.0.0.0, net9.0) 59% 74/180" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Files.Api 79% 28/134" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Endpoints 80% 26/132" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Get.V1 70% 14/47" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="GetFilesHandler 56% 4/9" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="HandleAsync(GetFilesRequest,FilesContext,TimeProvider,string,CancellationToken) 56% 4/9" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
       </expand>
       <select />
@@ -1301,8 +1390,38 @@
     <option featureType="dependencySupport" implementationName="dotnet:Reqnroll" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="75764029-09c7-4bd9-b3c4-966e0ba84b0d" value="TOOL_WINDOW" />
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
+        <entry key="75764029-09c7-4bd9-b3c4-966e0ba84b0d">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
@@ -1314,24 +1433,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Update Files API Nuget and Package links&#10;&#10;Add misc files to other projects too" />
-    <MESSAGE value="Yet another bunch of cleanup" />
-    <MESSAGE value="Add the original Program.cs and start on the AddFilesEndpoint.cs" />
-    <MESSAGE value="Starting tests for the MapFilesEndpoint.cs&#10;&#10;Includes some test helpers in the relevant NuGet project" />
-    <MESSAGE value="Missed these from the last commit" />
-    <MESSAGE value="Initial version of Post for a list of new files" />
-    <MESSAGE value="Rework the FilesDb and associated FilesContext.cs" />
-    <MESSAGE value="SonarQube file updates" />
-    <MESSAGE value="Bring over the updated FilesDb code and apply changes to support" />
-    <MESSAGE value="Fix the tests post updates to FilesDb" />
-    <MESSAGE value="Small updates to the formatting" />
-    <MESSAGE value="Add AStar.Dev.Functional.Extensions to all projects&#10;&#10;Not used yet and may not be needed in all..." />
-    <MESSAGE value="Update FilesDb and redo migrations" />
-    <MESSAGE value="Update the RabbitMq code and error handling on sending side&#10;&#10;Tomorrow...consuming code and recreating database" />
-    <MESSAGE value="Change back to the v7+ RabbitMq client now unrelated issue in...&#10;&#10;FilesApi has been resolved / worked around with &quot;OK&quot;, rather than &quot;Created&quot;" />
-    <MESSAGE value="Add Async suffix rules to .editorconfig" />
-    <MESSAGE value="Add the new Get Files - need the actual request and Handle Async still" />
-    <MESSAGE value="Add 1st part of the GetFilesHandler" />
     <MESSAGE value="Nearing the end of the GetFilesHandler.cs updates&#10;&#10;This version does NOT compile at the moment" />
     <MESSAGE value="Nearing the end of the GetFilesHandler.cs updates" />
     <MESSAGE value="Changing direction on the Files API with the intent of separate for duplicates" />
@@ -1339,7 +1440,25 @@
     <MESSAGE value="Update the location of the FilesContextExtensions.cs&#10;&#10;Associated changes to support too" />
     <MESSAGE value="Update NuGet packages before make further changes" />
     <MESSAGE value="Update tests to make pass bar 2 UI (known) and 1&#10;&#10;In the FilesAPI which relies on changes yet to be made to the test context" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update tests to make pass bar 2 UI (known) and 1&#10;&#10;In the FilesAPI which relies on changes yet to be made to the test context" />
+    <MESSAGE value="Just noticed Build not running for PR so this should fix" />
+    <MESSAGE value="Update the pipeline to run tests correctly&#10; &#10;and exclude e2e tests as wll as set broken unit test to be ignored" />
+    <MESSAGE value="Remove extra apostrophe" />
+    <MESSAGE value="Update the dotnet test path" />
+    <MESSAGE value="Tests r failing in pipeline&#10;&#10;they work locally and e2e are ignored but noticed the build is only building the UI so changing before continuing" />
+    <MESSAGE value="As expected, build failed so tweak to build method" />
+    <MESSAGE value="Whilst not sure will resolve, bring back the Functional.Results project directly" />
+    <MESSAGE value="remove the next failing project... test helpers unit..." />
+    <MESSAGE value="Missed a reference" />
+    <MESSAGE value="Add SonarCloud now basic build fffinally works" />
+    <MESSAGE value="change powershell to pwsh which I think sorts next issue" />
+    <MESSAGE value="Doh, missed one" />
+    <MESSAGE value="change \ to / as we're on linux&#10;&#10;may be barking up wrong tree but..." />
+    <MESSAGE value="Change to Windows build servers as, from memory, always issues on ubuntu" />
+    <MESSAGE value="Copy over the working yml from Func Ext&#10;&#10;Can't see why previous said &quot;cannot find powershell&quot;..." />
+    <MESSAGE value="Doh..." />
+    <MESSAGE value="Tweak sonar to suppress JRE install" />
+    <MESSAGE value="Moving to use Sqlite as the database provider in the tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Moving to use Sqlite as the database provider in the tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1357,30 +1476,43 @@
           <option name="timeStamp" value="3" />
         </breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/Get/V1/GetFilesHandlerShould.cs</url>
+          <url>file://$PROJECT_DIR$/src/services/migrations/AStar.Dev.FilesDb.MigrationService/Worker.cs</url>
           <line>25</line>
-          <properties documentPath="$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/Get/V1/GetFilesHandlerShould.cs" containingFunctionPresentation="Method 'ReturnBadRequestWhenDuplicatesAreRequested'">
+          <properties documentPath="$PROJECT_DIR$/src/services/migrations/AStar.Dev.FilesDb.MigrationService/Worker.cs" containingFunctionPresentation="Method 'ExecuteAsync'">
             <startOffsets>
-              <option value="843" />
+              <option value="1040" />
             </startOffsets>
             <endOffsets>
-              <option value="902" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/Get/V1/GetFilesHandlerShould.cs</url>
-          <line>28</line>
-          <properties documentPath="$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/Get/V1/GetFilesHandlerShould.cs" containingFunctionPresentation="Method 'ReturnBadRequestWhenDuplicatesAreRequested'">
-            <startOffsets>
-              <option value="969" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1001" />
+              <option value="1092" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/services/migrations/AStar.Dev.FilesDb.MigrationService/Worker.cs</url>
+          <line>37</line>
+          <properties documentPath="$PROJECT_DIR$/src/services/migrations/AStar.Dev.FilesDb.MigrationService/Worker.cs" containingFunctionPresentation="Method 'ExecuteAsync'">
+            <startOffsets>
+              <option value="1390" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1391" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/services/migrations/AStar.Dev.FilesDb.MigrationService/Program.cs</url>
+          <line>12</line>
+          <properties documentPath="$PROJECT_DIR$/src/services/migrations/AStar.Dev.FilesDb.MigrationService/Program.cs" containingFunctionPresentation="">
+            <startOffsets>
+              <option value="382" />
+            </startOffsets>
+            <endOffsets>
+              <option value="393" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,202 +1,484 @@
-﻿// using AStar.Dev.Infrastructure.FilesDb.Fixtures;
-//
-// namespace AStar.Dev.Infrastructure.FilesDb.Data;
-//
-// public sealed class FilesContextExtensionsShould(FilesContextFixture filesContextFixture) : IClassFixture<FilesContextFixture>
-// {
-//     private const    bool         Recursive                = true;
-//     private const    bool         NotRecursive             = false;
-//     private const    bool         IncludeSoftDeleted       = true;
-//     private const    bool         ExcludeSoftDeleted       = false;
-//     private const    bool         IncludeMarkedForDeletion = true;
-//     private const    bool         ExcludeMarkedForDeletion = false;
-//     private const    bool         ExcludeViewed            = true;
-//     private readonly FilesContext sut                      = filesContextFixture.Sut;
-//
-//     [Fact(Skip = "The underlying code is broken")]
-//     public void
-//         ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedAndDeletePendingAreTrueAndViewedAreNotExcluded()
-//     {
-//         var response = sut.Files.GetMatchingFiles("c:\\temp", Recursive, "searchTypeNotRelevant", IncludeSoftDeleted,
-//                                                   IncludeMarkedForDeletion, !ExcludeViewed, CancellationToken.None);
-//
-//         response.ToString()!.ShouldMatchApproved();
-//     }
-//
-//     [Fact(Skip = "The underlying code is broken")]
-//     public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedAndDeletePendingAreTrueAndViewedAreExcluded()
-//     {
-//         var response = sut.Files.GetMatchingFiles("c:\\temp", Recursive, "searchTypeNotRelevant", IncludeSoftDeleted,
-//                                                   IncludeMarkedForDeletion, ExcludeViewed, CancellationToken.None);
-//
-//         response.ToString()!.ShouldMatchApproved();
-//     }
-//
-//     [Fact(Skip = "The underlying code is broken")]
-//     public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedIsTrueButDeletePendingIsFalse()
-//     {
-//         var response = sut.Files.GetMatchingFiles("c:\\temp", Recursive, "searchTypeNotRelevant", IncludeSoftDeleted,
-//                                                   ExcludeMarkedForDeletion, ExcludeViewed, CancellationToken.None);
-//
-//         response.ToString()!.ShouldMatchApproved();
-//     }
-//
-//     [Fact(Skip = "The underlying code is broken")]
-//     public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedIsFalseButDeletePendingIsTrue()
-//     {
-//         var response = sut.Files.GetMatchingFiles("c:\\temp", Recursive, "searchTypeNotRelevant", ExcludeSoftDeleted,
-//                                                   IncludeMarkedForDeletion, ExcludeViewed, CancellationToken.None);
-//
-//         response.ToString()!.ShouldMatchApproved();
-//     }
-//
-//     [Fact(Skip = "The underlying code is broken")]
-//     public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedAndDeletePendingAreFalse()
-//     {
-//         var response = sut.Files.GetMatchingFiles("c:\\temp", Recursive, "searchTypeNotRelevant", ExcludeSoftDeleted,
-//                                                   ExcludeMarkedForDeletion, ExcludeViewed, CancellationToken.None);
-//
-//         response.ToString()!.ShouldMatchApproved();
-//     }
-//
-//     [Fact(Skip = "The underlying code is broken")]
-//     public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedAndDeletePendingAreTrue_ImagesOnly()
-//     {
-//         var response = sut.Files.GetMatchingFiles("c:\\temp", Recursive, "Images", IncludeSoftDeleted,
-//                                                   IncludeMarkedForDeletion, ExcludeViewed, CancellationToken.None);
-//
-//         response.ToString()!.ShouldMatchApproved();
-//     }
-//
-//     [Fact(Skip = "The underlying code is broken")]
-//     public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedIsTrueButDeletePendingIsFalse_ImagesOnly()
-//     {
-//         var response = sut.Files.GetMatchingFiles("c:\\temp", Recursive, "Images", IncludeSoftDeleted,
-//                                                   ExcludeMarkedForDeletion, ExcludeViewed, CancellationToken.None);
-//
-//         response.ToString()!.ShouldMatchApproved();
-//     }
-//
-//     [Fact(Skip = "The underlying code is broken")]
-//     public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedIsFalseButDeletePendingIsTrue_ImagesOnly()
-//     {
-//         var response = sut.Files.GetMatchingFiles("c:\\temp", Recursive, "Images", ExcludeSoftDeleted,
-//                                                   IncludeMarkedForDeletion, ExcludeViewed, CancellationToken.None);
-//
-//         response.ToString()!.ShouldMatchApproved();
-//     }
-//
-//     [Fact(Skip = "The underlying code is broken")]
-//     public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedAndDeletePendingAreFalse_ImagesOnly()
-//     {
-//         var response = sut.Files.GetMatchingFiles("c:\\temp", Recursive, "Images", ExcludeSoftDeleted,
-//                                                   ExcludeMarkedForDeletion, ExcludeViewed, CancellationToken.None);
-//
-//         response.ToString()!.ShouldMatchApproved();
-//     }
-//
-//     [Fact(Skip = "The underlying code is broken")]
-//     public void GetTheExpectedCountWhenFilterAppliedThatCapturesAllFiles()
-//     {
-//         const int filesNotSoftDeletedOrPendingDeletionCount = 101;
-//
-//         var matchingFilesCount = sut.Files
-//                                     .GetMatchingFiles(@"c:\", Recursive, "AllFiles", ExcludeSoftDeleted, ExcludeMarkedForDeletion, !ExcludeViewed,
-//                                                       CancellationToken.None)
-//                                     .Count();
-//
-//         matchingFilesCount.ShouldBe(filesNotSoftDeletedOrPendingDeletionCount);
-//     }
-//
-//     [Fact(Skip = "The underlying code is broken")]
-//     public void GetTheExpectedCountWhenFilterAppliedThatCapturesAllImageFiles()
-//     {
-//         const int filesNotSoftDeletedOrPendingDeletionCount = 66;
-//
-//         var matchingFilesCount = sut.Files
-//                                     .GetMatchingFiles(@"c:\", Recursive, "Images", ExcludeSoftDeleted, ExcludeMarkedForDeletion, !ExcludeViewed,
-//                                                       CancellationToken.None)
-//                                     .Count();
-//
-//         matchingFilesCount.ShouldBe(filesNotSoftDeletedOrPendingDeletionCount);
-//     }
-//
-//     [Fact(Skip = "The underlying code is broken")]
-//     public void GetTheExpectedCountWhenFilterAppliedThatTargetsTopLevelFolderOnlyWhichIsEmpty()
-//     {
-//         var matchingFilesCount = sut.Files
-//                                     .GetMatchingFiles(@"c:\",         NotRecursive, "Images", ExcludeSoftDeleted, ExcludeMarkedForDeletion,
-//                                                       !ExcludeViewed, CancellationToken.None)
-//                                     .Count();
-//
-//         matchingFilesCount.ShouldBe(0);
-//     }
-//
-//     [Fact(Skip = "The underlying code is broken")]
-//     public void GetTheExpectedCountWhenFilterAppliedThatTargetsSpecificFolderRecursively()
-//     {
-//         const int filesNotSoftDeletedOrPendingDeletionCount = 24;
-//
-//         var matchingFilesCount = sut.Files
-//                                     .GetMatchingFiles(@"c:\temp\wwwroot - Copy\AI", Recursive,      "Images", ExcludeSoftDeleted,
-//                                                       ExcludeMarkedForDeletion,     !ExcludeViewed, CancellationToken.None)
-//                                     .Count();
-//
-//         matchingFilesCount.ShouldBe(filesNotSoftDeletedOrPendingDeletionCount);
-//     }
-//
-//     [Fact(Skip = "The underlying code is broken")]
-//     public void GetTheExpectedCountWhenFilterAppliedThatCapturesAllSupportedImageTypesFromStartingSubFolder()
-//     {
-//         const int filesNotSoftDeletedOrPendingDeletionCount = 17;
-//
-//         var matchingFilesCount = sut.Files
-//                                     .GetMatchingFiles(@"c:\temp\wwwroot - Copy\AI", NotRecursive,   "Images", ExcludeSoftDeleted,
-//                                                       ExcludeMarkedForDeletion,     !ExcludeViewed, CancellationToken.None)
-//                                     .Count();
-//
-//         matchingFilesCount.ShouldBe(filesNotSoftDeletedOrPendingDeletionCount);
-//     }
-//
-//     [Fact(Skip = "The underlying code is broken")]
-//     public void GetTheExpectedCountWhenFilterAppliedThatTargetsSpecificFolderRecursivelyButIncludeSoftDeleted()
-//     {
-//         const int filesNotSoftDeletedOrPendingDeletionCount = 32;
-//
-//         var matchingFilesCount = sut.Files
-//                                     .GetMatchingFiles(@"c:\temp\wwwroot - Copy", Recursive,      "Images", IncludeSoftDeleted,
-//                                                       ExcludeMarkedForDeletion,  !ExcludeViewed, CancellationToken.None)
-//                                     .Count();
-//
-//         matchingFilesCount.ShouldBe(filesNotSoftDeletedOrPendingDeletionCount);
-//     }
-//
-//     [Fact(Skip = "The underlying code is broken")]
-//     public void GetTheExpectedCountWhenFilterAppliedThatTargetsSpecificFolderRecursivelyButIncludeMarkedForDeletion()
-//     {
-//         const int filesNotSoftDeletedOrPendingDeletionCount = 33;
-//
-//         var matchingFilesCount = sut.Files
-//                                     .GetMatchingFiles(@"c:\temp\wwwroot - Copy", Recursive,      "Images", ExcludeSoftDeleted,
-//                                                       IncludeMarkedForDeletion,  !ExcludeViewed, CancellationToken.None)
-//                                     .Count();
-//
-//         matchingFilesCount.ShouldBe(filesNotSoftDeletedOrPendingDeletionCount);
-//     }
-//
-//     [Fact(Skip = "The underlying code is broken")]
-//     public void
-//         GetTheExpectedCountWhenFilterAppliedThatTargetsSpecificFolderRecursivelyButIncludeSoftDeletedAndIncludeMarkedForDeletion()
-//     {
-//         const int filesNotSoftDeletedOrPendingDeletionCount = 35;
-//
-//         var matchingFilesCount = sut.Files
-//                                     .GetMatchingFiles(@"c:\temp\wwwroot - Copy", Recursive,      "Images", IncludeSoftDeleted,
-//                                                       IncludeMarkedForDeletion,  !ExcludeViewed, CancellationToken.None)
-//                                     .Count();
-//
-//         matchingFilesCount.ShouldBe(filesNotSoftDeletedOrPendingDeletionCount);
-//     }
-// }
+﻿using AStar.Dev.Infrastructure.FilesDb.Models;
+using DbContextHelpers.Fixtures;
+using Microsoft.EntityFrameworkCore;
+using NSubstitute;
 
+namespace AStar.Dev.Infrastructure.FilesDb.Data;
 
+public class FileContextExtensionsShould : IClassFixture<FilesContextFixture>
+{
+    private readonly TimeProvider mockTimeProvider;
+    private readonly FilesContext sut;
+
+    public FileContextExtensionsShould(FilesContextFixture filesContextFixture)
+    {
+        var mockDateTimeOffset = new DateTimeOffset(new (2025, 7, 13, 1, 2, 3, DateTimeKind.Utc));
+        mockTimeProvider = Substitute.For<TimeProvider>();
+        mockTimeProvider.GetUtcNow().Returns(mockDateTimeOffset);
+        sut = filesContextFixture.SutWithFileDetails;
+    }
+
+    [Fact]
+    public void SetTheDirectoryNameAndRecursionWhenRecursionIsTrue()
+    {
+        var response = sut.FileDetails.WhereDirectoryNameMatches(@"c:\temp\AI", true).ToList();
+
+        response.Count.ShouldBe(22);
+    }
+
+    [Fact]
+    public void SetTheDirectoryNameAndRecursionWhenRecursionIsFalse()
+    {
+        var response = sut.FileDetails.WhereDirectoryNameMatches(@"c:\temp\AI", false).ToList();
+
+        response.Count.ShouldBe(21);
+    }
+
+    // [Fact]
+    // public void SetTheDirectoryNameAndRecursionWhenRecursionIsTrueForDuplicateDetail()
+    // {
+    //     var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+    //     optionsBuilder.UseSqlServer("");
+    //     var oldSut = new FilesContext(optionsBuilder.Options);
+    //
+    //     var response = oldSut.DuplicateDetails.WhereDirectoryNameMatches("MockDirectoryName", true);
+    //
+    //     response.Expression
+    //             .ToString()
+    //             .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => Convert(fileDetail, IFileDetail).DirectoryName.StartsWith(value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass0_0`1[AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail]).directoryName))");
+    // }
+    //
+    // [Fact]
+    // public void SetTheDirectoryNameAndRecursionWhenRecursionIsFalseForDuplicateDetail()
+    // {
+    //     var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+    //     optionsBuilder.UseSqlServer("");
+    //     var oldSut = new FilesContext(optionsBuilder.Options);
+    //
+    //     var response = oldSut.DuplicateDetails.WhereDirectoryNameMatches("MockDirectoryName", false);
+    //
+    //     response.Expression
+    //             .ToString()
+    //             .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => (Convert(fileDetail, IFileDetail).DirectoryName == value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass0_0`1[AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail]).directoryName))");
+    // }
+
+    [Fact]
+    public void IncludeViewedWhenExcludeViewedIsZero()
+    {
+        var optionsBuilder   = new DbContextOptionsBuilder<FilesContext>();
+        optionsBuilder.UseSqlServer("");
+        var oldSut = new FilesContext(optionsBuilder.Options);
+
+        var response = oldSut.FileDetails.ExcludeViewed(0, mockTimeProvider);
+
+        response.Expression
+                .ToString()
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression]");
+    }
+
+    [Fact]
+    public void NotIncludeViewedWhenExcludeViewedIsNotZero()
+    {
+        var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+        optionsBuilder.UseSqlServer("");
+        var oldSut = new FilesContext(optionsBuilder.Options);
+
+        var response = oldSut.FileDetails.ExcludeViewed(7, mockTimeProvider);
+
+        response.Expression
+                .ToString()
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => (Convert(fileDetail, IFileDetail).FileLastViewed < Convert(value(AStar.Dev.Infrastructure.FilesDb.Data.FileContextExtensions+<>c__DisplayClass1_0`1[AStar.Dev.Infrastructure.FilesDb.Models.FileDetail]).time.GetUtcNow().AddDays(Convert(-value(AStar.Dev.Infrastructure.FilesDb.Data.FileContextExtensions+<>c__DisplayClass1_0`1[AStar.Dev.Infrastructure.FilesDb.Models.FileDetail]).excludeViewedWithinDays, Double)), Nullable`1)))");
+    }
+
+    // [Fact]
+    // public void IncludeViewedWhenExcludeViewedIsZeroForTheDuplicates()
+    // {
+    //     var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+    //     optionsBuilder.UseSqlServer("");
+    //     var oldSut = new FilesContext(optionsBuilder.Options);
+    //
+    //     var response = oldSut.DuplicateDetails.ExcludeViewed(0, mockTimeProvider);
+    //
+    //     response.Expression
+    //             .ToString()
+    //             .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression]");
+    // }
+    //
+    // [Fact]
+    // public void NotIncludeViewedWhenExcludeViewedIsNotZeroForTheDuplicates()
+    // {
+    //     var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+    //     optionsBuilder.UseSqlServer("");
+    //     var oldSut = new FilesContext(optionsBuilder.Options);
+    //
+    //     var response = oldSut.DuplicateDetails.ExcludeViewed(7, mockTimeProvider);
+    //
+    //     response.Expression
+    //             .ToString()
+    //             .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => (Convert(fileDetail, IFileDetail).FileLastViewed < Convert(value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass1_0`1[AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail]).time.GetUtcNow().AddDays(Convert(-value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass1_0`1[AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail]).excludeViewedWithinDays, Double)), Nullable`1)))");
+    // }
+
+    [Fact]
+    public void IncludeMarkedForDeletionWhenRequested()
+    {
+        var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+        optionsBuilder.UseSqlServer("");
+        var oldSut = new FilesContext(optionsBuilder.Options);
+
+        var response = oldSut.FileDetails.IncludeMarkedForDeletion(true);
+
+        response.Expression
+                .ToString()
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression]");
+    }
+
+    [Fact]
+    public void NotIncludeMarkedForDeletionWhenNotRequested()
+    {
+        var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+        optionsBuilder.UseSqlServer("");
+        var oldSut = new FilesContext(optionsBuilder.Options);
+
+        var response = oldSut.FileDetails.IncludeMarkedForDeletion(false);
+
+        response.Expression
+                .ToString()
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => (((fileDetail.DeletionStatus.HardDeletePending == null) AndAlso (fileDetail.DeletionStatus.SoftDeleted == null)) AndAlso (fileDetail.DeletionStatus.SoftDeletePending == null)))");
+    }
+
+    // [Fact]
+    // public void IncludeMarkedForDeletionWhenRequestedForDuplicates()
+    // {
+    //     var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+    //     optionsBuilder.UseSqlServer("");
+    //     var oldSut = new FilesContext(optionsBuilder.Options);
+    //
+    //     var response = oldSut.DuplicateDetails.IncludeMarkedForDeletion(true);
+    //
+    //     response.Expression
+    //             .ToString()
+    //             .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression]");
+    // }
+    //
+    // [Fact]
+    // public void NotIncludeMarkedForDeletionWhenNotRequestedForDuplicates()
+    // {
+    //     var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+    //     optionsBuilder.UseSqlServer("");
+    //     var oldSut = new FilesContext(optionsBuilder.Options);
+    //
+    //     var response = oldSut.DuplicateDetails.IncludeMarkedForDeletion(false);
+    //
+    //     response.Expression
+    //             .ToString()
+    //             .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => (((fileDetail.HardDeletePending == null) AndAlso (fileDetail.SoftDeleted == null)) AndAlso (fileDetail.SoftDeletePending == null)))");
+    // }
+
+    [Fact]
+    public void NotSetTheSearchTextWhenNotSupplied()
+    {
+        var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+        optionsBuilder.UseSqlServer("");
+        var oldSut = new FilesContext(optionsBuilder.Options);
+
+        var response = oldSut.FileDetails.SelectFilesMatching(null);
+
+        response.Expression
+                .ToString()
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression]");
+    }
+
+    [Fact]
+    public void SetTheSearchTextWhenSupplied()
+    {
+        var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+        optionsBuilder.UseSqlServer("");
+        var oldSut = new FilesContext(optionsBuilder.Options);
+
+        var response = oldSut.FileDetails.SelectFilesMatching("Mock Text");
+
+        response.Expression
+                .ToString()
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => (Convert(fileDetail, IFileDetail).DirectoryName.Contains(value(AStar.Dev.Infrastructure.FilesDb.Data.FileContextExtensions+<>c__DisplayClass3_0`1[AStar.Dev.Infrastructure.FilesDb.Models.FileDetail]).searchText) OrElse Convert(fileDetail, IFileDetail).FileName.Contains(value(AStar.Dev.Infrastructure.FilesDb.Data.FileContextExtensions+<>c__DisplayClass3_0`1[AStar.Dev.Infrastructure.FilesDb.Models.FileDetail]).searchText)))");
+    }
+
+    // [Fact]
+    // public void NotSetTheSearchTextWhenNotSuppliedForDuplicates()
+    // {
+    //     var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+    //     optionsBuilder.UseSqlServer("");
+    //     var oldSut = new FilesContext(optionsBuilder.Options);
+    //
+    //     var response = oldSut.DuplicateDetails.SelectFilesMatching(null);
+    //
+    //     response.Expression
+    //             .ToString()
+    //             .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression]");
+    // }
+    //
+    // [Fact]
+    // public void SetTheSearchTextWhenSuppliedForDuplicates()
+    // {
+    //     var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+    //     optionsBuilder.UseSqlServer("");
+    //     var oldSut = new FilesContext(optionsBuilder.Options);
+    //
+    //     var response = oldSut.DuplicateDetails.SelectFilesMatching("Mock Text");
+    //
+    //     response.Expression
+    //             .ToString()
+    //             .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Where(fileDetail => (Convert(fileDetail, IFileDetail).DirectoryName.Contains(value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass4_0`1[AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail]).searchText) OrElse Convert(fileDetail, IFileDetail).FileName.Contains(value(AStar.Dev.Files.Api.Endpoints.FileContextExtensions+<>c__DisplayClass4_0`1[AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail]).searchText)))");
+    // }
+
+    [Fact]
+    public void SelectTheFirstPageWhenRequested()
+    {
+        var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+        optionsBuilder.UseSqlServer("");
+        var oldSut = new FilesContext(optionsBuilder.Options);
+
+        var response = oldSut.FileDetails.SelectRequestedPage(1, 10);
+
+        response.Expression
+                .ToString()
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Skip(0).Take(10)");
+    }
+
+    [Fact]
+    public void SelectTheNthPageWhenRequested()
+    {
+        var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+        optionsBuilder.UseSqlServer("");
+        var oldSut = new FilesContext(optionsBuilder.Options);
+
+        var response = oldSut.FileDetails.SelectRequestedPage(3, 10);
+
+        response.Expression
+                .ToString()
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Skip(20).Take(10)");
+    }
+
+    [Fact]
+    public void SetTheSortOrderAsNameAscendingWhenRequested()
+    {
+        var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+        optionsBuilder.UseSqlServer("");
+        var oldSut = new FilesContext(optionsBuilder.Options);
+
+        var response = oldSut.FileDetails.OrderAsRequested(SortOrder.NameAscending);
+
+        response.Expression
+                .ToString()
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderBy(fileDetail => Convert(fileDetail, IFileDetail).FileName)");
+    }
+
+    [Fact]
+    public void SetTheSortOrderAsNameDescendingWhenRequested()
+    {
+        var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+        optionsBuilder.UseSqlServer("");
+        var oldSut = new FilesContext(optionsBuilder.Options);
+
+        var response = oldSut.FileDetails.OrderAsRequested(SortOrder.NameDescending);
+
+        response.Expression
+                .ToString()
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderByDescending(fileDetail => Convert(fileDetail, IFileDetail).FileName)");
+    }
+
+    [Fact]
+    public void SetTheSortOrderAsSizeAscendingWhenRequested()
+    {
+        var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+        optionsBuilder.UseSqlServer("");
+        var oldSut = new FilesContext(optionsBuilder.Options);
+
+        var response = oldSut.FileDetails.OrderAsRequested(SortOrder.SizeAscending);
+
+        response.Expression
+                .ToString()
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderBy(fileDetail => Convert(fileDetail, IFileDetail).FileSize)");
+    }
+
+    [Fact]
+    public void SetTheSortOrderAsSizeDescendingWhenRequested()
+    {
+        var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+        optionsBuilder.UseSqlServer("");
+        var oldSut = new FilesContext(optionsBuilder.Options);
+
+        var response = oldSut.FileDetails.OrderAsRequested(SortOrder.SizeDescending);
+
+        response.Expression
+                .ToString()
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderByDescending(fileDetail => Convert(fileDetail, IFileDetail).FileSize)");
+    }
+
+    // [Fact]
+    // public void SetTheSortOrderAsNameAscendingWhenRequestedForDuplicates()
+    // {
+    //     var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+    //     optionsBuilder.UseSqlServer("");
+    //     var oldSut = new FilesContext(optionsBuilder.Options);
+    //
+    //     var response = oldSut.DuplicateDetails.OrderAsRequested(SortOrder.NameAscending);
+    //
+    //     response.Expression
+    //             .ToString()
+    //             .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderBy(fileDetail => Convert(fileDetail, IFileDetail).FileName)");
+    // }
+    //
+    // [Fact]
+    // public void SetTheSortOrderAsNameDescendingWhenRequestedForDuplicates()
+    // {
+    //     var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+    //     optionsBuilder.UseSqlServer("");
+    //     var oldSut = new FilesContext(optionsBuilder.Options);
+    //
+    //     var response = oldSut.DuplicateDetails.OrderAsRequested(SortOrder.NameDescending);
+    //
+    //     response.Expression
+    //             .ToString()
+    //             .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderByDescending(fileDetail => Convert(fileDetail, IFileDetail).FileName)");
+    // }
+    //
+    // [Fact]
+    // public void SetTheSortOrderAsSizeAscendingWhenRequestedForDuplicates()
+    // {
+    //     var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+    //     optionsBuilder.UseSqlServer("");
+    //     var oldSut = new FilesContext(optionsBuilder.Options);
+    //
+    //     var response = oldSut.DuplicateDetails.OrderAsRequested(SortOrder.SizeAscending);
+    //
+    //     response.Expression
+    //             .ToString()
+    //             .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderBy(fileDetail => Convert(fileDetail, IFileDetail).FileSize)");
+    // }
+    //
+    // [Fact]
+    // public void SetTheSortOrderAsSizeDescendingWhenRequestedForDuplicates()
+    // {
+    //     var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+    //     optionsBuilder.UseSqlServer("");
+    //     var oldSut = new FilesContext(optionsBuilder.Options);
+    //
+    //     var response = oldSut.DuplicateDetails.OrderAsRequested(SortOrder.SizeDescending);
+    //
+    //     response.Expression
+    //             .ToString()
+    //             .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderByDescending(fileDetail => Convert(fileDetail, IFileDetail).FileSize)");
+    // }
+
+    [Fact]
+    public void SetTheRequestedSearchTypeForAll()
+    {
+        var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+        optionsBuilder.UseSqlServer("");
+        var oldSut = new FilesContext(optionsBuilder.Options);
+
+        var response = oldSut.FileDetails.SetSearchType(SearchType.All);
+
+        response.Expression
+                .ToString()
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression]");
+    }
+
+    [Fact]
+    public void SetTheRequestedSearchTypeForDuplicateImages()
+    {
+        var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+        optionsBuilder.UseSqlServer("");
+        var oldSut = new FilesContext(optionsBuilder.Options);
+
+        var response = oldSut.FileDetails.SetSearchType(SearchType.DuplicateImages);
+
+        response.Expression
+                .ToString()
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderByDescending(fileDetail => Convert(fileDetail, IFileDetail).FileName)");
+    }
+
+    [Fact]
+    public void SetTheRequestedSearchTypeForDuplicates()
+    {
+        var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+        optionsBuilder.UseSqlServer("");
+        var oldSut = new FilesContext(optionsBuilder.Options);
+
+        var response = oldSut.FileDetails.SetSearchType(SearchType.Duplicates);
+
+        response.Expression
+                .ToString()
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderBy(fileDetail => Convert(fileDetail, IFileDetail).FileSize)");
+    }
+
+    [Fact]
+    public void SetTheRequestedSearchTypeForImages()
+    {
+        var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+        optionsBuilder.UseSqlServer("");
+        var oldSut = new FilesContext(optionsBuilder.Options);
+
+        var response = oldSut.FileDetails.SetSearchType(SearchType.Images);
+
+        response.Expression
+                .ToString()
+                .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderByDescending(fileDetail => Convert(fileDetail, IFileDetail).FileSize)");
+    }
+
+    // [Fact]
+    // public void SetTheRequestedSearchTypeForDuplicateImagesForDuplicates()
+    // {
+    //     var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+    //     optionsBuilder.UseSqlServer("");
+    //     var oldSut = new FilesContext(optionsBuilder.Options);
+    //
+    //     var response = oldSut.DuplicateDetails.SetSearchType(SearchType.DuplicateImages);
+    //
+    //     response.Expression
+    //             .ToString()
+    //             .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderByDescending(fileDetail => Convert(fileDetail, IFileDetail).FileName)");
+    // }
+    //
+    // [Fact]
+    // public void SetTheRequestedSearchTypeForDuplicatesForDuplicates()
+    // {
+    //     var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+    //     optionsBuilder.UseSqlServer("");
+    //     var oldSut = new FilesContext(optionsBuilder.Options);
+    //
+    //     var response = oldSut.DuplicateDetails.SetSearchType(SearchType.Duplicates);
+    //
+    //     response.Expression
+    //             .ToString()
+    //             .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].OrderBy(fileDetail => Convert(fileDetail, IFileDetail).FileSize)");
+    // }
+    //
+    // [Fact]
+    // public void SelectTheFirstPageWhenRequestedForDuplicates()
+    // {
+    //     var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+    //     optionsBuilder.UseSqlServer("");
+    //     var oldSut = new FilesContext(optionsBuilder.Options);
+    //
+    //     var response = oldSut.DuplicateDetails.SelectRequestedPage(1, 10);
+    //
+    //     response.Expression
+    //             .ToString()
+    //             .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Skip(0).Take(10)");
+    // }
+    //
+    // [Fact]
+    // public void SelectTheNthPageWhenRequestedForDuplicates()
+    // {
+    //     var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+    //     optionsBuilder.UseSqlServer("");
+    //     var oldSut = new FilesContext(optionsBuilder.Options);
+    //
+    //     var response = oldSut.DuplicateDetails.SelectRequestedPage(3, 10);
+    //
+    //     response.Expression
+    //             .ToString()
+    //             .ShouldBe("[Microsoft.EntityFrameworkCore.Query.EntityQueryRootExpression].Skip(20).Take(10)");
+    // }
+}

@@ -27,7 +27,7 @@ public static class FileContextExtensions
     public static IQueryable<T> ExcludeViewed<T>(this IQueryable<T> files, int excludeViewedWithinDays, TimeProvider time) where T : IFileDetail
         => excludeViewedWithinDays == 0
                ? files
-               : files.Where(fileDetail => fileDetail.FileLastViewed < time.GetUtcNow().AddDays(-excludeViewedWithinDays));
+               : files.Where(fileDetail => fileDetail.FileLastViewed != null && fileDetail.FileLastViewed.Value.Date < time.GetUtcNow().Date);
 
     /// <summary>
     /// </summary>

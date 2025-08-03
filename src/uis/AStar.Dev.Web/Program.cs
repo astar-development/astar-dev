@@ -1,5 +1,6 @@
 using AStar.Dev.ServiceDefaults;
 using AStar.Dev.Web.Components;
+using AStar.Dev.Web.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.AddServiceDefaults();
@@ -8,6 +9,7 @@ builder.Services.AddRazorComponents()
        .AddInteractiveServerComponents();
 
 builder.Services.AddHealthChecks();
+builder.Services.AddScoped<ThemeService>();
 
 var app = builder.Build();
 

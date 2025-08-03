@@ -4,10 +4,11 @@
         <TargetFramework>net9.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>2a3f29b3-71a8-493e-99a6-a68565bcd46b</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="AStar.Dev.Functional.Extensions" Version="0.2.0"/>
+
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.7"/>
     </ItemGroup>
 
