@@ -12,16 +12,6 @@ public class GetFilesHandler : IGetFilesHandler
     {
         if(files.SearchType is SearchType.DuplicateImages or SearchType.Duplicates)
         {
-            // fileDetails = await filesContext.DuplicateDetails
-            //                                 .WhereDirectoryNameMatches(files.SearchFolder, files.Recursive)
-            //                                 .ExcludeViewed(files.ExcludeViewedWithinDays, time)
-            //                                 .IncludeMarkedForDeletion(files.IncludeMarkedForDeletion)
-            //                                 .SelectFilesMatching(files.SearchText)
-            //                                 .OrderAsRequested(files.SortOrder)
-            //                                 .SelectByFileType(files.SearchType)
-            //                                 .SelectRequestedPage(files.CurrentPage, files.ItemsPerPage)
-            //                                 .Select(fileDetail => fileDetail.ToGetFilesResponse())
-            //                                 .ToListAsync(cancellationToken);
             return Results.BadRequest();
         }
 
@@ -32,11 +22,11 @@ public class GetFilesHandler : IGetFilesHandler
 
         IList<GetFilesResponse> fileDetails = await filesContext.FileDetails
                                                                 .WhereDirectoryNameMatches(files.SearchFolder, files.Recursive)
-                                                                .ExcludeViewed(files.ExcludeViewedWithinDays, time)
                                                                 .IncludeMarkedForDeletion(files.IncludeMarkedForDeletion)
                                                                 .SelectFilesMatching(files.SearchText)
                                                                 .OrderAsRequested(sortOrder)
                                                                 .SelectByFileType(searchType)
+                                                                .ExcludeViewed(files.ExcludeViewedWithinDays, time)
                                                                 .SelectRequestedPage(files.CurrentPage, files.ItemsPerPage)
                                                                 .Select(fileDetail => fileDetail.ToGetFilesResponse())
                                                                 .ToListAsync(cancellationToken);

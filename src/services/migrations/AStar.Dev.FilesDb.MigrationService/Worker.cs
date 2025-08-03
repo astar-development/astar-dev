@@ -15,6 +15,7 @@ public class Worker(IServiceProvider serviceProvider, IHostApplicationLifetime h
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
+        // ReSharper disable once ExplicitCallerInfoArgument
         using var activity = ActivitySource.StartActivity("Migrating database", ActivityKind.Client);
 
         try

@@ -1,0 +1,52 @@
+﻿[
+  {
+    "directoryName": "c:\\temp",
+    "fileName": "CodeMaid.config",
+    "fileHandle": "c:\\temp-CodeMaid.config-1"
+  },
+  {
+    "directoryName": "c:\\temp",
+    "fileName": "FileAccessDetails.csv",
+    "fileHandle": "c:\\temp-FileAccessDetails.csv-3"
+  },
+  {
+    "directoryName": "c:\\temp",
+    "fileName": "Files.csv",
+    "fileHandle": "c:\\temp-Files.csv-4"
+  },
+  {
+    "directoryName": "c:\\temp",
+    "fileName": "Files.db",
+    "fileHandle": "c:\\temp-Files.db-5"
+  },
+  {
+    "directoryName": "c:\\temp",
+    "fileName": "ef-core-6-encapsulating-usage.zip",
+    "fileHandle": "c:\\temp-ef-core-6-encapsulating-usage.zip-2"
+  },
+  {
+    "directoryName": "c:\\temp",
+    "fileName": "wallhaven-8568w2.png",
+    "fileHandle": "c:\\temp-wallhaven-8568w2.png-6"
+  },
+  {
+    "directoryName": "c:\\temp",
+    "fileName": "wallhaven-85819j.jpg",
+    "fileHandle": "c:\\temp-wallhaven-85819j.jpg-7"
+  },
+  {
+    "directoryName": "c:\\temp",
+    "fileName": "wallhaven-eo3198.jpg",
+    "fileHandle": "c:\\temp-wallhaven-eo3198.jpg-8"
+  },
+  {
+    "directoryName": "c:\\temp",
+    "fileName": "wallhaven-ex221l.jpg",
+    "fileHandle": "c:\\temp-wallhaven-ex221l.jpg-9"
+  },
+  {
+    "directoryName": "c:\\temp",
+    "fileName": "wallhaven-expvqk.jpg",
+    "fileHandle": "c:\\temp-wallhaven-expvqk.jpg-10"
+  }
+]
