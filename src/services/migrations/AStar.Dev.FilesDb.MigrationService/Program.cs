@@ -10,4 +10,4 @@ builder.Services.AddHostedService<Worker>();
 builder.AddSqlServerDbContext<FilesContext>(AspireConstants.Sql.FilesDb);
 
 var host = builder.Build();
-host.Run();
+await host.RunAsync();
