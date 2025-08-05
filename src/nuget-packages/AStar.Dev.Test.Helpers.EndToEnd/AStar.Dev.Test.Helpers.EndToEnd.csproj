@@ -33,7 +33,7 @@
         <PackageReference Include="Microsoft.Extensions.Options" Version="9.0.7"/>
         <PackageReference Include="Reqnroll.xUnit" Version="2.4.1"/>
         <PackageReference Include="Shouldly" Version="4.3.0"/>
-        <PackageReference Include="Microsoft.Playwright.Xunit" Version="1.53.0"/>
+        <PackageReference Include="Microsoft.Playwright.Xunit" Version="1.54.0"/>
     </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
