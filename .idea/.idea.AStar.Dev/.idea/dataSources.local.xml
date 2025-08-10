@@ -76,5 +76,15 @@
       <secret-storage>master_key</secret-storage>
       <schema-mapping />
     </data-source>
+    <data-source name="filesDb" uuid="6b0eb302-220c-4250-9d8c-7ff1fadd01ea">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
+      <secret-storage>master_key</secret-storage>
+      <schema-mapping />
+    </data-source>
+    <data-source name="adminDb" uuid="bbdee517-35bd-47d0-af10-c0645362a15a">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
+      <secret-storage>master_key</secret-storage>
+      <schema-mapping />
+    </data-source>
   </component>
 </project>

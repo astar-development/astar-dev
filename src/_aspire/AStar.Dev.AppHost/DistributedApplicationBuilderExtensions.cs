@@ -88,9 +88,6 @@ public static class DistributedApplicationBuilderExtensions
                                      .WithHttpHealthCheck(HealthEndpoint);
 
     private static IResourceBuilder<RabbitMQServerResource> AddRabbitMq(IDistributedApplicationBuilder distributedApplicationBuilder) =>
-
-        // var rabbitMqUsername = distributedApplicationBuilder.AddParameter("rabbitmq-username", true);
-        // var rabbitMqPassword = distributedApplicationBuilder.AddParameter("rabbitmq-password", true);
         distributedApplicationBuilder.AddRabbitMQ(AspireConstants.Services.AstarMessaging)
                                      .WithLifetime(ContainerLifetime.Persistent)
                                      .WithManagementPlugin();
