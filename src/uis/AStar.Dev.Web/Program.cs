@@ -15,7 +15,7 @@ var app = builder.Build();
 
 app.MapHealthChecks("/health");
 
-if (!app.Environment.IsDevelopment())
+if(!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error", true);
     app.UseHsts();
@@ -34,7 +34,7 @@ await app.RunAsync();
 
 namespace AStar.Dev.Web
 {
-    public  class Program
+    public class Program
     {
     }
 }

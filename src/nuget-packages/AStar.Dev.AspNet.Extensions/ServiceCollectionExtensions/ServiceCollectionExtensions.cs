@@ -19,7 +19,7 @@ namespace AStar.Dev.AspNet.Extensions.ServiceCollectionExtensions;
 /// </summary>
 public static class ServiceCollectionExtensions
 {
-    private static ApiUsageConfiguration ApiUsageConfiguration { get; set; } = new() { UserName = "NotSet", Password = "NotSet", HostName = "NotSet", QueueName = "NotSet" };
+    private static ApiUsageConfiguration ApiUsageConfiguration { get; set; } = new() { UserName = "NotSet", Password = string.Empty, HostName = "NotSet", QueueName = "NotSet" };
 
     /// <summary>
     ///     The <see cref="ConfigureUi" /> will do exactly what it says on the tin...this time around, this is for the UI
@@ -93,8 +93,8 @@ public static class ServiceCollectionExtensions
                                                                            {
                                                                                Description = """
                                                                                              JWT Authorization header using the Bearer scheme. \r\n\r\n 
-                                                                                                                   Enter 'just' your token in the text input below.
-                                                                                                                   \r\n\r\nExample: '12345etc'
+                                                                                               Enter 'just' your token in the text input below.
+                                                                                               \r\n\r\nExample: '12345etc'
                                                                                              """,
                                                                                Name   = "Authorization",
                                                                                In     = ParameterLocation.Header,

@@ -10,14 +10,14 @@
 //     public void ContainTheExpectedValues()
 //     {
 //         var siteConfiguration = new Infrastructure.AdminDb.Models.SiteConfiguration
-//                                 {
-//                                     SiteConfigurationSlug = "SiteConfigurationSlug",
-//                                     Password              = "siteConfiguration.Password",
-//                                     Username              = "siteConfiguration.Username",
-//                                     LoginEmailAddress     = "siteConfiguration.LoginEmailAddress",
-//                                     BaseUrl               = "siteConfiguration.BaseDirectory",
-//                                     LoginUrl              = "LoginUrl",
-//                                 };
+//   {
+//       SiteConfigurationSlug = "SiteConfigurationSlug",
+//       Password    = "siteConfiguration.Password",
+//       Username    = "siteConfiguration.Username",
+//       LoginEmailAddress     = "siteConfiguration.LoginEmailAddress",
+//       BaseUrl     = "siteConfiguration.BaseDirectory",
+//       LoginUrl    = "LoginUrl",
+//   };
 //
 //         var sut = new GetSiteConfigurationBySlugResponse(siteConfiguration);
 //

@@ -14,7 +14,7 @@ public class GetFilesHandlerShould : IClassFixture<FilesContextFixture>
     {
         this.mockFilesContextFactory = mockFilesContextFactory;
         mockTimeProvider             = Substitute.For<TimeProvider>();
-        mockTimeProvider.GetUtcNow().Returns(new DateTimeOffset(new (2025, 7, 13, 1, 2, 3, DateTimeKind.Utc)));
+        mockTimeProvider.GetUtcNow().Returns(new DateTimeOffset(new(2025, 7, 13, 1, 2, 3, DateTimeKind.Utc)));
     }
 
     [Fact]
@@ -29,11 +29,11 @@ public class GetFilesHandlerShould : IClassFixture<FilesContextFixture>
     }
 
     [Theory]
-    [InlineData(@"\some\directory", true,  0, true,  "",  SortOrder.NameAscending,  SearchType.All, 1, 10)]
+    [InlineData(@"\some\directory", true, 0, true, "", SortOrder.NameAscending, SearchType.All, 1, 10)]
     public async Task ReturnOkWhenCalledWithValidParameters(string directoryName, bool recursive, int excludeViewedWithinDays, bool includeMarkedForDeletion, string searchText, SortOrder sortOrder,
                                                             SearchType searchType, int currentPage, int itemsPerPage)
     {
-        await using var mockContext = mockFilesContextFactory.Sut;
+        await using var mockContext = mockFilesContextFactory.Sut; // this is from the integrations, I've messed up and need to find and revert some earlier updates or move the test
         var             sut         = new GetFilesHandler();
 
         var response = await

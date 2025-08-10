@@ -6,7 +6,7 @@ namespace AStar.Dev.Infrastructure.FilesDb.Tests.Integration;
 
 /// <summary>
 /// </summary>
-public class FileDetailTextContainsExtensionsShould (FilesContextFixture filesContextFixture) : IClassFixture<FilesContextFixture>
+public class FileDetailTextContainsExtensionsShould(FilesContextFixture filesContextFixture) : IClassFixture<FilesContextFixture>
 {
     [Fact]
     public void ReturnTheExpectedFilesMatchingTheSuppliedTextWhenExistsInTheDirectoryNameOnly()

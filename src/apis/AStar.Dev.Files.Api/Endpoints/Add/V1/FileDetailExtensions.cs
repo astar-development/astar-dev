@@ -20,7 +20,7 @@ public static class FileDetailExtensions
                                DirectoryName    = file.DirectoryName.Value,
                                Id               = file.Id.Value,
                                FileCreated      = file.FileCreated,
-                               ImageDetails     = new () { Width = file.ImageDetail?.Width, Height = file.ImageDetail?.Height },
+                               ImageDetails     = new() { Width = file.ImageDetail?.Width, Height = file.ImageDetail?.Height },
                                FileHandle       = file.FileHandle,
                                FileSize         = file.FileSize,
                                FileLastModified = file.FileLastModified,

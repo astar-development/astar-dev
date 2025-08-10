@@ -29,17 +29,17 @@ public static class ServiceCollectionExtensions
         services.AddScoped<IApiClient, AdminApiClient>();
 
         // _ = services.AddHttpClient<AdminApiClient>()
-        //             .ConfigureHttpClient((serviceProvider, client) =>
-        //                                  {
-        //                                      client.BaseAddress = serviceProvider
-        //                                                           .GetRequiredService<IOptions<AdminApiConfiguration>>().Value
-        //                                                           .BaseUrl;
+        //   .ConfigureHttpClient((serviceProvider, client) =>
+        //    {
+        //        client.BaseAddress = serviceProvider
+        //         .GetRequiredService<IOptions<AdminApiConfiguration>>().Value
+        //         .BaseUrl;
         //
-        //                                      client.DefaultRequestHeaders.Accept.Add(
-        //                                                                              new
-        //                                                                                  MediaTypeWithQualityHeaderValue(MediaTypeNames.Application
-        //                                                                                                                                .Json));
-        //                                  });
+        //        client.DefaultRequestHeaders.Accept.Add(
+        //        new
+        //            MediaTypeWithQualityHeaderValue(MediaTypeNames.Application
+        //                  .Json));
+        //    });
 
         services.AddDownstreamApi(nameof(AdminApiClient), configuration.GetSection(AdminApiConfiguration.SectionLocation));
 

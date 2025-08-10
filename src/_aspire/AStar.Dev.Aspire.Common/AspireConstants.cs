@@ -2,7 +2,7 @@
 
 public static class AspireConstants
 {
-    public const string Ui        = "ui";
+    public const string Ui = "ui";
 
     public static class Apis
     {

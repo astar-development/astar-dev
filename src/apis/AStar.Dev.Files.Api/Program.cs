@@ -4,6 +4,7 @@ using System.Text.Json.Serialization;
 using AStar.Dev.Api.Usage.Sdk;
 using AStar.Dev.Api.Usage.Sdk.Metrics;
 using AStar.Dev.Aspire.Common;
+using AStar.Dev.AspNet.Extensions.Handlers;
 using AStar.Dev.AspNet.Extensions.PipelineExtensions;
 using AStar.Dev.AspNet.Extensions.RootEndpoint;
 using AStar.Dev.AspNet.Extensions.ServiceCollectionExtensions;
@@ -82,6 +83,8 @@ try
                                     });
 
     services.AddAuthorization();
+    services.AddExceptionHandler<GlobalExceptionHandler>();
+    services.AddProblemDetails();
 
     services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
     services.AddScoped<IGetFilesHandler, GetFilesHandler>();
@@ -96,10 +99,11 @@ try
 
     app.MapFilesPostEndpoint();
     app.MapFilesGetEndpoint();
+    app.UseExceptionHandler();
 
     await app.RunAsync();
 }
-catch (Exception ex)
+catch(Exception ex)
 {
     Log.Error(ex, "Fatal error occurred in {AppName}", applicationName);
 }

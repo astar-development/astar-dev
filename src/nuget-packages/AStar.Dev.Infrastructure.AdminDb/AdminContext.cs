@@ -91,7 +91,7 @@ public sealed class AdminContext : DbContext
     /// </param>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        if (optionsBuilder.IsConfigured)
+        if(optionsBuilder.IsConfigured)
         {
             return;
         }
@@ -112,12 +112,12 @@ public sealed class AdminContext : DbContext
                                  await context.SaveChangesAsync(cancellationToken);
                              });
 
-        if (astarDbContextOptions.EnableLogging)
+        if(astarDbContextOptions.EnableLogging)
         {
             _ = optionsBuilder.UseLoggerFactory(CreateLoggerFactory())
                               .LogTo(Console.WriteLine);
 
-            if (astarDbContextOptions.IncludeSensitiveData)
+            if(astarDbContextOptions.IncludeSensitiveData)
             {
                 _ = optionsBuilder.EnableSensitiveDataLogging();
             }

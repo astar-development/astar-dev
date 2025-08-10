@@ -10,17 +10,17 @@
 //     public void ContainTheExpectedValues()
 //     {
 //         var sut = new UpdateScrapeDirectoriesResponse(new()
-//                                                       {
-//                                                           UpdatedBy           = "UpdatedBy",
-//                                                           UpdatedOn           = new(2001, 1, 1),
-//                                                           BaseDirectory       = "BaseDirectory",
-//                                                           BaseDirectoryFamous = "BaseDirectoryFamous",
-//                                                           BaseSaveDirectory   = "BaseSaveDirectory",
-//                                                           RootDirectory       = "RootDirectory",
-//                                                           SubDirectoryName    = "SubDirectoryName",
-//                                                           ScrapeDirectoryId   = Guid.Empty,
-//                                                           Id                  = 1,
-//                                                       });
+//     {
+//         UpdatedBy = "UpdatedBy",
+//         UpdatedOn = new(2001, 1, 1),
+//         BaseDirectory       = "BaseDirectory",
+//         BaseDirectoryFamous = "BaseDirectoryFamous",
+//         BaseSaveDirectory   = "BaseSaveDirectory",
+//         RootDirectory       = "RootDirectory",
+//         SubDirectoryName    = "SubDirectoryName",
+//         ScrapeDirectoryId   = Guid.Empty,
+//         Id        = 1,
+//     });
 //
 //         sut.ToJson().ShouldMatchApproved();
 //     }

@@ -14,5 +14,5 @@ public static class EndpointConstants
 
     /// <summary>
     /// </summary>
-    public static string FilesEndpoint  => "/files";
+    public static string FilesEndpoint => "/files";
 }

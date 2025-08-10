@@ -5,7 +5,7 @@ using Shouldly;
 
 namespace AStar.Dev.Infrastructure.FilesDb.Tests.Integration;
 
-public class FileDetailDirectoryNameExtensionsShould (FilesContextFixture filesContextFixture) : IClassFixture<FilesContextFixture>
+public class FileDetailDirectoryNameExtensionsShould(FilesContextFixture filesContextFixture) : IClassFixture<FilesContextFixture>
 {
     [Fact]
     public void ShouldReturnExpectedFileDetailsWhenDirectoryNameSpecifiedAndRecursionIsFalse()

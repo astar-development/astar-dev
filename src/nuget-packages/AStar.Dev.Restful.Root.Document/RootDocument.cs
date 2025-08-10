@@ -22,14 +22,14 @@ public sealed class RootDocument(ILogger<RootDocument> logger)
 
         var links = new List<LinkResponse>();
 
-        if (cancellationToken.IsCancellationRequested)
+        if(cancellationToken.IsCancellationRequested)
         {
             return links;
         }
 
         var endpoints = GetEndpoints(assembly);
 
-        foreach (var endpoint in endpoints)
+        foreach(var endpoint in endpoints)
         {
             var customAttributes = endpoint.GetCustomAttributes<RouteAttribute>().FirstOrDefault();
             var rel              = endpoint.ReflectedType?.Name;
@@ -39,18 +39,18 @@ public sealed class RootDocument(ILogger<RootDocument> logger)
 
             var methodInfos = methods as MethodInfo[] ?? methods.ToArray();
 
-            if (methodInfos.Length == 0)
+            if(methodInfos.Length == 0)
             {
                 continue;
             }
 
-            foreach (var method in methodInfos)
+            foreach(var method in methodInfos)
             {
                 var template             = string.Empty;
                 var httpMethod           = string.Empty;
                 var httpMethodAttributes = method.GetCustomAttributes<HttpMethodAttribute>();
 
-                foreach (var httpMethodAttribute in httpMethodAttributes)
+                foreach(var httpMethodAttribute in httpMethodAttributes)
                 {
                     var res = GetHttpMethodWithTemplate(httpMethodAttribute);
                     template   = res.template;
@@ -61,7 +61,7 @@ public sealed class RootDocument(ILogger<RootDocument> logger)
                 _ = routeBuilder.Append(routeTemplate);
                 var route = routeBuilder.ToString().Replace("//", "/");
 
-                if (route.IsNotNullOrWhiteSpace())
+                if(route.IsNotNullOrWhiteSpace())
                 {
                     links.Add(new() { Rel = rel ?? "self", Href = route, Method = httpMethod });
                 }
@@ -76,7 +76,7 @@ public sealed class RootDocument(ILogger<RootDocument> logger)
         var httpMethod = "GET";
         var template   = string.Empty;
 
-        switch (httpMethodAttribute)
+        switch(httpMethodAttribute)
         {
             case HttpGetAttribute getAttribute:
                 template   = getAttribute.Template;

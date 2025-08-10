@@ -8,7 +8,7 @@ public class FileDetailClassificationShould
 {
     [Fact]
     public void ContainTheExpectedProperties()
-        => new FileDetailClassification { ClassificationId = 123, FileDetail = new (), FileDetailClassifications = new (), FileId = 312 }
+        => new FileDetailClassification { ClassificationId = 123, FileDetail = new(), FileDetailClassifications = new(), FileId = 312 }
            .ToJson()
            .ShouldMatchApproved();
 }

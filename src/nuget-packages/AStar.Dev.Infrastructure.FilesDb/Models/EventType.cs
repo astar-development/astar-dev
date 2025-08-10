@@ -22,42 +22,42 @@ public sealed class EventType : IEquatable<EventType>
     /// <summary>
     ///     Represents an 'Add' event type, typically used for new record creation.
     /// </summary>
-    public static EventType Add    => new (1, "Add");
+    public static EventType Add => new(1, "Add");
 
     /// <summary>
     ///     Represents an 'Update' event type, typically used for modifying existing records.
     /// </summary>
-    public static EventType Update => new (2, "Update");
+    public static EventType Update => new(2, "Update");
 
     /// <summary>
     ///     Represents a 'SoftDelete' event type, typically used for 'soft' removing records.
     /// </summary>
-    public static EventType SoftDelete => new (3, "SoftDelete");
+    public static EventType SoftDelete => new(3, "SoftDelete");
 
     /// <summary>
     ///     Represents a 'HardDelete' event type, typically used for permanently removing records.
     /// </summary>
-    public static EventType HardDelete => new (4, "HardDelete");
+    public static EventType HardDelete => new(4, "HardDelete");
 
     /// <summary>
     ///     Gets the integer value associated with the event type.
     /// </summary>
-    public int    Value { get; }
+    public int Value { get; }
 
     /// <summary>
     ///     Gets the string name of the event type.
     /// </summary>
-    public string Name  { get; }
+    public string Name { get; }
 
     /// <inheritdoc />
     public bool Equals(EventType? other)
     {
-        if (other is null)
+        if(other is null)
         {
             return false;
         }
 
-        if (ReferenceEquals(this, other))
+        if(ReferenceEquals(this, other))
         {
             return true;
         }

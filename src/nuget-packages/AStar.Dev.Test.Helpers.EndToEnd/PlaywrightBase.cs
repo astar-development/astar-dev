@@ -63,7 +63,7 @@ public abstract class PlaywrightBase
         const int maxValueExclusive = 3;
         var       random            = new Random(DateTime.UtcNow.Millisecond).Next(maxValueExclusive);
 
-        switch (random)
+        switch(random)
         {
             case 1:
                 browserType = playwright.Firefox;

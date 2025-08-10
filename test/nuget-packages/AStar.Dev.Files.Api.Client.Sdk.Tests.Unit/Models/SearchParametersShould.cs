@@ -7,7 +7,7 @@ public sealed class SearchParametersShould
         new SearchParameters
             {
                 CurrentPage              = 1,
-                ExcludedViewSettings     = new () { ExcludeViewed = true, ExcludeViewedPeriodInDays = 12 },
+                ExcludedViewSettings     = new() { ExcludeViewed = true, ExcludeViewedPeriodInDays = 12 },
                 IncludeMarkedForDeletion = true,
                 IncludeSoftDeleted       = true,
                 ItemsPerPage             = 12,
@@ -27,7 +27,7 @@ public sealed class SearchParametersShould
         new SearchParameters
             {
                 CurrentPage              = 1,
-                ExcludedViewSettings     = new () { ExcludeViewed = true, ExcludeViewedPeriodInDays = 12 },
+                ExcludedViewSettings     = new() { ExcludeViewed = true, ExcludeViewedPeriodInDays = 12 },
                 IncludeMarkedForDeletion = true,
                 IncludeSoftDeleted       = true,
                 ItemsPerPage             = 12,

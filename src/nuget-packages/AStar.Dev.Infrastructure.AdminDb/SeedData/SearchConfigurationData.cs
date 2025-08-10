@@ -16,7 +16,7 @@ public static class SearchConfigurationData
     {
         var searchCategories = context.Set<SearchConfiguration>();
 
-        if (searchCategories.Any())
+        if(searchCategories.Any())
         {
             return;
         }

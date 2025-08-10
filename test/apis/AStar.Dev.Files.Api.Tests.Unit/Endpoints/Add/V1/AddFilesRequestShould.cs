@@ -8,5 +8,5 @@ public class AddFilesRequestShould
 {
     [Fact]
     public void ContainTheAddTheExpectedProperties()
-        => new AddFilesRequest { FilesToAdd = new List<FileDetailToAdd> { new () } }.ToJson().ShouldMatchApproved();
+        => new AddFilesRequest { FilesToAdd = new List<FileDetailToAdd> { new() } }.ToJson().ShouldMatchApproved();
 }

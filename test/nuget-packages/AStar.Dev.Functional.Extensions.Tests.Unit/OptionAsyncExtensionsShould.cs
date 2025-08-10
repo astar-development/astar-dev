@@ -2,7 +2,7 @@ namespace AStar.Dev.Functional.Extensions.Tests.Unit;
 
 public class OptionAsyncExtensionsShould
 {
-    private static Task<Option<string>> GetUserAsync(bool found) => Task.FromResult(found ? new Option<string>.Some("Alice") :  Option.None<string>());
+    private static Task<Option<string>> GetUserAsync(bool found) => Task.FromResult(found ? new Option<string>.Some("Alice") : Option.None<string>());
 
     [Fact]
     public async Task MapAsync_ShouldTransformValue_WhenSome()
@@ -26,7 +26,7 @@ public class OptionAsyncExtensionsShould
         {
             return Task.FromResult<Option<string>>(name == "Alice"
                                                        ? new Option<string>.Some("Valid")
-                                                       :  Option.None<string>());
+                                                       : Option.None<string>());
         }
 
         var result = await GetUserAsync(true).BindAsync(ValidateAsync);

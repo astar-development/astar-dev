@@ -17,7 +17,7 @@ public class FileDetailConfiguration : IEntityTypeConfiguration<FileDetail>
         builder.HasKey(file => file.Id);
 
         builder.Property(file => file.Id)
-               .HasConversion(fileId => fileId.Value, fileId => new (fileId));
+               .HasConversion(fileId => fileId.Value, fileId => new(fileId));
 
         builder.Ignore(fileDetail => fileDetail.FileName);
         builder.Ignore(fileDetail => fileDetail.DirectoryName);
@@ -25,7 +25,7 @@ public class FileDetailConfiguration : IEntityTypeConfiguration<FileDetail>
 
         builder.Property(file => file.FileHandle)
                .HasColumnType("nvarchar(256)")
-               .HasConversion(fileHandle => fileHandle.Value, fileHandle => new (fileHandle));
+               .HasConversion(fileHandle => fileHandle.Value, fileHandle => new(fileHandle));
 
         builder.ComplexProperty(fileDetail => fileDetail.ImageDetail)
                .Configure(new ImageDetailConfiguration());

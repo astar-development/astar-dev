@@ -62,7 +62,7 @@ public static class ResultExtensions
         this Result<T, TError> result,
         Action<T>              action)
     {
-        if (result is Result<T, TError>.Ok ok)
+        if(result is Result<T, TError>.Ok ok)
         {
             action(ok.Value);
         }

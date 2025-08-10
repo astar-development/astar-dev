@@ -21,7 +21,7 @@ public class FilesContext : DbContext
     /// <summary>
     /// </summary>
     public FilesContext()
-        : base(new DbContextOptions<FilesContext>() )
+        : base(new DbContextOptions<FilesContext>())
     {
     }
 

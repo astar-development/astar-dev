@@ -17,10 +17,10 @@ public static class ServiceCollectionExtensions
     public static IServiceCollection AddUsageServices(this IServiceCollection services, ConfigurationManager configurationManager, Assembly executingAssembly)
     {
         // services.AddMediatR(cfg =>
-        //                     {
-        //                         cfg.RegisterServicesFromAssembly(executingAssembly)
-        //                            .AddOpenBehavior(typeof(UsageMetricHandler<,>));
-        //                     });
+        //           {
+        //     cfg.RegisterServicesFromAssembly(executingAssembly)
+        //        .AddOpenBehavior(typeof(UsageMetricHandler<,>));
+        //           });
 
         services.AddSingleton<Send>();
 

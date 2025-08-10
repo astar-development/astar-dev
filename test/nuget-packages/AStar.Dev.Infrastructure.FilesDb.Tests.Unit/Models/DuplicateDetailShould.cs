@@ -8,13 +8,13 @@ public class DuplicateDetailShould
     public void ContainTheExpectedProperties()
         => new DuplicateDetail
            {
-               FileHandle        = new ("mock-file-handle"),
-               DirectoryName     = new ("mock-directory-name"),
-               FileName          = new ("mock-file-name"),
+               FileHandle        = new("mock-file-handle"),
+               DirectoryName     = new("mock-directory-name"),
+               FileName          = new("mock-file-name"),
                FileSize          = 1245,
                IsImage           = true,
                FileLastViewed    = new DateTimeOffset(2025, 07, 28, 11, 22, 33, TimeSpan.Zero),
-               UpdatedOn         = new (2025, 07, 28, 8, 7, 9, TimeSpan.Zero),
+               UpdatedOn         = new(2025, 07, 28, 8, 7, 9, TimeSpan.Zero),
                MoveRequired      = true,
                ImageHeight       = 123,
                ImageWidth        = 345,

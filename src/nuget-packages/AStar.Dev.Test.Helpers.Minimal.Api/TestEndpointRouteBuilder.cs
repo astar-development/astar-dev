@@ -8,7 +8,7 @@ public class TestEndpointRouteBuilder : IEndpointRouteBuilder
 
         services.AddApiVersioning(options =>
                                   {
-                                      options.DefaultApiVersion                   = new (1, 0);
+                                      options.DefaultApiVersion                   = new(1, 0);
                                       options.AssumeDefaultVersionWhenUnspecified = true;
                                       options.ReportApiVersions                   = true;
                                   });

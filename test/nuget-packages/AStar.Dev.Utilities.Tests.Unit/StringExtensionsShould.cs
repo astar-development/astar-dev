@@ -2,11 +2,11 @@ namespace AStar.Dev.Utilities;
 
 public sealed class StringExtensionsShould
 {
-    private          const       string AnyJson          = "{\"AnyInt\":0,\"AnyString\":\"\"}";
-    private                const string NotNullString    = "value does not matter";
-    private  const               string WhitespaceString = " ";
+    private const string AnyJson          = "{\"AnyInt\":0,\"AnyString\":\"\"}";
+    private const string NotNullString    = "value does not matter";
+    private const string WhitespaceString = " ";
 #pragma warning disable CA1805
-    private readonly string? nullString       = null;
+    private readonly string? nullString = null;
 #pragma warning restore CA1805
 
     [Fact]
@@ -47,18 +47,18 @@ public sealed class StringExtensionsShould
         fileName.IsImage().ShouldBe(expectedResponse);
 
     [Theory]
-    [InlineData("no-Truncation",            20, "no-Truncation")]
-    [InlineData("Small-String-Truncation.txt",     10, "Small-Stri")]
-    [InlineData("Small-String-Truncation.DOC",     15, "Small-String-Tr")]
-    [InlineData("Small-String-Truncation.PdF",     20, "Small-String-Truncat")]
-    [InlineData("Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String--Truncation.jpG",   100,
+    [InlineData("no-Truncation", 20, "no-Truncation")]
+    [InlineData("Small-String-Truncation.txt", 10, "Small-Stri")]
+    [InlineData("Small-String-Truncation.DOC", 15, "Small-String-Tr")]
+    [InlineData("Small-String-Truncation.PdF", 20, "Small-String-Truncat")]
+    [InlineData("Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String--Truncation.jpG", 100,
                 "Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-Str")]
-    [InlineData("Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String--Truncation.jpeG",  120,
+    [InlineData("Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String--Truncation.jpeG", 120,
                 "Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Lar")]
-    [InlineData("Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String--Truncation.bmp",   140,
+    [InlineData("Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String--Truncation.bmp", 140,
                 "Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-Stri")]
-    [InlineData("Write-Truncation.png",     10, "Write-Trun")]
-    [InlineData("Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String--Truncation.gif",   160,
+    [InlineData("Write-Truncation.png", 10, "Write-Trun")]
+    [InlineData("Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String--Truncation.gif", 160,
                 "Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String-Large-String--Tru")]
     public void ContainTheTruncateIfRequiredReturningTheExpectedResults(string fileName, int truncateLength, string expectedResponse) =>
         fileName.TruncateIfRequired(truncateLength).ShouldBe(expectedResponse);

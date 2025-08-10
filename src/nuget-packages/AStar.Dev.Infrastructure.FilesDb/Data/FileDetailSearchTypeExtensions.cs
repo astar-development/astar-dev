@@ -23,6 +23,6 @@ public static class FileDetailSearchTypeExtensions
                                                                                x.FileSize           == f.FileSize           &&
                                                                                x.ImageDetail.Height == f.ImageDetail.Height &&
                                                                                x.ImageDetail.Width  == f.ImageDetail.Width) > 1),
-               _                          => throw new UnreachableException("If we reach here, a new SearchType has been added but not included...")
+               _ => throw new UnreachableException("If we reach here, a new SearchType has been added but not included...")
            };
 }

@@ -12,7 +12,7 @@ public class AddFilesRequest : IEndpointName
     public required IReadOnlyCollection<FileDetailToAdd> FilesToAdd { get; set; } = [];
 
     /// <inheritdoc />
-    public string Name  => EndpointConstants.AddFilesGroupName;
+    public string Name => EndpointConstants.AddFilesGroupName;
 
     /// <inheritdoc />
     public string HttpMethod => HttpMethods.Post;

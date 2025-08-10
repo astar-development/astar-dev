@@ -12,12 +12,12 @@ public sealed class FileDetailShould
             Id            = 1,
             Width         = 456,
             DirectoryName = "MockDirectoryName",
-            FileAccessDetail = new ()
+            FileAccessDetail = new()
                                {
-                                   DetailsLastUpdated = new DateTime(2025, 12, 23),
+                                   DetailsLastUpdated = new DateTime(2025, 12, 23, 12, 34, 56, 789, DateTimeKind.Utc),
                                    Id                 = 2,
                                    HardDeletePending  = true,
-                                   LastViewed         = new DateTime(2025, 12, 24),
+                                   LastViewed         = new DateTime(2025, 12, 24, 12, 34, 56, 789, DateTimeKind.Utc),
                                    MoveRequired       = true,
                                    SoftDeleted        = true,
                                    SoftDeletePending  = true

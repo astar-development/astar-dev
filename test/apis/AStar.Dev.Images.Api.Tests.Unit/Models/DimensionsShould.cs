@@ -20,7 +20,7 @@
 //         Action sut = () => new Dimensions { Height = mockHeight, };
 //
 //         sut.ShouldThrow<ArgumentOutOfRangeException>()
-//            .Message.ShouldBe("Height cannot be negative. (Parameter 'Height')");
+//  .Message.ShouldBe("Height cannot be negative. (Parameter 'Height')");
 //     }
 //
 //     [Fact]
@@ -31,7 +31,7 @@
 //         Action sut = () => new Dimensions { Height = mockHeight, };
 //
 //         sut.ShouldThrow<ArgumentOutOfRangeException>()
-//            .Message.ShouldBe("Height cannot be greater than 99999. Actual: 100000. (Parameter 'Height')");
+//  .Message.ShouldBe("Height cannot be greater than 99999. Actual: 100000. (Parameter 'Height')");
 //     }
 //
 //     [Fact]
@@ -52,7 +52,7 @@
 //         Action sut = () => new Dimensions { Width = mockWidth, };
 //
 //         sut.ShouldThrow<ArgumentOutOfRangeException>()
-//            .Message.ShouldBe("Width cannot be negative. (Parameter 'Width')");
+//  .Message.ShouldBe("Width cannot be negative. (Parameter 'Width')");
 //     }
 //
 //     [Fact]
@@ -63,7 +63,7 @@
 //         Action sut = () => new Dimensions { Width = mockWidth, };
 //
 //         sut.ShouldThrow<ArgumentOutOfRangeException>()
-//            .Message.ShouldBe("Width cannot be greater than 99999. Actual: 100000. (Parameter 'Width')");
+//  .Message.ShouldBe("Width cannot be greater than 99999. Actual: 100000. (Parameter 'Width')");
 //     }
 // }
 
