@@ -35,9 +35,9 @@ public class GetFilesResponseExtensionsShould
     {
         var fileDetail = new FileDetail
                          {
-                             DirectoryName  = "MockDirectoryName",
-                             FileName       = "MockFileName",
-                             FileHandle     = "MockFileHandle",
+                             DirectoryName  = new("MockDirectoryName"),
+                             FileName       = new("MockFileName"),
+                             FileHandle     = new("MockFileHandle"),
                              FileSize       = 12345,
                              FileLastViewed = new (2025, 12, 23, 0, 1, 2, TimeSpan.Zero),
                              DeletionStatus = new()

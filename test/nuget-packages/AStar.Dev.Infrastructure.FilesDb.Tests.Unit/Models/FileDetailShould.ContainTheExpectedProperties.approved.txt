@@ -1,0 +1,81 @@
+{
+  "fileClassifications": [
+    {
+      "id": 1,
+      "name": "Celebrity",
+      "fileDetails": [
+        {
+          "fileClassifications": [],
+          "id": {
+            "value": 0
+          },
+          "imageDetail": {
+            "width": null,
+            "height": null
+          },
+          "fileName": {
+            "value": "mock-file-name"
+          },
+          "directoryName": {
+            "value": "mock-directory-name2"
+          },
+          "fullNameWithPath": "mock-directory-name2/mock-file-name",
+          "fileSize": 0,
+          "isImage": false,
+          "fileHandle": {
+            "value": null
+          },
+          "fileCreated": "0001-01-01T00:00:00+00:00",
+          "fileLastModified": "0001-01-01T00:00:00+00:00",
+          "fileLastViewed": null,
+          "moveRequired": false,
+          "deletionStatus": {
+            "softDeleted": null,
+            "softDeletePending": null,
+            "hardDeletePending": null
+          },
+          "updatedBy": "Jay Barden",
+          "updatedOn": "2025-07-28T01:02:03+00:00"
+        }
+      ],
+      "celebrity": true,
+      "fileNameParts": [
+        {
+          "id": 0,
+          "text": "mock-file-name-part",
+          "fileClassifications": []
+        }
+      ]
+    }
+  ],
+  "id": {
+    "value": 68
+  },
+  "imageDetail": {
+    "width": 7,
+    "height": 8
+  },
+  "fileName": {
+    "value": "mock-file-name"
+  },
+  "directoryName": {
+    "value": "mock-directory-name"
+  },
+  "fullNameWithPath": "mock-directory-name/mock-file-name",
+  "fileSize": 1245,
+  "isImage": true,
+  "fileHandle": {
+    "value": "mock-file-handle"
+  },
+  "fileCreated": "2025-07-28T05:06:07+00:00",
+  "fileLastModified": "2025-07-28T10:20:30+00:00",
+  "fileLastViewed": "2025-07-28T11:22:33+00:00",
+  "moveRequired": true,
+  "deletionStatus": {
+    "softDeleted": "2025-07-28T03:04:05+00:00",
+    "softDeletePending": "2025-07-28T02:03:04+00:00",
+    "hardDeletePending": "2025-07-28T01:02:03+00:00"
+  },
+  "updatedBy": "mock-user-name",
+  "updatedOn": "2025-07-28T08:07:09+00:00"
+}

@@ -65,6 +65,17 @@
             <returns>The parsed value as the matching enum value</returns>
             <exception cref="T:System.ArgumentException">Thrown when the string is not a valid enum value</exception>
         </member>
+        <member name="T:AStar.Dev.Utilities.LinqExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Utilities.LinqExtensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            </summary>
+            <param name="enumerable"></param>
+            <param name="action"></param>
+            <typeparam name="T"></typeparam>
+        </member>
         <member name="T:AStar.Dev.Utilities.ObjectExtensions">
             <summary>
                 The
@@ -113,7 +124,7 @@
             <remarks>
                 Pattern:
                 <br/>
-                <code>^[a-z]+$</code>
+                <code>[a-z]</code>
                 <br/>
                 Options:
                 <br/>
@@ -122,11 +133,7 @@
                 Explanation:
                 <br/>
                 <code>
-                    ○ Match if at the beginning of the string.
-                    <br/>
-                    ○ Match a character in the set [a-z] atomically at least once.
-                    <br/>
-                    ○ Match if at the end of the string or if before an ending newline.
+                    ○ Match a character in the set [a-z].
                     <br/>
                 </code>
             </remarks>
@@ -135,7 +142,7 @@
             <remarks>
                 Pattern:
                 <br/>
-                <code>^[A-Z]+$</code>
+                <code>[A-Z]</code>
                 <br/>
                 Options:
                 <br/>
@@ -144,11 +151,7 @@
                 Explanation:
                 <br/>
                 <code>
-                    ○ Match if at the beginning of the string.
-                    <br/>
-                    ○ Match a character in the set [A-Z] atomically at least once.
-                    <br/>
-                    ○ Match if at the end of the string or if before an ending newline.
+                    ○ Match a character in the set [A-Z].
                     <br/>
                 </code>
             </remarks>
@@ -157,7 +160,7 @@
             <remarks>
                 Pattern:
                 <br/>
-                <code>^[A-Z]+$</code>
+                <code>[0-9]</code>
                 <br/>
                 Options:
                 <br/>
@@ -166,11 +169,7 @@
                 Explanation:
                 <br/>
                 <code>
-                    ○ Match if at the beginning of the string.
-                    <br/>
-                    ○ Match a character in the set [A-Z] atomically at least once.
-                    <br/>
-                    ○ Match if at the end of the string or if before an ending newline.
+                    ○ Match a character in the set [0-9].
                     <br/>
                 </code>
             </remarks>
@@ -179,7 +178,7 @@
             <remarks>
                 Pattern:
                 <br/>
-                <code>[!-\\/:-@[-`{-~]</code>
+                <code>[!-\\/:-@[-`¬{-~]</code>
                 <br/>
                 Options:
                 <br/>
@@ -188,7 +187,7 @@
                 Explanation:
                 <br/>
                 <code>
-                    ○ Match a character in the set [!-/:-@[-`{-~].
+                    ○ Match a character in the set [!-/:-@[-`{-~\u00AC].
                     <br/>
                 </code>
             </remarks>
@@ -267,8 +266,16 @@
                 The TruncateIfRequired method will, as the name suggests, truncate the string if the length exceeds the specified length
             </summary>
             <param name="value">The raw string to potentially truncate</param>
-            <param name="truncateLenght">The maximum length the string should be truncated to if required</param>
+            <param name="truncateLength">The maximum length the string should be truncated to if required</param>
             <returns>The specified string or the truncated version</returns>
+        </member>
+        <member name="M:AStar.Dev.Utilities.StringExtensions.RemoveTrailing(System.String,System.String)">
+            <summary>
+                The RemoveTrailing method will, as the name suggests, remove the specified character from the end if it exists
+            </summary>
+            <param name="value">The raw string to potentially remove the trailing character from</param>
+            <param name="removeTrailing">The character to remove from the end if it exists</param>
+            <returns>The original or updated string</returns>
         </member>
         <member name="T:System.Text.RegularExpressions.Generated.LowercaseLettersRegex_0">
             <summary>Custom<see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the LowercaseLettersRegex method.
@@ -310,14 +317,6 @@
             <param name="inputSpan">The text being scanned by the regular expression.</param>
             <returns>true if a possible match was found; false if no more matches are possible.</returns>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.LowercaseLettersRegex_0.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
-            <summary>Determine whether
-                <paramref name="inputSpan"/>
-                at base.runtextpos is a match for the regular expression.
-            </summary>
-            <param name="inputSpan">The text being scanned by the regular expression.</param>
-            <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
-        </member>
         <member name="T:System.Text.RegularExpressions.Generated.UppercaseLettersRegex_1">
             <summary>Custom<see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the UppercaseLettersRegex method.
             </summary>
@@ -358,47 +357,79 @@
             <param name="inputSpan">The text being scanned by the regular expression.</param>
             <returns>true if a possible match was found; false if no more matches are possible.</returns>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.UppercaseLettersRegex_1.RunnerFactory.Runner.TryMatchAtCurrentPosition(System.ReadOnlySpan{System.Char})">
-            <summary>Determine whether
-                <paramref name="inputSpan"/>
-                at base.runtextpos is a match for the regular expression.
-            </summary>
-            <param name="inputSpan">The text being scanned by the regular expression.</param>
-            <returns>true if the regular expression matches at the current position; otherwise, false.</returns>
-        </member>
-        <member name="T:System.Text.RegularExpressions.Generated.SpecialCharacterRegex_2">
-            <summary>Custom<see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the SpecialCharacterRegex method.
+        <member name="T:System.Text.RegularExpressions.Generated.DigitRegex_2">
+            <summary>Custom<see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the DigitRegex method.
             </summary>
         </member>
-        <member name="F:System.Text.RegularExpressions.Generated.SpecialCharacterRegex_2.Instance">
+        <member name="F:System.Text.RegularExpressions.Generated.DigitRegex_2.Instance">
             <summary>Cached, thread-safe singleton instance.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.SpecialCharacterRegex_2.#ctor">
+        <member name="M:System.Text.RegularExpressions.Generated.DigitRegex_2.#ctor">
             <summary>Initializes the instance.</summary>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.SpecialCharacterRegex_2.RunnerFactory">
+        <member name="T:System.Text.RegularExpressions.Generated.DigitRegex_2.RunnerFactory">
             <summary>Provides a factory for creating
                 <see cref="T:System.Text.RegularExpressions.RegexRunner"/>
                 instances to be used by methods on<see cref="T:System.Text.RegularExpressions.Regex"/>.
             </summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.SpecialCharacterRegex_2.RunnerFactory.CreateInstance">
+        <member name="M:System.Text.RegularExpressions.Generated.DigitRegex_2.RunnerFactory.CreateInstance">
             <summary>Creates an instance of a
                 <see cref="T:System.Text.RegularExpressions.RegexRunner"/>
                 used by methods on<see cref="T:System.Text.RegularExpressions.Regex"/>.
             </summary>
         </member>
-        <member name="T:System.Text.RegularExpressions.Generated.SpecialCharacterRegex_2.RunnerFactory.Runner">
+        <member name="T:System.Text.RegularExpressions.Generated.DigitRegex_2.RunnerFactory.Runner">
             <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.SpecialCharacterRegex_2.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.DigitRegex_2.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
             <summary>Scan the
                 <paramref name="inputSpan"/>
                 starting from base.runtextstart for the next match.
             </summary>
             <param name="inputSpan">The text being scanned by the regular expression.</param>
         </member>
-        <member name="M:System.Text.RegularExpressions.Generated.SpecialCharacterRegex_2.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+        <member name="M:System.Text.RegularExpressions.Generated.DigitRegex_2.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
+            <summary>Search
+                <paramref name="inputSpan"/>
+                starting from base.runtextpos for the next location a match could possibly start.
+            </summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+            <returns>true if a possible match was found; false if no more matches are possible.</returns>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.SpecialCharacterRegex_3">
+            <summary>Custom<see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the SpecialCharacterRegex method.
+            </summary>
+        </member>
+        <member name="F:System.Text.RegularExpressions.Generated.SpecialCharacterRegex_3.Instance">
+            <summary>Cached, thread-safe singleton instance.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.SpecialCharacterRegex_3.#ctor">
+            <summary>Initializes the instance.</summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.SpecialCharacterRegex_3.RunnerFactory">
+            <summary>Provides a factory for creating
+                <see cref="T:System.Text.RegularExpressions.RegexRunner"/>
+                instances to be used by methods on<see cref="T:System.Text.RegularExpressions.Regex"/>.
+            </summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.SpecialCharacterRegex_3.RunnerFactory.CreateInstance">
+            <summary>Creates an instance of a
+                <see cref="T:System.Text.RegularExpressions.RegexRunner"/>
+                used by methods on<see cref="T:System.Text.RegularExpressions.Regex"/>.
+            </summary>
+        </member>
+        <member name="T:System.Text.RegularExpressions.Generated.SpecialCharacterRegex_3.RunnerFactory.Runner">
+            <summary>Provides the runner that contains the custom logic implementing the specified regular expression.</summary>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.SpecialCharacterRegex_3.RunnerFactory.Runner.Scan(System.ReadOnlySpan{System.Char})">
+            <summary>Scan the
+                <paramref name="inputSpan"/>
+                starting from base.runtextstart for the next match.
+            </summary>
+            <param name="inputSpan">The text being scanned by the regular expression.</param>
+        </member>
+        <member name="M:System.Text.RegularExpressions.Generated.SpecialCharacterRegex_3.RunnerFactory.Runner.TryFindNextPossibleStartingPosition(System.ReadOnlySpan{System.Char})">
             <summary>Search
                 <paramref name="inputSpan"/>
                 starting from base.runtextpos for the next location a match could possibly start.
@@ -410,8 +441,8 @@
             <summary>Helper methods used by generated<see cref="T:System.Text.RegularExpressions.Regex"/>-derived implementations.
             </summary>
         </member>
-        <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_ascii_FEFF00FC010000F801000078">
-            <summary>Supports searching for characters in or not in "!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~".</summary>
+        <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_nonAscii_8CD7FC6D8414F97879531EB4BA8F837AAE4E0F47B7968451545B13CB721CD784">
+            <summary>Supports searching for characters in or not in "!\"#$%&amp;'()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~¬".</summary>
         </member>
     </members>
 </doc>

@@ -7,7 +7,7 @@ namespace AStar.Dev.Infrastructure.FilesDb.Models;
 /// <summary>
 ///     The FileDetail class containing the current properties
 /// </summary>
-public sealed class FileDetail : AuditableEntity, IFileDetail
+public sealed class FileDetail : AuditableEntity
 {
     /// <summary>
     ///     The default constructor required by EF Core etc
@@ -24,8 +24,8 @@ public sealed class FileDetail : AuditableEntity, IFileDetail
     /// </param>
     public FileDetail(IFileInfo fileInfo)
     {
-        FileName      = fileInfo.Name;
-        DirectoryName = fileInfo.DirectoryName!;
+        FileName      = new(fileInfo.Name);
+        DirectoryName = new(fileInfo.DirectoryName!);
         FileSize      = fileInfo.Length;
     }
 
@@ -36,49 +36,26 @@ public sealed class FileDetail : AuditableEntity, IFileDetail
     /// <summary>
     ///     Gets or sets the ID of the <see href="FileDetail"></see>. I know, shocking...
     /// </summary>
-    public int Id { get; set; }
+    public FileId Id { get; set; }
 
     /// <summary>
     /// </summary>
     public ImageDetail ImageDetail { get; set; } = new(null, null);
 
     /// <summary>
-    ///     Gets the full name of the file with the path combined
-    /// </summary>
-    public string FullNameWithPath => Path.Combine(DirectoryName, FileName);
-
-    /// <summary>
-    ///     Gets or sets the file handle. I know, shocking...
-    /// </summary>
-    public string FileHandle { get; set; } = string.Empty;
-
-    /// <summary>
-    /// </summary>
-    public DateTimeOffset FileCreated { get; set; }
-
-    /// <summary>
-    /// </summary>
-    public DateTimeOffset FileLastModified { get; set; }
-
-    /// <summary>
-    ///     Gets or sets whether the file has been marked as 'needs to move'. I know, shocking...
-    /// </summary>
-    public bool MoveRequired { get; set; }
-
-    /// <summary>
-    ///     Gets or sets the file deletion status. I know, shocking...
-    /// </summary>
-    public DeletionStatus DeletionStatus { get; set; } = new();
-
-    /// <summary>
     ///     Gets or sets the file name. I know, shocking...
     /// </summary>
-    public string FileName { get; set; } = string.Empty;
+    public required FileName FileName { get; set; }
 
     /// <summary>
     ///     Gets or sets the name of the directory containing the file detail. I know, shocking...
     /// </summary>
-    public string DirectoryName { get; set; } = string.Empty;
+    public required DirectoryName DirectoryName { get; set; }
+
+    /// <summary>
+    ///     Gets the full name of the file with the path combined
+    /// </summary>
+    public string FullNameWithPath => Path.Combine(DirectoryName.Value, FileName.Value ?? "");
 
     /// <summary>
     ///     Gets or sets the file size. I know, shocking...
@@ -91,8 +68,31 @@ public sealed class FileDetail : AuditableEntity, IFileDetail
     public bool IsImage { get; set; }
 
     /// <summary>
+    ///     Gets or sets the file handle. I know, shocking...
+    /// </summary>
+    public FileHandle FileHandle { get; set; }
+
+    /// <summary>
+    /// </summary>
+    public DateTimeOffset FileCreated { get; set; }
+
+    /// <summary>
+    /// </summary>
+    public DateTimeOffset FileLastModified { get; set; }
+
+    /// <summary>
     /// </summary>
     public DateTimeOffset? FileLastViewed { get; set; }
+
+    /// <summary>
+    ///     Gets or sets whether the file has been marked as 'needs to move'. I know, shocking...
+    /// </summary>
+    public bool MoveRequired { get; set; }
+
+    /// <summary>
+    ///     Gets or sets the file deletion status. I know, shocking...
+    /// </summary>
+    public DeletionStatus DeletionStatus { get; set; } = new();
 
     /// <summary>
     ///     Returns this object in JSON format

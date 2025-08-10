@@ -1,9 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
         <Title>AStar Dev Utilities</Title>
         <Company>AStar Development</Company>
         <Copyright>AStar Development, 2024</Copyright>
@@ -45,10 +46,6 @@
         <None Update="AStar.png">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
-    </ItemGroup>
-
-    <ItemGroup>
-
     </ItemGroup>
 
 </Project>

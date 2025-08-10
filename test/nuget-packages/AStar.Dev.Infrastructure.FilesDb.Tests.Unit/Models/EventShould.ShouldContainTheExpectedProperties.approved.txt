@@ -1,0 +1,17 @@
+﻿{
+  "id": 1324,
+  "type": {
+    "value": 1,
+    "name": "Add"
+  },
+  "eventOccurredAt": "2025-07-28T01:24:34+00:00",
+  "fileName": "FileName",
+  "directoryName": "DirectoryName",
+  "handle": "mock-handle",
+  "width": 987,
+  "height": 456,
+  "fileSize": 124,
+  "fileCreated": "2025-07-28T11:22:33+00:00",
+  "fileLastModified": "2025-07-28T01:02:03+00:00",
+  "updatedBy": "TestUser"
+}

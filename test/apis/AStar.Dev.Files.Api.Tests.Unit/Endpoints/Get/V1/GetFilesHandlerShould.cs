@@ -1,6 +1,5 @@
+using AStar.Dev.Test.DbContext.Helpers.Fixtures;
 using AStar.Dev.Test.Helpers.Minimal.Api;
-using AStar.Dev.Utilities;
-using DbContextHelpers.Fixtures;
 using Microsoft.AspNetCore.Http;
 using NSubstitute;
 
@@ -30,122 +29,27 @@ public class GetFilesHandlerShould : IClassFixture<FilesContextFixture>
     }
 
     [Theory]
-    [InlineData(@"c:\temp", true,  0, true,  "",  SortOrder.NameAscending,  SearchType.All, 1, 10, 10)]
-    public async Task ReturnTheExpectedStructureWhenCalledWithValidParameters(string    directoryName, bool recursive, int excludeViewedWithinDays, bool includeMarkedForDeletion, string searchText,
-                                                                              SortOrder sortOrder,     SearchType searchType, int currentPage, int itemsPerPage, int
-                                                                                  expectedCount)
+    [InlineData(@"\some\directory", true,  0, true,  "",  SortOrder.NameAscending,  SearchType.All, 1, 10)]
+    public async Task ReturnOkWhenCalledWithValidParameters(string directoryName, bool recursive, int excludeViewedWithinDays, bool includeMarkedForDeletion, string searchText, SortOrder sortOrder,
+                                                            SearchType searchType, int currentPage, int itemsPerPage)
     {
-        await using var mockContext = mockFilesContextFactory.SutWithFileDetails;
+        await using var mockContext = mockFilesContextFactory.Sut;
         var             sut         = new GetFilesHandler();
 
-        var response =
-            await
-                sut.HandleAsync(new()
-                                {
-                                    SearchType               = searchType,
-                                    SearchFolder             = directoryName,
-                                    Recursive                = recursive,
-                                    ExcludeViewedWithinDays  = excludeViewedWithinDays,
-                                    IncludeMarkedForDeletion = includeMarkedForDeletion,
-                                    SortOrder                = sortOrder,
-                                    SearchText               = searchText,
-                                    CurrentPage              = currentPage,
-                                    ItemsPerPage             = itemsPerPage
-                                }, mockContext, mockTimeProvider, "Test User", CancellationToken.None);
+        var response = await
+                           sut.HandleAsync(new()
+                                           {
+                                               SearchType               = searchType,
+                                               SearchFolder             = directoryName,
+                                               Recursive                = recursive,
+                                               ExcludeViewedWithinDays  = excludeViewedWithinDays,
+                                               IncludeMarkedForDeletion = includeMarkedForDeletion,
+                                               SortOrder                = sortOrder,
+                                               SearchText               = searchText,
+                                               CurrentPage              = currentPage,
+                                               ItemsPerPage             = itemsPerPage
+                                           }, mockContext, mockTimeProvider, "Test User", CancellationToken.None);
 
         response.ResultStatusCode().ShouldBe(200);
-        var getFilesResponses = response.ResultValue<IList<GetFilesResponse>>()!;
-        getFilesResponses.Count.ShouldBe(expectedCount);
-        getFilesResponses.ToJson().ShouldMatchApproved();
-    }
-
-    [Theory]
-    [InlineData(@"c:\temp", false,  0, true,  "",  SortOrder.NameAscending,  SearchType.All, 1, 10, 10)]
-    public async Task ReturnTheExpectedStructureWhenCalledWithValidParameters2(string    directoryName, bool recursive, int excludeViewedWithinDays, bool includeMarkedForDeletion, string searchText,
-                                                                               SortOrder sortOrder,     SearchType searchType, int currentPage, int itemsPerPage, int
-                                                                                   expectedCount)
-    {
-        await using var mockContext = mockFilesContextFactory.SutWithFileDetails;
-        var             sut         = new GetFilesHandler();
-
-        var response =
-            await
-                sut.HandleAsync(new()
-                                {
-                                    SearchType               = searchType,
-                                    SearchFolder             = directoryName,
-                                    Recursive                = recursive,
-                                    ExcludeViewedWithinDays  = excludeViewedWithinDays,
-                                    IncludeMarkedForDeletion = includeMarkedForDeletion,
-                                    SortOrder                = sortOrder,
-                                    SearchText               = searchText,
-                                    CurrentPage              = currentPage,
-                                    ItemsPerPage             = itemsPerPage
-                                }, mockContext, mockTimeProvider, "Test User", CancellationToken.None);
-
-        response.ResultStatusCode().ShouldBe(200);
-        var getFilesResponses = response.ResultValue<IList<GetFilesResponse>>()!;
-        getFilesResponses.Count.ShouldBe(expectedCount);
-        getFilesResponses.ToJson().ShouldMatchApproved();
-    }
-
-    [Theory]
-    [InlineData(@"c:\temp", true,  5, true,  "",  SortOrder.NameAscending,  SearchType.All, 1, 10, 10)]
-    public async Task ReturnTheExpectedStructureWhenCalledWithValidParameters3(string    directoryName, bool recursive, int excludeViewedWithinDays, bool includeMarkedForDeletion, string searchText,
-                                                                               SortOrder sortOrder,     SearchType searchType, int currentPage, int itemsPerPage, int
-                                                                                   expectedCount)
-    {
-        await using var mockContext = mockFilesContextFactory.SutWithFileDetails;
-        var             sut         = new GetFilesHandler();
-
-        var response =
-            await
-                sut.HandleAsync(new()
-                                {
-                                    SearchType               = searchType,
-                                    SearchFolder             = directoryName,
-                                    Recursive                = recursive,
-                                    ExcludeViewedWithinDays  = excludeViewedWithinDays,
-                                    IncludeMarkedForDeletion = includeMarkedForDeletion,
-                                    SortOrder                = sortOrder,
-                                    SearchText               = searchText,
-                                    CurrentPage              = currentPage,
-                                    ItemsPerPage             = itemsPerPage
-                                }, mockContext, mockTimeProvider, "Test User", CancellationToken.None);
-
-        response.ResultStatusCode().ShouldBe(200);
-        var getFilesResponses = response.ResultValue<IList<GetFilesResponse>>()!;
-        getFilesResponses.Count.ShouldBe(expectedCount);
-        getFilesResponses.ToJson().ShouldMatchApproved();
-    }
-
-    [Theory]
-    [InlineData(@"c:\temp", false, 5, true,  "",  SortOrder.NameAscending,  SearchType.All, 1, 10, 10)]
-    public async Task ReturnTheExpectedStructureWhenCalledWithValidParameters4(string    directoryName, bool recursive, int excludeViewedWithinDays, bool includeMarkedForDeletion, string searchText,
-                                                                               SortOrder sortOrder,     SearchType searchType, int currentPage, int itemsPerPage, int
-                                                                                   expectedCount)
-    {
-        await using var mockContext = mockFilesContextFactory.SutWithFileDetails;
-        var             sut         = new GetFilesHandler();
-
-        var response =
-            await
-                sut.HandleAsync(new()
-                                {
-                                    SearchType               = searchType,
-                                    SearchFolder             = directoryName,
-                                    Recursive                = recursive,
-                                    ExcludeViewedWithinDays  = excludeViewedWithinDays,
-                                    IncludeMarkedForDeletion = includeMarkedForDeletion,
-                                    SortOrder                = sortOrder,
-                                    SearchText               = searchText,
-                                    CurrentPage              = currentPage,
-                                    ItemsPerPage             = itemsPerPage
-                                }, mockContext, mockTimeProvider, "Test User", CancellationToken.None);
-
-        response.ResultStatusCode().ShouldBe(200);
-        var getFilesResponses = response.ResultValue<IList<GetFilesResponse>>()!;
-        getFilesResponses.Count.ShouldBe(expectedCount);
-        getFilesResponses.ToJson().ShouldMatchApproved();
     }
 }

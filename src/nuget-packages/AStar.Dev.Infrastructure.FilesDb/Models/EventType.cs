@@ -8,26 +8,6 @@ namespace AStar.Dev.Infrastructure.FilesDb.Models;
 public sealed class EventType : IEquatable<EventType>
 {
     /// <summary>
-    ///     Represents an 'Add' event type, typically used for new record creation.
-    /// </summary>
-    public static readonly EventType Add    = new (1, "Add");
-
-    /// <summary>
-    ///     Represents an 'Update' event type, typically used for modifying existing records.
-    /// </summary>
-    public static readonly EventType Update = new (2, "Update");
-
-    /// <summary>
-    ///     Represents a 'SoftDelete' event type, typically used for 'soft' removing records.
-    /// </summary>
-    public static readonly EventType SoftDelete = new (3, "SoftDelete");
-
-    /// <summary>
-    ///     Represents a 'HardDelete' event type, typically used for permanently removing records.
-    /// </summary>
-    public static readonly EventType HardDelete = new (4, "HardDelete");
-
-    /// <summary>
     ///     Private constructor to prevent external instantiation.
     ///     This ensures that only the static readonly instances above can be created.
     /// </summary>
@@ -38,6 +18,26 @@ public sealed class EventType : IEquatable<EventType>
         Value = value;
         Name  = name;
     }
+
+    /// <summary>
+    ///     Represents an 'Add' event type, typically used for new record creation.
+    /// </summary>
+    public static EventType Add    => new (1, "Add");
+
+    /// <summary>
+    ///     Represents an 'Update' event type, typically used for modifying existing records.
+    /// </summary>
+    public static EventType Update => new (2, "Update");
+
+    /// <summary>
+    ///     Represents a 'SoftDelete' event type, typically used for 'soft' removing records.
+    /// </summary>
+    public static EventType SoftDelete => new (3, "SoftDelete");
+
+    /// <summary>
+    ///     Represents a 'HardDelete' event type, typically used for permanently removing records.
+    /// </summary>
+    public static EventType HardDelete => new (4, "HardDelete");
 
     /// <summary>
     ///     Gets the integer value associated with the event type.
@@ -65,14 +65,14 @@ public sealed class EventType : IEquatable<EventType>
         return Value == other.Value && Name == other.Name;
     }
 
+    /// <inheritdoc />
+    public override bool Equals(object? obj) => ReferenceEquals(this, obj) || obj is EventType other && Equals(other);
+
     /// <summary>
     ///     Returns the string name of the event type, useful for debugging and display.
     /// </summary>
     /// <returns>The name of the event type.</returns>
     public override string ToString() => Name;
-
-    /// <inheritdoc />
-    public override bool Equals(object? obj) => ReferenceEquals(this, obj) || obj is EventType other && Equals(other);
 
     /// <inheritdoc />
     public override int GetHashCode() => HashCode.Combine(Value, Name);
@@ -84,14 +84,7 @@ public sealed class EventType : IEquatable<EventType>
     /// <param name="right">The second <see cref="EventType" /> to compare.</param>
     /// <returns><c>true</c> if the two <see cref="EventType" /> objects are equal; otherwise, <c>false</c>.</returns>
     public static bool operator ==(EventType left, EventType right)
-    {
-        if (ReferenceEquals(left, null))
-        {
-            return ReferenceEquals(right, null);
-        }
-
-        return left.Equals(right);
-    }
+        => left?.Equals(right) ?? ReferenceEquals(right, null);
 
     /// <summary>
     ///     Overloads the inequality operator to compare two <see cref="EventType" /> objects.
