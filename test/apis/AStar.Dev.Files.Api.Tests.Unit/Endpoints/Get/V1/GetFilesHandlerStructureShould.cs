@@ -14,11 +14,11 @@ public class GetFilesHandlerStructureShould : IClassFixture<FilesContextFixture>
     {
         this.mockFilesContextFactory = mockFilesContextFactory;
         mockTimeProvider             = Substitute.For<TimeProvider>();
-        mockTimeProvider.GetUtcNow().Returns(new DateTimeOffset(new (2025, 7, 13, 1, 2, 3, DateTimeKind.Utc)));
+        mockTimeProvider.GetUtcNow().Returns(new DateTimeOffset(new(2025, 7, 13, 1, 2, 3, DateTimeKind.Utc)));
     }
 
     [Theory]
-    [InlineData(@"\some\directory", true,  0, true,  "",  SortOrder.NameAscending,  SearchType.All, 1, 10, 685)]
+    [InlineData(@"\some\directory", true, 0, true, "", SortOrder.NameAscending, SearchType.All, 1, 10, 685)]
     public async Task ReturnTheExpectedStructureWhenCalledWithValidParameters(string    directoryName, bool recursive, int excludeViewedWithinDays, bool includeMarkedForDeletion, string searchText,
                                                                               SortOrder sortOrder,     SearchType searchType, int currentPage, int itemsPerPage, int
                                                                                   expectedCount)

@@ -6,7 +6,7 @@ namespace AStar.Dev.Images.Api.Client.Sdk.MockMessageHandlers;
 
 public sealed class MockSuccessHttpMessageHandler(string responseRequired) : HttpMessageHandler
 {
-    private  const int Counter = 1234;
+    private const int Counter = 1234;
 
     protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request,
                                                            CancellationToken  cancellationToken)
@@ -14,24 +14,24 @@ public sealed class MockSuccessHttpMessageHandler(string responseRequired) : Htt
         HttpContent content;
 
 #pragma warning disable IDE0045 // Convert to conditional expression
-        if (responseRequired == "Count")
+        if(responseRequired == "Count")
         {
             content = new StringContent(Counter.ToString());
         }
-        else if (responseRequired == "CountDuplicates")
+        else if(responseRequired == "CountDuplicates")
         {
             content = new StringContent(Counter.ToString());
         }
-        else if (responseRequired == "Health")
+        else if(responseRequired == "Health")
         {
             content = new StringContent(JsonSerializer.Serialize(new HealthStatusResponse { Status = "OK" }));
         }
-        else if (responseRequired == "Image")
+        else if(responseRequired == "Image")
         {
             var bytes = new byte[1024];
             content = new StreamContent(new MemoryStream(bytes));
         }
-        else if (responseRequired == "ImageMissing")
+        else if(responseRequired == "ImageMissing")
         {
             return Task.FromResult(new HttpResponseMessage(HttpStatusCode.NotFound) { Content = null! });
         }

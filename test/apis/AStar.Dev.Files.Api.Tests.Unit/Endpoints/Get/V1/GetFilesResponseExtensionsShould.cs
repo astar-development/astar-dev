@@ -9,21 +9,21 @@ public class GetFilesResponseExtensionsShould
     // public void MapTheDuplicateDetailsAsExpected()
     // {
     //     var duplicateDetail = new DuplicateDetail
-    //                           {
-    //                               DirectoryName     = "MockDirectoryName",
-    //                               FileName          = "MockFileName",
-    //                               FileHandle        = "MockFileHandle",
-    //                               FileSize          = 12345,
-    //                               FileLastViewed    = new (2025, 12, 23, 0, 1, 2, TimeSpan.Zero),
-    //                               HardDeletePending = new (2025, 12, 23, 0, 2, 2, TimeSpan.Zero),
-    //                               SoftDeletePending = new (2025, 12, 23, 0, 3, 2, TimeSpan.Zero),
-    //                               SoftDeleted       = new (2025, 12, 23, 0, 4, 2, TimeSpan.Zero),
-    //                               UpdatedOn         = new (2025, 12, 23, 0, 5, 2, TimeSpan.Zero),
-    //                               ImageHeight       = 123,
-    //                               ImageWidth        = 456,
-    //                               Instances         = 1,
-    //                               IsImage           = true
-    //                           };
+    //       {
+    //           DirectoryName     = "MockDirectoryName",
+    //           FileName          = "MockFileName",
+    //           FileHandle        = "MockFileHandle",
+    //           FileSize          = 12345,
+    //           FileLastViewed    = new (2025, 12, 23, 0, 1, 2, TimeSpan.Zero),
+    //           HardDeletePending = new (2025, 12, 23, 0, 2, 2, TimeSpan.Zero),
+    //           SoftDeletePending = new (2025, 12, 23, 0, 3, 2, TimeSpan.Zero),
+    //           SoftDeleted       = new (2025, 12, 23, 0, 4, 2, TimeSpan.Zero),
+    //           UpdatedOn         = new (2025, 12, 23, 0, 5, 2, TimeSpan.Zero),
+    //           ImageHeight       = 123,
+    //           ImageWidth        = 456,
+    //           Instances         = 1,
+    //           IsImage = true
+    //       };
     //
     //     var sut = duplicateDetail.ToGetFilesResponse();
     //
@@ -39,14 +39,14 @@ public class GetFilesResponseExtensionsShould
                              FileName       = new("MockFileName"),
                              FileHandle     = new("MockFileHandle"),
                              FileSize       = 12345,
-                             FileLastViewed = new (2025, 12, 23, 0, 1, 2, TimeSpan.Zero),
+                             FileLastViewed = new(2025, 12, 23, 0, 1, 2, TimeSpan.Zero),
                              DeletionStatus = new()
                                               {
-                                                  HardDeletePending = new (2025, 12, 23, 0, 2, 2, TimeSpan.Zero),
-                                                  SoftDeletePending = new (2025, 12, 23, 0, 3, 2, TimeSpan.Zero),
-                                                  SoftDeleted       = new (2025, 12, 23, 0, 4, 2, TimeSpan.Zero)
+                                                  HardDeletePending = new(2025, 12, 23, 0, 2, 2, TimeSpan.Zero),
+                                                  SoftDeletePending = new(2025, 12, 23, 0, 3, 2, TimeSpan.Zero),
+                                                  SoftDeleted       = new(2025, 12, 23, 0, 4, 2, TimeSpan.Zero)
                                               },
-                             UpdatedOn   = new (2025, 12, 23, 0, 5, 2, TimeSpan.Zero),
+                             UpdatedOn   = new(2025, 12, 23, 0, 5, 2, TimeSpan.Zero),
                              ImageDetail = new(123, 456),
                              IsImage     = true
                          };

@@ -13,228 +13,228 @@ namespace AStar.Dev.Infrastructure.AdminDb.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder
-                .HasDefaultSchema("admin")
-                .UseCollation("SQL_Latin1_General_CP1_CI_AS")
-                .HasAnnotation("ProductVersion", "9.0.3")
-                .HasAnnotation("Relational:MaxIdentifierLength", 128);
+  modelBuilder
+      .HasDefaultSchema("admin")
+      .UseCollation("SQL_Latin1_General_CP1_CI_AS")
+      .HasAnnotation("ProductVersion", "9.0.3")
+      .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
-            SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+  SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("AStar.Dev.Infrastructure.AdminDb.Models.ScrapeDirectory", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+  modelBuilder.Entity("AStar.Dev.Infrastructure.AdminDb.Models.ScrapeDirectory", b =>
+      {
+          b.Property<int>("Id")
+    .ValueGeneratedOnAdd()
+    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+          SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("BaseDirectory")
-                        .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
+          b.Property<string>("BaseDirectory")
+    .IsRequired()
+    .HasMaxLength(300)
+    .HasColumnType("nvarchar(300)");
 
-                    b.Property<string>("BaseDirectoryFamous")
-                        .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
+          b.Property<string>("BaseDirectoryFamous")
+    .IsRequired()
+    .HasMaxLength(300)
+    .HasColumnType("nvarchar(300)");
 
-                    b.Property<string>("BaseSaveDirectory")
-                        .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
+          b.Property<string>("BaseSaveDirectory")
+    .IsRequired()
+    .HasMaxLength(300)
+    .HasColumnType("nvarchar(300)");
 
-                    b.Property<string>("RootDirectory")
-                        .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
+          b.Property<string>("RootDirectory")
+    .IsRequired()
+    .HasMaxLength(300)
+    .HasColumnType("nvarchar(300)");
 
-                    b.Property<Guid>("ScrapeDirectoryId")
-                        .HasColumnType("uniqueidentifier");
+          b.Property<Guid>("ScrapeDirectoryId")
+    .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("SubDirectoryName")
-                        .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
+          b.Property<string>("SubDirectoryName")
+    .IsRequired()
+    .HasMaxLength(300)
+    .HasColumnType("nvarchar(300)");
 
-                    b.Property<string>("UpdatedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+          b.Property<string>("UpdatedBy")
+    .IsRequired()
+    .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("UpdatedOn")
-                        .HasColumnType("datetime2");
+          b.Property<DateTime>("UpdatedOn")
+    .HasColumnType("datetime2");
 
-                    b.HasKey("Id");
+          b.HasKey("Id");
 
-                    b.ToTable("ScrapeDirectory", "admin");
-                });
+          b.ToTable("ScrapeDirectory", "admin");
+      });
 
-            modelBuilder.Entity("AStar.Dev.Infrastructure.AdminDb.Models.SearchCategory", b =>
-                {
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
+  modelBuilder.Entity("AStar.Dev.Infrastructure.AdminDb.Models.SearchCategory", b =>
+      {
+          b.Property<int>("Id")
+    .HasColumnType("int");
 
-                    b.Property<int>("LastKnownImageCount")
-                        .HasColumnType("int");
+          b.Property<int>("LastKnownImageCount")
+    .HasColumnType("int");
 
-                    b.Property<int>("LastPageVisited")
-                        .HasColumnType("int");
+          b.Property<int>("LastPageVisited")
+    .HasColumnType("int");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
+          b.Property<string>("Name")
+    .IsRequired()
+    .HasMaxLength(300)
+    .HasColumnType("nvarchar(300)");
 
-                    b.Property<int>("Order")
-                        .HasColumnType("int");
+          b.Property<int>("Order")
+    .HasColumnType("int");
 
-                    b.Property<Guid>("SearchCategoryId")
-                        .HasColumnType("uniqueidentifier");
+          b.Property<Guid>("SearchCategoryId")
+    .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("TotalPages")
-                        .HasColumnType("int");
+          b.Property<int>("TotalPages")
+    .HasColumnType("int");
 
-                    b.Property<string>("UpdatedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+          b.Property<string>("UpdatedBy")
+    .IsRequired()
+    .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("UpdatedOn")
-                        .HasColumnType("datetime2");
+          b.Property<DateTime>("UpdatedOn")
+    .HasColumnType("datetime2");
 
-                    b.HasKey("Id");
+          b.HasKey("Id");
 
-                    b.ToTable("SearchCategory", "admin");
-                });
+          b.ToTable("SearchCategory", "admin");
+      });
 
-            modelBuilder.Entity("AStar.Dev.Infrastructure.AdminDb.Models.SearchConfiguration", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+  modelBuilder.Entity("AStar.Dev.Infrastructure.AdminDb.Models.SearchConfiguration", b =>
+      {
+          b.Property<int>("Id")
+    .ValueGeneratedOnAdd()
+    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+          SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("ImagePauseInSeconds")
-                        .HasColumnType("int");
+          b.Property<int>("ImagePauseInSeconds")
+    .HasColumnType("int");
 
-                    b.Property<Guid>("SearchConfigurationId")
-                        .HasColumnType("uniqueidentifier");
+          b.Property<Guid>("SearchConfigurationId")
+    .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("SearchString")
-                        .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
+          b.Property<string>("SearchString")
+    .IsRequired()
+    .HasMaxLength(300)
+    .HasColumnType("nvarchar(300)");
 
-                    b.Property<string>("SearchStringPrefix")
-                        .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
+          b.Property<string>("SearchStringPrefix")
+    .IsRequired()
+    .HasMaxLength(300)
+    .HasColumnType("nvarchar(300)");
 
-                    b.Property<string>("SearchStringSuffix")
-                        .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
+          b.Property<string>("SearchStringSuffix")
+    .IsRequired()
+    .HasMaxLength(300)
+    .HasColumnType("nvarchar(300)");
 
-                    b.Property<string>("SiteConfigurationSlug")
-                        .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
+          b.Property<string>("SiteConfigurationSlug")
+    .IsRequired()
+    .HasMaxLength(300)
+    .HasColumnType("nvarchar(300)");
 
-                    b.Property<int>("SlowMotionDelayInMilliseconds")
-                        .HasColumnType("int");
+          b.Property<int>("SlowMotionDelayInMilliseconds")
+    .HasColumnType("int");
 
-                    b.Property<int>("StartingPageNumber")
-                        .HasColumnType("int");
+          b.Property<int>("StartingPageNumber")
+    .HasColumnType("int");
 
-                    b.Property<string>("Subscriptions")
-                        .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
+          b.Property<string>("Subscriptions")
+    .IsRequired()
+    .HasMaxLength(300)
+    .HasColumnType("nvarchar(300)");
 
-                    b.Property<int>("SubscriptionsStartingPageNumber")
-                        .HasColumnType("int");
+          b.Property<int>("SubscriptionsStartingPageNumber")
+    .HasColumnType("int");
 
-                    b.Property<int>("SubscriptionsTotalPages")
-                        .HasColumnType("int");
+          b.Property<int>("SubscriptionsTotalPages")
+    .HasColumnType("int");
 
-                    b.Property<string>("TopWallpapers")
-                        .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
+          b.Property<string>("TopWallpapers")
+    .IsRequired()
+    .HasMaxLength(300)
+    .HasColumnType("nvarchar(300)");
 
-                    b.Property<int>("TopWallpapersStartingPageNumber")
-                        .HasColumnType("int");
+          b.Property<int>("TopWallpapersStartingPageNumber")
+    .HasColumnType("int");
 
-                    b.Property<int>("TopWallpapersTotalPages")
-                        .HasColumnType("int");
+          b.Property<int>("TopWallpapersTotalPages")
+    .HasColumnType("int");
 
-                    b.Property<int>("TotalPages")
-                        .HasColumnType("int");
+          b.Property<int>("TotalPages")
+    .HasColumnType("int");
 
-                    b.Property<string>("UpdatedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+          b.Property<string>("UpdatedBy")
+    .IsRequired()
+    .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("UpdatedOn")
-                        .HasColumnType("datetime2");
+          b.Property<DateTime>("UpdatedOn")
+    .HasColumnType("datetime2");
 
-                    b.Property<bool>("UseHeadless")
-                        .HasColumnType("bit");
+          b.Property<bool>("UseHeadless")
+    .HasColumnType("bit");
 
-                    b.HasKey("Id");
+          b.HasKey("Id");
 
-                    b.ToTable("SearchConfiguration", "admin");
-                });
+          b.ToTable("SearchConfiguration", "admin");
+      });
 
-            modelBuilder.Entity("AStar.Dev.Infrastructure.AdminDb.Models.SiteConfiguration", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+  modelBuilder.Entity("AStar.Dev.Infrastructure.AdminDb.Models.SiteConfiguration", b =>
+      {
+          b.Property<int>("Id")
+    .ValueGeneratedOnAdd()
+    .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+          SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("BaseUrl")
-                        .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
+          b.Property<string>("BaseUrl")
+    .IsRequired()
+    .HasMaxLength(300)
+    .HasColumnType("nvarchar(300)");
 
-                    b.Property<string>("LoginEmailAddress")
-                        .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+          b.Property<string>("LoginEmailAddress")
+    .IsRequired()
+    .HasMaxLength(255)
+    .HasColumnType("nvarchar(255)");
 
-                    b.Property<string>("LoginUrl")
-                        .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
+          b.Property<string>("LoginUrl")
+    .IsRequired()
+    .HasMaxLength(300)
+    .HasColumnType("nvarchar(300)");
 
-                    b.Property<string>("Password")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+          b.Property<string>("Password")
+    .IsRequired()
+    .HasMaxLength(50)
+    .HasColumnType("nvarchar(50)");
 
-                    b.Property<string>("SiteConfigurationSlug")
-                        .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
+          b.Property<string>("SiteConfigurationSlug")
+    .IsRequired()
+    .HasMaxLength(300)
+    .HasColumnType("nvarchar(300)");
 
-                    b.Property<string>("UpdatedBy")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+          b.Property<string>("UpdatedBy")
+    .IsRequired()
+    .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("UpdatedOn")
-                        .HasColumnType("datetime2");
+          b.Property<DateTime>("UpdatedOn")
+    .HasColumnType("datetime2");
 
-                    b.Property<string>("Username")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+          b.Property<string>("Username")
+    .IsRequired()
+    .HasMaxLength(50)
+    .HasColumnType("nvarchar(50)");
 
-                    b.HasKey("Id");
+          b.HasKey("Id");
 
-                    b.ToTable("SiteConfiguration", "admin");
-                });
+          b.ToTable("SiteConfiguration", "admin");
+      });
 #pragma warning restore 612, 618
         }
     }

@@ -6,7 +6,7 @@ public class FileNamePartShould
 {
     [Fact]
     public void ContainTheExpectedProperties()
-        => new FileNamePart { FileClassifications = new List<FileClassification> { new()  { Id = 1 } } }
+        => new FileNamePart { FileClassifications = new List<FileClassification> { new() { Id = 1 } } }
            .ToJson()
            .ShouldMatchApproved();
 }

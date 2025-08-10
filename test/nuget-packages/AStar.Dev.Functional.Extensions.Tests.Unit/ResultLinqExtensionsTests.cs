@@ -2,7 +2,7 @@ namespace AStar.Dev.Functional.Extensions.Tests.Unit;
 
 public class ResultLinqExtensionsTests
 {
-    private static Result<int, string>.Ok Ok(int        value) => new(value);
+    private static Result<int, string>.Ok Ok(int value) => new(value);
 
     private static Result<int, string>.Error Err(string error) => new(error);
 

@@ -6,7 +6,7 @@ namespace AStar.Dev.Infrastructure.FilesDb.Tests.Integration;
 
 /// <summary>
 /// </summary>
-public class FileDetailPagingExtensionsShould (FilesContextFixture filesContextFixture) : IClassFixture<FilesContextFixture>
+public class FileDetailPagingExtensionsShould(FilesContextFixture filesContextFixture) : IClassFixture<FilesContextFixture>
 {
     [Fact]
     public void ShouldReturnExpectedFirstPageOfTenResultsWithCorrectDetails()

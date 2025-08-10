@@ -13,14 +13,8 @@ public sealed class CloudRoleNameTelemetryInitializer(string roleOrApplicationNa
     /// <inheritdoc />
     public void Initialize(ITelemetry telemetry)
     {
-        try
-        {
-            telemetry.Context.Cloud.RoleName     = roleOrApplicationName;
+        telemetry.Context.Cloud.RoleName = roleOrApplicationName;
 
-            telemetry.Context.InstrumentationKey = instrumentationKey;
-        }
-        catch
-        {
-        }
+        telemetry.Context.InstrumentationKey = instrumentationKey;
     }
 }

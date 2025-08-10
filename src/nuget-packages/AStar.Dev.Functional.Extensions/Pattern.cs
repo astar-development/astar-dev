@@ -25,7 +25,7 @@ public static class Pattern
     /// <typeparam name="T"></typeparam>
     /// <typeparam name="TE"></typeparam>
     /// <returns></returns>
-    public static bool IsOk<T, TE>(Result<T, TE>    result) => result is Result<T, TE>.Ok;
+    public static bool IsOk<T, TE>(Result<T, TE> result) => result is Result<T, TE>.Ok;
 
     /// <summary>
     /// </summary>

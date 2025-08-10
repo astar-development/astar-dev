@@ -10,7 +10,7 @@ public sealed class FilesApiConfigurationShould
 
     [Fact]
     public void ContainTheExpectedProperties() =>
-        new FilesApiConfiguration { Scopes = ["MockScope"], BaseUrl = new ("https://mock.url.com") }.ToJson().ShouldMatchApproved();
+        new FilesApiConfiguration { Scopes = ["MockScope"], BaseUrl = new("https://mock.url.com") }.ToJson().ShouldMatchApproved();
 
     [Fact]
     public void ReturnTheExpectedSectionLocationValue() =>

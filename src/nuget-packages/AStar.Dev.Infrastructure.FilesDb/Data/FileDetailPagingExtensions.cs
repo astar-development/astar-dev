@@ -16,7 +16,7 @@ public static class FileDetailPagingExtensions
     {
         pageSize = RestrictPageSize(pageSize);
 
-        if (pageNumber < 1)
+        if(pageNumber < 1)
         {
             pageNumber = 1;
         }

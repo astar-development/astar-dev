@@ -33,7 +33,7 @@ public sealed class ConfigureSwaggerOptions(
     /// <inheritdoc />
     public void Configure(SwaggerGenOptions options)
     {
-        foreach (var description in provider.ApiVersionDescriptions)
+        foreach(var description in provider.ApiVersionDescriptions)
         {
             options.SwaggerDoc(description.GroupName,
                                CreateInfoForApiVersion(description, apiConfiguration.Value.OpenApiInfo.Title));
@@ -45,34 +45,34 @@ public sealed class ConfigureSwaggerOptions(
     {
         var text = new StringBuilder(apiDescription);
 
-        if (description.IsDeprecated)
+        if(description.IsDeprecated)
         {
             text.Append(" **** This API version has been deprecated. **** ");
         }
 
-        if (description.SunsetPolicy is { } policy)
+        if(description.SunsetPolicy is { } policy)
         {
-            if (policy.Date is { } when)
+            if(policy.Date is { } when)
             {
                 text.Append(" The API will be sunset on ")
                     .Append(when.Date.ToShortDateString())
                     .Append('.');
             }
 
-            if (policy.HasLinks)
+            if(policy.HasLinks)
             {
                 text.AppendLine();
 
                 var rendered = false;
 
-                foreach (var link in policy.Links)
+                foreach(var link in policy.Links)
                 {
-                    if (link.Type != "text/html")
+                    if(link.Type != "text/html")
                     {
                         continue;
                     }
 
-                    if (!rendered)
+                    if(!rendered)
                     {
                         text.Append("<h4>Links</h4><ul>");
                         rendered = true;
@@ -90,7 +90,7 @@ public sealed class ConfigureSwaggerOptions(
                     text.Append("</a></li>");
                 }
 
-                if (rendered)
+                if(rendered)
                 {
                     text.Append("</ul>");
                 }

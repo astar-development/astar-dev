@@ -27,7 +27,7 @@ public class Worker(IServiceProvider serviceProvider, IHostApplicationLifetime h
             await RunMigrationAsync(dbContext, stoppingToken);
             await SeedDataAsync(dbContext, stoppingToken);
         }
-        catch (Exception ex)
+        catch(Exception ex)
         {
             activity?.AddException(ex);
 
@@ -45,7 +45,7 @@ public class Worker(IServiceProvider serviceProvider, IHostApplicationLifetime h
 
         await strategy.ExecuteAsync(async () =>
                                     {
-                                        if (!await dbCreator.ExistsAsync(stoppingToken))
+                                        if(!await dbCreator.ExistsAsync(stoppingToken))
                                         {
                                             await dbCreator.CreateAsync(stoppingToken);
                                         }
@@ -70,7 +70,7 @@ public class Worker(IServiceProvider serviceProvider, IHostApplicationLifetime h
 
         await strategy.ExecuteAsync(async () =>
                                     {
-                                        if (!await dbContext.FileDetails.AnyAsync(stoppingToken))
+                                        if(!await dbContext.FileDetails.AnyAsync(stoppingToken))
                                         {
                                             var fileDetail = new FileDetail
                                                              {
@@ -83,20 +83,20 @@ public class Worker(IServiceProvider serviceProvider, IHostApplicationLifetime h
                                                                  ImageDetail   = new(1234, 5678)
                                                              };
 
-                                            var             @event      = new Event
-                                                                          {
-                                                                              DirectoryName    = "MockDirectoryName",
-                                                                              FileName         = "MockFileName.jpg",
-                                                                              FileSize         = 12345,
-                                                                              FileCreated      = DateTimeOffset.UtcNow,
-                                                                              Height           = 5678,
-                                                                              Width            = 1234,
-                                                                              EventOccurredAt  = DateTimeOffset.UtcNow,
-                                                                              Type             = EventType.Add,
-                                                                              FileLastModified = DateTimeOffset.UtcNow,
-                                                                              Handle           = "MockFileHandle",
-                                                                              UpdatedBy        = "Jason Barden"
-                                                                          };
+                                            var @event = new Event
+                                                         {
+                                                             DirectoryName    = "MockDirectoryName",
+                                                             FileName         = "MockFileName.jpg",
+                                                             FileSize         = 12345,
+                                                             FileCreated      = DateTimeOffset.UtcNow,
+                                                             Height           = 5678,
+                                                             Width            = 1234,
+                                                             EventOccurredAt  = DateTimeOffset.UtcNow,
+                                                             Type             = EventType.Add,
+                                                             FileLastModified = DateTimeOffset.UtcNow,
+                                                             Handle           = "MockFileHandle",
+                                                             UpdatedBy        = "Jason Barden"
+                                                         };
 
                                             await using var transaction = await dbContext.Database.BeginTransactionAsync(stoppingToken);
 

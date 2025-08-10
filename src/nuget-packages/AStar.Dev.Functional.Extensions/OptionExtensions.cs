@@ -13,7 +13,7 @@ public static class OptionExtensions
     /// </summary>
     public static bool TryGetValue<T>(this Option<T> option, out T value)
     {
-        if (option is Option<T>.Some some)
+        if(option is Option<T>.Some some)
         {
             value = some.Value;
 
@@ -88,7 +88,7 @@ public static class OptionExtensions
     /// <summary>
     ///     Converts an <see cref="Option{T}" /> to a single-element enumerable or an empty sequence.
     /// </summary>
-    public static IEnumerable<T> ToEnumerable<T>(this Option<T> option) => option is Option<T>.Some some ? [ some.Value ] : [];
+    public static IEnumerable<T> ToEnumerable<T>(this Option<T> option) => option is Option<T>.Some some ? [some.Value] : [];
 
     /// <summary>
     ///     Gets the value of the option or returns a fallback value.

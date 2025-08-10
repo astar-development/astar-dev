@@ -13,7 +13,7 @@ public class FileNamePartConfiguration : IEntityTypeConfiguration<FileNamePart>
     {
         _ = builder
             .ToTable(nameof(FileNamePart), Constants.SchemaName)
-            .HasKey(fileNamePart =>  fileNamePart.Id);
+            .HasKey(fileNamePart => fileNamePart.Id);
 
         _ = builder.Property(fileNamePart => fileNamePart.Text).HasMaxLength(150);
     }

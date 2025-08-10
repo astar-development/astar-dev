@@ -22,17 +22,17 @@ public class DuplicateDetail
     /// <summary>
     ///     Gets or sets the File Height
     /// </summary>
-    public int    ImageHeight     { get; set; }
+    public int ImageHeight { get; set; }
 
     /// <summary>
     ///     Gets or sets the File Width
     /// </summary>
-    public int    ImageWidth      { get; set; }
+    public int ImageWidth { get; set; }
 
     /// <summary>
     ///     Gets or sets the File Size
     /// </summary>
-    public long    FileSize   { get; set; }
+    public long FileSize { get; set; }
 
     /// <summary>
     ///     Gets or sets the File Handle
@@ -43,12 +43,12 @@ public class DuplicateDetail
     /// <summary>
     ///     Gets or sets whether File is an image
     /// </summary>
-    public bool   IsImage    { get; set; }
+    public bool IsImage { get; set; }
 
     /// <summary>
     ///     Gets or sets the Instance count for the duplicate group
     /// </summary>
-    public int   Instances  { get; set; }
+    public int Instances { get; set; }
 
     /// <summary>
     ///     Gets or sets the Details Last Updated

@@ -28,7 +28,7 @@ public sealed class ImagesApiClient(HttpClient httpClient, /*ITokenAcquisition t
                        ? await ReturnLoggedSuccessAsync(response)
                        : ReturnLoggedFailure(response);
         }
-        catch (HttpRequestException ex)
+        catch(HttpRequestException ex)
         {
             logger.LogError(500, ex, "Error: {ErrorMessage}", ex.Message);
 
@@ -88,6 +88,6 @@ public sealed class ImagesApiClient(HttpClient httpClient, /*ITokenAcquisition t
     {
         logger.LogInformation("Could not find: {FileName}", fileName);
 
-        return new ();
+        return new();
     }
 }

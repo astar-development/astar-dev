@@ -47,7 +47,7 @@ public abstract class Option<T>
         /// <exception cref="ArgumentNullException" />
         public Some(T value)
         {
-            if (value is null)
+            if(value is null)
             {
                 throw new ArgumentNullException(nameof(value));
             }
@@ -75,7 +75,7 @@ public abstract class Option<T>
         /// <summary>
         ///     A helper method to create an instance of <see cref="Option{T}.None" />
         /// </summary>
-        public static readonly None Instance = new ();
+        public static readonly None Instance = new();
 
         private None()
         {

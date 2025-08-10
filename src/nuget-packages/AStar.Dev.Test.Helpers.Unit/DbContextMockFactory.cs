@@ -33,7 +33,7 @@ public static class DbContextMockFactory
                             var entity = call.Arg<T>();
                             backingStore.Add(entity);
 
-                            return new (Task.FromResult((EntityEntry<T>)null!)); // No actual tracking
+                            return new(Task.FromResult((EntityEntry<T>)null!)); // No actual tracking
                         });
 
         return mockSet;

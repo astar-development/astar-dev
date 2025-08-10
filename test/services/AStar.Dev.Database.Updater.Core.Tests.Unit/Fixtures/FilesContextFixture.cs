@@ -16,12 +16,12 @@ public class FilesContextFixture : IDisposable
 
     protected virtual void Dispose(bool disposing)
     {
-        if (disposedValue)
+        if(disposedValue)
         {
             return;
         }
 
-        if (disposing)
+        if(disposing)
         {
             Sut.Dispose();
         }

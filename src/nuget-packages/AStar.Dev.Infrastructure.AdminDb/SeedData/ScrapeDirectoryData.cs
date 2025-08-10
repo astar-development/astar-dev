@@ -16,7 +16,7 @@ public static class ScrapeDirectoryData
     {
         var scrapeDirectories = context.Set<ScrapeDirectory>();
 
-        if (scrapeDirectories.Any())
+        if(scrapeDirectories.Any())
         {
             return;
         }

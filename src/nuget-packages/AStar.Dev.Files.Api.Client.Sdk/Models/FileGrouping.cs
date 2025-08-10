@@ -10,9 +10,9 @@ public class FileGrouping
 
     /// <summary>
     /// </summary>
-    public int  Height   { get; set; }
+    public int Height { get; set; }
 
     /// <summary>
     /// </summary>
-    public int  Width    { get; set; }
+    public int Width { get; set; }
 }

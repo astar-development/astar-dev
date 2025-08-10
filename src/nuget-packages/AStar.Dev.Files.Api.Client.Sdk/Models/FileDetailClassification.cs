@@ -6,15 +6,15 @@ public class FileDetailClassification
 {
     /// <summary>
     /// </summary>
-    public int                 FileId              { get; set; }
+    public int FileId { get; set; }
 
     /// <summary>
     /// </summary>
-    public FileDetail          FileDetail          { get; set; } = null!;
+    public FileDetail FileDetail { get; set; } = null!;
 
     /// <summary>
     /// </summary>
-    public int                 ClassificationId    { get; set; }
+    public int ClassificationId { get; set; }
 
     /// <summary>
     /// </summary>

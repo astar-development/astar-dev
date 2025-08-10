@@ -13,7 +13,7 @@ public class OptionToResultTests
     [Fact]
     public void ToResult_FromNone_ReturnsError()
     {
-        var opt    =  Option.None<int>();
+        var opt    = Option.None<int>();
         var result = opt.ToResult(() => "missing");
         Assert.True(result is Result<int, string>.Error err && err.Reason == "missing");
     }

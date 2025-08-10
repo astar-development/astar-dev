@@ -14,7 +14,7 @@ public class FileClassification
 
     /// <summary>
     /// </summary>
-    public ICollection<FileDetail> FileDetails { get ; set ; } = [];
+    public ICollection<FileDetail> FileDetails { get; set; } = [];
 
     /// <summary>
     /// </summary>
@@ -22,5 +22,5 @@ public class FileClassification
 
     /// <summary>
     /// </summary>
-    public ICollection<FileNamePart> FileNameParts { get ; set ; } = [];
+    public ICollection<FileNamePart> FileNameParts { get; set; } = [];
 }

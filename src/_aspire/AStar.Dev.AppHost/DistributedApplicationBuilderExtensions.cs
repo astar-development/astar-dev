@@ -9,12 +9,12 @@ public static class DistributedApplicationBuilderExtensions
 
     public static void AddApplicationProjects(this IDistributedApplicationBuilder distributedApplicationBuilder, string sqlMountDirectory)
     {
-        var sqlPassword      = distributedApplicationBuilder.AddParameter(AspireConstants.Sql.SqlPasswordParameter, true);
+        var sqlPassword = distributedApplicationBuilder.AddParameter(AspireConstants.Sql.SqlPasswordParameter, true);
 
-        var sqlServer        = distributedApplicationBuilder.AddSqlServer(AspireConstants.Sql.SqlServer, sqlPassword, 1433)
-                                                            .WithLifetime(ContainerLifetime.Persistent)
-                                                            .WithExternalHttpEndpoints()
-                                                            .WithDataBindMount(sqlMountDirectory);
+        var sqlServer = distributedApplicationBuilder.AddSqlServer(AspireConstants.Sql.SqlServer, sqlPassword, 1433)
+                                                     .WithLifetime(ContainerLifetime.Persistent)
+                                                     .WithExternalHttpEndpoints()
+                                                     .WithDataBindMount(sqlMountDirectory);
 
         var adminDb = sqlServer.AddDatabase(AspireConstants.Sql.AdminDb);
         var filesDb = sqlServer.AddDatabase(AspireConstants.Sql.FilesDb);
@@ -69,8 +69,8 @@ public static class DistributedApplicationBuilderExtensions
                                      .WaitFor(rabbitmq)
                                      .WithHttpHealthCheck(HealthEndpoint);
 
-    private static IResourceBuilder<ProjectResource> AddFilesApi( IDistributedApplicationBuilder           distributedApplicationBuilder, IResourceBuilder<SqlServerDatabaseResource> filesDb,
-                                                                  IResourceBuilder<RabbitMQServerResource> rabbitmq) =>
+    private static IResourceBuilder<ProjectResource> AddFilesApi(IDistributedApplicationBuilder           distributedApplicationBuilder, IResourceBuilder<SqlServerDatabaseResource> filesDb,
+                                                                 IResourceBuilder<RabbitMQServerResource> rabbitmq) =>
         distributedApplicationBuilder.AddProject<AStar_Dev_Files_Api>(AspireConstants.Apis.FilesApi)
                                      .WithReference(filesDb)
                                      .WaitFor(filesDb)
@@ -78,8 +78,8 @@ public static class DistributedApplicationBuilderExtensions
                                      .WaitFor(rabbitmq)
                                      .WithHttpHealthCheck(HealthEndpoint);
 
-    private static IResourceBuilder<ProjectResource> AddAdminApi( IDistributedApplicationBuilder           distributedApplicationBuilder, IResourceBuilder<SqlServerDatabaseResource> adminDb,
-                                                                  IResourceBuilder<RabbitMQServerResource> rabbitmq) =>
+    private static IResourceBuilder<ProjectResource> AddAdminApi(IDistributedApplicationBuilder           distributedApplicationBuilder, IResourceBuilder<SqlServerDatabaseResource> adminDb,
+                                                                 IResourceBuilder<RabbitMQServerResource> rabbitmq) =>
         distributedApplicationBuilder.AddProject<AStar_Dev_Admin_Api>(AspireConstants.Apis.AdminApi)
                                      .WithReference(adminDb)
                                      .WaitFor(adminDb)

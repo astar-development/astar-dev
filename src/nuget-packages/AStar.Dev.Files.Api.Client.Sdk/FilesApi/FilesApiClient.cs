@@ -31,7 +31,7 @@ public sealed class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition to
                        ? await ReturnLoggedSuccessAsync(response)
                        : ReturnLoggedFailure(response);
         }
-        catch (HttpRequestException ex)
+        catch(HttpRequestException ex)
         {
             logger.LogError(500, ex, "Error: {ErrorMessage}", ex.Message);
 
@@ -123,7 +123,7 @@ public sealed class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition to
 
         return (response.IsSuccessStatusCode
                     ? getDuplicatesCountQueryResponse
-                    : new (-1))!;
+                    : new(-1))!;
     }
 
     /// <summary>
@@ -187,7 +187,7 @@ public sealed class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition to
                        ? "Marked for soft deletion"
                        : await response.Content.ReadAsStringAsync();
         }
-        catch (HttpRequestException ex)
+        catch(HttpRequestException ex)
         {
             logger.LogError(500, ex, "Error: {ErrorMessage}", ex.Message);
 
@@ -217,7 +217,7 @@ public sealed class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition to
                        ? "Mark for soft deletion has been undone"
                        : await response.Content.ReadAsStringAsync();
         }
-        catch (HttpRequestException ex)
+        catch(HttpRequestException ex)
         {
             logger.LogError(500, ex, "Error: {ErrorMessage}", ex.Message);
 
@@ -247,7 +247,7 @@ public sealed class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition to
                        ? "Marked for hard deletion."
                        : await response.Content.ReadAsStringAsync();
         }
-        catch (HttpRequestException ex)
+        catch(HttpRequestException ex)
         {
             logger.LogError(500, ex, "Error: {ErrorMessage}", ex.Message);
 
@@ -277,7 +277,7 @@ public sealed class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition to
                        ? "Mark for hard deletion has been undone"
                        : await response.Content.ReadAsStringAsync();
         }
-        catch (HttpRequestException ex)
+        catch(HttpRequestException ex)
         {
             logger.LogError(500, ex, "Error: {ErrorMessage}", ex.Message);
 
@@ -307,7 +307,7 @@ public sealed class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition to
                        ? "Mark for moving was successful"
                        : await response.Content.ReadAsStringAsync();
         }
-        catch (HttpRequestException ex)
+        catch(HttpRequestException ex)
         {
             logger.LogError(500, ex, "Error: {ErrorMessage}", ex.Message);
 
@@ -337,7 +337,7 @@ public sealed class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition to
                        ? "Undo mark for moving was successful"
                        : await response.Content.ReadAsStringAsync();
         }
-        catch (HttpRequestException ex)
+        catch(HttpRequestException ex)
         {
             logger.LogError(500, ex, "Error: {ErrorMessage}", ex.Message);
 

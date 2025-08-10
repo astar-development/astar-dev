@@ -28,7 +28,7 @@ public sealed class AdminApiClient(HttpClient httpClient, /*ITokenAcquisition to
                        ? (await JsonSerializer.DeserializeAsync<HealthStatusResponse>(await response.Content.ReadAsStreamAsync(cancellationToken), JsonSerializerOptions, cancellationToken))!
                        : ReturnLoggedFailure(response);
         }
-        catch (HttpRequestException ex)
+        catch(HttpRequestException ex)
         {
             logger.LogError(500, ex, "Error: {ErrorMessage}", ex.Message);
 
@@ -69,9 +69,9 @@ public sealed class AdminApiClient(HttpClient httpClient, /*ITokenAcquisition to
     //     var response = await httpClient.GetAsync("models-to-ignore?version=1");
     //
     //     return response.IsSuccessStatusCode
-    //                ? (await response.Content.ReadAsStringAsync()).FromJson<IEnumerable<ModelToIgnore>>(Utilities.Constants
-    //                                                                                                             .WebDeserialisationSettings)
-    //                : [];
+    //      ? (await response.Content.ReadAsStringAsync()).FromJson<IEnumerable<ModelToIgnore>>(Utilities.Constants
+    //                   .WebDeserialisationSettings)
+    //      : [];
     // }
     //
     // /// <summary>
@@ -84,9 +84,9 @@ public sealed class AdminApiClient(HttpClient httpClient, /*ITokenAcquisition to
     //     var response = await httpClient.GetAsync("scrape-directories?version=1");
     //
     //     return response.IsSuccessStatusCode
-    //                ? (await response.Content.ReadAsStringAsync()).FromJson<ScrapeDirectories>(Utilities.Constants
-    //                                                                                                    .WebDeserialisationSettings)
-    //                : new ScrapeDirectories();
+    //      ? (await response.Content.ReadAsStringAsync()).FromJson<ScrapeDirectories>(Utilities.Constants
+    //          .WebDeserialisationSettings)
+    //      : new ScrapeDirectories();
     // }
     //
     // /// <summary>
@@ -99,9 +99,9 @@ public sealed class AdminApiClient(HttpClient httpClient, /*ITokenAcquisition to
     //     var response = await httpClient.GetAsync("search-configuration?version=1");
     //
     //     return response.IsSuccessStatusCode
-    //                ? (await response.Content.ReadAsStringAsync()).FromJson<SearchConfiguration>(Utilities.Constants
-    //                                                                                                      .WebDeserialisationSettings)
-    //                : new SearchConfiguration();
+    //      ? (await response.Content.ReadAsStringAsync()).FromJson<SearchConfiguration>(Utilities.Constants
+    //            .WebDeserialisationSettings)
+    //      : new SearchConfiguration();
     // }
     //
     // /// <summary>
@@ -114,9 +114,9 @@ public sealed class AdminApiClient(HttpClient httpClient, /*ITokenAcquisition to
     //     var response = await httpClient.GetAsync("tags-to-ignore?version=1");
     //
     //     return response.IsSuccessStatusCode
-    //                ? (await response.Content.ReadAsStringAsync()).FromJson<IEnumerable<TagToIgnore>>(Utilities.Constants
-    //                                                                                                           .WebDeserialisationSettings)
-    //                : [];
+    //      ? (await response.Content.ReadAsStringAsync()).FromJson<IEnumerable<TagToIgnore>>(Utilities.Constants
+    //                 .WebDeserialisationSettings)
+    //      : [];
     // }
     //
     // /// <summary>
@@ -129,8 +129,8 @@ public sealed class AdminApiClient(HttpClient httpClient, /*ITokenAcquisition to
     //     var response = await httpClient.GetAsync("user-configuration?version=1");
     //
     //     return response.IsSuccessStatusCode
-    //                ? (await response.Content.ReadAsStringAsync()).FromJson<UserConfiguration>(Utilities.Constants
-    //                                                                                                    .WebDeserialisationSettings)
-    //                : new UserConfiguration();
+    //      ? (await response.Content.ReadAsStringAsync()).FromJson<UserConfiguration>(Utilities.Constants
+    //          .WebDeserialisationSettings)
+    //      : new UserConfiguration();
     // }
 }

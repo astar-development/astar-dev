@@ -21,7 +21,7 @@ public static class MapPostEndpoint
                        .MapGroup(EndpointConstants.FilesEndpoint)
                        .HasApiVersion(1.0);
 
-        apiGroup.MapPost("/", async (AddFilesRequest   files, [FromServices] FilesContext filesContext, ClaimsPrincipal claimsPrincipal, CancellationToken cancellationToken)
+        apiGroup.MapPost("/", async (AddFilesRequest files, [FromServices] FilesContext filesContext, ClaimsPrincipal claimsPrincipal, CancellationToken cancellationToken)
                                   => await PostedFilesHandler.HandleAsync(files, filesContext, TimeProvider.System, claimsPrincipal.Identity?.Name ?? "Jay Barden", cancellationToken))
                 .Produces<IReadOnlyCollection<AddFilesResponse>>(201)
                 .Produces(401)

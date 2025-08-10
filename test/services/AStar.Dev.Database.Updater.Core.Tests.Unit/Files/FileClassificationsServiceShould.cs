@@ -12,7 +12,7 @@
 //     {
 //         // here we can substitute it
 //         var mockClassificationsMapper = Substitute.For<ClassificationsMapper>();
-//         var sut                       = new FileClassificationsService(new (), mockClassificationsMapper, NullLogger<FileClassificationsService>.Instance);
+//         var sut   = new FileClassificationsService(new (), mockClassificationsMapper, NullLogger<FileClassificationsService>.Instance);
 //     }
 // }
 

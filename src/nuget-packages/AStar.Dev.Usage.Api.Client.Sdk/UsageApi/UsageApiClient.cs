@@ -30,7 +30,7 @@ public sealed class UsageApiClient(HttpClient httpClient, /*ITokenAcquisition to
                        ? await ReturnLoggedSuccessAsync(response)
                        : ReturnLoggedFailure(response);
         }
-        catch (HttpRequestException ex)
+        catch(HttpRequestException ex)
         {
             logger.LogError(500, ex, "Error: {ErrorMessage}", ex.Message);
 
@@ -68,7 +68,7 @@ public sealed class UsageApiClient(HttpClient httpClient, /*ITokenAcquisition to
         var response = await httpClient.GetAsync(requestUri);
 
         return (response.IsSuccessStatusCode
-                    ? await response.Content.ReadFromJsonAsync< Dictionary<string, List<ApiUsageEvent>>>()
-                    : new ())!;
+                    ? await response.Content.ReadFromJsonAsync<Dictionary<string, List<ApiUsageEvent>>>()
+                    : new())!;
     }
 }

@@ -11,17 +11,17 @@
 //     public void ContainTheExpectedValues()
 //     {
 //         var SearchCategories = new SearchCategory
-//                                {
-//                                    Name                = "Name",
-//                                    UpdatedBy           = "UpdatedBy",
-//                                    UpdatedOn           = new(2001, 1, 1),
-//                                    TotalPages          = 1,
-//                                    Id                  = 2,
-//                                    LastPageVisited     = 3,
-//                                    SearchCategoryId    = Guid.Empty,
-//                                    LastKnownImageCount = 4,
-//                                    Order               = 5,
-//                                };
+//            {
+//      Name      = "Name",
+//      UpdatedBy = "UpdatedBy",
+//      UpdatedOn = new(2001, 1, 1),
+//      TotalPages          = 1,
+//      Id        = 2,
+//      LastPageVisited     = 3,
+//      SearchCategoryId    = Guid.Empty,
+//      LastKnownImageCount = 4,
+//      Order     = 5,
+//            };
 //
 //         var sut = new GetSearchCategoriesByIdResponse(SearchCategories);
 //

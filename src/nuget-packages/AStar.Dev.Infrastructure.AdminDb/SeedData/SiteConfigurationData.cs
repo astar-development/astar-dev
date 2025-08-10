@@ -17,7 +17,7 @@ public static class SiteConfigurationData
         context.SaveChanges();
         var siteConfiguration = context.Set<SiteConfiguration>();
 
-        if (siteConfiguration.Any())
+        if(siteConfiguration.Any())
         {
             return;
         }

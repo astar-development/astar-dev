@@ -22,7 +22,7 @@ public sealed class DuplicateGroup
 
     /// <summary>
     /// </summary>
-    public FileGrouping  FileGrouping { get; private set; } = new();
+    public FileGrouping FileGrouping { get; private set; } = new();
 
     /// <summary>
     ///     Gets or sets the list of <see href="DuplicatesDetails"></see> objects

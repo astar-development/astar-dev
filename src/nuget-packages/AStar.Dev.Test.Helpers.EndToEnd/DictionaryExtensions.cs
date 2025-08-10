@@ -18,17 +18,17 @@ public static class DictionaryExtensions
     {
         var result = new Dictionary<TKey, TValue>();
 
-        foreach (var dictionaryEntry in dictionary)
+        foreach(var dictionaryEntry in dictionary)
         {
             result[dictionaryEntry.Key] = dictionaryEntry.Value;
         }
 
-        if (additionalDictionaries == null)
+        if(additionalDictionaries == null)
         {
             return result;
         }
 
-        foreach (var dictionaryEntry in additionalDictionaries.Where(additionalDictionary => additionalDictionary is not null).SelectMany(additionalDictionary => additionalDictionary!))
+        foreach(var dictionaryEntry in additionalDictionaries.Where(additionalDictionary => additionalDictionary is not null).SelectMany(additionalDictionary => additionalDictionary!))
         {
             result[dictionaryEntry.Key] = dictionaryEntry.Value;
         }

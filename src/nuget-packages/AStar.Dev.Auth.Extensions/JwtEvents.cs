@@ -46,7 +46,7 @@ public sealed class JwtEvents(ILogger<JwtEvents> logger)
         var claimsPrincipal = context.Principal;
         var userId          = claimsPrincipal?.FindFirst(t => t.Type == "name")?.Value;
 
-        if (string.IsNullOrEmpty(userId))
+        if(string.IsNullOrEmpty(userId))
         {
             context.Fail("User ID could not be found.");
         }

@@ -22,7 +22,7 @@ public abstract class Try<T>
         {
             return new Success(func());
         }
-        catch (Exception ex)
+        catch(Exception ex)
         {
             return new Failure(ex);
         }

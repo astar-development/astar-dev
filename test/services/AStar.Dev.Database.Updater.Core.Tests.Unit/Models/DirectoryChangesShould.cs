@@ -5,8 +5,8 @@
 //     [Fact]
 //     public void ReturnTheExpectedToString() =>
 //         new DirectoryChanges()
-//             .ToString()
-//             .ShouldMatchApproved();
+//   .ToString()
+//   .ShouldMatchApproved();
 // }
 
 

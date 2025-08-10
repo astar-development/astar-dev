@@ -17,8 +17,8 @@ public class GetFilesHandler : IGetFilesHandler
 
         var searchType = Enum.Parse<SearchType>(files.SearchType.ToString());
 
-        var sortOrder = (Infrastructure.FilesDb.Models.SortOrder) Enum.Parse<SortOrder>(files.SortOrder
-                                                                                             .ToString());
+        var sortOrder = (Infrastructure.FilesDb.Models.SortOrder)Enum.Parse<SortOrder>(files.SortOrder
+                                                                                            .ToString());
 
         IList<GetFilesResponse> fileDetails = await filesContext.FileDetails
                                                                 .WhereDirectoryNameMatches(files.SearchFolder, files.Recursive)

@@ -26,14 +26,14 @@ public static class PipelineExtensions
         app.UseExceptionHandler();
         app.ConfigureHealthCheckEndpoints().UseSwagger();
 
-        if (enableSwaggerDarkMode)
+        if(enableSwaggerDarkMode)
         {
             app.UseStaticFiles();
         }
 
         app.UseSwaggerUI(SetupAction(app, enableSwaggerDarkMode));
 
-//           .UseAuthentication()
+// .UseAuthentication()
         //         .UseAuthorization();
 
         return app;
@@ -45,13 +45,13 @@ public static class PipelineExtensions
         {
             var descriptions = webApplication.DescribeApiVersions();
 
-            foreach (var description in descriptions)
+            foreach(var groupName in descriptions.Select(description => description.GroupName))
             {
-                var url  = $"/swagger/{description.GroupName}/swagger.json";
-                var name = description.GroupName.ToUpperInvariant();
+                var url  = $"/swagger/{groupName}/swagger.json";
+                var name = groupName.ToUpperInvariant();
                 options.SwaggerEndpoint(url, name);
 
-                if (enableSwaggerDarkMode)
+                if(enableSwaggerDarkMode)
                 {
                     options.InjectStylesheet("/swagger-ui/SwaggerDark.css");
                 }

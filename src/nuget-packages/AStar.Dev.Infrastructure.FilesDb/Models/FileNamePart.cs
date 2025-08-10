@@ -14,5 +14,5 @@ public class FileNamePart
 
     /// <summary>
     /// </summary>
-    public virtual ICollection<FileClassification> FileClassifications { get ; set ; } = [];
+    public virtual ICollection<FileClassification> FileClassifications { get; set; } = [];
 }

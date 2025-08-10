@@ -6,13 +6,13 @@ public class GetFilesResponse
 {
     /// <summary>
     /// </summary>
-    public required                   string DirectoryName { get ; set ; }
+    public required string DirectoryName { get; set; }
 
     /// <summary>
     /// </summary>
-    public          required          string FileName      { get ; set ; }
+    public required string FileName { get; set; }
 
     /// <summary>
     /// </summary>
-    public                   required string FileHandle    { get ; set ; }
+    public required string FileHandle { get; set; }
 }

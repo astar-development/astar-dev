@@ -103,7 +103,7 @@ try
 
     await app.RunAsync();
 }
-catch (Exception ex)
+catch(Exception ex)
 {
     Log.Error(ex, "Fatal error occurred in {AppName}", applicationName);
 }

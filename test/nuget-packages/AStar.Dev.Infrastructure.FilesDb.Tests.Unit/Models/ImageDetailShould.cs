@@ -6,7 +6,7 @@ public class ImageDetailShould
 {
     [Fact]
     public void ContainTheExpectedProperties()
-        => new ImageDetail (  123, 456)
+        => new ImageDetail(123, 456)
            .ToJson()
            .ShouldMatchApproved();
 }

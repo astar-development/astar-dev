@@ -82,5 +82,5 @@ public sealed class FileDetail
 
     /// <summary>
     /// </summary>
-    public int Id { get ; set ; }
+    public int Id { get; set; }
 }

@@ -7,7 +7,7 @@ namespace AStar.Dev.Infrastructure.FilesDb.Tests.Integration;
 
 /// <summary>
 /// </summary>
-public class FileDetailSearchTypeExtensionsShould (FilesContextFixture filesContextFixture) : IClassFixture<FilesContextFixture>
+public class FileDetailSearchTypeExtensionsShould(FilesContextFixture filesContextFixture) : IClassFixture<FilesContextFixture>
 {
     [Fact]
     public void ShouldReturnExpectedFileDetailsWhenSearchTypeIsSetToAll()

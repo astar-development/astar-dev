@@ -8,9 +8,9 @@ public sealed class DuplicateGroupShould
             {
                 Duplicates = new List<DuplicatesDetails>
                              {
-                                 new ()
+                                 new()
                                  {
-                                     DetailsLastUpdated = new (2025, 12, 23) ,
+                                     DetailsLastUpdated = new(2025, 12, 23, 12, 34, 56, 789, DateTimeKind.Utc),
                                      FileName           = "MockFileName",
                                      FileSize           = 1234,
                                      Height             = 345,
@@ -22,7 +22,7 @@ public sealed class DuplicateGroupShould
                                      Id                 = 2,
                                      Instances          = 3,
                                      IsImage            = true,
-                                     LastViewed         = new DateTime(2025, 12, 24),
+                                     LastViewed         = new DateTime(2025, 12, 24, 12, 34, 56, 789, DateTimeKind.Utc),
                                      MoveRequired       = true,
                                      SoftDeleted        = true,
                                      SoftDeletePending  = true

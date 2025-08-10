@@ -19,7 +19,7 @@
 //     public void DisposeOfTheNavigationManager()
 //     {
 //         var navigationManager = new TestNav();
-//         var menu              = new NavMenuForTests { NavigationManager = navigationManager, };
+//         var menu    = new NavMenuForTests { NavigationManager = navigationManager, };
 //         navigationManager.LocationChanged += (s, e) => { };
 //
 //         menu.Dispose();
@@ -30,9 +30,9 @@
 //     [Fact]
 //     public void TriggerTheLocationChangedEvent()
 //     {
-//         var count             = 0;
+//         var count   = 0;
 //         var navigationManager = new TestNav();
-//         var menu              = new NavMenuForTests { NavigationManager = navigationManager, };
+//         var menu    = new NavMenuForTests { NavigationManager = navigationManager, };
 //         navigationManager.LocationChanged += (s, e) => { count++; };
 //
 //         navigationManager.NavigateTo("https://www.example.com");

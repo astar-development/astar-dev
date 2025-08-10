@@ -42,7 +42,7 @@ public sealed class UsageMetricHandler(RequestDelegate next, ILogger<UsageMetric
 
     private string UpdateApiNameIfRequired(string apiName)
     {
-        if (apiName != "host.docker.internal")
+        if(apiName != "host.docker.internal")
         {
             return apiName;
         }

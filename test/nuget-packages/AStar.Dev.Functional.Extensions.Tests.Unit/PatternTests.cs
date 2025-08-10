@@ -6,7 +6,7 @@ public class PatternTests
     public void IsSome_And_IsNone_WorkCorrectly()
     {
         Option<string> some = new Option<string>.Some("value");
-        var            none =  Option.None<string>();
+        var            none = Option.None<string>();
 
         Assert.True(Pattern.IsSome(some));
         Assert.False(Pattern.IsNone(some));
