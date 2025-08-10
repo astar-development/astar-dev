@@ -33,7 +33,7 @@ public class FilesContext : DbContext
 
     /// <summary>
     /// </summary>
-    public DbSet<FileNamePart> FileNameParts { get;        set; } = null!;
+    public DbSet<FileNamePart> FileNameParts { get; set; } = null!;
 
     /// <summary>
     ///     The list of Events
@@ -45,10 +45,10 @@ public class FilesContext : DbContext
     /// </summary>
     public DbSet<FileClassification> FileClassifications { get; set; } = null!;
 
-    // /// <summary>
-    // ///     Gets or sets the Duplicate Details
-    // /// </summary>
-    // public DbSet<DuplicateDetail> DuplicateDetails { get; set; }
+    /// <summary>
+    ///     Gets or sets the Duplicate Details
+    /// </summary>
+    public DbSet<DuplicateDetail> DuplicateDetails { get; set; }
 
     /// <summary>
     ///     The overridden OnModelCreating method
@@ -61,11 +61,11 @@ public class FilesContext : DbContext
         _ = modelBuilder.HasDefaultSchema(Constants.SchemaName);
         _ = modelBuilder.ApplyConfigurationsFromAssembly(typeof(FilesContext).Assembly);
 
-        // modelBuilder
-        //     .Entity<DuplicateDetail>(eb =>
-        //                              {
-        //                                  eb.HasNoKey();
-        //                                  eb.ToView("vw_DuplicatesDetails");
-        //                              });
+        _ = modelBuilder
+            .Entity<DuplicateDetail>(eb =>
+                                     {
+                                         _ = eb.HasNoKey();
+                                         _ = eb.ToView("vw_DuplicateDetails");
+                                     });
     }
 }

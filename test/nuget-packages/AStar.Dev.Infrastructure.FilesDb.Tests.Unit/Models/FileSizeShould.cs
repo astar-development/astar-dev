@@ -1,8 +1,12 @@
-﻿namespace AStar.Dev.Infrastructure.FilesDb.Models;
+using AStar.Dev.Utilities;
 
-public sealed class FileSizeShould
+namespace AStar.Dev.Infrastructure.FilesDb.Models;
+
+public class FileSizeShould
 {
     [Fact]
-    public void ReturnTheExpectedToStringOutput() =>
-        FileSize.Create(1, 2, 3).ToString().ShouldMatchApproved();
+    public void ContainTheExpectedProperties()
+        => FileSize.Create(1, 2, 3)
+                   .ToJson()
+                   .ShouldMatchApproved();
 }

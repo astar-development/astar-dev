@@ -15,19 +15,22 @@ public class GetFilesHandler : IGetFilesHandler
             return Results.BadRequest();
         }
 
-        var searchType = (Infrastructure.FilesDb.Models.SearchType) Enum.Parse<SearchType>(files.SearchType.ToString());
+        var searchType = Enum.Parse<SearchType>(files.SearchType.ToString());
 
         var sortOrder = (Infrastructure.FilesDb.Models.SortOrder) Enum.Parse<SortOrder>(files.SortOrder
                                                                                              .ToString());
 
         IList<GetFilesResponse> fileDetails = await filesContext.FileDetails
                                                                 .WhereDirectoryNameMatches(files.SearchFolder, files.Recursive)
-                                                                .IncludeMarkedForDeletion(files.IncludeMarkedForDeletion)
+
+                                                                //.IncludeMarkedForDeletion(files.IncludeMarkedForDeletion)
                                                                 .SelectFilesMatching(files.SearchText)
-                                                                .OrderAsRequested(sortOrder)
-                                                                .SelectByFileType(searchType)
-                                                                .ExcludeViewed(files.ExcludeViewedWithinDays, time)
-                                                                .SelectRequestedPage(files.CurrentPage, files.ItemsPerPage)
+
+                                                                //.OrderAsRequested(sortOrder)
+                                                                //.SelectByFileType(searchType)
+                                                                .WhereLastViewedIsOlderThan(files.ExcludeViewedWithinDays, time)
+
+                                                                //.SelectRequestedPage(files.CurrentPage, files.ItemsPerPage)
                                                                 .Select(fileDetail => fileDetail.ToGetFilesResponse())
                                                                 .ToListAsync(cancellationToken);
 

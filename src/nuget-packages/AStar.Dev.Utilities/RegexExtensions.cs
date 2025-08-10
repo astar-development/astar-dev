@@ -1,4 +1,4 @@
-﻿using System.Text.RegularExpressions;
+using System.Text.RegularExpressions;
 
 namespace AStar.Dev.Utilities;
 
@@ -34,15 +34,15 @@ public static partial class RegexExtensions
     public static bool ContainsAtLeastOneSpecialCharacter(this string value) =>
         SpecialCharacterRegex().IsMatch(value);
 
-    [GeneratedRegex("^[a-z]+$", RegexOptions.CultureInvariant, 1_000)]
+    [GeneratedRegex("[a-z]", RegexOptions.CultureInvariant, 1_000)]
     private static partial Regex LowercaseLettersRegex();
 
-    [GeneratedRegex("^[A-Z]+$", RegexOptions.CultureInvariant, 1_000)]
+    [GeneratedRegex("[A-Z]", RegexOptions.CultureInvariant, 1_000)]
     private static partial Regex UppercaseLettersRegex();
 
-    [GeneratedRegex("^[A-Z]+$", RegexOptions.CultureInvariant, 1_000)]
+    [GeneratedRegex("[0-9]", RegexOptions.CultureInvariant, 1_000)]
     private static partial Regex DigitRegex();
 
-    [GeneratedRegex(@"[!-\/:-@[-`{-~]", RegexOptions.CultureInvariant, 1_000)]
+    [GeneratedRegex(@"[!-\/:-@[-`¬{-~]", RegexOptions.CultureInvariant, 1_000)]
     private static partial Regex SpecialCharacterRegex();
 }

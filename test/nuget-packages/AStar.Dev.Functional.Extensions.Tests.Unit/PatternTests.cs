@@ -32,7 +32,7 @@ public class PatternTests
     public void IsSuccess_And_IsFailure_WorkCorrectly()
     {
         var success = Try<int>.Run(() => 1);
-        var failure = Try<int>.Run(() => throw new ("fail"));
+        var failure = Try<int>.Run(() => throw new ArgumentNullException("fail"));
 
         Assert.True(Pattern.IsSuccess(success));
         Assert.False(Pattern.IsFailure(success));

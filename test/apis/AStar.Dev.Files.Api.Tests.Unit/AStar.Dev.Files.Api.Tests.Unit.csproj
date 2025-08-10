@@ -16,12 +16,12 @@
         <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.0"/>
         <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0"/>
         <PackageReference Include="EntityFrameworkCore.Testing.NSubstitute" Version="9.0.1"/>
-        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.7"/>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.8"/>
         <PackageReference Include="coverlet.collector" Version="6.0.4">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="JetBrains.Annotations" Version="2024.3.0"/>
+        <PackageReference Include="JetBrains.Annotations" Version="2025.2.0"/>
         <PackageReference Include="NSubstitute" Version="5.3.0"/>
         <PackageReference Include="NSubstitute.Analyzers.CSharp" Version="1.0.17">
             <PrivateAssets>all</PrivateAssets>
@@ -42,8 +42,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\DbContextHelpers\DbContextHelpers.csproj"/>
         <ProjectReference Include="..\..\..\src\apis\AStar.Dev.Files.Api\AStar.Dev.Files.Api.csproj"/>
+        <ProjectReference Include="..\..\..\src\nuget-packages\AStar.Dev.Test.DbContext.Helpers\AStar.Dev.Test.DbContext.Helpers.csproj"/>
         <ProjectReference Include="..\..\..\src\nuget-packages\AStar.Dev.Test.Helpers.Minimal.Api\AStar.Dev.Test.Helpers.Minimal.Api.csproj"/>
         <ProjectReference Include="..\..\..\src\nuget-packages\AStar.Dev.Test.Helpers.Unit\AStar.Dev.Test.Helpers.Unit.csproj"/>
     </ItemGroup>

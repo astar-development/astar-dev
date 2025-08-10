@@ -1,12 +1,12 @@
-﻿{
-  "id": 1,
-  "text": "Mock Text",
+{
+  "id": 0,
+  "text": "",
   "fileClassifications": [
     {
       "id": 1,
-      "name": "Mock Classification",
+      "name": "",
       "fileDetails": [],
-      "celebrity": true,
+      "celebrity": false,
       "fileNameParts": []
     }
   ]

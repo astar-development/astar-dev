@@ -74,10 +74,10 @@ public class Worker(IServiceProvider serviceProvider, IHostApplicationLifetime h
                                         {
                                             var fileDetail = new FileDetail
                                                              {
-                                                                 FileName      = "MockFileName.jpg",
-                                                                 DirectoryName = "MockDirectoryName",
+                                                                 FileName      = new("MockFileName.jpg"),
+                                                                 DirectoryName = new("MockDirectoryName"),
                                                                  FileCreated   = DateTimeOffset.UtcNow,
-                                                                 FileHandle    = "MockFileHandle",
+                                                                 FileHandle    = new("MockFileHandle"),
                                                                  FileSize      = 12345,
                                                                  IsImage       = true,
                                                                  ImageDetail   = new(1234, 5678)

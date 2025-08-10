@@ -16,9 +16,9 @@ public static class FileDetailExtensions
         => fileDetails
            .Select(file => new AddFilesResponse
                            {
-                               FileName         = file.FileName,
-                               DirectoryName    = file.DirectoryName,
-                               Id               = file.Id,
+                               FileName         = file.FileName.Value,
+                               DirectoryName    = file.DirectoryName.Value,
+                               Id               = file.Id.Value,
                                FileCreated      = file.FileCreated,
                                ImageDetails     = new () { Width = file.ImageDetail?.Width, Height = file.ImageDetail?.Height },
                                FileHandle       = file.FileHandle,
@@ -38,12 +38,12 @@ public static class FileDetailExtensions
     public static IReadOnlyCollection<FileDetail> ToFileDetailsList(this IReadOnlyCollection<FileDetailToAdd> fileDetails, TimeProvider time, string username)
         => fileDetails.Select(fileDetailToAdd => new FileDetail
                                                  {
-                                                     FileName         = fileDetailToAdd.FileName,
-                                                     DirectoryName    = fileDetailToAdd.DirectoryName,
+                                                     FileName         = new(fileDetailToAdd.FileName),
+                                                     DirectoryName    = new(fileDetailToAdd.DirectoryName),
                                                      FileCreated      = fileDetailToAdd.FileCreated,
                                                      FileLastModified = fileDetailToAdd.FileLastModified,
                                                      FileSize         = fileDetailToAdd.FileSize,
-                                                     FileHandle       = string.Concat("-", fileDetailToAdd.FileName, fileDetailToAdd.FileClassifications.Take(3)).Replace(" ", "-"),
+                                                     FileHandle       = new(string.Concat("-", fileDetailToAdd.FileName, fileDetailToAdd.FileClassifications.Take(3)).Replace(" ", "-")),
                                                      UpdatedBy        = username,
                                                      ImageDetail      = new(fileDetailToAdd.ImageDetails.Width, fileDetailToAdd.ImageDetails.Height),
                                                      IsImage          = true,

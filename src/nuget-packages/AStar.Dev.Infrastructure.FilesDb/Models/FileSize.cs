@@ -6,7 +6,7 @@ namespace AStar.Dev.Infrastructure.FilesDb.Models;
 /// </summary>
 public sealed class FileSize
 {
-    private FileSize(long fileLength, long height, long width)
+    private FileSize(long fileLength, int height, int width)
     {
         FileLength = fileLength;
         Height     = height;
@@ -21,12 +21,12 @@ public sealed class FileSize
     /// <summary>
     ///     Gets the file height property
     /// </summary>
-    public long Height { get; }
+    public int Height { get; }
 
     /// <summary>
     ///     Gets the file width property
     /// </summary>
-    public long Width { get; }
+    public int Width { get; }
 
     /// <summary>
     ///     The Create method will return a populated instance of the <see cref="FileSize" /> class
@@ -43,7 +43,7 @@ public sealed class FileSize
     /// <returns>
     ///     A populated instance of <see cref="FileSize" />.
     /// </returns>
-    public static FileSize Create(long fileLength, long height, long width) =>
+    public static FileSize Create(long fileLength, int height, int width) =>
         new(fileLength, height, width);
 
     /// <summary>

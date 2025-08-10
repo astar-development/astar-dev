@@ -25,6 +25,61 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("AStar.Dev.Infrastructure.FilesDb.Models.DuplicateDetail", b =>
+                {
+                    b.Property<string>("DirectoryName")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("FileHandle")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<DateTimeOffset?>("FileLastViewed")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("FileName")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<long>("FileSize")
+                        .HasColumnType("bigint");
+
+                    b.Property<DateTimeOffset?>("HardDeletePending")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<int>("ImageHeight")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ImageWidth")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Instances")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("IsImage")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("MoveRequired")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("SoftDeletePending")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<DateTimeOffset?>("SoftDeleted")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<DateTimeOffset>("UpdatedOn")
+                        .HasColumnType("datetimeoffset");
+
+                    b.ToTable((string)null);
+
+                    b.ToView("vw_DuplicateDetails", "files");
+                });
+
             modelBuilder.Entity("AStar.Dev.Infrastructure.FilesDb.Models.Event", b =>
                 {
                     b.Property<int>("Id")
@@ -114,14 +169,7 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
             modelBuilder.Entity("AStar.Dev.Infrastructure.FilesDb.Models.FileDetail", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("DirectoryName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(256)");
 
                     b.Property<DateTimeOffset>("FileCreated")
                         .HasColumnType("datetimeoffset");
@@ -135,10 +183,6 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
 
                     b.Property<DateTimeOffset?>("FileLastViewed")
                         .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("FileName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(256)");
 
                     b.Property<long>("FileSize")
                         .HasColumnType("bigint");
@@ -173,6 +217,24 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                                 .HasColumnName("SoftDeleted");
                         });
 
+                    b.ComplexProperty<Dictionary<string, object>>("DirectoryName", "AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.DirectoryName#DirectoryName", b1 =>
+                        {
+                            b1.Property<string>("Value")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(256)")
+                                .HasColumnName("DirectoryName");
+                        });
+
+                    b.ComplexProperty<Dictionary<string, object>>("FileName", "AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.FileName#FileName", b1 =>
+                        {
+                            b1.IsRequired();
+
+                            b1.Property<string>("Value")
+                                .IsRequired()
+                                .HasColumnType("nvarchar(256)")
+                                .HasColumnName("FileName");
+                        });
+
                     b.ComplexProperty<Dictionary<string, object>>("ImageDetail", "AStar.Dev.Infrastructure.FilesDb.Models.FileDetail.ImageDetail#ImageDetail", b1 =>
                         {
                             b1.IsRequired();
@@ -187,6 +249,14 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                         });
 
                     b.HasKey("Id");
+
+                    b.HasIndex("FileHandle")
+                        .IsUnique();
+
+                    b.HasIndex("FileSize");
+
+                    b.HasIndex("IsImage", "FileSize")
+                        .HasDatabaseName("IX_FileDetail_DuplicateImages");
 
                     b.ToTable("FileDetail", "files");
                 });

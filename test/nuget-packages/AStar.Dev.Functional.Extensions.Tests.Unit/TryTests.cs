@@ -30,12 +30,12 @@ public class TryTests
     public void Try_Match_ReturnsCorrectBranch()
     {
         var success = Try<string>.Run(() => "done");
-        var failure = Try<string>.Run(() => throw new ("fail"));
+        var failure = Try<string>.Run(() => throw new InvalidOperationException("fail"));
 
         var a = success.Match(x => $"OK: {x}", ex => $"ERR: {ex.Message}");
         var b = failure.Match(x => $"OK: {x}", ex => $"ERR: {ex.Message}");
 
-        Assert.Equal("OK: done", a);
-        Assert.StartsWith("ERR: fail", b);
+        Assert.Equal("OK: done",  a);
+        Assert.Equal("ERR: fail", b);
     }
 }

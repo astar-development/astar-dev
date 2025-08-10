@@ -1,0 +1,16 @@
+﻿{
+  "fileName": "mock-file-name",
+  "directoryName": "mock-directory-name",
+  "imageHeight": 123,
+  "imageWidth": 345,
+  "fileSize": 1245,
+  "fileHandle": "mock-file-handle",
+  "isImage": true,
+  "instances": 2,
+  "updatedOn": "2025-07-28T08:07:09+00:00",
+  "fileLastViewed": "2025-07-28T11:22:33+00:00",
+  "softDeleted": "2025-07-28T05:06:01+00:00",
+  "softDeletePending": "2025-07-28T03:04:05+00:00",
+  "moveRequired": true,
+  "hardDeletePending": "2025-07-28T02:03:04+00:00"
+}

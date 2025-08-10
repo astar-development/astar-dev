@@ -7,7 +7,7 @@ public class EnumerableExtensionsShould
     {
         var list = new List<string> { "apple", "banana", "cherry" };
 
-        var result = list.FirstOrNone(s => s.StartsWith("b"));
+        var result = list.FirstOrNone(s => s.StartsWith('b'));
 
         result.ShouldBeOfType<Option<string>.Some>();
         var some = result as Option<string>.Some;

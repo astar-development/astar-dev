@@ -1,4 +1,4 @@
-﻿using System.Text.Json;
+using System.Text.Json;
 
 namespace AStar.Dev.Utilities;
 
@@ -85,8 +85,19 @@ public static class StringExtensions
     ///     The TruncateIfRequired method will, as the name suggests, truncate the string if the length exceeds the specified length
     /// </summary>
     /// <param name="value">The raw string to potentially truncate</param>
-    /// <param name="truncateLenght">The maximum length the string should be truncated to if required</param>
+    /// <param name="truncateLength">The maximum length the string should be truncated to if required</param>
     /// <returns>The specified string or the truncated version</returns>
-    public static string TruncateIfRequired(this string value, int truncateLenght) =>
-        value.Length > truncateLenght ? value[..350] : value;
+    public static string TruncateIfRequired(this string value, int truncateLength) =>
+        value.Length > truncateLength ? value[..truncateLength] : value;
+
+    /// <summary>
+    ///     The RemoveTrailing method will, as the name suggests, remove the specified character from the end if it exists
+    /// </summary>
+    /// <param name="value">The raw string to potentially remove the trailing character from</param>
+    /// <param name="removeTrailing">The character to remove from the end if it exists</param>
+    /// <returns>The original or updated string</returns>
+    public static string RemoveTrailing(this string value, string removeTrailing) =>
+        value.EndsWith(removeTrailing, StringComparison.OrdinalIgnoreCase)
+            ? value[..^removeTrailing.Length]
+            : value;
 }

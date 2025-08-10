@@ -1,25 +1,33 @@
 ﻿{
   "fileClassifications": [],
-  "id": 0,
+  "id": {
+    "value": 0
+  },
   "imageDetail": {
     "width": null,
     "height": null
   },
-  "fullNameWithPath": "MockDirectoryName/MockFileName",
-  "fileHandle": "",
+  "fileName": {
+    "value": "Mock File Name"
+  },
+  "directoryName": {
+    "value": "Mock Directory Name"
+  },
+  "fullNameWithPath": "Mock Directory Name/Mock File Name",
+  "fileSize": 1234,
+  "isImage": false,
+  "fileHandle": {
+    "value": null
+  },
   "fileCreated": "0001-01-01T00:00:00+00:00",
   "fileLastModified": "0001-01-01T00:00:00+00:00",
+  "fileLastViewed": null,
   "moveRequired": false,
   "deletionStatus": {
     "softDeleted": null,
     "softDeletePending": null,
     "hardDeletePending": null
   },
-  "fileName": "MockFileName",
-  "directoryName": "MockDirectoryName",
-  "fileSize": 1234,
-  "isImage": false,
-  "fileLastViewed": null,
   "updatedBy": "Jay Barden",
   "updatedOn": "2025-06-28T22:20:37+00:00"
 }
