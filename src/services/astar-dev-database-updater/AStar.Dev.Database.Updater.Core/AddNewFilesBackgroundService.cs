@@ -1,11 +1,10 @@
-using AStar.Dev.Database.Updater.Core.Models;
-using AStar.Dev.Database.Updater.Core.Services;
+using AStar.Dev.Functional.Extensions;
 using AStar.Dev.Utilities;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace AStar.Dev.Database.Updater.Core.Files;
+namespace AStar.Dev.Database.Updater.Core;
 
 /// <summary>
 ///     The <see cref="AddNewFilesBackgroundService" /> class
@@ -29,9 +28,22 @@ public class AddNewFilesBackgroundService(AddNewFilesService addNewFilesService,
 
         while(!stoppingToken.IsCancellationRequested)
         {
-            timeDelay.CalculateDelayToNextRun(startAtTime);
+            var delay = config.Value.HonourFirstDelay
+                            ? timeDelay.CalculateDelayToNextRun(startAtTime)
+                            : new Result<TimeSpan, ErrorResponse>.Ok(TimeSpan.Zero);
 
-            addNewFilesService.ToJson();
+            // var test = Result<>.Create(timeDelay.CalculateDelayToNextRun(startAtTime));
+
+            // delay.Bind(delayToNextRun => logger.LogInformation("Waiting for: {DelayToNextRun} hours before updating the full database again.", delayToNextRun));
+            //
+            // var result = await delay.MatchAsync(
+            //                                                  name => Task.FromResult($"Hello"),
+            //                                                  () => Task.FromResult("User not found")
+            //                                                 );
+
+            await Task.Delay(delay.Match(x => x, _ => TimeSpan.Zero), stoppingToken);
+
+            await addNewFilesService.StartAsync(stoppingToken);
 
             //.Bind(delay=> logger.LogInformation("Adding new files..."));
             //.Bind(delayToNextRun => logger.LogInformation("Waiting for: {DelayToNextRun} hours before updating the full database again.", delayToNextRun))

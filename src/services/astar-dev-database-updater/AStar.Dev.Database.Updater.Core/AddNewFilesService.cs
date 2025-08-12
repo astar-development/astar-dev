@@ -1,22 +1,21 @@
 using System.Globalization;
 using System.IO.Abstractions;
 using System.Text.RegularExpressions;
-using AStar.Dev.Database.Updater.Core.Models;
 using AStar.Dev.Files.Api.Client.Sdk.FilesApi;
 using AStar.Dev.Utilities;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace AStar.Dev.Database.Updater.Core.Files;
+namespace AStar.Dev.Database.Updater.Core;
 
 /// <summary>
-///     The <see cref="NewFilesBackgroundService" /> class
+///     The <see cref="AddNewFilesService" /> class
 /// </summary>
 /// <param name="filesApiClient">The <see cref="FilesApiClient" /> required by the AddNewFilesBackgroundService</param>
 /// <param name="fileSystem">An instance of <see cref="IFileSystem" /> to retrieve the files from</param>
 /// <param name="config">An instance of the <see cref="DatabaseUpdaterConfiguration" /> options used to configure the addition of the new files</param>
 /// <param name="logger">An instance of the <see cref="ILogger" /> to log status / errors</param>
-public class AddNewFilesService(FilesApiClient filesApiClient, IFileSystem fileSystem, IOptions<DatabaseUpdaterConfiguration> config, ILogger<NewFilesBackgroundService> logger)
+public class AddNewFilesService(FilesApiClient filesApiClient, IFileSystem fileSystem, IOptions<DatabaseUpdaterConfiguration> config, ILogger<AddNewFilesService> logger)
 {
     /// <summary>
     ///     The StartAsync method is called by the runtime and will update the database with any new files

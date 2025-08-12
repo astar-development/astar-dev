@@ -18,8 +18,8 @@
 
     <ItemGroup>
         <PackageReference Include="CsvHelper" Version="33.1.0"/>
-        <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="9.0.6"/>
-        <PackageReference Include="TestableIO.System.IO.Abstractions.Wrappers" Version="22.0.14"/>
+        <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="9.0.8"/>
+        <PackageReference Include="TestableIO.System.IO.Abstractions.Wrappers" Version="22.0.15"/>
         <PackageReference Include="SkiaSharp" Version="3.119.0"/>
         <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="3.119.0"/>
     </ItemGroup>

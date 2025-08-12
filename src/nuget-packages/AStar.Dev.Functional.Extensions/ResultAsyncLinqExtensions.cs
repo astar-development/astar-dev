@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 namespace AStar.Dev.Functional.Extensions;
 
 /// <summary>
-///     Provides LINQ-style asynchronous binding for <see cref="Result{T, TError}" /> wrapped in <see cref="ValueTask" />.
+///     Provides LINQ-style asynchronous binding for <see cref="Result{T, TError}" /> wrapped in <see cref="Task" />.
 /// </summary>
 public static class ResultAsyncLinqExtensions
 {
@@ -29,13 +29,13 @@ public static class ResultAsyncLinqExtensions
     ///     A token used to cancel the operation before completion.
     /// </param>
     /// <returns>
-    ///     A <see cref="ValueTask{Result}" /> containing either a projected <c>Ok</c> value or an <c>Error</c> from any failure.
+    ///     A <see cref="Task{Result}" /> containing either a projected <c>Ok</c> value or an <c>Error</c> from any failure.
     /// </returns>
-    public static async ValueTask<Result<TResult, TError>> SelectMany<TSource, TError, TCollection, TResult>(
-        this ValueTask<Result<TSource, TError>>               source,
-        Func<TSource, ValueTask<Result<TCollection, TError>>> bind,
-        Func<TSource, TCollection, TResult>                   project,
-        CancellationToken                                     cancellationToken = default)
+    public static async Task<Result<TResult, TError>> SelectMany<TSource, TError, TCollection, TResult>(
+        this Task<Result<TSource, TError>>               source,
+        Func<TSource, Task<Result<TCollection, TError>>> bind,
+        Func<TSource, TCollection, TResult>              project,
+        CancellationToken                                cancellationToken = default)
     {
         cancellationToken.ThrowIfCancellationRequested();
         var result = await source;

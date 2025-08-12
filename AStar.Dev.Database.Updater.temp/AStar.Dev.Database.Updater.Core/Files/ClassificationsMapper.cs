@@ -19,7 +19,7 @@ public class ClassificationsMapper(IOptions<DatabaseUpdaterConfiguration> config
     ///     The LoadClassificationMappings does exactly what its name says
     /// </summary>
     /// <returns>An instance of <see cref="Result{TSuccess,TFailure}" /> to denote the success / failure of the load</returns>
-    public Result<IEnumerable<ClassificationMapping>, Result<,>.Error> LoadClassificationMappings()
+    public Result<IEnumerable<ClassificationMapping>, ErrorResponse> LoadClassificationMappings()
     {
         logger.LogDebug("Loading mappings...");
 
@@ -31,13 +31,13 @@ public class ClassificationsMapper(IOptions<DatabaseUpdaterConfiguration> config
             var mappings = csv.GetRecords<ClassificationMapping>().ToList();
             logger.LogDebug("Loaded mappings...");
 
-            return Result<IEnumerable<ClassificationMapping>, Result<,>.Error>.Success(mappings);
+            return new Result<IEnumerable<ClassificationMapping>, ErrorResponse>.Ok(mappings);
         }
         catch(Exception exception)
         {
             logger.LogError(exception, "Failed to read mappings");
 
-            return null!; //Result<IEnumerable<ClassificationMapping>, Error>.Fail("Failed to read mappings");
+            return new Result<IEnumerable<ClassificationMapping>, ErrorResponse>.Error(new("Failed to read mappings"));
         }
     }
 }

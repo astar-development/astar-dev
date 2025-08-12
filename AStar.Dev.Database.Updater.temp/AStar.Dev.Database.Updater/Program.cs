@@ -36,7 +36,7 @@ try
     _ = builder.Services.AddSingleton<TimeDelay>();
     _ = builder.Services.AddSingleton<IFileSystem, FileSystem>();
 
-    _ = builder.Services.AddHostedService<AddNewFilesBackgroundService>();
+    _ = builder.Services.AddHostedService<NewFilesBackgroundService>();
 
     // _ = builder.Services.AddHostedService<SoftDeleteFilesBackgroundService>();
     // _ = builder.Services.AddHostedService<HardDeleteFilesBackgroundService>();

@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using AStar.Dev.Functional.Extensions;
 
-namespace AStar.Dev.Database.Updater.Core.Services;
+namespace AStar.Dev.Database.Updater.Core;
 
 /// <summary>
 ///     The <see cref="TimeDelay" /> class
@@ -22,6 +22,6 @@ public class TimeDelay
             duration = duration.Add(TimeSpan.FromHours(24));
         }
 
-        return new Result<TimeSpan, ErrorResponse>.Ok(duration); // ToDo - this implementation doesn't need the ErrorResponse so doesn't "need" the result at all
+        return Result<TimeSpan, ErrorResponse>.Ok(duration); // ToDo - this implementation doesn't need the ErrorResponse so doesn't "need" the result at all
     }
 }

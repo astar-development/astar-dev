@@ -4,66 +4,14 @@
         <name>AStar.Dev.Database.Updater.Core</name>
     </assembly>
     <members>
-        <member name="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService">
-            <summary>
-                The
-                <see cref="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService"/>
-                class
-            </summary>
-            <param name="addNewFilesService">The
-                <see cref="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesService"/>
-                required by the AddNewFilesBackgroundService
-            </param>
-            <param name="timeDelay">An instance of
-                <see cref="T:AStar.Dev.Database.Updater.Core.Services.TimeDelay"/>
-                to control the start time of the process
-            </param>
-            <param name="config">An instance of the
-                <see cref="T:AStar.Dev.Database.Updater.Core.Models.DatabaseUpdaterConfiguration"/>
-                options used to configure the addition of the new files
-            </param>
-            <param name="logger">An instance of the
-                <see cref="T:Microsoft.Extensions.Logging.ILogger"/>
-                to log status / errors
-            </param>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService.#ctor(AStar.Dev.Database.Updater.Core.Files.AddNewFilesService,AStar.Dev.Database.Updater.Core.Services.TimeDelay,Microsoft.Extensions.Options.IOptions{AStar.Dev.Database.Updater.Core.Models.DatabaseUpdaterConfiguration},Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService})">
-            <summary>
-                The
-                <see cref="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService"/>
-                class
-            </summary>
-            <param name="addNewFilesService">The
-                <see cref="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesService"/>
-                required by the AddNewFilesBackgroundService
-            </param>
-            <param name="timeDelay">An instance of
-                <see cref="T:AStar.Dev.Database.Updater.Core.Services.TimeDelay"/>
-                to control the start time of the process
-            </param>
-            <param name="config">An instance of the
-                <see cref="T:AStar.Dev.Database.Updater.Core.Models.DatabaseUpdaterConfiguration"/>
-                options used to configure the addition of the new files
-            </param>
-            <param name="logger">An instance of the
-                <see cref="T:Microsoft.Extensions.Logging.ILogger"/>
-                to log status / errors
-            </param>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService.ExecuteAsync(System.Threading.CancellationToken)">
-            <summary>
-                The StartAsync method is called by the runtime and will update the database with any new files
-            </summary>
-            <param name="stoppingToken">A cancellation token to optionally cancel the operation</param>
-        </member>
         <member name="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesService">
             <summary>
                 The
-                <see cref="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService"/>
+                <see cref="T:AStar.Dev.Database.Updater.Core.Files.NewFilesBackgroundService"/>
                 class
             </summary>
             <param name="filesApiClient">The
-                <see cref="T:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient"/>
+                <see cref="T:AStar.Dev.Files.Api.Client.Sdk.FilesApi.FilesApiClient"/>
                 required by the AddNewFilesBackgroundService
             </param>
             <param name="fileSystem">An instance of
@@ -79,14 +27,14 @@
                 to log status / errors
             </param>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Files.AddNewFilesService.#ctor(AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient,System.IO.Abstractions.IFileSystem,Microsoft.Extensions.Options.IOptions{AStar.Dev.Database.Updater.Core.Models.DatabaseUpdaterConfiguration},Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService})">
+        <member name="M:AStar.Dev.Database.Updater.Core.Files.AddNewFilesService.#ctor(AStar.Dev.Files.Api.Client.Sdk.FilesApi.FilesApiClient,System.IO.Abstractions.IFileSystem,Microsoft.Extensions.Options.IOptions{AStar.Dev.Database.Updater.Core.Models.DatabaseUpdaterConfiguration},Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.Files.NewFilesBackgroundService})">
             <summary>
                 The
-                <see cref="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService"/>
+                <see cref="T:AStar.Dev.Database.Updater.Core.Files.NewFilesBackgroundService"/>
                 class
             </summary>
             <param name="filesApiClient">The
-                <see cref="T:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient"/>
+                <see cref="T:AStar.Dev.Files.Api.Client.Sdk.FilesApi.FilesApiClient"/>
                 required by the AddNewFilesBackgroundService
             </param>
             <param name="fileSystem">An instance of
@@ -143,6 +91,58 @@
                 <see cref="T:AStar.Dev.Functional.Extensions.Result`2"/>
                 to denote the success / failure of the load
             </returns>
+        </member>
+        <member name="T:AStar.Dev.Database.Updater.Core.Files.NewFilesBackgroundService">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Database.Updater.Core.Files.NewFilesBackgroundService"/>
+                class
+            </summary>
+            <param name="addNewFilesService">The
+                <see cref="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesService"/>
+                required by the AddNewFilesBackgroundService
+            </param>
+            <param name="timeDelay">An instance of
+                <see cref="T:AStar.Dev.Database.Updater.Core.Services.TimeDelay"/>
+                to control the start time of the process
+            </param>
+            <param name="config">An instance of the
+                <see cref="T:AStar.Dev.Database.Updater.Core.Models.DatabaseUpdaterConfiguration"/>
+                options used to configure the addition of the new files
+            </param>
+            <param name="logger">An instance of the
+                <see cref="T:Microsoft.Extensions.Logging.ILogger"/>
+                to log status / errors
+            </param>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.Files.NewFilesBackgroundService.#ctor(AStar.Dev.Database.Updater.Core.Files.AddNewFilesService,AStar.Dev.Database.Updater.Core.Services.TimeDelay,Microsoft.Extensions.Options.IOptions{AStar.Dev.Database.Updater.Core.Models.DatabaseUpdaterConfiguration},Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.Files.NewFilesBackgroundService})">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Database.Updater.Core.Files.NewFilesBackgroundService"/>
+                class
+            </summary>
+            <param name="addNewFilesService">The
+                <see cref="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesService"/>
+                required by the AddNewFilesBackgroundService
+            </param>
+            <param name="timeDelay">An instance of
+                <see cref="T:AStar.Dev.Database.Updater.Core.Services.TimeDelay"/>
+                to control the start time of the process
+            </param>
+            <param name="config">An instance of the
+                <see cref="T:AStar.Dev.Database.Updater.Core.Models.DatabaseUpdaterConfiguration"/>
+                options used to configure the addition of the new files
+            </param>
+            <param name="logger">An instance of the
+                <see cref="T:Microsoft.Extensions.Logging.ILogger"/>
+                to log status / errors
+            </param>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.Files.NewFilesBackgroundService.ExecuteAsync(System.Threading.CancellationToken)">
+            <summary>
+                The StartAsync method is called by the runtime and will update the database with any new files
+            </summary>
+            <param name="stoppingToken">A cancellation token to optionally cancel the operation</param>
         </member>
         <member name="T:AStar.Dev.Database.Updater.Core.Models.ApiConfiguration">
             <summary>

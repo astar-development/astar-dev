@@ -10,9 +10,12 @@
     <ItemGroup>
 
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.8"/>
+        <PackageReference Include="Serilog" Version="4.3.0"/>
+        <PackageReference Include="Serilog.Extensions.Logging" Version="9.0.2"/>
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\..\..\AStar.Dev.Database.Updater.temp\AStar.Dev.Database.Updater.Core\AStar.Dev.Database.Updater.Core.csproj"/>
         <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Logging.Extensions\AStar.Dev.Logging.Extensions.csproj"/>
         <ProjectReference Include="..\..\..\_aspire\AStar.Dev.ServiceDefaults\AStar.Dev.ServiceDefaults.csproj"/>
     </ItemGroup>
