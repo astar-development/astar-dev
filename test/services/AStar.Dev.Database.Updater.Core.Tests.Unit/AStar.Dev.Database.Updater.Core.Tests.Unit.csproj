@@ -33,9 +33,11 @@
     <ItemGroup>
         <Using Include="Xunit"/>
         <Using Include="Shouldly"/>
+        <Using Include="JetBrains.Annotations"/>
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\..\src\nuget-packages\AStar.Dev.Functional.Extensions\AStar.Dev.Functional.Extensions.csproj"/>
         <ProjectReference Include="..\..\..\src\nuget-packages\AStar.Dev.Infrastructure.FilesDb\AStar.Dev.Infrastructure.FilesDb.csproj"/>
         <ProjectReference Include="..\..\..\src\services\astar-dev-database-updater\AStar.Dev.Database.Updater.Core\AStar.Dev.Database.Updater.Core.csproj"/>
     </ItemGroup>

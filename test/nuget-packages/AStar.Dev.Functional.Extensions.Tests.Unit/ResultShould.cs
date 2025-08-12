@@ -1,4 +1,4 @@
-﻿namespace AStar.Dev.Functional.Extensions.Tests;
+﻿namespace AStar.Dev.Functional.Extensions.Tests.Unit;
 
 public class ResultShould
 {

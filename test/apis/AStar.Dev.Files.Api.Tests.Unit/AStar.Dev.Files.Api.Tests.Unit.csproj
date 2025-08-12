@@ -39,6 +39,7 @@
     <ItemGroup>
         <Using Include="Xunit"/>
         <Using Include="Shouldly"/>
+        <Using Include="JetBrains.Annotations"/>
     </ItemGroup>
 
     <ItemGroup>

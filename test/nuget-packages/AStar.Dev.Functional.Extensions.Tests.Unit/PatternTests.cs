@@ -31,8 +31,8 @@ public class PatternTests
     [Fact]
     public void IsSuccess_And_IsFailure_WorkCorrectly()
     {
-        var success = Try<int>.Run(() => 1);
-        var failure = Try<int>.Run(() => throw new ArgumentNullException("fail"));
+        var success = Try.Run(() => 1);
+        var failure = Try.Run<int>(() => throw new ArgumentNullException("fail"));
 
         Assert.True(Pattern.IsSuccess(success));
         Assert.False(Pattern.IsFailure(success));

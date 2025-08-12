@@ -30,6 +30,7 @@
     <ItemGroup>
         <Using Include="Xunit"/>
         <Using Include="Shouldly"/>
+        <Using Include="JetBrains.Annotations"/>
     </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
