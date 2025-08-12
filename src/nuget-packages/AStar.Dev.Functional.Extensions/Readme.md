@@ -1,29 +1,61 @@
-# AStar Dev Functional Extensions
+# 📦 Result<TSuccess, TError> - Functional Error Handling for C#
 
-## Overview
+A powerful, functional approach to error handling in C# that avoids exceptions and promotes predictable, composable code.
 
-This project contains a bunch of classes and extension methods to facilitate a more functional approach to handling errors and optional objects.
+## 🧭 Overview
 
-## Cheat Sheets
+`Result<TSuccess, TError>` is a discriminated union type that represents either successful completion with a value or failure with an error. This approach to error handling:
 
-### Result&lt;T&gt; and associated extensions
+- ✅ Makes error handling explicit in your function signatures
+- ✅ Encourages composition of operations that might fail
+- ✅ Eliminates the need for try/catch blocks across your codebase
+- ✅ Provides comprehensive async support
+- ✅ Allows for functional programming patterns in C#
 
-Cheat sheet is [here](Readme-result.md)
+## 📚 Documentation
 
-### Option&lt;T&gt; and associated extensions
+- [Core Concepts](docs/core-concepts.md)
+- [Basic Usage Guide](docs/basic-usage.md)
+- [Advanced Usage](docs/advanced-usage.md)
+- [Method Reference](docs/method-reference.md)
+- [Error Handling Patterns](docs/error-handling-patterns.md)
+- [Testing with Results](docs/testing.md)
 
-Cheat sheet is [here](Readme-option.md)
+## 🚀 Quick Start
 
-## Build and analysis
+Install the package from NuGet:
 
-### GitHub build
+```bash
+dotnet add package AStar.Dev.Functional.Extensions
+```
 
-[![SonarQube](https://github.com/astar-development/astar-dev-functional-extensions/actions/workflows/dotnet.yml/badge.svg)](https://github.com/astar-development/astar-dev-functional-extensions/actions/workflows/dotnet.yml)
+Basic usage:
 
-### SonarQube details
+``` csharp
+using AStar.Dev.Functional.Extensions;
 
-|                                                                                                                                                                                                                                                            |                                                                                                                                                                                                                                                      |                                                                                                                                                                                                                                                 |                                                                                                                                                                                                                                                          |                                                                                                                                                                                                                                                                    |
-|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=astar-development_astar-dev-functional-extensions&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=astar-development_astar-dev-functional-extensions)      | [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=astar-development_astar-dev-functional-extensions&metric=bugs)](https://sonarcloud.io/summary/new_code?id=astar-development_astar-dev-functional-extensions)                       | [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=astar-development_astar-dev-functional-extensions&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=astar-development_astar-dev-functional-extensions)    | [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=astar-development_astar-dev-functional-extensions&metric=coverage)](https://sonarcloud.io/summary/new_code?id=astar-development_astar-dev-functional-extensions)                   | [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=astar-development_astar-dev-functional-extensions&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=astar-development_astar-dev-functional-extensions) |
-| [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=astar-development_astar-dev-functional-extensions&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=astar-development_astar-dev-functional-extensions) | [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=astar-development_astar-dev-functional-extensions&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=astar-development_astar-dev-functional-extensions) | [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=astar-development_astar-dev-functional-extensions&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=astar-development_astar-dev-functional-extensions) | [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=astar-development_astar-dev-functional-extensions&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=astar-development_astar-dev-functional-extensions) | [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=astar-development_astar-dev-functional-extensions&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=astar-development_astar-dev-functional-extensions)               |
+// Create a success result
+Result<string, string> successResult = new Result<string, string>.Ok("Harry Potter");
 
+// Create an error result
+Result<decimal, string> errorResult = new Result<decimal, string>.Error("Book out of stock");
+
+// Match on result to handle both success and error cases
+string message = orderResult.Match(
+    onSuccess: order => $"Order #{order.Id} confirmed: {order.Total:C}",
+    onFailure: error => $"Order failed: {error}"
+);
+```
+
+## 📋 Features
+
+- Discriminated union representing success or failure
+- Comprehensive set of transformation methods (Map, Bind, etc.)
+- Full async support with all combination of sync/async operations
+- Side-effect methods for logging and monitoring (Tap, TapError)
+- Clear, functional approach to error handling
+- Zero dependencies
+
+## 📄 License
+
+MIT

@@ -33,19 +33,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AStar.Dev.Database.Updater.temp/AStar.Dev.Database.Updater.Core/Files/NewFilesBackgroundService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AddNewFilesService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/DatabaseUpdaterConfiguration.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/TimeDelay.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Functional.Extensions.Tests.Unit/ResultExtensionsShould.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AStar.Dev.Database.Updater.temp/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AStar.Dev.Database.Updater.temp/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AStar.Dev.Database.Updater.temp/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.xml" beforeDir="false" afterPath="$PROJECT_DIR$/AStar.Dev.Database.Updater.temp/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AStar.Dev.Database.Updater.temp/AStar.Dev.Database.Updater.Core/Files/AddNewFilesBackgroundService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AddNewFilesBackgroundService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AStar.Dev.Database.Updater.temp/AStar.Dev.Database.Updater.Core/Files/AddNewFilesService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AStar.Dev.Database.Updater.temp/AStar.Dev.Database.Updater.Core/Files/AddNewFilesService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AStar.Dev.Database.Updater.temp/AStar.Dev.Database.Updater.Core/Files/ClassificationsMapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AStar.Dev.Database.Updater.temp/AStar.Dev.Database.Updater.Core/Files/ClassificationsMapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AStar.Dev.Database.Updater.temp/AStar.Dev.Database.Updater.Core/Services/TimeDelay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AStar.Dev.Database.Updater.temp/AStar.Dev.Database.Updater.Core/Services/TimeDelay.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AStar.Dev.Database.Updater.temp/AStar.Dev.Database.Updater/AStar.Dev.Database.Updater.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/AStar.Dev.Database.Updater.temp/AStar.Dev.Database.Updater/AStar.Dev.Database.Updater.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AStar.Dev.Database.Updater.temp/AStar.Dev.Database.Updater/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AStar.Dev.Database.Updater.temp/AStar.Dev.Database.Updater/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Admin.Api.Client.Sdk/AStar.Dev.Admin.Api.Client.Sdk.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Admin.Api.Client.Sdk/AStar.Dev.Admin.Api.Client.Sdk.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.Client.Sdk.Shared/AStar.Dev.Api.Client.Sdk.Shared.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.Client.Sdk.Shared/AStar.Dev.Api.Client.Sdk.Shared.xml" afterDir="false" />
@@ -54,9 +44,16 @@
       <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.AspNet.Extensions/AStar.Dev.AspNet.Extensions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.AspNet.Extensions/AStar.Dev.AspNet.Extensions.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/AStar.Dev.Files.Api.Client.Sdk.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/AStar.Dev.Files.Api.Client.Sdk.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Fluent.Assignments/AStar.Dev.Fluent.Assignments.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Fluent.Assignments/AStar.Dev.Fluent.Assignments.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/ErrorResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/ErrorResponse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/ResultAsyncExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/ResultAsyncExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/ResultAsyncLinqExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/ResultAsyncLinqExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/Common/AsyncFunctionalResult.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/Common/FunctionalExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/Common/FunctionalResult.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/Common/Option.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/Common/Result.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/Result.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/Result.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/ResultAsyncExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/ResultAsyncLinqExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/ResultExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/ResultExtensions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/ResultLinqExtensions.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Images.Api.Client.Sdk/AStar.Dev.Images.Api.Client.Sdk.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Images.Api.Client.Sdk/AStar.Dev.Images.Api.Client.Sdk.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.AdminDb/AStar.Dev.Infrastructure.AdminDb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.AdminDb/AStar.Dev.Infrastructure.AdminDb.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/AStar.Dev.Infrastructure.FilesDb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/AStar.Dev.Infrastructure.FilesDb.xml" afterDir="false" />
@@ -68,11 +65,9 @@
       <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Test.Helpers.Unit/AStar.Dev.Test.Helpers.Unit.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Test.Helpers.Unit/AStar.Dev.Test.Helpers.Unit.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Usage.Api.Client.Sdk/AStar.Dev.Usage.Api.Client.Sdk.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Usage.Api.Client.Sdk/AStar.Dev.Usage.Api.Client.Sdk.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Utilities/AStar.Dev.Utilities.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Utilities/AStar.Dev.Utilities.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/Class1.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/AStar.Dev.Database.Updater.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/AStar.Dev.Database.Updater.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/ThemeToggle.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/ThemeToggle.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Functional.Extensions.Tests.Unit/ResultShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Functional.Extensions.Tests.Unit/ResultShould.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,6 +127,7 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///AIAssistantSnippet.." root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/08fde0be2260428db1b6a812fd2ad453c3200/43/0e1576ff/IEndpointRouteBuilder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/1f12dddc2f0b4ff3a0425a5bd228f00e78a00/92/9610913f/Enumerable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3ef05b62574d4087a23fdc8a14a40eb2cce00/84/4edc0696/EndpointHtmlRenderer.cs" root0="FORCE_HIGHLIGHTING" />
@@ -163,24 +159,14 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a3224cd781deec2964554220fc9e8d9b7291d373c23d1d64de7128ef192aa849/XunitTestInvoker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ee54785cc7e75c1f43aa94bce8192ce441aead70a196ebd9aa287b48d25881e/ExceptionAggregator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/.nuget/packages/microsoft.net.test.sdk/17.14.1/build/net8.0/Microsoft.NET.Test.Sdk.Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/_aspire/AStar.Dev.AppHost/DistributedApplicationBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/_aspire/AStar.Dev.AppHost/DistributedApplicationBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/_aspire/AStar.Dev.AppHost/DistributedApplicationBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/_aspire/AStar.Dev.AppHost/DistributedApplicationBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/_aspire/AStar.Dev.AppHost/DistributedApplicationBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Admin.Api.Client.Sdk/AdminApi/AdminApiClient.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Images.Api.Client.Sdk/ImagesApi/ImagesApiClient.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Data/Configurations/FileClassificationConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Data/Configurations/FileClassificationConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Data/FileDetailPagingExtensions.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Data/FilesContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Functional.Extensions/Option{T}.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Functional.Extensions/Result.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/Add/V1/AddFilesRequestShould.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file:///usr/lib/dotnet/sdk/9.0.108/Current/Microsoft.Common.props" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -954,22 +940,8 @@
       <workItem from="1754858092775" duration="8805000" />
       <workItem from="1754886485059" duration="12673000" />
       <workItem from="1754947721150" duration="1477000" />
-    </task>
-    <task id="LOCAL-00020" summary="Update Files API Nuget and Package links&#10;&#10;Add misc files to other projects too">
-      <option name="closed" value="true" />
-      <created>1751151184418</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1751151184418</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Yet another bunch of cleanup">
-      <option name="closed" value="true" />
-      <created>1751151502453</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1751151502453</updated>
+      <workItem from="1754955743633" duration="13573000" />
+      <workItem from="1755035164642" duration="2356000" />
     </task>
     <task id="LOCAL-00022" summary="Add the original Program.cs and start on the AddFilesEndpoint.cs">
       <option name="closed" value="true" />
@@ -1347,7 +1319,23 @@
       <option name="project" value="LOCAL" />
       <updated>1754888012297</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="Committing before trying Claude 3.7 Sonnet to &#10;&#10;create the functional result type and all Map, Match, etc. methods">
+      <option name="closed" value="true" />
+      <created>1755026582585</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1755026582585</updated>
+    </task>
+    <task id="LOCAL-00070" summary="Reimplement the Result and associated classes">
+      <option name="closed" value="true" />
+      <created>1755034924786</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1755034924786</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1357,71 +1345,68 @@
     <option name="coveragePercentColumnWidth" value="54" />
     <option name="sortOrder" value="DESCENDING" />
     <option name="sortedColumn" value="1" />
-    <option name="symbolColumnWidth" value="424" />
+    <option name="symbolColumnWidth" value="467" />
     <coverage-tree-state>
       <expand>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 34% 1934/2930" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 36% 2012/3156" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 34% 1934/2930" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="src 34% 1934/2930" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 36% 2012/3156" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 36% 2012/3156" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 34% 1934/2930" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="src 34% 1934/2930" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="apis 41% 145/246" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 36% 2012/3156" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 36% 2012/3156" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="nuget-packages 42% 1440/2466" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 34% 1934/2930" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="src 34% 1934/2930" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="apis 41% 145/246" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="AStar.Dev.Files.Api 55% 82/183" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 36% 2012/3156" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 36% 2012/3156" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="nuget-packages 42% 1440/2466" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Functional.Extensions 42% 118/202" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 34% 1934/2930" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="src 34% 1934/2930" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="apis 41% 145/246" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="AStar.Dev.Files.Api 55% 82/183" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="(1.0.0.0, net9.0) 55% 82/183" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 36% 2012/3156" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 36% 2012/3156" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="nuget-packages 42% 1440/2466" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Functional.Extensions 42% 118/202" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="(0.2.2.0, .NETStandard,Version=v2.1) 42% 118/202" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 34% 1934/2930" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="src 34% 1934/2930" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="nuget-packages 37% 1524/2419" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 36% 2012/3156" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 36% 2012/3156" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="nuget-packages 42% 1440/2466" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Functional.Extensions 42% 118/202" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="(0.2.2.0, .NETStandard,Version=v2.1) 42% 118/202" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Functional.Extensions 42% 118/202" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 34% 1934/2930" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="src 34% 1934/2930" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="services 0% 97/97" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 36% 2012/3156" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 36% 2012/3156" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="nuget-packages 42% 1440/2466" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Functional.Extensions 42% 118/202" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="(0.2.2.0, .NETStandard,Version=v2.1) 42% 118/202" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Functional.Extensions 42% 118/202" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Result&lt;TSuccess,TError&gt; 84% 4/25" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
         <path>
           <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 34% 1934/2930" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="src 34% 1934/2930" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="uis 0% 92/92" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 34% 1934/2930" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="src 34% 1934/2930" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="uis 0% 92/92" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="AStar.Dev.Web 0% 92/92" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-        </path>
-        <path>
-          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
-          <item name="Total 34% 1934/2930" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="src 34% 1934/2930" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="uis 0% 92/92" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="AStar.Dev.Web 0% 92/92" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
-          <item name="(1.0.0.0, net9.0) 0% 92/92" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Total 36% 2012/3156" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="src 36% 2012/3156" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="nuget-packages 42% 1440/2466" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Functional.Extensions 42% 118/202" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="(0.2.2.0, .NETStandard,Version=v2.1) 42% 118/202" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="AStar.Dev.Functional.Extensions 42% 118/202" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="Result&lt;TSuccess,TError&gt; 84% 4/25" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+          <item name="MatchAsync&lt;TResult&gt;(Func&lt;TSuccess,TResult&gt;,Func&lt;TError,Task&lt;TResult&gt;&gt;) 75% 1/4" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
         </path>
       </expand>
       <select />
@@ -1491,8 +1476,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Just noticed Build not running for PR so this should fix" />
-    <MESSAGE value="Update the pipeline to run tests correctly&#10; &#10;and exclude e2e tests as wll as set broken unit test to be ignored" />
     <MESSAGE value="Remove extra apostrophe" />
     <MESSAGE value="Update the dotnet test path" />
     <MESSAGE value="Tests r failing in pipeline&#10;&#10;they work locally and e2e are ignored but noticed the build is only building the UI so changing before continuing" />
@@ -1516,7 +1499,9 @@
     <MESSAGE value="Add GlobalHandler to Files API" />
     <MESSAGE value="Update formatting to remove extra spaces" />
     <MESSAGE value="Temporarily add the old version of the dB Updater&#10;&#10;This will be deleted later, it also does not compile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Temporarily add the old version of the dB Updater&#10;&#10;This will be deleted later, it also does not compile" />
+    <MESSAGE value="Committing before trying Claude 3.7 Sonnet to &#10;&#10;create the functional result type and all Map, Match, etc. methods" />
+    <MESSAGE value="Reimplement the Result and associated classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reimplement the Result and associated classes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
