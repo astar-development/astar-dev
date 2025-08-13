@@ -215,7 +215,8 @@ public class AddNewFilesService(FilesApiClient filesApiClient, IFileSystem fileS
                                           .Replace("+", "-")
                                           .Replace(".", "-")
                                           .Replace(",", "-")
-                                          .ToLower(CultureInfo.InvariantCulture).Replace("sammy", "sam"), @"(-+)", "-");
+                                          .ToLower(CultureInfo.InvariantCulture)
+                                          .Replace("sammy", "sam"), @"(-+)", "-", RegexOptions.Compiled, TimeSpan.FromMilliseconds(100));
 
         return newHandle.StartsWith("-", StringComparison.OrdinalIgnoreCase)
                    ? newHandle[1..]
