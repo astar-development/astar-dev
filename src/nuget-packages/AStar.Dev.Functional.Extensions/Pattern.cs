@@ -8,7 +8,7 @@ namespace AStar.Dev.Functional.Extensions;
 public static class Pattern
 {
     /// <summary>
-    /// Determines if the specified option represents a Some state.
+    ///     Determines if the specified option represents a Some state.
     /// </summary>
     /// <param name="option">The option to evaluate.</param>
     /// <typeparam name="T">The type of the optional value.</typeparam>
@@ -16,7 +16,7 @@ public static class Pattern
     public static bool IsSome<T>(Option<T> option) => option is Option<T>.Some;
 
     /// <summary>
-    /// Determines if the specified option represents a None state.
+    ///     Determines if the specified option represents a None state.
     /// </summary>
     /// <param name="option">The option to evaluate.</param>
     /// <typeparam name="T">The type of the optional value.</typeparam>
@@ -24,7 +24,7 @@ public static class Pattern
     public static bool IsNone<T>(Option<T> option) => option is Option<T>.None;
 
     /// <summary>
-    /// Determines if a result represents a successful state.
+    ///     Determines if a result represents a successful state.
     /// </summary>
     /// <param name="result">The result to evaluate.</param>
     /// <typeparam name="T">The type of the success value.</typeparam>
@@ -33,7 +33,7 @@ public static class Pattern
     public static bool IsOk<T, TError>(Result<T, TError> result) => result is Result<T, TError>.Ok;
 
     /// <summary>
-    /// Determines if a result represents an error state.
+    ///     Determines if a result represents an error state.
     /// </summary>
     /// <param name="result">The result to check.</param>
     /// <typeparam name="T">The type of the success value.</typeparam>

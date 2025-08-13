@@ -115,5 +115,4 @@ public abstract class Option<T>
         /// <returns>The overridden ToString</returns>
         public override string ToString() => "None";
     }
-
 }

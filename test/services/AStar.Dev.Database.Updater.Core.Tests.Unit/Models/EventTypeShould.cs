@@ -1,5 +1,4 @@
 using AStar.Dev.Infrastructure.FilesDb.Models;
-using JetBrains.Annotations;
 
 namespace AStar.Dev.Database.Updater.Core.Models;
 
