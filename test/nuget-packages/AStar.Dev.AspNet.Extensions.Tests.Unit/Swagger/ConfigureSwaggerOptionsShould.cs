@@ -1,6 +1,4 @@
-﻿using JetBrains.Annotations;
-
-namespace AStar.Dev.AspNet.Extensions.Swagger;
+﻿namespace AStar.Dev.AspNet.Extensions.Swagger;
 
 [TestSubject(typeof(ConfigureSwaggerOptions))]
 public sealed class ConfigureSwaggerOptionsShould

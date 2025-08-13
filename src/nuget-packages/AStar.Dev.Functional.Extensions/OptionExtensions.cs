@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace AStar.Dev.Functional.Extensions;
 
@@ -112,4 +113,306 @@ public static class OptionExtensions
         isSome = option is Option<T>.Some;
         value  = isSome ? ((Option<T>.Some)option).Value : default;
     }
+
+    /// <summary>
+    ///     Asynchronously transforms the value inside an <see cref="Option{T}" /> if present.
+    /// </summary>
+    public static async Task<Option<TResult>> MapAsync<T, TResult>(
+        this Option<T>         option,
+        Func<T, Task<TResult>> mapAsync) =>
+        option switch
+        {
+            Option<T>.Some some => new Option<TResult>.Some(await mapAsync(some.Value)),
+            Option<T>.None      => Option.None<TResult>(),
+            _                   => throw new InvalidOperationException("It should not be possible to reach this point.")
+        };
+
+    /// <summary>
+    ///     Asynchronously transforms the value inside a Task of <see cref="Option{T}" /> if present.
+    /// </summary>
+    public static async Task<Option<TResult>> MapAsync<T, TResult>(
+        this Task<Option<T>> optionTask,
+        Func<T, TResult>     map) =>
+        (await optionTask).Map(map);
+
+    /// <summary>
+    ///     Asynchronously transforms the value inside a Task of <see cref="Option{T}" /> if present.
+    /// </summary>
+    public static async Task<Option<TResult>> MapAsync<T, TResult>(
+        this Task<Option<T>>   optionTask,
+        Func<T, Task<TResult>> mapAsync)
+    {
+        var option = await optionTask;
+
+        return await option.MapAsync(mapAsync);
+    }
+
+    /// <summary>
+    ///     Asynchronously chains another <see cref="Option{T}" />-producing function.
+    /// </summary>
+    public static async Task<Option<TResult>> BindAsync<T, TResult>(
+        this Option<T>                 option,
+        Func<T, Task<Option<TResult>>> bindAsync) =>
+        option switch
+        {
+            Option<T>.Some some => await bindAsync(some.Value),
+            Option<T>.None      => Option.None<TResult>(),
+            _                   => throw new InvalidOperationException("It should not be possible to reach this point.")
+        };
+
+    /// <summary>
+    ///     Asynchronously chains another <see cref="Option{T}" />-producing function.
+    /// </summary>
+    public static async Task<Option<TResult>> BindAsync<T, TResult>(
+        this Task<Option<T>>     optionTask,
+        Func<T, Option<TResult>> bind) =>
+        (await optionTask).Bind(bind);
+
+    /// <summary>
+    ///     Asynchronously chains another <see cref="Option{T}" />-producing function.
+    /// </summary>
+    public static async Task<Option<TResult>> BindAsync<T, TResult>(
+        this Task<Option<T>>           optionTask,
+        Func<T, Task<Option<TResult>>> bindAsync)
+    {
+        var option = await optionTask;
+
+        return await option.BindAsync(bindAsync);
+    }
+
+    /// <summary>
+    ///     Asynchronously converts an <see cref="Option{T}" /> to a <see cref="Result{T, TError}" />.
+    /// </summary>
+    public static async Task<Result<T, TError>> ToResultAsync<T, TError>(
+        this Option<T>     option,
+        Func<Task<TError>> errorFactoryAsync) =>
+        await option.Match<Task<Result<T, TError>>>(
+                                                    some => Task.FromResult<Result<T, TError>>(new Result<T, TError>.Ok(some)),
+                                                    async () => new Result<T, TError>.Error(await errorFactoryAsync()));
+
+    /// <summary>
+    ///     Asynchronously converts a Task of <see cref="Option{T}" /> to a <see cref="Result{T, TError}" />.
+    /// </summary>
+    public static async Task<Result<T, TError>> ToResultAsync<T, TError>(
+        this Task<Option<T>> optionTask,
+        Func<TError>         errorFactory) =>
+        (await optionTask).ToResult(errorFactory);
+
+    /// <summary>
+    ///     Asynchronously converts a Task of <see cref="Option{T}" /> to a <see cref="Result{T, TError}" />.
+    /// </summary>
+    public static async Task<Result<T, TError>> ToResultAsync<T, TError>(
+        this Task<Option<T>> optionTask,
+        Func<Task<TError>>   errorFactoryAsync)
+    {
+        var option = await optionTask;
+
+        return await option.ToResultAsync(errorFactoryAsync);
+    }
+
+    /// <summary>
+    ///     Executes a side-effect action on the value if present, and returns the original option.
+    /// </summary>
+    public static Option<T> Tap<T>(this Option<T> option, Action<T> action)
+    {
+        if(option is Option<T>.Some some)
+        {
+            action(some.Value);
+        }
+
+        return option;
+    }
+
+    /// <summary>
+    ///     Asynchronously executes a side-effect action on the value if present, and returns the original option.
+    /// </summary>
+    public static async Task<Option<T>> TapAsync<T>(
+        this Option<T> option,
+        Func<T, Task>  actionAsync)
+    {
+        if(option is Option<T>.Some some)
+        {
+            await actionAsync(some.Value);
+        }
+
+        return option;
+    }
+
+    /// <summary>
+    ///     Executes a side-effect action on the value if present, and returns the original option.
+    /// </summary>
+    public static async Task<Option<T>> TapAsync<T>(
+        this Task<Option<T>> optionTask,
+        Action<T>            action)
+    {
+        var option = await optionTask;
+
+        return option.Tap(action);
+    }
+
+    /// <summary>
+    ///     Asynchronously executes a side-effect action on the value if present, and returns the original option.
+    /// </summary>
+    public static async Task<Option<T>> TapAsync<T>(
+        this Task<Option<T>> optionTask,
+        Func<T, Task>        actionAsync)
+    {
+        var option = await optionTask;
+
+        return await option.TapAsync(actionAsync);
+    }
+
+    /// <summary>
+    ///     Pattern matches on the option with an asynchronous function for Some.
+    /// </summary>
+    public static async Task<TResult> MatchAsync<T, TResult>(
+        this Option<T>         option,
+        Func<T, Task<TResult>> onSomeAsync,
+        Func<TResult>          onNone) =>
+        option switch
+        {
+            Option<T>.Some some => await onSomeAsync(some.Value),
+            Option<T>.None      => onNone(),
+            _                   => throw new InvalidOperationException("It should not be possible to reach this point.")
+        };
+
+    /// <summary>
+    ///     Pattern matches on the option with an asynchronous function for None.
+    /// </summary>
+    public static async Task<TResult> MatchAsync<T, TResult>(
+        this Option<T>      option,
+        Func<T, TResult>    onSome,
+        Func<Task<TResult>> onNoneAsync) =>
+        option switch
+        {
+            Option<T>.Some some => onSome(some.Value),
+            Option<T>.None      => await onNoneAsync(),
+            _                   => throw new InvalidOperationException("It should not be possible to reach this point.")
+        };
+
+    /// <summary>
+    ///     Pattern matches on the option with asynchronous functions for both Some and None.
+    /// </summary>
+    public static async Task<TResult> MatchAsync<T, TResult>(
+        this Option<T>         option,
+        Func<T, Task<TResult>> onSomeAsync,
+        Func<Task<TResult>>    onNoneAsync) =>
+        option switch
+        {
+            Option<T>.Some some => await onSomeAsync(some.Value),
+            Option<T>.None      => await onNoneAsync(),
+            _                   => throw new InvalidOperationException("It should not be possible to reach this point.")
+        };
+
+    /// <summary>
+    ///     Gets the value of the option or returns a fallback value from an async function.
+    /// </summary>
+    public static async Task<T> OrElseAsync<T>(
+        this Option<T> option,
+        Func<Task<T>>  getFallbackAsync) =>
+        option is Option<T>.Some some ? some.Value : await getFallbackAsync();
+
+    /// <summary>
+    ///     Gets the value of a Task of Option or returns a fallback value.
+    /// </summary>
+    public static async Task<T> OrElseAsync<T>(
+        this Task<Option<T>> optionTask,
+        T                    fallback)
+    {
+        var option = await optionTask;
+
+        return option.OrElse(fallback);
+    }
+
+    /// <summary>
+    ///     Gets the value of a Task of Option or returns a fallback value from an async function.
+    /// </summary>
+    public static async Task<T> OrElseAsync<T>(
+        this Task<Option<T>> optionTask,
+        Func<Task<T>>        getFallbackAsync)
+    {
+        var option = await optionTask;
+
+        return await option.OrElseAsync(getFallbackAsync);
+    }
+
+    /// <summary>
+    ///     Filters out None values and unwraps Some values into a new sequence.
+    /// </summary>
+    public static IEnumerable<T> Values<T>(this IEnumerable<Option<T>> options)
+    {
+        foreach(var option in options)
+        {
+            if(option is Option<T>.Some some)
+            {
+                yield return some.Value;
+            }
+        }
+    }
+
+    /// <summary>
+    ///     Transforms a sequence by keeping only elements that match the predicate
+    ///     and wrapping them in Options.
+    /// </summary>
+    public static IEnumerable<Option<T>> Choose<T>(
+        this IEnumerable<T> source,
+        Func<T, bool>       predicate)
+    {
+        foreach(var item in source)
+        {
+            if(predicate(item))
+            {
+                yield return new Option<T>.Some(item);
+            }
+        }
+    }
+
+    /// <summary>
+    ///     Transforms a sequence by applying a mapping function that returns Options
+    ///     and keeping only the Some results.
+    /// </summary>
+    public static IEnumerable<TResult> Choose<T, TResult>(
+        this IEnumerable<T>      source,
+        Func<T, Option<TResult>> chooser)
+    {
+        foreach(var item in source)
+        {
+            var option = chooser(item);
+
+            if(option is Option<TResult>.Some some)
+            {
+                yield return some.Value;
+            }
+        }
+    }
+
+    /// <summary>
+    ///     Filters an option by a predicate, turning Some values that don't satisfy the predicate into None.
+    /// </summary>
+    public static Option<T> Filter<T>(this Option<T> option, Func<T, bool> predicate) =>
+        option.Match(
+                     some => predicate(some) ? option : Option.None<T>(),
+                     () => Option.None<T>());
+
+    /// <summary>
+    ///     Maps the value if present, or returns a default value.
+    /// </summary>
+    public static TResult MapOrDefault<T, TResult>(
+        this Option<T>   option,
+        Func<T, TResult> map,
+        TResult          defaultValue) =>
+        option.Match(
+                     some => map(some),
+                     () => defaultValue);
+
+    /// <summary>
+    ///     Maps the value if present, or computes a default value.
+    /// </summary>
+    public static TResult MapOrElse<T, TResult>(
+        this Option<T>   option,
+        Func<T, TResult> map,
+        Func<TResult>    defaultFactory) =>
+        option.Match(
+                     some => map(some),
+                     defaultFactory);
 }

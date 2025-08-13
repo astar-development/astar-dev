@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AStar.Dev.Database.Updater.Core</name>
+    </assembly>
+    <members>
+        <member name="T:AStar.Dev.Database.Updater.Core.AddNewFilesService">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Database.Updater.Core.AddNewFilesService"/>
+                class
+            </summary>
+            <param name="filesApiClient">The
+                <see cref="T:AStar.Dev.Files.Api.Client.Sdk.FilesApi.FilesApiClient"/>
+                required by the AddNewFilesBackgroundService
+            </param>
+            <param name="fileSystem">An instance of
+                <see cref="T:System.IO.Abstractions.IFileSystem"/>
+                to retrieve the files from
+            </param>
+            <param name="config">An instance of the
+                <see cref="T:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration"/>
+                options used to configure the addition of the new files
+            </param>
+            <param name="logger">An instance of the
+                <see cref="T:Microsoft.Extensions.Logging.ILogger"/>
+                to log status / errors
+            </param>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.AddNewFilesService.#ctor(AStar.Dev.Files.Api.Client.Sdk.FilesApi.FilesApiClient,System.IO.Abstractions.IFileSystem,Microsoft.Extensions.Options.IOptions{AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration},Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.AddNewFilesService})">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Database.Updater.Core.AddNewFilesService"/>
+                class
+            </summary>
+            <param name="filesApiClient">The
+                <see cref="T:AStar.Dev.Files.Api.Client.Sdk.FilesApi.FilesApiClient"/>
+                required by the AddNewFilesBackgroundService
+            </param>
+            <param name="fileSystem">An instance of
+                <see cref="T:System.IO.Abstractions.IFileSystem"/>
+                to retrieve the files from
+            </param>
+            <param name="config">An instance of the
+                <see cref="T:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration"/>
+                options used to configure the addition of the new files
+            </param>
+            <param name="logger">An instance of the
+                <see cref="T:Microsoft.Extensions.Logging.ILogger"/>
+                to log status / errors
+            </param>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.AddNewFilesService.StartAsync(System.Threading.CancellationToken)">
+            <summary>
+                The StartAsync method is called by the runtime and will update the database with any new files
+            </summary>
+            <param name="stoppingToken">A cancellation token to optionally cancel the operation</param>
+        </member>
+        <member name="T:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration"/>
+                containing the applicable Database Updater configuration
+            </summary>
+        </member>
+        <member name="F:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration.ConfigurationSectionName">
+            <summary>
+                Gets the name of the configuration section as specified in the appSettings.json
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration.RootDirectory">
+            <summary>
+                Gets or sets the Root directory - where the updater will start looking for files
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration.HonourFirstDelay">
+            <summary>
+                Gets or sets whether to honour (i.e.: not skip) the first delay of the scheduled run.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration.MappingsFilePath">
+            <summary>
+                Gets or sets the full path (including the name) of the CSV Mappings file
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration.SoftDeleteScheduledTime">
+            <summary>
+                Gets or sets the time to start the soft-deletion
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration.HardDeleteScheduledTime">
+            <summary>
+                Gets or sets the time to start the hard-deletion
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration.NewFilesScheduledTime">
+            <summary>
+                Gets or sets the time to start the new files addition
+            </summary>
+        </member>
+    </members>
+</doc>

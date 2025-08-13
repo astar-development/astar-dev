@@ -4,15 +4,13 @@
 
 This project contains a bunch of classes and extension methods to facilitate a more functional approach to handling errors and optional objects.
 
-## Cheat Sheets
-
 ### Result&lt;T&gt; and associated extensions
 
-Cheat sheet is [here](Readme-result.md)
+Full details can be found [here](Readme-result.md)
 
 ### Option&lt;T&gt; and associated extensions
 
-Cheat sheet is [here](Readme-option.md)
+Full details can be found [here](Readme-option.md)
 
 ## Build and analysis
 

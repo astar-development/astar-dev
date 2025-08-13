@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 
 namespace AStar.Dev.Functional.Extensions;
 
@@ -34,6 +35,33 @@ public abstract class Option<T>
             None x    => onNone(),
             _         => throw new InvalidOperationException("It should not be possible to reach this point.")
         };
+
+    public override bool Equals(object? obj)
+    {
+        if(obj is Option<T> other)
+        {
+            return this switch
+                   {
+                       Some some => other is Some otherSome && EqualityComparer<T>.Default.Equals(some.Value, otherSome.Value),
+                       None      => other is None,
+                       _         => false
+                   };
+        }
+
+        return false;
+    }
+
+    public override int GetHashCode() =>
+        this switch
+        {
+            Some some => HashCode.Combine(typeof(Some), some.Value),
+            None      => typeof(None).GetHashCode(),
+            _         => 0
+        };
+
+    // Add equality operators
+    public static bool operator ==(Option<T> left, Option<T> right) => left.Equals(right);
+    public static bool operator !=(Option<T> left, Option<T> right) => !left.Equals(right);
 
     /// <summary>
     ///     Represents the presence of a value.

@@ -1,5 +1,4 @@
-﻿using JetBrains.Annotations;
-using Microsoft.Extensions.Configuration;
+﻿using Microsoft.Extensions.Configuration;
 
 namespace AStar.Dev.AspNet.Extensions.ConfigurationManagerExtensions;
 

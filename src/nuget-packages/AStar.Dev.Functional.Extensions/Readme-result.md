@@ -1,96 +1,61 @@
-# 🧭 Result<T, TError> Cheat Sheet
+# 📦 Result<TSuccess, TError> - Functional Error Handling for C#
 
-## 🧱 Core Concept
+A powerful, functional approach to error handling in C# that avoids exceptions and promotes predictable, composable code.
 
-Result<T, TError> encapsulates either:
+## 🧭 Overview
 
-✅ Ok(T) — a success value
+`Result<TSuccess, TError>` is a discriminated union type that represents either successful completion with a value or failure with an error. This approach to error handling:
 
-❌ Error(TError) — an error reason
+- ✅ Makes error handling explicit in your function signatures
+- ✅ Encourages composition of operations that might fail
+- ✅ Eliminates the need for try/catch blocks across your codebase
+- ✅ Provides comprehensive async support
+- ✅ Allows for functional programming patterns in C#
 
-```csharp
-Result<string, string> nameResult = new Result<string, string>.Ok("Jason");
-Result<int, string> errorResult = new Result<int, string>.Error("Invalid input");
+## 📚 Documentation
+
+- [Core Concepts](docs/core-concepts.md)
+- [Basic Usage Guide](docs/basic-usage.md)
+- [Advanced Usage](docs/advanced-usage.md)
+- [Method Reference](docs/method-reference.md)
+- [Error Handling Patterns](docs/error-handling-patterns.md)
+- [Testing with Results](docs/testing.md)
+
+## 🚀 Quick Start
+
+Install the package from NuGet:
+
+```bash
+dotnet add package AStar.Dev.Functional.Extensions
 ```
 
-## 🏗 Construction Helpers
+Basic usage:
 
-| Expression                     | Outcome                     |
-|--------------------------------|-----------------------------|
-| new Result<T, E>.Ok(value)     | Constructs a success result |
-| new Result<T, E>.Error(reason) | Constructs an error result  |
+``` csharp
+using AStar.Dev.Functional.Extensions;
 
-## 🔧 Transformation
+// Create a success result
+Result<string, string> successResult = new Result<string, string>.Ok("Harry Potter");
 
-| Method      | Description                                      |
-|-------------|--------------------------------------------------|
-| Map(fn)     | Transforms the success value                     |
-| Bind(fn)    | Chains to another result-returning function      |
-| Tap(action) | Invokes side effect on success, returns original |
+// Create an error result
+Result<decimal, string> errorResult = new Result<decimal, string>.Error("Book out of stock");
 
-```csharp
-result.Map(value => value.ToUpper());
-result.Bind(value => Validate(value));
-result.Tap(Console.WriteLine);
-```
-
-## 🧪 Pattern Matching
-
-```csharp
-result.Match(
-onSuccess: value => $"✅ {value}",
-onError: reason => $"❌ {reason}"
+// Match on result to handle both success and error cases
+string message = orderResult.Match(
+    onSuccess: order => $"Order #{order.Id} confirmed: {order.Total:C}",
+    onFailure: error => $"Order failed: {error}"
 );
 ```
 
-## 🧞 LINQ Composition
+## 📋 Features
 
-```csharp
-var final =
-from input in GetInput()
-from valid in Validate(input)
-select $"Welcome, {valid}";
-```
+- Discriminated union representing success or failure
+- Comprehensive set of transformation methods (Map, Bind, etc.)
+- Full async support with all combination of sync/async operations
+- Side-effect methods for logging and monitoring (Tap, TapError)
+- Clear, functional approach to error handling
+- Zero dependencies
 
-## LINQ Methods
+## 📄 License
 
-| Method               | Description                                 |
-|----------------------|---------------------------------------------|
-| Select(fn)           | Maps over success value                     |
-| SelectMany(fn)       | Binds to next result                        |
-| SelectMany(..., ...) | Binds and projects from intermediate result |
-
-## ⚡ Async Support
-
-```csharp
-var asyncResult = await resultTask.MapAsync(val => val.Length);
-var finalValue = await resultTask.MatchAsync(...);
-```
-
-## Async LINQ
-
-```csharp
-var result =
-await GetAsync()
-.SelectMany(asyncValue => ValidateAsync(asyncValue), (a, b) => $"{a}-{b}");
-```
-
-## 🧯 Error Handling
-
-```csharp
-if (result is Result<T, TError>.Error err)
-Log(err.Reason);
-```
-
-Or selectively tap into errors:
-
-```csharp
-public static Result<T, TError> TapError<T, TError>(
-this Result<T, TError> result,
-Action<TError> handler)
-{
-if (result is Result<T, TError>.Error error)
-handler(error.Reason);
-return result;
-}
-```
+MIT
