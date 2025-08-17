@@ -10,7 +10,7 @@
     <ItemGroup>
         <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.0"/>
         <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0"/>
-        <PackageReference Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer" Version="9.4.0"/>
+        <PackageReference Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer" Version="9.4.1"/>
 
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.8"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.8">
@@ -18,7 +18,7 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Microsoft.Identity.Web" Version="3.13.0"/>
-        <PackageReference Include="Aspire.RabbitMQ.Client.v7" Version="9.4.0"/>
+        <PackageReference Include="Aspire.RabbitMQ.Client.v7" Version="9.4.1"/>
         <PackageReference Include="Serilog" Version="4.3.0"/>
         <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.3"/>
         <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="9.0.3"/>

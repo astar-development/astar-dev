@@ -15,8 +15,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\..\AStar.Dev.Database.Updater.temp\AStar.Dev.Database.Updater.Core\AStar.Dev.Database.Updater.Core.csproj"/>
         <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Logging.Extensions\AStar.Dev.Logging.Extensions.csproj"/>
         <ProjectReference Include="..\..\..\_aspire\AStar.Dev.ServiceDefaults\AStar.Dev.ServiceDefaults.csproj"/>
+        <ProjectReference Include="..\AStar.Dev.Database.Updater.Core\AStar.Dev.Database.Updater.Core.csproj"/>
     </ItemGroup>
 </Project>

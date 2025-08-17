@@ -1,7 +1,8 @@
 using System.Globalization;
 using System.IO.Abstractions;
 using System.Text.RegularExpressions;
-using AStar.Dev.Files.Api.Client.Sdk.FilesApi;
+using AStar.Dev.Functional.Extensions;
+using AStar.Dev.Infrastructure.FilesDb.Models;
 using AStar.Dev.Utilities;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
@@ -11,54 +12,54 @@ namespace AStar.Dev.Database.Updater.Core;
 /// <summary>
 ///     The <see cref="AddNewFilesService" /> class
 /// </summary>
-/// <param name="filesApiClient">The <see cref="FilesApiClient" /> required by the AddNewFilesBackgroundService</param>
 /// <param name="fileSystem">An instance of <see cref="IFileSystem" /> to retrieve the files from</param>
 /// <param name="config">An instance of the <see cref="DatabaseUpdaterConfiguration" /> options used to configure the addition of the new files</param>
 /// <param name="logger">An instance of the <see cref="ILogger" /> to log status / errors</param>
-public class AddNewFilesService(FilesApiClient filesApiClient, IFileSystem fileSystem, IOptions<DatabaseUpdaterConfiguration> config, ILogger<AddNewFilesService> logger)
+public class AddNewFilesService(IFileSystem fileSystem, IOptions<DatabaseUpdaterConfiguration> config, ILogger<AddNewFilesService> logger)
 {
     /// <summary>
-    ///     The StartAsync method is called by the runtime and will update the database with any new files
+    ///     The StartAsync method is called by the runtime (via the BackgroundWorker) and will update the database with any new files
     /// </summary>
+    /// <param name="timeSpan"></param>
     /// <param name="stoppingToken">A cancellation token to optionally cancel the operation</param>
-    public async Task StartAsync(CancellationToken stoppingToken)
+    public async Task<Result<TimeSpan, ErrorResponse>> StartAsync(TimeSpan timeSpan, CancellationToken stoppingToken)
     {
         var enumerationOptions = new EnumerationOptions { IgnoreInaccessible = true, RecurseSubdirectories = true, ReturnSpecialDirectories = false };
 
-        var files = fileSystem.Directory.EnumerateFiles(config.Value.RootDirectory, "*", enumerationOptions).ToArray();
-
-        logger.LogInformation("Processing {FileCount} potentially new files...", files.Length);
-
-        // var fileClassifications = filesApiClient.FileClassifications.Include(f => f.FileNameParts).ToList();
-        //
-        // await ProcessNewFiles(files, fileClassifications, stoppingToken);
-        filesApiClient.ToJson();
-        await Task.CompletedTask;
+        return await GetFileList(enumerationOptions)
+                     .BindAsync(async fileList => await ProcessNewFiles(fileList, null!, timeSpan, stoppingToken))
+                     .MapFailureAsync(x => new ErrorResponse(x.Message));
     }
 
-    //
-    // private async Task ProcessNewFiles(string[] files, List<FileClassification> fileClassifications, CancellationToken stoppingToken)
-    // {
-    //     var filesAlreadyInTheContext = await filesApiClient.Files.Select(f => f.FullNameWithPath).ToListAsync(stoppingToken);
-    //     var filesToProcess           = files.Except(filesAlreadyInTheContext).ToArray();
-    //
-    //     if(filesToProcess.Length == 0)
-    //     {
-    //         logger.LogInformation("No new files to process...exiting...");
-    //
-    //         return;
-    //     }
-    //
-    //     logger.LogInformation("Processing {NewFiles} new files...", filesToProcess.Length);
-    //
-    //     var count            = 0;
-    //
-    //     foreach (var file in filesToProcess)
-    //     {
-    //         count = await ProcessNewFile(fileClassifications, file, count, stoppingToken);
-    //     }
-    // }
-    //
+    private Result<string[], ErrorResponse> GetFileList(EnumerationOptions enumerationOptions)
+        => ApiResponse.Run(() => fileSystem.Directory.EnumerateFiles(config.Value.RootDirectory, "*", enumerationOptions).ToArray());
+
+    private async Task<Result<TimeSpan, ErrorResponse>> ProcessNewFiles(string[] files, List<FileClassification> fileClassifications, TimeSpan timeSpan, CancellationToken stoppingToken)
+    {
+        logger.LogInformation("Processing {FileCount} potentially new files...", files.Length);
+
+        // var filesAlreadyInTheContext = await filesApiClient.Files.Select(f => f.FullNameWithPath).ToListAsync(stoppingToken);
+        // var filesToProcess           = files.Except(filesAlreadyInTheContext).ToArray();
+        //
+        // if(filesToProcess.Length == 0)
+        // {
+        //     logger.LogInformation("No new files to process...exiting...");
+        //
+        //     return;
+        // }
+        await Task.Delay(1);
+        logger.LogInformation("Processing {NewFiles} new files...", files.Length);
+
+        return new Result<TimeSpan, ErrorResponse>.Ok(timeSpan);
+
+        // var count            = 0;
+        //
+        // foreach (var file in filesToProcess)
+        // {
+        //     count = await ProcessNewFile(fileClassifications, file, count, stoppingToken);
+        // }
+    }
+
     // private async Task<int> ProcessNewFile(   List<FileClassification> fileClassifications, string file, int count, CancellationToken stoppingToken)
     // {
     //     var fileInfo                = fileSystem.FileInfo.New(file);
@@ -79,7 +80,7 @@ public class AddNewFilesService(FilesApiClient filesApiClient, IFileSystem fileS
     //
     //     return newCount;
     // }
-    //
+
     // private async Task<int> UpdateFileContext(   string file, int count, FileDetail fileWithClassifications, CancellationToken stoppingToken)
     // {
     //     var newCount = 0;
@@ -95,7 +96,7 @@ public class AddNewFilesService(FilesApiClient filesApiClient, IFileSystem fileS
     //
     //     return newCount;
     // }
-    //
+
     // private async Task<int> TryContextUpdate(  string file, int count, CancellationToken stoppingToken)
     // {
     //     await filesApiClient.SaveChangesAsync(stoppingToken);
@@ -144,7 +145,7 @@ public class AddNewFilesService(FilesApiClient filesApiClient, IFileSystem fileS
     //
     //     return fileWithClassifications;
     // }
-    //
+
     // private static IEnumerable<FileClassification> GetFileClassifications(List<FileClassification> fileClassifications, string file)
     //     => from fileClassification in fileClassifications
     //        from fileNamePart in fileClassification.FileNameParts
@@ -168,24 +169,24 @@ public class AddNewFilesService(FilesApiClient filesApiClient, IFileSystem fileS
     //     fileWithClassifications.Width  = image.Width;
     // }
 
-    // private static string GenerateFileHandle(IFileInfo fileInfo, int fileClassificationsCount, FileDetail fileWithClassifications)
-    // {
-    //     var fileHandle = $"{GenerateRandomNumeric()}-{GenerateFileHandle(fileInfo.Name)}";
-    //
-    //     if (fileClassificationsCount <= 1)
-    //     {
-    //         return GenerateFileHandle(fileHandle.TruncateIfRequired(350));
-    //     }
-    //
-    //     var firstRandom  = new Random(DateTime.Now.Millisecond).Next(1, fileClassificationsCount);
-    //     var prefix       = fileWithClassifications.FileClassifications.Skip(firstRandom).FirstOrDefault()?.FileNameParts.FirstOrDefault()?.Text;
-    //     var secondRandom = new Random(DateTime.Now.Millisecond).Next(1, fileClassificationsCount);
-    //     var prefix2      = fileWithClassifications.FileClassifications.Skip(secondRandom).FirstOrDefault()?.FileNameParts.FirstOrDefault()?.Text;
-    //
-    //     fileHandle = UpdateFileHandle(fileInfo, prefix, prefix2);
-    //
-    //     return GenerateFileHandle(fileHandle.TruncateIfRequired(350));
-    // }
+    private static string GenerateFileHandle(IFileInfo fileInfo, int fileClassificationsCount, FileDetail fileWithClassifications)
+    {
+        var fileHandle = $"{GenerateRandomNumeric()}-{GenerateFileHandle(fileInfo.Name)}";
+
+        if(fileClassificationsCount <= 1)
+        {
+            return GenerateFileHandle(fileHandle.TruncateIfRequired(350));
+        }
+
+        var firstRandom  = new Random(DateTime.Now.Millisecond).Next(1, fileClassificationsCount);
+        var prefix       = fileWithClassifications.FileClassifications.Skip(firstRandom).FirstOrDefault()?.FileNameParts.FirstOrDefault()?.Text;
+        var secondRandom = new Random(DateTime.Now.Millisecond).Next(1, fileClassificationsCount);
+        var prefix2      = fileWithClassifications.FileClassifications.Skip(secondRandom).FirstOrDefault()?.FileNameParts.FirstOrDefault()?.Text;
+
+        fileHandle = UpdateFileHandle(fileInfo, prefix, prefix2);
+
+        return GenerateFileHandle(fileHandle.TruncateIfRequired(350));
+    }
 
     private static string UpdateFileHandle(IFileInfo fileInfo, string? prefix, string? prefix2)
         => prefix switch
@@ -223,3 +224,26 @@ public class AddNewFilesService(FilesApiClient filesApiClient, IFileSystem fileS
                    : newHandle;
     }
 }
+
+/// <summary>
+/// </summary>
+public class ApiResponse
+{
+    /// <summary>
+    /// </summary>
+    /// <param name="func"></param>
+    /// <typeparam name="T"></typeparam>
+    /// <returns></returns>
+    public static Result<T, ErrorResponse> Run<T>(Func<T> func)
+    {
+        try
+        {
+            return new Result<T, ErrorResponse>.Ok(func());
+        }
+        catch(Exception ex)
+        {
+            return new Result<T, ErrorResponse>.Error(new(ex.GetBaseException().Message));
+        }
+    }
+}
+

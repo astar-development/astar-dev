@@ -28,7 +28,7 @@ public class GetFilesHandlerShould : IClassFixture<FilesContextFixture>
         response.ShouldBe(Results.BadRequest());
     }
 
-    [Theory]
+    [Theory(Skip = "This is NOT a unit test, it's an integration test.")]
     [InlineData(@"\some\directory", true, 0, true, "", SortOrder.NameAscending, SearchType.All, 1, 10)]
     public async Task ReturnOkWhenCalledWithValidParameters(string directoryName, bool recursive, int excludeViewedWithinDays, bool includeMarkedForDeletion, string searchText, SortOrder sortOrder,
                                                             SearchType searchType, int currentPage, int itemsPerPage)
