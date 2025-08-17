@@ -1,8 +1,0 @@
-{
-  "rootDirectory": "Mock Root Directory",
-  "honourFirstDelay": true,
-  "mappingsFilePath": "Mock Mappings File Path",
-  "softDeleteScheduledTime": "01:00:00",
-  "hardDeleteScheduledTime": "02:00:00",
-  "newFilesScheduledTime": "03:00:00"
-}
