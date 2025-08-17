@@ -1,7 +1,6 @@
 using AStar.Dev.Infrastructure.FilesDb.Data;
 using AStar.Dev.Infrastructure.FilesDb.Models;
 using AStar.Dev.Test.DbContext.Helpers.Fixtures;
-using Shouldly;
 
 namespace AStar.Dev.Infrastructure.FilesDb.Tests.Integration;
 

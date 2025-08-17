@@ -24,9 +24,9 @@ public class NewFilesBackgroundService(AddNewFilesService addNewFilesService, Ti
         await Task.CompletedTask;
         var startAtTime = config.Value.NewFilesScheduledTime;
 
-        Result<TimeSpan, ErrorResponse> delay = config.Value.HonourFirstDelay
-                                                    ? timeDelay.CalculateDelayToNextRun(startAtTime)
-                                                    : new Result<TimeSpan, ErrorResponse>.Ok(TimeSpan.Zero);
+        var delay = config.Value.HonourFirstDelay
+                        ? timeDelay.CalculateDelayToNextRun(startAtTime)
+                        : new Result<TimeSpan, ErrorResponse>.Ok(TimeSpan.Zero);
 
         while(!stoppingToken.IsCancellationRequested)
         {
@@ -34,10 +34,10 @@ public class NewFilesBackgroundService(AddNewFilesService addNewFilesService, Ti
                                .BindAsync(async timeSpan => await AwaitDelay(timeSpan, stoppingToken))
                                .BindAsync(async d => await addNewFilesService.StartAsync(d, stoppingToken));
 
-            _ = x.Match<Result<TimeSpan, ErrorResponse>>(_ => timeDelay.CalculateDelayToNextRun(startAtTime),
-                                                         _ => new Result<TimeSpan, ErrorResponse>.Error(new("Error.")))
-                 .BindAsync(async timeSpan => await AwaitDelay(timeSpan, stoppingToken))
-                 .TapErrorAsync(async f => await LogErrorMessage(stoppingToken, f));
+            _ = await x.Match<Result<TimeSpan, ErrorResponse>>(_ => timeDelay.CalculateDelayToNextRun(startAtTime),
+                                                               _ => new Result<TimeSpan, ErrorResponse>.Error(new("Error.")))
+                       .BindAsync(async timeSpan => await AwaitDelay(timeSpan, stoppingToken))
+                       .TapErrorAsync(async f => await LogErrorMessage(stoppingToken, f));
         }
     }
 

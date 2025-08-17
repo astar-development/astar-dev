@@ -49,19 +49,6 @@
             <param name="timeSpan"></param>
             <param name="stoppingToken">A cancellation token to optionally cancel the operation</param>
         </member>
-        <member name="T:AStar.Dev.Database.Updater.Core.ApiResponse">
-            <summary>
-
-            </summary>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.ApiResponse.Run``1(System.Func{``0})">
-            <summary>
-
-            </summary>
-            <param name="func"></param>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
         <member name="T:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration">
             <summary>
                 The
@@ -163,7 +150,7 @@
                 class
             </summary>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.TimeDelay.#ctor(System.TimeProvider)">
+        <member name="M:AStar.Dev.Database.Updater.Core.TimeDelay.#ctor(System.TimeProvider,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.TimeDelay})">
             <summary>
                 The
                 <see cref="T:AStar.Dev.Database.Updater.Core.TimeDelay"/>
@@ -175,6 +162,7 @@
                 The CalculateDelayToNextRun will return the
                 <see cref="T:System.TimeSpan"/>
                 reresenting the delay until the next scheduled run time
+                This implementation doesn't need the ErrorResponse so doesn't "need" the result at all
             </summary>
             <param name="targetTime">The target time to delay until</param>
             <returns>The

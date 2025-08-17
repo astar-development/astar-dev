@@ -5,8 +5,9 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
+
     <ItemGroup>
-        <PackageReference Include="AStar.Dev.Functional.Extensions" Version="0.3.0-alpha"/>
+        <PackageReference Include="AStar.Dev.Functional.Extensions" Version="0.4.0"/>
         <PackageReference Include="CsvHelper" Version="33.1.0"/>
         <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="9.0.8"/>
         <PackageReference Include="TestableIO.System.IO.Abstractions.Wrappers" Version="22.0.15"/>
@@ -29,6 +30,5 @@
         <DocumentationFile>AStar.Dev.Database.Updater.Core.xml</DocumentationFile>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     </PropertyGroup>
-
 
 </Project>

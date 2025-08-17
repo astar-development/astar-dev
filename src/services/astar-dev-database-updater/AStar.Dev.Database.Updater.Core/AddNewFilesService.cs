@@ -32,11 +32,19 @@ public class AddNewFilesService(IFileSystem fileSystem, IOptions<DatabaseUpdater
     }
 
     private Result<string[], ErrorResponse> GetFileList(EnumerationOptions enumerationOptions)
-        => ApiResponse.Run(() => fileSystem.Directory.EnumerateFiles(config.Value.RootDirectory, "*", enumerationOptions).ToArray());
+        => Try.Run(() => fileSystem.Directory.EnumerateFiles(config.Value.RootDirectory, "*", enumerationOptions).ToArray()).ToErrorResponse();
 
     private async Task<Result<TimeSpan, ErrorResponse>> ProcessNewFiles(string[] files, List<FileClassification> fileClassifications, TimeSpan timeSpan, CancellationToken stoppingToken)
     {
         logger.LogInformation("Processing {FileCount} potentially new files...", files.Length);
+
+        var fileChunks = files.Chunk(100);
+
+        foreach(var fileChunk in fileChunks)
+        {
+            var first = fileChunk[0];
+            logger.LogInformation("Processing potentially new file {File}...", first);
+        }
 
         // var filesAlreadyInTheContext = await filesApiClient.Files.Select(f => f.FullNameWithPath).ToListAsync(stoppingToken);
         // var filesToProcess           = files.Except(filesAlreadyInTheContext).ToArray();
@@ -48,7 +56,6 @@ public class AddNewFilesService(IFileSystem fileSystem, IOptions<DatabaseUpdater
         //     return;
         // }
         await Task.Delay(1);
-        logger.LogInformation("Processing {NewFiles} new files...", files.Length);
 
         return new Result<TimeSpan, ErrorResponse>.Ok(timeSpan);
 
@@ -224,26 +231,3 @@ public class AddNewFilesService(IFileSystem fileSystem, IOptions<DatabaseUpdater
                    : newHandle;
     }
 }
-
-/// <summary>
-/// </summary>
-public class ApiResponse
-{
-    /// <summary>
-    /// </summary>
-    /// <param name="func"></param>
-    /// <typeparam name="T"></typeparam>
-    /// <returns></returns>
-    public static Result<T, ErrorResponse> Run<T>(Func<T> func)
-    {
-        try
-        {
-            return new Result<T, ErrorResponse>.Ok(func());
-        }
-        catch(Exception ex)
-        {
-            return new Result<T, ErrorResponse>.Error(new(ex.GetBaseException().Message));
-        }
-    }
-}
-

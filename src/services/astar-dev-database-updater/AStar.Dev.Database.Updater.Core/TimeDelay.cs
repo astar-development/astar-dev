@@ -1,11 +1,12 @@
 ﻿using AStar.Dev.Functional.Extensions;
+using Microsoft.Extensions.Logging;
 
 namespace AStar.Dev.Database.Updater.Core;
 
 /// <summary>
 ///     The <see cref="TimeDelay" /> class
 /// </summary>
-public class TimeDelay(TimeProvider timeProvider)
+public class TimeDelay(TimeProvider timeProvider, ILogger<TimeDelay> logger)
 {
     /// <summary>
     ///     The CalculateDelayToNextRun will return the <see cref="TimeSpan" /> reresenting the delay until the next scheduled run time
@@ -19,6 +20,7 @@ public class TimeDelay(TimeProvider timeProvider)
 
         var timeDelay = TimeToNextOccurrence(targetTime, currentTime);
 
+        logger.LogInformation("Next scheduled run at: {NextScheduledRunTime} - time delay: {TimeDelay}", targetTime, timeDelay);
         return new Result<TimeSpan, ErrorResponse>.Ok(timeDelay);
     }
 
