@@ -30,20 +30,18 @@ public class NewFilesBackgroundService(AddNewFilesService addNewFilesService, Ti
 
         while(!stoppingToken.IsCancellationRequested)
         {
-            var x = await delay.Tap(LogMessage)
-                               .BindAsync(async timeSpan => await AwaitDelay(timeSpan, stoppingToken))
-                               .BindAsync(async d => await addNewFilesService.StartAsync(d, stoppingToken));
-
-            _ = await x.Match<Result<TimeSpan, ErrorResponse>>(_ => timeDelay.CalculateDelayToNextRun(startAtTime),
-                                                               _ => new Result<TimeSpan, ErrorResponse>.Error(new("Error.")))
-                       .BindAsync(async timeSpan => await AwaitDelay(timeSpan, stoppingToken))
-                       .TapErrorAsync(async f => await LogErrorMessage(stoppingToken, f));
+            _ = await delay.Tap(LogMessage)
+                           .BindAsync(async timeSpan => await AwaitDelay(timeSpan, stoppingToken))
+                           .BindAsync(d => addNewFilesService.StartAsync(d, stoppingToken))
+                           .BindAsync(result => Task.FromResult(timeDelay.CalculateDelayToNextRun(startAtTime)))
+                           .BindAsync(delayUntilNextRun => AwaitDelay(delayUntilNextRun, stoppingToken))
+                           .TapErrorAsync(async error => await LogErrorMessage(stoppingToken, error));
         }
     }
 
-    private async Task LogErrorMessage(CancellationToken stoppingToken, ErrorResponse f)
+    private async Task LogErrorMessage(CancellationToken stoppingToken, ErrorResponse errorResponse)
     {
-        logger.LogError("Error: {ErrorMessage}", f.Message);
+        logger.LogError("Error: {ErrorMessage}", errorResponse.Message);
         await Task.Delay(1, stoppingToken);
     }
 
@@ -54,6 +52,6 @@ public class NewFilesBackgroundService(AddNewFilesService addNewFilesService, Ti
         return new Result<TimeSpan, ErrorResponse>.Ok(timeSpan);
     }
 
-    private void LogMessage(TimeSpan delay)
-        => logger.LogInformation("Waiting for: {DelayToNextRun} hours before updating the full database again.", delay.TotalHours);
+    private void LogMessage(TimeSpan delayToNextRun)
+        => logger.LogInformation("Waiting for: {DelayToNextRun} hours before updating the full database again.", delayToNextRun.TotalHours);
 }

@@ -24,7 +24,7 @@ public class TimeDelay(TimeProvider timeProvider, ILogger<TimeDelay> logger)
         return new Result<TimeSpan, ErrorResponse>.Ok(timeDelay);
     }
 
-    private TimeOnly GetCurrentTime() => TimeOnly.FromDateTime(timeProvider.GetUtcNow().DateTime);
+    private TimeOnly GetCurrentTime() => TimeOnly.FromDateTime(timeProvider.GetLocalNow().DateTime);
 
     private static TimeSpan TimeToNextOccurrence(TimeOnly targetTime, TimeOnly currentTime) =>
         targetTime < currentTime
