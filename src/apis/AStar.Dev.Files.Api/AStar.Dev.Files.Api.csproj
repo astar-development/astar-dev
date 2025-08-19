@@ -10,7 +10,7 @@
     <ItemGroup>
         <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.0"/>
         <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0"/>
-        <PackageReference Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer" Version="9.4.0"/>
+        <PackageReference Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer" Version="9.4.1"/>
 
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.8"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.8">
