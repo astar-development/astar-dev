@@ -10,7 +10,7 @@ namespace AStar.Dev.Test.Helpers.EndToEnd;
 /// </summary>
 public abstract class PlaywrightBase
 {
-    private readonly IPlaywright _playwright = Playwright.CreateAsync().Result;
+    private readonly IPlaywright playwright = Playwright.CreateAsync().Result;
 
     /// <summary>
     ///     The default constructor
@@ -59,20 +59,20 @@ public abstract class PlaywrightBase
 
     private IBrowserType GetRandomBrowser()
     {
-        var       browserType       = _playwright.Chromium;
+        var       browserType       = playwright.Chromium;
         const int maxValueExclusive = 3;
         var       random            = new Random(DateTime.UtcNow.Millisecond).Next(maxValueExclusive);
 
         switch(random)
         {
             case 1:
-                browserType = _playwright.Firefox;
+                browserType = playwright.Firefox;
                 WriteTheBrowserSelected("Randomly selected Firefox");
 
                 break;
 
             case > 1:
-                browserType = _playwright.Webkit;
+                browserType = playwright.Webkit;
                 WriteTheBrowserSelected("Randomly selected Webkit");
 
                 break;

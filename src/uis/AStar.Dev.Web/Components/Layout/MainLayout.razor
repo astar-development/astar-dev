@@ -1,8 +1,8 @@
 ﻿@inherits LayoutComponentBase
 
-<div class="bb-page" data-theme="@_defaultTheme">
+<div class="bb-page">
 
-    <Sidebar @ref="_sidebar"
+    <Sidebar @ref="sidebar"
              Href="/"
              ImageSrc="./assets/astar.png"
              Title="AStar Development"
@@ -14,6 +14,7 @@
             <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
             <div class="float-end">
                 <ThemeSwitcher Position="DropdownMenuPosition.End"/>
+
             </div>
         </div>
 

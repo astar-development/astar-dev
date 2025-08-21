@@ -8,19 +8,19 @@ namespace AStar.Dev.Infrastructure.UsageDb.Data;
 /// </summary>
 public sealed class ApiUsageContext : DbContext
 {
-    private readonly ConnectionString _connectionString;
+    private readonly ConnectionString connectionString;
 
     /// <summary>
     /// </summary>
     public ApiUsageContext() =>
-        _connectionString = string.Empty;
+        connectionString = string.Empty;
 
     /// <summary>
     /// </summary>
     /// <param name="connectionString"></param>
     public ApiUsageContext(ConnectionString connectionString)
         : this() =>
-        _connectionString = connectionString;
+        this.connectionString = connectionString;
 
     /// <summary>
     /// </summary>
@@ -40,5 +40,5 @@ public sealed class ApiUsageContext : DbContext
 
     /// <inheritdoc />
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) =>
-        _ = optionsBuilder.UseSqlServer(_connectionString.Value);
+        _ = optionsBuilder.UseSqlServer(connectionString.Value);
 }

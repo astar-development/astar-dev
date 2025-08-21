@@ -78,6 +78,10 @@
         <_ContentIncludedByDefault Remove="wwwroot\lib\bootstrap\dist\js\bootstrap.min.js.map"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <Folder Include="wwwroot\js\"/>
+    </ItemGroup>
+
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
         <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
         <NoWarn>1701;1702;</NoWarn>
