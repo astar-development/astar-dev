@@ -5,7 +5,9 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
     </PropertyGroup>
+
     <ItemGroup>
+        <PackageReference Include="AStar.Dev.Functional.Extensions" Version="0.4.2"/>
         <PackageReference Include="CsvHelper" Version="33.1.0"/>
         <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="9.0.8"/>
         <PackageReference Include="TestableIO.System.IO.Abstractions.Wrappers" Version="22.0.15"/>
@@ -15,9 +17,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Files.Api.Client.Sdk\AStar.Dev.Files.Api.Client.Sdk.csproj"/>
-        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Functional.Extensions\AStar.Dev.Functional.Extensions.csproj"/>
         <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Infrastructure.FilesDb\AStar.Dev.Infrastructure.FilesDb.csproj"/>
-        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Logging.Extensions\AStar.Dev.Logging.Extensions.csproj"/>
     </ItemGroup>
 
     <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
@@ -29,6 +29,5 @@
         <DocumentationFile>AStar.Dev.Database.Updater.Core.xml</DocumentationFile>
         <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     </PropertyGroup>
-
 
 </Project>

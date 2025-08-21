@@ -1,34 +1,18 @@
-using System.IO.Abstractions;
-using AStar.Dev.Database.Updater.Core.Files;
-using AStar.Dev.Database.Updater.Core.Models;
-using AStar.Dev.Database.Updater.Core.Services;
-using AStar.Dev.Logging.Extensions;
-using AStar.Dev.ServiceDefaults;
+using System.Diagnostics;
+using AStar.Dev.Database.Updater;
 using Serilog;
 using ILogger = Serilog.ILogger;
 
-var     startTime = DateTime.Now;
+var     startTime = Stopwatch.GetTimestamp();
 ILogger logger    = null!;
 
 try
 {
+    Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
+    logger     = Log.Logger;
     var builder = Host.CreateApplicationBuilder(args);
-    builder.AddServiceDefaults();
-    _ = builder.Configuration.AddJsonFile(Configuration.ExternalSettingsFile, false, true);
 
-    _ = builder.Services
-               .AddOptions<DatabaseUpdaterConfiguration>()
-               .Bind(builder.Configuration.GetSection(DatabaseUpdaterConfiguration.ConfigurationSectionName))
-               .ValidateDataAnnotations()
-               .ValidateOnStart();
-
-    _ = builder.Services.AddSerilog((sp, loggerConfig) => loggerConfig.ReadFrom.Configuration(sp.CreateScope().ServiceProvider.GetRequiredService<IConfiguration>()));
-
-    _ = builder.Services.AddSingleton<AddNewFilesService>();
-    _ = builder.Services.AddSingleton<TimeDelay>();
-    _ = builder.Services.AddSingleton<IFileSystem, FileSystem>();
-
-    builder.Services.AddHostedService<NewFilesBackgroundService>();
+    _ = builder.ConfigureApplicationServices();
 
     var host = builder.Build();
 
@@ -40,6 +24,7 @@ catch(Exception ex)
 }
 finally
 {
-    logger.Information("Stopped after {ProcessingTimeMilliseconds}", DateTime.Now - startTime);
+    var elapsedTime = Stopwatch.GetElapsedTime(startTime).TotalMilliseconds;
+    logger.Information("Stopped after {ProcessingTimeMilliseconds} ms", elapsedTime);
     await Log.CloseAndFlushAsync();
 }

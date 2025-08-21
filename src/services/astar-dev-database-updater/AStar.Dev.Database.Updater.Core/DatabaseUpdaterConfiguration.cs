@@ -1,3 +1,6 @@
+using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
+
 namespace AStar.Dev.Database.Updater.Core;
 
 /// <summary>
@@ -13,30 +16,37 @@ public class DatabaseUpdaterConfiguration
     /// <summary>
     ///     Gets or sets the Root directory - where the updater will start looking for files
     /// </summary>
-    public string RootDirectory { get; set; } = string.Empty;
+    [JsonPropertyName("rootDirectory")]
+    [Required]
+    public required string RootDirectory { get; set; }
 
     /// <summary>
     ///     Gets or sets whether to honour (i.e.: not skip) the first delay of the scheduled run.
     /// </summary>
-    public bool HonourFirstDelay { get; set; }
+    [Required]
+    public required bool HonourFirstDelay { get; set; }
 
     /// <summary>
     ///     Gets or sets the full path (including the name) of the CSV Mappings file
     /// </summary>
-    public string MappingsFilePath { get; set; } = string.Empty;
+    [Required]
+    public required string MappingsFilePath { get; set; }
 
     /// <summary>
     ///     Gets or sets the time to start the soft-deletion
     /// </summary>
-    public TimeOnly SoftDeleteScheduledTime { get; set; }
+    [Required]
+    public required TimeOnly SoftDeleteScheduledTime { get; set; }
 
     /// <summary>
     ///     Gets or sets the time to start the hard-deletion
     /// </summary>
-    public TimeOnly HardDeleteScheduledTime { get; set; }
+    [Required]
+    public required TimeOnly HardDeleteScheduledTime { get; set; }
 
     /// <summary>
     ///     Gets or sets the time to start the new files addition
     /// </summary>
-    public TimeOnly NewFilesScheduledTime { get; set; }
+    [Required]
+    public required TimeOnly NewFilesScheduledTime { get; set; }
 }

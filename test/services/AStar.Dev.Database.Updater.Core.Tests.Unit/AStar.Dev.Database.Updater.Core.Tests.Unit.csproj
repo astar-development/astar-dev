@@ -14,6 +14,8 @@
 
     <ItemGroup>
 
+        <PackageReference Include="AStar.Dev.Functional.Extensions" Version="0.4.2"/>
+
         <PackageReference Include="coverlet.collector" Version="6.0.4">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -24,7 +26,7 @@
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1"/>
         <PackageReference Include="TestableIO.System.IO.Abstractions.TestingHelpers" Version="22.0.15"/>
         <PackageReference Include="xunit" Version="2.9.3"/>
-        <PackageReference Include="xunit.runner.visualstudio" Version="3.1.3">
+        <PackageReference Include="xunit.runner.visualstudio" Version="3.1.4">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
@@ -37,7 +39,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\src\nuget-packages\AStar.Dev.Functional.Extensions\AStar.Dev.Functional.Extensions.csproj"/>
         <ProjectReference Include="..\..\..\src\nuget-packages\AStar.Dev.Infrastructure.FilesDb\AStar.Dev.Infrastructure.FilesDb.csproj"/>
         <ProjectReference Include="..\..\..\src\services\astar-dev-database-updater\AStar.Dev.Database.Updater.Core\AStar.Dev.Database.Updater.Core.csproj"/>
     </ItemGroup>

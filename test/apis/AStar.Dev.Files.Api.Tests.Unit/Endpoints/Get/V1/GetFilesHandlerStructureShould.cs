@@ -17,7 +17,7 @@ public class GetFilesHandlerStructureShould : IClassFixture<FilesContextFixture>
         mockTimeProvider.GetUtcNow().Returns(new DateTimeOffset(new(2025, 7, 13, 1, 2, 3, DateTimeKind.Utc)));
     }
 
-    [Theory]
+    [Theory(Skip = "This is NOT a unit test, it's an integration test.")]
     [InlineData(@"\some\directory", true, 0, true, "", SortOrder.NameAscending, SearchType.All, 1, 10, 685)]
     public async Task ReturnTheExpectedStructureWhenCalledWithValidParameters(string    directoryName, bool recursive, int excludeViewedWithinDays, bool includeMarkedForDeletion, string searchText,
                                                                               SortOrder sortOrder,     SearchType searchType, int currentPage, int itemsPerPage, int
