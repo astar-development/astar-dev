@@ -21,6 +21,7 @@ public class TimeDelay(TimeProvider timeProvider, ILogger<TimeDelay> logger)
         var timeDelay = TimeToNextOccurrence(targetTime, currentTime);
 
         logger.LogInformation("Next scheduled run at: {NextScheduledRunTime} - time delay: {TimeDelay}", targetTime, timeDelay);
+
         return new Result<TimeSpan, ErrorResponse>.Ok(timeDelay);
     }
 

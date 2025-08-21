@@ -59,10 +59,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\AStar.Dev.Logging.Extensions\AStar.Dev.Logging.Extensions.csproj"/>
-    </ItemGroup>
-
-    <ItemGroup>
 
     </ItemGroup>
 

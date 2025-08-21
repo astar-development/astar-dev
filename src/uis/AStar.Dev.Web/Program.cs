@@ -9,8 +9,8 @@ builder.Services.AddRazorComponents()
        .AddInteractiveServerComponents();
 
 builder.Services.AddHealthChecks();
-builder.Services.AddScoped<ThemeService>();
-
+builder.Services.AddSingleton<MenuItemsService>();
+builder.Services.AddBlazorBootstrap();
 var app = builder.Build();
 
 app.MapHealthChecks("/health");

@@ -1,28 +1,32 @@
-﻿@using AStar.Dev.Web.Services
-@inherits LayoutComponentBase
+﻿@inherits LayoutComponentBase
 
-@inject ThemeService ThemeService
+<div class="bb-page">
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu/>
-    </div>
+    <Sidebar @ref="sidebar"
+             Href="/"
+             ImageSrc="./assets/astar.png"
+             Title="AStar Development"
+             DataProvider="SidebarDataProvider"/>
 
     <main>
-        <div class="top-row px-4">
-            <ThemeToggle/>
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
+        <div class="bb-top-row px-4 d-flex justify-content-between">
+            <Icon Name="IconName.List" role="button" @onclick="ToggleSidebar"/>
+            <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+            <div class="float-end">
+                <ThemeSwitcher Position="DropdownMenuPosition.End"/>
+
+            </div>
         </div>
 
         <article class="content px-4">
-            @Body
+            <div class="py-2">@Body</div>
         </article>
     </main>
+
 </div>
 
-<div id="blazor-error-ui" data-nosnippet>
+<div id="blazor-error-ui">
     An unhandled error has occurred.
-    <a href="." class="reload">Reload</a>
-    <span class="dismiss">🗙</span>
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
 </div>
-v>
