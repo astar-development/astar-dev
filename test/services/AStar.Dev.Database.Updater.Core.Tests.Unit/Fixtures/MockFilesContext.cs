@@ -7,18 +7,18 @@ namespace AStar.Dev.Database.Updater.Core.Fixtures;
 
 public class MockFilesContext : IDisposable
 {
-    private readonly ConnectionString connectionString = new() { Value = "Filename=:memory:" };
-    private readonly FilesContext     context;
-    private          bool             disposedValue;
+    private readonly ConnectionString _connectionString = new() { Value = "Filename=:memory:" };
+    private readonly FilesContext     _context;
+    private          bool             _disposedValue;
 
     public MockFilesContext()
     {
-        context = new();
+        _context = new();
 
-        _ = context.Database.EnsureCreated();
+        _ = _context.Database.EnsureCreated();
 
-        AddMockFiles(context);
-        _ = context.SaveChanges();
+        AddMockFiles(_context);
+        _ = _context.SaveChanges();
     }
 
     public void Dispose()
@@ -28,21 +28,21 @@ public class MockFilesContext : IDisposable
         GC.SuppressFinalize(this);
     }
 
-    public FilesContext Context() => context;
+    public FilesContext Context() => _context;
 
     protected virtual void Dispose(bool disposing)
     {
-        if(disposedValue)
+        if(_disposedValue)
         {
             return;
         }
 
         if(disposing)
         {
-            context.Dispose();
+            _context.Dispose();
         }
 
-        disposedValue = true;
+        _disposedValue = true;
     }
 
     private static void AddMockFiles(FilesContext mockFilesContext)

@@ -54,73 +54,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="Screen resolution is too small to see wbat I changed...">
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/MainLayout.razor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Services/MenuItemsService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.HealthChecks/IApiClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.HealthChecks/IApiClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure/Data/Configurations/IComplexPropertyConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure/Data/Configurations/IComplexPropertyConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/TimeDelay.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/TimeDelay.cs" afterDir="false" />
+    <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.Client.Sdk.Shared/AStar.Dev.Api.Client.Sdk.Shared.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.Client.Sdk.Shared/AStar.Dev.Api.Client.Sdk.Shared.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.HealthChecks/AStar.Dev.Api.HealthChecks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.HealthChecks/AStar.Dev.Api.HealthChecks.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.AspNet.Extensions/AStar.Dev.AspNet.Extensions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.AspNet.Extensions/AStar.Dev.AspNet.Extensions.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/AStar.Dev.Files.Api.Client.Sdk.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/AStar.Dev.Files.Api.Client.Sdk.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.AdminDb/AdminContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.AdminDb/AdminContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.UsageDb/Data/ApiUsageContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.UsageDb/Data/ApiUsageContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure/AStar.Dev.Infrastructure.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure/AStar.Dev.Infrastructure.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Minimal.Api.Extensions/AStar.Dev.Minimal.Api.Extensions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Minimal.Api.Extensions/AStar.Dev.Minimal.Api.Extensions.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Test.DbContext.Helpers/Fixtures/FilesContextFixture.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Test.DbContext.Helpers/Fixtures/FilesContextFixture.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Test.Helpers.EndToEnd/Models/ApplicationSettings.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Test.Helpers.EndToEnd/Models/ApplicationSettings.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Test.Helpers.EndToEnd/PlaywrightBase.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Test.Helpers.EndToEnd/PlaywrightBase.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/AStar.Dev.Web.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/AStar.Dev.Web.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/App.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/App.razor" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/MainLayout.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/MainLayout.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/MainLayout.razor.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/MainLayout.razor.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/ThemeToggle.razor" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/ThemeToggle.razor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/ThemeToggle.razor.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/_Imports.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/_Imports.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/nuget-documentation/AStarDevFunctionalResults.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/nuget-documentation/AStarDevFunctionalResults.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/nuget-documentation/NuGetDocumentation.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/nuget-documentation/NuGetDocumentation.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Services/ThemeService.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/js/theme.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/MainLayout.razor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/MainLayout.razor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Counter.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Counter.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Weather.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Weather.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/css/theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/css/theme.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/Get/V1/GetFilesHandlerShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/Get/V1/GetFilesHandlerShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/Get/V1/GetFilesHandlerStructureShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/Get/V1/GetFilesHandlerStructureShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Infrastructure.FilesDb.Tests.Integration/FilesContextLastViewedExtensionsShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Infrastructure.FilesDb.Tests.Integration/FilesContextLastViewedExtensionsShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Utilities.Tests.Unit/StringExtensionsShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Utilities.Tests.Unit/StringExtensionsShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Core.Tests.Unit/Fixtures/FilesContextFixture.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Core.Tests.Unit/Fixtures/FilesContextFixture.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Core.Tests.Unit/Fixtures/MockFilesContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Core.Tests.Unit/Fixtures/MockFilesContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Core.Tests.Unit/TryShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Core.Tests.Unit/TryShould.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,42 +181,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.AStar.Dev.Database.Updater: http.executor&quot;: &quot;Debug&quot;,
-    &quot;.NET Launch Settings Profile.AStar.Dev.Database.Updater: https.executor&quot;: &quot;Debug&quot;,
-    &quot;.NET Launch Settings Profile.AStar.Dev.Web: https.executor&quot;: &quot;Run&quot;,
-    &quot;048590b5-e09c-40ff-b78c-f96a021a888b.executor&quot;: &quot;Debug&quot;,
-    &quot;0ab30047-51d5-4fe8-9824-80c2209700c0.executor&quot;: &quot;Debug&quot;,
-    &quot;157d886d-0a11-45b5-b1e8-641349d3cc41.executor&quot;: &quot;Debug&quot;,
-    &quot;22071734-6c60-41bb-aea8-3be1144d15bd.executor&quot;: &quot;Debug&quot;,
-    &quot;37e8db58-7b27-4d30-8126-079f70986791.executor&quot;: &quot;Debug&quot;,
-    &quot;5394ae1f-e1ba-4997-9785-ae0f83daa327.executor&quot;: &quot;Debug&quot;,
-    &quot;74865cb9-5982-44cc-8c44-3e1395390114.executor&quot;: &quot;Debug&quot;,
-    &quot;8cbff862-16b7-48f9-b845-ce6464b5344d.executor&quot;: &quot;Debug&quot;,
-    &quot;8fd607c9-dea8-4b95-8264-467bd8bce66a.executor&quot;: &quot;Debug&quot;,
-    &quot;Aspire Host.AStar.Dev.AppHost: http.executor&quot;: &quot;Run&quot;,
-    &quot;Aspire Host.AStar.Dev.AppHost: https.executor&quot;: &quot;Debug&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;a7c202b2-347a-4ed8-925f-a1edb2b07258.executor&quot;: &quot;Debug&quot;,
-    &quot;e1fa419c-f915-45ea-a5b9-af0e54288449.executor&quot;: &quot;Debug&quot;,
-    &quot;ead053aa-6f06-48a9-a614-f676b2fe4dd5.executor&quot;: &quot;Debug&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;#17 on features/database-updater-v2-or-something&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/jason-barden/RiderProjects/astar-dev/AStar.Dev.Database.Updater.temp/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.csproj&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;ml.llm.AIAssistantPromptsLibrary&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.AStar.Dev.Database.Updater: http.executor": "Debug",
+    ".NET Launch Settings Profile.AStar.Dev.Database.Updater: https.executor": "Debug",
+    ".NET Launch Settings Profile.AStar.Dev.Web: https.executor": "Run",
+    "048590b5-e09c-40ff-b78c-f96a021a888b.executor": "Debug",
+    "0ab30047-51d5-4fe8-9824-80c2209700c0.executor": "Debug",
+    "157d886d-0a11-45b5-b1e8-641349d3cc41.executor": "Debug",
+    "22071734-6c60-41bb-aea8-3be1144d15bd.executor": "Debug",
+    "37e8db58-7b27-4d30-8126-079f70986791.executor": "Debug",
+    "5394ae1f-e1ba-4997-9785-ae0f83daa327.executor": "Debug",
+    "74865cb9-5982-44cc-8c44-3e1395390114.executor": "Debug",
+    "8cbff862-16b7-48f9-b845-ce6464b5344d.executor": "Debug",
+    "8fd607c9-dea8-4b95-8264-467bd8bce66a.executor": "Debug",
+    "Aspire Host.AStar.Dev.AppHost: http.executor": "Run",
+    "Aspire Host.AStar.Dev.AppHost: https.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "a7c202b2-347a-4ed8-925f-a1edb2b07258.executor": "Debug",
+    "e1fa419c-f915-45ea-a5b9-af0e54288449.executor": "Debug",
+    "ead053aa-6f06-48a9-a614-f676b2fe4dd5.executor": "Debug",
+    "git-widget-placeholder": "#24 on features/reworking-basic-ui",
+    "last_opened_file_path": "/home/jason-barden/RiderProjects/astar-dev/AStar.Dev.Database.Updater.temp/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.csproj",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "ml.llm.AIAssistantPromptsLibrary",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Aspire Host.AStar.Dev.AppHost: https">
     <configuration name="AStar.Dev.AppHost: https" type="AspireHostConfiguration" factoryName="Aspire Host" activateToolWindowBeforeRun="false">
       <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/_aspire/AStar.Dev.AppHost/AStar.Dev.AppHost.csproj" />
@@ -1005,54 +966,7 @@
       <workItem from="1755540775847" duration="883000" />
       <workItem from="1755546209865" duration="10671000" />
       <workItem from="1755718853731" duration="60000" />
-    </task>
-    <task id="LOCAL-00029" summary="Small updates to the formatting">
-      <option name="closed" value="true" />
-      <created>1752178645874</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1752178645874</updated>
-    </task>
-    <task id="LOCAL-00030" summary="Add AStar.Dev.Functional.Extensions to all projects&#10;&#10;Not used yet and may not be needed in all...">
-      <option name="closed" value="true" />
-      <created>1752180482942</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1752180482942</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Update FilesDb and redo migrations">
-      <option name="closed" value="true" />
-      <created>1752260152540</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1752260152540</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Update the RabbitMq code and error handling on sending side&#10;&#10;Tomorrow...consuming code and recreating database">
-      <option name="closed" value="true" />
-      <created>1752266980309</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1752266980309</updated>
-    </task>
-    <task id="LOCAL-00033" summary="Change back to the v7+ RabbitMq client now unrelated issue in...&#10;&#10;FilesApi has been resolved / worked around with &quot;OK&quot;, rather than &quot;Created&quot;">
-      <option name="closed" value="true" />
-      <created>1752267259973</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1752267259973</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Add Async suffix rules to .editorconfig">
-      <option name="closed" value="true" />
-      <created>1752268529646</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1752268529646</updated>
+      <workItem from="1755806472514" duration="7054000" />
     </task>
     <task id="LOCAL-00035" summary="Add the new Get Files - need the actual request and Handle Async still">
       <option name="closed" value="true" />
@@ -1398,7 +1312,55 @@
       <option name="project" value="LOCAL" />
       <updated>1755552122124</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="Update to use Blazor Bootstrap. Also...&#10;&#10;remove AStar.Dev.Logging.Extensions project and reinstate the publish... doubt it is configured correctly for current deployment">
+      <option name="closed" value="true" />
+      <created>1755807004667</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1755807004668</updated>
+    </task>
+    <task id="LOCAL-00079" summary="Update NuGet packages before raising PR">
+      <option name="closed" value="true" />
+      <created>1755807155385</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1755807155385</updated>
+    </task>
+    <task id="LOCAL-00080" summary="Update the secret names post recreation">
+      <option name="closed" value="true" />
+      <created>1755808471498</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1755808471498</updated>
+    </task>
+    <task id="LOCAL-00081" summary="Not sure I can apply the branch check at this level">
+      <option name="closed" value="true" />
+      <created>1755809048941</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1755809048941</updated>
+    </task>
+    <task id="LOCAL-00082" summary="resetup the deployment from Azure">
+      <option name="closed" value="true" />
+      <created>1755810122091</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1755810122091</updated>
+    </task>
+    <task id="LOCAL-00083" summary="Darn, didn't notice the artifact name">
+      <option name="closed" value="true" />
+      <created>1755811012492</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1755811012492</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1408,7 +1370,7 @@
     <option name="coveragePercentColumnWidth" value="21" />
     <option name="sortOrder" value="DESCENDING" />
     <option name="sortedColumn" value="1" />
-    <option name="symbolColumnWidth" value="125" />
+    <option name="symbolColumnWidth" value="283" />
     <coverage-tree-state>
       <expand />
       <select />
@@ -1435,38 +1397,8 @@
     <option featureType="dependencySupport" implementationName="dotnet:Reqnroll" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
-    <option name="OPEN_GENERIC_TABS">
-      <map>
-        <entry key="75764029-09c7-4bd9-b3c4-966e0ba84b0d" value="TOOL_WINDOW" />
-      </map>
-    </option>
     <option name="TAB_STATES">
       <map>
-        <entry key="75764029-09c7-4bd9-b3c4-966e0ba84b0d">
-          <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="HEAD" />
-                      </list>
-                    </value>
-                  </entry>
-                  <entry key="roots">
-                    <value>
-                      <list>
-                        <option value="$PROJECT_DIR$" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
-            </State>
-          </value>
-        </entry>
         <entry key="MAIN">
           <value>
             <State />
@@ -1479,12 +1411,6 @@
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Add SonarCloud now basic build fffinally works" />
-    <MESSAGE value="change powershell to pwsh which I think sorts next issue" />
-    <MESSAGE value="Doh, missed one" />
-    <MESSAGE value="change \ to / as we're on linux&#10;&#10;may be barking up wrong tree but..." />
-    <MESSAGE value="Change to Windows build servers as, from memory, always issues on ubuntu" />
-    <MESSAGE value="Copy over the working yml from Func Ext&#10;&#10;Can't see why previous said &quot;cannot find powershell&quot;..." />
     <MESSAGE value="Doh..." />
     <MESSAGE value="Tweak sonar to suppress JRE install" />
     <MESSAGE value="Moving to use Sqlite as the database provider in the tests" />
@@ -1504,7 +1430,13 @@
     <MESSAGE value="Reworking the initial NewFilesBackgroundService.cs" />
     <MESSAGE value="Remove AStar Functional as it's now a NuGet proper&#10;&#10;Rewrite the first part of the AddNewFilesService.cs using the NuGet Result" />
     <MESSAGE value="Update NewFilesBackgroundService to use more functional methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update NewFilesBackgroundService to use more functional methods" />
+    <MESSAGE value="Update to use Blazor Bootstrap. Also...&#10;&#10;remove AStar.Dev.Logging.Extensions project and reinstate the publish... doubt it is configured correctly for current deployment" />
+    <MESSAGE value="Update NuGet packages before raising PR" />
+    <MESSAGE value="Update the secret names post recreation" />
+    <MESSAGE value="Not sure I can apply the branch check at this level" />
+    <MESSAGE value="resetup the deployment from Azure" />
+    <MESSAGE value="Darn, didn't notice the artifact name" />
+    <option name="LAST_COMMIT_MESSAGE" value="Darn, didn't notice the artifact name" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1522,16 +1454,56 @@
           <option name="timeStamp" value="3" />
         </breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AStar.Dev.Database.Updater.temp/AStar.Dev.Database.Updater/Program.cs</url>
-          <line>62</line>
-          <properties documentPath="$PROJECT_DIR$/AStar.Dev.Database.Updater.temp/AStar.Dev.Database.Updater/Program.cs" containingFunctionPresentation="" />
-          <option name="timeStamp" value="19" />
+          <url>file://$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/Get/V1/GetFilesHandlerShould.cs</url>
+          <line>25</line>
+          <properties documentPath="$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/Get/V1/GetFilesHandlerShould.cs" containingFunctionPresentation="Method 'ReturnBadRequestWhenDuplicatesAreRequested'">
+            <startOffsets>
+              <option value="962" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1075" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AStar.Dev.Database.Updater.temp/AStar.Dev.Database.Updater/Program.cs</url>
-          <line>13</line>
-          <properties documentPath="$PROJECT_DIR$/AStar.Dev.Database.Updater.temp/AStar.Dev.Database.Updater/Program.cs" containingFunctionPresentation="" />
-          <option name="timeStamp" value="20" />
+          <url>file://$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/Get/V1/GetFilesHandlerShould.cs</url>
+          <line>28</line>
+          <properties documentPath="$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/Get/V1/GetFilesHandlerShould.cs" containingFunctionPresentation="Method 'ReturnBadRequestWhenDuplicatesAreRequested'">
+            <startOffsets>
+              <option value="1130" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1131" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/nuget-packages/AStar.Dev.AspNet.Extensions/Handlers/GlobalExceptionHandler.cs</url>
+          <line>40</line>
+          <properties documentPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.AspNet.Extensions/Handlers/GlobalExceptionHandler.cs" containingFunctionPresentation="Method 'TryHandleAsync'">
+            <startOffsets>
+              <option value="1610" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1759" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/Endpoints/Add/V1/PostedFilesHandler.cs</url>
+          <line>28</line>
+          <properties documentPath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/Endpoints/Add/V1/PostedFilesHandler.cs" containingFunctionPresentation="Method 'HandleAsync'">
+            <startOffsets>
+              <option value="1061" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1141" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
