@@ -1,23 +1,36 @@
 using AStar.Dev.Web.Services;
 using BlazorBootstrap;
 using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 
 namespace AStar.Dev.Web.Components.Layout;
 
 public partial class MainLayout
 {
-    private IEnumerable<NavItem>? navItems;
-    private Sidebar               sidebar = null!;
+    private IEnumerable<NavItem>? _navItems;
+    private Sidebar               _sidebar      = null!;
+    private string                _defaultTheme = "dark";
 
     [Inject]
     private MenuItemsService MenuItemsService { get; set; } = null!;
 
-    private async Task<SidebarDataProviderResult> SidebarDataProvider(SidebarDataProviderRequest request)
-    {
-        navItems ??= MenuItemsService.GetNavItems();
+    [Inject]
+    private IJSRuntime JsRuntime { get; set; } = null!;
 
-        return await Task.FromResult(request.ApplyTo(navItems));
+    protected override async Task OnInitializedAsync()
+    {
+        var savedTheme = await JsRuntime.InvokeAsync<string>("localStorage.getItem", "theme");
+        _defaultTheme = !string.IsNullOrEmpty(savedTheme) ? savedTheme : "dark";
+
+        await base.OnInitializedAsync();
     }
 
-    private void ToggleSidebar() => sidebar.ToggleSidebar();
+    private async Task<SidebarDataProviderResult> SidebarDataProvider(SidebarDataProviderRequest request)
+    {
+        _navItems ??= MenuItemsService.GetNavItems();
+
+        return await Task.FromResult(request.ApplyTo(_navItems));
+    }
+
+    private void ToggleSidebar() => _sidebar.ToggleSidebar();
 }

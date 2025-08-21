@@ -15,8 +15,8 @@ namespace AStar.Dev.Infrastructure.AdminDb;
 /// </remarks>
 public sealed class AdminContext : DbContext
 {
-    private readonly AStarDbContextOptions astarDbContextOptions;
-    private readonly ConnectionString      connectionString;
+    private readonly AStarDbContextOptions _astarDbContextOptions;
+    private readonly ConnectionString      _connectionString;
 
     /// <summary>
     ///     Alternative constructor used when creating migrations, the connection string is hard-coded
@@ -37,8 +37,8 @@ public sealed class AdminContext : DbContext
     /// </param>
     public AdminContext(ConnectionString connectionString, AStarDbContextOptions astarDbContextOptions)
     {
-        this.connectionString      = connectionString;
-        this.astarDbContextOptions = astarDbContextOptions;
+        _connectionString      = connectionString;
+        _astarDbContextOptions = astarDbContextOptions;
     }
 
     /// <summary>
@@ -48,8 +48,8 @@ public sealed class AdminContext : DbContext
     public AdminContext(DbContextOptions<AdminContext> options)
         : base(options)
     {
-        astarDbContextOptions = new();
-        connectionString      = new();
+        _astarDbContextOptions = new();
+        _connectionString      = new();
     }
 
     /// <summary>
@@ -96,7 +96,7 @@ public sealed class AdminContext : DbContext
             return;
         }
 
-        _ = optionsBuilder.UseSqlServer(connectionString.Value);
+        _ = optionsBuilder.UseSqlServer(_connectionString.Value);
 
         optionsBuilder
             .UseSeeding((context, _) =>
@@ -112,12 +112,12 @@ public sealed class AdminContext : DbContext
                                  await context.SaveChangesAsync(cancellationToken);
                              });
 
-        if(astarDbContextOptions.EnableLogging)
+        if(_astarDbContextOptions.EnableLogging)
         {
             _ = optionsBuilder.UseLoggerFactory(CreateLoggerFactory())
                               .LogTo(Console.WriteLine);
 
-            if(astarDbContextOptions.IncludeSensitiveData)
+            if(_astarDbContextOptions.IncludeSensitiveData)
             {
                 _ = optionsBuilder.EnableSensitiveDataLogging();
             }

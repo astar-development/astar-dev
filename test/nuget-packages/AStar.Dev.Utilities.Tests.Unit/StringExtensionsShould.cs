@@ -6,12 +6,12 @@ public sealed class StringExtensionsShould
     private const string NotNullString    = "value does not matter";
     private const string WhitespaceString = " ";
 #pragma warning disable CA1805
-    private readonly string? nullString = null;
+    private readonly string? _nullString = null;
 #pragma warning restore CA1805
 
     [Fact]
     public void ContainTheIsNullMethodWhichReturnsTheResult() =>
-        nullString.IsNull().ShouldBeTrue();
+        _nullString.IsNull().ShouldBeTrue();
 
     [Fact]
     public void ContainTheIsNotNullMethodWhichReturnsTheResult() =>
