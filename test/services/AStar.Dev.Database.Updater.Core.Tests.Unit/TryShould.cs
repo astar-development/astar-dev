@@ -47,7 +47,7 @@ public class TryTests
     }
 
     [Fact]
-    public async Task RunAsyncShouldReturnOkResultWhenAsyncFunctionSucceedsAsync()
+    public async Task RunAsyncShouldReturnOkResultWhenAsyncFunctionSucceeds()
     {
         var expectedValue = "async result";
         var successFunc   = () => Task.FromResult(expectedValue);
@@ -61,7 +61,7 @@ public class TryTests
     }
 
     [Fact]
-    public async Task RunAsyncShouldReturnErrorResultWhenAsyncFunctionThrowsAsync()
+    public async Task RunAsyncShouldReturnErrorResultWhenAsyncFunctionThrows()
     {
         var       exceptionMessage  = "Async test exception";
         Exception expectedException = new InvalidOperationException(exceptionMessage);
@@ -77,7 +77,7 @@ public class TryTests
     }
 
     [Fact]
-    public async Task RunAsyncShouldCaptureExceptionFromAsyncAwaitOperationAsync()
+    public async Task RunAsyncShouldCaptureExceptionFromAsyncAwaitOperation()
     {
         Func<Task<int>> failingAsyncFunc = async () =>
                                            {
@@ -103,7 +103,7 @@ public class TryTests
     }
 
     [Fact]
-    public async Task RunAsyncShouldWorkWithAsyncLambdaExpressionsAsync()
+    public async Task RunAsyncShouldWorkWithAsyncLambdaExpressions()
     {
         var result = await Try.RunAsync(async () =>
                                         {
@@ -129,7 +129,7 @@ public class TryTests
     }
 
     [Fact]
-    public async Task RunAsyncShouldPreserveOriginalExceptionWithoutWrappingAsync()
+    public async Task RunAsyncShouldPreserveOriginalExceptionWithoutWrapping()
     {
         var customException = new CustomTestException("Async custom exception test");
 

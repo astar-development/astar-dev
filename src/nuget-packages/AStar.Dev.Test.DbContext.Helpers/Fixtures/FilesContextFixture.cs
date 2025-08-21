@@ -6,7 +6,7 @@ namespace AStar.Dev.Test.DbContext.Helpers.Fixtures;
 /// </summary>
 public class FilesContextFixture : IDisposable
 {
-    private bool _disposedValue;
+    private bool disposedValue;
 
     public FilesContextFixture()
     {
@@ -27,7 +27,7 @@ public class FilesContextFixture : IDisposable
 
     protected virtual void Dispose(bool disposing)
     {
-        if(_disposedValue)
+        if(disposedValue)
         {
             return;
         }
@@ -37,6 +37,6 @@ public class FilesContextFixture : IDisposable
             Sut.Dispose();
         }
 
-        _disposedValue = true;
+        disposedValue = true;
     }
 }

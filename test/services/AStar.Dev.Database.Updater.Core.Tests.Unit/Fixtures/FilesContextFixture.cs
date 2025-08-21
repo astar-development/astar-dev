@@ -4,7 +4,7 @@ namespace AStar.Dev.Database.Updater.Core.Fixtures;
 
 public class FilesContextFixture : IDisposable
 {
-    private bool _disposedValue;
+    private bool disposedValue;
 
     public FilesContext Sut { get; } = new MockFilesContext().Context();
 
@@ -16,7 +16,7 @@ public class FilesContextFixture : IDisposable
 
     protected virtual void Dispose(bool disposing)
     {
-        if(_disposedValue)
+        if(disposedValue)
         {
             return;
         }
@@ -26,6 +26,6 @@ public class FilesContextFixture : IDisposable
             Sut.Dispose();
         }
 
-        _disposedValue = true;
+        disposedValue = true;
     }
 }

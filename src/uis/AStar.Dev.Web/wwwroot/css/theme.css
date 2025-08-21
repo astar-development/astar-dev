@@ -1,9 +1,3 @@
-html[data-theme="dark"], body[data-theme="dark"] {
-    background-color: #1a1a1a;
-    color: #ffffff;
-    transition: none; /* Disable transitions during initial load to prevent flickering */
-}
-
 /* Light theme */
 :root {
     --background-color: #ffffff;
@@ -22,7 +16,7 @@ html[data-theme="dark"], body[data-theme="dark"] {
     --transition-duration: 0.3s;
 }
 
-/* Dark theme */
+/* Dark theme (default) */
 [data-theme="dark"] {
     --background-color: #1a1a1a;
     --text-color: #ffffff;
