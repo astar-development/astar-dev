@@ -70,7 +70,7 @@ jobs:
       - name: 🚀 Publish Artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: webapp
+          name: ${{ env.AZURE_WEBAPP_NAME }}
           path: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
 
   deploy:
@@ -85,7 +85,7 @@ jobs:
       - name: Download artifact from build job
         uses: actions/download-artifact@v4
         with:
-          name: .net-app
+          name: ${{ env.AZURE_WEBAPP_NAME }}
 
       - name: Login to Azure
         uses: azure/login@v2
@@ -98,6 +98,6 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'astar-dev'
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
           slot-name: 'Production'
           package: .
