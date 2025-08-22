@@ -21,6 +21,7 @@
 
     <ItemGroup>
         <PackageReference Include="AStar.Dev.Functional.Extensions" Version="0.4.2"/>
+        <PackageReference Include="AStar.Dev.Utilities" Version="1.6.2"/>
         <PackageReference Include="TestableIO.System.IO.Abstractions.Wrappers" Version="22.0.15"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.8"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.8">
@@ -42,7 +43,6 @@
     <ItemGroup>
         <ProjectReference Include="..\AStar.Dev.Technical.Debt.Reporting\AStar.Dev.Technical.Debt.Reporting.csproj"/>
         <ProjectReference Include="..\AStar.Dev.Infrastructure\AStar.Dev.Infrastructure.csproj"/>
-        <ProjectReference Include="..\AStar.Dev.Utilities\AStar.Dev.Utilities.csproj"/>
     </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

@@ -5,7 +5,6 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <ApplicationIcon>astar.ico</ApplicationIcon>
-
         <Authors>AStar Developement, Jason Barden</Authors>
         <Copyright>AStar Developement, 2025</Copyright>
         <PackageProjectUrl>https://github.com/astar-development/</PackageProjectUrl>
@@ -28,11 +27,10 @@
     <ItemGroup>
         <ProjectReference Include="..\AStar.Dev.Api.Client.Sdk.Shared\AStar.Dev.Api.Client.Sdk.Shared.csproj"/>
         <ProjectReference Include="..\AStar.Dev.Api.HealthChecks\AStar.Dev.Api.HealthChecks.csproj"/>
-        <ProjectReference Include="..\AStar.Dev.Utilities\AStar.Dev.Utilities.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-
+        <PackageReference Include="AStar.Dev.Utilities" Version="1.6.2"/>
         <PackageReference Include="Microsoft.Identity.Web" Version="3.13.2"/>
         <PackageReference Include="Microsoft.Identity.Web.DownstreamApi" Version="3.13.2"/>
         <PackageReference Include="Microsoft.Identity.Web.UI" Version="3.13.2"/>

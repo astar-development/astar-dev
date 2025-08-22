@@ -9,7 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-
+        <PackageReference Include="AStar.Dev.Utilities" Version="1.6.2"/>
         <PackageReference Include="Shouldly" Version="4.3.0"/>
         <PackageReference Include="JetBrains.Annotations" Version="2025.2.0"/>
         <PackageReference Include="coverlet.collector" Version="6.0.4">
@@ -32,7 +32,6 @@
 
     <ItemGroup>
         <ProjectReference Include="..\..\..\src\nuget-packages\AStar.Dev.Minimal.Api.Extensions\AStar.Dev.Minimal.Api.Extensions.csproj"/>
-        <ProjectReference Include="..\..\..\src\nuget-packages\AStar.Dev.Utilities\AStar.Dev.Utilities.csproj"/>
     </ItemGroup>
 
     <ItemGroup>

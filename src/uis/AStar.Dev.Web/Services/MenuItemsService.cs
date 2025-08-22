@@ -7,8 +7,7 @@ public class MenuItemsService
     public IEnumerable<NavItem> GetNavItems() =>
         new List<NavItem>
         {
-            new() { Id = "1", Href     = "/testing-dashboard", IconName    = IconName.BugFill, Text = "Testing Dashboard" },
-            new() { Id = "2", IconName = IconName.LayoutSidebarInset, Text = "Content", IconColor   = IconColor.Primary },
+            new() { Id = "2", IconName = IconName.LayoutSidebarInset, Text = "Content", IconColor = IconColor.Primary },
             new()
             {
                 Id       = "3",
@@ -74,6 +73,8 @@ public class MenuItemsService
                 IconName = IconName.ToggleOn,
                 Text     = "Switch",
                 ParentId = "8"
-            }
+            },
+            new() { Id = "13", Href = "/testing-dashboard", IconName = IconName.BugFill, Text = "Testing Dashboard" },
+            new() { Id = "14", Href = "/kids-games", IconName        = IconName.Dice6, Text   = "Kids Games" }
         };
 }
