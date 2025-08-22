@@ -11,7 +11,7 @@ namespace AStar.Dev.Test.Helpers.EndToEnd.Models;
 /// </summary>
 public class ApplicationSettings
 {
-    private string baseUri;
+    private string _baseUri;
 
     /// <summary>
     ///     Gets the Configuration Section Name - i.e. the name of the section that must exist in the AppSettings.json - it exists to avoid the use of 'magic strings'.
@@ -28,9 +28,9 @@ public class ApplicationSettings
     [Required]
     public required string BaseUri
     {
-        get => baseUri = baseUri.EndsWith('/') ? baseUri[..^1] : baseUri;
-        [MemberNotNull(nameof(baseUri))]
-        set => baseUri = value;
+        get => _baseUri = _baseUri.EndsWith('/') ? _baseUri[..^1] : _baseUri;
+        [MemberNotNull(nameof(_baseUri))]
+        set => _baseUri = value;
     }
 
     /// <summary>

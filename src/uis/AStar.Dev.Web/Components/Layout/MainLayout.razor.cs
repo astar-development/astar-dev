@@ -7,11 +7,11 @@ namespace AStar.Dev.Web.Components.Layout;
 
 public partial class MainLayout
 {
-    private IEnumerable<NavItem>? navItems;
-    private Sidebar               sidebar = null!;
+    private IEnumerable<NavItem>? _navItems;
+    private Sidebar               _sidebar = null!;
 
     [Inject]
-    private IJSRuntime JSRuntime { get; set; } = null!;
+    private IJSRuntime JsRuntime { get; set; } = null!;
 
     [Inject]
     private ILogger<MainLayout> Logger { get; set; } = null!;
@@ -21,10 +21,10 @@ public partial class MainLayout
 
     private async Task<SidebarDataProviderResult> SidebarDataProvider(SidebarDataProviderRequest request)
     {
-        navItems ??= MenuItemsService.GetNavItems();
+        _navItems ??= MenuItemsService.GetNavItems();
 
-        return await Task.FromResult(request.ApplyTo(navItems));
+        return await Task.FromResult(request.ApplyTo(_navItems));
     }
 
-    private void ToggleSidebar() => sidebar.ToggleSidebar();
+    private void ToggleSidebar() => _sidebar.ToggleSidebar();
 }
