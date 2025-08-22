@@ -110,7 +110,7 @@ jobs:
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           mask-inputs: true
-          app-settings-json: '[{ "test": "Hello", "value": "1", "AzureMonitor__ConnectionString": ${{ secrets.AZUREMONITOR_CONNECTIONSTRING }} }]'
+          app-settings-json: '[{ "test": "Hello", "value": "1", "AzureMonitor__ConnectionString": "${{ secrets.AZUREMONITOR_CONNECTIONSTRING }}" }]'
 
       - name: Logout of Azure
         run: |
