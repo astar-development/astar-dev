@@ -1,8 +1,10 @@
 using BlazorBootstrap;
+using JetBrains.Annotations;
 using Microsoft.AspNetCore.Components;
 
 namespace AStar.Dev.Web.Components.Pages.kids_games.halving;
 
+[UsedImplicitly]
 public partial class Halving10 : ComponentBase
 {
     [Inject]

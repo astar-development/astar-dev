@@ -1,9 +1,11 @@
 using BlazorBootstrap;
+using JetBrains.Annotations;
 using Microsoft.AspNetCore.Components;
 
 namespace AStar.Dev.Web.Components.Pages;
 
-public partial class Home
+[UsedImplicitly]
+public partial class Home : ComponentBase
 {
     [Inject]
     private ILogger<Home> Logger { get; set; } = null!;

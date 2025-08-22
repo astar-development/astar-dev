@@ -1,8 +1,10 @@
 using BlazorBootstrap;
+using JetBrains.Annotations;
 using Microsoft.AspNetCore.Components;
 
 namespace AStar.Dev.Web.Components.Pages.kids_games.matching;
 
+[UsedImplicitly]
 public partial class MatchAnimals : ComponentBase
 {
     [Inject]

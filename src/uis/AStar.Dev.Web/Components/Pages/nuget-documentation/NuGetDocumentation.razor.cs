@@ -1,9 +1,11 @@
 using BlazorBootstrap;
+using JetBrains.Annotations;
 using Microsoft.AspNetCore.Components;
 
 namespace AStar.Dev.Web.Components.Pages.nuget_documentation;
 
-public partial class NuGetDocumentation
+[UsedImplicitly]
+public partial class NuGetDocumentation : ComponentBase
 {
     [Inject]
     private ILogger<NuGetDocumentation> Logger { get; set; } = null!;

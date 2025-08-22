@@ -1,9 +1,11 @@
 using BlazorBootstrap;
+using JetBrains.Annotations;
 using Microsoft.AspNetCore.Components;
 
 namespace AStar.Dev.Web.Components.Pages.nuget_documentation;
 
-public partial class AStarDevFunctionalResults
+[UsedImplicitly]
+public partial class AStarDevFunctionalResults : ComponentBase
 {
     [Inject]
     private ILogger<AStarDevFunctionalResults> Logger { get; set; } = null!;

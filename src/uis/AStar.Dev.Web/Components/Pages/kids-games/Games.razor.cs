@@ -1,9 +1,11 @@
 using BlazorBootstrap;
+using JetBrains.Annotations;
 using Microsoft.AspNetCore.Components;
 
 namespace AStar.Dev.Web.Components.Pages.kids_games;
 
-public partial class Games
+[UsedImplicitly]
+public partial class Games : ComponentBase
 {
     [Inject]
     private ILogger<Games> Logger { get; set; } = null!;
