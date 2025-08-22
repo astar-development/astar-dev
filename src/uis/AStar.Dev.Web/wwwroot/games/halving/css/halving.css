@@ -1,0 +1,8 @@
+body {
+    padding: 20px;
+    margin: 20px;
+}
+
+.btn-wide {
+    width: 78px !important;
+}

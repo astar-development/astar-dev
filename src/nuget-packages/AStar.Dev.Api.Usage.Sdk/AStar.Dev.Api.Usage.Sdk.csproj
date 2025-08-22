@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-
+        <PackageReference Include="AStar.Dev.Utilities" Version="1.6.2"/>
         <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.8"/>
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.8"/>
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.8"/>
@@ -37,10 +37,6 @@
         <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
         <PackageReleaseNotes>Version 0.1.0 - the initial version.</PackageReleaseNotes>
     </PropertyGroup>
-
-    <ItemGroup>
-        <ProjectReference Include="..\AStar.Dev.Utilities\AStar.Dev.Utilities.csproj"/>
-    </ItemGroup>
 
     <ItemGroup>
         <None Include="..\..\AStar.png">

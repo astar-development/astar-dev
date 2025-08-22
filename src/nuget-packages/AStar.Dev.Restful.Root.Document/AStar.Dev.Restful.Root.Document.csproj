@@ -26,13 +26,12 @@
     </ItemGroup>
 
     <ItemGroup>
-
+        <PackageReference Include="AStar.Dev.Utilities" Version="1.6.2"/>
         <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.8"/>
     </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\AStar.Dev.Technical.Debt.Reporting\AStar.Dev.Technical.Debt.Reporting.csproj"/>
-        <ProjectReference Include="..\AStar.Dev.Utilities\AStar.Dev.Utilities.csproj"/>
     </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
