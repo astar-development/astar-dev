@@ -54,89 +54,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Home.razor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/kids-games/Games.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/kids-games/Games.razor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/kids-games/Halving.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/kids-games/Halving.razor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/kids-games/Matching.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/kids-games/Matching.razor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/kids-games/halving/Halving10.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/kids-games/halving/Halving10.razor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/kids-games/halving/Halving2.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/kids-games/halving/Halving2.razor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/kids-games/halving/Halving4.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/kids-games/halving/Halving4.razor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/kids-games/halving/Halving6.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/kids-games/halving/Halving6.razor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/kids-games/halving/Halving8.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/kids-games/halving/Halving8.razor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/kids-games/matching/MatchAnimals.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/kids-games/matching/MatchAnimals.razor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/kids-games/matching/MatchHouses.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/kids-games/matching/MatchHouses.razor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/nuget-documentation/AStarDevFunctionalResults.razor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/nuget-documentation/NuGetDocumentation.razor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AStar.Dev.sln" beforeDir="false" afterPath="$PROJECT_DIR$/AStar.Dev.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Admin.Api.Client.Sdk/AStar.Dev.Admin.Api.Client.Sdk.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Admin.Api.Client.Sdk/AStar.Dev.Admin.Api.Client.Sdk.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.Usage.Sdk/AStar.Dev.Api.Usage.Sdk.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.Usage.Sdk/AStar.Dev.Api.Usage.Sdk.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/AStar.Dev.Files.Api.Client.Sdk.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/AStar.Dev.Files.Api.Client.Sdk.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/AStar.Dev.Infrastructure.FilesDb.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/AStar.Dev.Infrastructure.FilesDb.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250725184934_RecreateAgain.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250725184934_RecreateAgain.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250725184934_RecreateAgain.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250725184934_RecreateAgain.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250725190252_RecreateAgain2.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250725190252_RecreateAgain2.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250729201535_UpdateFileNameConfiguration.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250729201535_UpdateFileNameConfiguration.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250729202510_AddFileDetailIndexes.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250729202510_AddFileDetailIndexes.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250808163238_AddDuplicateImagesIndex.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250808163238_AddDuplicateImagesIndex.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/FilesContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/FilesContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Restful.Root.Document/AStar.Dev.Restful.Root.Document.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Restful.Root.Document/AStar.Dev.Restful.Root.Document.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Test.Helpers.EndToEnd/AStar.Dev.Test.Helpers.EndToEnd.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Test.Helpers.EndToEnd/AStar.Dev.Test.Helpers.EndToEnd.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Utilities/AStar.Dev.Utilities.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Utilities/AStar.Dev.Utilities.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Utilities/Constants.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Utilities/EncryptionExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Utilities/EnumExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Utilities/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Utilities/LinqExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Utilities/ObjectExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Utilities/Readme.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Utilities/RegexExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Utilities/StringExtensions.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Utilities/astar.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Utilities/astar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/HostApplicationBuilderExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/HostApplicationBuilderExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/AStar.Dev.Web.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/AStar.Dev.Web.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/MainLayout.razor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/MainLayout.razor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/nuget-documentation/AStarDevFunctionalResults.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/nuget-documentation/AStarDevFunctionalResults.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/nuget-documentation/NuGetDocumentation.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/nuget-documentation/NuGetDocumentation.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Services/MenuItemsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Services/MenuItemsService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/AStar.Dev.Files.Api.Tests.Unit.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/AStar.Dev.Files.Api.Tests.Unit.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Images.Api.Client.Sdk.Tests.Unit/AStar.Dev.Images.Api.Client.Sdk.Tests.Unit.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Images.Api.Client.Sdk.Tests.Unit/AStar.Dev.Images.Api.Client.Sdk.Tests.Unit.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Infrastructure.FilesDb.Tests.Unit/AStar.Dev.Infrastructure.FilesDb.Tests.Unit.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Infrastructure.FilesDb.Tests.Unit/AStar.Dev.Infrastructure.FilesDb.Tests.Unit.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Minimal.Api.Extensions.Tests.Unit/AStar.Dev.Minimal.Api.Extensions.Tests.Unit.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Minimal.Api.Extensions.Tests.Unit/AStar.Dev.Minimal.Api.Extensions.Tests.Unit.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Utilities.Tests.Unit/AStar.Dev.Utilities.Tests.Unit.csproj" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Utilities.Tests.Unit/AnyClass.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Utilities.Tests.Unit/AnyEnum.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Utilities.Tests.Unit/ConstantsShould.ContainTheExpectedWebDeserialisationSettingsSetting.approved.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Utilities.Tests.Unit/ConstantsShould.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Utilities.Tests.Unit/EncryptionExtensionsShould.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Utilities.Tests.Unit/EnumExtensionsShould.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Utilities.Tests.Unit/LinqExtensionsShould.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Utilities.Tests.Unit/ObjectExtensionsShould.ContainTheToJsonMethodWhichReturnsTheExpectedString.approved.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Utilities.Tests.Unit/ObjectExtensionsShould.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Utilities.Tests.Unit/RegexExtensionsShould.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Utilities.Tests.Unit/StringExtensionsShould.cs" beforeDir="false" />
-    </list>
+    <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -263,43 +181,43 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.AStar.Dev.Database.Updater: http.executor": "Debug",
-    ".NET Launch Settings Profile.AStar.Dev.Database.Updater: https.executor": "Debug",
-    ".NET Launch Settings Profile.AStar.Dev.Files.Api: https.executor": "Debug",
-    ".NET Launch Settings Profile.AStar.Dev.Web: https.executor": "Run",
-    "048590b5-e09c-40ff-b78c-f96a021a888b.executor": "Debug",
-    "0ab30047-51d5-4fe8-9824-80c2209700c0.executor": "Debug",
-    "157d886d-0a11-45b5-b1e8-641349d3cc41.executor": "Debug",
-    "22071734-6c60-41bb-aea8-3be1144d15bd.executor": "Debug",
-    "37e8db58-7b27-4d30-8126-079f70986791.executor": "Debug",
-    "5394ae1f-e1ba-4997-9785-ae0f83daa327.executor": "Debug",
-    "74865cb9-5982-44cc-8c44-3e1395390114.executor": "Debug",
-    "8cbff862-16b7-48f9-b845-ce6464b5344d.executor": "Debug",
-    "8fd607c9-dea8-4b95-8264-467bd8bce66a.executor": "Debug",
-    "Aspire Host.AStar.Dev.AppHost: http.executor": "Run",
-    "Aspire Host.AStar.Dev.AppHost: https.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "a7c202b2-347a-4ed8-925f-a1edb2b07258.executor": "Debug",
-    "e1fa419c-f915-45ea-a5b9-af0e54288449.executor": "Debug",
-    "ead053aa-6f06-48a9-a614-f676b2fe4dd5.executor": "Debug",
-    "git-widget-placeholder": "features/rework-the-kids-games",
-    "last_opened_file_path": "/home/jason-barden/RiderProjects/astar-dev-utilities/AStar.Dev.Utilities.sln",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "ml.llm.AIAssistantPromptsLibrary",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.AStar.Dev.Database.Updater: http.executor&quot;: &quot;Debug&quot;,
+    &quot;.NET Launch Settings Profile.AStar.Dev.Database.Updater: https.executor&quot;: &quot;Debug&quot;,
+    &quot;.NET Launch Settings Profile.AStar.Dev.Files.Api: https.executor&quot;: &quot;Debug&quot;,
+    &quot;.NET Launch Settings Profile.AStar.Dev.Web: https.executor&quot;: &quot;Run&quot;,
+    &quot;048590b5-e09c-40ff-b78c-f96a021a888b.executor&quot;: &quot;Debug&quot;,
+    &quot;0ab30047-51d5-4fe8-9824-80c2209700c0.executor&quot;: &quot;Debug&quot;,
+    &quot;157d886d-0a11-45b5-b1e8-641349d3cc41.executor&quot;: &quot;Debug&quot;,
+    &quot;22071734-6c60-41bb-aea8-3be1144d15bd.executor&quot;: &quot;Debug&quot;,
+    &quot;37e8db58-7b27-4d30-8126-079f70986791.executor&quot;: &quot;Debug&quot;,
+    &quot;5394ae1f-e1ba-4997-9785-ae0f83daa327.executor&quot;: &quot;Debug&quot;,
+    &quot;74865cb9-5982-44cc-8c44-3e1395390114.executor&quot;: &quot;Debug&quot;,
+    &quot;8cbff862-16b7-48f9-b845-ce6464b5344d.executor&quot;: &quot;Debug&quot;,
+    &quot;8fd607c9-dea8-4b95-8264-467bd8bce66a.executor&quot;: &quot;Debug&quot;,
+    &quot;Aspire Host.AStar.Dev.AppHost: http.executor&quot;: &quot;Run&quot;,
+    &quot;Aspire Host.AStar.Dev.AppHost: https.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;a7c202b2-347a-4ed8-925f-a1edb2b07258.executor&quot;: &quot;Debug&quot;,
+    &quot;e1fa419c-f915-45ea-a5b9-af0e54288449.executor&quot;: &quot;Debug&quot;,
+    &quot;ead053aa-6f06-48a9-a614-f676b2fe4dd5.executor&quot;: &quot;Debug&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;features/rework-the-kids-games&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/jason-barden/RiderProjects/scratch/BootStrapTest/BootStrapTest.sln&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;ml.llm.AIAssistantPromptsLibrary&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Aspire Host.AStar.Dev.AppHost: https">
     <configuration name="AStar.Dev.AppHost: https" type="AspireHostConfiguration" factoryName="Aspire Host" activateToolWindowBeforeRun="false">
       <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/_aspire/AStar.Dev.AppHost/AStar.Dev.AppHost.csproj" />
@@ -1051,15 +969,7 @@
       <workItem from="1755718853731" duration="60000" />
       <workItem from="1755818856979" duration="1941000" />
       <workItem from="1755844713993" duration="4790000" />
-      <workItem from="1755850103946" duration="7521000" />
-    </task>
-    <task id="LOCAL-00030" summary="Add AStar.Dev.Functional.Extensions to all projects&#10;&#10;Not used yet and may not be needed in all...">
-      <option name="closed" value="true" />
-      <created>1752180482942</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1752180482942</updated>
+      <workItem from="1755850103946" duration="8179000" />
     </task>
     <task id="LOCAL-00031" summary="Update FilesDb and redo migrations">
       <option name="closed" value="true" />
@@ -1445,7 +1355,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755815018264</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="Reworking the Games">
+      <option name="closed" value="true" />
+      <created>1755894473598</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1755894473598</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1526,7 +1444,6 @@
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="change powershell to pwsh which I think sorts next issue" />
     <MESSAGE value="Doh, missed one" />
     <MESSAGE value="change \ to / as we're on linux&#10;&#10;may be barking up wrong tree but..." />
     <MESSAGE value="Change to Windows build servers as, from memory, always issues on ubuntu" />
@@ -1551,7 +1468,8 @@
     <MESSAGE value="Remove AStar Functional as it's now a NuGet proper&#10;&#10;Rewrite the first part of the AddNewFilesService.cs using the NuGet Result" />
     <MESSAGE value="Update NewFilesBackgroundService to use more functional methods" />
     <MESSAGE value="Revert ChatGPT4's last &quot;fix&quot; for the theme flash and&#10;&#10;exclude Integration tests too" />
-    <option name="LAST_COMMIT_MESSAGE" value="Revert ChatGPT4's last &quot;fix&quot; for the theme flash and&#10;&#10;exclude Integration tests too" />
+    <MESSAGE value="Reworking the Games" />
+    <option name="LAST_COMMIT_MESSAGE" value="Reworking the Games" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
