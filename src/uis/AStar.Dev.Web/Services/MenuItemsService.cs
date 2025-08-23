@@ -53,28 +53,19 @@ public class MenuItemsService
             new()
             {
                 Id       = "10",
-                Href     = "/currency-input",
-                IconName = IconName.CurrencyDollar,
+                Href     = "/nuget-documentation/astar-dev-functional-results",
+                IconName = IconName.FuelPump,
                 Text     = "Currency Input",
                 ParentId = "8"
             },
-            new()
-            {
-                Id       = "11",
-                Href     = "/number-input",
-                IconName = IconName.InputCursor,
-                Text     = "Number Input",
-                ParentId = "8"
-            },
-            new()
-            {
-                Id       = "12",
-                Href     = "/switch",
-                IconName = IconName.ToggleOn,
-                Text     = "Switch",
-                ParentId = "8"
-            },
             new() { Id = "13", Href = "/testing-dashboard", IconName = IconName.BugFill, Text = "Testing Dashboard" },
-            new() { Id = "14", Href = "/kids-games", IconName        = IconName.Dice6, Text   = "Kids Games" }
+            new()
+            {
+                Id        = "14",
+                Href      = "/kids-games",
+                IconName  = IconName.Dice6,
+                IconColor = IconColor.Warning,
+                Text      = "Kids Games"
+            }
         };
 }
