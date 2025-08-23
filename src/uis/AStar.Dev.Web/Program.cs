@@ -1,6 +1,6 @@
 using AStar.Dev.ServiceDefaults;
 using AStar.Dev.Web.Components;
-using AStar.Dev.Web.Services;
+using AStar.Dev.Web.Components.Layout.Menu;
 using Azure.Monitor.OpenTelemetry.AspNetCore;
 using OpenTelemetry.Resources;
 
