@@ -1,6 +1,7 @@
 using System.IO.Abstractions;
 using System.Text.Json;
 using AStar.Dev.Database.Updater.Core;
+using AStar.Dev.Logging.Extensions;
 using AStar.Dev.ServiceDefaults;
 using Microsoft.Extensions.Options;
 using Serilog;
@@ -30,7 +31,7 @@ public static class HostApplicationBuilderExtensions
 
         _ = hostApplicationBuilder.Services.Configure<JsonSerializerOptions>(CreateJsonConfigureOptions);
 
-        //_ = hostApplicationBuilder.Configuration.AddJsonFile(Configuration.ExternalSettingsFile, false, true);
+        _ = hostApplicationBuilder.Configuration.AddJsonFile(Configuration.ExternalSettingsFile, false, true);
 
         _ = hostApplicationBuilder.Services
                                   .AddOptions<DatabaseUpdaterConfiguration>()
