@@ -30,7 +30,7 @@
     {
         if (firstRender)
         {
-            Logger.LogWarning("The {PageName} was not found. Please check whether it should exist or whether this is likely 'just' a typo.", Route);
+            Logger.LogWarning("The {PageName} was not found. Please check whether it should exist or whether this is likely 'just' a typo.", Route?.Replace("\r", string.Empty).Replace("\n", string.Empty));
         }
 
         return Task.CompletedTask;

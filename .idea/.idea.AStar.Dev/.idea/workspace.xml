@@ -55,46 +55,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/Menu/AdminMenuService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/Menu/DirectoriesMenuService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/Menu/FileMenuService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/Menu/GamesMenuService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/Menu/IMenuItemsService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/Menu/ImagesMenuService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/Menu/NuGetMenuService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/AddFilesToDatabase.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/AddFilesToDatabase.razor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/ApiUsage.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/ApiUsage.razor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/AuthenticationCheck.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/AuthenticationCheck.razor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/ModelsToIgnore.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/ModelsToIgnore.razor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/ScrapeDirectories.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/ScrapeDirectories.razor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/SiteConfiguration.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/SiteConfiguration.razor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/TagsToIgnore.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/TagsToIgnore.razor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/NotFound.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/uis/AStar.Dev.Web.UI.Tests.Unit/Components/Layout/menu/AdminMenuServiceShould.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/uis/AStar.Dev.Web.UI.Tests.Unit/Components/Layout/menu/DirectoriesMenuServiceShould.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/uis/AStar.Dev.Web.UI.Tests.Unit/Components/Layout/menu/FileMenuServiceShould.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/uis/AStar.Dev.Web.UI.Tests.Unit/Components/Layout/menu/GamesMenuServiceShould.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/uis/AStar.Dev.Web.UI.Tests.Unit/Components/Layout/menu/ImagesMenuServiceShould.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/uis/AStar.Dev.Web.UI.Tests.Unit/Components/Layout/menu/MenuItemsServiceShould.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/uis/AStar.Dev.Web.UI.Tests.Unit/Components/Layout/menu/NuGetMenuServiceShould.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/main_astar-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main_astar-dev.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/HostApplicationBuilderExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/HostApplicationBuilderExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/MainLayout.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/MainLayout.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/MainLayout.razor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/MainLayout.razor.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/Menu/MenuItemsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/Menu/MenuItemsService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Home.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Home.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Routes.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Routes.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/NotFound.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/NotFound.razor" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -1051,15 +1013,7 @@
       <workItem from="1755990698996" duration="9157000" />
       <workItem from="1756145933537" duration="4452000" />
       <workItem from="1756151092283" duration="3038000" />
-      <workItem from="1756154424649" duration="3326000" />
-    </task>
-    <task id="LOCAL-00035" summary="Add the new Get Files - need the actual request and Handle Async still">
-      <option name="closed" value="true" />
-      <created>1752348603257</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1752348603257</updated>
+      <workItem from="1756154424649" duration="3946000" />
     </task>
     <task id="LOCAL-00036" summary="Add 1st part of the GetFilesHandler">
       <option name="closed" value="true" />
@@ -1445,7 +1399,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755983664556</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="Update menu and add basic authentication">
+      <option name="closed" value="true" />
+      <created>1756157905265</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1756157905266</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1526,7 +1488,6 @@
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Doh..." />
     <MESSAGE value="Tweak sonar to suppress JRE install" />
     <MESSAGE value="Moving to use Sqlite as the database provider in the tests" />
     <MESSAGE value="Add the toggleable light/dark theme" />
@@ -1551,7 +1512,8 @@
     <MESSAGE value="And again" />
     <MESSAGE value="Refactor: Update codebase with&#10;&#10;consistent naming conventions, improve encapsulation, and utilize JetBrains.Annotations across components." />
     <MESSAGE value="Commiting even though levels do not work...yet" />
-    <option name="LAST_COMMIT_MESSAGE" value="Commiting even though levels do not work...yet" />
+    <MESSAGE value="Update menu and add basic authentication" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update menu and add basic authentication" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1633,27 +1595,14 @@
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/test/uis/AStar.Dev.Web.UI.Tests.Unit/Components/Layout/menu/GamesMenuServiceShould.cs</url>
-          <line>56</line>
-          <properties documentPath="$PROJECT_DIR$/test/uis/AStar.Dev.Web.UI.Tests.Unit/Components/Layout/menu/GamesMenuServiceShould.cs" containingFunctionPresentation="Method 'AllChildrenShouldReferenceKidsGamesRoot'">
-            <startOffsets>
-              <option value="1876" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1947" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/test/uis/AStar.Dev.Web.UI.Tests.Unit/Components/Layout/menu/NuGetMenuServiceShould.cs</url>
           <line>78</line>
           <properties documentPath="$PROJECT_DIR$/test/uis/AStar.Dev.Web.UI.Tests.Unit/Components/Layout/menu/NuGetMenuServiceShould.cs" containingFunctionPresentation="Method 'AllChildrenShouldReferenceRootParent'">
             <startOffsets>
-              <option value="2719" />
+              <option value="2712" />
             </startOffsets>
             <endOffsets>
-              <option value="2789" />
+              <option value="2782" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="29" />
