@@ -34,16 +34,7 @@ function checkResults() {
     let resultText = ""
     let correctCount = 0
 
-    if (checkOverlap(fish, dropBoxFish)) {
-        correctCount++
-    }
-    if (checkOverlap(mouse, dropBoxMouse)) {
-        correctCount++
-    }
-    if (checkOverlap(cat, dropBoxCat)) {
-        correctCount++
-    }
-    if (checkOverlap(dog, dropBoxDog)) {
+    if (checkOverlap(fish, dropBoxFish) || checkOverlap(mouse, dropBoxMouse) || checkOverlap(cat, dropBoxCat) || checkOverlap(dog, dropBoxDog)) {
         correctCount++
     }
 

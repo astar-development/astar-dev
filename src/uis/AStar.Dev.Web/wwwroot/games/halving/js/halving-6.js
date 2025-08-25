@@ -45,40 +45,9 @@ function checkResults() {
     let resultText = ""
     let correctCount = 0
 
-    if (checkOverlap(icecream1, monster1)) {
-        correctCount++
-    }
-    if (checkOverlap(icecream1, monster2)) {
-        correctCount++
-    }
-    if (checkOverlap(icecream2, monster1)) {
-        correctCount++
-    }
-    if (checkOverlap(icecream2, monster2)) {
-        correctCount++
-    }
-    if (checkOverlap(icecream3, monster1)) {
-        correctCount++
-    }
-    if (checkOverlap(icecream3, monster2)) {
-        correctCount++
-    }
-    if (checkOverlap(icecream4, monster1)) {
-        correctCount++
-    }
-    if (checkOverlap(icecream4, monster2)) {
-        correctCount++
-    }
-    if (checkOverlap(icecream5, monster1)) {
-        correctCount++
-    }
-    if (checkOverlap(icecream5, monster2)) {
-        correctCount++
-    }
-    if (checkOverlap(icecream6, monster1)) {
-        correctCount++
-    }
-    if (checkOverlap(icecream6, monster2)) {
+    if (checkOverlap(icecream1, monster1) || checkOverlap(icecream1, monster2) || checkOverlap(icecream2, monster1) || checkOverlap(icecream2, monster2) || checkOverlap(icecream3, monster1)
+        || checkOverlap(icecream3, monster2) || checkOverlap(icecream4, monster1) || checkOverlap(icecream4, monster2) || checkOverlap(icecream5, monster1) || checkOverlap(icecream5, monster2)
+        || checkOverlap(icecream6, monster1) || checkOverlap(icecream6, monster2)) {
         correctCount++
     }
 
