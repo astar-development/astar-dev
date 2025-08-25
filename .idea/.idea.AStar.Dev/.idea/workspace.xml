@@ -56,7 +56,7 @@
   <component name="ChangeListManager">
     <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/NotFound.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/NotFound.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Error.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Error.razor" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +85,7 @@
     <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="features/implement-menu" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -242,7 +242,7 @@
     "e17f45b0-a300-46c0-be33-f577373f589d.executor": "Debug",
     "e1fa419c-f915-45ea-a5b9-af0e54288449.executor": "Debug",
     "ead053aa-6f06-48a9-a614-f676b2fe4dd5.executor": "Debug",
-    "git-widget-placeholder": "features/implement-menu",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "/home/jason-barden/RiderProjects/astar-dev-all-private/AStar.Dev.All.sln",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
@@ -1013,15 +1013,7 @@
       <workItem from="1755990698996" duration="9157000" />
       <workItem from="1756145933537" duration="4452000" />
       <workItem from="1756151092283" duration="3038000" />
-      <workItem from="1756154424649" duration="3946000" />
-    </task>
-    <task id="LOCAL-00036" summary="Add 1st part of the GetFilesHandler">
-      <option name="closed" value="true" />
-      <created>1752351360172</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1752351360173</updated>
+      <workItem from="1756154424649" duration="5575000" />
     </task>
     <task id="LOCAL-00037" summary="Nearing the end of the GetFilesHandler.cs updates&#10;&#10;This version does NOT compile at the moment">
       <option name="closed" value="true" />
@@ -1407,7 +1399,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756157905266</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="Apply SQ change to NotFound.razor logging">
+      <option name="closed" value="true" />
+      <created>1756158414863</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1756158414863</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1488,7 +1488,6 @@
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Tweak sonar to suppress JRE install" />
     <MESSAGE value="Moving to use Sqlite as the database provider in the tests" />
     <MESSAGE value="Add the toggleable light/dark theme" />
     <MESSAGE value="Add the AStar logos" />
@@ -1513,7 +1512,8 @@
     <MESSAGE value="Refactor: Update codebase with&#10;&#10;consistent naming conventions, improve encapsulation, and utilize JetBrains.Annotations across components." />
     <MESSAGE value="Commiting even though levels do not work...yet" />
     <MESSAGE value="Update menu and add basic authentication" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update menu and add basic authentication" />
+    <MESSAGE value="Apply SQ change to NotFound.razor logging" />
+    <option name="LAST_COMMIT_MESSAGE" value="Apply SQ change to NotFound.razor logging" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1580,32 +1580,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Tests.Unit/HostApplicationBuilderExtensionsShould.cs</url>
-          <line>54</line>
-          <properties documentPath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Tests.Unit/HostApplicationBuilderExtensionsShould.cs" containingFunctionPresentation="Method 'AddExternalSettingsFile'">
-            <startOffsets>
-              <option value="1617" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1676" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/test/uis/AStar.Dev.Web.UI.Tests.Unit/Components/Layout/menu/NuGetMenuServiceShould.cs</url>
-          <line>78</line>
-          <properties documentPath="$PROJECT_DIR$/test/uis/AStar.Dev.Web.UI.Tests.Unit/Components/Layout/menu/NuGetMenuServiceShould.cs" containingFunctionPresentation="Method 'AllChildrenShouldReferenceRootParent'">
-            <startOffsets>
-              <option value="2712" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2782" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

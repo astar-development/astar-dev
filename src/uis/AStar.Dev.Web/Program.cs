@@ -46,7 +46,7 @@ app.MapHealthChecks("/health");
 
 if(!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/Error", true);
+    app.UseExceptionHandler("/unexpected-error", true);
     app.UseHsts();
 }
 
