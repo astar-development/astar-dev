@@ -76,64 +76,10 @@ function checkResults() {
     let resultText = ""
     let correctCount = 0
 
-    if (checkOverlap(burger1, monster1)) {
-        correctCount++
-    }
-    if (checkOverlap(burger1, monster2)) {
-        correctCount++
-    }
-    if (checkOverlap(burger2, monster1)) {
-        correctCount++
-    }
-    if (checkOverlap(burger2, monster2)) {
-        correctCount++
-    }
-    if (checkOverlap(burger3, monster1)) {
-        correctCount++
-    }
-    if (checkOverlap(burger3, monster2)) {
-        correctCount++
-    }
-    if (checkOverlap(burger4, monster1)) {
-        correctCount++
-    }
-    if (checkOverlap(burger4, monster2)) {
-        correctCount++
-    }
-    if (checkOverlap(burger5, monster1)) {
-        correctCount++
-    }
-    if (checkOverlap(burger5, monster2)) {
-        correctCount++
-    }
-    if (checkOverlap(burger6, monster1)) {
-        correctCount++
-    }
-    if (checkOverlap(burger6, monster2)) {
-        correctCount++
-    }
-    if (checkOverlap(burger7, monster1)) {
-        correctCount++
-    }
-    if (checkOverlap(burger7, monster2)) {
-        correctCount++
-    }
-    if (checkOverlap(burger8, monster1)) {
-        correctCount++
-    }
-    if (checkOverlap(burger8, monster2)) {
-        correctCount++
-    }
-    if (checkOverlap(burger9, monster1)) {
-        correctCount++
-    }
-    if (checkOverlap(burger9, monster2)) {
-        correctCount++
-    }
-    if (checkOverlap(burger10, monster1)) {
-        correctCount++
-    }
-    if (checkOverlap(burger10, monster2)) {
+    if (checkOverlap(burger1, monster1) || checkOverlap(burger1, monster2) || checkOverlap(burger2, monster1) || checkOverlap(burger2, monster2) || checkOverlap(burger3, monster1)
+        || checkOverlap(burger3, monster2) || checkOverlap(burger4, monster1) || checkOverlap(burger4, monster2) || checkOverlap(burger5, monster1) || checkOverlap(burger5, monster2)
+        || checkOverlap(burger6, monster1) || checkOverlap(burger6, monster2) || checkOverlap(burger7, monster1) || checkOverlap(burger7, monster2) || checkOverlap(burger8, monster1)
+        || checkOverlap(burger8, monster2) || checkOverlap(burger9, monster1) || checkOverlap(burger9, monster2) || checkOverlap(burger10, monster1) || checkOverlap(burger10, monster2)) {
         correctCount++
     }
 

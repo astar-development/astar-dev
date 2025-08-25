@@ -21,16 +21,7 @@ function checkResults() {
     let resultText = ""
     let correctCount = 0
 
-    if (checkOverlap(cupcake1, monster1)) {
-        correctCount++
-    }
-    if (checkOverlap(cupcake1, monster2)) {
-        correctCount++
-    }
-    if (checkOverlap(cupcake2, monster1)) {
-        correctCount++
-    }
-    if (checkOverlap(cupcake2, monster2)) {
+    if (checkOverlap(cupcake1, monster1) || checkOverlap(cupcake1, monster2) || checkOverlap(cupcake2, monster1) || checkOverlap(cupcake2, monster2)) {
         correctCount++
     }
 
