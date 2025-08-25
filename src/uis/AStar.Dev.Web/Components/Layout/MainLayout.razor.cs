@@ -1,25 +1,18 @@
-using AStar.Dev.Web.Services;
+using AStar.Dev.Web.Components.Layout.Menu;
 using BlazorBootstrap;
 using Microsoft.AspNetCore.Components;
-using Microsoft.JSInterop;
 
 namespace AStar.Dev.Web.Components.Layout;
 
 public partial class MainLayout
 {
     private IEnumerable<NavItem>? _navItems;
-    private Sidebar               _sidebar = null!;
+    private Sidebar2              _sidebar = null!;
 
     [Inject]
-    private IJSRuntime JsRuntime { get; set; } = null!;
+    private IMenuItemsService MenuItemsService { get; set; } = null!;
 
-    [Inject]
-    private ILogger<MainLayout> Logger { get; set; } = null!;
-
-    [Inject]
-    private MenuItemsService MenuItemsService { get; set; } = null!;
-
-    private async Task<SidebarDataProviderResult> SidebarDataProvider(SidebarDataProviderRequest request)
+    private async Task<Sidebar2DataProviderResult> Sidebar2DataProvider(Sidebar2DataProviderRequest request)
     {
         _navItems ??= MenuItemsService.GetNavItems();
 

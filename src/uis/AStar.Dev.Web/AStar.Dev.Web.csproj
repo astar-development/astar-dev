@@ -89,6 +89,10 @@
         <AdditionalFiles Include="Components\Pages\nuget-documentation\NuGetDocumentation.razor"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <Folder Include="Services\"/>
+    </ItemGroup>
+
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
         <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
         <NoWarn>1701;1702;</NoWarn>

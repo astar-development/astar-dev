@@ -126,5 +126,10 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
+    <data-source name="sql1" uuid="d59d74f3-51ae-446d-96d9-84fedd3a3d20">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
+      <secret-storage>master_key</secret-storage>
+      <schema-mapping />
+    </data-source>
   </component>
 </project>

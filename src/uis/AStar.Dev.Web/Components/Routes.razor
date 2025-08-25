@@ -1,6 +1,13 @@
 ﻿@using AStar.Dev.Web.Components.Layout
+@using Microsoft.AspNetCore.Components.Authorization
 <Router AppAssembly="typeof(Program).Assembly">
     <Found Context="routeData">
-        <RouteView RouteData="routeData" DefaultLayout="typeof(MainLayout)"/>
+        <CascadingAuthenticationState>
+            <AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(MainLayout)">
+                <NotAuthorized>
+                    <p>You're not authorized.</p>
+                </NotAuthorized>
+            </AuthorizeRouteView>
+        </CascadingAuthenticationState>
     </Found>
 </Router>
