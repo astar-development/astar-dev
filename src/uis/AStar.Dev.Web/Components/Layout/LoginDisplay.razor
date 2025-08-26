@@ -1,0 +1,44 @@
+@using Microsoft.AspNetCore.Components.Authorization
+@inject NavigationManager Nav
+
+<div style="padding-top: 7px; padding-left: 20px; padding-right: 20px;">
+    <AuthorizeView>
+        <Authorized>
+            Hello, @name!
+            <Button Color="ButtonColor.Primary" Target="Target.Blank">
+            <span class="oi oi-lock-unlocked" aria-hidden="true" style="color: goldenrod;">&nbsp;
+                <a id="signout"
+                   href="javascript:void(0)"
+                   @onclick="SignOut"
+                   style="color: goldenrod"> Sign Out</a></span>
+            </Button>
+        </Authorized>
+        <NotAuthorized Context="LogIn">
+            <i class="fa-solid fa-user">HERE&nbsp;</i>
+            <Button Color="ButtonColor.Primary" Target="Target.Blank">
+                <span class="oi oi-lock-locked" aria-hidden="true" style="color: goldenrod;">&nbsp;<i class="fa-solid fa-user"><a id="signin"
+                                                                                                                                  href="javascript:void(0)"
+                                                                                                                                  @onclick="SignIn"
+                                                                                                                                  style="color: goldenrod"> Sign In</a></i>
+
+                </span>
+            </Button>
+        </NotAuthorized>
+    </AuthorizeView>
+</div>
+
+@code {
+
+    private void SignIn()
+    {
+        var returnUrl = new Uri(Nav.Uri).PathAndQuery;
+        Nav.NavigateTo($"/MicrosoftIdentity/Account/SignIn?returnUrl={Uri.EscapeDataString(returnUrl)}", true);
+    }
+
+    private void SignOut()
+    {
+        var returnUrl = "/";
+        Nav.NavigateTo($"/MicrosoftIdentity/Account/SignOut?returnUrl={Uri.EscapeDataString(returnUrl)}", true);
+    }
+
+}
