@@ -62,57 +62,10 @@ function checkResults() {
     let resultText = ""
     let correctCount = 0
 
-    if (checkOverlap(fries1, monster1)) {
-        correctCount++
-    }
-    if (checkOverlap(fries1, monster2)) {
-        correctCount++
-    }
-    if (checkOverlap(fries2, monster1)) {
-        correctCount++
-    }
-    if (checkOverlap(fries2, monster2)) {
-        correctCount++
-    }
-    if (checkOverlap(fries3, monster1)) {
-        correctCount++
-    }
-    if (checkOverlap(fries3, monster2)) {
-        correctCount++
-    }
-    if (checkOverlap(fries4, monster1)) {
-        correctCount++
-    }
-    if (checkOverlap(fries4, monster2)) {
-        correctCount++
-    }
-
-
-    if (checkOverlap(fries5, monster1)) {
-        correctCount++
-    }
-    if (checkOverlap(fries5, monster2)) {
-        correctCount++
-    }
-
-    if (checkOverlap(fries6, monster1)) {
-        correctCount++
-    }
-    if (checkOverlap(fries6, monster2)) {
-        correctCount++
-    }
-
-    if (checkOverlap(fries7, monster1)) {
-        correctCount++
-    }
-    if (checkOverlap(fries7, monster2)) {
-        correctCount++
-    }
-
-    if (checkOverlap(fries8, monster1)) {
-        correctCount++
-    }
-    if (checkOverlap(fries8, monster2)) {
+    if (checkOverlap(fries1, monster1) || checkOverlap(fries1, monster2) || checkOverlap(fries2, monster1) || checkOverlap(fries2, monster2) || checkOverlap(fries3, monster1)
+        || checkOverlap(fries3, monster2) || checkOverlap(fries4, monster1) || checkOverlap(fries4, monster2) || checkOverlap(fries5, monster1) || checkOverlap(fries5, monster2)
+        || checkOverlap(fries6, monster1) || checkOverlap(fries6, monster2) || checkOverlap(fries7, monster1) || checkOverlap(fries7, monster2) || checkOverlap(fries8, monster1)
+        || checkOverlap(fries8, monster2)) {
         correctCount++
     }
 

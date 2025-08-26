@@ -33,28 +33,8 @@ function checkResults() {
     let resultText = ""
     let correctCount = 0
 
-    if (checkOverlap(cookie1, monster1)) {
-        correctCount++
-    }
-    if (checkOverlap(cookie1, monster2)) {
-        correctCount++
-    }
-    if (checkOverlap(cookie2, monster1)) {
-        correctCount++
-    }
-    if (checkOverlap(cookie2, monster2)) {
-        correctCount++
-    }
-    if (checkOverlap(cookie3, monster1)) {
-        correctCount++
-    }
-    if (checkOverlap(cookie3, monster2)) {
-        correctCount++
-    }
-    if (checkOverlap(cookie4, monster1)) {
-        correctCount++
-    }
-    if (checkOverlap(cookie4, monster2)) {
+    if (checkOverlap(cookie1, monster1) || checkOverlap(cookie1, monster2) || checkOverlap(cookie2, monster1) || checkOverlap(cookie2, monster2) || checkOverlap(cookie3, monster1)
+        || checkOverlap(cookie3, monster2) || checkOverlap(cookie4, monster1) || checkOverlap(cookie4, monster2)) {
         correctCount++
     }
 

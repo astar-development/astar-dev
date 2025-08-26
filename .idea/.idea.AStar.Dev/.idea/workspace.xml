@@ -104,7 +104,7 @@
     <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="features/implement-menu" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -1438,7 +1438,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756158414863</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="Update Error.razor route and&#10; &#10;exception handler to `/unexpected-error`, and allow anonymous access">
+      <option name="closed" value="true" />
+      <created>1756160113835</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1756160113835</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1519,7 +1527,6 @@
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Moving to use Sqlite as the database provider in the tests" />
     <MESSAGE value="Add the toggleable light/dark theme" />
     <MESSAGE value="Add the AStar logos" />
     <MESSAGE value="Fix the default to be dark&#10;&#10;also, change the navbar and title bar to black" />
@@ -1544,7 +1551,8 @@
     <MESSAGE value="Commiting even though levels do not work...yet" />
     <MESSAGE value="Update menu and add basic authentication" />
     <MESSAGE value="Apply SQ change to NotFound.razor logging" />
-    <option name="LAST_COMMIT_MESSAGE" value="Apply SQ change to NotFound.razor logging" />
+    <MESSAGE value="Update Error.razor route and&#10; &#10;exception handler to `/unexpected-error`, and allow anonymous access" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update Error.razor route and&#10; &#10;exception handler to `/unexpected-error`, and allow anonymous access" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
