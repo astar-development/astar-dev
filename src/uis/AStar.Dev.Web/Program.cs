@@ -4,6 +4,7 @@ using AStar.Dev.Web.Components.Layout.Menu;
 using Azure.Monitor.OpenTelemetry.AspNetCore;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.Identity.Web;
+using Microsoft.Identity.Web.UI;
 using OpenTelemetry.Resources;
 
 var resourceAttributes = new Dictionary<string, object> { { "service.name", "AStar.Dev.Web" }, { "service.namespace", "AStar.Dev.Web" } };
@@ -24,16 +25,16 @@ builder.Services
        .AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
        .AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureAd"));
 
-builder.Services.AddAuthorization(options =>
-                                  {
-                                      // Require authentication by default; opt-out with [AllowAnonymous] on specific pages/components
-                                      options.FallbackPolicy = options.DefaultPolicy;
-                                  });
+// Public by default; only pages/components with [Authorize] should challenge.
+// Public by default; only pages/components with [Authorize] should challenge.
+builder.Services.AddAuthorization();
 
 builder.Services.AddHealthChecks();
 builder.Services.AddSingleton<IMenuItemsService, MenuItemsService>();
 builder.Services.AddBlazorBootstrap();
 builder.Services.AddCascadingAuthenticationState();
+builder.Services.AddControllersWithViews().AddMicrosoftIdentityUI();
+builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
@@ -54,9 +55,12 @@ app.UseHttpsRedirection();
 
 app.UseAntiforgery();
 
+// Static assets should remain public
 app.MapStaticAssets().AllowAnonymous();
 
-// Map the Blazor app endpoints; allow anonymous transport. Page-level [Authorize]/[AllowAnonymous] still applies.
+// Map the Microsoft Identity UI endpoints so SignIn/SignOut URLs work
+app.MapControllers().AllowAnonymous();
+
 app.MapRazorComponents<App>()
    .AddInteractiveServerRenderMode()
    .AllowAnonymous();
