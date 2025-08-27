@@ -131,5 +131,10 @@
       <secret-storage>master_key</secret-storage>
       <schema-mapping />
     </data-source>
+    <data-source name="sql1" uuid="1bc96f88-6787-47df-9c29-495529e0cb4b">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
+      <secret-storage>master_key</secret-storage>
+      <schema-mapping />
+    </data-source>
   </component>
 </project>

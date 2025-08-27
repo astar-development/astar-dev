@@ -25,10 +25,7 @@ builder.Services
        .AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
        .AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureAd"));
 
-// Public by default; only pages/components with [Authorize] should challenge.
-// Public by default; only pages/components with [Authorize] should challenge.
 builder.Services.AddAuthorization();
-
 builder.Services.AddHealthChecks();
 builder.Services.AddSingleton<IMenuItemsService, MenuItemsService>();
 builder.Services.AddBlazorBootstrap();
@@ -55,10 +52,8 @@ app.UseHttpsRedirection();
 
 app.UseAntiforgery();
 
-// Static assets should remain public
 app.MapStaticAssets().AllowAnonymous();
 
-// Map the Microsoft Identity UI endpoints so SignIn/SignOut URLs work
 app.MapControllers().AllowAnonymous();
 
 app.MapRazorComponents<App>()

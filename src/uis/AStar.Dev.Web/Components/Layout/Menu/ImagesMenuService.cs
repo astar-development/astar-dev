@@ -21,13 +21,14 @@ public static class ImagesMenuService
         },
         new()
         {
-            Id        = "Duplicate Images",
-            Href      = "/images/duplicate-images",
-            IconName  = IconName.Images,
-            Text      = "Duplicate Images",
-            ParentId  = ImagesRoot,
-            IconColor = IconColor.Success,
-            Level     = 3
+            Id             = "Duplicate Images",
+            Href           = "/images/duplicate-images",
+            CustomIconName = "fa-solid fa-people-group",
+            Class          = "iconTest",
+            Text           = "Duplicate Images",
+            ParentId       = ImagesRoot,
+            IconColor      = IconColor.Success,
+            Level          = 3
         },
         new()
         {

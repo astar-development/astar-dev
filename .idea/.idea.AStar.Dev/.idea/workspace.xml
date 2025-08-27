@@ -55,26 +55,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/LoginDisplay.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/LoginDisplay.razor.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Test.Helpers/FactAssertionAttribute.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Test.Helpers/GivenWhenThenBase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Test.Helpers/Scenario.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.Client.Sdk.Shared/AStar.Dev.Api.Client.Sdk.Shared.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.Client.Sdk.Shared/AStar.Dev.Api.Client.Sdk.Shared.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.AspNet.Extensions/AStar.Dev.AspNet.Extensions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.AspNet.Extensions/AStar.Dev.AspNet.Extensions.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/AStar.Dev.Files.Api.Client.Sdk.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/AStar.Dev.Files.Api.Client.Sdk.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/AStar.Dev.Infrastructure.FilesDb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/AStar.Dev.Infrastructure.FilesDb.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/AStar.Dev.Web.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/AStar.Dev.Web.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Test.Helpers/AStar.Dev.Test.Helpers.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Test.Helpers/AStar.Dev.Test.Helpers.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/App.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/App.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/MainLayout.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/MainLayout.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/AddFilesToDatabase.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/AddFilesToDatabase.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/ApiUsage.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/ApiUsage.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/AuthenticationCheck.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/AuthenticationCheck.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/ModelsToIgnore.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/ModelsToIgnore.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/ScrapeDirectories.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/ScrapeDirectories.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/SiteConfiguration.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/SiteConfiguration.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/TagsToIgnore.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/TagsToIgnore.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/LoginDisplay.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/LoginDisplay.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/Menu/GamesMenuService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/Menu/GamesMenuService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/Menu/ImagesMenuService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/Menu/ImagesMenuService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/assets/fontawesome/css/brands.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/assets/fontawesome/css/fontawesome.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/wwwroot/css/app.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -153,6 +147,7 @@
     <setting file="file://$PROJECT_DIR$/../astar-dev-all-private/src/uis/AStar.Dev.Web/Shared/LoginDisplay.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../astar-dev-all-private/src/uis/AStar.Dev.Web/Shared/LoginDisplay.razor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../astar-dev-all-private/src/uis/AStar.Dev.Web/Shared/MainLayout.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../astar-dev-all-private/src/uis/AStar.Dev.Web/Shared/MainLayout.razor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../astar-dev-all-private/src/uis/AStar.Dev.Web/Shared/NavMenu.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../astar-dev-functional-extensions/src/AStar.Dev.Functional.Extensions/ErrorResponse.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../astar-dev-functional-extensions/src/AStar.Dev.Functional.Extensions/Option.cs" root0="FORCE_HIGHLIGHTING" />
@@ -164,6 +159,9 @@
     <setting file="file://$PROJECT_DIR$/../astar-dev-functional-extensions/src/AStar.Dev.Functional.Extensions/ResultExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../astar-dev-functional-extensions/src/AStar.Dev.Functional.Extensions/Try.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../astar-dev-functional-extensions/src/AStar.Dev.Functional.Extensions/TryExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Test.Helpers/FactAssertionAttribute.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Test.Helpers/GivenWhenThenBase.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Test.Helpers/Scenario.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AddNewFilesService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/NewFilesBackgroundService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/TimeDelay.cs" root0="FORCE_HIGHLIGHTING" />
@@ -1045,14 +1043,9 @@
       <workItem from="1756162621108" duration="3274000" />
       <workItem from="1756166289117" duration="506000" />
       <workItem from="1756166877432" duration="1903000" />
-    </task>
-    <task id="LOCAL-00037" summary="Nearing the end of the GetFilesHandler.cs updates&#10;&#10;This version does NOT compile at the moment">
-      <option name="closed" value="true" />
-      <created>1752518559640</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1752518559640</updated>
+      <workItem from="1756236445987" duration="362000" />
+      <workItem from="1756237378345" duration="6025000" />
+      <workItem from="1756285383950" duration="768000" />
     </task>
     <task id="LOCAL-00038" summary="Nearing the end of the GetFilesHandler.cs updates">
       <option name="closed" value="true" />
