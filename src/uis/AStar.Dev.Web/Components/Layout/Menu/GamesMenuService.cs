@@ -21,12 +21,12 @@ public static class GamesMenuService
         },
         new()
         {
-            Id        = "List",
-            Href      = "/kids-games",
-            IconName  = IconName.InputCursorText,
-            Text      = "List",
-            IconColor = IconColor.Warning,
-            ParentId  = KidsGamesRootMenu
+            Id             = "List",
+            Href           = "/kids-games",
+            Text           = "List",
+            CustomIconName = "fa-solid fa-puzzle-piece",
+            IconColor      = IconColor.Warning,
+            ParentId       = KidsGamesRootMenu
         },
         new()
         {

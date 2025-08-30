@@ -5,3 +5,8 @@ footer {
     bottom: 20px;
     position: fixed;
 }
+
+.iconTest {
+    color: red;
+    font-size: 20px;
+}

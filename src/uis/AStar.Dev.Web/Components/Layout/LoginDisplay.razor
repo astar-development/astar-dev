@@ -6,22 +6,21 @@
         <Authorized>
             Hello, @name!
             <Button Color="ButtonColor.Primary" Target="Target.Blank">
-            <span class="oi oi-lock-unlocked" aria-hidden="true" style="color: goldenrod;">&nbsp;
+                <i class="fa-solid fa-user"></i> <i class="fa fa-sign-out" aria-hidden="true"></i>
                 <a id="signout"
                    href="javascript:void(0)"
                    @onclick="SignOut"
-                   style="color: goldenrod"> Sign Out</a></span>
+                   style="color: goldenrod"> Sign Out</a>
             </Button>
         </Authorized>
         <NotAuthorized Context="LogIn">
-            <i class="fa-solid fa-user">HERE&nbsp;</i>
-            <Button Color="ButtonColor.Primary" Target="Target.Blank">
-                <span class="oi oi-lock-locked" aria-hidden="true" style="color: goldenrod;">&nbsp;<i class="fa-solid fa-user"><a id="signin"
-                                                                                                                                  href="javascript:void(0)"
-                                                                                                                                  @onclick="SignIn"
-                                                                                                                                  style="color: goldenrod"> Sign In</a></i>
 
-                </span>
+            <Button Color="ButtonColor.Primary" Target="Target.Blank">
+                <i class="fa fa-sign-in" aria-hidden="true"></i> <i class="fa-solid fa-user"></i>
+                <a id="signin"
+                   href="javascript:void(0)"
+                   @onclick="SignIn"
+                   style="color: goldenrod"> Sign In</a>
             </Button>
         </NotAuthorized>
     </AuthorizeView>
