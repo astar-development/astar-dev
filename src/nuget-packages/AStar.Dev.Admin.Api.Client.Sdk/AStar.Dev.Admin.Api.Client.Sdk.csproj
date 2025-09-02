@@ -31,13 +31,13 @@
 
     <ItemGroup>
         <PackageReference Include="AStar.Dev.Utilities" Version="1.6.2"/>
-        <PackageReference Include="Microsoft.Identity.Web" Version="3.13.2"/>
+        <PackageReference Include="Microsoft.Identity.Web" Version="3.14.0"/>
         <PackageReference Include="Microsoft.Identity.Web.DownstreamApi" Version="3.13.2"/>
         <PackageReference Include="Microsoft.Identity.Web.UI" Version="3.13.2"/>
         <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.8"/>
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.8"/>
         <PackageReference Include="Microsoft.Extensions.Http.Resilience" Version="9.8.0"/>
-        <PackageReference Include="Microsoft.Identity.Web.TokenAcquisition" Version="3.13.2"/>
+        <PackageReference Include="Microsoft.Identity.Web.TokenAcquisition" Version="3.14.0"/>
     </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
