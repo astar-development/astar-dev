@@ -27,7 +27,7 @@
         <PackageReference Include="AStar.Dev.Utilities" Version="1.6.2"/>
         <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.23.0"/>
         <PackageReference Include="Microsoft.Identity.Web" Version="3.13.2"/>
-        <PackageReference Include="Microsoft.Identity.Web.DownstreamApi" Version="3.13.2"/>
+        <PackageReference Include="Microsoft.Identity.Web.DownstreamApi" Version="3.14.0"/>
         <PackageReference Include="Microsoft.Identity.Web.UI" Version="3.13.2"/>
     </ItemGroup>
 
