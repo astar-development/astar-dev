@@ -13,6 +13,7 @@ public static class AdminMenuService
         {
             Id        = "Authentication Check",
             Href      = "/admin/authentication-check",
+            Class     = "menuIcon",
             IconName  = IconName.Lock,
             IconColor = IconColor.Secondary,
             Text      = "Authentication Check",
@@ -22,6 +23,7 @@ public static class AdminMenuService
         {
             Id        = "Site Config",
             Href      = "/admin/site-configuration",
+            Class     = "menuIcon",
             IconName  = IconName.Briefcase,
             IconColor = IconColor.Secondary,
             Text      = "Site Config",
@@ -31,6 +33,7 @@ public static class AdminMenuService
         {
             Id        = "Scrape Directories",
             Href      = "/admin/scrape-directories",
+            Class     = "menuIcon",
             IconColor = IconColor.Secondary,
             IconName  = IconName.Globe,
             Text      = "Scrape Directories",
@@ -40,6 +43,7 @@ public static class AdminMenuService
         {
             Id        = "Models to Ignore",
             Href      = "/admin/models-to-ignore",
+            Class     = "menuIcon",
             IconColor = IconColor.Secondary,
             IconName  = IconName.GenderFemale,
             Text      = "Models to Ignore",
@@ -49,6 +53,7 @@ public static class AdminMenuService
         {
             Id        = "Tags to Ignore",
             Href      = "/admin/tags-to-ignore",
+            Class     = "menuIcon",
             IconColor = IconColor.Secondary,
             IconName  = IconName.Tag,
             Text      = "Tags to Ignore",
@@ -58,6 +63,7 @@ public static class AdminMenuService
         {
             Id        = "Add files to database",
             Href      = "/admin/add-files-to-database",
+            Class     = "menuIcon",
             IconColor = IconColor.Secondary,
             IconName  = IconName.Database,
             Text      = "Add files to database",
@@ -67,6 +73,7 @@ public static class AdminMenuService
         {
             Id        = "API Usage",
             Href      = "/admin/api-usage",
+            Class     = "menuIcon",
             IconColor = IconColor.Secondary,
             IconName  = IconName.AppIndicator,
             Text      = "API Usage",

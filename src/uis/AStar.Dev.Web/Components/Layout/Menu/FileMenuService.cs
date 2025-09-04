@@ -12,7 +12,8 @@ public static class FileMenuService
         new()
         {
             Id        = "Duplicate Files",
-            Href      = "/images/duplicate-files",
+            Href      = "/files/duplicate-files",
+            Class     = "menuIcon",
             IconName  = IconName.Files,
             IconColor = IconColor.Warning,
             Text      = "Duplicate Files",
@@ -21,7 +22,8 @@ public static class FileMenuService
         new()
         {
             Id        = "Move Files",
-            Href      = "/images/move-files",
+            Href      = "/files/move-files",
+            Class     = "menuIcon",
             IconName  = IconName.FileTypeMov,
             IconColor = IconColor.Warning,
             Text      = "Move Files",
@@ -30,7 +32,8 @@ public static class FileMenuService
         new()
         {
             Id        = "Rename Files",
-            Href      = "/images/rename-files",
+            Href      = "/files/rename-files",
+            Class     = "menuIcon",
             IconName  = IconName.FileImage,
             IconColor = IconColor.Warning,
             Text      = "Rename Files",

@@ -15,6 +15,7 @@ public static class NuGetMenuService
             Id        = NuGetDocumentationRootMenu,
             Href      = "/nuget-documentation",
             IconName  = IconName.InputCursorText,
+            Class     = "menuIcon",
             Text      = "Root Docs",
             IconColor = IconColor.Danger,
             ParentId  = NuGetDocumentationRoot
@@ -25,6 +26,7 @@ public static class NuGetMenuService
             Href      = "/nuget-documentation/astar-dev-functional-extensions",
             IconName  = IconName.Book,
             IconColor = IconColor.Danger,
+            Class     = "menuIcon",
             Text      = "Functional Extensions",
             ParentId  = NuGetDocumentationRootMenu
         }

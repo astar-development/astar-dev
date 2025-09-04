@@ -12,7 +12,8 @@ public static class DirectoriesMenuService
         new()
         {
             Id        = "Directories Rename",
-            Href      = "/directories/rename",
+            Href      = "/directories/rename-directories",
+            Class     = "menuIcon",
             IconName  = IconName.Folder,
             IconColor = IconColor.Primary,
             Text      = "Rename Directory(ies)",
@@ -21,7 +22,8 @@ public static class DirectoriesMenuService
         new()
         {
             Id        = "10",
-            Href      = "/directories/move",
+            Href      = "/directories/move-directories",
+            Class     = "menuIcon",
             IconName  = IconName.FolderX,
             IconColor = IconColor.Primary,
             Text      = "Move Directory(ies)",

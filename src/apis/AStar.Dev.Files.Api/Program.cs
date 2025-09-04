@@ -34,6 +34,10 @@ try
 
     Log.Information("Starting {AppName}", applicationName);
     var services = builder.Services;
+    services.AddApplicationInsightsTelemetry(builder.Configuration);
+
+    // Optional: forward ILogger logs to Application Insights
+    builder.Logging.AddApplicationInsights();
 
     builder.AddSqlServerDbContext<FilesContext>(AspireConstants.Sql.FilesDb);
 
@@ -81,10 +85,9 @@ try
                                         options.SerializerOptions.ReferenceHandler            = ReferenceHandler.IgnoreCycles;
                                         options.SerializerOptions.PropertyNameCaseInsensitive = true;
                                     });
-
     services.AddAuthorization();
     services.AddExceptionHandler<GlobalExceptionHandler>();
-    services.AddProblemDetails();
+    services.AddProblemDetails(options => options.CustomizeProblemDetails = ctx => ctx.ProblemDetails.Extensions.Add("nodeId", Environment.MachineName));
 
     services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
     services.AddScoped<IGetFilesHandler, GetFilesHandler>();
@@ -110,12 +113,4 @@ catch(Exception ex)
 finally
 {
     await Log.CloseAndFlushAsync();
-}
-
-namespace AStar.Dev.Files.Api
-{
-    internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-    {
-        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-    }
 }
