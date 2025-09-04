@@ -11,11 +11,12 @@
         <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.0"/>
         <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0"/>
         <PackageReference Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer" Version="9.4.2"/>
-        <PackageReference Include="AStar.Dev.Logging.Extensions" Version="0.6.2"/>
+        <PackageReference Include="AStar.Dev.Logging.Extensions" Version="0.6.3"/>
         <PackageReference Include="AStar.Dev.Infrastructure.FilesDb" Version="0.1.0"/>
         <PackageReference Include="AStar.Dev.Api.Usage.Sdk" Version="0.1.0"/>
-        <PackageReference Include="AStar.Dev.AspNet.Extensions" Version="0.8.0"/>
+        <PackageReference Include="AStar.Dev.AspNet.Extensions" Version="0.8.2"/>
         <PackageReference Include="AStar.Dev.Auth.Extensions" Version="0.1.0"/>
+        <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.23.0"/>
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.8"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.8">
             <PrivateAssets>all</PrivateAssets>
@@ -24,6 +25,7 @@
         <PackageReference Include="Microsoft.Identity.Web" Version="3.14.0"/>
         <PackageReference Include="Aspire.RabbitMQ.Client.v7" Version="9.4.2"/>
         <PackageReference Include="Serilog" Version="4.3.0"/>
+        <PackageReference Include="Serilog.Sinks.ApplicationInsights" Version="4.0.0"/>
         <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.4"/>
         <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="9.0.4"/>
         <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="9.0.4"/>

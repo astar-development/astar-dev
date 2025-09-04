@@ -44,10 +44,10 @@ app.MapHealthChecks("/health");
 
 if(!app.Environment.IsDevelopment())
 {
-    app.UseExceptionHandler("/unexpected-error", true);
     app.UseHsts();
 }
 
+app.UseExceptionHandler("/unexpected-error", true);
 app.UseHttpsRedirection();
 
 app.UseAntiforgery();

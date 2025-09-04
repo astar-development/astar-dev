@@ -11,10 +11,11 @@ public static class ImagesMenuService
         new() { Id = ImagesRoot, IconName = IconName.LayoutSidebarInset, Text = ImagesRoot, IconColor = IconColor.Primary },
         new()
         {
-            Id        = "Random Image",
-            Href      = "/images/random-image",
+            Id        = "Random Images",
+            Href      = "/images/random-images",
             IconName  = IconName.Image,
-            Text      = "Random Image",
+            Class     = "menuIcon",
+            Text      = "Random Images",
             ParentId  = ImagesRoot,
             IconColor = IconColor.Success,
             Level     = 2
@@ -24,7 +25,7 @@ public static class ImagesMenuService
             Id             = "Duplicate Images",
             Href           = "/images/duplicate-images",
             CustomIconName = "fa-solid fa-people-group",
-            Class          = "iconTest",
+            Class          = "menuIcon",
             Text           = "Duplicate Images",
             ParentId       = ImagesRoot,
             IconColor      = IconColor.Success,
@@ -35,6 +36,7 @@ public static class ImagesMenuService
             Id        = "Move Images",
             Href      = "/images/move-images",
             IconName  = IconName.FileTypeMov,
+            Class     = "menuIcon",
             Text      = "Move Images",
             ParentId  = ImagesRoot,
             IconColor = IconColor.Success,
@@ -45,6 +47,7 @@ public static class ImagesMenuService
             Id        = "Rename Images",
             Href      = "/images/rename-images",
             IconName  = IconName.FileImage,
+            Class     = "menuIcon",
             Text      = "Rename Images",
             ParentId  = ImagesRoot,
             IconColor = IconColor.Success,
@@ -55,6 +58,7 @@ public static class ImagesMenuService
             Id        = "Scrape Images",
             Href      = "/images/scrape-images",
             IconName  = IconName.Globe,
+            Class     = "menuIcon",
             IconColor = IconColor.Success,
             Text      = "Scrape Images",
             ParentId  = ImagesRoot
