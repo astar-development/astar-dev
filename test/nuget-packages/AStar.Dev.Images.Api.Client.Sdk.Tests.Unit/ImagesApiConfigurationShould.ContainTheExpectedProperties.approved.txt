@@ -1,6 +1,0 @@
-﻿{
-  "baseUrl": "https://doesnt.matter.com",
-  "scopes": [
-    "Mock Scope"
-  ]
-}

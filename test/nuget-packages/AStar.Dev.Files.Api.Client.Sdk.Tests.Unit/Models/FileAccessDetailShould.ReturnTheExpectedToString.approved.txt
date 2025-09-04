@@ -1,9 +1,0 @@
-﻿{
-  "id": 1,
-  "detailsLastUpdated": "2025-12-23T12:34:56.789Z",
-  "lastViewed": "2025-12-24T12:34:56.789Z",
-  "softDeleted": true,
-  "softDeletePending": true,
-  "moveRequired": true,
-  "hardDeletePending": true
-}

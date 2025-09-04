@@ -8,13 +8,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-
+        <PackageReference Include="AStar.Dev.Infrastructure.FilesDb" Version="0.1.0"/>
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.8"/>
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer" Version="9.4.1"/>
-        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Infrastructure.FilesDb\AStar.Dev.Infrastructure.FilesDb.csproj"/>
+        <PackageReference Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer" Version="9.4.2"/>
         <ProjectReference Include="..\..\..\_aspire\AStar.Dev.Aspire.Common\AStar.Dev.Aspire.Common.csproj"/>
         <ProjectReference Include="..\..\..\_aspire\AStar.Dev.ServiceDefaults\AStar.Dev.ServiceDefaults.csproj"/>
     </ItemGroup>

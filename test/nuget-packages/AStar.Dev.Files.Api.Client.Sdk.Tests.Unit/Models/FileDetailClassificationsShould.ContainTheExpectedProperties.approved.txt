@@ -1,4 +1,0 @@
-﻿{
-  "classificationId": 1,
-  "name": "MockName"
-}

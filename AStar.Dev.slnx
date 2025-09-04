@@ -19,37 +19,6 @@
         <Project Path="src/apis/AStar.Dev.Images.Api/AStar.Dev.Images.Api.csproj"/>
         <Project Path="src/apis/AStar.Dev.ToDo.Api/AStar.Dev.ToDo.Api.csproj"/>
     </Folder>
-    <Folder Name="/src/console-applications/"/>
-    <Folder Name="/src/console-applications/astar-dev-backupapp/">
-        <Project Path="src/console-applications/astar-dev-backupapp/AStar.Dev.BackupApp.Core/AStar.Dev.BackupApp.Core.csproj"/>
-        <Project Path="src/console-applications/astar-dev-backupapp/AStar.Dev.BackupApp/AStar.Dev.BackupApp.csproj"/>
-    </Folder>
-    <Folder Name="/src/nuget-packages/">
-        <Project Path="src/nuget-packages/AStar.Dev.Admin.Api.Client.Sdk/AStar.Dev.Admin.Api.Client.Sdk.csproj"/>
-        <Project Path="src/nuget-packages/AStar.Dev.Api.Client.Sdk.Shared/AStar.Dev.Api.Client.Sdk.Shared.csproj"/>
-        <Project Path="src/nuget-packages/AStar.Dev.Api.HealthChecks/AStar.Dev.Api.HealthChecks.csproj"/>
-        <Project Path="src/nuget-packages/AStar.Dev.Api.Usage.Sdk/AStar.Dev.Api.Usage.Sdk.csproj"/>
-        <Project Path="src/nuget-packages/AStar.Dev.AspNet.Extensions/AStar.Dev.AspNet.Extensions.csproj"/>
-        <Project Path="src/nuget-packages/AStar.Dev.Auth.Extensions/AStar.Dev.Auth.Extensions.csproj"/>
-        <Project Path="src/nuget-packages/AStar.Dev.Files.Api.Client.Sdk/AStar.Dev.Files.Api.Client.Sdk.csproj"/>
-        <Project Path="src/nuget-packages/AStar.Dev.Fluent.Assignments/AStar.Dev.Fluent.Assignments.csproj"/>
-        <Project Path="src/nuget-packages/AStar.Dev.Guard.Clauses/AStar.Dev.Guard.Clauses.csproj"/>
-        <Project Path="src/nuget-packages/AStar.Dev.Images.Api.Client.Sdk/AStar.Dev.Images.Api.Client.Sdk.csproj"/>
-        <Project Path="src/nuget-packages/AStar.Dev.Infrastructure.AdminDb/AStar.Dev.Infrastructure.AdminDb.csproj"/>
-        <Project Path="src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/AStar.Dev.Infrastructure.FilesDb.csproj"/>
-        <Project Path="src/nuget-packages/AStar.Dev.Infrastructure.UsageDb/AStar.Dev.Infrastructure.UsageDb.csproj"/>
-        <Project Path="src/nuget-packages/AStar.Dev.Infrastructure/AStar.Dev.Infrastructure.csproj"/>
-        <Project Path="src/nuget-packages/AStar.Dev.Minimal.Api.Extensions/AStar.Dev.Minimal.Api.Extensions.csproj"/>
-        <Project Path="src/nuget-packages/AStar.Dev.Restful.Root.Document/AStar.Dev.Restful.Root.Document.csproj"/>
-        <Project Path="src/nuget-packages/AStar.Dev.Technical.Debt.Reporting/AStar.Dev.Technical.Debt.Reporting.csproj"/>
-        <Project Path="src/nuget-packages/AStar.Dev.Test.DbContext.Helpers/AStar.Dev.Test.DbContext.Helpers.csproj"/>
-        <Project Path="src/nuget-packages/AStar.Dev.Test.Helpers.EndToEnd/AStar.Dev.Test.Helpers.EndToEnd.csproj"/>
-        <Project Path="src/nuget-packages/AStar.Dev.Test.Helpers.Integration/AStar.Dev.Test.Helpers.Integration.csproj"/>
-        <Project Path="src/nuget-packages/AStar.Dev.Test.Helpers.Minimal.Api/AStar.Dev.Test.Helpers.Minimal.Api.csproj"/>
-        <Project Path="src/nuget-packages/AStar.Dev.Test.Helpers.Unit/AStar.Dev.Test.Helpers.Unit.csproj"/>
-        <Project Path="src/nuget-packages/AStar.Dev.Test.Helpers/AStar.Dev.Test.Helpers.csproj"/>
-        <Project Path="src/nuget-packages/AStar.Dev.Usage.Api.Client.Sdk/AStar.Dev.Usage.Api.Client.Sdk.csproj"/>
-    </Folder>
     <Folder Name="/src/services/">
         <Project Path="src/services/AStar.Dev.Usage.Logger/AStar.Dev.Usage.Logger.csproj"/>
         <Project Path="src/services/AStar.Dev.Wallpaper.Scrapper/AStar.Dev.Wallpaper.Scrapper.csproj"/>
@@ -86,42 +55,11 @@
         <Project Path="test/apis/AStar.Dev.Images.Api.Tests.Integration/AStar.Dev.Images.Api.Tests.Integration.csproj"/>
         <Project Path="test/apis/AStar.Dev.Images.Api.Tests.Unit/AStar.Dev.Images.Api.Tests.Unit.csproj"/>
     </Folder>
-    <Folder Name="/tests/console-applications/">
-        <Project Path="test/console-apps/AStar.Dev.BackupApp.Core.Test.Unit/AStar.Dev.BackupApp.Core.Test.Unit.csproj"/>
-        <Project Path="test/console-apps/AStar.Dev.BackupApp.Tests.Integration/AStar.Dev.BackupApp.Tests.Integration.csproj"/>
-        <Project Path="test/console-apps/AStar.Dev.BackupApp.Tests.Unit/AStar.Dev.BackupApp.Tests.Unit.csproj"/>
-    </Folder>
-    <Folder Name="/tests/nuget-packages/">
-        <Project Path="test/nuget-packages/AStar.Dev.Admin.Api.Client.Sdk.Tests.Unit/AStar.Dev.Admin.Api.Client.Sdk.Tests.Unit.csproj"/>
-        <Project Path="test/nuget-packages/AStar.Dev.Api.Client.Sdk.Shared.Test.Unit/AStar.Dev.Api.Client.Sdk.Shared.Test.Unit.csproj"/>
-        <Project Path="test/nuget-packages/AStar.Dev.Api.HealthChecks.Tests.Unit/AStar.Dev.Api.HealthChecks.Tests.Unit.csproj"/>
-        <Project Path="test/nuget-packages/AStar.Dev.Api.Usage.Sdk.Tests.Unit/AStar.Dev.Api.Usage.Sdk.Tests.Unit.csproj"/>
-        <Project Path="test/nuget-packages/AStar.Dev.AspNet.Extensions.Tests.Unit/AStar.Dev.AspNet.Extensions.Tests.Unit.csproj"/>
-        <Project Path="test/nuget-packages/AStar.Dev.Auth.Extensions.Tests.Unit/AStar.Dev.Auth.Extensions.Tests.Unit.csproj"/>
-        <Project Path="test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit.csproj"/>
-        <Project Path="test/nuget-packages/AStar.Dev.Fluent.Assignments.Tests.Unit/AStar.Dev.Fluent.Assignments.Tests.Unit.csproj"/>
-        <Project Path="test/nuget-packages/AStar.Dev.Guard.Clauses.Tests.Unit/AStar.Dev.Guard.Clauses.Tests.Unit.csproj"/>
-        <Project Path="test/nuget-packages/AStar.Dev.Images.Api.Client.Sdk.Tests.Unit/AStar.Dev.Images.Api.Client.Sdk.Tests.Unit.csproj"/>
-        <Project Path="test/nuget-packages/AStar.Dev.Infrastructure.AdminDb.Tests.Unit/AStar.Dev.Infrastructure.AdminDb.Tests.Unit.csproj"/>
-        <Project Path="test/nuget-packages/AStar.Dev.Infrastructure.FilesDb.Tests.Integration/AStar.Dev.Infrastructure.FilesDb.Tests.Integration.csproj"/>
-        <Project Path="test/nuget-packages/AStar.Dev.Infrastructure.FilesDb.Tests.Unit/AStar.Dev.Infrastructure.FilesDb.Tests.Unit.csproj"/>
-        <Project Path="test/nuget-packages/AStar.Dev.Infrastructure.Tests.Unit/AStar.Dev.Infrastructure.Tests.Unit.csproj"/>
-        <Project Path="test/nuget-packages/AStar.Dev.Infrastructure.UsageDb.Tests.Unit/AStar.Dev.Infrastructure.UsageDb.Tests.Unit.csproj"/>
-        <Project Path="test/nuget-packages/AStar.Dev.Minimal.Api.Extensions.Tests.Unit/AStar.Dev.Minimal.Api.Extensions.Tests.Unit.csproj"/>
-        <Project Path="test/nuget-packages/AStar.Dev.Restful.Root.Document.Tests.Unit/AStar.Dev.Restful.Root.Document.Tests.Unit.csproj"/>
-        <Project Path="test/nuget-packages/AStar.Dev.Technical.Debt.Reporting.Tests.Unit/AStar.Dev.Technical.Debt.Reporting.Tests.Unit.csproj"/>
-        <Project Path="test/nuget-packages/AStar.Dev.Test.Helpers.Integration.Tests.Unit/AStar.Dev.Test.Helpers.Integration.Tests.Unit.csproj"/>
-        <Project Path="test/nuget-packages/AStar.Dev.Test.Helpers.Minimal.Api.Tests.Unit/AStar.Dev.Test.Helpers.Minimal.Api.Tests.Unit.csproj"/>
-        <Project Path="test/nuget-packages/AStar.Dev.Test.Helpers.Tests.Unit.Unit/AStar.Dev.Test.Helpers.Tests.Unit.Unit.csproj"/>
-        <Project Path="test/nuget-packages/AStar.Dev.Test.Helpers.Tests.Unit/AStar.Dev.Test.Helpers.Tests.Unit.csproj"/>
-        <Project Path="test/nuget-packages/AStar.Dev.Usage.Api.Client.Sdk.Tests.Unit/AStar.Dev.Usage.Api.Client.Sdk.Tests.Unit.csproj"/>
-    </Folder>
     <Folder Name="/tests/services/">
         <Project Path="test/services/AStar.Dev.Database.Updater.Core.Tests.Unit/AStar.Dev.Database.Updater.Core.Tests.Unit.csproj"/>
         <Project Path="test/services/AStar.Dev.Database.Updater.Tests.Integration/AStar.Dev.Database.Updater.Tests.Integration.csproj"/>
         <Project Path="test/services/AStar.Dev.Database.Updater.Tests.Unit/AStar.Dev.Database.Updater.Tests.Unit.csproj"/>
     </Folder>
-    <Folder Name="/tests/support/"/>
     <Folder Name="/tests/uis/">
         <Project Path="test/uis/AStar.Dev.Web.UI.Tests.Integration/AStar.Dev.Web.UI.Tests.Integration.csproj"/>
         <Project Path="test/uis/AStar.Dev.Web.UI.Tests.Unit/AStar.Dev.Web.UI.Tests.Unit.csproj"/>
