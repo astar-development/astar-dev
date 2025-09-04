@@ -1,0 +1,68 @@
+<Solution>
+    <Folder Name="/.github/">
+        <File Path=".github/codeql.yml"/>
+        <File Path=".github/dependabot.yml"/>
+    </Folder>
+    <Folder Name="/.github/workflows/">
+        <File Path=".github/workflows/main_astar-dev.yml"/>
+    </Folder>
+    <Folder Name="/Solution Items/">
+        <File Path=".editorconfig"/>
+    </Folder>
+    <Folder Name="/Solution Items/test/">
+        <File Path=".editorconfig"/>
+    </Folder>
+    <Folder Name="/src/"/>
+    <Folder Name="/src/apis/">
+        <Project Path="src/apis/AStar.Dev.Admin.Api/AStar.Dev.Admin.Api.csproj"/>
+        <Project Path="src/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.csproj"/>
+        <Project Path="src/apis/AStar.Dev.Images.Api/AStar.Dev.Images.Api.csproj"/>
+        <Project Path="src/apis/AStar.Dev.ToDo.Api/AStar.Dev.ToDo.Api.csproj"/>
+    </Folder>
+    <Folder Name="/src/services/">
+        <Project Path="src/services/AStar.Dev.Usage.Logger/AStar.Dev.Usage.Logger.csproj"/>
+        <Project Path="src/services/AStar.Dev.Wallpaper.Scrapper/AStar.Dev.Wallpaper.Scrapper.csproj"/>
+    </Folder>
+    <Folder Name="/src/services/astar-dev-database-updater/">
+        <Project Path="src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.csproj"/>
+        <Project Path="src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/AStar.Dev.Database.Updater.csproj"/>
+    </Folder>
+    <Folder Name="/src/services/migrations/">
+        <Project Path="src/services/migrations/AStar.Dev.FilesDb.MigrationService/AStar.Dev.FilesDb.MigrationService.csproj"/>
+    </Folder>
+    <Folder Name="/src/uis/">
+        <Project Path="src/uis/AStar.Dev.Web/AStar.Dev.Web.csproj"/>
+    </Folder>
+    <Folder Name="/src/_aspire/">
+        <Project Path="src/_aspire/AStar.Dev.AppHost/AStar.Dev.AppHost.csproj"/>
+        <Project Path="src/_aspire/AStar.Dev.Aspire.Common/AStar.Dev.Aspire.Common.csproj"/>
+        <Project Path="src/_aspire/AStar.Dev.ServiceDefaults/AStar.Dev.ServiceDefaults.csproj"/>
+    </Folder>
+    <Folder Name="/tests/"/>
+    <Folder Name="/tests/apis/"/>
+    <Folder Name="/tests/apis/AStar.Dev.Admin.Api/">
+        <Project Path="test/apis/AStar.Dev.Admin.Api.Tests.EndToEnd/AStar.Dev.Admin.Api.Tests.EndToEnd.csproj"/>
+        <Project Path="test/apis/AStar.Dev.Admin.Api.Tests.Integration/AStar.Dev.Admin.Api.Tests.Integration.csproj"/>
+        <Project Path="test/apis/AStar.Dev.Admin.Api.Tests.Unit/AStar.Dev.Admin.Api.Tests.Unit.csproj"/>
+    </Folder>
+    <Folder Name="/tests/apis/AStar.Dev.Files.Api/">
+        <Project Path="test/apis/AStar.Dev.Files.Api.Tests.EndToEnd/AStar.Dev.Files.Api.Tests.EndToEnd.csproj"/>
+        <Project Path="test/apis/AStar.Dev.Files.Api.Tests.Integration/AStar.Dev.Files.Api.Tests.Integration.csproj"/>
+        <Project Path="test/apis/AStar.Dev.Files.Api.Tests.Unit/AStar.Dev.Files.Api.Tests.Unit.csproj"/>
+    </Folder>
+    <Folder Name="/tests/apis/AStar.Dev.Images.Api/">
+        <Project Path="test/apis/AStar.Dev.Images.Api.Tests.EndToEnd/AStar.Dev.Images.Api.Tests.EndToEnd.csproj"/>
+        <Project Path="test/apis/AStar.Dev.Images.Api.Tests.Integration/AStar.Dev.Images.Api.Tests.Integration.csproj"/>
+        <Project Path="test/apis/AStar.Dev.Images.Api.Tests.Unit/AStar.Dev.Images.Api.Tests.Unit.csproj"/>
+    </Folder>
+    <Folder Name="/tests/services/">
+        <Project Path="test/services/AStar.Dev.Database.Updater.Core.Tests.Unit/AStar.Dev.Database.Updater.Core.Tests.Unit.csproj"/>
+        <Project Path="test/services/AStar.Dev.Database.Updater.Tests.Integration/AStar.Dev.Database.Updater.Tests.Integration.csproj"/>
+        <Project Path="test/services/AStar.Dev.Database.Updater.Tests.Unit/AStar.Dev.Database.Updater.Tests.Unit.csproj"/>
+    </Folder>
+    <Folder Name="/tests/uis/">
+        <Project Path="test/uis/AStar.Dev.Web.UI.Tests.Integration/AStar.Dev.Web.UI.Tests.Integration.csproj"/>
+        <Project Path="test/uis/AStar.Dev.Web.UI.Tests.Unit/AStar.Dev.Web.UI.Tests.Unit.csproj"/>
+    </Folder>
+    <Folder Name="/tests/_aspire/"/>
+</Solution>

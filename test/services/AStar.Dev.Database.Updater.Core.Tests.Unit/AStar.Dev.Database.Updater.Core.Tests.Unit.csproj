@@ -13,14 +13,13 @@
     </ItemGroup>
 
     <ItemGroup>
-
-        <PackageReference Include="AStar.Dev.Functional.Extensions" Version="0.4.2"/>
-
+        <PackageReference Include="AStar.Dev.Functional.Extensions" Version="0.4.5"/>
+        <PackageReference Include="AStar.Dev.Infrastructure.FilesDb" Version="0.1.0"/>
         <PackageReference Include="coverlet.collector" Version="6.0.4">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="JetBrains.Annotations" Version="2025.2.0"/>
+        <PackageReference Include="JetBrains.Annotations" Version="2025.2.2"/>
         <PackageReference Include="NSubstitute" Version="5.3.0"/>
         <PackageReference Include="Shouldly" Version="4.3.0"/>
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1"/>
@@ -39,7 +38,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\src\nuget-packages\AStar.Dev.Infrastructure.FilesDb\AStar.Dev.Infrastructure.FilesDb.csproj"/>
         <ProjectReference Include="..\..\..\src\services\astar-dev-database-updater\AStar.Dev.Database.Updater.Core\AStar.Dev.Database.Updater.Core.csproj"/>
     </ItemGroup>
 
