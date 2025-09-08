@@ -95,6 +95,8 @@ try
     var app = builder.Build()
                      .UseApiServices();
 
+    app.UseSecurityHeaders();
+
     app.ConfigureRootPage(applicationName.Replace(".", " "))
        .UseMetrics();
 
