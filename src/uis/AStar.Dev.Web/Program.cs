@@ -35,6 +35,8 @@ builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
+app.UseSecurityHeaders();
+
 app.UseAuthentication();
 app.UseAuthorization();
 
