@@ -85,6 +85,7 @@ try
                                         options.SerializerOptions.ReferenceHandler            = ReferenceHandler.IgnoreCycles;
                                         options.SerializerOptions.PropertyNameCaseInsensitive = true;
                                     });
+
     services.AddAuthorization();
     services.AddExceptionHandler<GlobalExceptionHandler>();
     services.AddProblemDetails(options => options.CustomizeProblemDetails = ctx => ctx.ProblemDetails.Extensions.Add("nodeId", Environment.MachineName));
