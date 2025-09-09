@@ -5,7 +5,7 @@ namespace AStar.Dev.Web.Components.Layout;
 
 public partial class LoginDisplay : ComponentBase
 {
-    private string name = "Unknown";
+    private string _name = "Unknown";
 
     [Inject]
     public required AuthenticationStateProvider AuthenticationStateProvider { get; set; }
@@ -26,7 +26,7 @@ public partial class LoginDisplay : ComponentBase
                IsAuthenticated: true
            })
         {
-            name = user.Claims.Single(claim => claim.Type == "name").Value.Split(' ')[0];
+            _name = user.Claims.Single(claim => claim.Type == "name").Value.Split(' ')[0];
         }
     }
 }
