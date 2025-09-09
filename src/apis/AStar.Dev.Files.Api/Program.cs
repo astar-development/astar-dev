@@ -95,7 +95,11 @@ try
     var app = builder.Build()
                      .UseApiServices();
 
-    app.UseSecurityHeaders();
+    var policyCollection = new HeaderPolicyCollection()
+                           .AddDefaultSecurityHeaders()
+                           .AddPermissionsPolicyWithDefaultSecureDirectives();
+
+    app.UseSecurityHeaders(policyCollection);
 
     app.ConfigureRootPage(applicationName.Replace(".", " "))
        .UseMetrics();

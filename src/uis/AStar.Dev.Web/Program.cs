@@ -35,7 +35,11 @@ builder.Services.AddRazorPages();
 
 var app = builder.Build();
 
-app.UseSecurityHeaders();
+var policyCollection = new HeaderPolicyCollection()
+                       .AddDefaultSecurityHeaders()
+                       .AddPermissionsPolicyWithDefaultSecureDirectives();
+
+app.UseSecurityHeaders(policyCollection);
 
 app.UseAuthentication();
 app.UseAuthorization();
