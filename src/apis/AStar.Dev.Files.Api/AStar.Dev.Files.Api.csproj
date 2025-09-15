@@ -29,7 +29,7 @@
         <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.4"/>
         <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="9.0.4"/>
         <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="9.0.4"/>
-        <PackageReference Include="TestableIO.System.IO.Abstractions" Version="22.0.15"/>
+        <PackageReference Include="TestableIO.System.IO.Abstractions" Version="22.0.16"/>
         <PackageReference Include="TestableIO.System.IO.Abstractions.Wrappers" Version="22.0.15"/>
         <PackageReference Include="Z.Linq.Async" Version="1.0.3"/>
         <PackageReference Include="ZLinq" Version="1.5.2"/>
