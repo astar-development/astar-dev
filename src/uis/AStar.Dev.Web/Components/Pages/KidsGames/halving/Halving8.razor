@@ -1,11 +1,25 @@
 @page "/kids-games/halving-eight"
+@using Microsoft.FluentUI.AspNetCore.Components.Icons.Regular
+@attribute [AllowAnonymous]
+
 <link href="./games/halving/css/halving.css" rel="stylesheet" type="text/css">
 <link href="./games/css/grid.css" rel="stylesheet" type="text/css">
 <link href="./games/css/menu.css" rel="stylesheet" type="text/css">
 
-<div>
-    @* <Breadcrumb Items="NavItems1"></Breadcrumb> *@
-</div>
+<FluentBreadcrumb>
+    <FluentBreadcrumbItem Href="#">
+        Home
+        <FluentIcon Value="@(new Size16.Home())" Color="@Color.Neutral" Slot="start"/>
+    </FluentBreadcrumbItem>
+    <FluentBreadcrumbItem Href="#">
+        Kids Games
+        <FluentIcon Value="@(new Size16.Games())" Color="@Color.Neutral" Slot="start"/>
+    </FluentBreadcrumbItem>
+    <FluentBreadcrumbItem>
+        Breadcrumb item 3
+        <FluentIcon Value="@(new Size16.Money())" Color="@Color.Neutral" Slot="start"/>
+    </FluentBreadcrumbItem>
+</FluentBreadcrumb>
 
 <h1>Halving Eight</h1>
 

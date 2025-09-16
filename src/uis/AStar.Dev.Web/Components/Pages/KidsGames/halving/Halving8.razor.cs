@@ -1,8 +1,7 @@
-
 using JetBrains.Annotations;
 using Microsoft.AspNetCore.Components;
 
-namespace AStar.Dev.Web.Components.Pages.kids_games.halving;
+namespace AStar.Dev.Web.Components.Pages.KidsGames.halving;
 
 [UsedImplicitly]
 public partial class Halving8 : ComponentBase

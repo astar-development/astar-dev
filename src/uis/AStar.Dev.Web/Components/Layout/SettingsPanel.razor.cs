@@ -10,7 +10,7 @@ public partial class SettingsPanel : ComponentBase
     public required ILogger<SettingsPanel> Logger { get; set; }
 
     [Inject]
-    public required IJSRuntime JSRuntime { get; set; }
+    public required IJSRuntime JsRuntime { get; set; }
 
     [Parameter]
     public bool IsOpen { get; set; }
@@ -41,7 +41,7 @@ public partial class SettingsPanel : ComponentBase
     {
         try
         {
-            var storedColor = await JSRuntime.InvokeAsync<string>("localStorage.getItem", "officeColor");
+            var storedColor = await JsRuntime.InvokeAsync<string>("localStorage.getItem", "officeColor");
 
             if(!string.IsNullOrEmpty(storedColor) && Enum.TryParse<OfficeColor>(storedColor, out var parsedColor))
             {
@@ -59,7 +59,7 @@ public partial class SettingsPanel : ComponentBase
     {
         try
         {
-            await JSRuntime.InvokeVoidAsync("localStorage.setItem", "officeColor", OfficeColor.ToString());
+            await JsRuntime.InvokeVoidAsync("localStorage.setItem", "officeColor", OfficeColor.ToString());
         }
         catch(Exception ex)
         {

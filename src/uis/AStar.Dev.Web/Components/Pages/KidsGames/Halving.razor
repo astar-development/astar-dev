@@ -1,9 +1,21 @@
 @page "/kids-games/halving"
+@using Microsoft.FluentUI.AspNetCore.Components.Icons.Regular
 @attribute [AllowAnonymous]
 
-<div>
-    @* <Breadcrumb Items="NavItems1"></Breadcrumb> *@
-</div>
+<FluentBreadcrumb>
+    <FluentBreadcrumbItem Href="#">
+        Home
+        <FluentIcon Value="@(new Size16.Home())" Color="@Color.Neutral" Slot="start"/>
+    </FluentBreadcrumbItem>
+    <FluentBreadcrumbItem Href="#">
+        Kids Games
+        <FluentIcon Value="@(new Size16.Games())" Color="@Color.Neutral" Slot="start"/>
+    </FluentBreadcrumbItem>
+    <FluentBreadcrumbItem>
+        Breadcrumb item 3
+        <FluentIcon Value="@(new Size16.Money())" Color="@Color.Neutral" Slot="start"/>
+    </FluentBreadcrumbItem>
+</FluentBreadcrumb>
 
 <h1>What number do you want to halve?</h1>
 

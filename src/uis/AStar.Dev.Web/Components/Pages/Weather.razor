@@ -9,9 +9,12 @@
 
 @if (_forecasts == null)
 {
-    <p>
-        <em>Loading...</em>
-    </p>
+    <FluentStack>
+        <FluentProgressRing style="width: 102px; height: 102px;"></FluentProgressRing>
+        <p>
+            <em>Loading...</em>
+        </p>
+    </FluentStack>
 }
 else
 {

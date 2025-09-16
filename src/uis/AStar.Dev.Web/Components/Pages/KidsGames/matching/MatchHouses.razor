@@ -1,11 +1,25 @@
 @page "/kids-games/match-houses"
+@using Microsoft.FluentUI.AspNetCore.Components.Icons.Regular
+@attribute [AllowAnonymous]
+
 <link href="./games/match/css/match.css" rel="stylesheet" type="text/css">
 <link href="./games/css/grid.css" rel="stylesheet" type="text/css">
 <link href="./games/css/menu.css" rel="stylesheet" type="text/css">
 
-<div>
-    @* <Breadcrumb Items="NavItems1"></Breadcrumb> *@
-</div>
+<FluentBreadcrumb>
+    <FluentBreadcrumbItem Href="#">
+        Home
+        <FluentIcon Value="@(new Size16.Home())" Color="@Color.Neutral" Slot="start"/>
+    </FluentBreadcrumbItem>
+    <FluentBreadcrumbItem Href="#">
+        Kids Games
+        <FluentIcon Value="@(new Size16.Games())" Color="@Color.Neutral" Slot="start"/>
+    </FluentBreadcrumbItem>
+    <FluentBreadcrumbItem>
+        Breadcrumb item 3
+        <FluentIcon Value="@(new Size16.Money())" Color="@Color.Neutral" Slot="start"/>
+    </FluentBreadcrumbItem>
+</FluentBreadcrumb>
 
 <h1>Match Houses</h1>
 

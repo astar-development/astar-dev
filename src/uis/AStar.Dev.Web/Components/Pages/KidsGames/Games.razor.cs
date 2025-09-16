@@ -1,7 +1,7 @@
 using JetBrains.Annotations;
 using Microsoft.AspNetCore.Components;
 
-namespace AStar.Dev.Web.Components.Pages.kids_games;
+namespace AStar.Dev.Web.Components.Pages.KidsGames;
 
 [UsedImplicitly]
 public partial class Games : ComponentBase
