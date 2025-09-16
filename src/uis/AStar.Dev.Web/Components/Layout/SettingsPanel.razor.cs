@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Components;
+using Microsoft.FluentUI.AspNetCore.Components;
 using Microsoft.JSInterop;
 
 namespace AStar.Dev.Web.Components.Layout;
@@ -20,7 +21,6 @@ public partial class SettingsPanel : ComponentBase
     public required DesignThemeModes Mode { get; set; }
 
     private OfficeColor _officeColor = OfficeColor.Office;
-
     public OfficeColor OfficeColor
     {
         get => _officeColor;

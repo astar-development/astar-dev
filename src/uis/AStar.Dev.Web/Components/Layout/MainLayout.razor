@@ -1,11 +1,12 @@
-﻿@inherits LayoutComponentBase
+@using Microsoft.FluentUI.AspNetCore.Components.Icons.Regular
+@inherits LayoutComponentBase
 
 <FluentLayout>
     <FluentHeader>
         <img src="@Assets["assets/astar-logo.png"]" alt="AStar.Dev" style="height: 40px;"/>
         <FluentSpacer/>
         <FluentButton Appearance="Appearance.Stealth"
-                      IconStart="@(new Icons.Regular.Size20.Settings())"
+                      IconStart="@(new Size20.Settings())"
                       @onclick="OpenSettingsDialog"
                       Title="Settings"/>
 

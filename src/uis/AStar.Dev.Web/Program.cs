@@ -1,8 +1,10 @@
+#pragma warning disable CA1506
 using AStar.Dev.ServiceDefaults;
+using AStar.Dev.Web;
 using AStar.Dev.Web.Components;
-using AStar.Dev.Web.Components.Layout.Menu;
 using Azure.Monitor.OpenTelemetry.AspNetCore;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
+using Microsoft.FluentUI.AspNetCore.Components;
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
 using OpenTelemetry.Resources;
@@ -18,8 +20,11 @@ builder.Services.AddOpenTelemetry().UseAzureMonitor(options =>
 
 builder.AddServiceDefaults();
 
+// Add services to the container.
 builder.Services.AddRazorComponents()
        .AddInteractiveServerComponents();
+
+builder.Services.AddFluentUIComponents();
 
 builder.Services
        .AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
@@ -27,13 +32,25 @@ builder.Services
 
 builder.Services.AddAuthorization();
 builder.Services.AddHealthChecks();
-builder.Services.AddSingleton<IMenuItemsService, MenuItemsService>();
-builder.Services.AddBlazorBootstrap();
-builder.Services.AddCascadingAuthenticationState();
-builder.Services.AddControllersWithViews().AddMicrosoftIdentityUI();
-builder.Services.AddRazorPages();
 
-var app = builder.Build();
+builder.Services.AddControllersWithViews()
+       .AddMicrosoftIdentityUI();
+
+var app = builder.RemoveServerHeaderAndBuild();
+
+app.MapHealthChecks("/health");
+
+// Configure the HTTP request pipeline.
+if(!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Error", true);
+
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
+
 
 var policyCollection = new HeaderPolicyCollection()
                        .AddDefaultSecurityHeaders()
@@ -41,36 +58,21 @@ var policyCollection = new HeaderPolicyCollection()
 
 app.UseSecurityHeaders(policyCollection);
 
+// Auth middlewares BEFORE components
 app.UseAuthentication();
 app.UseAuthorization();
 
-app.UseStatusCodePagesWithRedirects("/404");
-
-app.MapHealthChecks("/health");
-
-if(!app.Environment.IsDevelopment())
-{
-    app.UseHsts();
-}
-
-app.UseExceptionHandler("/unexpected-error", true);
-app.UseHttpsRedirection();
-
 app.UseAntiforgery();
 
-app.MapStaticAssets().AllowAnonymous();
+// Static files remain anonymous
+app.MapStaticAssets();
 
-app.MapControllers().AllowAnonymous();
+// SignIn/SignOut endpoints
+app.MapControllers();
 
+// Do NOT require auth at the endpoint; enforce via Router
 app.MapRazorComponents<App>()
-   .AddInteractiveServerRenderMode()
-   .AllowAnonymous();
+   .AddInteractiveServerRenderMode();
 
 await app.RunAsync();
-
-namespace AStar.Dev.Web
-{
-    public class Program
-    {
-    }
-}
+#pragma warning restore CA1506
