@@ -66,7 +66,7 @@ jobs:
 
       - name: 🚀 Publish App
         if: github.ref == 'refs/heads/main'
-        run: dotnet publish "${{ env.WORKING_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }} --no-build --output "${{ env.AZURE_WEBAPP_PACKAGE_PATH }}"
+        run: dotnet publish "${{ env.WORKING_DIRECTORY }}" --configuration ${{ env.CONFIGURATION }} --output "${{ env.AZURE_WEBAPP_PACKAGE_PATH }}"
 
       - name: 🚀 Publish Artifacts
         if: github.ref == 'refs/heads/main'

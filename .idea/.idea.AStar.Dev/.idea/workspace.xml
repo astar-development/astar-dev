@@ -55,16 +55,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_aspire/AStar.Dev.ServiceDefaults/AStar.Dev.ServiceDefaults.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/_aspire/AStar.Dev.ServiceDefaults/AStar.Dev.ServiceDefaults.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Admin.Api/AStar.Dev.Admin.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Admin.Api/AStar.Dev.Admin.Api.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Images.Api/AStar.Dev.Images.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Images.Api/AStar.Dev.Images.Api.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.ToDo.Api/AStar.Dev.ToDo.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.ToDo.Api/AStar.Dev.ToDo.Api.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/AStar.Dev.Usage.Logger/AStar.Dev.Usage.Logger.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AStar.Dev.Usage.Logger/AStar.Dev.Usage.Logger.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Routes.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Routes.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Core.Tests.Unit/AStar.Dev.Database.Updater.Core.Tests.Unit.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Core.Tests.Unit/AStar.Dev.Database.Updater.Core.Tests.Unit.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/main_astar-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main_astar-dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -219,6 +212,8 @@
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/kids-games/matching/MatchHouses.razor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/nuget-documentation/AStarDevFunctionalResults.razor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/nuget-documentation/NuGetDocumentation.razor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/uis/AStar.Dev.Web/Components/Routes.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/uis/AStar.Dev.Web/Components/Routes.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Routes.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/Get/V1/GetFilesHandlerStructureShould.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Core.Tests.Unit/ErrorResponseShould.cs" root0="FORCE_HIGHLIGHTING" />
@@ -241,46 +236,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Launch Settings Profile.AStar.Dev.Database.Updater: http.executor&quot;: &quot;Debug&quot;,
-    &quot;.NET Launch Settings Profile.AStar.Dev.Database.Updater: https.executor&quot;: &quot;Debug&quot;,
-    &quot;.NET Launch Settings Profile.AStar.Dev.Files.Api: https.executor&quot;: &quot;Debug&quot;,
-    &quot;.NET Launch Settings Profile.AStar.Dev.Web: https.executor&quot;: &quot;Run&quot;,
-    &quot;048590b5-e09c-40ff-b78c-f96a021a888b.executor&quot;: &quot;Debug&quot;,
-    &quot;0ab30047-51d5-4fe8-9824-80c2209700c0.executor&quot;: &quot;Debug&quot;,
-    &quot;157d886d-0a11-45b5-b1e8-641349d3cc41.executor&quot;: &quot;Debug&quot;,
-    &quot;22071734-6c60-41bb-aea8-3be1144d15bd.executor&quot;: &quot;Debug&quot;,
-    &quot;350a68dd-7b54-4a0c-82a3-cfafaee8412e.executor&quot;: &quot;Debug&quot;,
-    &quot;37e8db58-7b27-4d30-8126-079f70986791.executor&quot;: &quot;Debug&quot;,
-    &quot;5394ae1f-e1ba-4997-9785-ae0f83daa327.executor&quot;: &quot;Debug&quot;,
-    &quot;74865cb9-5982-44cc-8c44-3e1395390114.executor&quot;: &quot;Debug&quot;,
-    &quot;843b7700-6fc6-465e-a3ac-795da6dc3892.executor&quot;: &quot;Debug&quot;,
-    &quot;8cbff862-16b7-48f9-b845-ce6464b5344d.executor&quot;: &quot;Debug&quot;,
-    &quot;8fd607c9-dea8-4b95-8264-467bd8bce66a.executor&quot;: &quot;Debug&quot;,
-    &quot;Aspire Host.AStar.Dev.AppHost: http.executor&quot;: &quot;Run&quot;,
-    &quot;Aspire Host.AStar.Dev.AppHost: https.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;a7c202b2-347a-4ed8-925f-a1edb2b07258.executor&quot;: &quot;Debug&quot;,
-    &quot;e17f45b0-a300-46c0-be33-f577373f589d.executor&quot;: &quot;Debug&quot;,
-    &quot;e1fa419c-f915-45ea-a5b9-af0e54288449.executor&quot;: &quot;Debug&quot;,
-    &quot;ead053aa-6f06-48a9-a614-f676b2fe4dd5.executor&quot;: &quot;Debug&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;features/change-to-fluent-ui&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/jason-barden/RiderProjects/astar-dev-database-testing/DatabaseTesting.slnx&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;RiderNuGetOptionsPageId&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Launch Settings Profile.AStar.Dev.Database.Updater: http.executor": "Debug",
+    ".NET Launch Settings Profile.AStar.Dev.Database.Updater: https.executor": "Debug",
+    ".NET Launch Settings Profile.AStar.Dev.Files.Api: https.executor": "Debug",
+    ".NET Launch Settings Profile.AStar.Dev.Web: https.executor": "Run",
+    "048590b5-e09c-40ff-b78c-f96a021a888b.executor": "Debug",
+    "0ab30047-51d5-4fe8-9824-80c2209700c0.executor": "Debug",
+    "157d886d-0a11-45b5-b1e8-641349d3cc41.executor": "Debug",
+    "22071734-6c60-41bb-aea8-3be1144d15bd.executor": "Debug",
+    "350a68dd-7b54-4a0c-82a3-cfafaee8412e.executor": "Debug",
+    "37e8db58-7b27-4d30-8126-079f70986791.executor": "Debug",
+    "5394ae1f-e1ba-4997-9785-ae0f83daa327.executor": "Debug",
+    "74865cb9-5982-44cc-8c44-3e1395390114.executor": "Debug",
+    "843b7700-6fc6-465e-a3ac-795da6dc3892.executor": "Debug",
+    "8cbff862-16b7-48f9-b845-ce6464b5344d.executor": "Debug",
+    "8fd607c9-dea8-4b95-8264-467bd8bce66a.executor": "Debug",
+    "Aspire Host.AStar.Dev.AppHost: http.executor": "Run",
+    "Aspire Host.AStar.Dev.AppHost: https.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "a7c202b2-347a-4ed8-925f-a1edb2b07258.executor": "Debug",
+    "e17f45b0-a300-46c0-be33-f577373f589d.executor": "Debug",
+    "e1fa419c-f915-45ea-a5b9-af0e54288449.executor": "Debug",
+    "ead053aa-6f06-48a9-a614-f676b2fe4dd5.executor": "Debug",
+    "git-widget-placeholder": "#64 on features/rename-favicon",
+    "last_opened_file_path": "/home/jason-barden/RiderProjects/astar-dev-database-testing/DatabaseTesting.slnx",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "RiderNuGetOptionsPageId",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager" selected="Aspire Host.AStar.Dev.AppHost: https">
     <configuration name="AStar.Dev.AppHost: https" type="AspireHostConfiguration" factoryName="Aspire Host" activateToolWindowBeforeRun="false">
       <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/_aspire/AStar.Dev.AppHost/AStar.Dev.AppHost.csproj" />
@@ -1064,23 +1059,7 @@
       <workItem from="1757395510313" duration="359000" />
       <workItem from="1757703707309" duration="97000" />
       <workItem from="1758047378743" duration="2024000" />
-      <workItem from="1758049805114" duration="337000" />
-    </task>
-    <task id="LOCAL-00043" summary="Update tests to make pass bar 2 UI (known) and 1&#10;&#10;In the FilesAPI which relies on changes yet to be made to the test context">
-      <option name="closed" value="true" />
-      <created>1752779662666</created>
-      <option name="number" value="00043" />
-      <option name="presentableId" value="LOCAL-00043" />
-      <option name="project" value="LOCAL" />
-      <updated>1752779662666</updated>
-    </task>
-    <task id="LOCAL-00044" summary="Just noticed Build not running for PR so this should fix">
-      <option name="closed" value="true" />
-      <created>1752780228850</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1752780228850</updated>
+      <workItem from="1758049805114" duration="3159000" />
     </task>
     <task id="LOCAL-00045" summary="Update the pipeline to run tests correctly&#10; &#10;and exclude e2e tests as wll as set broken unit test to be ignored">
       <option name="closed" value="true" />
@@ -1458,7 +1437,23 @@
       <option name="project" value="LOCAL" />
       <updated>1758048969673</updated>
     </task>
-    <option name="localTasksCounter" value="92" />
+    <task id="LOCAL-00092" summary="Update package dependencies and XML documentation formatting&#10;&#10;- Bump `Microsoft.Identity.Web` to version 3.14.1 across multiple projects.&#10;- Bump `Microsoft.Extensions.Http.Resilience` to version 9.9.0 in `AStar.Dev.ServiceDefaults`.&#10;- Update `TestableIO.System.IO.Abstractions` dependencies to 22.0.16 in relevant projects.&#10;- Refactor XML documentation by simplifying formatting for improved readability.">
+      <option name="closed" value="true" />
+      <created>1758050377424</created>
+      <option name="number" value="00092" />
+      <option name="presentableId" value="LOCAL-00092" />
+      <option name="project" value="LOCAL" />
+      <updated>1758050377424</updated>
+    </task>
+    <task id="LOCAL-00093" summary="Rename the favicon">
+      <option name="closed" value="true" />
+      <created>1758054025193</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1758054025193</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1539,8 +1534,6 @@
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Update formatting to remove extra spaces" />
-    <MESSAGE value="Temporarily add the old version of the dB Updater&#10;&#10;This will be deleted later, it also does not compile" />
     <MESSAGE value="Committing before trying Claude 3.7 Sonnet to &#10;&#10;create the functional result type and all Map, Match, etc. methods" />
     <MESSAGE value="Re" />
     <MESSAGE value="Reimplement the Result and associated classes" />
@@ -1564,7 +1557,9 @@
     <MESSAGE value="Update the security headers" />
     <MESSAGE value="Add initial components and refactor services&#10;&#10;- Introduced `NavMenu` and `SettingsPanel` components for enhanced UI functionality.&#10;- Added authorization attribute to pages via `_Imports.razor`.&#10;- Implemented helper methods in `WebApplicationExtensions` for security improvements by removing server headers.&#10;- Provided initial implementations for `Counter` and `Weather` pages for basic functionality.&#10;- Included global styling with `app.css`.&#10;- Refactored and removed unused menu services (`DirectoriesMenuService`, `GamesMenuService`, `ImagesMenuService`, `FileMenuService`, and `AdminMenuService`)." />
     <MESSAGE value="Back to compiling but tweaks to login still required" />
-    <option name="LAST_COMMIT_MESSAGE" value="Back to compiling but tweaks to login still required" />
+    <MESSAGE value="Update package dependencies and XML documentation formatting&#10;&#10;- Bump `Microsoft.Identity.Web` to version 3.14.1 across multiple projects.&#10;- Bump `Microsoft.Extensions.Http.Resilience` to version 9.9.0 in `AStar.Dev.ServiceDefaults`.&#10;- Update `TestableIO.System.IO.Abstractions` dependencies to 22.0.16 in relevant projects.&#10;- Refactor XML documentation by simplifying formatting for improved readability." />
+    <MESSAGE value="Rename the favicon" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename the favicon" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
