@@ -1,8 +1,12 @@
 using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 
-public class MarkdownViewBase : ComponentBase
+namespace AStar.Dev.Web.Components.Pages.NuGetDocumentation;
+
+public partial class MarkdownView : ComponentBase
 {
+    protected string Html = string.Empty;
+
     [Parameter]
     public string? Content { get; set; }
 
@@ -10,27 +14,25 @@ public class MarkdownViewBase : ComponentBase
     [Parameter]
     public bool DisableHtml { get; set; } = true;
 
-    protected string _html = string.Empty;
-
     [Inject]
-    protected IJSRuntime JS { get; set; } = default!;
+    protected IJSRuntime Js { get; set; } = default!;
 
     protected override async Task OnParametersSetAsync()
     {
         var md = Content ?? string.Empty;
 
         // Render markdown via JS (marked + DOMPurify). If DisableHtml = true, we sanitize.
-        var rendered = await JS.InvokeAsync<string>(
+        var rendered = await Js.InvokeAsync<string>(
                                                     "renderMarkdown",
                                                     md,
                                                     !DisableHtml // allowHtml
                                                    );
 
-        _html = rendered;
+        Html = rendered;
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender) =>
 
         // Re-highlight after each render so newly rendered code gets styled
-        await JS.InvokeVoidAsync("highlightMarkdown");
+        await Js.InvokeVoidAsync("highlightMarkdown");
 }

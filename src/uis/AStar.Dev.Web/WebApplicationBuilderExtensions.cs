@@ -1,5 +1,4 @@
 using AStar.Dev.ServiceDefaults;
-using AStar.Dev.Web.Components;
 using Azure.Monitor.OpenTelemetry.AspNetCore;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.FluentUI.AspNetCore.Components;

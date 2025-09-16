@@ -11,14 +11,11 @@ public partial class Games : ComponentBase
 
     // private List<BreadcrumbItem> NavItems1 { get; set; } = null!;
 
-    protected override void OnInitialized()
-    {
-        Logger.LogInformation("Page: {PageName} viewed", nameof(Games));
+    protected override void OnInitialized() => Logger.LogInformation("Page: {PageName} viewed", nameof(Games));
 
-        // NavItems1 =
-        // [
-        //     new() { Text = "Home", Href       = "/" },
-        //     new() { Text = "Kids Games", Href = "kids-games", IsCurrentPage = true }
-        // ];
-    }
+    // NavItems1 =
+    // [
+    //     new() { Text = "Home", Href       = "/" },
+    //     new() { Text = "Kids Games", Href = "kids-games", IsCurrentPage = true }
+    // ];
 }

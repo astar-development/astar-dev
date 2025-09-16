@@ -11,16 +11,13 @@ public partial class Halving8 : ComponentBase
 
     // private List<BreadcrumbItem> NavItems1 { get; set; } = null!;
 
-    protected override void OnInitialized()
-    {
-        Logger.LogInformation("Page: {PageName} viewed", nameof(Halving8));
+    protected override void OnInitialized() => Logger.LogInformation("Page: {PageName} viewed", nameof(Halving8));
 
-        // NavItems1 =
-        // [
-        //     new() { Text = "Home", Href                   = "/" },
-        //     new() { Text = "Kids Games", Href             = "kids-games" },
-        //     new() { Text = "Halving", Href                = "kids-games/halving" },
-        //     new() { Text = "Halving Eight", IsCurrentPage = true }
-        // ];
-    }
+    // NavItems1 =
+    // [
+    //     new() { Text = "Home", Href                   = "/" },
+    //     new() { Text = "Kids Games", Href             = "kids-games" },
+    //     new() { Text = "Halving", Href                = "kids-games/halving" },
+    //     new() { Text = "Halving Eight", IsCurrentPage = true }
+    // ];
 }

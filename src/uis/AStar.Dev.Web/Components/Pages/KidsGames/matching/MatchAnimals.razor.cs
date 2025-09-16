@@ -11,16 +11,13 @@ public partial class MatchAnimals : ComponentBase
 
     // private List<BreadcrumbItem> NavItems1 { get; set; } = null!;
 
-    protected override void OnInitialized()
-    {
-        Logger.LogInformation("Page: {PageName} viewed", nameof(MatchAnimals));
+    protected override void OnInitialized() => Logger.LogInformation("Page: {PageName} viewed", nameof(MatchAnimals));
 
-        // NavItems1 =
-        // [
-        //     new() { Text = "Home", Href                   = "/" },
-        //     new() { Text = "Kids Games", Href             = "kids-games" },
-        //     new() { Text = "Matching", Href               = "kids-games/matching" },
-        //     new() { Text = "Match Animals", IsCurrentPage = true }
-        // ];
-    }
+    // NavItems1 =
+    // [
+    //     new() { Text = "Home", Href                   = "/" },
+    //     new() { Text = "Kids Games", Href             = "kids-games" },
+    //     new() { Text = "Matching", Href               = "kids-games/matching" },
+    //     new() { Text = "Match Animals", IsCurrentPage = true }
+    // ];
 }
