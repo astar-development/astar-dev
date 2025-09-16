@@ -1,23 +1,12 @@
-using AStar.Dev.Web.Components.Layout.Menu;
-using BlazorBootstrap;
 using Microsoft.AspNetCore.Components;
 
 namespace AStar.Dev.Web.Components.Layout;
 
 public partial class MainLayout
 {
-    private IEnumerable<NavItem>? _navItems;
-    private Sidebar2              _sidebar = null!;
+    private bool _settingsPanelOpen;
 
-    [Inject]
-    private IMenuItemsService MenuItemsService { get; set; } = null!;
+    private void OpenSettingsDialog() => _settingsPanelOpen = true;
 
-    private async Task<Sidebar2DataProviderResult> Sidebar2DataProvider(Sidebar2DataProviderRequest request)
-    {
-        _navItems ??= MenuItemsService.GetNavItems();
-
-        return await Task.FromResult(request.ApplyTo(_navItems));
-    }
-
-    private void ToggleSidebar() => _sidebar.ToggleSidebar();
+    private void CloseSettingsPanel() => _settingsPanelOpen = false;
 }
