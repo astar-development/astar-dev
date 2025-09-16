@@ -38,7 +38,6 @@ public static class WebApplicationBuilderExtensions
         builder.Services.AddRazorComponents()
                .AddInteractiveServerComponents();
 
-        builder.Services.AddScoped<IStaticAssetService, ServerStaticAssetService>();
         builder.Services.AddFluentUIComponents();
 
         builder.Services
