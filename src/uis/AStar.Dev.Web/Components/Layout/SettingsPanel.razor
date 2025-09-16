@@ -1,0 +1,51 @@
+@using Microsoft.FluentUI.AspNetCore.Components.Icons.Regular
+@* Settings Panel *@
+<div class="settings-panel @(IsOpen ? "open" : "")"
+     style="position: fixed; top: 0; right: @(IsOpen ? "0" : "-240px"); width: 240px; height: 100vh; background: var(--neutral-layer-floating); border-left: 1px solid var(--neutral-stroke-divider); transition: right 0.3s ease; z-index: 1000; padding: 20px; box-shadow: -2px 0 8px rgba(0,0,0,0.1);">
+    <FluentStack Orientation="Orientation.Horizontal" HorizontalAlignment="HorizontalAlignment.SpaceBetween" style="margin-bottom: 20px;">
+        <FluentLabel Typo="Typography.H4">Settings</FluentLabel>
+        <FluentButton Appearance="Appearance.Stealth"
+                      IconStart="@(new Size20.Dismiss())"
+                      @onclick="OnCloseClicked"/>
+    </FluentStack>
+
+    <div>
+        <FluentDesignTheme @bind-Mode="@Mode"
+                           OfficeColor="@OfficeColor"
+                           OnLoaded="@OnLoaded"
+                           OnLuminanceChanged="@OnLuminanceChanged"
+                           StorageName="theme"/>
+
+        <FluentStack Orientation="Orientation.Vertical" style="gap: 15px;">
+            <div>
+                <FluentLabel Typo="Typography.H5" style="margin-bottom: 10px;">Theme Mode</FluentLabel>
+                <FluentSelect
+                    Width="100%"
+                    Items="@(Enum.GetValues<DesignThemeModes>())"
+                    @bind-SelectedOption="@Mode"
+                    Label="Select Theme Mode"/>
+            </div>
+
+            <div>
+                <FluentLabel Typo="Typography.H5" style="margin-bottom: 10px;">Accent Color</FluentLabel>
+                <FluentSelect
+                    Width="100%"
+                    Items="@(Enum.GetValues<OfficeColor>())"
+                    @bind-SelectedOption="@OfficeColor"
+                    Label="Select Accent Color"/>
+            </div>
+        </FluentStack>
+    </div>
+
+    <div style="position: absolute; bottom: 20px; left: 20px; right: 20px;">
+        <FluentButton Appearance="Appearance.Neutral" @onclick="OnCloseClicked" style="width: 100%;">
+            Close
+        </FluentButton>
+    </div>
+</div>
+
+@* Overlay *@
+@if (IsOpen)
+{
+    <div class="settings-overlay" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.3); z-index: 999;" @onclick="OnCloseClicked"></div>
+}
