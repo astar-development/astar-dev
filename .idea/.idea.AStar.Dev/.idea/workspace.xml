@@ -55,7 +55,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/main_astar-dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/main_astar-dev.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.xml" afterDir="false" />
     </list>
@@ -86,7 +86,7 @@
     <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="features/change-to-fluent-ui" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -264,7 +264,7 @@
     "e17f45b0-a300-46c0-be33-f577373f589d.executor": "Debug",
     "e1fa419c-f915-45ea-a5b9-af0e54288449.executor": "Debug",
     "ead053aa-6f06-48a9-a614-f676b2fe4dd5.executor": "Debug",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "#64 on features/rename-favicon",
     "last_opened_file_path": "/home/jason-barden/RiderProjects/astar-dev-database-testing/DatabaseTesting.slnx",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
@@ -1059,15 +1059,7 @@
       <workItem from="1757395510313" duration="359000" />
       <workItem from="1757703707309" duration="97000" />
       <workItem from="1758047378743" duration="2024000" />
-      <workItem from="1758049805114" duration="2518000" />
-    </task>
-    <task id="LOCAL-00044" summary="Just noticed Build not running for PR so this should fix">
-      <option name="closed" value="true" />
-      <created>1752780228850</created>
-      <option name="number" value="00044" />
-      <option name="presentableId" value="LOCAL-00044" />
-      <option name="project" value="LOCAL" />
-      <updated>1752780228850</updated>
+      <workItem from="1758049805114" duration="3159000" />
     </task>
     <task id="LOCAL-00045" summary="Update the pipeline to run tests correctly&#10; &#10;and exclude e2e tests as wll as set broken unit test to be ignored">
       <option name="closed" value="true" />
@@ -1453,7 +1445,15 @@
       <option name="project" value="LOCAL" />
       <updated>1758050377424</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="Rename the favicon">
+      <option name="closed" value="true" />
+      <created>1758054025193</created>
+      <option name="number" value="00093" />
+      <option name="presentableId" value="LOCAL-00093" />
+      <option name="project" value="LOCAL" />
+      <updated>1758054025193</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1534,7 +1534,6 @@
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Temporarily add the old version of the dB Updater&#10;&#10;This will be deleted later, it also does not compile" />
     <MESSAGE value="Committing before trying Claude 3.7 Sonnet to &#10;&#10;create the functional result type and all Map, Match, etc. methods" />
     <MESSAGE value="Re" />
     <MESSAGE value="Reimplement the Result and associated classes" />
@@ -1559,7 +1558,8 @@
     <MESSAGE value="Add initial components and refactor services&#10;&#10;- Introduced `NavMenu` and `SettingsPanel` components for enhanced UI functionality.&#10;- Added authorization attribute to pages via `_Imports.razor`.&#10;- Implemented helper methods in `WebApplicationExtensions` for security improvements by removing server headers.&#10;- Provided initial implementations for `Counter` and `Weather` pages for basic functionality.&#10;- Included global styling with `app.css`.&#10;- Refactored and removed unused menu services (`DirectoriesMenuService`, `GamesMenuService`, `ImagesMenuService`, `FileMenuService`, and `AdminMenuService`)." />
     <MESSAGE value="Back to compiling but tweaks to login still required" />
     <MESSAGE value="Update package dependencies and XML documentation formatting&#10;&#10;- Bump `Microsoft.Identity.Web` to version 3.14.1 across multiple projects.&#10;- Bump `Microsoft.Extensions.Http.Resilience` to version 9.9.0 in `AStar.Dev.ServiceDefaults`.&#10;- Update `TestableIO.System.IO.Abstractions` dependencies to 22.0.16 in relevant projects.&#10;- Refactor XML documentation by simplifying formatting for improved readability." />
-    <option name="LAST_COMMIT_MESSAGE" value="Update package dependencies and XML documentation formatting&#10;&#10;- Bump `Microsoft.Identity.Web` to version 3.14.1 across multiple projects.&#10;- Bump `Microsoft.Extensions.Http.Resilience` to version 9.9.0 in `AStar.Dev.ServiceDefaults`.&#10;- Update `TestableIO.System.IO.Abstractions` dependencies to 22.0.16 in relevant projects.&#10;- Refactor XML documentation by simplifying formatting for improved readability." />
+    <MESSAGE value="Rename the favicon" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename the favicon" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
