@@ -4,6 +4,8 @@
         <TargetFramework>net9.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <Deterministic>true</Deterministic>
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
         <UserSecretsId>375b56f5-d537-49ec-bfe3-a002d0619604</UserSecretsId>
     </PropertyGroup>
 

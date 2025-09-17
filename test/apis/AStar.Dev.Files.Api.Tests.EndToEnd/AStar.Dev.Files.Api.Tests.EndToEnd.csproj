@@ -3,6 +3,8 @@
     <PropertyGroup>
         <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
+        <Deterministic>true</Deterministic>
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
         <Nullable>enable</Nullable>
         <IsPackable>false</IsPackable>
         <RootNamespace>AStar.Dev.Files.Api</RootNamespace>
@@ -13,7 +15,6 @@
     </ItemGroup>
 
     <ItemGroup>
-
         <PackageReference Include="coverlet.collector" Version="6.0.4">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

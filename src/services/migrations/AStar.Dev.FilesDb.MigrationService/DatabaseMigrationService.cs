@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage;
 
 namespace AStar.Dev.FilesDb.MigrationService;
 
-public class Worker(IServiceProvider serviceProvider, IHostApplicationLifetime hostApplicationLifetime)
+public class DatabaseMigrationService(IServiceProvider serviceProvider, IHostApplicationLifetime hostApplicationLifetime, ILogger<DatabaseMigrationService> logger)
     : BackgroundService
 {
     private const           string         ActivitySourceName = "Migrations";
@@ -15,6 +15,7 @@ public class Worker(IServiceProvider serviceProvider, IHostApplicationLifetime h
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
+        logger.LogInformation("Starting database migration service");
         // ReSharper disable once ExplicitCallerInfoArgument
         using var activity = ActivitySource.StartActivity("Migrating database", ActivityKind.Client);
 
@@ -30,17 +31,18 @@ public class Worker(IServiceProvider serviceProvider, IHostApplicationLifetime h
         catch(Exception ex)
         {
             activity?.AddException(ex);
-
-            throw;
+            logger.LogError(ex, "Error migrating database");
         }
 
+        logger.LogInformation("Stopping database migration service");
         hostApplicationLifetime.StopApplication();
     }
 
-    private static async Task EnsureDatabaseAsync(FilesContext dbContext, CancellationToken stoppingToken)
+    private async Task EnsureDatabaseAsync(FilesContext dbContext, CancellationToken stoppingToken)
     {
         var dbCreator = dbContext.GetService<IRelationalDatabaseCreator>();
 
+        logger.LogInformation("Ensuring database exists");
         var strategy = dbContext.Database.CreateExecutionStrategy();
 
         await strategy.ExecuteAsync(async () =>
@@ -52,10 +54,11 @@ public class Worker(IServiceProvider serviceProvider, IHostApplicationLifetime h
                                     });
     }
 
-    private static async Task RunMigrationAsync(FilesContext dbContext, CancellationToken stoppingToken)
+    private async Task RunMigrationAsync(FilesContext dbContext, CancellationToken stoppingToken)
     {
         var strategy = dbContext.Database.CreateExecutionStrategy();
 
+        logger.LogInformation("Running migrations");
         await strategy.ExecuteAsync(async () =>
                                     {
                                         await using var transaction = await dbContext.Database.BeginTransactionAsync(stoppingToken);
@@ -64,10 +67,11 @@ public class Worker(IServiceProvider serviceProvider, IHostApplicationLifetime h
                                     });
     }
 
-    private static async Task SeedDataAsync(FilesContext dbContext, CancellationToken stoppingToken)
+    private async Task SeedDataAsync(FilesContext dbContext, CancellationToken stoppingToken)
     {
         var strategy = dbContext.Database.CreateExecutionStrategy();
 
+        logger.LogInformation("Seeding data");
         await strategy.ExecuteAsync(async () =>
                                     {
                                         if(!await dbContext.FileDetails.AnyAsync(stoppingToken))
@@ -77,7 +81,7 @@ public class Worker(IServiceProvider serviceProvider, IHostApplicationLifetime h
                                                                  FileName      = new("MockFileName.jpg"),
                                                                  DirectoryName = new("MockDirectoryName"),
                                                                  FileCreated   = DateTimeOffset.UtcNow,
-                                                                 FileHandle    = new("MockFileHandle"),
+                                                                 FileHandle    = new("MockFileName-jpg"),
                                                                  FileSize      = 12345,
                                                                  IsImage       = true,
                                                                  ImageDetail   = new(1234, 5678)
@@ -94,9 +98,18 @@ public class Worker(IServiceProvider serviceProvider, IHostApplicationLifetime h
                                                              EventOccurredAt  = DateTimeOffset.UtcNow,
                                                              Type             = EventType.Add,
                                                              FileLastModified = DateTimeOffset.UtcNow,
-                                                             Handle           = "MockFileHandle",
+                                                             Handle           = "MockFileName-jpg",
                                                              UpdatedBy        = "Jason Barden"
                                                          };
+
+                                            var exists = await dbContext.FileDetails.AnyAsync(x => x.FileHandle == fileDetail.FileHandle, stoppingToken);
+
+                                            if(exists)
+                                            {
+                                                logger.LogInformation("File already exists in database, so exiting");
+
+                                                return;
+                                            }
 
                                             await using var transaction = await dbContext.Database.BeginTransactionAsync(stoppingToken);
 

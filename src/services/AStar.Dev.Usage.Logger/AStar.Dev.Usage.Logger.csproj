@@ -4,13 +4,14 @@
         <TargetFramework>net9.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
+        <Deterministic>true</Deterministic>
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
         <UserSecretsId>f406903d-258e-4e39-9eef-46e414526129</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
         <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.0"/>
         <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0"/>
-
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.9"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="9.0.9"/>
         <PackageReference Include="Microsoft.Identity.Web" Version="3.14.1"/>

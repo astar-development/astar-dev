@@ -32,7 +32,7 @@ public class NewFilesBackgroundService(AddNewFilesService addNewFilesService, Ti
         {
             _ = await delay.Tap(LogMessage)
                            .BindAsync(async timeSpan => await AwaitDelay(timeSpan, stoppingToken))
-                           .BindAsync(d => addNewFilesService.StartAsync(d, stoppingToken))
+                           .BindAsync(timeSpan => addNewFilesService.StartAsync(timeSpan, stoppingToken))
                            .BindAsync(result => Task.FromResult(timeDelay.CalculateDelayToNextRun(startAtTime)))
                            .BindAsync(delayUntilNextRun => AwaitDelay(delayUntilNextRun, stoppingToken))
                            .TapErrorAsync(async error => await LogErrorMessage(stoppingToken, error));
