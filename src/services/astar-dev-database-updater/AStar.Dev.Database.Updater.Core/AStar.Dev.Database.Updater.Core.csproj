@@ -8,7 +8,7 @@
 
     <ItemGroup>
         <PackageReference Include="AStar.Dev.Functional.Extensions" Version="0.4.5"/>
-        <PackageReference Include="AStar.Dev.Infrastructure.FilesDb" Version="0.1.0"/>
+        <PackageReference Include="AStar.Dev.Infrastructure.FilesDb" Version="0.2.1"/>
         <PackageReference Include="AStar.Dev.Utilities" Version="1.6.2"/>
         <PackageReference Include="CsvHelper" Version="33.1.0"/>
         <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="9.0.9"/>

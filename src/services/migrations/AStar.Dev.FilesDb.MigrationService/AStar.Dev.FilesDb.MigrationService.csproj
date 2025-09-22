@@ -8,7 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="AStar.Dev.Infrastructure.FilesDb" Version="0.1.0"/>
+        <PackageReference Include="AStar.Dev.Infrastructure.FilesDb" Version="0.2.1"/>
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.9"/>
     </ItemGroup>
 
