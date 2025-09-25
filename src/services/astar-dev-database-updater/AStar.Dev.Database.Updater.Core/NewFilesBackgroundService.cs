@@ -25,15 +25,17 @@ public class NewFilesBackgroundService(AddNewFilesService addNewFilesService, Ti
         var startAtTime = config.Value.NewFilesScheduledTime;
 
         var delay = config.Value.HonourFirstDelay
-                        ? timeDelay.CalculateDelayToNextRun(startAtTime)
+                        ? timeDelay.CalculateDelayToNextRun(startAtTime, config.Value.HonourFirstDelay)
                         : new Result<TimeSpan, ErrorResponse>.Ok(TimeSpan.Zero);
+
+        config.Value.HonourFirstDelay = true; // hacky, todo, rethink this
 
         while(!stoppingToken.IsCancellationRequested)
         {
             _ = await delay.Tap(LogMessage)
                            .BindAsync(async timeSpan => await AwaitDelay(timeSpan, stoppingToken))
                            .BindAsync(timeSpan => addNewFilesService.StartAsync(timeSpan, stoppingToken))
-                           .BindAsync(result => Task.FromResult(timeDelay.CalculateDelayToNextRun(startAtTime)))
+                           .BindAsync(result => Task.FromResult(timeDelay.CalculateDelayToNextRun(startAtTime, config.Value.HonourFirstDelay)))
                            .BindAsync(delayUntilNextRun => AwaitDelay(delayUntilNextRun, stoppingToken))
                            .TapErrorAsync(async error => await LogErrorMessage(stoppingToken, error));
         }

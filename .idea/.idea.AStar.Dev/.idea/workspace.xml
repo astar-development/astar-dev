@@ -48,6 +48,7 @@
     <projectFile profileName="https">src/uis/AStar.Dev.Web/AStar.Dev.Web.csproj</projectFile>
     <projectFile>test/apis/AStar.Dev.Admin.Api.Tests.Unit/AStar.Dev.Admin.Api.Tests.Unit.csproj</projectFile>
     <projectFile>test/nuget-packages/AStar.Dev.Test.Helpers.Minimal.Api.Tests.Unit/AStar.Dev.Test.Helpers.Minimal.Api.Tests.Unit.csproj</projectFile>
+    <projectFile>test/services/AStar.Dev.Database.Updater.Tests.Integration/AStar.Dev.Database.Updater.Tests.Integration.csproj</projectFile>
     <projectFile>test/uis/AStar.Dev.Web.UI.Tests.EndToEnd/AStar.Dev.Web.UI.Tests.EndToEnd.csproj</projectFile>
   </component>
   <component name="AutoImportSettings">
@@ -55,43 +56,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources/be062623-620b-4d7b-8d91-181176a8fcaa.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources/d164044b-abe6-4fcd-a6ae-394b2accfcfc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_aspire/AStar.Dev.AppHost/AStar.Dev.AppHost.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/_aspire/AStar.Dev.AppHost/AStar.Dev.AppHost.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_aspire/AStar.Dev.Aspire.Common/AStar.Dev.Aspire.Common.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/_aspire/AStar.Dev.Aspire.Common/AStar.Dev.Aspire.Common.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/_aspire/AStar.Dev.ServiceDefaults/AStar.Dev.ServiceDefaults.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/_aspire/AStar.Dev.ServiceDefaults/AStar.Dev.ServiceDefaults.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Admin.Api/AStar.Dev.Admin.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Admin.Api/AStar.Dev.Admin.Api.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Images.Api/AStar.Dev.Images.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Images.Api/AStar.Dev.Images.Api.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.ToDo.Api/AStar.Dev.ToDo.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.ToDo.Api/AStar.Dev.ToDo.Api.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/AStar.Dev.Usage.Logger/AStar.Dev.Usage.Logger.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AStar.Dev.Usage.Logger/AStar.Dev.Usage.Logger.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/AStar.Dev.Wallpaper.Scrapper/AStar.Dev.Wallpaper.Scrapper.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/AStar.Dev.Wallpaper.Scrapper/AStar.Dev.Wallpaper.Scrapper.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/NewFilesBackgroundService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/NewFilesBackgroundService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/AStar.Dev.Database.Updater.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/AStar.Dev.Database.Updater.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/migrations/AStar.Dev.FilesDb.MigrationService/AStar.Dev.FilesDb.MigrationService.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/migrations/AStar.Dev.FilesDb.MigrationService/AStar.Dev.FilesDb.MigrationService.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/migrations/AStar.Dev.FilesDb.MigrationService/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/migrations/AStar.Dev.FilesDb.MigrationService/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/migrations/AStar.Dev.FilesDb.MigrationService/Worker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/migrations/AStar.Dev.FilesDb.MigrationService/DatabaseMigrationService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/AStar.Dev.Web.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/AStar.Dev.Web.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/apis/AStar.Dev.Admin.Api.Tests.EndToEnd/AStar.Dev.Admin.Api.Tests.EndToEnd.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/apis/AStar.Dev.Admin.Api.Tests.EndToEnd/AStar.Dev.Admin.Api.Tests.EndToEnd.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/apis/AStar.Dev.Admin.Api.Tests.Integration/AStar.Dev.Admin.Api.Tests.Integration.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/apis/AStar.Dev.Admin.Api.Tests.Integration/AStar.Dev.Admin.Api.Tests.Integration.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/apis/AStar.Dev.Admin.Api.Tests.Unit/AStar.Dev.Admin.Api.Tests.Unit.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/apis/AStar.Dev.Admin.Api.Tests.Unit/AStar.Dev.Admin.Api.Tests.Unit.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.EndToEnd/AStar.Dev.Files.Api.Tests.EndToEnd.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.EndToEnd/AStar.Dev.Files.Api.Tests.EndToEnd.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Integration/AStar.Dev.Files.Api.Tests.Integration.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Integration/AStar.Dev.Files.Api.Tests.Integration.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/AStar.Dev.Files.Api.Tests.Unit.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/AStar.Dev.Files.Api.Tests.Unit.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/apis/AStar.Dev.Images.Api.Tests.EndToEnd/AStar.Dev.Images.Api.Tests.EndToEnd.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/apis/AStar.Dev.Images.Api.Tests.EndToEnd/AStar.Dev.Images.Api.Tests.EndToEnd.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/apis/AStar.Dev.Images.Api.Tests.Integration/AStar.Dev.Images.Api.Tests.Integration.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/apis/AStar.Dev.Images.Api.Tests.Integration/AStar.Dev.Images.Api.Tests.Integration.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/apis/AStar.Dev.Images.Api.Tests.Unit/AStar.Dev.Images.Api.Tests.Unit.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/apis/AStar.Dev.Images.Api.Tests.Unit/AStar.Dev.Images.Api.Tests.Unit.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Core.Tests.Unit/AStar.Dev.Database.Updater.Core.Tests.Unit.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Core.Tests.Unit/AStar.Dev.Database.Updater.Core.Tests.Unit.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Tests.Integration/AStar.Dev.Database.Updater.Tests.Integration.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Tests.Integration/AStar.Dev.Database.Updater.Tests.Integration.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Tests.Unit/AStar.Dev.Database.Updater.Tests.Unit.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Tests.Unit/AStar.Dev.Database.Updater.Tests.Unit.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/uis/AStar.Dev.Web.UI.Tests.Integration/AStar.Dev.Web.UI.Tests.Integration.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/uis/AStar.Dev.Web.UI.Tests.Integration/AStar.Dev.Web.UI.Tests.Integration.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/uis/AStar.Dev.Web.UI.Tests.Unit/AStar.Dev.Web.UI.Tests.Unit.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/uis/AStar.Dev.Web.UI.Tests.Unit/AStar.Dev.Web.UI.Tests.Unit.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,12 +121,23 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/07d247b3da4c414580943759555dde88e3200/8a/acad5bde/IconName.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/07d247b3da4c414580943759555dde88e3200/b4/4dbeaa5b/Sidebar.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/457530be4752476295767457c3639889d1a000/af/aac0eaa5/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/504ffc0399ba4e978cbd301f8bb3dc5d19400/d4/d60f5743/FileDetail.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/62d6d899be1e4d3e9b79bb7f76ffb064d7a00/3f/c8230406/RemoteNavigationManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/6be49e250d314656bafa9730d0a63fc711000/2c/ea4d0551/ErrorResponse.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/cfe62cc8fae443b09b011bd7a4cef81c15e00/22/a021341b/FileClassification.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/158bca7f4846dc46812268798cbf2e73fee76e169a73c6f7a86a8e1bc9040/HeaderPolicyCollectionExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1bdda9448fa9976157859a8aefc891a3528361255fa44d1ea74b9c63279333/FileAccessDetail.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1f7d81c92c01349f8e68213d932e21041fa2083dc3c66e37a976b86d247666/ShouldBeBooleanExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/25bda51662b9cbd1d3dd943e6873a915d899d60e2456fc3bca985f6b4af1633/ShouldBeNullExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2d1c5a8bc17f820e13d44c8c72d1f93ff35f7e8b671b091dbf63b2d88927/GlobalExceptionHandler.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/44c6f9b42df79cab87c959c51b3c9055aa708ad7d59dddc4b0912af2dcae7e6e/ImageDetail.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/4a8fb784972bca5f74669fc69e6471537bc24f9d75a8f1aa9032886da376cb/TestRunner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/68e7118debfad08e488d6345898ed9f6c0319f2718a2c9281e4b15a8982cff/FilesContextFixture.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8c1bd99aa6b856822658743eaead2e3b5c855af592bdab3ef9f34bfd596de9ae/FileDetail.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8e1eb8f56b672485de855c1baba1907a423a3698f3f8b1c9e3902258a9448319/FileDetail.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/91909e8add82699e4fe201e257ae1059ea74fddbe64da4574f54a6293f03a/MarkdownPipelineBuilder.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9fde5b266164cacf7837e34dcc95a412fdf8c6114efdcd4b9b1ea651bb2c8e/ResultExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bc58da407f6f896029e83396e674e4e3a3c29614e621b69ef9ff936054bc84/Result.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/beed9fc57130a9b31a518871958e1c19b011f084b932f6da38acf0c298ed23b/ApplicationInsightsExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d11a2737ca35a566a9df82947e9c6ee87f0145228c62c4bd76a213890715ba4/ShouldlyCoreExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d3bcaa10e6799b949fef155792e7fd48b77ce5a65966df3b5f239f1111485ecb/ServerHeaderExtensions.cs" root0="FORCE_HIGHLIGHTING" />
@@ -177,9 +153,19 @@
     <setting file="file://$PROJECT_DIR$/../astar-dev-all-private/src/uis/AStar.Dev.Web/Shared/MainLayout.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../astar-dev-all-private/src/uis/AStar.Dev.Web/Shared/MainLayout.razor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../astar-dev-all-private/src/uis/AStar.Dev.Web/Shared/NavMenu.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AddNewFilesService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AddNewFilesService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/DatabaseUpdaterConfiguration.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/NewFilesBackgroundService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/NewFilesBackgroundService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/TimeDelay.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/TimeDelay.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/TimeDelay.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/DatabaseUpdaterConfigurationValidator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/HostApplicationBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/JsonSerializerOptionsExtensions.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/Program.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/appsettings.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/LoginDisplay.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/LoginDisplay.razor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/MainLayout.razor.cs" root0="FORCE_HIGHLIGHTING" />
@@ -245,13 +231,18 @@
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/KidsGames/matching/MatchHouses.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/KidsGames/matching/MatchHouses.razor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/NuGetDocumentation/AStarDevFunctionalResults.razor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/uis/AStar.Dev.Web/Components/Pages/NuGetDocumentation/AStarDevFunctionalResults.razor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/NuGetDocumentation/MarkdownView.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/NuGetDocumentation/MarkdownView.razor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/NuGetDocumentation/NuGetDocumentation.razor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/uis/AStar.Dev.Web/Components/Pages/NuGetDocumentation/NuGetDocumentation.razor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Routes.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/WebApplicationBuilderExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/Get/V1/GetFilesHandlerStructureShould.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/Get/V1/GetFilesResponseExtensionsShould.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Core.Tests.Unit/ErrorResponseShould.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Tests.Unit/HostApplicationBuilderExtensionsShould.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/test/services/AStar.Dev.Database.Updater.Tests.Unit/HostApplicationBuilderExtensionsShould.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file:///usr/lib/dotnet/sdk/9.0.109/Current/Microsoft.Common.props" root0="FORCE_HIGHLIGHTING" />
     <setting file="file:///usr/lib/dotnet/sdk/9.0.109/Microsoft.Common.CurrentVersion.targets" root0="FORCE_HIGHLIGHTING" />
     <setting file="file:///usr/lib/dotnet/sdk/9.0.109/Sdks/NuGet.Build.Tasks.Pack/build/NuGet.Build.Tasks.Pack.targets" root0="FORCE_HIGHLIGHTING" />
@@ -284,8 +275,10 @@
     &quot;22071734-6c60-41bb-aea8-3be1144d15bd.executor&quot;: &quot;Debug&quot;,
     &quot;350a68dd-7b54-4a0c-82a3-cfafaee8412e.executor&quot;: &quot;Debug&quot;,
     &quot;37e8db58-7b27-4d30-8126-079f70986791.executor&quot;: &quot;Debug&quot;,
+    &quot;3fedafc0-0fb1-4eed-a33e-4a477105118f.executor&quot;: &quot;Debug&quot;,
     &quot;5394ae1f-e1ba-4997-9785-ae0f83daa327.executor&quot;: &quot;Debug&quot;,
     &quot;74865cb9-5982-44cc-8c44-3e1395390114.executor&quot;: &quot;Debug&quot;,
+    &quot;7c7cfc4b-6687-4737-8b94-051b497f8a62.executor&quot;: &quot;Debug&quot;,
     &quot;843b7700-6fc6-465e-a3ac-795da6dc3892.executor&quot;: &quot;Debug&quot;,
     &quot;8cbff862-16b7-48f9-b845-ce6464b5344d.executor&quot;: &quot;Debug&quot;,
     &quot;8fd607c9-dea8-4b95-8264-467bd8bce66a.executor&quot;: &quot;Debug&quot;,
@@ -301,7 +294,7 @@
     &quot;e1fa419c-f915-45ea-a5b9-af0e54288449.executor&quot;: &quot;Debug&quot;,
     &quot;ead053aa-6f06-48a9-a614-f676b2fe4dd5.executor&quot;: &quot;Debug&quot;,
     &quot;git-widget-placeholder&quot;: &quot;features/site-and-page-title-updates&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/jason-barden/RiderProjects/astar-dev-database-testing/DatabaseTesting.slnx&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/jason-barden/RiderProjects/astar-dev/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/AStar.Dev.Infrastructure.FilesDb.csproj&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -453,6 +446,29 @@
       <option name="PROJECT_KIND" value="DotNetCore" />
       <option name="PROJECT_TFM" value="net9.0" />
       <browser name="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <method v="2">
+        <option name="Build" />
+      </method>
+    </configuration>
+    <configuration name="AStar.Dev.Database.Updater.Tests.Integration" type="DotNetProject" factoryName=".NET Project">
+      <option name="EXE_PATH" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <option name="ENV_FILE_PATHS" value="" />
+      <option name="REDIRECT_INPUT_PATH" value="" />
+      <option name="PTY_MODE" value="Auto" />
+      <option name="MIXED_MODE_DEBUG" value="0" />
+      <option name="USE_MONO" value="0" />
+      <option name="RUNTIME_ARGUMENTS" value="" />
+      <option name="AUTO_ATTACH_CHILDREN" value="0" />
+      <option name="PROJECT_PATH" value="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Tests.Integration/AStar.Dev.Database.Updater.Tests.Integration.csproj" />
+      <option name="PROJECT_EXE_PATH_TRACKING" value="1" />
+      <option name="PROJECT_ARGUMENTS_TRACKING" value="1" />
+      <option name="PROJECT_WORKING_DIRECTORY_TRACKING" value="1" />
+      <option name="PROJECT_KIND" value="DotNetCore" />
+      <option name="PROJECT_TFM" value="" />
       <method v="2">
         <option name="Build" />
       </method>
@@ -982,6 +998,7 @@
       <item itemvalue=".NET Launch Settings Profile.AStar.Dev.ToDo.Api: https" />
       <item itemvalue=".NET Launch Settings Profile.AStar.Dev.Usage.Logger: https" />
       <item itemvalue=".NET Launch Settings Profile.AStar.Dev.Web: https" />
+      <item itemvalue=".NET Project.AStar.Dev.Database.Updater.Tests.Integration" />
       <item itemvalue=".NET Project.AStar.Dev.Admin.Api.Tests.Unit" />
       <item itemvalue=".NET Project.AStar.Dev.Web.UI.Tests.EndToEnd" />
       <item itemvalue=".NET Project.AStar.Dev.Test.Helpers.Minimal.Api.Tests.Unit" />
@@ -1097,23 +1114,19 @@
       <workItem from="1758047378743" duration="2024000" />
       <workItem from="1758049805114" duration="3159000" />
       <workItem from="1758059820036" duration="10987000" />
-      <workItem from="1758104765741" duration="1388000" />
-    </task>
-    <task id="LOCAL-00049" summary="As expected, build failed so tweak to build method">
-      <option name="closed" value="true" />
-      <created>1752782882358</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1752782882358</updated>
-    </task>
-    <task id="LOCAL-00050" summary="Whilst not sure will resolve, bring back the Functional.Results project directly">
-      <option name="closed" value="true" />
-      <created>1752783990945</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1752783990946</updated>
+      <workItem from="1758104765741" duration="2824000" />
+      <workItem from="1758485411263" duration="1326000" />
+      <workItem from="1758491191736" duration="4126000" />
+      <workItem from="1758565879911" duration="4951000" />
+      <workItem from="1758573400035" duration="951000" />
+      <workItem from="1758578539792" duration="2950000" />
+      <workItem from="1758742871548" duration="19000" />
+      <workItem from="1758743632748" duration="269000" />
+      <workItem from="1758744311560" duration="1333000" />
+      <workItem from="1758746398558" duration="602000" />
+      <workItem from="1758789840705" duration="301000" />
+      <workItem from="1758790396767" duration="3931000" />
+      <workItem from="1758831096436" duration="779000" />
     </task>
     <task id="LOCAL-00051" summary="remove the next failing project... test helpers unit...">
       <option name="closed" value="true" />
@@ -1491,7 +1504,23 @@
       <option name="project" value="LOCAL" />
       <updated>1758066716111</updated>
     </task>
-    <option name="localTasksCounter" value="98" />
+    <task id="LOCAL-00098" summary="Add Deterministic &amp; ContinuousIntegrationBuild to proj files">
+      <option name="closed" value="true" />
+      <created>1758106342378</created>
+      <option name="number" value="00098" />
+      <option name="presentableId" value="LOCAL-00098" />
+      <option name="project" value="LOCAL" />
+      <updated>1758106342379</updated>
+    </task>
+    <task id="LOCAL-00099" summary="Not sure whether this is 1step forward or&#10;several steps back...">
+      <option name="closed" value="true" />
+      <created>1758831670758</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1758831670759</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1572,8 +1601,6 @@
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Reimplement Try to use Result.&#10;&#10;Add / update markdown files for Result and Option" />
-    <MESSAGE value="Not sure how the 2 publish steps came back...&#10;&#10;commented out again and also added a codeql.yml from the GitHub docs" />
     <MESSAGE value="Tweak the build yml based on working on in:&#10;&#10;https://github.com/astar-development/astar-dev-admin-api-client-sdk/blob/main/.github/workflows/dotnet.yml" />
     <MESSAGE value="Reworking the initial NewFilesBackgroundService.cs" />
     <MESSAGE value="Remove AStar Functional as it's now a NuGet proper&#10;&#10;Rewrite the first part of the AddNewFilesService.cs using the NuGet Result" />
@@ -1597,7 +1624,9 @@
     <MESSAGE value="Partial updates" />
     <MESSAGE value="Cleanup required but working MarkdownView.razor" />
     <MESSAGE value="Add and update &lt;PageTitle&gt; across Razor pages&#10;&#10;- Added `&lt;PageTitle&gt;` elements with specific titles to multiple Razor pages.&#10;- Simplified `OnInitialized` methods in halving Razor components by using expression-bodied members.&#10;- Minor code reorganization in `SettingsPanel.razor.cs` and `NavMenu.razor.cs` for better readability." />
-    <option name="LAST_COMMIT_MESSAGE" value="Add and update &lt;PageTitle&gt; across Razor pages&#10;&#10;- Added `&lt;PageTitle&gt;` elements with specific titles to multiple Razor pages.&#10;- Simplified `OnInitialized` methods in halving Razor components by using expression-bodied members.&#10;- Minor code reorganization in `SettingsPanel.razor.cs` and `NavMenu.razor.cs` for better readability." />
+    <MESSAGE value="Add Deterministic &amp; ContinuousIntegrationBuild to proj files" />
+    <MESSAGE value="Not sure whether this is 1step forward or&#10;several steps back..." />
+    <option name="LAST_COMMIT_MESSAGE" value="Not sure whether this is 1step forward or&#10;several steps back..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1631,6 +1660,32 @@
           <line>40</line>
           <properties documentPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.AspNet.Extensions/Handlers/GlobalExceptionHandler.cs" containingFunctionPresentation="Method 'TryHandleAsync'" />
           <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Tests.Integration/ClassificationProcessorShould.cs</url>
+          <line>36</line>
+          <properties documentPath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Tests.Integration/ClassificationProcessorShould.cs" containingFunctionPresentation="Method 'Should_Add_New_Classifications_And_FileNameParts'">
+            <startOffsets>
+              <option value="1672" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1776" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/Program.cs</url>
+          <line>66</line>
+          <properties documentPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/Program.cs" containingFunctionPresentation="">
+            <startOffsets>
+              <option value="3098" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3124" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

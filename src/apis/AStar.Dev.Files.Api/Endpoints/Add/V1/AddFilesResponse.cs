@@ -47,7 +47,7 @@ public class AddFilesResponse
 
     /// <summary>
     /// </summary>
-    public DateTimeOffset FileCreated { get; set; }
+    public DateTimeOffset CreatedDate { get; set; }
 
     /// <summary>
     /// </summary>

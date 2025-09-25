@@ -1,10 +1,10 @@
 using JetBrains.Annotations;
 using Microsoft.AspNetCore.Components;
 
-namespace AStar.Dev.Web.Components.Pages.nuget_documentation;
+namespace AStar.Dev.Web.Components.Pages.NuGetDocumentation;
 
 [UsedImplicitly]
-public class AStarDevFunctionalResults : ComponentBase
+public partial class AStarDevFunctionalResults : ComponentBase
 {
     [Inject]
     private ILogger<AStarDevFunctionalResults> Logger { get; set; } = null!;

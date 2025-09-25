@@ -15,13 +15,16 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="Aspire.Hosting.Testing" Version="9.4.2"/>
+        <PackageReference Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer" Version="9.4.2"/>
+        <PackageReference Include="Aspire.Hosting.SqlServer" Version="9.4.2"/>
         <PackageReference Include="coverlet.collector" Version="6.0.4">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1"/>
         <PackageReference Include="Shouldly" Version="4.3.0"/>
-        <PackageReference Include="xunit" Version="2.9.3"/>
+        <PackageReference Include="xunit.v3" Version="3.0.1"/>
         <PackageReference Include="xunit.runner.visualstudio" Version="3.1.4">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -29,9 +32,18 @@
     </ItemGroup>
 
     <ItemGroup>
+        <Using Include="System.Net"/>
+        <Using Include="Microsoft.Extensions.DependencyInjection"/>
+        <Using Include="Aspire.Hosting.ApplicationModel"/>
+        <Using Include="Aspire.Hosting.Testing"/>
         <Using Include="Xunit"/>
         <Using Include="Shouldly"/>
         <Using Include="JetBrains.Annotations"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\src\services\astar-dev-database-updater\AStar.Dev.Database.Updater.Core\AStar.Dev.Database.Updater.Core.csproj"/>
+        <ProjectReference Include="..\..\..\src\services\astar-dev-database-updater\AStar.Dev.Database.Updater\AStar.Dev.Database.Updater.csproj"/>
     </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

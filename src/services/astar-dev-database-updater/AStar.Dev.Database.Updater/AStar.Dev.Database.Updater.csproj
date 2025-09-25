@@ -10,14 +10,25 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer" Version="9.4.2"/>
         <PackageReference Include="AStar.Dev.Logging.Extensions" Version="0.6.3"/>
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.9"/>
-        <PackageReference Include="Serilog" Version="4.3.0"/>
-        <PackageReference Include="Serilog.Extensions.Logging" Version="9.0.2"/>
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Infrastructure.FilesDb\AStar.Dev.Infrastructure.FilesDb.csproj"/>
+        <ProjectReference Include="..\..\..\_aspire\AStar.Dev.Aspire.Common\AStar.Dev.Aspire.Common.csproj"/>
         <ProjectReference Include="..\..\..\_aspire\AStar.Dev.ServiceDefaults\AStar.Dev.ServiceDefaults.csproj"/>
         <ProjectReference Include="..\AStar.Dev.Database.Updater.Core\AStar.Dev.Database.Updater.Core.csproj"/>
     </ItemGroup>
+
+    <ItemGroup>
+        <None Update="appsettings.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="astar-logging-settings.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+
 </Project>

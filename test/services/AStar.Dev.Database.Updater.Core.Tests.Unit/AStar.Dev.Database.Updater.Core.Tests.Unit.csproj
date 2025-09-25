@@ -16,7 +16,6 @@
 
     <ItemGroup>
         <PackageReference Include="AStar.Dev.Functional.Extensions" Version="0.4.5"/>
-        <PackageReference Include="AStar.Dev.Infrastructure.FilesDb" Version="0.1.0"/>
         <PackageReference Include="coverlet.collector" Version="6.0.4">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

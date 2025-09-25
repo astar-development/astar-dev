@@ -26,7 +26,7 @@
         <PackageReference Include="TestableIO.System.IO.Abstractions.Wrappers" Version="22.0.16"/>
         <PackageReference Include="Testably.Abstractions.FileSystem.Interface" Version="9.0.0"/>
         <PackageReference Include="Microsoft.Extensions.Http.Resilience" Version="9.9.0"/>
-        <PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders" Version="1.1.0"/>
+        <PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders" Version="1.2.0"/>
     </ItemGroup>
 
     <ItemGroup>

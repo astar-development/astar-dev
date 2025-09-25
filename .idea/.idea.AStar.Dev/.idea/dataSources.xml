@@ -1,35 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="filesDb" uuid="b61c2e42-53ba-4090-99f5-cd1a42d8dc9c">
+    <data-source source="LOCAL" name="Microsoft SQL Server (JetBrains)" uuid="5f6b3ebf-4e26-4b7d-9977-34b2e1c49c97">
       <driver-ref>sqlserver.jb</driver-ref>
       <synchronize>true</synchronize>
+      <configured-by-url>true</configured-by-url>
       <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>
-      <jdbc-url>Server=127.0.0.1,40231;TrustServerCertificate=true;Initial Catalog=filesDb</jdbc-url>
-      <jdbc-additional-properties>
-        <property name="com.intellij.clouds.kubernetes.db.host.port" />
-        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
-        <property name="com.intellij.clouds.kubernetes.db.container.port" />
-      </jdbc-additional-properties>
-      <working-dir>$ProjectFileDir$</working-dir>
-    </data-source>
-    <data-source source="LOCAL" name="adminDb" uuid="9399f802-2203-44b9-b6a0-f8a02aaf5f7e">
-      <driver-ref>sqlserver.jb</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>
-      <jdbc-url>Server=127.0.0.1,32985;TrustServerCertificate=true;Initial Catalog=adminDb</jdbc-url>
-      <jdbc-additional-properties>
-        <property name="com.intellij.clouds.kubernetes.db.host.port" />
-        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
-        <property name="com.intellij.clouds.kubernetes.db.container.port" />
-      </jdbc-additional-properties>
-      <working-dir>$ProjectFileDir$</working-dir>
-    </data-source>
-    <data-source source="LOCAL" name="sql1" uuid="0d1202b4-64e8-4bd6-81ee-464f69acb47f">
-      <driver-ref>sqlserver.jb</driver-ref>
-      <synchronize>true</synchronize>
-      <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>
-      <jdbc-url>Server=127.0.0.1,40231;TrustServerCertificate=true</jdbc-url>
+      <jdbc-url>Data Source=localhost;Initial Catalog=filesDb;User ID=sa;Password=&lt;SecurePasswordHere1!&gt;;TrustServerCertificate=True</jdbc-url>
       <jdbc-additional-properties>
         <property name="com.intellij.clouds.kubernetes.db.host.port" />
         <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />

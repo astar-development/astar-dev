@@ -74,13 +74,13 @@ public class DatabaseMigrationService(IServiceProvider serviceProvider, IHostApp
         logger.LogInformation("Seeding data");
         await strategy.ExecuteAsync(async () =>
                                     {
-                                        if(!await dbContext.FileDetails.AnyAsync(stoppingToken))
+                                        if(!await dbContext.Files.AnyAsync(stoppingToken))
                                         {
                                             var fileDetail = new FileDetail
                                                              {
                                                                  FileName      = new("MockFileName.jpg"),
                                                                  DirectoryName = new("MockDirectoryName"),
-                                                                 FileCreated   = DateTimeOffset.UtcNow,
+                                                                 CreatedDate   = DateTimeOffset.UtcNow,
                                                                  FileHandle    = new("MockFileName-jpg"),
                                                                  FileSize      = 12345,
                                                                  IsImage       = true,
@@ -95,26 +95,25 @@ public class DatabaseMigrationService(IServiceProvider serviceProvider, IHostApp
                                                              FileCreated      = DateTimeOffset.UtcNow,
                                                              Height           = 5678,
                                                              Width            = 1234,
-                                                             EventOccurredAt  = DateTimeOffset.UtcNow,
+                                                             UpdatedOn        = DateTimeOffset.UtcNow,
                                                              Type             = EventType.Add,
                                                              FileLastModified = DateTimeOffset.UtcNow,
                                                              Handle           = "MockFileName-jpg",
                                                              UpdatedBy        = "Jason Barden"
                                                          };
 
-                                            var exists = await dbContext.FileDetails.AnyAsync(x => x.FileHandle == fileDetail.FileHandle, stoppingToken);
+                                            var exists = await dbContext.Files.AnyAsync(x => x.FileHandle == fileDetail.FileHandle, stoppingToken);
 
                                             if(exists)
                                             {
-                                                logger.LogInformation("File already exists in database, so exiting");
+                                                logger.LogInformation("Mock File already exists in database, so exiting");
 
                                                 return;
                                             }
 
                                             await using var transaction = await dbContext.Database.BeginTransactionAsync(stoppingToken);
 
-                                            await dbContext.Events.AddAsync(@event, stoppingToken);
-                                            await dbContext.FileDetails.AddAsync(fileDetail, stoppingToken);
+                                            await dbContext.Files.AddAsync(fileDetail, stoppingToken);
                                             await dbContext.SaveChangesAsync(stoppingToken);
                                             await transaction.CommitAsync(stoppingToken);
                                         }
