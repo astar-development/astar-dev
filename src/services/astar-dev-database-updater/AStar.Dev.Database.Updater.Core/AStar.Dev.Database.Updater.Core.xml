@@ -4,6 +4,62 @@
         <name>AStar.Dev.Database.Updater.Core</name>
     </assembly>
     <members>
+        <member name="T:AStar.Dev.Database.Updater.Core.AddNewFilesService">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Database.Updater.Core.AddNewFilesService"/>
+                class
+            </summary>
+            <param name="fileSystem">An instance of
+                <see cref="T:System.IO.Abstractions.IFileSystem"/>
+                to retrieve the files from
+            </param>
+            <param name="config">An instance of the
+                <see cref="T:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration"/>
+                options used to configure the addition of the new files
+            </param>
+            <param name="filesContext">An instance of the
+                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext"/>
+            </param>
+            <param name="classificationRepository">An instance of the
+                <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository"/>
+            </param>
+            <param name="logger">An instance of the
+                <see cref="T:Microsoft.Extensions.Logging.ILogger"/>
+                to log status / errors
+            </param>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.AddNewFilesService.#ctor(System.IO.Abstractions.IFileSystem,Microsoft.Extensions.Options.IOptions{AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration},AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository,AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.AddNewFilesService})">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Database.Updater.Core.AddNewFilesService"/>
+                class
+            </summary>
+            <param name="fileSystem">An instance of
+                <see cref="T:System.IO.Abstractions.IFileSystem"/>
+                to retrieve the files from
+            </param>
+            <param name="config">An instance of the
+                <see cref="T:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration"/>
+                options used to configure the addition of the new files
+            </param>
+            <param name="filesContext">An instance of the
+                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext"/>
+            </param>
+            <param name="classificationRepository">An instance of the
+                <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository"/>
+            </param>
+            <param name="logger">An instance of the
+                <see cref="T:Microsoft.Extensions.Logging.ILogger"/>
+                to log status / errors
+            </param>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.AddNewFilesService.StartAsync(System.Threading.CancellationToken)">
+            <summary>
+                The StartAsync method is called by the runtime (via the BackgroundWorker) and will update the database with any new files
+            </summary>
+            <param name="stoppingToken">A cancellation token to optionally cancel the operation</param>
+        </member>
         <member name="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationBuilder">
             <summary>
                 Responsible for constructing FileClassification and FileNamePart entities.
@@ -80,6 +136,12 @@
             <param name="names">Set of classification names to look up.</param>
             <returns>Dictionary of classification name to FileClassification.</returns>
         </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository.GetExistingClassifications">
+            <summary>
+                Retrieves existing classifications from the database, including their file name parts.
+            </summary>
+            <returns>Dictionary of classification name to FileClassification.</returns>
+        </member>
         <member name="M:AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository.AddClassifications(System.Collections.Generic.IEnumerable{AStar.Dev.Infrastructure.FilesDb.Models.FileClassification})">
             <summary>
                 Adds new classifications to the database context.
@@ -100,7 +162,7 @@
             <param name="logger"></param>
             <remarks>Before we can progress to testing this, we need to change the ClassificationsMapper to be more testable</remarks>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Classifications.ClassificationsMapper.#ctor(Microsoft.Extensions.Options.IOptions{AStar.Dev.Database.Updater.Core.Models.DatabaseUpdaterConfiguration},Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.Classifications.ClassificationsMapper})">
+        <member name="M:AStar.Dev.Database.Updater.Core.Classifications.ClassificationsMapper.#ctor(Microsoft.Extensions.Options.IOptions{AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration},Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.Classifications.ClassificationsMapper})">
             <summary>
                 The
                 <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationsMapper"/>
@@ -161,6 +223,48 @@
             </summary>
             <param name="stoppingToken">A cancellation token to optionally cancel the operation</param>
         </member>
+        <member name="T:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration"/>
+                containing the applicable Database Updater configuration
+            </summary>
+        </member>
+        <member name="F:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration.ConfigurationSectionName">
+            <summary>
+                Gets the name of the configuration section as specified in the appSettings.json
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration.RootDirectory">
+            <summary>
+                Gets or sets the Root directory - where the updater will start looking for files
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration.HonourFirstDelay">
+            <summary>
+                Gets or sets whether to honour (i.e.: not skip) the first delay of the scheduled run.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration.MappingsFilePath">
+            <summary>
+                Gets or sets the full path (including the name) of the CSV Mappings file
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration.SoftDeleteScheduledTime">
+            <summary>
+                Gets or sets the time to start the soft-deletion
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration.HardDeleteScheduledTime">
+            <summary>
+                Gets or sets the time to start the hard-deletion
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration.NewFilesScheduledTime">
+            <summary>
+                Gets or sets the time to start the new files addition
+            </summary>
+        </member>
         <member name="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService">
             <summary>
                 The
@@ -178,7 +282,7 @@
                 to log status / errors
             </param>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService.#ctor(System.IServiceProvider,AStar.Dev.Database.Updater.Core.Shared.TimeDelay,Microsoft.Extensions.Options.IOptions{AStar.Dev.Database.Updater.Core.Models.DatabaseUpdaterConfiguration},Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService})">
+        <member name="M:AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService.#ctor(System.IServiceProvider,AStar.Dev.Database.Updater.Core.TimeDelay,Microsoft.Extensions.Options.IOptions{AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration},Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService})">
             <summary>
                 The
                 <see cref="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService"/>
@@ -196,50 +300,6 @@
             </param>
         </member>
         <member name="M:AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService.ExecuteAsync(System.Threading.CancellationToken)">
-            <summary>
-                The StartAsync method is called by the runtime and will update the database with any new files
-            </summary>
-            <param name="stoppingToken">A cancellation token to optionally cancel the operation</param>
-        </member>
-        <member name="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesService">
-            <summary>
-                The
-                <see cref="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService"/>
-                class
-            </summary>
-            <param name="fileSystem">An instance of
-                <see cref="T:System.IO.Abstractions.IFileSystem"/>
-                to retrieve the files from
-            </param>
-            <param name="config">An instance of the
-                <see cref="T:AStar.Dev.Database.Updater.Core.Models.DatabaseUpdaterConfiguration"/>
-                options used to configure the addition of the new files
-            </param>
-            <param name="logger">An instance of the
-                <see cref="T:Microsoft.Extensions.Logging.ILogger"/>
-                to log status / errors
-            </param>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Files.AddNewFilesService.#ctor(System.IO.Abstractions.IFileSystem,Microsoft.Extensions.Options.IOptions{AStar.Dev.Database.Updater.Core.Models.DatabaseUpdaterConfiguration},Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.Files.AddNewFilesService})">
-            <summary>
-                The
-                <see cref="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService"/>
-                class
-            </summary>
-            <param name="fileSystem">An instance of
-                <see cref="T:System.IO.Abstractions.IFileSystem"/>
-                to retrieve the files from
-            </param>
-            <param name="config">An instance of the
-                <see cref="T:AStar.Dev.Database.Updater.Core.Models.DatabaseUpdaterConfiguration"/>
-                options used to configure the addition of the new files
-            </param>
-            <param name="logger">An instance of the
-                <see cref="T:Microsoft.Extensions.Logging.ILogger"/>
-                to log status / errors
-            </param>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Files.AddNewFilesService.StartAsync(System.Threading.CancellationToken)">
             <summary>
                 The StartAsync method is called by the runtime and will update the database with any new files
             </summary>
@@ -389,6 +449,34 @@
             </summary>
             <param name="targetTime">The target time to delay until</param>
             <param name="honourFirstDelay"></param>
+            <returns>The
+                <see cref="T:System.TimeSpan"/>
+                reresenting the delay until the next scheduled run time
+            </returns>
+        </member>
+        <member name="T:AStar.Dev.Database.Updater.Core.TimeDelay">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Database.Updater.Core.TimeDelay"/>
+                class
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.TimeDelay.#ctor(System.TimeProvider,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.TimeDelay})">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Database.Updater.Core.TimeDelay"/>
+                class
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.TimeDelay.CalculateDelayToNextRun(System.TimeOnly,System.Boolean)">
+            <summary>
+                The CalculateDelayToNextRun will return the
+                <see cref="T:System.TimeSpan"/>
+                reresenting the delay until the next scheduled run time
+                This implementation doesn't need the ErrorResponse so doesn't "need" the result at all
+            </summary>
+            <param name="targetTime">The target time to delay until</param>
+            <param name="valueHonourFirstDelay"></param>
             <returns>The
                 <see cref="T:System.TimeSpan"/>
                 reresenting the delay until the next scheduled run time

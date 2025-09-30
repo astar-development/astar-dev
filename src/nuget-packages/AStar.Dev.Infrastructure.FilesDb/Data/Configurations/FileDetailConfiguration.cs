@@ -16,7 +16,8 @@ public class FileDetailConfiguration : IEntityTypeConfiguration<FileDetail>
         _ = builder.HasKey(file => file.Id);
 
         _ = builder.Property(file => file.Id)
-                   .HasConversion(fileId => fileId.Value, fileId => new(fileId));
+                   .ValueGeneratedNever()
+                   .HasConversion(fileId => fileId.Value, fileId => new() { Value = fileId });
 
         _ = builder.Ignore(fileDetail => fileDetail.FileName);
         _ = builder.Ignore(fileDetail => fileDetail.DirectoryName);

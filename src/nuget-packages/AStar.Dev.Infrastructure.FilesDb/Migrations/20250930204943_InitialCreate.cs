@@ -9,7 +9,8 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations;
 /// <inheritdoc />
 [SuppressMessage("Style", "IDE0058:Expression value is never used")]
 [SuppressMessage("Style", "IDE0053:Use expression body for lambda expression")]
-public partial class RecreateDatabase : Migration
+[SuppressMessage("Style", "IDE0022:Use expression body for method")]
+public partial class InitialCreate : Migration
 {
     /// <inheritdoc />
     protected override void Up(MigrationBuilder migrationBuilder)
@@ -26,7 +27,10 @@ public partial class RecreateDatabase : Migration
                                                                      .Annotation("SqlServer:Identity", "1, 1"),
                                                            SoftDeleted       = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
                                                            SoftDeletePending = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
-                                                           HardDeletePending = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true)
+                                                           HardDeletePending = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
+                                                           DeletionScope     = table.Column<int>(type: "int", nullable: false),
+                                                           UpdatedBy         = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                                                           UpdatedOn         = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false)
                                                        },
                                      constraints: table =>
                                                   {
@@ -40,7 +44,6 @@ public partial class RecreateDatabase : Migration
                                                        {
                                                            Id = table.Column<int>(type: "int", nullable: false)
                                                                      .Annotation("SqlServer:Identity", "1, 1"),
-                                                           EventOccurredAt  = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
                                                            FileName         = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
                                                            DirectoryName    = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
                                                            Handle           = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: false),
@@ -49,9 +52,10 @@ public partial class RecreateDatabase : Migration
                                                            FileSize         = table.Column<long>(type: "bigint", nullable: false),
                                                            FileCreated      = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
                                                            FileLastModified = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
-                                                           UpdatedBy        = table.Column<string>(type: "nvarchar(30)",  maxLength: 30, nullable: false),
                                                            EventName        = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                                                           EventType        = table.Column<int>(type: "int", nullable: false)
+                                                           EventType        = table.Column<int>(type: "int", nullable: false),
+                                                           UpdatedBy        = table.Column<string>(type: "nvarchar(30)", maxLength: 30, nullable: false),
+                                                           UpdatedOn        = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false)
                                                        },
                                      constraints: table =>
                                                   {
@@ -67,7 +71,9 @@ public partial class RecreateDatabase : Migration
                                                                      .Annotation("SqlServer:Identity", "1, 1"),
                                                            DetailsLastUpdated = table.Column<DateTime>(type: "datetime2", nullable: true),
                                                            LastViewed         = table.Column<DateTime>(type: "datetime2", nullable: true),
-                                                           MoveRequired       = table.Column<bool>(type: "bit", nullable: false)
+                                                           MoveRequired       = table.Column<bool>(type: "bit", nullable: false),
+                                                           UpdatedBy          = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                                                           UpdatedOn          = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false)
                                                        },
                                      constraints: table =>
                                                   {
@@ -99,7 +105,9 @@ public partial class RecreateDatabase : Migration
                                                        {
                                                            Id = table.Column<int>(type: "int", nullable: false)
                                                                      .Annotation("SqlServer:Identity", "1, 1"),
-                                                           Value = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false)
+                                                           Value     = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false),
+                                                           UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                                                           UpdatedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false)
                                                        },
                                      constraints: table =>
                                                   {
@@ -114,7 +122,9 @@ public partial class RecreateDatabase : Migration
                                                            Id = table.Column<int>(type: "int", nullable: false)
                                                                      .Annotation("SqlServer:Identity", "1, 1"),
                                                            Value       = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false),
-                                                           IgnoreImage = table.Column<bool>(type: "bit", nullable: false)
+                                                           IgnoreImage = table.Column<bool>(type: "bit", nullable: false),
+                                                           UpdatedBy   = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                                                           UpdatedOn   = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false)
                                                        },
                                      constraints: table =>
                                                   {
@@ -126,17 +136,20 @@ public partial class RecreateDatabase : Migration
                                      schema: "files",
                                      columns: table => new
                                                        {
-                                                           Id                 = table.Column<int>(type: "int", nullable: false),
+                                                           Id                 = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                                                            FileAccessDetailId = table.Column<int>(type: "int", nullable: false),
                                                            FileSize           = table.Column<long>(type: "bigint", nullable: false),
                                                            CreatedDate        = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
+                                                           UpdatedDate        = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
                                                            IsImage            = table.Column<bool>(type: "bit", nullable: false),
                                                            FileHandle         = table.Column<string>(type: "nvarchar(256)", nullable: false),
                                                            DeletionStatusId   = table.Column<int>(type: "int", nullable: false),
                                                            DirectoryName      = table.Column<string>(type: "nvarchar(256)", nullable: false),
                                                            FileName           = table.Column<string>(type: "nvarchar(256)", nullable: false),
                                                            ImageHeight        = table.Column<int>(type: "int", nullable: true),
-                                                           ImageWidth         = table.Column<int>(type: "int", nullable: true)
+                                                           ImageWidth         = table.Column<int>(type: "int", nullable: true),
+                                                           UpdatedBy          = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                                                           UpdatedOn          = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false)
                                                        },
                                      constraints: table =>
                                                   {
@@ -187,7 +200,7 @@ public partial class RecreateDatabase : Migration
                                      columns: table => new
                                                        {
                                                            FileClassificationsId = table.Column<int>(type: "int", nullable: false),
-                                                           FileDetailsId         = table.Column<int>(type: "int", nullable: false)
+                                                           FileDetailsId         = table.Column<Guid>(type: "uniqueidentifier", nullable: false)
                                                        },
                                      constraints: table =>
                                                   {
@@ -227,7 +240,6 @@ public partial class RecreateDatabase : Migration
                                      table: "FileDetail",
                                      column: "DeletionStatusId");
 
-#pragma warning disable IDE0058
         migrationBuilder.CreateIndex(
                                      name: "IX_FileDetail_DuplicateImages",
                                      schema: "files",
@@ -235,7 +247,6 @@ public partial class RecreateDatabase : Migration
 #pragma warning disable CA1861
                                      columns: new[] { "IsImage", "FileSize" });
 #pragma warning restore CA1861
-#pragma warning restore IDE0058
 
         migrationBuilder.CreateIndex(
                                      name: "IX_FileDetail_FileAccessDetailId",

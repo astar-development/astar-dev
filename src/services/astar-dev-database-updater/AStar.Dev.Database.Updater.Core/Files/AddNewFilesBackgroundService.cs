@@ -23,13 +23,12 @@ public class AddNewFilesBackgroundService(IServiceProvider serviceProvider, Time
     /// <param name="stoppingToken">A cancellation token to optionally cancel the operation</param>
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        using var scope = serviceProvider.CreateScope();
+        using var scope                      = serviceProvider.CreateScope();
+        var       fileClassificationsService = scope.ServiceProvider.GetRequiredService<FileClassificationsService>();
+        var       addNewFilesService         = scope.ServiceProvider.GetRequiredService<AddNewFilesService>();
 
         while(!stoppingToken.IsCancellationRequested)
         {
-            var fileClassificationsService = scope.ServiceProvider.GetRequiredService<FileClassificationsService>();
-            var addNewFilesService         = scope.ServiceProvider.GetRequiredService<AddNewFilesService>();
-
             await timeDelay.CalculateDelayToNextRun(config.Value.NewFilesScheduledTime, config.Value.HonourFirstDelay)
                            .Tap(d => logger.LogInformation("Delay {DelayToNextRun} until next run at: {StartTime}", d.ToString(@"hh\:mm\:ss"), config.Value.NewFilesScheduledTime))
                            .BindAsync(async timeUntilNextRun => await WaitUntilNextRun(timeUntilNextRun, stoppingToken))

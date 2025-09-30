@@ -87,21 +87,6 @@ public class DatabaseMigrationService(IServiceProvider serviceProvider, IHostApp
                                                                  ImageDetail   = new(1234, 5678)
                                                              };
 
-                                            var @event = new Event
-                                                         {
-                                                             DirectoryName    = "MockDirectoryName",
-                                                             FileName         = "MockFileName.jpg",
-                                                             FileSize         = 12345,
-                                                             FileCreated      = DateTimeOffset.UtcNow,
-                                                             Height           = 5678,
-                                                             Width            = 1234,
-                                                             UpdatedOn        = DateTimeOffset.UtcNow,
-                                                             Type             = EventType.Add,
-                                                             FileLastModified = DateTimeOffset.UtcNow,
-                                                             Handle           = "MockFileName-jpg",
-                                                             UpdatedBy        = "Jason Barden"
-                                                         };
-
                                             var exists = await dbContext.Files.AnyAsync(x => x.FileHandle == fileDetail.FileHandle, stoppingToken);
 
                                             if(exists)

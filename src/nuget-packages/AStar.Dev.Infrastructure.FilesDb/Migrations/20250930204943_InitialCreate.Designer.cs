@@ -13,8 +13,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AStar.Dev.Infrastructure.FilesDb.Migrations
 {
     [DbContext(typeof(FilesContext))]
-    [Migration("20250924195950_AddAuditableEntityWhereRequired")]
-    partial class AddAuditableEntityWhereRequired
+    [Migration("20250930204943_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,6 +35,9 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("DeletionScope")
+                        .HasColumnType("int");
 
                     b.Property<DateTimeOffset?>("HardDeletePending")
                         .HasColumnType("datetimeoffset")
@@ -248,8 +251,8 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
 
             modelBuilder.Entity("AStar.Dev.Infrastructure.FilesDb.Models.FileDetail", b =>
                 {
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTimeOffset>("CreatedDate")
                         .HasColumnType("datetimeoffset");
@@ -419,8 +422,8 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                     b.Property<int>("FileClassificationsId")
                         .HasColumnType("int");
 
-                    b.Property<int>("FileDetailsId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("FileDetailsId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("FileClassificationsId", "FileDetailsId");
 

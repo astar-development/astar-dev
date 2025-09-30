@@ -181,9 +181,6 @@
             </summary>
             <param name="options"></param>
         </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
-            <inheritdoc/>
-        </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext.#ctor">
             <summary>
             </summary>
@@ -264,40 +261,16 @@
                 The original list of files for further filtering.
             </returns>
         </member>
-        <member name="T:AStar.Dev.Infrastructure.FilesDb.Migrations.RecreateDatabase">
+        <member name="T:AStar.Dev.Infrastructure.FilesDb.Migrations.InitialCreate">
             <inheritdoc/>
         </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.RecreateDatabase.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc/>
         </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.RecreateDatabase.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc/>
         </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.RecreateDatabase.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="T:AStar.Dev.Infrastructure.FilesDb.Migrations.AddAuditableEntityWhereRequired">
-            <inheritdoc/>
-        </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddAuditableEntityWhereRequired.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddAuditableEntityWhereRequired.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddAuditableEntityWhereRequired.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="T:AStar.Dev.Infrastructure.FilesDb.Migrations.AddDeletionScope">
-            <inheritdoc/>
-        </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddDeletionScope.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddDeletionScope.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddDeletionScope.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc/>
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.DeletionScope">
@@ -799,16 +772,14 @@
             <summary>
                 Defines the FileId
             </summary>
-            <param name="Value">The value of the File Id</param>
         </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.FileId.#ctor(System.Int32)">
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.FileId.#ctor">
             <summary>
                 Defines the FileId
             </summary>
-            <param name="Value">The value of the File Id</param>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileId.Value">
-            <summary>The value of the File Id</summary>
+            <summary>The value of the File ID</summary>
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.FileName">
             <summary>

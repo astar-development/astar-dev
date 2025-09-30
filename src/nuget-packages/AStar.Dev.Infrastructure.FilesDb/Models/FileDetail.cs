@@ -1,4 +1,5 @@
-﻿using System.IO.Abstractions;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.IO.Abstractions;
 using AStar.Dev.Infrastructure.Data;
 using AStar.Dev.Utilities;
 
@@ -22,6 +23,7 @@ public sealed class FileDetail : AuditableEntity
     /// <param name="fileInfo">
     ///     The instance of FileInfo to map
     /// </param>
+    [SetsRequiredMembers]
     public FileDetail(IFileInfo fileInfo)
     {
         FileName      = new(fileInfo.Name);

@@ -19,13 +19,6 @@ public sealed class FilesContext : DbContext
     {
     }
 
-    /// <inheritdoc />
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        _ = optionsBuilder.UseSqlServer("Data Source=localhost;Initial Catalog=filesDb;User ID=sa;Password=<SecurePasswordHere1!>;TrustServerCertificate=True");
-        base.OnConfiguring(optionsBuilder);
-    }
-
     /// <summary>
     /// </summary>
     public FilesContext()

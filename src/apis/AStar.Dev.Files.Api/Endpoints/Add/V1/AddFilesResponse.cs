@@ -9,7 +9,7 @@ public class AddFilesResponse
     /// <summary>
     ///     Gets or sets the ID of the <see href="FileDetail"></see>. I know, shocking...
     /// </summary>
-    public int Id { get; set; }
+    public Guid Id { get; set; }
 
     /// <summary>
     /// </summary>

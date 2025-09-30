@@ -248,8 +248,8 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
 
             modelBuilder.Entity("AStar.Dev.Infrastructure.FilesDb.Models.FileDetail", b =>
                 {
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTimeOffset>("CreatedDate")
                         .HasColumnType("datetimeoffset");
@@ -419,8 +419,8 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                     b.Property<int>("FileClassificationsId")
                         .HasColumnType("int");
 
-                    b.Property<int>("FileDetailsId")
-                        .HasColumnType("int");
+                    b.Property<Guid>("FileDetailsId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("FileClassificationsId", "FileDetailsId");
 

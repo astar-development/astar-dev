@@ -21,6 +21,15 @@ public class ClassificationRepository(FilesContext context)
                   .ToDictionary(fc => fc.Name, fc => fc);
 
     /// <summary>
+    ///     Retrieves existing classifications from the database, including their file name parts.
+    /// </summary>
+    /// <returns>Dictionary of classification name to FileClassification.</returns>
+    public List<FileClassification> GetExistingClassifications()
+        => context.FileClassifications
+                  .Include(fc => fc.FileNameParts)
+                  .ToList();
+
+    /// <summary>
     ///     Adds new classifications to the database context.
     /// </summary>
     /// <param name="classifications">List of new FileClassification entities.</param>

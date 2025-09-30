@@ -61,10 +61,6 @@
         </PackageReference>
     </ItemGroup>
 
-    <ItemGroup>
-        <Folder Include="Migrations\"/>
-    </ItemGroup>
-
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
         <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
         <NoWarn>1701;1702;</NoWarn>
