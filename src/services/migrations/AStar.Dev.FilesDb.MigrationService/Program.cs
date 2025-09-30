@@ -6,7 +6,7 @@ using AStar.Dev.ServiceDefaults;
 var builder = Host.CreateApplicationBuilder(args);
 builder.AddServiceDefaults();
 
-builder.Services.AddHostedService<Worker>();
+builder.Services.AddHostedService<DatabaseMigrationService>();
 builder.AddSqlServerDbContext<FilesContext>(AspireConstants.Sql.FilesDb);
 
 var host = builder.Build();

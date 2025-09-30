@@ -19,6 +19,10 @@
         <Project Path="src/apis/AStar.Dev.Images.Api/AStar.Dev.Images.Api.csproj"/>
         <Project Path="src/apis/AStar.Dev.ToDo.Api/AStar.Dev.ToDo.Api.csproj"/>
     </Folder>
+    <Folder Name="/src/nuget-packages/">
+        <Project Path="src\nuget-packages\AStar.Dev.Infrastructure.FilesDb\AStar.Dev.Infrastructure.FilesDb.csproj" Type="Classic C#"/>
+        <Project Path="src\nuget-packages\AStar.Dev.Infrastructure\AStar.Dev.Infrastructure.csproj" Type="Classic C#"/>
+    </Folder>
     <Folder Name="/src/services/">
         <Project Path="src/services/AStar.Dev.Usage.Logger/AStar.Dev.Usage.Logger.csproj"/>
         <Project Path="src/services/AStar.Dev.Wallpaper.Scrapper/AStar.Dev.Wallpaper.Scrapper.csproj"/>

@@ -6,15 +6,17 @@
         <OutputType>Exe</OutputType>
         <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
+        <Deterministic>true</Deterministic>
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
         <Nullable>enable</Nullable>
         <UserSecretsId>b8c500a1-90ed-4137-9946-9a465d25e1f1</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Aspire.Hosting.AppHost" Version="9.4.2"/>
-        <PackageReference Include="Aspire.Hosting.RabbitMQ" Version="9.4.2"/>
+        <PackageReference Include="Aspire.Hosting.AppHost" Version="9.5.0"/>
+        <PackageReference Include="Aspire.Hosting.RabbitMQ" Version="9.5.0"/>
         <PackageReference Include="AspNetCore.HealthChecks.RabbitMQ" Version="9.0.0"/>
-        <PackageReference Include="Aspire.Hosting.SqlServer" Version="9.4.2"/>
+        <PackageReference Include="Aspire.Hosting.SqlServer" Version="9.5.0"/>
     </ItemGroup>
 
     <ItemGroup>

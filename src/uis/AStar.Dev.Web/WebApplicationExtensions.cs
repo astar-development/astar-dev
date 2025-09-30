@@ -1,3 +1,5 @@
+using AStar.Dev.Web.Components;
+
 namespace AStar.Dev.Web;
 
 /// <summary>
@@ -27,4 +29,52 @@ public static class WebApplicationExtensions
     /// <param name="app">The <see cref="WebApplicationBuilder" /> instance to configure and build.</param>
     /// <returns>A fully configured and built <see cref="WebApplication" /> instance.</returns>
     public static WebApplication RemoveServerHeaderAndBuild(this WebApplicationBuilder app) => app.RemoveServerHeader().Build();
+
+    /// <summary>
+    ///     Configures the web application to use various application services such as security headers, health checks,
+    ///     exception handling, authentication, authorization, and routing components like static files and controllers.
+    ///     This method ensures the required middleware and features are added to the application's request pipeline.
+    /// </summary>
+    /// <param name="app">The <see cref="WebApplication" /> instance to configure.</param>
+    /// <returns>The configured <see cref="WebApplication" /> instance.</returns>
+    /// <example>
+    ///     Example usage:
+    ///     <code>
+    /// var app = builder.Build();
+    /// app.UseApplicationServices();
+    /// await app.RunAsync();
+    /// </code>
+    /// </example>
+    public static WebApplication UseApplicationServices(this WebApplication app)
+    {
+        app.MapHealthChecks("/health");
+        app.UseExceptionHandler("/Error", true);
+
+        if(!app.Environment.IsDevelopment())
+        {
+            app.UseHsts();
+        }
+
+        app.UseHttpsRedirection();
+
+        var policyCollection = new HeaderPolicyCollection()
+                               .AddDefaultSecurityHeaders()
+                               .AddPermissionsPolicyWithDefaultSecureDirectives();
+
+        app.UseSecurityHeaders(policyCollection);
+
+        app.UseAuthentication();
+        app.UseAuthorization();
+
+        app.UseAntiforgery();
+
+        app.MapStaticAssets();
+
+        app.MapControllers();
+
+        app.MapRazorComponents<App>()
+           .AddInteractiveServerRenderMode();
+
+        return app;
+    }
 }

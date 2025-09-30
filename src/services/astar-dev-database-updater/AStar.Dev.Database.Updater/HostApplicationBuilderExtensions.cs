@@ -1,6 +1,10 @@
 using System.IO.Abstractions;
 using System.Text.Json;
+using AStar.Dev.Aspire.Common;
 using AStar.Dev.Database.Updater.Core;
+using AStar.Dev.Database.Updater.Core.Classifications;
+using AStar.Dev.Database.Updater.Core.Files;
+using AStar.Dev.Infrastructure.FilesDb.Data;
 using AStar.Dev.Logging.Extensions;
 using AStar.Dev.ServiceDefaults;
 using Microsoft.Extensions.Options;
@@ -35,16 +39,28 @@ public static class HostApplicationBuilderExtensions
 
         _ = hostApplicationBuilder.Services
                                   .AddOptions<DatabaseUpdaterConfiguration>()
-                                  .Bind(hostApplicationBuilder.Configuration.GetSection(DatabaseUpdaterConfiguration.ConfigurationSectionName));
+                                  .Bind(hostApplicationBuilder.Configuration.GetSection(DatabaseUpdaterConfiguration.ConfigurationSectionName))
+                                  .ValidateDataAnnotations()
+                                  .ValidateOnStart();
 
         _ = hostApplicationBuilder.Services.AddSerilog((sp, loggerConfig) => loggerConfig.ReadFrom.Configuration(sp.CreateScope().ServiceProvider.GetRequiredService<IConfiguration>()));
 
-        _ = hostApplicationBuilder.Services.AddSingleton<AddNewFilesService>();
+        _ = hostApplicationBuilder.Services.AddScoped<FileClassificationsService>();
+        hostApplicationBuilder.AddSqlServerDbContext<FilesContext>(AspireConstants.Sql.FilesDb);
+        _ = hostApplicationBuilder.Services.AddScoped<ClassificationProcessor>();
+        _ = hostApplicationBuilder.Services.AddScoped<ClassificationRepository>();
+        _ = hostApplicationBuilder.Services.AddSingleton<ClassificationBuilder>();
+
+        _ = hostApplicationBuilder.Services.AddScoped<AddNewFilesService>();
+        _ = hostApplicationBuilder.Services.AddSingleton<ClassificationsMapper>();
         _ = hostApplicationBuilder.Services.AddSingleton<IValidateOptions<DatabaseUpdaterConfiguration>, DatabaseUpdaterConfigurationValidator>();
         _ = hostApplicationBuilder.Services.AddSingleton<TimeDelay>();
         _ = hostApplicationBuilder.Services.AddSingleton<IFileSystem, FileSystem>();
 
-        _ = hostApplicationBuilder.Services.AddHostedService<NewFilesBackgroundService>();
+        _ = hostApplicationBuilder.Services.AddHostedService<AddNewFilesBackgroundService>();
+
+        _ = hostApplicationBuilder.Services.AddOpenTelemetry()
+                                  .WithTracing(tracing => tracing.AddSource(Constants.ActivitySourceName));
 
         return hostApplicationBuilder;
     }

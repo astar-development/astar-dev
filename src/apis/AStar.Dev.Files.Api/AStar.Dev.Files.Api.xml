@@ -68,7 +68,7 @@
                 Gets or sets the file handle. I know, shocking...
             </summary>
         </member>
-        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse.FileCreated">
+        <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse.CreatedDate">
             <summary>
             </summary>
         </member>

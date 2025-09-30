@@ -1,3 +1,4 @@
+
 using AStar.Dev.Infrastructure.FilesDb.Models;
 
 namespace AStar.Dev.Files.Api.Endpoints.Add.V1;
@@ -16,14 +17,15 @@ public static class FileDetailExtensions
         => fileDetails
            .Select(file => new AddFilesResponse
                            {
-                               FileName         = file.FileName.Value,
-                               DirectoryName    = file.DirectoryName.Value,
-                               Id               = file.Id.Value,
-                               FileCreated      = file.FileCreated,
-                               ImageDetails     = new() { Width = file.ImageDetail?.Width, Height = file.ImageDetail?.Height },
-                               FileHandle       = file.FileHandle,
-                               FileSize         = file.FileSize,
-                               FileLastModified = file.FileLastModified,
+                               FileName      = file.FileName.Value,
+                               DirectoryName = file.DirectoryName.Value,
+                               Id            = file.Id.Value,
+                               CreatedDate   = file.CreatedDate,
+                               ImageDetails  = new() { Width = file.ImageDetail?.Width, Height = file.ImageDetail?.Height },
+                               FileHandle    = file.FileHandle,
+                               FileSize      = file.FileSize,
+
+                               //FileLastModified = file.,
                                IsImage          = file.IsImage
                            })
            .ToList();
@@ -38,16 +40,16 @@ public static class FileDetailExtensions
     public static IReadOnlyCollection<FileDetail> ToFileDetailsList(this IReadOnlyCollection<FileDetailToAdd> fileDetails, TimeProvider time, string username)
         => fileDetails.Select(fileDetailToAdd => new FileDetail
                                                  {
-                                                     FileName         = new(fileDetailToAdd.FileName),
-                                                     DirectoryName    = new(fileDetailToAdd.DirectoryName),
-                                                     FileCreated      = fileDetailToAdd.FileCreated,
-                                                     FileLastModified = fileDetailToAdd.FileLastModified,
-                                                     FileSize         = fileDetailToAdd.FileSize,
-                                                     FileHandle       = new(string.Concat("-", fileDetailToAdd.FileName, fileDetailToAdd.FileClassifications.Take(3)).Replace(" ", "-")),
-                                                     UpdatedBy        = username,
-                                                     ImageDetail      = new(fileDetailToAdd.ImageDetails.Width, fileDetailToAdd.ImageDetails.Height),
-                                                     IsImage          = true,
-                                                     UpdatedOn        = time.GetUtcNow(),
+                                                     FileName      = new(fileDetailToAdd.FileName),
+                                                     DirectoryName = new(fileDetailToAdd.DirectoryName),
+                                                     CreatedDate   = fileDetailToAdd.FileCreated,
+                                                     UpdatedDate   = fileDetailToAdd.FileLastModified,
+                                                     FileSize      = fileDetailToAdd.FileSize,
+                                                     FileHandle    = new(string.Concat("-", fileDetailToAdd.FileName, fileDetailToAdd.FileClassifications.Take(3)).Replace(" ", "-")),
+                                                     UpdatedBy     = username,
+                                                     ImageDetail   = new(fileDetailToAdd.ImageDetails.Width, fileDetailToAdd.ImageDetails.Height),
+                                                     IsImage       = true,
+                                                     UpdatedOn     = time.GetUtcNow(),
                                                      FileClassifications = fileDetailToAdd.FileClassifications
                                                                                           .Select(classification => new Infrastructure.FilesDb.Models.FileClassification
                                                                                                                     {
@@ -72,7 +74,7 @@ public static class FileDetailExtensions
                                                      FileLastModified = fileDetailToAdd.FileLastModified,
                                                      FileSize         = fileDetailToAdd.FileSize,
                                                      UpdatedBy        = username,
-                                                     EventOccurredAt  = time.GetUtcNow(),
+                                                     UpdatedOn        = time.GetUtcNow(),
                                                      Type             = EventType.Add,
                                                      Handle           = "???",
                                                      Height           = fileDetailToAdd.ImageDetails.Height,

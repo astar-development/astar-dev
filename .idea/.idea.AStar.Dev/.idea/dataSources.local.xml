@@ -1,102 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="RD-252.23892.524">
-    <data-source name="filesDb" uuid="b61c2e42-53ba-4090-99f5-cd1a42d8dc9c">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
+    <data-source name="Microsoft SQL Server (JetBrains)" uuid="5f6b3ebf-4e26-4b7d-9977-34b2e1c49c97">
+      <database-info product="Microsoft SQL Server" version="16.00.4185" jdbc-version="4.2" driver-name="JetBrains JDBC Driver for SQL Server" driver-version="1.0" dbms="MSSQL" exact-version="16.0.4185" exact-driver-version="1.0">
+        <extra-name-characters>$#@</extra-name-characters>
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
       <secret-storage>master_key</secret-storage>
-      <schema-mapping />
+      <auth-provider>no-auth</auth-provider>
+      <schema-mapping>
+        <introspection-scope>
+          <node negative="1">
+            <node kind="database" qname="@">
+              <node kind="schema" qname="@" />
+            </node>
+            <node kind="database" qname="filesDb">
+              <node kind="schema" qname="files" />
+            </node>
+          </node>
+        </introspection-scope>
+      </schema-mapping>
     </data-source>
-    <data-source name="filesDb" uuid="06e9f2e7-bc84-4702-ac20-89c578ff2276">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
+    <data-source name="sql1" uuid="b2c56a71-9298-4c2c-9e1e-57bc48db2e9a">
+      <database-info product="Microsoft SQL Server" version="16.00.4185" jdbc-version="4.2" driver-name="JetBrains JDBC Driver for SQL Server" driver-version="1.0" dbms="MSSQL" exact-version="16.0.4185" exact-driver-version="1.0">
+        <extra-name-characters>$#@</extra-name-characters>
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
       <secret-storage>master_key</secret-storage>
-      <schema-mapping />
+      <user-name>sa</user-name>
+      <schema-mapping>
+        <introspection-scope>
+          <node negative="1">
+            <node kind="database" qname="@">
+              <node kind="schema" qname="@" />
+            </node>
+            <node kind="database" qname="filesDb">
+              <node kind="schema" negative="1" />
+            </node>
+          </node>
+        </introspection-scope>
+      </schema-mapping>
     </data-source>
-    <data-source name="adminDb" uuid="e25b79d6-4162-4095-829b-ef4154f63a4f">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
-      <secret-storage>master_key</secret-storage>
-      <schema-mapping />
-    </data-source>
-    <data-source name="filesDb" uuid="540c2921-8dca-43e3-89f4-fd21117114ea">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
-      <secret-storage>master_key</secret-storage>
-      <schema-mapping />
-    </data-source>
-    <data-source name="adminDb" uuid="9d796bb7-6145-4d99-91a4-2e91cb935ce1">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
-      <secret-storage>master_key</secret-storage>
-      <schema-mapping />
-    </data-source>
-    <data-source name="filesDb" uuid="74c9ab25-cfaf-434d-9453-dec319b27cdd">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
-      <secret-storage>master_key</secret-storage>
-      <schema-mapping />
-    </data-source>
-    <data-source name="adminDb" uuid="4b22b0f4-a352-40f2-a00b-d41e747b7e64">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
-      <secret-storage>master_key</secret-storage>
-      <schema-mapping />
-    </data-source>
-    <data-source name="filesDb" uuid="562e9b7d-ba40-4747-bea9-f724ce94842d">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
-      <secret-storage>master_key</secret-storage>
-      <schema-mapping />
-    </data-source>
-    <data-source name="adminDb" uuid="9cc414ba-8ffa-4fab-9583-75f29a76875c">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
-      <secret-storage>master_key</secret-storage>
-      <schema-mapping />
-    </data-source>
-    <data-source name="filesDb" uuid="c1294227-f949-4103-b57b-3cec5522b30b">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
-      <secret-storage>master_key</secret-storage>
-      <schema-mapping />
-    </data-source>
-    <data-source name="adminDb" uuid="51d27496-9db4-4564-88e8-828d90a0cb74">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
-      <secret-storage>master_key</secret-storage>
-      <schema-mapping />
-    </data-source>
-    <data-source name="filesDb" uuid="77c003cc-01ce-4064-bbe2-b56cdc553997">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
-      <secret-storage>master_key</secret-storage>
-      <schema-mapping />
-    </data-source>
-    <data-source name="adminDb" uuid="a6ed6d49-04c4-499b-bd97-196200ca03f2">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
-      <secret-storage>master_key</secret-storage>
-      <schema-mapping />
-    </data-source>
-    <data-source name="filesDb" uuid="77bed9f9-03e0-428d-9026-c82f18d9ad77">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
-      <secret-storage>master_key</secret-storage>
-      <schema-mapping />
-    </data-source>
-    <data-source name="adminDb" uuid="5d5b29af-4798-488c-b7c6-8b6b30f18535">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
-      <secret-storage>master_key</secret-storage>
-      <schema-mapping />
-    </data-source>
-    <data-source name="filesDb" uuid="6b0eb302-220c-4250-9d8c-7ff1fadd01ea">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
-      <secret-storage>master_key</secret-storage>
-      <schema-mapping />
-    </data-source>
-    <data-source name="adminDb" uuid="bbdee517-35bd-47d0-af10-c0645362a15a">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
-      <secret-storage>master_key</secret-storage>
-      <schema-mapping />
-    </data-source>
-    <data-source name="filesDb" uuid="bf122a40-89f1-4c33-a932-a76e841169f9">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
-      <secret-storage>master_key</secret-storage>
-      <schema-mapping />
-    </data-source>
-    <data-source name="adminDb" uuid="9399f802-2203-44b9-b6a0-f8a02aaf5f7e">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
-      <secret-storage>master_key</secret-storage>
-      <schema-mapping />
-    </data-source>
-    <data-source name="sql1" uuid="d164044b-abe6-4fcd-a6ae-394b2accfcfc">
+    <data-source name="sql1" uuid="1526743e-f2aa-41f9-ac56-9bd493049d81">
       <database-info product="Microsoft SQL Server" version="16.00.4185" jdbc-version="4.2" driver-name="JetBrains JDBC Driver for SQL Server" driver-version="1.0" dbms="MSSQL" exact-version="16.0.4185" exact-driver-version="1.0">
         <extra-name-characters>$#@</extra-name-characters>
         <identifier-quote-string>&quot;</identifier-quote-string>
@@ -110,46 +57,6 @@
           </node>
         </introspection-scope>
       </schema-mapping>
-    </data-source>
-    <data-source name="sql1" uuid="be062623-620b-4d7b-8d91-181176a8fcaa">
-      <database-info product="Microsoft SQL Server" version="16.00.4185" jdbc-version="4.2" driver-name="JetBrains JDBC Driver for SQL Server" driver-version="1.0" dbms="MSSQL" exact-version="16.0.4185" exact-driver-version="1.0">
-        <extra-name-characters>$#@</extra-name-characters>
-        <identifier-quote-string>&quot;</identifier-quote-string>
-      </database-info>
-      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
-      <secret-storage>master_key</secret-storage>
-      <schema-mapping>
-        <introspection-scope>
-          <node kind="database" qname="@">
-            <node kind="schema" qname="@" />
-          </node>
-        </introspection-scope>
-      </schema-mapping>
-    </data-source>
-    <data-source name="sql1" uuid="d59d74f3-51ae-446d-96d9-84fedd3a3d20">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
-      <secret-storage>master_key</secret-storage>
-      <schema-mapping />
-    </data-source>
-    <data-source name="sql1" uuid="1bc96f88-6787-47df-9c29-495529e0cb4b">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
-      <secret-storage>master_key</secret-storage>
-      <schema-mapping />
-    </data-source>
-    <data-source name="sql1" uuid="676235f8-c167-4fc7-930b-3cb3391c0d18">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
-      <secret-storage>master_key</secret-storage>
-      <schema-mapping />
-    </data-source>
-    <data-source name="sql1" uuid="02f61d57-ece9-43ce-bdac-8f5310961254">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
-      <secret-storage>master_key</secret-storage>
-      <schema-mapping />
-    </data-source>
-    <data-source name="sql1" uuid="0d1202b4-64e8-4bd6-81ee-464f69acb47f">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
-      <secret-storage>master_key</secret-storage>
-      <schema-mapping />
     </data-source>
   </component>
 </project>

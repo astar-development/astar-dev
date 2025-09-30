@@ -7,8 +7,8 @@ namespace AStar.Dev.Web.Components.Layout;
 public partial class NavMenu : ComponentBase
 {
     private bool    _expanded = true;
-    private bool    _isAuthenticated;
     private string? _firstName;
+    private bool    _isAuthenticated;
 
     [CascadingParameter]
     private Task<AuthenticationState> AuthenticationStateTask { get; set; } = null!;

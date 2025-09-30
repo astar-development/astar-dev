@@ -20,7 +20,7 @@ public class GetFilesHandler : IGetFilesHandler
         var sortOrder = (Infrastructure.FilesDb.Models.SortOrder)Enum.Parse<SortOrder>(files.SortOrder
                                                                                             .ToString());
 
-        IList<GetFilesResponse> fileDetails = await filesContext.FileDetails
+        IList<GetFilesResponse> fileDetails = await filesContext.Files
                                                                 .WhereDirectoryNameMatches(files.SearchFolder, files.Recursive)
 
                                                                 //.IncludeMarkedForDeletion(files.IncludeMarkedForDeletion)

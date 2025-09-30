@@ -39,13 +39,13 @@ public class GetFilesResponseExtensionsShould
                              FileName       = new("MockFileName"),
                              FileHandle     = new("MockFileHandle"),
                              FileSize       = 12345,
-                             FileLastViewed = new(2025, 12, 23, 0, 1, 2, TimeSpan.Zero),
                              DeletionStatus = new()
                                               {
                                                   HardDeletePending = new(2025, 12, 23, 0, 2, 2, TimeSpan.Zero),
                                                   SoftDeletePending = new(2025, 12, 23, 0, 3, 2, TimeSpan.Zero),
                                                   SoftDeleted       = new(2025, 12, 23, 0, 4, 2, TimeSpan.Zero)
                                               },
+                             UpdatedBy   = "MockUpdatedBy",
                              UpdatedOn   = new(2025, 12, 23, 0, 5, 2, TimeSpan.Zero),
                              ImageDetail = new(123, 456),
                              IsImage     = true

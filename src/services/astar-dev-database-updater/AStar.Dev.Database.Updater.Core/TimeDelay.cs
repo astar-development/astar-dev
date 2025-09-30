@@ -13,12 +13,13 @@ public class TimeDelay(TimeProvider timeProvider, ILogger<TimeDelay> logger)
     ///     This implementation doesn't need the ErrorResponse so doesn't "need" the result at all
     /// </summary>
     /// <param name="targetTime">The target time to delay until</param>
+    /// <param name="valueHonourFirstDelay"></param>
     /// <returns>The <see cref="TimeSpan" /> reresenting the delay until the next scheduled run time</returns>
-    public Result<TimeSpan, ErrorResponse> CalculateDelayToNextRun(TimeOnly targetTime)
+    public Result<TimeSpan, ErrorResponse> CalculateDelayToNextRun(TimeOnly targetTime, bool valueHonourFirstDelay)
     {
         var currentTime = GetCurrentTime();
 
-        var timeDelay = TimeToNextOccurrence(targetTime, currentTime);
+        var timeDelay = valueHonourFirstDelay ? TimeToNextOccurrence(targetTime, currentTime) : TimeSpan.Zero;
 
         logger.LogInformation("Next scheduled run at: {NextScheduledRunTime} - time delay: {TimeDelay}", targetTime, timeDelay);
 

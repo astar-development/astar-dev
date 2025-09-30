@@ -1,5 +1,3 @@
-using Microsoft.AspNetCore.Components;
-
 namespace AStar.Dev.Web.Components.Layout;
 
 public partial class MainLayout
