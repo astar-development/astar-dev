@@ -40,12 +40,12 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.8"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.9"/>
     </ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="AStar.Dev.Utilities" Version="1.6.2"/>
-        <PackageReference Include="AStar.Dev.Functional.Extensions" Version="0.4.2"/>
+        <PackageReference Include="AStar.Dev.Functional.Extensions" Version="0.4.5"/>
         <PackageReference Include="AStar.Dev.Technical.Debt.Reporting" Version="0.2.1"/>
     </ItemGroup>
 
