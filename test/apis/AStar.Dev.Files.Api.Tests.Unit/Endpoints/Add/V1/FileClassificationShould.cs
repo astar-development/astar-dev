@@ -6,6 +6,5 @@ namespace AStar.Dev.Files.Api.Endpoints.Add.V1;
 public class FileClassificationShould
 {
     [Fact]
-    public void ContainTheAddTheExpectedProperties()
-        => new FileClassification().ToJson().ShouldMatchApproved();
+    public void ContainTheAddTheExpectedProperties() => new FileClassification().ToJson().ShouldMatchApproved();
 }

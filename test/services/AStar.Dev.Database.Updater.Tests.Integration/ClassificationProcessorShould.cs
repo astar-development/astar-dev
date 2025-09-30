@@ -9,8 +9,12 @@ namespace AStar.Dev.Database.Updater;
 
 public class ClassificationProcessorShould : IDisposable
 {
-    private                 FilesContext _context       = null!;
     private static readonly TimeSpan     DefaultTimeout = TimeSpan.FromSeconds(60);
+    private                 FilesContext _context       = null!;
+
+    /// <inheritdoc />
+    public void Dispose()
+        => _context.Database.EnsureDeleted();
 
     [Fact]
     public async Task Should_Add_New_Classifications_And_FileNameParts()
@@ -80,8 +84,4 @@ public class ClassificationProcessorShould : IDisposable
         beta.FileNameParts.Count.ShouldBe(1);
         beta.FileNameParts.First().Text.ShouldBe("beta_01");
     }
-
-    /// <inheritdoc />
-    public void Dispose()
-        => _context.Database.EnsureDeleted();
 }

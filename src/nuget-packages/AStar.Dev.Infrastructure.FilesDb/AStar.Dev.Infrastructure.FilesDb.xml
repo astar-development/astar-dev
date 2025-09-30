@@ -304,7 +304,7 @@
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DeletionStatus.SoftDeleted">
             <summary>
-                Gets or sets when the file was 'soft deleted'. I know, shocking...
+                Gets or sets when the file was 'soft-deleted'. I know, shocking...
             </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DeletionStatus.SoftDeletePending">

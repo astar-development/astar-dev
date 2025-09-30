@@ -35,10 +35,10 @@ public class GetFilesResponseExtensionsShould
     {
         var fileDetail = new FileDetail
                          {
-                             DirectoryName  = new("MockDirectoryName"),
-                             FileName       = new("MockFileName"),
-                             FileHandle     = new("MockFileHandle"),
-                             FileSize       = 12345,
+                             DirectoryName = new("MockDirectoryName"),
+                             FileName      = new("MockFileName"),
+                             FileHandle    = new("MockFileHandle"),
+                             FileSize      = 12345,
                              DeletionStatus = new()
                                               {
                                                   HardDeletePending = new(2025, 12, 23, 0, 2, 2, TimeSpan.Zero),
