@@ -8,6 +8,7 @@
         <Nullable>enable</Nullable>
         <IsPackable>false</IsPackable>
         <RootNamespace>AStar.Dev.Database.Updater</RootNamespace>
+        <UserSecretsId>7e82e7f0-e47b-467f-bfbb-cebc2d49137e</UserSecretsId>
     </PropertyGroup>
 
     <ItemGroup>
@@ -24,6 +25,7 @@
         </PackageReference>
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1"/>
         <PackageReference Include="Shouldly" Version="4.3.0"/>
+        <PackageReference Include="Xunit.DependencyInjection.Logging" Version="11.0.0"/>
         <PackageReference Include="xunit.v3" Version="3.1.0"/>
         <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5">
             <PrivateAssets>all</PrivateAssets>
@@ -44,6 +46,7 @@
     <ItemGroup>
         <ProjectReference Include="..\..\..\src\services\astar-dev-database-updater\AStar.Dev.Database.Updater.Core\AStar.Dev.Database.Updater.Core.csproj"/>
         <ProjectReference Include="..\..\..\src\services\astar-dev-database-updater\AStar.Dev.Database.Updater\AStar.Dev.Database.Updater.csproj"/>
+        <ProjectReference Include="..\..\..\src\_aspire\AStar.Dev.AppHost\AStar.Dev.AppHost.csproj"/>
     </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

@@ -9,6 +9,7 @@ using AStar.Dev.Utilities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Serilog;
 using SkiaSharp;
 
 namespace AStar.Dev.Database.Updater.Core;
@@ -20,7 +21,7 @@ namespace AStar.Dev.Database.Updater.Core;
 /// <param name="config">An instance of the <see cref="DatabaseUpdaterConfiguration" /> options used to configure the addition of the new files</param>
 /// <param name="filesContext">An instance of the <see cref="FilesContext" /></param>
 /// <param name="classificationRepository">An instance of the <see cref="ClassificationRepository" /> </param>
-/// <param name="logger">An instance of the <see cref="ILogger" /> to log status / errors</param>
+/// <param name="logger">An instance of the <see cref="Microsoft.Extensions.Logging.ILogger" /> to log status / errors</param>
 public class AddNewFilesService(
     IFileSystem                            fileSystem,
     IOptions<DatabaseUpdaterConfiguration> config,
@@ -29,72 +30,72 @@ public class AddNewFilesService(
     ILogger<AddNewFilesService>            logger)
 {
     /// <summary>
-    ///     The StartAsync method is called by the runtime (via the BackgroundWorker) and will update the database with any new files
+    ///     The FindNewFilesAndAddToDatabaseAsync method is called to update the database with any new files
     /// </summary>
     /// <param name="stoppingToken">A cancellation token to optionally cancel the operation</param>
-    public async Task<Result<int, ErrorResponse>> StartAsync(CancellationToken stoppingToken)
+    public async Task<Result<int, ErrorResponse>> FindNewFilesAndAddToDatabaseAsync(CancellationToken stoppingToken)
     {
         var enumerationOptions = new EnumerationOptions { IgnoreInaccessible = true, RecurseSubdirectories = true, ReturnSpecialDirectories = false };
         var classifications    = classificationRepository.GetExistingClassifications();
 
         return await GetFileList(enumerationOptions)
-                     .BindAsync(async fileList => await ProcessNewFiles(fileList, classifications, stoppingToken))
+                     .BindAsync(async fileList => await ProcessNewFilesAsync(fileList, classifications, stoppingToken))
                      .MapFailureAsync(x => new ErrorResponse(x.Message));
     }
 
     private Result<string[], ErrorResponse> GetFileList(EnumerationOptions enumerationOptions)
         => Try.Run(() => fileSystem.Directory.EnumerateFiles(config.Value.RootDirectory, "*", enumerationOptions).ToArray()).ToErrorResponse();
 
-    private async Task<Result<int, ErrorResponse>> ProcessNewFiles(string[] files, List<FileClassification> fileClassifications, CancellationToken stoppingToken)
+    private async Task<Result<int, ErrorResponse>> ProcessNewFilesAsync(string[] files, List<FileClassification> fileClassifications, CancellationToken stoppingToken)
     {
         logger.LogInformation("Processing {FileCount} potentially new files...", files.Length);
         var count = 0;
 
-        var fileChunks = files.Chunk(100);
+        var fileChunks                     = files.Chunk(100);
+        var filesAlreadyInTheContext       = await filesContext.Files.AsNoTracking().Select(f => f.FullNameWithPath).ToListAsync(stoppingToken);
+        var fileHandlesAlreadyInTheContext = await filesContext.Files.AsNoTracking().Select(f => f.FileHandle).ToListAsync(stoppingToken);
 
-        foreach(var fileChunk in fileChunks)
+        foreach(var fileList in fileChunks)
         {
-            var first = fileChunk[0];
-            logger.LogInformation("Processing potentially new file {File}...", first);
-            var filesAlreadyInTheContext = await filesContext.Files.AsNoTracking().Select(f => f.FullNameWithPath).ToListAsync(stoppingToken);
-            var filesToProcess           = fileChunk.Except(filesAlreadyInTheContext).ToArray();
+            logger.LogInformation("Processing potentially new file {File}...", fileList[0]);
+            var filesToProcess = fileList.Except(filesAlreadyInTheContext).ToArray();
 
-            count = filesToProcess.Aggregate(count, (current, file) => ProcessNewFile(fileClassifications, file, current));
-
-            await filesContext.SaveChangesAsync(stoppingToken);
+            foreach(var file in filesToProcess)
+            {
+                count = await ProcessNewFileAsync(fileClassifications, file, count, fileHandlesAlreadyInTheContext, stoppingToken);
+            }
         }
+
+        await filesContext.SaveChangesAsync(stoppingToken);
 
         return new Result<int, ErrorResponse>.Ok(count);
     }
 
-    private int ProcessNewFile(List<FileClassification> fileClassifications, string file, int count)
+    private async Task<int> ProcessNewFileAsync(List<FileClassification> fileClassifications, string file, int count, List<FileHandle> fileHandlesAlreadyInTheContext, CancellationToken stoppingToken)
     {
         var fileInfo                = fileSystem.FileInfo.New(file);
-        var fileWithClassifications = UpdateFileDetailWithClassifications(fileClassifications, fileInfo, file);
+        var fileWithClassifications = UpdateFileDetailWithClassifications(fileClassifications, fileInfo, file, fileHandlesAlreadyInTheContext);
 
         if(file.IsImage())
         {
             UpdateFileDetailsForImage(file, fileWithClassifications);
         }
 
-        if(IsNotAnExistingFileInTheContext(fileWithClassifications))
-        {
-            count++;
-            filesContext.Files.Add(fileWithClassifications);
-        }
+        count++;
+        filesContext.Files.Add(fileWithClassifications);
 
-        var newCount = UpdateFileContext(file, count, fileWithClassifications);
+        var newCount = await UpdateFileContextAsync(count, fileWithClassifications, stoppingToken);
 
         return newCount;
     }
 
-    private int UpdateFileContext(string file, int count, FileDetail fileWithClassifications)
+    private async Task<int> UpdateFileContextAsync(int count, FileDetail fileWithClassifications, CancellationToken stoppingToken)
     {
         var newCount = 0;
 
         try
         {
-            newCount = TryContextUpdate(file, count);
+            newCount = await TryContextUpdateAsync(count, stoppingToken);
         }
         catch(DbUpdateException exception) when(exception.GetBaseException().Message.Contains("IX_FileDetail_FileHandle"))
         {
@@ -104,7 +105,7 @@ public class AddNewFilesService(
         return newCount;
     }
 
-    private int TryContextUpdate(string file, int count)
+    private async Task<int> TryContextUpdateAsync(int count, CancellationToken stoppingToken)
     {
         if(count <= 100)
         {
@@ -112,9 +113,7 @@ public class AddNewFilesService(
         }
 
         count = 0;
-
-        var totalFilesCount = filesContext.Files.Count();
-        logger.LogInformation("Saving {FileName} at {StartTime} (UTC)... Total Files: {TotalFilesCount}", file, DateTime.UtcNow, totalFilesCount);
+        await filesContext.SaveChangesAsync(stoppingToken);
 
         return count;
     }
@@ -123,17 +122,17 @@ public class AddNewFilesService(
     {
         try
         {
-            var countFileHandle2 = filesContext.Files.Count(fileDetail => fileDetail.FileHandle == fileWithClassifications.FileHandle) + Random.Shared.Next(5_000, 500_000);
-            fileWithClassifications.FileHandle = FileHandle.Create($"{countFileHandle2}-{fileWithClassifications.FileHandle}");
+            Log.Warning("File handle collision detected. Retrying...");
+            fileWithClassifications.FileHandle = FileHandle.Create($"{Guid.CreateVersion7()}-{fileWithClassifications.FileHandle}".TruncateIfRequired(350));
         }
         catch(Exception exception2)
         {
-            var exToLog = new Exception(exception2.GetBaseException().Message); // full exception is too large to log "as is" - come back to this...
+            var exToLog = new Exception(exception2.GetBaseException().Message); // the full exception is too large to log "as is" - come back to this...
             logger.LogError(exToLog, "An exception occured while executing file service. Error was: {ErrorMessage} - retry failed", exToLog.Message);
         }
     }
 
-    private static FileDetail UpdateFileDetailWithClassifications(List<FileClassification> fileClassifications, IFileInfo fileInfo, string file)
+    private static FileDetail UpdateFileDetailWithClassifications(List<FileClassification> fileClassifications, IFileInfo fileInfo, string file, List<FileHandle> fileHandlesAlreadyInTheContext)
     {
         var fileWithClassifications = new FileDetail(fileInfo) { FileClassifications = [], FileAccessDetail = { DetailsLastUpdated = DateTime.UtcNow } };
 
@@ -142,9 +141,7 @@ public class AddNewFilesService(
             fileWithClassifications.FileClassifications.Add(fileClassification);
         }
 
-        var fileClassificationsCount = fileWithClassifications.FileClassifications.Count;
-
-        fileWithClassifications.FileHandle = GenerateFileHandle(fileInfo, fileClassificationsCount, fileWithClassifications);
+        fileWithClassifications.FileHandle = GenerateFileHandle(fileInfo, fileHandlesAlreadyInTheContext);
 
         return fileWithClassifications;
     }
@@ -154,9 +151,6 @@ public class AddNewFilesService(
            from fileNamePart in fileClassification.FileNameParts
            where file.Contains(fileNamePart.Text)
            select fileClassification;
-
-    private bool IsNotAnExistingFileInTheContext(FileDetail fileWithClassifications) =>
-        !filesContext.Files.Any(f => f.DirectoryName == fileWithClassifications.DirectoryName && f.FileName == fileWithClassifications.FileName);
 
     private static void UpdateFileDetailsForImage(string file, FileDetail fileDetail)
     {
@@ -171,40 +165,20 @@ public class AddNewFilesService(
         fileDetail.ImageDetail = new(image.Width, image.Height);
     }
 
-    private static FileHandle GenerateFileHandle(IFileInfo fileInfo, int fileClassificationsCount, FileDetail fileWithClassifications)
+    private static FileHandle GenerateFileHandle(IFileInfo fileInfo, List<FileHandle> fileHandlesAlreadyInTheContext)
     {
-        var fileHandle = $"{GenerateRandomNumeric()}-{GenerateFileHandle(fileInfo.Name).Value}";
+        var fileHandle = GenerateFileHandle(fileInfo.Name).Value.TruncateIfRequired(350);
 
-        if(fileClassificationsCount <= 1)
+        if(fileHandlesAlreadyInTheContext.Any(h => h.Value == fileHandle))
         {
-            return FileHandle.Create(fileHandle.TruncateIfRequired(350));
+            fileHandle = $"{Guid.CreateVersion7()}-{fileHandle}".TruncateIfRequired(350);
         }
 
-        var firstRandom  = new Random(DateTime.Now.Millisecond).Next(1, fileClassificationsCount);
-        var prefix       = fileWithClassifications.FileClassifications.Skip(firstRandom).FirstOrDefault()?.FileNameParts.FirstOrDefault()?.Text;
-        var secondRandom = new Random(DateTime.Now.Millisecond).Next(1, fileClassificationsCount);
-        var prefix2      = fileWithClassifications.FileClassifications.Skip(secondRandom).FirstOrDefault()?.FileNameParts.FirstOrDefault()?.Text;
+        var newHandle = FileHandle.Create(fileHandle);
+        fileHandlesAlreadyInTheContext.Add(newHandle);
 
-        fileHandle = UpdateFileHandle(fileInfo, prefix, prefix2);
-
-        return GenerateFileHandle(fileHandle.TruncateIfRequired(350));
+        return newHandle;
     }
-
-    private static string UpdateFileHandle(IFileInfo fileInfo, string? prefix, string? prefix2)
-        => prefix switch
-           {
-               { Length: > 0 } when prefix2 is { Length: > 0 } && prefix != prefix2 => GenerateHandleWithTwoPrefixes(fileInfo, prefix, prefix2),
-               { Length: > 0 }                                                      => GenerateHandleWithOnePrefix(fileInfo, prefix),
-               _                                                                    => GenerateHandleWithoutPrefixes(fileInfo)
-           };
-
-    private static string GenerateHandleWithoutPrefixes(IFileInfo fileInfo) => $"{GenerateRandomNumeric()}-{GenerateFileHandle(fileInfo.Name)}";
-
-    private static string GenerateHandleWithOnePrefix(IFileInfo fileInfo, string prefix) => $"{GenerateRandomNumeric()}-{prefix}-{GenerateFileHandle(fileInfo.Name)}";
-
-    private static string GenerateHandleWithTwoPrefixes(IFileInfo fileInfo, string prefix, string prefix2) => $"{GenerateRandomNumeric()}-{prefix}-{prefix2}-{GenerateFileHandle(fileInfo.Name)}";
-
-    private static int GenerateRandomNumeric() => Random.Shared.Next(5_000, 500_000);
 
     private static FileHandle GenerateFileHandle(string file)
     {

@@ -14,7 +14,7 @@ public static class FileDetailDeletionStatusExtensions
     public static IQueryable<FileDetail> IncludeDeletedOrDeletePending(this IQueryable<FileDetail> files, bool includeDeleted)
         => includeDeleted
                ? files
-               : files.Where(f => f.DeletionStatus.HardDeletePending    == null
-                                  && f.DeletionStatus.SoftDeletePending == null
-                                  && f.DeletionStatus.SoftDeleted       == null);
+               : files.Where(f => f.DeletionStatus != null && f.DeletionStatus.HardDeletePending == null
+                                                           && f.DeletionStatus.SoftDeletePending == null
+                                                           && f.DeletionStatus.SoftDeleted       == null);
 }

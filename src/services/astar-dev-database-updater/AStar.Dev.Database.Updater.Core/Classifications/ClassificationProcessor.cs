@@ -76,7 +76,11 @@ public class ClassificationProcessor(ClassificationRepository repository, Classi
                                               .ToHashSet(StringComparer.OrdinalIgnoreCase);
 
             var newParts = builder.CreateMissingParts(group, existingTexts);
-            classification.FileNameParts.AddRange(newParts);
+
+            if(newParts.Count != 0)
+            {
+                classification.FileNameParts.AddRange(newParts);
+            }
         }
     }
 }

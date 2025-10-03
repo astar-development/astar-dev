@@ -12,7 +12,7 @@ public sealed class DeletionStatus : AuditableEntity
     public int Id { get; set; }
 
     /// <summary>
-    ///     Gets or sets when the file was 'soft deleted'. I know, shocking...
+    ///     Gets or sets when the file was 'soft-deleted'. I know, shocking...
     /// </summary>
     public DateTimeOffset? SoftDeleted { get; set; }
 

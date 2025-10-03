@@ -54,9 +54,9 @@
                 to log status / errors
             </param>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.AddNewFilesService.StartAsync(System.Threading.CancellationToken)">
+        <member name="M:AStar.Dev.Database.Updater.Core.AddNewFilesService.FindNewFilesAndAddToDatabaseAsync(System.Threading.CancellationToken)">
             <summary>
-                The StartAsync method is called by the runtime (via the BackgroundWorker) and will update the database with any new files
+                The FindNewFilesAndAddToDatabaseAsync method is called to update the database with any new files
             </summary>
             <param name="stoppingToken">A cancellation token to optionally cancel the operation</param>
         </member>
@@ -342,6 +342,11 @@
         <member name="P:AStar.Dev.Database.Updater.Core.Models.ClassificationMapping.Celebrity">
             <summary>
                 Gets or sets whether this mapping is for someone no-one knows... joke!
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Database.Updater.Core.Models.ClassificationMapping.Searchable">
+            <summary>
+                Gets or sets whether the mapping is searchable
             </summary>
         </member>
         <member name="T:AStar.Dev.Database.Updater.Core.Models.DatabaseUpdaterConfiguration">

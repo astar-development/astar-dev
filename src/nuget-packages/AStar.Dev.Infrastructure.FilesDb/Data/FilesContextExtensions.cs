@@ -65,7 +65,7 @@ public static class FilesContextExtensions
 
         filesToReturn = includeSoftDeleted
                             ? filesToReturn
-                            : filesToReturn.Where(file => file.DeletionStatus.SoftDeleted == null);
+                            : filesToReturn.Where(file => file.DeletionStatus != null && file.DeletionStatus.SoftDeleted == null);
 
         if(cancellationToken.IsCancellationRequested)
         {
@@ -74,7 +74,7 @@ public static class FilesContextExtensions
 
         if(!includeMarkedForDeletion)
         {
-            filesToReturn = filesToReturn.Where(file => file.DeletionStatus.SoftDeletePending != null && file.DeletionStatus.HardDeletePending != null);
+            filesToReturn = filesToReturn.Where(file => file.DeletionStatus != null && file.DeletionStatus.SoftDeletePending != null && file.DeletionStatus.HardDeletePending != null);
         }
 
         if(cancellationToken.IsCancellationRequested)

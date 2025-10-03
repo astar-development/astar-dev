@@ -1,50 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="dataSourceStorageLocal" created-in="RD-252.23892.524">
-    <data-source name="Microsoft SQL Server (JetBrains)" uuid="5f6b3ebf-4e26-4b7d-9977-34b2e1c49c97">
-      <database-info product="Microsoft SQL Server" version="16.00.4185" jdbc-version="4.2" driver-name="JetBrains JDBC Driver for SQL Server" driver-version="1.0" dbms="MSSQL" exact-version="16.0.4185" exact-driver-version="1.0">
-        <extra-name-characters>$#@</extra-name-characters>
-        <identifier-quote-string>&quot;</identifier-quote-string>
-      </database-info>
-      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
-      <secret-storage>master_key</secret-storage>
-      <auth-provider>no-auth</auth-provider>
-      <schema-mapping>
-        <introspection-scope>
-          <node negative="1">
-            <node kind="database" qname="@">
-              <node kind="schema" qname="@" />
-            </node>
-            <node kind="database" qname="filesDb">
-              <node kind="schema" qname="files" />
-            </node>
-          </node>
-        </introspection-scope>
-      </schema-mapping>
-    </data-source>
-    <data-source name="sql1" uuid="b2c56a71-9298-4c2c-9e1e-57bc48db2e9a">
-      <database-info product="Microsoft SQL Server" version="16.00.4185" jdbc-version="4.2" driver-name="JetBrains JDBC Driver for SQL Server" driver-version="1.0" dbms="MSSQL" exact-version="16.0.4185" exact-driver-version="1.0">
-        <extra-name-characters>$#@</extra-name-characters>
-        <identifier-quote-string>&quot;</identifier-quote-string>
-      </database-info>
-      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
-      <secret-storage>master_key</secret-storage>
-      <user-name>sa</user-name>
-      <schema-mapping>
-        <introspection-scope>
-          <node negative="1">
-            <node kind="database" qname="@">
-              <node kind="schema" qname="@" />
-            </node>
-            <node kind="database" qname="filesDb">
-              <node kind="schema" negative="1" />
-            </node>
-          </node>
-        </introspection-scope>
-      </schema-mapping>
-    </data-source>
-    <data-source name="sql1" uuid="1526743e-f2aa-41f9-ac56-9bd493049d81">
-      <database-info product="Microsoft SQL Server" version="16.00.4185" jdbc-version="4.2" driver-name="JetBrains JDBC Driver for SQL Server" driver-version="1.0" dbms="MSSQL" exact-version="16.0.4185" exact-driver-version="1.0">
+    <data-source name="sql1" uuid="088a29ee-088f-4bd8-ba92-79be0107c677">
+      <database-info product="Microsoft SQL Server" version="17.00.0925" jdbc-version="4.2" driver-name="JetBrains JDBC Driver for SQL Server" driver-version="1.0" dbms="MSSQL" exact-version="17.0.925" exact-driver-version="1.0">
         <extra-name-characters>$#@</extra-name-characters>
         <identifier-quote-string>&quot;</identifier-quote-string>
       </database-info>

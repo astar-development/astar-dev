@@ -1,4 +1,3 @@
-
 using AStar.Dev.Infrastructure.FilesDb.Models;
 
 namespace AStar.Dev.Files.Api.Endpoints.Add.V1;
@@ -26,7 +25,7 @@ public static class FileDetailExtensions
                                FileSize      = file.FileSize,
 
                                //FileLastModified = file.,
-                               IsImage          = file.IsImage
+                               IsImage = file.IsImage
                            })
            .ToList();
 

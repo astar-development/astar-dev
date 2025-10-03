@@ -1,4 +1,5 @@
 using AStar.Dev.Database.Updater;
+using JetBrains.Annotations;
 using Serilog;
 using ILogger = Serilog.ILogger;
 
@@ -13,8 +14,7 @@ try
 
     var app = builder.Build();
 
-    logger     = app.Services.GetRequiredService<ILogger>();
-    Log.Logger = logger;
+    Log.Logger = app.Services.GetRequiredService<ILogger>();
 
     app.Run();
 }
@@ -28,6 +28,7 @@ finally
     Log.CloseAndFlush();
 }
 
+[UsedImplicitly]
 public partial class Program
 {
 }

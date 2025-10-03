@@ -12,6 +12,7 @@
     <ItemGroup>
         <PackageReference Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer" Version="9.5.0"/>
         <PackageReference Include="AStar.Dev.Logging.Extensions" Version="0.6.3"/>
+        <PackageReference Include="JetBrains.Annotations" Version="2025.2.2"/>
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.9"/>
     </ItemGroup>
 

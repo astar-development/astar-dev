@@ -16,6 +16,7 @@ public class DatabaseMigrationService(IServiceProvider serviceProvider, IHostApp
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
         logger.LogInformation("Starting database migration service");
+
         // ReSharper disable once ExplicitCallerInfoArgument
         using var activity = ActivitySource.StartActivity("Migrating database", ActivityKind.Client);
 
@@ -59,6 +60,7 @@ public class DatabaseMigrationService(IServiceProvider serviceProvider, IHostApp
         var strategy = dbContext.Database.CreateExecutionStrategy();
 
         logger.LogInformation("Running migrations");
+
         await strategy.ExecuteAsync(async () =>
                                     {
                                         await using var transaction = await dbContext.Database.BeginTransactionAsync(stoppingToken);
@@ -72,6 +74,7 @@ public class DatabaseMigrationService(IServiceProvider serviceProvider, IHostApp
         var strategy = dbContext.Database.CreateExecutionStrategy();
 
         logger.LogInformation("Seeding data");
+
         await strategy.ExecuteAsync(async () =>
                                     {
                                         if(!await dbContext.Files.AnyAsync(stoppingToken))

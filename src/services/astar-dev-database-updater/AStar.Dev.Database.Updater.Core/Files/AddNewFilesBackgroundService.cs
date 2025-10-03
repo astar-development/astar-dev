@@ -26,16 +26,17 @@ public class AddNewFilesBackgroundService(IServiceProvider serviceProvider, Time
         using var scope                      = serviceProvider.CreateScope();
         var       fileClassificationsService = scope.ServiceProvider.GetRequiredService<FileClassificationsService>();
         var       addNewFilesService         = scope.ServiceProvider.GetRequiredService<AddNewFilesService>();
+        var       honourFirstDelay           = config.Value.HonourFirstDelay;
 
         while(!stoppingToken.IsCancellationRequested)
         {
-            await timeDelay.CalculateDelayToNextRun(config.Value.NewFilesScheduledTime, config.Value.HonourFirstDelay)
+            await timeDelay.CalculateDelayToNextRun(config.Value.NewFilesScheduledTime, honourFirstDelay)
                            .Tap(d => logger.LogInformation("Delay {DelayToNextRun} until next run at: {StartTime}", d.ToString(@"hh\:mm\:ss"), config.Value.NewFilesScheduledTime))
                            .BindAsync(async timeUntilNextRun => await WaitUntilNextRun(timeUntilNextRun, stoppingToken))
                            .TapAsync(_ => logger.LogInformation("Starting addition of new file classifications"))
                            .BindAsync(async _ => await fileClassificationsService.AddNewMappingsToTheDatabase(stoppingToken))
-                           .BindAsync(async _ => await addNewFilesService.StartAsync(stoppingToken))
-                           .TapAsync(async _ => await Task.Run(() => config.Value.HonourFirstDelay = false, stoppingToken));
+                           .BindAsync(async _ => await addNewFilesService.FindNewFilesAndAddToDatabaseAsync(stoppingToken))
+                           .TapAsync(_ => honourFirstDelay = true);
         }
     }
 
