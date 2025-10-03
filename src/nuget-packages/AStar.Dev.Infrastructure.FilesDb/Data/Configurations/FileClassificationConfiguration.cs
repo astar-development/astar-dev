@@ -17,7 +17,6 @@ public class FileClassificationConfiguration : IEntityTypeConfiguration<FileClas
 
         _ = builder.HasIndex(fileClassification => fileClassification.Name).IsUnique();
 
-        //_ = builder.HasMany<FileNamePart>();
         _ = builder.Property(fileClassification => fileClassification.Name).HasMaxLength(150);
     }
 }

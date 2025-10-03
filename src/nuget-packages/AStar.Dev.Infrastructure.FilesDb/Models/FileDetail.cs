@@ -29,6 +29,8 @@ public sealed class FileDetail : AuditableEntity
         FileName      = new(fileInfo.Name);
         DirectoryName = new(fileInfo.DirectoryName!);
         FileSize      = fileInfo.Length;
+        CreatedDate   = fileInfo.CreationTimeUtc;
+        UpdatedDate   = fileInfo.LastWriteTimeUtc;
     }
 
     /// <summary>
@@ -38,7 +40,7 @@ public sealed class FileDetail : AuditableEntity
     /// <summary>
     ///     Gets or sets the ID of the <see href="FileDetail"></see>. I know, shocking...
     /// </summary>
-    public FileId Id { get; set; }
+    public FileId Id { get; set; } = new();
 
     /// <summary>
     /// </summary>
@@ -91,7 +93,7 @@ public sealed class FileDetail : AuditableEntity
 
     /// <summary>
     /// </summary>
-    public DeletionStatus DeletionStatus { get; set; } = new();
+    public DeletionStatus? DeletionStatus { get; set; }
 
     /// <summary>
     ///     Returns this object in JSON format

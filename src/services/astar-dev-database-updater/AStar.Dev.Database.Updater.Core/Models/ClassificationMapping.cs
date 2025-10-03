@@ -19,4 +19,9 @@ public class ClassificationMapping
     ///     Gets or sets whether this mapping is for someone no-one knows... joke!
     /// </summary>
     public bool Celebrity { get; set; }
+
+    /// <summary>
+    ///     Gets or sets whether the mapping is searchable
+    /// </summary>
+    public bool Searchable { get; set; }
 }

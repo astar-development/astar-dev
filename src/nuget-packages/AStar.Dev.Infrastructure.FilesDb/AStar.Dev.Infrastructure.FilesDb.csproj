@@ -14,9 +14,11 @@
         <Copyright>AStar Developement, 2025</Copyright>
         <Description>Defines the context and models for the FilesDb.</Description>
         <DocumentationFile>$(AssemblyName).xml</DocumentationFile>
+        <EmbedUntrackedSources>true</EmbedUntrackedSources>
         <GenerateDocumentationFile>true</GenerateDocumentationFile>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <IncludeSymbols>true</IncludeSymbols>
+        <IncludeSource>true</IncludeSource>
         <IsPackable>true</IsPackable>
         <PackageIcon>astar.png</PackageIcon>
         <PackageId>$(AssemblyName)</PackageId>

@@ -7,3 +7,5 @@ var sqlMountDirectory = builder.Configuration.GetValue<string>("applicationConfi
 builder.AddApplicationProjects(sqlMountDirectory);
 
 builder.Build().Run();
+
+public class AppHost;
