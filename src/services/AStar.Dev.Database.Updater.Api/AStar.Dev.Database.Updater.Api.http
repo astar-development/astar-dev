@@ -1,0 +1,6 @@
+@AStar.Dev.Database.Updater.Api_HostAddress = http://localhost:5239
+
+GET {{AStar.Dev.Database.Updater.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

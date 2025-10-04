@@ -1,5 +1,11 @@
+using System.IO.Abstractions;
+using System.Threading.Channels;
 using AStar.Dev.Database.Updater;
+using AStar.Dev.Database.Updater.FileKeywordProcessor;
+using AStar.Dev.Infrastructure.FilesDb.Data;
 using JetBrains.Annotations;
+using Microsoft.Extensions.Options;
+using Scalar.AspNetCore;
 using Serilog;
 using ILogger = Serilog.ILogger;
 
@@ -9,12 +15,28 @@ ILogger? logger = null;
 
 try
 {
-    var builder = Host.CreateApplicationBuilder(args)
-                      .ConfigureApplicationServices();
+    var builder = WebApplication.CreateBuilder(args);
+    builder.ConfigureApplicationServices();
+    builder.Services.AddOpenApi();
 
     var app = builder.Build();
 
+    if(app.Environment.IsDevelopment())
+    {
+        app.MapOpenApi();
+        app.MapScalarApiReference();
+    }
+
     Log.Logger = app.Services.GetRequiredService<ILogger>();
+    app.MapHealthChecks("/health"); // Aspire will pick this up
+
+    app.MapGet("/process-files", async (FileScanner  fileScanner, ChannelWriter<FileKeywordMatch> writer, IOptions<DatabaseUpdaterConfiguration> config, IFileSystem fileSystem,
+                                        FilesContext filesContext) => {
+                                     var                 enumerationOptions = new EnumerationOptions { IgnoreInaccessible = true, RecurseSubdirectories = true, ReturnSpecialDirectories = false };
+                                     IEnumerable<string> keywords           = filesContext.FileNameParts.Select(fp => fp.Text);
+                                     var                 filePaths          = fileSystem.Directory.EnumerateFiles(config.Value.RootDirectory, "*", enumerationOptions);
+                                     await fileScanner.ScanFilesAsync(keywords, filePaths, writer);
+                                 });
 
     app.Run();
 }
@@ -28,7 +50,10 @@ finally
     Log.CloseAndFlush();
 }
 
-[UsedImplicitly]
-public partial class Program
+namespace AStar.Dev.Database.Updater
 {
+    [UsedImplicitly]
+    public class Program
+    {
+    }
 }

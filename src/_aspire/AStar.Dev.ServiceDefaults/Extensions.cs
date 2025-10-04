@@ -25,8 +25,7 @@ public static class Extensions
 
         builder.Services.AddServiceDiscovery();
 
-        builder.Services.ConfigureHttpClientDefaults(http =>
-                                                     {
+        builder.Services.ConfigureHttpClientDefaults(http => {
                                                          // Turn on resilience by default
                                                          http.AddStandardResilienceHandler();
 
@@ -45,21 +44,20 @@ public static class Extensions
 
     public static TBuilder ConfigureOpenTelemetry<TBuilder>(this TBuilder builder) where TBuilder : IHostApplicationBuilder
     {
-        builder.Logging.AddOpenTelemetry(logging =>
-                                         {
+        builder.Logging.AddOpenTelemetry(logging => {
                                              logging.IncludeFormattedMessage = true;
                                              logging.IncludeScopes           = true;
                                          });
 
         builder.Services.AddOpenTelemetry()
-               .WithMetrics(metrics =>
-                            {
+               .WithMetrics(metrics => {
                                 metrics.AddAspNetCoreInstrumentation()
                                        .AddHttpClientInstrumentation()
                                        .AddRuntimeInstrumentation();
+
+                                metrics.AddMeter("FileScanner", "DatabaseWriter");
                             })
-               .WithTracing(tracing =>
-                            {
+               .WithTracing(tracing => {
                                 tracing.AddSource(builder.Environment.ApplicationName)
                                        .AddAspNetCoreInstrumentation(tracing =>
 
@@ -71,6 +69,8 @@ public static class Extensions
                                        // Uncomment the following line to enable gRPC instrumentation (requires the OpenTelemetry.Instrumentation.GrpcNetClient package)
                                        //.AddGrpcClientInstrumentation()
                                        .AddHttpClientInstrumentation();
+
+                                tracing.AddSource("FileScanner", "DatabaseWriter");
                             });
 
         builder.AddOpenTelemetryExporters();
@@ -111,14 +111,16 @@ public static class Extensions
     {
         // Adding health checks endpoints to applications in non-development environments has security implications.
         // See https://aka.ms/dotnet/aspire/healthchecks for details before enabling these endpoints in non-development environments.
-        if(app.Environment.IsDevelopment())
+        if(!app.Environment.IsDevelopment())
         {
-            // All health checks must pass for app to be considered ready to accept traffic after starting
-            app.MapHealthChecks(HealthEndpointPath);
-
-            // Only health checks tagged with the "live" tag must pass for app to be considered alive
-            app.MapHealthChecks(AlivenessEndpointPath, new() { Predicate = r => r.Tags.Contains("live") });
+            return app;
         }
+
+        // All health checks must pass for app to be considered ready to accept traffic after starting
+        app.MapHealthChecks(HealthEndpointPath);
+
+        // Only health checks tagged with the "live" tag must pass for app to be considered alive
+        app.MapHealthChecks(AlivenessEndpointPath, new() { Predicate = r => r.Tags.Contains("live") });
 
         return app;
     }

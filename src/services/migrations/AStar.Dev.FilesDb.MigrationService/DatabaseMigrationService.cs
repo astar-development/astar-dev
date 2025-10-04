@@ -46,8 +46,7 @@ public class DatabaseMigrationService(IServiceProvider serviceProvider, IHostApp
         logger.LogInformation("Ensuring database exists");
         var strategy = dbContext.Database.CreateExecutionStrategy();
 
-        await strategy.ExecuteAsync(async () =>
-                                    {
+        await strategy.ExecuteAsync(async () => {
                                         if(!await dbCreator.ExistsAsync(stoppingToken))
                                         {
                                             await dbCreator.CreateAsync(stoppingToken);
@@ -61,8 +60,7 @@ public class DatabaseMigrationService(IServiceProvider serviceProvider, IHostApp
 
         logger.LogInformation("Running migrations");
 
-        await strategy.ExecuteAsync(async () =>
-                                    {
+        await strategy.ExecuteAsync(async () => {
                                         await using var transaction = await dbContext.Database.BeginTransactionAsync(stoppingToken);
                                         await dbContext.Database.MigrateAsync(stoppingToken);
                                         await transaction.CommitAsync(stoppingToken);
@@ -75,8 +73,7 @@ public class DatabaseMigrationService(IServiceProvider serviceProvider, IHostApp
 
         logger.LogInformation("Seeding data");
 
-        await strategy.ExecuteAsync(async () =>
-                                    {
+        await strategy.ExecuteAsync(async () => {
                                         if(!await dbContext.Files.AnyAsync(stoppingToken))
                                         {
                                             var fileDetail = new FileDetail
