@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>fc7f497b-a5b4-48af-b4c2-161a2e9ac9a8</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Scalar.AspNetCore" Version="2.8.10"/>
+        <PackageReference Include="AStar.Dev.Logging.Extensions" Version="0.6.3"/>
+        <PackageReference Include="AStar.Dev.Api.Usage.Sdk" Version="0.1.0"/>
+        <PackageReference Include="AStar.Dev.AspNet.Extensions" Version="0.8.2"/>
+        <PackageReference Include="AStar.Dev.Auth.Extensions" Version="0.1.0"/>
+        <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.0"/>
+        <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0"/>
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.9"/>
+        <PackageReference Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer" Version="9.5.0"/>
+        <PackageReference Include="TestableIO.System.IO.Abstractions" Version="22.0.16"/>
+        <PackageReference Include="TestableIO.System.IO.Abstractions.Wrappers" Version="22.0.16"/>
+        <PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders" Version="1.2.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\nuget-packages\AStar.Dev.Infrastructure.FilesDb\AStar.Dev.Infrastructure.FilesDb.csproj"/>
+        <ProjectReference Include="..\..\_aspire\AStar.Dev.Aspire.Common\AStar.Dev.Aspire.Common.csproj"/>
+        <ProjectReference Include="..\..\_aspire\AStar.Dev.ServiceDefaults\AStar.Dev.ServiceDefaults.csproj"/>
+        <ProjectReference Include="..\astar-dev-database-updater\AStar.Dev.Database.Updater.Core\AStar.Dev.Database.Updater.Core.csproj"/>
+    </ItemGroup>
+
+</Project>

@@ -219,6 +219,11 @@
                 Gets or sets the DuplicatesDetails loaded from the configured view in the database
             </summary>
         </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext.FileKeywordMatches">
+            <summary>
+
+            </summary>
+        </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <summary>
                 The overridden OnModelCreating method
@@ -283,6 +288,18 @@
             <inheritdoc/>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.MakeDeletionStatusOptional.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="T:AStar.Dev.Infrastructure.FilesDb.Migrations.FileKeywordMatchTest">
+            <inheritdoc/>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.FileKeywordMatchTest.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.FileKeywordMatchTest.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.FileKeywordMatchTest.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc/>
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.DeletionScope">
@@ -792,6 +809,26 @@
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileId.Value">
             <summary>The value of the File ID</summary>
+        </member>
+        <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.FileKeywordMatch">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileKeywordMatch.Id">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileKeywordMatch.FileName">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileKeywordMatch.Keyword">
+            <summary>
+
+            </summary>
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.FileName">
             <summary>

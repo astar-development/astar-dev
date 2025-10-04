@@ -26,8 +26,7 @@ public static class WebApplicationBuilderExtensions
     {
         var dictionary = new Dictionary<string, object> { { "service.name", "AStar.Dev.Web" }, { "service.namespace", "AStar.Dev.Web" } };
 
-        builder.Services.AddOpenTelemetry().UseAzureMonitor(options =>
-                                                            {
+        builder.Services.AddOpenTelemetry().UseAzureMonitor(options => {
                                                                 options.ConnectionString = builder.Configuration["AzureMonitor:ConnectionString"];
                                                             })
                .ConfigureResource(resourceBuilder => resourceBuilder.AddAttributes(dictionary));

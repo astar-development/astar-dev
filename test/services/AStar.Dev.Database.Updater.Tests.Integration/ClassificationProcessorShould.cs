@@ -23,7 +23,7 @@ public class ClassificationProcessorShould : IDisposable
         {
             // Arrange
             var stoppingToken = TestContext.Current.CancellationToken;
-            var appHost       = await DistributedApplicationTestingBuilder.CreateAsync<global::AppHost>(stoppingToken);
+            var appHost       = await DistributedApplicationTestingBuilder.CreateAsync<AppHost.AppHost>(stoppingToken);
 
             appHost.Services.AddLogging(logging =>
                                         {

@@ -20,8 +20,7 @@ public class ClassificationsMapper(IOptions<DatabaseUpdaterConfiguration> config
     /// </summary>
     /// <returns>An instance of <see cref="Result{TSuccess,TFailure}" /> to denote the success / failure of the load</returns>
     public Result<IEnumerable<ClassificationMapping>, ErrorResponse> LoadClassificationMappings()
-        => Try.Run<IEnumerable<ClassificationMapping>>(() =>
-                                                       {
+        => Try.Run<IEnumerable<ClassificationMapping>>(() => {
                                                            logger.LogDebug("Loading mappings from the CSV...");
                                                            using var reader = new StreamReader(config.Value.MappingsFilePath);
                                                            using var csv    = new CsvReader(reader, CultureInfo.InvariantCulture);

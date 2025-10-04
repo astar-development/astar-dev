@@ -8,4 +8,7 @@ builder.AddApplicationProjects(sqlMountDirectory);
 
 builder.Build().Run();
 
-public class AppHost;
+namespace AStar.Dev.AppHost
+{
+    public class AppHost;
+}

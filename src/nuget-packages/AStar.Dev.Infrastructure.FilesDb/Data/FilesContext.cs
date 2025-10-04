@@ -61,6 +61,10 @@ public sealed class FilesContext : DbContext
     public DbSet<DuplicatesDetails> DuplicatesDetails { get; set; } = null!;
 
     /// <summary>
+    /// </summary>
+    public DbSet<FileKeywordMatch> FileKeywordMatches { get; set; }
+
+    /// <summary>
     ///     The overridden OnModelCreating method
     /// </summary>
     /// <param name="modelBuilder">
@@ -72,8 +76,7 @@ public sealed class FilesContext : DbContext
         _ = modelBuilder.ApplyConfigurationsFromAssembly(typeof(FilesContext).Assembly);
 
         _ = modelBuilder
-            .Entity<DuplicatesDetails>(eb =>
-                                       {
+            .Entity<DuplicatesDetails>(eb => {
                                            _ = eb.HasNoKey();
                                            _ = eb.ToView("vw_DuplicatesDetails");
                                        });

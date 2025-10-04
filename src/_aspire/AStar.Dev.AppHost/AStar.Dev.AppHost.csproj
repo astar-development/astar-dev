@@ -25,6 +25,7 @@
         <ProjectReference Include="..\..\apis\AStar.Dev.Images.Api\AStar.Dev.Images.Api.csproj"/>
         <ProjectReference Include="..\..\apis\AStar.Dev.ToDo.Api\AStar.Dev.ToDo.Api.csproj"/>
         <ProjectReference Include="..\..\services\astar-dev-database-updater\AStar.Dev.Database.Updater\AStar.Dev.Database.Updater.csproj"/>
+        <ProjectReference Include="..\..\services\AStar.Dev.Database.Updater.Api\AStar.Dev.Database.Updater.Api.csproj"/>
         <ProjectReference Include="..\..\services\AStar.Dev.Usage.Logger\AStar.Dev.Usage.Logger.csproj"/>
         <ProjectReference Include="..\..\services\migrations\AStar.Dev.FilesDb.MigrationService\AStar.Dev.FilesDb.MigrationService.csproj"/>
         <ProjectReference Include="..\..\uis\AStar.Dev.Web\AStar.Dev.Web.csproj"/>
