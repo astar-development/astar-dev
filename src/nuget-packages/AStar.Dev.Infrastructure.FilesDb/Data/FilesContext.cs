@@ -76,7 +76,8 @@ public sealed class FilesContext : DbContext
         _ = modelBuilder.ApplyConfigurationsFromAssembly(typeof(FilesContext).Assembly);
 
         _ = modelBuilder
-            .Entity<DuplicatesDetails>(eb => {
+            .Entity<DuplicatesDetails>(eb =>
+                                       {
                                            _ = eb.HasNoKey();
                                            _ = eb.ToView("vw_DuplicatesDetails");
                                        });

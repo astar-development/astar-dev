@@ -12,7 +12,7 @@ using Microsoft.Extensions.Options;
 using Serilog;
 using SkiaSharp;
 
-namespace AStar.Dev.Database.Updater.Core;
+namespace AStar.Dev.Database.Updater.Core.Files;
 
 /// <summary>
 ///     The <see cref="AddNewFilesService" /> class
@@ -63,6 +63,8 @@ public class AddNewFilesService(
             foreach(var file in filesToProcess)
             {
                 count = await ProcessNewFileAsync(fileClassifications, file, count, fileHandlesAlreadyInTheContext, stoppingToken);
+
+                return new Result<int, ErrorResponse>.Ok(count);
             }
         }
 

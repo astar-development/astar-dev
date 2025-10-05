@@ -1,5 +1,5 @@
+using AStar.Dev.Database.Updater.Core;
 using Microsoft.Extensions.Options;
-using DatabaseUpdaterConfiguration = AStar.Dev.Database.Updater.FileKeywordProcessor.DatabaseUpdaterConfiguration;
 
 namespace AStar.Dev.Database.Updater;
 

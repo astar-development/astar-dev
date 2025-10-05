@@ -25,7 +25,8 @@ public static class Extensions
 
         builder.Services.AddServiceDiscovery();
 
-        builder.Services.ConfigureHttpClientDefaults(http => {
+        builder.Services.ConfigureHttpClientDefaults(http =>
+                                                     {
                                                          // Turn on resilience by default
                                                          http.AddStandardResilienceHandler();
 
@@ -44,20 +45,23 @@ public static class Extensions
 
     public static TBuilder ConfigureOpenTelemetry<TBuilder>(this TBuilder builder) where TBuilder : IHostApplicationBuilder
     {
-        builder.Logging.AddOpenTelemetry(logging => {
+        builder.Logging.AddOpenTelemetry(logging =>
+                                         {
                                              logging.IncludeFormattedMessage = true;
                                              logging.IncludeScopes           = true;
                                          });
 
         builder.Services.AddOpenTelemetry()
-               .WithMetrics(metrics => {
+               .WithMetrics(metrics =>
+                            {
                                 metrics.AddAspNetCoreInstrumentation()
                                        .AddHttpClientInstrumentation()
                                        .AddRuntimeInstrumentation();
 
                                 metrics.AddMeter("FileScanner", "DatabaseWriter");
                             })
-               .WithTracing(tracing => {
+               .WithTracing(tracing =>
+                            {
                                 tracing.AddSource(builder.Environment.ApplicationName)
                                        .AddAspNetCoreInstrumentation(tracing =>
 

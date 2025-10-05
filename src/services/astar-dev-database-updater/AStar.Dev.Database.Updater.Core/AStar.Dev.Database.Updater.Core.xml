@@ -4,62 +4,6 @@
         <name>AStar.Dev.Database.Updater.Core</name>
     </assembly>
     <members>
-        <member name="T:AStar.Dev.Database.Updater.Core.AddNewFilesService">
-            <summary>
-                The
-                <see cref="T:AStar.Dev.Database.Updater.Core.AddNewFilesService"/>
-                class
-            </summary>
-            <param name="fileSystem">An instance of
-                <see cref="T:System.IO.Abstractions.IFileSystem"/>
-                to retrieve the files from
-            </param>
-            <param name="config">An instance of the
-                <see cref="T:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration"/>
-                options used to configure the addition of the new files
-            </param>
-            <param name="filesContext">An instance of the
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext"/>
-            </param>
-            <param name="classificationRepository">An instance of the
-                <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository"/>
-            </param>
-            <param name="logger">An instance of the
-                <see cref="T:Microsoft.Extensions.Logging.ILogger"/>
-                to log status / errors
-            </param>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.AddNewFilesService.#ctor(System.IO.Abstractions.IFileSystem,Microsoft.Extensions.Options.IOptions{AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration},AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository,AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.AddNewFilesService})">
-            <summary>
-                The
-                <see cref="T:AStar.Dev.Database.Updater.Core.AddNewFilesService"/>
-                class
-            </summary>
-            <param name="fileSystem">An instance of
-                <see cref="T:System.IO.Abstractions.IFileSystem"/>
-                to retrieve the files from
-            </param>
-            <param name="config">An instance of the
-                <see cref="T:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration"/>
-                options used to configure the addition of the new files
-            </param>
-            <param name="filesContext">An instance of the
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext"/>
-            </param>
-            <param name="classificationRepository">An instance of the
-                <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository"/>
-            </param>
-            <param name="logger">An instance of the
-                <see cref="T:Microsoft.Extensions.Logging.ILogger"/>
-                to log status / errors
-            </param>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.AddNewFilesService.FindNewFilesAndAddToDatabaseAsync(System.Threading.CancellationToken)">
-            <summary>
-                The FindNewFilesAndAddToDatabaseAsync method is called to update the database with any new files
-            </summary>
-            <param name="stoppingToken">A cancellation token to optionally cancel the operation</param>
-        </member>
         <member name="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationBuilder">
             <summary>
                 Responsible for constructing FileClassification and FileNamePart entities.
@@ -158,16 +102,18 @@
                 <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationsMapper"/>
                 that handles adding any new file > database classifications
             </summary>
+            <param name="configuration"></param>
             <param name="config"></param>
             <param name="logger"></param>
             <remarks>Before we can progress to testing this, we need to change the ClassificationsMapper to be more testable</remarks>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Classifications.ClassificationsMapper.#ctor(Microsoft.Extensions.Options.IOptions{AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration},Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.Classifications.ClassificationsMapper})">
+        <member name="M:AStar.Dev.Database.Updater.Core.Classifications.ClassificationsMapper.#ctor(Microsoft.Extensions.Options.IOptions{AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration},Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.Classifications.ClassificationsMapper})">
             <summary>
                 The
                 <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationsMapper"/>
                 that handles adding any new file > database classifications
             </summary>
+            <param name="configuration"></param>
             <param name="config"></param>
             <param name="logger"></param>
             <remarks>Before we can progress to testing this, we need to change the ClassificationsMapper to be more testable</remarks>
@@ -265,6 +211,260 @@
                 Gets or sets the time to start the new files addition
             </summary>
         </member>
+        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ChannelBacklogHealthCheck">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ChannelBacklogHealthCheck.#ctor(AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel{AStar.Dev.Infrastructure.FilesDb.Models.FileKeywordMatch},System.Int32,System.Int32)">
+            <summary>
+
+            </summary>
+            <param name="channel"></param>
+            <param name="warningThreshold"></param>
+            <param name="criticalThreshold"></param>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ChannelBacklogHealthCheck.CheckHealthAsync(Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckContext,System.Threading.CancellationToken)">
+            <summary>
+
+            </summary>
+            <param name="context"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ChannelBacklogTracker">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ChannelBacklogTracker.Count">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ChannelBacklogTracker.Increment">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ChannelBacklogTracker.Decrement">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.DatabaseWriter">
+            <summary>
+            </summary>
+            <param name="reader"></param>
+            <param name="filesContext"></param>
+            <param name="batchSize"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.DatabaseWriter.#ctor(System.Threading.Channels.ChannelReader{AStar.Dev.Infrastructure.FilesDb.Models.FileKeywordMatch},AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,System.Int32,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.FileKeywordProcessor.DatabaseWriter})">
+            <summary>
+            </summary>
+            <param name="reader"></param>
+            <param name="filesContext"></param>
+            <param name="batchSize"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.DatabaseWriter.ConsumeAsync(System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+            <param name="cancellationToken"></param>
+        </member>
+        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.EfKeywordProvider">
+            <summary>
+            </summary>
+            <param name="db"></param>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.EfKeywordProvider.#ctor(AStar.Dev.Infrastructure.FilesDb.Data.FilesContext)">
+            <summary>
+            </summary>
+            <param name="db"></param>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.EfKeywordProvider.GetKeywordsAsync(System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileKeywordProcessorService">
+            <summary>
+            </summary>
+            <param name="serviceScopeFactory"></param>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileKeywordProcessorService.#ctor(Microsoft.Extensions.DependencyInjection.IServiceScopeFactory)">
+            <summary>
+            </summary>
+            <param name="serviceScopeFactory"></param>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileKeywordProcessorService.ExecuteAsync(System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileScanner">
+            <summary>
+            </summary>
+            <param name="keywordProvider"></param>
+            <param name="writer"></param>
+            <param name="tracker"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileScanner.#ctor(AStar.Dev.Database.Updater.Core.FileKeywordProcessor.IKeywordProvider,System.Threading.Channels.ChannelWriter{AStar.Dev.Infrastructure.FilesDb.Models.FileKeywordMatch},AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ThroughputTracker,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileScanner})">
+            <summary>
+            </summary>
+            <param name="keywordProvider"></param>
+            <param name="writer"></param>
+            <param name="tracker"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileScanner.ScanFilesAsync(System.Collections.Generic.IReadOnlyCollection{System.String},System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+            <param name="filePaths"></param>
+            <param name="cancellationToken"></param>
+        </member>
+        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.IKeywordProvider">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.IKeywordProvider.GetKeywordsAsync(System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ThroughputHealthCheck">
+            <summary>
+            </summary>
+            <param name="tracker"></param>
+            <param name="minEventsPerWindow"></param>
+            <param name="window"></param>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ThroughputHealthCheck.#ctor(AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ThroughputTracker,System.Int32,System.Nullable{System.TimeSpan})">
+            <summary>
+            </summary>
+            <param name="tracker"></param>
+            <param name="minEventsPerWindow"></param>
+            <param name="window"></param>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ThroughputHealthCheck.CheckHealthAsync(Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckContext,System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+            <param name="context"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ThroughputTracker">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ThroughputTracker.RecordEvent">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ThroughputTracker.CountEventsInWindow(System.TimeSpan)">
+            <summary>
+            </summary>
+            <param name="window"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1">
+            <summary>
+
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.#ctor(System.Threading.Channels.Channel{`0})">
+            <summary>
+
+            </summary>
+            <param name="inner"></param>
+        </member>
+        <member name="P:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.Writer">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.Reader">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.Count">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.TrackingWriter">
+            <summary>
+
+            </summary>
+            <param name="inner"></param>
+            <param name="parent"></param>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.TrackingWriter.#ctor(System.Threading.Channels.ChannelWriter{`0},AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel{`0})">
+            <summary>
+
+            </summary>
+            <param name="inner"></param>
+            <param name="parent"></param>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.TrackingWriter.TryWrite(`0)">
+            <summary>
+
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.TrackingWriter.WriteAsync(`0,System.Threading.CancellationToken)">
+            <summary>
+
+            </summary>
+            <param name="item"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.TrackingWriter.Complete(System.Exception)">
+            <summary>
+
+            </summary>
+            <param name="error"></param>
+        </member>
+        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.TrackingReader">
+            <summary>
+
+            </summary>
+            <param name="inner"></param>
+            <param name="parent"></param>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.TrackingReader.#ctor(System.Threading.Channels.ChannelReader{`0},AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel{`0})">
+            <summary>
+
+            </summary>
+            <param name="inner"></param>
+            <param name="parent"></param>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.TrackingReader.ReadAsync(System.Threading.CancellationToken)">
+            <summary>
+
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.TrackingReader.ReadAllAsync(System.Threading.CancellationToken)">
+            <summary>
+
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.TrackingReader.TryRead(`0@)">
+            <summary>
+
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.TrackingReader.WaitToReadAsync(System.Threading.CancellationToken)">
+            <summary>
+
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
         <member name="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService">
             <summary>
                 The
@@ -302,6 +502,62 @@
         <member name="M:AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService.ExecuteAsync(System.Threading.CancellationToken)">
             <summary>
                 The StartAsync method is called by the runtime and will update the database with any new files
+            </summary>
+            <param name="stoppingToken">A cancellation token to optionally cancel the operation</param>
+        </member>
+        <member name="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesService">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesService"/>
+                class
+            </summary>
+            <param name="fileSystem">An instance of
+                <see cref="T:System.IO.Abstractions.IFileSystem"/>
+                to retrieve the files from
+            </param>
+            <param name="config">An instance of the
+                <see cref="T:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration"/>
+                options used to configure the addition of the new files
+            </param>
+            <param name="filesContext">An instance of the
+                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext"/>
+            </param>
+            <param name="classificationRepository">An instance of the
+                <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository"/>
+            </param>
+            <param name="logger">An instance of the
+                <see cref="T:Microsoft.Extensions.Logging.ILogger"/>
+                to log status / errors
+            </param>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.Files.AddNewFilesService.#ctor(System.IO.Abstractions.IFileSystem,Microsoft.Extensions.Options.IOptions{AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration},AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository,AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.Files.AddNewFilesService})">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesService"/>
+                class
+            </summary>
+            <param name="fileSystem">An instance of
+                <see cref="T:System.IO.Abstractions.IFileSystem"/>
+                to retrieve the files from
+            </param>
+            <param name="config">An instance of the
+                <see cref="T:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration"/>
+                options used to configure the addition of the new files
+            </param>
+            <param name="filesContext">An instance of the
+                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext"/>
+            </param>
+            <param name="classificationRepository">An instance of the
+                <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository"/>
+            </param>
+            <param name="logger">An instance of the
+                <see cref="T:Microsoft.Extensions.Logging.ILogger"/>
+                to log status / errors
+            </param>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.Files.AddNewFilesService.FindNewFilesAndAddToDatabaseAsync(System.Threading.CancellationToken)">
+            <summary>
+                The FindNewFilesAndAddToDatabaseAsync method is called to update the database with any new files
             </summary>
             <param name="stoppingToken">A cancellation token to optionally cancel the operation</param>
         </member>

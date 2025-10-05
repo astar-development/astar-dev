@@ -30,7 +30,7 @@ public static class DistributedApplicationBuilderExtensions
         var filesApi  = AddFilesApi(distributedApplicationBuilder, filesDb, migrations, rabbitMq);
         var imagesApi = AddImagesApi(distributedApplicationBuilder, rabbitMq);
         var usageApi  = AddUsageApi(distributedApplicationBuilder, rabbitMq);
-        AddDatabaseUpdaterApi(distributedApplicationBuilder, filesDb, migrations, rabbitMq);
+        AddDatabaseUpdaterApi(distributedApplicationBuilder, filesDb, migrations, sqlServer, rabbitMq);
 
         AddUi(distributedApplicationBuilder, adminApi, filesApi, imagesApi, usageApi, rabbitMq);
     }
@@ -80,16 +80,15 @@ public static class DistributedApplicationBuilderExtensions
                                      .WithHttpHealthCheck(HealthEndpoint);
 
     private static void AddDatabaseUpdaterApi(IDistributedApplicationBuilder    distributedApplicationBuilder, IResourceBuilder<SqlServerDatabaseResource> filesDb,
-                                              IResourceBuilder<ProjectResource> migrations,                    IResourceBuilder<RabbitMQServerResource>    rabbitMq) =>
-        distributedApplicationBuilder.AddProject<AStar_Dev_Database_Updater_Api>(AspireConstants.Services.DatabaseUpdaterApi)
-                                     .WithExternalHttpEndpoints()
+                                              IResourceBuilder<ProjectResource> migrations, IResourceBuilder<SqlServerServerResource> sqlServer, IResourceBuilder<RabbitMQServerResource> rabbitMq) =>
+        distributedApplicationBuilder.AddProject<AStar_Dev_Database_Updater>(AspireConstants.Services.DatabaseUpdater)
                                      .WithReference(filesDb)
                                      .WaitFor(filesDb)
                                      .WithReference(migrations)
                                      .WaitFor(migrations)
                                      .WithReference(rabbitMq)
                                      .WaitFor(rabbitMq)
-                                     .WithHttpHealthCheck(HealthEndpoint);
+                                     .WithParentRelationship(sqlServer);
 
     private static IResourceBuilder<ProjectResource> AddAdminApi(IDistributedApplicationBuilder           distributedApplicationBuilder, IResourceBuilder<SqlServerDatabaseResource> adminDb,
                                                                  IResourceBuilder<RabbitMQServerResource> rabbitMq) =>
