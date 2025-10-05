@@ -22,9 +22,8 @@ public static class AspireConstants
 
     public static class Services
     {
-        public const string AstarMessaging     = "astar-dev-messaging";
-        public const string FileMigrations     = "file-migrations";
-        public const string DatabaseUpdater    = "database-updater";
-        public const string DatabaseUpdaterApi = "database-updater-api";
+        public const string AstarMessaging  = "astar-dev-messaging";
+        public const string FileMigrations  = "file-migrations";
+        public const string DatabaseUpdater = "database-updater";
     }
 }

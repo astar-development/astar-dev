@@ -2,6 +2,7 @@ using System.Globalization;
 using AStar.Dev.Database.Updater.Core.Models;
 using AStar.Dev.Functional.Extensions;
 using CsvHelper;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
@@ -10,17 +11,20 @@ namespace AStar.Dev.Database.Updater.Core.Classifications;
 /// <summary>
 ///     The <see cref="ClassificationsMapper" /> that handles adding any new file > database classifications
 /// </summary>
+/// <param name="configuration"></param>
 /// <param name="config"></param>
 /// <param name="logger"></param>
 /// <remarks>Before we can progress to testing this, we need to change the ClassificationsMapper to be more testable</remarks>
-public class ClassificationsMapper(IOptions<DatabaseUpdaterConfiguration> config, ILogger<ClassificationsMapper> logger)
+public class ClassificationsMapper(IOptions<DatabaseUpdaterConfiguration> config, IConfiguration configuration, ILogger<ClassificationsMapper> logger)
 {
     /// <summary>
     ///     The LoadClassificationMappings does exactly what its name says
     /// </summary>
     /// <returns>An instance of <see cref="Result{TSuccess,TFailure}" /> to denote the success / failure of the load</returns>
     public Result<IEnumerable<ClassificationMapping>, ErrorResponse> LoadClassificationMappings()
-        => Try.Run<IEnumerable<ClassificationMapping>>(() => {
+        => Try.Run<IEnumerable<ClassificationMapping>>(() =>
+                                                       {
+                                                           logger.LogDebug(configuration.GetSection(DatabaseUpdaterConfiguration.ConfigurationSectionName).Value);
                                                            logger.LogDebug("Loading mappings from the CSV...");
                                                            using var reader = new StreamReader(config.Value.MappingsFilePath);
                                                            using var csv    = new CsvReader(reader, CultureInfo.InvariantCulture);

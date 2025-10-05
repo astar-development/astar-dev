@@ -55,7 +55,8 @@ try
 #pragma warning restore ASP0000
 
     builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-           .AddJwtBearer("Bearer", jwtOptions => {
+           .AddJwtBearer("Bearer", jwtOptions =>
+                                   {
                                        jwtOptions.MetadataAddress = "https://login.microsoftonline.com/bb7d94aa-36a9-4a59-a0c1-54a757c47ddf/v2.0/.well-known/openid-configuration";
 
                                        jwtOptions.TokenValidationParameters = new()
@@ -80,7 +81,8 @@ try
 
     JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
 
-    services.Configure<JsonOptions>(options => {
+    services.Configure<JsonOptions>(options =>
+                                    {
                                         options.SerializerOptions.ReferenceHandler            = ReferenceHandler.IgnoreCycles;
                                         options.SerializerOptions.PropertyNameCaseInsensitive = true;
                                     });

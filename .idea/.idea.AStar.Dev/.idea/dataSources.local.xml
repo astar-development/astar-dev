@@ -31,5 +31,10 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
+    <data-source name="sql1" uuid="934b157e-2133-4a31-90b0-52afe7ff5ba7">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MSSQL" />
+      <secret-storage>master_key</secret-storage>
+      <schema-mapping />
+    </data-source>
   </component>
 </project>

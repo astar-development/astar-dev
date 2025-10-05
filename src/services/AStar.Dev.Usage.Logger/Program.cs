@@ -1,5 +1,6 @@
 using AStar.Dev.ServiceDefaults;
 using AStar.Dev.Usage.Logger;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.AddServiceDefaults();
@@ -12,16 +13,19 @@ var app = builder.Build();
 
 app.MapHealthChecks("/health");
 
+// Configure the HTTP request pipeline.
 if(app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.MapScalarApiReference();
 }
 
 app.UseHttpsRedirection();
 
 var summaries = new[] { "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching" };
 
-app.MapGet("/weatherforecast", () => {
+app.MapGet("/weatherforecast", () =>
+                               {
                                    var forecast = Enumerable.Range(1, 5).Select(index => new WeatherForecast
                                                                                     (
                                                                                      DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
