@@ -221,7 +221,6 @@
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext.FileKeywordMatches">
             <summary>
-
             </summary>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
@@ -812,23 +811,25 @@
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.FileKeywordMatch">
             <summary>
-
             </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileKeywordMatch.Id">
             <summary>
-
             </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileKeywordMatch.FileName">
             <summary>
-
             </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileKeywordMatch.Keyword">
             <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.FileKeywordMatch.ToString">
+            <summary>
 
             </summary>
+            <returns></returns>
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.FileName">
             <summary>

@@ -1,5 +1,6 @@
 using AStar.Dev.Images.Api;
 using AStar.Dev.ServiceDefaults;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.AddServiceDefaults();
@@ -18,9 +19,11 @@ app.UseSecurityHeaders(policyCollection);
 
 app.MapHealthChecks("/health");
 
+// Configure the HTTP request pipeline.
 if(app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.MapScalarApiReference();
 }
 
 app.UseHttpsRedirection();
