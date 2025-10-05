@@ -10,6 +10,7 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations;
 [SuppressMessage("Style", "IDE0058:Expression value is never used")]
 [SuppressMessage("Style", "IDE0053:Use expression body for lambda expression")]
 [SuppressMessage("Style", "IDE0022:Use expression body for method")]
+[SuppressMessage("Style", "CA1861:Use expression body for method")]
 public partial class InitialCreate : Migration
 {
     /// <inheritdoc />

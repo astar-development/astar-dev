@@ -4,7 +4,7 @@ namespace AStar.Dev.Infrastructure.FilesDb.Models;
 
 /// <summary>
 /// </summary>
-public class FileKeywordMatch
+public record FileKeywordMatch
 {
     /// <summary>
     /// </summary>
@@ -19,4 +19,9 @@ public class FileKeywordMatch
     /// </summary>
     [MaxLength(300)]
     public string Keyword { get; set; } = string.Empty;
+
+    /// <summary>
+    /// </summary>
+    /// <returns></returns>
+    public override string ToString() => $"{FileName} - {Keyword} ({Id})";
 }

@@ -17,6 +17,7 @@ using AStar.Dev.Infrastructure.FilesDb.Data;
 using AStar.Dev.ServiceDefaults;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http.Json;
+using Scalar.AspNetCore;
 using Serilog;
 
 var applicationName = typeof(IAssemblyMarker).Assembly.GetName().Name!;
@@ -93,6 +94,13 @@ try
 
     var app = builder.Build()
                      .UseApiServices();
+
+// Configure the HTTP request pipeline.
+    if(app.Environment.IsDevelopment())
+    {
+        app.MapOpenApi();
+        app.MapScalarApiReference();
+    }
 
     var policyCollection = new HeaderPolicyCollection()
                            .AddDefaultSecurityHeaders()
