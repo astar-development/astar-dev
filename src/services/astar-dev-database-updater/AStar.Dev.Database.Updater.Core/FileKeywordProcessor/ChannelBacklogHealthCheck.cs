@@ -7,18 +7,16 @@ namespace AStar.Dev.Database.Updater.Core.FileKeywordProcessor;
 /// </summary>
 public class ChannelBacklogHealthCheck : IHealthCheck
 {
-    private readonly TrackedChannel<FileKeywordMatch> _channel;
-    private readonly int                              _criticalThreshold;
-    private readonly int                              _warningThreshold;
+    private readonly TrackedChannel<FileDetail> _channel;
+    private readonly int                        _criticalThreshold;
+    private readonly int                        _warningThreshold;
 
     /// <summary>
     /// </summary>
     /// <param name="channel"></param>
     /// <param name="warningThreshold"></param>
     /// <param name="criticalThreshold"></param>
-    public ChannelBacklogHealthCheck(TrackedChannel<FileKeywordMatch> channel,
-                                     int                              warningThreshold  = 10_000,
-                                     int                              criticalThreshold = 50_000)
+    public ChannelBacklogHealthCheck(TrackedChannel<FileDetail> channel, int warningThreshold = 10_000, int criticalThreshold = 50_000)
     {
         _channel           = channel;
         _warningThreshold  = warningThreshold;
@@ -30,9 +28,7 @@ public class ChannelBacklogHealthCheck : IHealthCheck
     /// <param name="context"></param>
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
-    public Task<HealthCheckResult> CheckHealthAsync(
-        HealthCheckContext context,
-        CancellationToken  cancellationToken = default)
+    public Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default)
     {
         var count = _channel.Count;
 

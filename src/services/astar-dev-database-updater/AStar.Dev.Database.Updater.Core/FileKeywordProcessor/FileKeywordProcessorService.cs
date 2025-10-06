@@ -1,6 +1,7 @@
 using System.IO.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
 namespace AStar.Dev.Database.Updater.Core.FileKeywordProcessor;
@@ -21,9 +22,13 @@ public class FileKeywordProcessorService(IServiceScopeFactory serviceScopeFactor
         var       writer             = scope.ServiceProvider.GetRequiredService<DatabaseWriter>();
         var       filePaths          = fileSystem.Directory.GetFiles(config.Value.RootDirectory, "*", enumerationOptions);
 
+        var logger = scope.ServiceProvider.GetRequiredService<ILogger<FileKeywordProcessorService>>();
+        logger.LogInformation("Starting scanning files - FileKeywordProcessorService");
         var producer = fileScanner.ScanFilesAsync(filePaths, stoppingToken);
         var consumer = writer.ConsumeAsync(stoppingToken);
 
+        logger.LogInformation("Starting scanning files - FileKeywordProcessorService - Task.WhenAll");
         await Task.WhenAll(producer, consumer);
+        logger.LogInformation("Starting scanning files - FileKeywordProcessorService - Task.WhenAll - Done");
     }
 }

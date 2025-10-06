@@ -215,7 +215,7 @@
             <summary>
             </summary>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ChannelBacklogHealthCheck.#ctor(AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel{AStar.Dev.Infrastructure.FilesDb.Models.FileKeywordMatch},System.Int32,System.Int32)">
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ChannelBacklogHealthCheck.#ctor(AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},System.Int32,System.Int32)">
             <summary>
             </summary>
             <param name="channel"></param>
@@ -253,7 +253,7 @@
             <param name="batchSize"></param>
             <param name="logger"></param>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.DatabaseWriter.#ctor(System.Threading.Channels.ChannelReader{AStar.Dev.Infrastructure.FilesDb.Models.FileKeywordMatch},AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,System.Int32,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.FileKeywordProcessor.DatabaseWriter})">
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.DatabaseWriter.#ctor(System.Threading.Channels.ChannelReader{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,System.Int32,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.FileKeywordProcessor.DatabaseWriter})">
             <summary>
             </summary>
             <param name="reader"></param>
@@ -294,7 +294,6 @@
         </member>
         <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileNamePartsWithClassifications">
             <summary>
-
             </summary>
         </member>
         <member name="P:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileNamePartsWithClassifications.Id">
@@ -339,14 +338,26 @@
         <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileScanner">
             <summary>
             </summary>
+            <param name="fileSystem">An instance of
+                <see cref="T:System.IO.Abstractions.IFileSystem"/>
+                to retrieve the files from
+            </param>
+            <param name="filesContext"></param>
+            <param name="classificationRepository"></param>
             <param name="keywordProvider"></param>
             <param name="writer"></param>
             <param name="tracker"></param>
             <param name="logger"></param>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileScanner.#ctor(AStar.Dev.Database.Updater.Core.FileKeywordProcessor.IKeywordProvider,System.Threading.Channels.ChannelWriter{AStar.Dev.Infrastructure.FilesDb.Models.FileKeywordMatch},AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ThroughputTracker,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileScanner})">
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileScanner.#ctor(System.IO.Abstractions.IFileSystem,AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository,AStar.Dev.Database.Updater.Core.FileKeywordProcessor.IKeywordProvider,System.Threading.Channels.ChannelWriter{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ThroughputTracker,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileScanner})">
             <summary>
             </summary>
+            <param name="fileSystem">An instance of
+                <see cref="T:System.IO.Abstractions.IFileSystem"/>
+                to retrieve the files from
+            </param>
+            <param name="filesContext"></param>
+            <param name="classificationRepository"></param>
             <param name="keywordProvider"></param>
             <param name="writer"></param>
             <param name="tracker"></param>

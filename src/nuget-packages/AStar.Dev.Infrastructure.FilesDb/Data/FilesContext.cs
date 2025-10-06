@@ -61,10 +61,6 @@ public sealed class FilesContext : DbContext
     public DbSet<DuplicatesDetails> DuplicatesDetails { get; set; } = null!;
 
     /// <summary>
-    /// </summary>
-    public DbSet<FileKeywordMatch> FileKeywordMatches { get; set; }
-
-    /// <summary>
     ///     The overridden OnModelCreating method
     /// </summary>
     /// <param name="modelBuilder">

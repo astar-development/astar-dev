@@ -6,8 +6,8 @@ using System.Threading.Channels;
 namespace AStar.Dev.Database.Updater.Core.FileKeywordProcessor;
 
 /// <summary>
-/// A channel wrapper that tracks backlog count while delegating to an inner channel.
-/// Ensures items are non-null via a generic non-null constraint.
+///     A channel wrapper that tracks backlog count while delegating to an inner channel.
+///     Ensures items are non-null via a generic non-null constraint.
 /// </summary>
 /// <typeparam name="T">The non-nullable item type.</typeparam>
 public sealed class TrackedChannel<T> where T : notnull
@@ -16,7 +16,7 @@ public sealed class TrackedChannel<T> where T : notnull
     private          int        _count;
 
     /// <summary>
-    /// Initializes a new instance of the <see cref="TrackedChannel{T}"/> class.
+    ///     Initializes a new instance of the <see cref="TrackedChannel{T}" /> class.
     /// </summary>
     /// <param name="inner">The inner channel to wrap.</param>
     public TrackedChannel(Channel<T> inner)
@@ -27,17 +27,17 @@ public sealed class TrackedChannel<T> where T : notnull
     }
 
     /// <summary>
-    /// Gets the tracked writer.
+    ///     Gets the tracked writer.
     /// </summary>
     public ChannelWriter<T> Writer { get; }
 
     /// <summary>
-    /// Gets the tracked reader.
+    ///     Gets the tracked reader.
     /// </summary>
     public ChannelReader<T> Reader { get; }
 
     /// <summary>
-    /// Gets the current backlog count.
+    ///     Gets the current backlog count.
     /// </summary>
     public int Count => Volatile.Read(ref _count);
 
@@ -46,8 +46,8 @@ public sealed class TrackedChannel<T> where T : notnull
     private void Decrement() => Interlocked.Decrement(ref _count);
 
     /// <summary>
-    /// A writer that increments backlog count when items are written.
-    /// Disallows null writes by contract.
+    ///     A writer that increments backlog count when items are written.
+    ///     Disallows null writes by contract.
     /// </summary>
     private sealed class TrackingWriter : ChannelWriter<T>
     {
@@ -72,6 +72,7 @@ public sealed class TrackedChannel<T> where T : notnull
             if(_inner.TryWrite(item))
             {
                 _parent.Increment();
+
                 return true;
             }
 
@@ -95,7 +96,7 @@ public sealed class TrackedChannel<T> where T : notnull
     }
 
     /// <summary>
-    /// A reader that decrements backlog count when items are read.
+    ///     A reader that decrements backlog count when items are read.
     /// </summary>
     private sealed class TrackingReader : ChannelReader<T>
     {
@@ -117,6 +118,7 @@ public sealed class TrackedChannel<T> where T : notnull
             Debug.Assert(item is not null);
 
             _parent.Decrement();
+
             return item;
         }
 
@@ -127,6 +129,7 @@ public sealed class TrackedChannel<T> where T : notnull
             {
                 Debug.Assert(item is not null);
                 _parent.Decrement();
+
                 yield return item;
             }
         }
@@ -166,4 +169,3 @@ public sealed class TrackedChannel<T> where T : notnull
         }
     }
 }
-

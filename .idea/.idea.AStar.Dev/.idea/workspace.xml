@@ -58,30 +58,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/FileNamePartsWithClassifications.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/KeywordRegexBuilder.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Tests.Unit/DiRegistrationTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Tests.Unit/RegexBuildTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Tests.Unit/TrackedChannelTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/AStar.Dev.Infrastructure.FilesDb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/AStar.Dev.Infrastructure.FilesDb.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure/AStar.Dev.Infrastructure.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure/AStar.Dev.Infrastructure.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/EfKeywordProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/EfKeywordProvider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/FileScanner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/FileScanner.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/IKeywordProvider.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/IKeywordProvider.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/ThroughputHealthCheck.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/ThroughputHealthCheck.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/TrackedChannel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/TrackedChannel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/Files/AddNewFilesService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/Files/AddNewFilesService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/HostApplicationBuilderExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/HostApplicationBuilderExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Tests.Unit/ChannelBacklogHealthCheckTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Tests.Unit/ChannelBacklogHealthCheckTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Tests.Unit/ThroughputHealthCheckTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Tests.Unit/ThroughputHealthCheckTests.cs" afterDir="false" />
-    </list>
+    <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -189,6 +166,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/68e7118debfad08e488d6345898ed9f6c0319f2718a2c9281e4b15a8982cff/FilesContextFixture.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7afb439ff5402cb8ecb6013ac9c6fd2b504ba883180ca3a52e8bfcf987278/UnnamedOptionsManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/7e333a9f3297ba553cccfd3b7c3f1f96125b23d09f883e4d6e66d531559a4c/Type.CoreCLR.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/821eadf8c89b36691b3def72d04889d8d4cd791563a97558876f873a81a1a085/StackFrameIterator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/88a2e84dd877fda4886ff430e0cdb86091532d9eb2d0ad6d4c895fdb85e91/ChannelWriter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8b3941da12e33bbbd3c947c3ecf16ad6e73a9ebef3f83ed2b886b46e2cd7322/ServiceCollectionHostedServiceExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8bb5e9b7c0175f0e7484c843d9a2bbcfb1f176b842f476b2c6a8fcbceea5cf/ThrowHelper.cs" root0="FORCE_HIGHLIGHTING" />
@@ -228,8 +206,12 @@
     <setting file="file://$PROJECT_DIR$/../astar-dev-all-private/src/uis/AStar.Dev.Web/Shared/MainLayout.razor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../astar-dev-all-private/src/uis/AStar.Dev.Web/Shared/NavMenu.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Models/FileNamePart.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/ChannelBacklogHealthCheck.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/DatabaseWriter.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/FileKeywordProcessorService.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/FileScanner.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/TrackedChannel.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/TrackedChannel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/TimeDelay.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="mock:///home/jason-barden/RiderProjects/astar-dev/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/HostApplicationBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/LoginDisplay.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
@@ -351,7 +333,7 @@
     &quot;8fd607c9-dea8-4b95-8264-467bd8bce66a.executor&quot;: &quot;Debug&quot;,
     &quot;914741fe-f341-44e1-8b87-fe204e63e988.executor&quot;: &quot;Debug&quot;,
     &quot;Aspire Host.AStar.Dev.AppHost: http.executor&quot;: &quot;Run&quot;,
-    &quot;Aspire Host.AStar.Dev.AppHost: https.executor&quot;: &quot;Debug&quot;,
+    &quot;Aspire Host.AStar.Dev.AppHost: https.executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
@@ -362,7 +344,7 @@
     &quot;e1fa419c-f915-45ea-a5b9-af0e54288449.executor&quot;: &quot;Debug&quot;,
     &quot;ead053aa-6f06-48a9-a614-f676b2fe4dd5.executor&quot;: &quot;Debug&quot;,
     &quot;fe711191-94fe-41bc-93a1-ff6c72b91e6f.executor&quot;: &quot;Debug&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;features/database-updater-rewrite-to-use-channels-etc&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;features/extend-filename-matching&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/jason-barden/RiderProjects/astar-dev/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/AStar.Dev.Database.Updater.csproj&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
@@ -371,6 +353,7 @@
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;RiderNuGetOptionsPageId&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/jason-barden/.local/share/JetBrains/Toolbox/apps/rider/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -1225,22 +1208,9 @@
       <workItem from="1759687278050" duration="5136000" />
       <workItem from="1759693139591" duration="5648000" />
       <workItem from="1759741068707" duration="15388000" />
-    </task>
-    <task id="LOCAL-00061" summary="Moving to use Sqlite as the database provider in the tests">
-      <option name="closed" value="true" />
-      <created>1752959993933</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1752959993934</updated>
-    </task>
-    <task id="LOCAL-00062" summary="Add the toggleable light/dark theme">
-      <option name="closed" value="true" />
-      <created>1754200634990</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1754200634991</updated>
+      <workItem from="1759778046655" duration="6520000" />
+      <workItem from="1759785090016" duration="2166000" />
+      <workItem from="1759787308236" duration="1024000" />
     </task>
     <task id="LOCAL-00063" summary="Add the AStar logos">
       <option name="closed" value="true" />
@@ -1618,7 +1588,23 @@
       <option name="project" value="LOCAL" />
       <updated>1759701884051</updated>
     </task>
-    <option name="localTasksCounter" value="110" />
+    <task id="LOCAL-00110" summary="Refactor database updater to improve file processing and transition to `FileDetail`.&#10;&#10;- Replace `FileKeywordMatch` with `FileDetail` across several components.&#10;- Implement improved logging for file processing and database writes.&#10;- Enhance parallel file handling logic in `FileScanner`.&#10;- Update health check, writer, and scanner to align with new data model.&#10;- Remove unused `FileKeywordMatch` references and DbSet.">
+      <option name="closed" value="true" />
+      <created>1759788283749</created>
+      <option name="number" value="00110" />
+      <option name="presentableId" value="LOCAL-00110" />
+      <option name="project" value="LOCAL" />
+      <updated>1759788283750</updated>
+    </task>
+    <task id="LOCAL-00111" summary="Refactor database updater to improve file processing and transition to `FileDetail`.&#10;&#10;- Replace `FileKeywordMatch` with `FileDetail` across several components.&#10;- Implement improved logging for file processing and database writes.&#10;- Enhance parallel file handling logic in `FileScanner`.&#10;- Update health check, writer, and scanner to align with new data model.&#10;- Remove unused `FileKeywordMatch` references and DbSet.">
+      <option name="closed" value="true" />
+      <created>1759788306208</created>
+      <option name="number" value="00111" />
+      <option name="presentableId" value="LOCAL-00111" />
+      <option name="project" value="LOCAL" />
+      <updated>1759788306208</updated>
+    </task>
+    <option name="localTasksCounter" value="112" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1699,8 +1685,6 @@
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Reworking the Games" />
-    <MESSAGE value="Despite &quot;fixing&quot; deployment on GitHub..." />
     <MESSAGE value="And again" />
     <MESSAGE value="Refactor: Update codebase with&#10;&#10;consistent naming conventions, improve encapsulation, and utilize JetBrains.Annotations across components." />
     <MESSAGE value="Commiting even though levels do not work...yet" />
@@ -1724,7 +1708,9 @@
     <MESSAGE value="Resolving some of the dB updater bugs&#10;&#10;Main one left is the file part matching - &quot;car&quot; is matched when &quot;carrot&quot;. Need to update the algorithym" />
     <MESSAGE value="Rewriting the Database Updater&#10;&#10;At the moment, it is very rough but proves the approach.&#10;&#10;Next steps, decide whether to move back to a hosted service (likely) or continue with the endpoint (possible but not so likely)" />
     <MESSAGE value="Remove the temporary API project and update db Updater&#10;&#10;Changes include reworking the Tracker to remove the need to manually increment/decrement" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove the temporary API project and update db Updater&#10;&#10;Changes include reworking the Tracker to remove the need to manually increment/decrement" />
+    <MESSAGE value="Have updated the Regex and misc other changes&#10;&#10;However, when running locally, it doesn't seem to do anything...&#10;&#10;Will go back to previous code to check whether it did , or, if I just missed a breaking change earlier..." />
+    <MESSAGE value="Refactor database updater to improve file processing and transition to `FileDetail`.&#10;&#10;- Replace `FileKeywordMatch` with `FileDetail` across several components.&#10;- Implement improved logging for file processing and database writes.&#10;- Enhance parallel file handling logic in `FileScanner`.&#10;- Update health check, writer, and scanner to align with new data model.&#10;- Remove unused `FileKeywordMatch` references and DbSet." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor database updater to improve file processing and transition to `FileDetail`.&#10;&#10;- Replace `FileKeywordMatch` with `FileDetail` across several components.&#10;- Implement improved logging for file processing and database writes.&#10;- Enhance parallel file handling logic in `FileScanner`.&#10;- Update health check, writer, and scanner to align with new data model.&#10;- Remove unused `FileKeywordMatch` references and DbSet." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1760,160 +1746,30 @@
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/DatabaseWriter.cs</url>
-          <line>44</line>
-          <properties documentPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/DatabaseWriter.cs" containingFunctionPresentation="Method 'ConsumeAsync'">
+          <url>file://$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/Program.cs</url>
+          <line>27</line>
+          <properties documentPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/Program.cs" containingFunctionPresentation="">
             <startOffsets>
-              <option value="1404" />
+              <option value="643" />
             </startOffsets>
             <endOffsets>
-              <option value="1445" />
+              <option value="762" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="45" />
+          <option name="timeStamp" value="95" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/Program.cs</url>
-          <line>22</line>
+          <line>31</line>
           <properties documentPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/Program.cs" containingFunctionPresentation="">
             <startOffsets>
-              <option value="429" />
+              <option value="779" />
             </startOffsets>
             <endOffsets>
-              <option value="548" />
+              <option value="871" />
             </endOffsets>
           </properties>
-          <option name="timeStamp" value="47" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/FileScanner.cs</url>
-          <line>45</line>
-          <properties documentPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/FileScanner.cs" containingFunctionPresentation="Lambda expression inside Method 'ScanFilesAsync'">
-            <startOffsets>
-              <option value="2490" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2500" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/DatabaseWriter.cs</url>
-          <line>24</line>
-          <properties documentPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/DatabaseWriter.cs" containingFunctionPresentation="Method 'ConsumeAsync'">
-            <startOffsets>
-              <option value="891" />
-            </startOffsets>
-            <endOffsets>
-              <option value="908" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="56" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/FileScanner.cs</url>
-          <line>33</line>
-          <properties documentPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/FileScanner.cs" containingFunctionPresentation="Lambda expression inside Method 'ScanFilesAsync'">
-            <startOffsets>
-              <option value="1546" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1990" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="57" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/FileScanner.cs</url>
-          <line>52</line>
-          <properties documentPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/FileScanner.cs" containingFunctionPresentation="Lambda expression inside Method 'ScanFilesAsync'">
-            <startOffsets>
-              <option value="2881" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2943" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="58" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/FileScanner.cs</url>
-          <line>39</line>
-          <properties documentPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/FileScanner.cs" containingFunctionPresentation="Lambda expression inside Method 'ScanFilesAsync'">
-            <startOffsets>
-              <option value="2040" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2281" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="60" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/FileScanner.cs</url>
-          <line>59</line>
-          <properties documentPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/FileScanner.cs" containingFunctionPresentation="Method 'ScanFilesAsync'">
-            <startOffsets>
-              <option value="3169" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3218" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="61" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/FileScanner.cs</url>
-          <line>55</line>
-          <properties documentPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/FileScanner.cs" containingFunctionPresentation="Lambda expression inside Method 'ScanFilesAsync'">
-            <startOffsets>
-              <option value="3043" />
-            </startOffsets>
-            <endOffsets>
-              <option value="3065" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="62" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/ThroughputTracker.cs</url>
-          <line>22</line>
-          <properties documentPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/ThroughputTracker.cs" containingFunctionPresentation="Method 'CountEventsInWindow'">
-            <startOffsets>
-              <option value="759" />
-            </startOffsets>
-            <endOffsets>
-              <option value="807" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="63" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/FileScanner.cs</url>
-          <line>21</line>
-          <properties documentPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/FileScanner.cs" containingFunctionPresentation="Method 'ScanFilesAsync'">
-            <startOffsets>
-              <option value="816" />
-            </startOffsets>
-            <endOffsets>
-              <option value="833" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="64" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/DatabaseWriter.cs</url>
-          <line>20</line>
-          <properties documentPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/DatabaseWriter.cs" containingFunctionPresentation="Method 'ConsumeAsync'">
-            <startOffsets>
-              <option value="742" />
-            </startOffsets>
-            <endOffsets>
-              <option value="793" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="65" />
+          <option name="timeStamp" value="96" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

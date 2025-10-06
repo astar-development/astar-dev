@@ -69,15 +69,14 @@ public static class HostApplicationBuilderExtensions
         _ = builder.Services.AddScoped<FileScanner>();
         _ = builder.Services.AddScoped<IKeywordProvider, EfKeywordProvider>();
 
-        var inner = Channel.CreateUnbounded<FileKeywordMatch>(new() { SingleReader = true, SingleWriter = false });
+        var inner = Channel.CreateUnbounded<FileDetail>(new() { SingleReader = true, SingleWriter = false });
 
-        var tracked = new TrackedChannel<FileKeywordMatch>(inner);
+        var tracked = new TrackedChannel<FileDetail>(inner);
         builder.Services.AddSingleton(tracked);
 
 // Register the reader/writer *as* ChannelReader<T> / ChannelWriter<T>
-        builder.Services.AddSingleton<ChannelReader<FileKeywordMatch>>(sp => tracked.Reader);
-        builder.Services.AddSingleton<ChannelWriter<FileKeywordMatch>>(sp => tracked.Writer);
-
+        builder.Services.AddSingleton<ChannelReader<FileDetail>>(sp => tracked.Reader);
+        builder.Services.AddSingleton<ChannelWriter<FileDetail>>(sp => tracked.Writer);
 
 // Register your producer and consumer
         builder.Services.AddScoped<FileScanner>();

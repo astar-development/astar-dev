@@ -7,9 +7,9 @@ namespace AStar.Dev.Database.Updater.Tests.Unit;
 
 public class ChannelBacklogHealthCheckTests
 {
-    private static TrackedChannel<FileKeywordMatch> CreateTrackedChannel()
+    private static TrackedChannel<FileDetail> CreateTrackedChannel()
     {
-        var inner = Channel.CreateUnbounded<FileKeywordMatch>(new() { SingleReader = true, SingleWriter = false });
+        var inner = Channel.CreateUnbounded<FileDetail>(new() { SingleReader = true, SingleWriter = false });
 
         return new(inner);
     }
@@ -33,7 +33,7 @@ public class ChannelBacklogHealthCheckTests
 
         for(var i = 0; i < 6; i++)
         {
-            tracked.Writer.TryWrite(new() { FileName = "f", Keyword = "k" });
+            tracked.Writer.TryWrite(new() { DirectoryName = new("xd"), FileName = new("k") });
         }
 
         var result = await check.CheckHealthAsync(new());
@@ -49,7 +49,7 @@ public class ChannelBacklogHealthCheckTests
 
         for(var i = 0; i < 11; i++)
         {
-            tracked.Writer.TryWrite(new() { FileName = "f", Keyword = "k" });
+            tracked.Writer.TryWrite(new() { DirectoryName = new("xd"), FileName = new("k") });
         }
 
         var result = await check.CheckHealthAsync(new());
@@ -65,7 +65,7 @@ public class ChannelBacklogHealthCheckTests
 
         for(var i = 0; i < 3; i++)
         {
-            tracked.Writer.TryWrite(new() { FileName = "f", Keyword = "k" });
+            tracked.Writer.TryWrite(new() { DirectoryName = new("xd"), FileName = new("k") });
         }
 
         tracked.Count.ShouldBe(3);

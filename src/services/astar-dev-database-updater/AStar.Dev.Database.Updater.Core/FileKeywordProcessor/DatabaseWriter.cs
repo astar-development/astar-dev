@@ -11,14 +11,15 @@ namespace AStar.Dev.Database.Updater.Core.FileKeywordProcessor;
 /// <param name="filesContext"></param>
 /// <param name="batchSize"></param>
 /// <param name="logger"></param>
-public class DatabaseWriter(ChannelReader<FileKeywordMatch> reader, FilesContext filesContext, int batchSize = 5000, ILogger<DatabaseWriter> logger = null!)
+public class DatabaseWriter(ChannelReader<FileDetail> reader, FilesContext filesContext, int batchSize = 5_000, ILogger<DatabaseWriter> logger = null!)
 {
     /// <summary>
     /// </summary>
     /// <param name="cancellationToken"></param>
     public async Task ConsumeAsync(CancellationToken cancellationToken = default)
     {
-        var buffer = new List<FileKeywordMatch>(batchSize);
+        logger.LogInformation("DatabaseWriter - Starting saving in the ConsumeAsync method");
+        var buffer = new List<FileDetail>(batchSize);
 
         await foreach(var item in reader.ReadAllAsync(cancellationToken))
         {
@@ -26,26 +27,31 @@ public class DatabaseWriter(ChannelReader<FileKeywordMatch> reader, FilesContext
 
             if(buffer.Count < batchSize)
             {
+                File.AppendAllText("logs/batch.log.txt", buffer.Count + Environment.NewLine);
+                logger.LogInformation("DatabaseWriter - Buffer size is {Count}", buffer.Count);
+
                 continue;
             }
 
-            logger.LogInformation("Adding {FileKeywordMatch} to the buffer", item);
+            logger.LogInformation("DatabaseWriter - Adding {FileKeywordMatch} to the buffer", item);
             await SaveBatchAsync(buffer, cancellationToken);
             buffer.Clear();
         }
 
+        logger.LogInformation("DatabaseWriter - Finished reading from the reader");
+
         if(buffer.Count > 0)
         {
-            logger.LogInformation("Saving {Count} remaining items", buffer.Count);
+            logger.LogInformation("DatabaseWriter - Saving {Count} remaining items", buffer.Count);
             await SaveBatchAsync(buffer, cancellationToken);
         }
 
-        logger.LogInformation("Finished saving");
+        logger.LogInformation("DatabaseWriter - Finished saving in the ConsumeAsync method");
     }
 
-    private async Task SaveBatchAsync(List<FileKeywordMatch> batch, CancellationToken cancellationToken)
+    private async Task SaveBatchAsync(List<FileDetail> batch, CancellationToken cancellationToken)
     {
-        await filesContext.FileKeywordMatches.AddRangeAsync(batch, cancellationToken);
+        await filesContext.Files.AddRangeAsync(batch, cancellationToken);
         await filesContext.SaveChangesAsync(cancellationToken);
     }
 }
