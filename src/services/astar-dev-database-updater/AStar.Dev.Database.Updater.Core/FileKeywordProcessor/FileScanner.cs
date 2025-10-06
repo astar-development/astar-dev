@@ -21,7 +21,7 @@ public class FileScanner(IKeywordProvider keywordProvider, ChannelWriter<FileKey
     {
         var counter  = 0;
         var keywords = await keywordProvider.GetKeywordsAsync(cancellationToken);
-        var pattern  = $@"\b({string.Join("|", keywords.Select(Regex.Escape))})\b";
+        var pattern  = KeywordRegexBuilder.BuildKeywordPattern(keywords);
         var regex    = new Regex(pattern, RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
         logger.LogInformation("Scanning files for keywords in: File Count: {FileCount} with Keyword Count: {KeywordCount}", filePaths.Count, keywords.Count);
@@ -34,7 +34,8 @@ public class FileScanner(IKeywordProvider keywordProvider, ChannelWriter<FileKey
                                                 var nameToCheck = path
                                                                   .Replace(Path.DirectorySeparatorChar,    ' ')
                                                                   .Replace(Path.AltDirectorySeparatorChar, ' ')
-                                                                  .Replace("-",                            " ").Replace("_", " ");
+                                                                  .Replace('-',                            ' ')
+                                                                  .Replace('_',                            ' ');
 
                                                 var matches = regex.Matches(nameToCheck)
                                                                    .Select(m => m.Value)
@@ -55,6 +56,8 @@ public class FileScanner(IKeywordProvider keywordProvider, ChannelWriter<FileKey
                                                 tracker.RecordEvent();
                                             });
                        }, cancellationToken);
+
+        logger.LogInformation("Finished scanning files");
 
         writer.Complete();
     }

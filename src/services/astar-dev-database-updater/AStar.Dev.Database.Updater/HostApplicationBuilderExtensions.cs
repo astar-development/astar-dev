@@ -72,10 +72,12 @@ public static class HostApplicationBuilderExtensions
         var inner = Channel.CreateUnbounded<FileKeywordMatch>(new() { SingleReader = true, SingleWriter = false });
 
         var tracked = new TrackedChannel<FileKeywordMatch>(inner);
-
         builder.Services.AddSingleton(tracked);
-        builder.Services.AddSingleton(tracked.Reader);
-        builder.Services.AddSingleton(tracked.Writer);
+
+// Register the reader/writer *as* ChannelReader<T> / ChannelWriter<T>
+        builder.Services.AddSingleton<ChannelReader<FileKeywordMatch>>(sp => tracked.Reader);
+        builder.Services.AddSingleton<ChannelWriter<FileKeywordMatch>>(sp => tracked.Writer);
+
 
 // Register your producer and consumer
         builder.Services.AddScoped<FileScanner>();

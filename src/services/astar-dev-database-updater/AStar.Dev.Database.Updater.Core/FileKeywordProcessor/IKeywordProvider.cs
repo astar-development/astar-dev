@@ -8,5 +8,5 @@ public interface IKeywordProvider
     /// </summary>
     /// <param name="cancellationToken"></param>
     /// <returns></returns>
-    Task<IReadOnlyList<string>> GetKeywordsAsync(CancellationToken cancellationToken = default);
+    Task<IReadOnlyList<FileNamePartsWithClassifications>> GetKeywordsAsync(CancellationToken cancellationToken = default);
 }

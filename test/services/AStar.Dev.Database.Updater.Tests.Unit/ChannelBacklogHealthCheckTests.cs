@@ -9,8 +9,7 @@ public class ChannelBacklogHealthCheckTests
 {
     private static TrackedChannel<FileKeywordMatch> CreateTrackedChannel()
     {
-        var inner = Channel.CreateUnbounded<FileKeywordMatch>(
-                                                              new() { SingleReader = true, SingleWriter = false });
+        var inner = Channel.CreateUnbounded<FileKeywordMatch>(new() { SingleReader = true, SingleWriter = false });
 
         return new(inner);
     }
@@ -21,7 +20,6 @@ public class ChannelBacklogHealthCheckTests
         var tracked = CreateTrackedChannel();
         var check   = new ChannelBacklogHealthCheck(tracked, 5, 10);
 
-        // No writes yet, backlog = 0
         var result = await check.CheckHealthAsync(new());
 
         result.Status.ShouldBe(HealthStatus.Healthy);
@@ -33,7 +31,6 @@ public class ChannelBacklogHealthCheckTests
         var tracked = CreateTrackedChannel();
         var check   = new ChannelBacklogHealthCheck(tracked, 5, 10);
 
-        // Write 6 items (backlog = 6)
         for(var i = 0; i < 6; i++)
         {
             tracked.Writer.TryWrite(new() { FileName = "f", Keyword = "k" });
@@ -50,7 +47,6 @@ public class ChannelBacklogHealthCheckTests
         var tracked = CreateTrackedChannel();
         var check   = new ChannelBacklogHealthCheck(tracked, 5, 10);
 
-        // Write 11 items (backlog = 11)
         for(var i = 0; i < 11; i++)
         {
             tracked.Writer.TryWrite(new() { FileName = "f", Keyword = "k" });
@@ -67,7 +63,6 @@ public class ChannelBacklogHealthCheckTests
         var tracked = CreateTrackedChannel();
         var check   = new ChannelBacklogHealthCheck(tracked, 5, 10);
 
-        // Write 3 items
         for(var i = 0; i < 3; i++)
         {
             tracked.Writer.TryWrite(new() { FileName = "f", Keyword = "k" });
@@ -75,8 +70,7 @@ public class ChannelBacklogHealthCheckTests
 
         tracked.Count.ShouldBe(3);
 
-        // Read one item
-        var _ = await tracked.Reader.ReadAsync();
+        _ = await tracked.Reader.ReadAsync();
 
         tracked.Count.ShouldBe(2);
 

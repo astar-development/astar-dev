@@ -23,13 +23,9 @@ public class ThroughputHealthCheck(
 
         if(count < _minEventsPerWindow)
         {
-            return Task.FromResult(
-                                   HealthCheckResult.Degraded(
-                                                              $"Only {count} events in last {_window.TotalSeconds} seconds (expected >= {_minEventsPerWindow})"));
+            return Task.FromResult(HealthCheckResult.Degraded($"Only {count} events in last {_window.TotalSeconds} seconds (expected >= {_minEventsPerWindow})"));
         }
 
-        return Task.FromResult(
-                               HealthCheckResult.Healthy(
-                                                         $"Throughput OK: {count} events in last {_window.TotalSeconds} seconds"));
+        return Task.FromResult(HealthCheckResult.Healthy($"Throughput OK: {count} events in last {_window.TotalSeconds} seconds"));
     }
 }

@@ -12,7 +12,6 @@ public class ThroughputHealthCheckTests
         var fakeTime = new FakeTimeProvider();
         var tracker  = new ThroughputTracker(fakeTime);
 
-        // Record 15 events at time 0
         for(var i = 0; i < 15; i++)
         {
             tracker.RecordEvent();
@@ -31,7 +30,7 @@ public class ThroughputHealthCheckTests
         var fakeTime = new FakeTimeProvider();
         var tracker  = new ThroughputTracker(fakeTime);
 
-        tracker.RecordEvent(); // only 1 event
+        tracker.RecordEvent();
 
         var check = new ThroughputHealthCheck(tracker, TimeSpan.FromMinutes(1));
 
@@ -46,9 +45,8 @@ public class ThroughputHealthCheckTests
         var fakeTime = new FakeTimeProvider();
         var tracker  = new ThroughputTracker(fakeTime);
 
-        tracker.RecordEvent(); // event at time 0
+        tracker.RecordEvent();
 
-        // Advance time beyond the window
         fakeTime.Advance(TimeSpan.FromMinutes(2));
 
         var check = new ThroughputHealthCheck(tracker, TimeSpan.FromMinutes(1), 1);

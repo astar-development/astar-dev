@@ -64,7 +64,7 @@ public class AddNewFilesService(
             {
                 count = await ProcessNewFileAsync(fileClassifications, file, count, fileHandlesAlreadyInTheContext, stoppingToken);
 
-                return new Result<int, ErrorResponse>.Ok(count);
+                return new Result<int, ErrorResponse>.Ok(count); // ToDo - remove this once testing / refactor completed (if it still exists after the refactoring!)
             }
         }
 
