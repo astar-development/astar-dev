@@ -3,7 +3,7 @@ using AStar.Dev.Database.Updater.Core.FileKeywordProcessor;
 
 namespace AStar.Dev.Database.Updater.Tests.Unit;
 
-public class KeywordRegexBuilderTests
+public class RegexBuilderTests
 {
     [Fact]
     public void SingleWordKeyword_ShouldMatchWholeWordOnly()
@@ -58,5 +58,20 @@ public class KeywordRegexBuilderTests
         regex.IsMatch("RED CAR").ShouldBeTrue();
         regex.IsMatch("Red Car").ShouldBeTrue();
         regex.IsMatch("rEd cAr").ShouldBeTrue();
+    }
+
+    [Fact]
+    public void BuildKeywordPattern_NormalizesUnderscoresAndDashes()
+    {
+        var inputs = new[] { new FileNamePartsWithClassifications { Text = "integration_keyword" },
+                             new FileNamePartsWithClassifications { Text = "multi-word-key" } };
+
+        var pattern = KeywordRegexBuilder.BuildKeywordPattern(inputs);
+
+        var regex = new System.Text.RegularExpressions.Regex(pattern, System.Text.RegularExpressions.RegexOptions.IgnoreCase);
+
+        // Ensure the pattern matches the normalized phrases
+        Assert.Matches(regex, "integration keyword");
+        Assert.Matches(regex, "multi word key");
     }
 }

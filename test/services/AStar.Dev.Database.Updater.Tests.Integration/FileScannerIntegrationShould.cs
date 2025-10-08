@@ -31,6 +31,10 @@ public class FileScannerIntegrationShould : IDisposable
             logging.AddFilter("Aspire.", LogLevel.Debug);
         });
 
+        // Register ClassificationRepository in the test host DI so integration tests resolve the same way as production
+        // Resolve the FilesContext from the same scope when ClassificationRepository is requested.
+        appHost.Services.AddScoped<ClassificationRepository>(sp => new ClassificationRepository(sp.GetRequiredService<FilesContext>()));
+
         var db = appHost.Resources.OfType<SqlServerDatabaseResource>().Single(r => r.Name == AspireConstants.Sql.FilesDb);
 
         // Register FilesContext as a factory that resolves the connection string from the Aspire resource
@@ -75,11 +79,10 @@ public class FileScannerIntegrationShould : IDisposable
 
     var scopeFactory = app.Services.GetRequiredService<IServiceScopeFactory>();
 
-    // Resolve scoped services from a scope
+        // Resolve scoped services from a scope
     using var testScope = app.Services.CreateScope();
-    // Some DI registrations may not be available in the distributed test host for this lightweight test run.
-    // Construct the repository directly from the FilesContext we created above so we have a working instance.
-    var classificationRepository = new ClassificationRepository(_context!);
+    // Resolve the ClassificationRepository from DI so the test mirrors production wiring
+    var classificationRepository = testScope.ServiceProvider.GetRequiredService<ClassificationRepository>();
     var logger = testScope.ServiceProvider.GetRequiredService<ILogger<FileScanner>>();
     var tracker = new ThroughputTracker(System.TimeProvider.System);
 
