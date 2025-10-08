@@ -50,10 +50,15 @@ public static class HostApplicationBuilderExtensions
 
         _ = builder.Services.AddSerilog((sp, loggerConfig) => loggerConfig.ReadFrom.Configuration(sp.CreateScope().ServiceProvider.GetRequiredService<IConfiguration>()));
 
-        _ = builder.Services.AddHostedService<AddNewFilesBackgroundService>();
+        //_ = builder.Services.AddHostedService<AddNewFilesBackgroundService>();
+        _ = builder.Services.AddHostedService<FileClassificationsService>();
         _ = builder.Services.AddHostedService<FileKeywordProcessorService>();
         _ = builder.Services.AddScoped<FileClassificationsService>();
-        builder.AddSqlServerDbContext<FilesContext>(AspireConstants.Sql.FilesDb);
+        builder.AddSqlServerDbContext<FilesContext>(AspireConstants.Sql.FilesDb, settings =>
+                                                                                 {
+                                                                                     settings.CommandTimeout = 120;
+                                                                                     settings.DisableRetry   = false;
+                                                                                 });
         _ = builder.Services.AddScoped<ClassificationProcessor>();
         _ = builder.Services.AddScoped<ClassificationRepository>();
         _ = builder.Services.AddSingleton<ClassificationBuilder>();

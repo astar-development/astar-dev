@@ -27,9 +27,7 @@
         </member>
         <member name="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationMappingExtensions">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationMappingExtensions"/>
-                containing the ClassificationMapping extensions
+                The <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationMappingExtensions" /> containing the ClassificationMapping extensions
             </summary>
         </member>
         <member name="M:AStar.Dev.Database.Updater.Core.Classifications.ClassificationMappingExtensions.AddFileClassificationsAsync(System.Collections.Generic.IEnumerable{AStar.Dev.Database.Updater.Core.Models.ClassificationMapping},AStar.Dev.Database.Updater.Core.Classifications.ClassificationProcessor,System.Threading.CancellationToken)">
@@ -39,11 +37,7 @@
             <param name="mappings">The classification mappings to process.</param>
             <param name="classificationProcessor">The ClassificationProcessor to use.</param>
             <param name="stoppingToken"></param>
-            <returns>
-                <c>true</c>
-                if successful, otherwise
-                <c>false</c>
-            </returns>
+            <returns><c>true</c> if successful, otherwise <c>false</c></returns>
         </member>
         <member name="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationProcessor">
             <summary>
@@ -98,9 +92,7 @@
         </member>
         <member name="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationsMapper">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationsMapper"/>
-                that handles adding any new file > database classifications
+                The <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationsMapper" /> that handles adding any new file > database classifications
             </summary>
             <param name="configuration"></param>
             <param name="config"></param>
@@ -109,9 +101,7 @@
         </member>
         <member name="M:AStar.Dev.Database.Updater.Core.Classifications.ClassificationsMapper.#ctor(Microsoft.Extensions.Options.IOptions{AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration},Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.Classifications.ClassificationsMapper})">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationsMapper"/>
-                that handles adding any new file > database classifications
+                The <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationsMapper" /> that handles adding any new file > database classifications
             </summary>
             <param name="configuration"></param>
             <param name="config"></param>
@@ -122,46 +112,26 @@
             <summary>
                 The LoadClassificationMappings does exactly what its name says
             </summary>
-            <returns>An instance of
-                <see cref="T:AStar.Dev.Functional.Extensions.Result`2"/>
-                to denote the success / failure of the load
-            </returns>
+            <returns>An instance of <see cref="T:AStar.Dev.Functional.Extensions.Result`2" /> to denote the success / failure of the load</returns>
         </member>
         <member name="T:AStar.Dev.Database.Updater.Core.Classifications.FileClassificationsService">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.FileClassificationsService"/>
-                class contains the available service(s) available for the
-                <see cref="T:AStar.Dev.Database.Updater.Core.Models.ClassificationMapping"/>
-                class
+                The <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.FileClassificationsService" /> class contains the available service(s) available for the <see cref="T:AStar.Dev.Database.Updater.Core.Models.ClassificationMapping" /> class
             </summary>
-            <param name="classificationProcessor">The instance of
-                <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationProcessor"/>
-                to use in the available service(s)
-            </param>
-            <param name="mapper">An instance of the
-                <see cref="T:AStar.Dev.Database.Updater.Core.Models.ClassificationMapping"/>
-                that handles getting the classification mappings
-            </param>
-            <param name="logger">A logger that can be used to, well, log information</param>
+            <param name="serviceScopeFactory">The instance of <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceScopeFactory" /> to obtain the required services from</param>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Classifications.FileClassificationsService.#ctor(AStar.Dev.Database.Updater.Core.Classifications.ClassificationProcessor,AStar.Dev.Database.Updater.Core.Classifications.ClassificationsMapper,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.Classifications.FileClassificationsService})">
+        <member name="M:AStar.Dev.Database.Updater.Core.Classifications.FileClassificationsService.#ctor(Microsoft.Extensions.DependencyInjection.IServiceScopeFactory)">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.FileClassificationsService"/>
-                class contains the available service(s) available for the
-                <see cref="T:AStar.Dev.Database.Updater.Core.Models.ClassificationMapping"/>
-                class
+                The <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.FileClassificationsService" /> class contains the available service(s) available for the <see cref="T:AStar.Dev.Database.Updater.Core.Models.ClassificationMapping" /> class
             </summary>
-            <param name="classificationProcessor">The instance of
-                <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationProcessor"/>
-                to use in the available service(s)
-            </param>
-            <param name="mapper">An instance of the
-                <see cref="T:AStar.Dev.Database.Updater.Core.Models.ClassificationMapping"/>
-                that handles getting the classification mappings
-            </param>
-            <param name="logger">A logger that can be used to, well, log information</param>
+            <param name="serviceScopeFactory">The instance of <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceScopeFactory" /> to obtain the required services from</param>
+        </member>
+        <member name="P:AStar.Dev.Database.Updater.Core.Classifications.FileClassificationsService.ClassificationsLoading">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.Classifications.FileClassificationsService.ExecuteAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
         </member>
         <member name="M:AStar.Dev.Database.Updater.Core.Classifications.FileClassificationsService.AddNewMappingsToTheDatabase(System.Threading.CancellationToken)">
             <summary>
@@ -171,9 +141,7 @@
         </member>
         <member name="T:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration"/>
-                containing the applicable Database Updater configuration
+                The <see cref="T:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration" /> containing the applicable Database Updater configuration
             </summary>
         </member>
         <member name="F:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration.ConfigurationSectionName">
@@ -245,19 +213,29 @@
             <summary>
             </summary>
         </member>
+        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ChannelReadBatch">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ChannelReadBatch.ReadBatchImmediateAsync``1(System.Threading.Channels.ChannelReader{``0},System.Int32)">
+            <summary>
+                Consumes the items in the channel in batches. Each batch contains all
+                the items that are immediately available, up to a specified maximum number.
+            </summary>
+        </member>
         <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.DatabaseWriter">
             <summary>
             </summary>
             <param name="reader"></param>
-            <param name="filesContext"></param>
+            <param name="serviceScopeFactory"></param>
             <param name="batchSize"></param>
             <param name="logger"></param>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.DatabaseWriter.#ctor(System.Threading.Channels.ChannelReader{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,System.Int32,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.FileKeywordProcessor.DatabaseWriter})">
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.DatabaseWriter.#ctor(System.Threading.Channels.ChannelReader{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},Microsoft.Extensions.DependencyInjection.IServiceScopeFactory,System.Int32,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.FileKeywordProcessor.DatabaseWriter})">
             <summary>
             </summary>
             <param name="reader"></param>
-            <param name="filesContext"></param>
+            <param name="serviceScopeFactory"></param>
             <param name="batchSize"></param>
             <param name="logger"></param>
         </member>
@@ -277,7 +255,7 @@
             <param name="db"></param>
         </member>
         <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.EfKeywordProvider.GetKeywordsAsync(System.Threading.CancellationToken)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileKeywordProcessorService">
             <summary>
@@ -289,8 +267,12 @@
             </summary>
             <param name="serviceScopeFactory"></param>
         </member>
+        <member name="P:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileKeywordProcessorService.FileKeywordProcessorRunning">
+            <summary>
+            </summary>
+        </member>
         <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileKeywordProcessorService.ExecuteAsync(System.Threading.CancellationToken)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileNamePartsWithClassifications">
             <summary>
@@ -298,9 +280,7 @@
         </member>
         <member name="P:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileNamePartsWithClassifications.Id">
             <summary>
-                Gets or sets the unique identifier for the
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileNamePart"/>
-                entity.
+                Gets or sets the unique identifier for the <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileNamePart" /> entity.
                 This property serves as the primary key in the database to distinguish
                 each record of file name parts.
             </summary>
@@ -338,35 +318,27 @@
         <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileScanner">
             <summary>
             </summary>
-            <param name="fileSystem">An instance of
-                <see cref="T:System.IO.Abstractions.IFileSystem"/>
-                to retrieve the files from
-            </param>
-            <param name="filesContext"></param>
+            <param name="serviceScopeFactory"></param>
             <param name="classificationRepository"></param>
             <param name="keywordProvider"></param>
             <param name="writer"></param>
             <param name="tracker"></param>
             <param name="logger"></param>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileScanner.#ctor(System.IO.Abstractions.IFileSystem,AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository,AStar.Dev.Database.Updater.Core.FileKeywordProcessor.IKeywordProvider,System.Threading.Channels.ChannelWriter{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ThroughputTracker,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileScanner})">
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileScanner.#ctor(Microsoft.Extensions.DependencyInjection.IServiceScopeFactory,AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository,AStar.Dev.Database.Updater.Core.FileKeywordProcessor.IKeywordProvider,System.Threading.Channels.ChannelWriter{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ThroughputTracker,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileScanner})">
             <summary>
             </summary>
-            <param name="fileSystem">An instance of
-                <see cref="T:System.IO.Abstractions.IFileSystem"/>
-                to retrieve the files from
-            </param>
-            <param name="filesContext"></param>
+            <param name="serviceScopeFactory"></param>
             <param name="classificationRepository"></param>
             <param name="keywordProvider"></param>
             <param name="writer"></param>
             <param name="tracker"></param>
             <param name="logger"></param>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileScanner.ScanFilesAsync(System.Collections.Generic.IReadOnlyCollection{System.String},System.Threading.CancellationToken)">
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileScanner.ScanFilesAsync(System.Collections.Generic.List{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},System.Threading.CancellationToken)">
             <summary>
             </summary>
-            <param name="filePaths"></param>
+            <param name="filesToProcess"></param>
             <param name="cancellationToken"></param>
         </member>
         <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.IKeywordProvider">
@@ -401,7 +373,7 @@
             </summary>
         </member>
         <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ThroughputHealthCheck.CheckHealthAsync(Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckContext,System.Threading.CancellationToken)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ThroughputTracker">
             <summary>
@@ -432,9 +404,7 @@
         </member>
         <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.#ctor(System.Threading.Channels.Channel{`0})">
             <summary>
-                Initializes a new instance of the
-                <see cref="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1"/>
-                class.
+                Initializes a new instance of the <see cref="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1" /> class.
             </summary>
             <param name="inner">The inner channel to wrap.</param>
         </member>
@@ -460,13 +430,13 @@
             </summary>
         </member>
         <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.TrackingWriter.TryWrite(`0)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.TrackingWriter.WriteAsync(`0,System.Threading.CancellationToken)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.TrackingWriter.WaitToWriteAsync(System.Threading.CancellationToken)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.TrackingReader">
             <summary>
@@ -474,53 +444,37 @@
             </summary>
         </member>
         <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.TrackingReader.ReadAsync(System.Threading.CancellationToken)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.TrackingReader.ReadAllAsync(System.Threading.CancellationToken)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.TrackingReader.TryRead(`0@)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.TrackingReader.WaitToReadAsync(System.Threading.CancellationToken)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.TrackingReader.TryPeek(`0@)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService"/>
-                class
+                The <see cref="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService" /> class
             </summary>
-            <param name="serviceProvider">The
-                <see cref="T:System.IServiceProvider"/>
-                required by the AddNewFilesBackgroundService
-            </param>
+            <param name="serviceProvider">The <see cref="T:System.IServiceProvider" /> required by the AddNewFilesBackgroundService</param>
             <param name="timeDelay"></param>
             <param name="config"></param>
-            <param name="logger">An instance of the
-                <see cref="T:Microsoft.Extensions.Logging.ILogger"/>
-                to log status / errors
-            </param>
+            <param name="logger">An instance of the <see cref="T:Microsoft.Extensions.Logging.ILogger" /> to log status / errors</param>
         </member>
         <member name="M:AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService.#ctor(System.IServiceProvider,AStar.Dev.Database.Updater.Core.TimeDelay,Microsoft.Extensions.Options.IOptions{AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration},Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService})">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService"/>
-                class
+                The <see cref="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService" /> class
             </summary>
-            <param name="serviceProvider">The
-                <see cref="T:System.IServiceProvider"/>
-                required by the AddNewFilesBackgroundService
-            </param>
+            <param name="serviceProvider">The <see cref="T:System.IServiceProvider" /> required by the AddNewFilesBackgroundService</param>
             <param name="timeDelay"></param>
             <param name="config"></param>
-            <param name="logger">An instance of the
-                <see cref="T:Microsoft.Extensions.Logging.ILogger"/>
-                to log status / errors
-            </param>
+            <param name="logger">An instance of the <see cref="T:Microsoft.Extensions.Logging.ILogger" /> to log status / errors</param>
         </member>
         <member name="M:AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService.ExecuteAsync(System.Threading.CancellationToken)">
             <summary>
@@ -530,53 +484,23 @@
         </member>
         <member name="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesService">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesService"/>
-                class
+                The <see cref="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesService" /> class
             </summary>
-            <param name="fileSystem">An instance of
-                <see cref="T:System.IO.Abstractions.IFileSystem"/>
-                to retrieve the files from
-            </param>
-            <param name="config">An instance of the
-                <see cref="T:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration"/>
-                options used to configure the addition of the new files
-            </param>
-            <param name="filesContext">An instance of the
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext"/>
-            </param>
-            <param name="classificationRepository">An instance of the
-                <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository"/>
-            </param>
-            <param name="logger">An instance of the
-                <see cref="T:Microsoft.Extensions.Logging.ILogger"/>
-                to log status / errors
-            </param>
+            <param name="fileSystem">An instance of <see cref="T:System.IO.Abstractions.IFileSystem" /> to retrieve the files from</param>
+            <param name="config">An instance of the <see cref="T:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration" /> options used to configure the addition of the new files</param>
+            <param name="filesContext">An instance of the <see cref="T:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext" /></param>
+            <param name="classificationRepository">An instance of the <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository" /> </param>
+            <param name="logger">An instance of the <see cref="T:Microsoft.Extensions.Logging.ILogger" /> to log status / errors</param>
         </member>
         <member name="M:AStar.Dev.Database.Updater.Core.Files.AddNewFilesService.#ctor(System.IO.Abstractions.IFileSystem,Microsoft.Extensions.Options.IOptions{AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration},AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository,AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.Files.AddNewFilesService})">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesService"/>
-                class
+                The <see cref="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesService" /> class
             </summary>
-            <param name="fileSystem">An instance of
-                <see cref="T:System.IO.Abstractions.IFileSystem"/>
-                to retrieve the files from
-            </param>
-            <param name="config">An instance of the
-                <see cref="T:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration"/>
-                options used to configure the addition of the new files
-            </param>
-            <param name="filesContext">An instance of the
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext"/>
-            </param>
-            <param name="classificationRepository">An instance of the
-                <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository"/>
-            </param>
-            <param name="logger">An instance of the
-                <see cref="T:Microsoft.Extensions.Logging.ILogger"/>
-                to log status / errors
-            </param>
+            <param name="fileSystem">An instance of <see cref="T:System.IO.Abstractions.IFileSystem" /> to retrieve the files from</param>
+            <param name="config">An instance of the <see cref="T:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration" /> options used to configure the addition of the new files</param>
+            <param name="filesContext">An instance of the <see cref="T:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext" /></param>
+            <param name="classificationRepository">An instance of the <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository" /> </param>
+            <param name="logger">An instance of the <see cref="T:Microsoft.Extensions.Logging.ILogger" /> to log status / errors</param>
         </member>
         <member name="M:AStar.Dev.Database.Updater.Core.Files.AddNewFilesService.FindNewFilesAndAddToDatabaseAsync(System.Threading.CancellationToken)">
             <summary>
@@ -603,9 +527,7 @@
         </member>
         <member name="T:AStar.Dev.Database.Updater.Core.Models.ClassificationMapping">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Database.Updater.Core.Models.ClassificationMapping"/>
-                class
+                The <see cref="T:AStar.Dev.Database.Updater.Core.Models.ClassificationMapping" /> class
             </summary>
         </member>
         <member name="P:AStar.Dev.Database.Updater.Core.Models.ClassificationMapping.FileNameContains">
@@ -630,9 +552,7 @@
         </member>
         <member name="T:AStar.Dev.Database.Updater.Core.Models.DatabaseUpdaterConfiguration">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Database.Updater.Core.Models.DatabaseUpdaterConfiguration"/>
-                containing the applicable Database Updater configuration
+                The <see cref="T:AStar.Dev.Database.Updater.Core.Models.DatabaseUpdaterConfiguration" /> containing the applicable Database Updater configuration
             </summary>
         </member>
         <member name="F:AStar.Dev.Database.Updater.Core.Models.DatabaseUpdaterConfiguration.ConfigurationSectionName">
@@ -671,18 +591,14 @@
         </member>
         <member name="T:AStar.Dev.Database.Updater.Core.Models.DirectoryChange">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Database.Updater.Core.Models.DirectoryChange"/>
-                to control the directory change
+                The <see cref="T:AStar.Dev.Database.Updater.Core.Models.DirectoryChange" /> to control the directory change
             </summary>
             <param name="Old">The name of the old directory</param>
             <param name="New">The name of the new directory</param>
         </member>
         <member name="M:AStar.Dev.Database.Updater.Core.Models.DirectoryChange.#ctor(System.String,System.String)">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Database.Updater.Core.Models.DirectoryChange"/>
-                to control the directory change
+                The <see cref="T:AStar.Dev.Database.Updater.Core.Models.DirectoryChange" /> to control the directory change
             </summary>
             <param name="Old">The name of the old directory</param>
             <param name="New">The name of the new directory</param>
@@ -700,9 +616,7 @@
         </member>
         <member name="T:AStar.Dev.Database.Updater.Core.Models.DirectoryChanges">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Database.Updater.Core.Models.DirectoryChanges"/>
-                used to contain the list of available directories - not sure if this will be used
+                The <see cref="T:AStar.Dev.Database.Updater.Core.Models.DirectoryChanges" /> used to contain the list of available directories - not sure if this will be used
             </summary>
         </member>
         <member name="F:AStar.Dev.Database.Updater.Core.Models.DirectoryChanges.SectionLocation">
@@ -720,51 +634,35 @@
         </member>
         <member name="T:AStar.Dev.Database.Updater.Core.Shared.TimeDelay">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Database.Updater.Core.Shared.TimeDelay"/>
-                class
+                The <see cref="T:AStar.Dev.Database.Updater.Core.Shared.TimeDelay" /> class
             </summary>
         </member>
         <member name="M:AStar.Dev.Database.Updater.Core.Shared.TimeDelay.CalculateDelayToNextRun(System.TimeOnly,System.Boolean)">
             <summary>
-                The CalculateDelayToNextRun will return the
-                <see cref="T:System.TimeSpan"/>
-                reresenting the delay until the next scheduled run time
+                The CalculateDelayToNextRun will return the <see cref="T:System.TimeSpan" /> reresenting the delay until the next scheduled run time
             </summary>
             <param name="targetTime">The target time to delay until</param>
             <param name="honourFirstDelay"></param>
-            <returns>The
-                <see cref="T:System.TimeSpan"/>
-                reresenting the delay until the next scheduled run time
-            </returns>
+            <returns>The <see cref="T:System.TimeSpan" /> reresenting the delay until the next scheduled run time</returns>
         </member>
         <member name="T:AStar.Dev.Database.Updater.Core.TimeDelay">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Database.Updater.Core.TimeDelay"/>
-                class
+                The <see cref="T:AStar.Dev.Database.Updater.Core.TimeDelay" /> class
             </summary>
         </member>
         <member name="M:AStar.Dev.Database.Updater.Core.TimeDelay.#ctor(System.TimeProvider,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.TimeDelay})">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Database.Updater.Core.TimeDelay"/>
-                class
+                The <see cref="T:AStar.Dev.Database.Updater.Core.TimeDelay" /> class
             </summary>
         </member>
         <member name="M:AStar.Dev.Database.Updater.Core.TimeDelay.CalculateDelayToNextRun(System.TimeOnly,System.Boolean)">
             <summary>
-                The CalculateDelayToNextRun will return the
-                <see cref="T:System.TimeSpan"/>
-                reresenting the delay until the next scheduled run time
+                The CalculateDelayToNextRun will return the <see cref="T:System.TimeSpan" /> reresenting the delay until the next scheduled run time
                 This implementation doesn't need the ErrorResponse so doesn't "need" the result at all
             </summary>
             <param name="targetTime">The target time to delay until</param>
             <param name="valueHonourFirstDelay"></param>
-            <returns>The
-                <see cref="T:System.TimeSpan"/>
-                reresenting the delay until the next scheduled run time
-            </returns>
+            <returns>The <see cref="T:System.TimeSpan" /> reresenting the delay until the next scheduled run time</returns>
         </member>
     </members>
 </doc>

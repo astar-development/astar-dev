@@ -9,7 +9,7 @@ public class AddFilesRequest : IEndpointName
 {
     /// <summary>
     /// </summary>
-    public required IReadOnlyCollection<FileDetailToAdd> FilesToAdd { get; set; } = [];
+    public required IReadOnlyCollection<FileDetailToAdd> FilesToAdd { get; set; } = Array.Empty<FileDetailToAdd>();
 
     /// <inheritdoc />
     public string Name => EndpointConstants.AddFilesGroupName;

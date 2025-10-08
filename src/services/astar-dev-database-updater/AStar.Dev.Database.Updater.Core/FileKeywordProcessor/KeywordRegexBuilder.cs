@@ -15,7 +15,9 @@ public static class KeywordRegexBuilder
     {
         var parts = keywords.Select(fileNamePart =>
                                     {
-                                        var escaped = Regex.Escape(fileNamePart.Text.Replace('-', ' ').Trim());
+                                        // Normalize dashes and underscores to spaces to match the sanitizer used when checking file paths
+                                        var normalized = fileNamePart.Text.Replace('-', ' ').Replace('_', ' ').Trim();
+                                        var escaped = Regex.Escape(normalized);
 
                                         return $@"\b{escaped}\b";
                                     });

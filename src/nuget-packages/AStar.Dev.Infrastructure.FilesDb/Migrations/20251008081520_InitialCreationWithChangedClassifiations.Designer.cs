@@ -13,8 +13,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AStar.Dev.Infrastructure.FilesDb.Migrations
 {
     [DbContext(typeof(FilesContext))]
-    [Migration("20251004220705_FileKeywordMatchTest")]
-    partial class FileKeywordMatchTest
+    [Migration("20251008081520_InitialCreationWithChangedClassifiations")]
+    partial class InitialCreationWithChangedClassifiations
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -194,7 +194,7 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime?>("DetailsLastUpdated")
+                    b.Property<DateTime>("DetailsLastUpdated")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("LastViewed")
@@ -217,11 +217,8 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
 
             modelBuilder.Entity("AStar.Dev.Infrastructure.FilesDb.Models.FileClassification", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    b.Property<Guid>("Id")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("Celebrity")
                         .HasColumnType("bit");
@@ -331,29 +328,6 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                     b.ToTable("FileDetail", "files");
                 });
 
-            modelBuilder.Entity("AStar.Dev.Infrastructure.FilesDb.Models.FileKeywordMatch", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("FileName")
-                        .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
-
-                    b.Property<string>("Keyword")
-                        .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("FileKeywordMatches", "files");
-                });
-
             modelBuilder.Entity("AStar.Dev.Infrastructure.FilesDb.Models.FileNamePart", b =>
                 {
                     b.Property<int>("Id")
@@ -362,8 +336,8 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("FileClassificationId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("FileClassificationId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<bool>("IncludeInSearch")
                         .HasColumnType("bit");
@@ -440,19 +414,19 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                     b.ToTable("TagToIgnore", "files");
                 });
 
-            modelBuilder.Entity("FileClassificationFileDetail", b =>
+            modelBuilder.Entity("FileDetailClassification", b =>
                 {
-                    b.Property<int>("FileClassificationsId")
-                        .HasColumnType("int");
-
-                    b.Property<Guid>("FileDetailsId")
+                    b.Property<Guid>("FileDetailId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.HasKey("FileClassificationsId", "FileDetailsId");
+                    b.Property<Guid>("FileClassificationId")
+                        .HasColumnType("uniqueidentifier");
 
-                    b.HasIndex("FileDetailsId");
+                    b.HasKey("FileDetailId", "FileClassificationId");
 
-                    b.ToTable("FileClassificationFileDetail", "files");
+                    b.HasIndex("FileClassificationId");
+
+                    b.ToTable("FileDetailClassifications", "files");
                 });
 
             modelBuilder.Entity("AStar.Dev.Infrastructure.FilesDb.Models.FileDetail", b =>
@@ -479,17 +453,17 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                         .HasForeignKey("FileClassificationId");
                 });
 
-            modelBuilder.Entity("FileClassificationFileDetail", b =>
+            modelBuilder.Entity("FileDetailClassification", b =>
                 {
                     b.HasOne("AStar.Dev.Infrastructure.FilesDb.Models.FileClassification", null)
                         .WithMany()
-                        .HasForeignKey("FileClassificationsId")
+                        .HasForeignKey("FileClassificationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("AStar.Dev.Infrastructure.FilesDb.Models.FileDetail", null)
                         .WithMany()
-                        .HasForeignKey("FileDetailsId")
+                        .HasForeignKey("FileDetailId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

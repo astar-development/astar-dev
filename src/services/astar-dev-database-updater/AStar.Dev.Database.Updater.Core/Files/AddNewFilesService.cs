@@ -68,7 +68,7 @@ public class AddNewFilesService(
             }
         }
 
-        await filesContext.SaveChangesAsync(stoppingToken);
+    _ = await filesContext.SaveChangesAsync(stoppingToken);
 
         return new Result<int, ErrorResponse>.Ok(count);
     }
@@ -84,7 +84,7 @@ public class AddNewFilesService(
         }
 
         count++;
-        filesContext.Files.Add(fileWithClassifications);
+    _ = filesContext.Files.Add(fileWithClassifications);
 
         var newCount = await UpdateFileContextAsync(count, fileWithClassifications, stoppingToken);
 
@@ -115,7 +115,7 @@ public class AddNewFilesService(
         }
 
         count = 0;
-        await filesContext.SaveChangesAsync(stoppingToken);
+    _ = await filesContext.SaveChangesAsync(stoppingToken);
 
         return count;
     }
@@ -136,7 +136,7 @@ public class AddNewFilesService(
 
     private static FileDetail UpdateFileDetailWithClassifications(List<FileClassification> fileClassifications, IFileInfo fileInfo, string file, List<FileHandle> fileHandlesAlreadyInTheContext)
     {
-        var fileWithClassifications = new FileDetail(fileInfo) { FileClassifications = [], FileAccessDetail = { DetailsLastUpdated = DateTime.UtcNow } };
+    var fileWithClassifications = new FileDetail(fileInfo) { FileClassifications = new List<FileClassification>(), FileAccessDetail = { DetailsLastUpdated = DateTime.UtcNow } };
 
         foreach(var fileClassification in GetFileClassifications(fileClassifications, file))
         {

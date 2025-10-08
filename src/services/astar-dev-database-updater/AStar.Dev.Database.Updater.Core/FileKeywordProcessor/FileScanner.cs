@@ -1,5 +1,4 @@
 using System.Globalization;
-using System.IO.Abstractions;
 using System.Text.RegularExpressions;
 using System.Threading.Channels;
 using AStar.Dev.Database.Updater.Core.Classifications;
@@ -7,6 +6,7 @@ using AStar.Dev.Infrastructure.FilesDb.Data;
 using AStar.Dev.Infrastructure.FilesDb.Models;
 using AStar.Dev.Utilities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using SkiaSharp;
 
@@ -14,16 +14,14 @@ namespace AStar.Dev.Database.Updater.Core.FileKeywordProcessor;
 
 /// <summary>
 /// </summary>
-/// <param name="fileSystem">An instance of <see cref="IFileSystem" /> to retrieve the files from</param>
-/// <param name="filesContext"></param>
+/// <param name="serviceScopeFactory"></param>
 /// <param name="classificationRepository"></param>
 /// <param name="keywordProvider"></param>
 /// <param name="writer"></param>
 /// <param name="tracker"></param>
 /// <param name="logger"></param>
 public class FileScanner(
-    IFileSystem               fileSystem,
-    FilesContext              filesContext,
+    IServiceScopeFactory      serviceScopeFactory,
     ClassificationRepository  classificationRepository,
     IKeywordProvider          keywordProvider,
     ChannelWriter<FileDetail> writer,
@@ -32,70 +30,127 @@ public class FileScanner(
 {
     /// <summary>
     /// </summary>
-    /// <param name="filePaths"></param>
+    /// <param name="filesToProcess"></param>
     /// <param name="cancellationToken"></param>
-    public async Task ScanFilesAsync(IReadOnlyCollection<string> filePaths, CancellationToken cancellationToken = default)
+    public async Task ScanFilesAsync(List<FileDetail> filesToProcess, CancellationToken cancellationToken = default)
     {
         var counter  = 0;
         var keywords = await keywordProvider.GetKeywordsAsync(cancellationToken);
         var pattern  = KeywordRegexBuilder.BuildKeywordPattern(keywords);
         var regex    = new Regex(pattern, RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
-        logger.LogInformation("Scanning files for keywords in: File Count: {FileCount} with Keyword Count: {KeywordCount}", filePaths.Count, keywords.Count);
-        var fileHandlesAlreadyInTheContext = await filesContext.Files.AsNoTracking().Select(f => f.FileHandle).ToListAsync(cancellationToken);
-        var classifications                = classificationRepository.GetExistingClassifications();
-        var filesAlreadyInTheContext       = await filesContext.Files.AsNoTracking().Select(f => f.FullNameWithPath).ToListAsync(cancellationToken);
-        var filesToProcess                 = filePaths.Except(filesAlreadyInTheContext).ToArray();
-        File.WriteAllLines("logs/files-to-process.txt", filesToProcess);
-        logger.LogInformation("Starting scanning files");
-        logger.LogInformation("Found {FileCount} files to process", filesToProcess.Length);
+        logger.LogInformation("Scanning files for keywords in: File Count: {FileCount} with Keyword Count: {KeywordCount}", filesToProcess.Count, keywords.Count);
+    using var scope                          = serviceScopeFactory.CreateScope();
+    var       filesContext                   = scope.ServiceProvider.GetRequiredService<FilesContext>();
+    var       fileHandlesAlreadyInTheContext = await filesContext.Files.Select(f => f.FileHandle).ToListAsync(cancellationToken);
 
-        await Task.Run(() =>
-                       {
-                           logger.LogInformation("Starting scanning files - in parallel");
+    // Load classifications from the repository but re-query them from the same FilesContext
+    // so the returned entities are tracked by the context we'll use to save FileDetails.
+    var classificationsFromRepo = classificationRepository.GetExistingClassifications();
+    var classificationIds       = classificationsFromRepo.Select(c => c.Id).ToList();
+    var classifications         = await filesContext.FileClassifications
+                               .Include(fc => fc.FileNameParts)
+                               .Where(fc => classificationIds.Contains(fc.Id))
+                               .ToListAsync(cancellationToken);
+        // Ensure logs directory exists when running under test environment
+        try
+        {
+            _ = Directory.CreateDirectory("logs");
+        }
+        catch
+        {
+            // If creation fails, proceed — File.Delete below will be guarded by existence checks.
+        }
 
-                           Parallel.ForEach(filesToProcess, new() { CancellationToken = cancellationToken },
-                                            path =>
-                                            {
-                                                try
-                                                {
-                                                    var nameToCheck = SanitizeFilePath(path);
+        if(File.Exists("logs/progress.log.txt"))
+        {
+            File.Delete("logs/progress.log.txt");
+        }
 
-                                                    var matches  = GetFilenameMatches(regex, nameToCheck, path);
-                                                    var fileInfo = fileSystem.FileInfo.New(path);
+        if(File.Exists("logs/error.log.txt"))
+        {
+            File.Delete("logs/error.log.txt");
+        }
+    var              writeCount  = 0;
+    List<FileDetail> fileDetails = new();
 
-                                                    var fileWithClassifications = new FileDetail(fileInfo) { Id = new() { Value = Guid.CreateVersion7() } };
+        foreach(var fileDetail in filesToProcess)
+        {
+            if(cancellationToken.IsCancellationRequested)
+            {
+                break;
+            }
 
-                                                    var nonEmptyMatches = matches.Where(m => m.Length > 0).ToArray();
+            try
+            {
+                var nameToCheck = SanitizeFilePath(fileDetail.FullNameWithPath);
 
-                                                    logger.LogInformation("Found {MatchCount} matches in file: {FileName}", nonEmptyMatches.Length, path);
-                                                    counter = ProcessMatches(nonEmptyMatches, counter, path, classifications, fileWithClassifications);
+                var matches = GetFilenameMatches(regex, nameToCheck);
 
-                                                    fileWithClassifications.FileHandle = GenerateFileHandle(fileInfo, fileHandlesAlreadyInTheContext);
+                var nonEmptyMatches = matches.Where(m => m.Length > 0).ToArray();
 
-                                                    if(fileWithClassifications.FileName.Value.IsImage())
-                                                    {
-                                                        UpdateFileDetailsForImage(fileWithClassifications);
-                                                    }
+                counter = ProcessMatches(nonEmptyMatches, counter, classifications, fileDetail);
 
-                                                    writer.TryWrite(fileWithClassifications);
-                                                    logger.LogInformation("Finished scanning file: {FileName}", path);
+                fileDetail.FileHandle = GenerateFileHandle(fileDetail, fileHandlesAlreadyInTheContext);
 
-                                                    tracker.RecordEvent();
-                                                }
-                                                catch(Exception e)
-                                                {
-                                                    TemporaryLogFileScanningError(e, path);
-                                                }
-                                            });
+                if(fileDetail.FileName.Value.IsImage())
+                {
+                    UpdateFileDetailsForImage(fileDetail);
+                }
 
-                           logger.LogInformation("Finished scanning files - in parallel");
-                       }, cancellationToken);
+                //writer.TryWrite(fileDetail);
+                fileDetails.Add(fileDetail);
+                tracker.RecordEvent();
+                writeCount++;
+
+                if(writeCount % 100 == 0)
+                {
+
+                    filesContext.Files.AddRange(fileDetails);
+
+                    try
+                    {
+                        _ = await filesContext.SaveChangesAsync(cancellationToken);
+                    }
+                    catch(Exception e)
+                    {
+                        TemporaryLogFileScanningError(e, "Save Changes");
+                    }
+
+                    fileDetails                    = new();
+                    fileHandlesAlreadyInTheContext = filesContext.Files.Select(f => f.FileHandle).ToList();
+
+                    await File.AppendAllTextAsync("logs/progress.log.txt", $"{DateTimeOffset.UtcNow} - {fileDetail}{Environment.NewLine}", cancellationToken);
+                }
+            }
+            catch(Exception e)
+            {
+                TemporaryLogFileScanningError(e, fileDetail.FullNameWithPath);
+            }
+        }
+
+        // Persist any remaining file details that didn't trigger the batch save (for small runs)
+        if(fileDetails.Count > 0)
+        {
+            filesContext.Files.AddRange(fileDetails);
+
+            try
+            {
+                _ = await filesContext.SaveChangesAsync(cancellationToken);
+            }
+            catch(Exception e)
+            {
+                TemporaryLogFileScanningError(e, "Final Save Changes");
+            }
+        }
 
         logger.LogInformation("Closing the writer");
 
         writer.Complete();
     }
+
+        // ...existing code...
+
 
     private void TemporaryLogFileScanningError(Exception e, string path)
     {
@@ -104,21 +159,20 @@ public class FileScanner(
         logger.LogWarning(new('-', 100));
         Console.WriteLine(e);
         File.AppendAllText("logs/error.log.txt", e + Environment.NewLine);
-        ;
     }
 
-    private int ProcessMatches(string[] nonEmptyMatches, int counter, string path, List<FileClassification> classifications, FileDetail fileWithClassifications)
+    private int ProcessMatches(string[] nonEmptyMatches, int counter, List<FileClassification> classifications, FileDetail fileWithClassifications)
     {
         foreach(var keyword in nonEmptyMatches)
         {
             counter++;
 
-            if(counter % 1000 == 0)
+            if(counter % 10 == 0)
             {
-                logger.LogInformation("Found keyword: {Keyword} in file: {FileName}", keyword, path);
+                logger.LogInformation("Found keyword: {Keyword} in file: {FileName}", keyword, fileWithClassifications.FullNameWithPath);
             }
 
-            foreach(var fileClassification in GetFileClassifications(classifications, path))
+            foreach(var fileClassification in GetFileClassifications(classifications, fileWithClassifications.FullNameWithPath))
             {
                 fileWithClassifications.FileClassifications.Add(fileClassification);
             }
@@ -127,14 +181,11 @@ public class FileScanner(
         return counter;
     }
 
-    private string[] GetFilenameMatches(Regex regex, string nameToCheck, string path)
+    private string[] GetFilenameMatches(Regex regex, string nameToCheck)
     {
         var matches = regex.Matches(nameToCheck)
                            .Select(m => m.Value)
                            .Distinct(StringComparer.OrdinalIgnoreCase).ToArray();
-
-        logger.LogInformation("Starting scanning file: {FileName}", path);
-        logger.LogInformation("Found {MatchCount} matches",         matches.Length);
 
         return matches;
     }
@@ -151,9 +202,9 @@ public class FileScanner(
            where file.Contains(fileNamePart.Text)
            select fileClassification;
 
-    private static FileHandle GenerateFileHandle(IFileInfo fileInfo, List<FileHandle> fileHandlesAlreadyInTheContext)
+    private static FileHandle GenerateFileHandle(FileDetail fileInfo, List<FileHandle> fileHandlesAlreadyInTheContext)
     {
-        var fileHandle = GenerateFileHandle(fileInfo.Name).Value.TruncateIfRequired(350);
+        var fileHandle = GenerateFileHandle(fileInfo.FileName.Value).Value.TruncateIfRequired(350);
 
         if(fileHandlesAlreadyInTheContext.Any(h => h.Value == fileHandle))
         {

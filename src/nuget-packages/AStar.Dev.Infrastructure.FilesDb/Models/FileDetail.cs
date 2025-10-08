@@ -35,7 +35,7 @@ public sealed class FileDetail : AuditableEntity
 
     /// <summary>
     /// </summary>
-    public ICollection<FileClassification> FileClassifications { get; set; } = [];
+    public ICollection<FileClassification> FileClassifications { get; set; } = new List<FileClassification>();
 
     /// <summary>
     ///     Gets or sets the ID of the <see href="FileDetail"></see>. I know, shocking...

@@ -41,5 +41,5 @@ public class FileNamePartsWithClassifications
     ///     This property represents the one-to-many relationship between a file classification
     ///     and its constituent parts that define or describe its naming structure.
     /// </summary>
-    public List<FileNamePart> FileNameParts { get; set; } = [];
+    public List<FileNamePart> FileNameParts { get; set; } = new();
 }
