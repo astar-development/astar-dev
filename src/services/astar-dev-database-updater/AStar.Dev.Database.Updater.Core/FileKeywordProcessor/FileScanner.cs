@@ -1,7 +1,7 @@
 using System.Globalization;
 using System.Text.RegularExpressions;
-using System.Threading.Channels;
 using AStar.Dev.Database.Updater.Core.Classifications;
+using AStar.Dev.Functional.Extensions;
 using AStar.Dev.Infrastructure.FilesDb.Data;
 using AStar.Dev.Infrastructure.FilesDb.Models;
 using AStar.Dev.Utilities;
@@ -17,22 +17,14 @@ namespace AStar.Dev.Database.Updater.Core.FileKeywordProcessor;
 /// <param name="serviceScopeFactory"></param>
 /// <param name="classificationRepository"></param>
 /// <param name="keywordProvider"></param>
-/// <param name="writer"></param>
-/// <param name="tracker"></param>
 /// <param name="logger"></param>
-public class FileScanner(
-    IServiceScopeFactory      serviceScopeFactory,
-    ClassificationRepository  classificationRepository,
-    IKeywordProvider          keywordProvider,
-    ChannelWriter<FileDetail> writer,
-    ThroughputTracker         tracker,
-    ILogger<FileScanner>      logger)
+public class FileScanner(IServiceScopeFactory serviceScopeFactory, ClassificationRepository classificationRepository, IKeywordProvider keywordProvider, ILogger<FileScanner> logger)
 {
     /// <summary>
     /// </summary>
     /// <param name="filesToProcess"></param>
     /// <param name="cancellationToken"></param>
-    public async Task ScanFilesAsync(List<FileDetail> filesToProcess, CancellationToken cancellationToken = default)
+    public async Task<Result<bool, ErrorResponse>> ScanFilesAsync(IReadOnlyCollection<FileDetail> filesToProcess, CancellationToken cancellationToken = default)
     {
         var counter  = 0;
         var keywords = await keywordProvider.GetKeywordsAsync(cancellationToken);
@@ -40,39 +32,22 @@ public class FileScanner(
         var regex    = new Regex(pattern, RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
         logger.LogInformation("Scanning files for keywords in: File Count: {FileCount} with Keyword Count: {KeywordCount}", filesToProcess.Count, keywords.Count);
-    using var scope                          = serviceScopeFactory.CreateScope();
-    var       filesContext                   = scope.ServiceProvider.GetRequiredService<FilesContext>();
-    var       fileHandlesAlreadyInTheContext = await filesContext.Files.Select(f => f.FileHandle).ToListAsync(cancellationToken);
+        using var scope                          = serviceScopeFactory.CreateScope();
+        var       filesContext                   = scope.ServiceProvider.GetRequiredService<FilesContext>();
+        var       fileHandlesAlreadyInTheContext = await filesContext.Files.Select(f => f.FileHandle).ToListAsync(cancellationToken);
 
-    // Load classifications from the repository but re-query them from the same FilesContext
-    // so the returned entities are tracked by the context we'll use to save FileDetails.
-    var classificationsFromRepo = classificationRepository.GetExistingClassifications();
-    var classificationIds       = classificationsFromRepo.Select(c => c.Id).ToList();
-    var classifications         = await filesContext.FileClassifications
-                               .Include(fc => fc.FileNameParts)
-                               .Where(fc => classificationIds.Contains(fc.Id))
-                               .ToListAsync(cancellationToken);
-        // Ensure logs directory exists when running under test environment
-        try
-        {
-            _ = Directory.CreateDirectory("logs");
-        }
-        catch
-        {
-            // If creation fails, proceed — File.Delete below will be guarded by existence checks.
-        }
+        // Load classifications from the repository but re-query them from the same FilesContext
+        // so the returned entities are tracked by the context we'll use to save FileDetails.
+        var classificationsFromRepo = classificationRepository.GetExistingClassifications();
+        var classificationIds       = classificationsFromRepo.Select(c => c.Id).ToList();
 
-        if(File.Exists("logs/progress.log.txt"))
-        {
-            File.Delete("logs/progress.log.txt");
-        }
+        var classifications = await filesContext.FileClassifications
+                                                .Include(fc => fc.FileNameParts)
+                                                .Where(fc => classificationIds.Contains(fc.Id))
+                                                .ToListAsync(cancellationToken);
 
-        if(File.Exists("logs/error.log.txt"))
-        {
-            File.Delete("logs/error.log.txt");
-        }
-    var              writeCount  = 0;
-    List<FileDetail> fileDetails = new();
+        var              writeCount  = 0;
+        List<FileDetail> fileDetails = [];
 
         foreach(var fileDetail in filesToProcess)
         {
@@ -83,45 +58,8 @@ public class FileScanner(
 
             try
             {
-                var nameToCheck = SanitizeFilePath(fileDetail.FullNameWithPath);
-
-                var matches = GetFilenameMatches(regex, nameToCheck);
-
-                var nonEmptyMatches = matches.Where(m => m.Length > 0).ToArray();
-
-                counter = ProcessMatches(nonEmptyMatches, counter, classifications, fileDetail);
-
-                fileDetail.FileHandle = GenerateFileHandle(fileDetail, fileHandlesAlreadyInTheContext);
-
-                if(fileDetail.FileName.Value.IsImage())
-                {
-                    UpdateFileDetailsForImage(fileDetail);
-                }
-
-                //writer.TryWrite(fileDetail);
-                fileDetails.Add(fileDetail);
-                tracker.RecordEvent();
-                writeCount++;
-
-                if(writeCount % 100 == 0)
-                {
-
-                    filesContext.Files.AddRange(fileDetails);
-
-                    try
-                    {
-                        _ = await filesContext.SaveChangesAsync(cancellationToken);
-                    }
-                    catch(Exception e)
-                    {
-                        TemporaryLogFileScanningError(e, "Save Changes");
-                    }
-
-                    fileDetails                    = new();
-                    fileHandlesAlreadyInTheContext = filesContext.Files.Select(f => f.FileHandle).ToList();
-
-                    await File.AppendAllTextAsync("logs/progress.log.txt", $"{DateTimeOffset.UtcNow} - {fileDetail}{Environment.NewLine}", cancellationToken);
-                }
+                (counter, writeCount) = await ProcessFileDetailAsync(cancellationToken, fileDetail, regex, classifications, fileHandlesAlreadyInTheContext, fileDetails, filesContext, counter,
+                                                                     writeCount);
             }
             catch(Exception e)
             {
@@ -129,7 +67,40 @@ public class FileScanner(
             }
         }
 
-        // Persist any remaining file details that didn't trigger the batch save (for small runs)
+        return await SaveAnyRemainingFileDetailsAsync(cancellationToken, fileDetails, filesContext);
+    }
+
+    private async Task<(int counter, int writeCount)> ProcessFileDetailAsync(CancellationToken cancellationToken, FileDetail fileDetail, Regex regex, List<FileClassification> classifications,
+                                                                             List<FileHandle>  fileHandlesAlreadyInTheContext, List<FileDetail> fileDetails,
+                                                                             FilesContext      filesContext, int counter, int writeCount)
+    {
+        var nameToCheck = SanitizeFilePath(fileDetail.FullNameWithPath);
+
+        var matches = GetFilenameMatches(regex, nameToCheck).Where(m => m.Length > 0).ToArray();
+
+        counter = ProcessMatches(matches, counter, classifications, fileDetail);
+
+        fileDetail.FileHandle = GenerateFileHandle(fileDetail, fileHandlesAlreadyInTheContext);
+
+        if(fileDetail.FileName.Value.IsImage())
+        {
+            UpdateFileDetailsForImage(fileDetail);
+        }
+
+        fileDetails.Add(fileDetail);
+        writeCount++;
+
+        if(writeCount % 100 == 0)
+        {
+            await SaveFileDetailsAsync(cancellationToken, filesContext, writeCount, fileDetails);
+            fileDetails.Clear();
+        }
+
+        return (counter, writeCount);
+    }
+
+    private async Task<Result<bool, ErrorResponse>> SaveAnyRemainingFileDetailsAsync(CancellationToken cancellationToken, List<FileDetail> fileDetails, FilesContext filesContext)
+    {
         if(fileDetails.Count > 0)
         {
             filesContext.Files.AddRange(fileDetails);
@@ -141,25 +112,22 @@ public class FileScanner(
             catch(Exception e)
             {
                 TemporaryLogFileScanningError(e, "Final Save Changes");
+
+                return new Result<bool, ErrorResponse>.Error(new(e.GetBaseException().Message));
             }
         }
 
-        logger.LogInformation("Closing the writer");
-
-        writer.Complete();
+        return new Result<bool, ErrorResponse>.Ok(true);
     }
 
-        // ...existing code...
-
-
-    private void TemporaryLogFileScanningError(Exception e, string path)
+    private async Task SaveFileDetailsAsync(CancellationToken cancellationToken, FilesContext filesContext, int writeCount, List<FileDetail> fileDetails)
     {
-        logger.LogError(e, "An error occured while scanning file: {FileName}", path);
-        Console.WriteLine(new string('-', 100));
-        logger.LogWarning(new('-', 100));
-        Console.WriteLine(e);
-        File.AppendAllText("logs/error.log.txt", e + Environment.NewLine);
+        filesContext.Files.AddRange(fileDetails);
+        _ = await filesContext.SaveChangesAsync(cancellationToken);
+        logger.LogInformation("Saved {WriteCount} files", writeCount);
     }
+
+    private void TemporaryLogFileScanningError(Exception e, string path) => logger.LogError(e, "An error occured while scanning file: {FileName}", path);
 
     private int ProcessMatches(string[] nonEmptyMatches, int counter, List<FileClassification> classifications, FileDetail fileWithClassifications)
     {
@@ -167,7 +135,7 @@ public class FileScanner(
         {
             counter++;
 
-            if(counter % 10 == 0)
+            if(counter % 100 == 0)
             {
                 logger.LogInformation("Found keyword: {Keyword} in file: {FileName}", keyword, fileWithClassifications.FullNameWithPath);
             }
@@ -182,13 +150,9 @@ public class FileScanner(
     }
 
     private string[] GetFilenameMatches(Regex regex, string nameToCheck)
-    {
-        var matches = regex.Matches(nameToCheck)
-                           .Select(m => m.Value)
-                           .Distinct(StringComparer.OrdinalIgnoreCase).ToArray();
-
-        return matches;
-    }
+        => regex.Matches(nameToCheck)
+                .Select(m => m.Value)
+                .Distinct(StringComparer.OrdinalIgnoreCase).ToArray();
 
     private static string SanitizeFilePath(string path) => path
                                                            .Replace(Path.DirectorySeparatorChar,    ' ')
@@ -253,8 +217,6 @@ public class FileScanner(
         }
         catch(Exception e)
         {
-            Console.WriteLine(e);
-
             TemporaryLogFileScanningError(e, fileDetail.FullNameWithPath);
         }
     }

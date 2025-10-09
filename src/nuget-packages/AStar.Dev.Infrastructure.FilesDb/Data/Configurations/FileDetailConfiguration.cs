@@ -54,6 +54,7 @@ public class FileDetailConfiguration : IEntityTypeConfiguration<FileDetail>
                                                                 _ = j.HasKey("FileDetailId", "FileClassificationId");
                                                                 _ = j.ToTable("FileDetailClassifications");
                                                             });
+
         _ = builder.HasIndex(fileDetail => fileDetail.FileHandle).IsUnique();
         _ = builder.HasIndex(fileDetail => fileDetail.FileSize);
 

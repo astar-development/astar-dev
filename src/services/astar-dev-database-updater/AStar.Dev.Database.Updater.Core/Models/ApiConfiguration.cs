@@ -16,7 +16,7 @@ public sealed class ApiConfiguration
     /// <summary>
     /// </summary>
     [Required]
-    public string[] Directories { get; set; } = Array.Empty<string>();
+    public string[] Directories { get; set; } = [];
 
     /// <summary>
     /// </summary>

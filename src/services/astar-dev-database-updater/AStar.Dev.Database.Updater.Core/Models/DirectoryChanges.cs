@@ -17,7 +17,7 @@ public sealed class DirectoryChanges
     /// <summary>
     /// </summary>
     [Required]
-    public DirectoryChange[] Directories { get; set; } = Array.Empty<DirectoryChange>();
+    public DirectoryChange[] Directories { get; set; } = [];
 
     /// <summary>
     /// </summary>

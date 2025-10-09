@@ -26,7 +26,6 @@ public class FileClassification : AuditableEntity
     ///     This property establishes the relationship between the <see cref="FileClassification" /> entity
     ///     and multiple <see cref="FileDetail" /> entities.
     /// </summary>
-
     /// <summary>
     ///     Gets or sets a value indicating whether the file classification is considered a "Celebrity."
     ///     This property is used to mark specific classifications with special significance.
@@ -49,5 +48,5 @@ public class FileClassification : AuditableEntity
     /// <summary>
     ///     Gets or sets the collection of filename parts associated with this classification.
     /// </summary>
-    public List<FileNamePart> FileNameParts { get; set; } = new();
+    public List<FileNamePart> FileNameParts { get; set; } = [];
 }

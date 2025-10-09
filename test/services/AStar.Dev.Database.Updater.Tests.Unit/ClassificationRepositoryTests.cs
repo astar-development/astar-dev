@@ -1,11 +1,6 @@
-using System.Threading;
 using AStar.Dev.Database.Updater.Core.Classifications;
-using AStar.Dev.Infrastructure.FilesDb.Data;
 using AStar.Dev.Infrastructure.FilesDb.Models;
-using Microsoft.Data.Sqlite;
-using Microsoft.EntityFrameworkCore;
-using Shouldly;
-using Xunit;
+using AStar.Dev.TestHelpers;
 
 namespace AStar.Dev.Database.Updater.Tests.Unit;
 
@@ -17,22 +12,22 @@ public class ClassificationRepositoryTests
     public async Task GetExistingClassifications_ByNames_ReturnsRequestedAsync()
     {
         // Arrange - open shared in-memory sqlite connection
-        await using var scope = await AStar.Dev.TestHelpers.SqliteTestScope.CreateAsync();
-        var ctx = scope.Context;
-        var repo = new ClassificationRepository(ctx);
+        await using var scope = await SqliteTestScope.CreateAsync();
+        var             ctx   = scope.Context;
+        var             repo  = new ClassificationRepository(ctx);
 
         var c1 = new FileClassification { Name = "CatA", Celebrity = false, IncludeInSearch = true };
-        c1.FileNameParts.Add(new FileNamePart { Text = "a" });
+        c1.FileNameParts.Add(new() { Text      = "a" });
         var c2 = new FileClassification { Name = "CatB", Celebrity = false, IncludeInSearch = true };
-        c2.FileNameParts.Add(new FileNamePart { Text = "b" });
+        c2.FileNameParts.Add(new() { Text      = "b" });
         var c3 = new FileClassification { Name = "CatC", Celebrity = false, IncludeInSearch = true };
-        c3.FileNameParts.Add(new FileNamePart { Text = "c" });
+        c3.FileNameParts.Add(new() { Text      = "c" });
 
         ctx.FileClassifications.AddRange(c1, c2, c3);
-    await ctx.SaveChangesAsync(CancellationToken.None);
+        await ctx.SaveChangesAsync(CancellationToken.None);
 
         // Act
-        var names = new HashSet<string> { "CatA", "CatC" };
+        var names  = new HashSet<string> { "CatA", "CatC" };
         var result = repo.GetExistingClassifications(names);
 
         // Assert
@@ -46,9 +41,9 @@ public class ClassificationRepositoryTests
     public async Task GetExistingClassifications_NoArgs_ReturnsAllAsync()
     {
         // Arrange - open shared in-memory sqlite connection
-        await using var scope = await AStar.Dev.TestHelpers.SqliteTestScope.CreateAsync();
-        var ctx = scope.Context;
-        var repo = new ClassificationRepository(ctx);
+        await using var scope = await SqliteTestScope.CreateAsync();
+        var             ctx   = scope.Context;
+        var             repo  = new ClassificationRepository(ctx);
 
         var c1 = new FileClassification { Name = "X", Celebrity = false, IncludeInSearch = true };
         var c2 = new FileClassification { Name = "Y", Celebrity = false, IncludeInSearch = true };
@@ -69,15 +64,15 @@ public class ClassificationRepositoryTests
     public async Task AddClassifications_And_SavePersistsEntitiesAsync()
     {
         // Arrange - open shared in-memory sqlite connection
-        await using var scope = await AStar.Dev.TestHelpers.SqliteTestScope.CreateAsync();
-        var ctx = scope.Context;
-        var repo = new ClassificationRepository(ctx);
+        await using var scope = await SqliteTestScope.CreateAsync();
+        var             ctx   = scope.Context;
+        var             repo  = new ClassificationRepository(ctx);
 
         var newClassifications = new[]
-        {
-            new FileClassification { Name = "New1", Celebrity = false, IncludeInSearch = true },
-            new FileClassification { Name = "New2", Celebrity = false, IncludeInSearch = true }
-        };
+                                 {
+                                     new FileClassification { Name = "New1", Celebrity = false, IncludeInSearch = true },
+                                     new FileClassification { Name = "New2", Celebrity = false, IncludeInSearch = true }
+                                 };
 
         // Act
         repo.AddClassifications(newClassifications);
@@ -92,27 +87,27 @@ public class ClassificationRepositoryTests
     [Fact]
     public async Task GetExistingClassifications_EmptyNames_ReturnsEmpty()
     {
-        await using var scope = await AStar.Dev.TestHelpers.SqliteTestScope.CreateAsync();
-        var ctx = scope.Context;
-        var repo = new ClassificationRepository(ctx);
+        await using var scope = await SqliteTestScope.CreateAsync();
+        var             ctx   = scope.Context;
+        var             repo  = new ClassificationRepository(ctx);
 
-    var result = repo.GetExistingClassifications(new HashSet<string>());
+        var result = repo.GetExistingClassifications([]);
 
-    result.ShouldBeEmpty();
+        result.ShouldBeEmpty();
     }
 
     [Fact]
     public async Task GetExistingClassifications_ReturnsTrackedEntities_WhenContextIsSameScope()
     {
-        await using var scope = await AStar.Dev.TestHelpers.SqliteTestScope.CreateAsync();
-        var ctx = scope.Context;
+        await using var scope = await SqliteTestScope.CreateAsync();
+        var             ctx   = scope.Context;
 
         var classification = new FileClassification { Name = "TrackedTest", Celebrity = false, IncludeInSearch = true };
         ctx.FileClassifications.Add(classification);
         await ctx.SaveChangesAsync(CancellationToken.None);
 
-        var repo = new ClassificationRepository(ctx);
-        var classifications = repo.GetExistingClassifications(new HashSet<string> { "TrackedTest" });
+        var repo            = new ClassificationRepository(ctx);
+        var classifications = repo.GetExistingClassifications(["TrackedTest"]);
 
         var fetched = classifications["TrackedTest"];
 

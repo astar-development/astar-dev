@@ -25,7 +25,8 @@ public static class DistributedApplicationBuilderExtensions
                                                       .WaitFor(filesDb)
                                                       .WithParentRelationship(sqlServer);
 
-        var rabbitMq  = AddRabbitMq(distributedApplicationBuilder);
+        var rabbitMq = AddRabbitMq(distributedApplicationBuilder);
+
         // var adminApi  = AddAdminApi(distributedApplicationBuilder, adminDb, rabbitMq);
         // var filesApi  = AddFilesApi(distributedApplicationBuilder, filesDb, migrations, rabbitMq);
         // var imagesApi = AddImagesApi(distributedApplicationBuilder, rabbitMq);

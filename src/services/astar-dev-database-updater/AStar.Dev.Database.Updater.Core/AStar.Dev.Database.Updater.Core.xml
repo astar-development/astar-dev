@@ -179,71 +179,6 @@
                 Gets or sets the time to start the new files addition
             </summary>
         </member>
-        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ChannelBacklogHealthCheck">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ChannelBacklogHealthCheck.#ctor(AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},System.Int32,System.Int32)">
-            <summary>
-            </summary>
-            <param name="channel"></param>
-            <param name="warningThreshold"></param>
-            <param name="criticalThreshold"></param>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ChannelBacklogHealthCheck.CheckHealthAsync(Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckContext,System.Threading.CancellationToken)">
-            <summary>
-            </summary>
-            <param name="context"></param>
-            <param name="cancellationToken"></param>
-            <returns></returns>
-        </member>
-        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ChannelBacklogTracker">
-            <summary>
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ChannelBacklogTracker.Count">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ChannelBacklogTracker.Increment">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ChannelBacklogTracker.Decrement">
-            <summary>
-            </summary>
-        </member>
-        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ChannelReadBatch">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ChannelReadBatch.ReadBatchImmediateAsync``1(System.Threading.Channels.ChannelReader{``0},System.Int32)">
-            <summary>
-                Consumes the items in the channel in batches. Each batch contains all
-                the items that are immediately available, up to a specified maximum number.
-            </summary>
-        </member>
-        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.DatabaseWriter">
-            <summary>
-            </summary>
-            <param name="reader"></param>
-            <param name="serviceScopeFactory"></param>
-            <param name="batchSize"></param>
-            <param name="logger"></param>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.DatabaseWriter.#ctor(System.Threading.Channels.ChannelReader{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},Microsoft.Extensions.DependencyInjection.IServiceScopeFactory,System.Int32,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.FileKeywordProcessor.DatabaseWriter})">
-            <summary>
-            </summary>
-            <param name="reader"></param>
-            <param name="serviceScopeFactory"></param>
-            <param name="batchSize"></param>
-            <param name="logger"></param>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.DatabaseWriter.ConsumeAsync(System.Threading.CancellationToken)">
-            <summary>
-            </summary>
-            <param name="cancellationToken"></param>
-        </member>
         <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.EfKeywordProvider">
             <summary>
             </summary>
@@ -266,10 +201,6 @@
             <summary>
             </summary>
             <param name="serviceScopeFactory"></param>
-        </member>
-        <member name="P:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileKeywordProcessorService.FileKeywordProcessorRunning">
-            <summary>
-            </summary>
         </member>
         <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileKeywordProcessorService.ExecuteAsync(System.Threading.CancellationToken)">
             <inheritdoc />
@@ -321,21 +252,17 @@
             <param name="serviceScopeFactory"></param>
             <param name="classificationRepository"></param>
             <param name="keywordProvider"></param>
-            <param name="writer"></param>
-            <param name="tracker"></param>
             <param name="logger"></param>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileScanner.#ctor(Microsoft.Extensions.DependencyInjection.IServiceScopeFactory,AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository,AStar.Dev.Database.Updater.Core.FileKeywordProcessor.IKeywordProvider,System.Threading.Channels.ChannelWriter{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ThroughputTracker,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileScanner})">
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileScanner.#ctor(Microsoft.Extensions.DependencyInjection.IServiceScopeFactory,AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository,AStar.Dev.Database.Updater.Core.FileKeywordProcessor.IKeywordProvider,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileScanner})">
             <summary>
             </summary>
             <param name="serviceScopeFactory"></param>
             <param name="classificationRepository"></param>
             <param name="keywordProvider"></param>
-            <param name="writer"></param>
-            <param name="tracker"></param>
             <param name="logger"></param>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileScanner.ScanFilesAsync(System.Collections.Generic.List{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},System.Threading.CancellationToken)">
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileScanner.ScanFilesAsync(System.Collections.Generic.IReadOnlyCollection{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},System.Threading.CancellationToken)">
             <summary>
             </summary>
             <param name="filesToProcess"></param>
@@ -361,102 +288,6 @@
                 Builds a regex pattern that matches both single-word and multi-word keywords.
                 Single words and multi-word phrases are wrapped in \b boundaries.
             </summary>
-        </member>
-        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ThroughputHealthCheck">
-            <summary>
-                Health check that reports degraded if throughput falls below a threshold.
-            </summary>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ThroughputHealthCheck.#ctor(AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ThroughputTracker,System.TimeSpan,System.Int32)">
-            <summary>
-                Health check that reports degraded if throughput falls below a threshold.
-            </summary>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ThroughputHealthCheck.CheckHealthAsync(Microsoft.Extensions.Diagnostics.HealthChecks.HealthCheckContext,System.Threading.CancellationToken)">
-            <inheritdoc />
-        </member>
-        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ThroughputTracker">
-            <summary>
-                Tracks throughput events over time using a TimeProvider.
-            </summary>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ThroughputTracker.#ctor(System.TimeProvider)">
-            <summary>
-                Tracks throughput events over time using a TimeProvider.
-            </summary>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ThroughputTracker.RecordEvent">
-            <summary>
-                Records a new event at the current time.
-            </summary>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.ThroughputTracker.CountEventsInWindow(System.TimeSpan)">
-            <summary>
-                Returns the number of events within the given time window.
-            </summary>
-        </member>
-        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1">
-            <summary>
-                A channel wrapper that tracks backlog count while delegating to an inner channel.
-                Ensures items are non-null via a generic non-null constraint.
-            </summary>
-            <typeparam name="T">The non-nullable item type.</typeparam>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.#ctor(System.Threading.Channels.Channel{`0})">
-            <summary>
-                Initializes a new instance of the <see cref="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1" /> class.
-            </summary>
-            <param name="inner">The inner channel to wrap.</param>
-        </member>
-        <member name="P:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.Writer">
-            <summary>
-                Gets the tracked writer.
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.Reader">
-            <summary>
-                Gets the tracked reader.
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.Count">
-            <summary>
-                Gets the current backlog count.
-            </summary>
-        </member>
-        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.TrackingWriter">
-            <summary>
-                A writer that increments backlog count when items are written.
-                Disallows null writes by contract.
-            </summary>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.TrackingWriter.TryWrite(`0)">
-            <inheritdoc />
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.TrackingWriter.WriteAsync(`0,System.Threading.CancellationToken)">
-            <inheritdoc />
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.TrackingWriter.WaitToWriteAsync(System.Threading.CancellationToken)">
-            <inheritdoc />
-        </member>
-        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.TrackingReader">
-            <summary>
-                A reader that decrements backlog count when items are read.
-            </summary>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.TrackingReader.ReadAsync(System.Threading.CancellationToken)">
-            <inheritdoc />
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.TrackingReader.ReadAllAsync(System.Threading.CancellationToken)">
-            <inheritdoc />
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.TrackingReader.TryRead(`0@)">
-            <inheritdoc />
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.TrackingReader.WaitToReadAsync(System.Threading.CancellationToken)">
-            <inheritdoc />
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.TrackedChannel`1.TrackingReader.TryPeek(`0@)">
-            <inheritdoc />
         </member>
         <member name="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService">
             <summary>
@@ -507,6 +338,26 @@
                 The FindNewFilesAndAddToDatabaseAsync method is called to update the database with any new files
             </summary>
             <param name="stoppingToken">A cancellation token to optionally cancel the operation</param>
+        </member>
+        <member name="T:AStar.Dev.Database.Updater.Core.Files.FileListService">
+            <summary>
+
+            </summary>
+            <param name="serviceScopeFactory"></param>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.Files.FileListService.#ctor(Microsoft.Extensions.DependencyInjection.IServiceScopeFactory)">
+            <summary>
+
+            </summary>
+            <param name="serviceScopeFactory"></param>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.Files.FileListService.Get(System.String,System.Threading.CancellationToken)">
+            <summary>
+
+            </summary>
+            <param name="path"></param>
+            <param name="stoppingToken"></param>
+            <returns></returns>
         </member>
         <member name="T:AStar.Dev.Database.Updater.Core.Models.ApiConfiguration">
             <summary>

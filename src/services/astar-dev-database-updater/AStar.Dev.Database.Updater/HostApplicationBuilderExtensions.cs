@@ -1,13 +1,11 @@
 using System.IO.Abstractions;
 using System.Text.Json;
-using System.Threading.Channels;
 using AStar.Dev.Aspire.Common;
 using AStar.Dev.Database.Updater.Core;
 using AStar.Dev.Database.Updater.Core.Classifications;
 using AStar.Dev.Database.Updater.Core.FileKeywordProcessor;
 using AStar.Dev.Database.Updater.Core.Files;
 using AStar.Dev.Infrastructure.FilesDb.Data;
-using AStar.Dev.Infrastructure.FilesDb.Models;
 using AStar.Dev.Logging.Extensions;
 using AStar.Dev.ServiceDefaults;
 using Microsoft.AspNetCore.Builder;
@@ -54,11 +52,14 @@ public static class HostApplicationBuilderExtensions
         _ = builder.Services.AddHostedService<FileClassificationsService>();
         _ = builder.Services.AddHostedService<FileKeywordProcessorService>();
         _ = builder.Services.AddScoped<FileClassificationsService>();
+
         builder.AddSqlServerDbContext<FilesContext>(AspireConstants.Sql.FilesDb, settings =>
                                                                                  {
                                                                                      settings.CommandTimeout = 120;
                                                                                      settings.DisableRetry   = false;
                                                                                  });
+
+        _ = builder.Services.AddScoped<FileListService>();
         _ = builder.Services.AddScoped<ClassificationProcessor>();
         _ = builder.Services.AddScoped<ClassificationRepository>();
         _ = builder.Services.AddSingleton<ClassificationBuilder>();
@@ -70,27 +71,10 @@ public static class HostApplicationBuilderExtensions
         _ = builder.Services.AddSingleton<TimeDelay>();
         _ = builder.Services.AddSingleton<IFileSystem, FileSystem>();
 
-        _ = builder.Services.AddSingleton<ThroughputTracker>();
         _ = builder.Services.AddScoped<FileScanner>();
         _ = builder.Services.AddScoped<IKeywordProvider, EfKeywordProvider>();
 
-        var inner = Channel.CreateUnbounded<FileDetail>(new() { SingleReader = true, SingleWriter = false });
-
-        var tracked = new TrackedChannel<FileDetail>(inner);
-        builder.Services.AddSingleton(tracked);
-
-// Register the reader/writer *as* ChannelReader<T> / ChannelWriter<T>
-        builder.Services.AddSingleton<ChannelReader<FileDetail>>(sp => tracked.Reader);
-        builder.Services.AddSingleton<ChannelWriter<FileDetail>>(sp => tracked.Writer);
-
-// Register your producer and consumer
-        builder.Services.AddScoped<FileScanner>();
-        builder.Services.AddScoped<DatabaseWriter>();
-
-// Health checks
-        builder.Services.AddHealthChecks()
-               .AddCheck<ChannelBacklogHealthCheck>("channel_backlog")
-               .AddCheck<ThroughputHealthCheck>("throughput");
+        builder.Services.AddHealthChecks();
 
         builder.Services.AddOpenTelemetry()
                .ConfigureResource(r => r.AddService("FileKeywordProcessor"))

@@ -7,16 +7,13 @@ namespace AStar.Dev.Web.Components.Pages.Admin;
 public partial class AuthenticationCheck : ComponentBase
 {
     private string             _authMessage = "Not Authorized - default message";
-    private IEnumerable<Claim> _claims      = Enumerable.Empty<Claim>();
+    private IEnumerable<Claim> _claims      = [];
 
     [Inject]
     public required AuthenticationStateProvider AuthenticationStateProvider { get; set; }
 
     /// <inheritdoc />
-    protected override async Task OnInitializedAsync()
-    {
-        await GetClaimsPrincipalData();
-    }
+    protected override async Task OnInitializedAsync() => await GetClaimsPrincipalData();
 
     /// <summary>
     ///     Retrieves the user claims for the signed-in user.
