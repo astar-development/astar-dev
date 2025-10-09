@@ -25,14 +25,15 @@ public static class DistributedApplicationBuilderExtensions
                                                       .WaitFor(filesDb)
                                                       .WithParentRelationship(sqlServer);
 
-        var rabbitMq  = AddRabbitMq(distributedApplicationBuilder);
-        var adminApi  = AddAdminApi(distributedApplicationBuilder, adminDb, rabbitMq);
-        var filesApi  = AddFilesApi(distributedApplicationBuilder, filesDb, migrations, rabbitMq);
-        var imagesApi = AddImagesApi(distributedApplicationBuilder, rabbitMq);
-        var usageApi  = AddUsageApi(distributedApplicationBuilder, rabbitMq);
+        var rabbitMq = AddRabbitMq(distributedApplicationBuilder);
+
+        // var adminApi  = AddAdminApi(distributedApplicationBuilder, adminDb, rabbitMq);
+        // var filesApi  = AddFilesApi(distributedApplicationBuilder, filesDb, migrations, rabbitMq);
+        // var imagesApi = AddImagesApi(distributedApplicationBuilder, rabbitMq);
+        // var usageApi  = AddUsageApi(distributedApplicationBuilder, rabbitMq);
         AddDatabaseUpdaterApi(distributedApplicationBuilder, filesDb, migrations, sqlServer, rabbitMq);
 
-        AddUi(distributedApplicationBuilder, adminApi, filesApi, imagesApi, usageApi, rabbitMq);
+        //AddUi(distributedApplicationBuilder, adminApi, filesApi, imagesApi, usageApi, rabbitMq);
     }
 
     private static void AddUi(IDistributedApplicationBuilder           distributedApplicationBuilder,

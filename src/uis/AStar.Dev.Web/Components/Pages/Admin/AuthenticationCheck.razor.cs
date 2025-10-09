@@ -13,8 +13,7 @@ public partial class AuthenticationCheck : ComponentBase
     public required AuthenticationStateProvider AuthenticationStateProvider { get; set; }
 
     /// <inheritdoc />
-    protected override async Task OnInitializedAsync() =>
-        await GetClaimsPrincipalData();
+    protected override async Task OnInitializedAsync() => await GetClaimsPrincipalData();
 
     /// <summary>
     ///     Retrieves the user claims for the signed-in user.

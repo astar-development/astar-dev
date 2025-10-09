@@ -12,7 +12,7 @@ public class FileClassification : AuditableEntity
     ///     Gets or sets the unique identifier for the file classification.
     ///     This property serves as the primary key for the <see cref="FileClassification" /> entity.
     /// </summary>
-    public int Id { get; set; }
+    public Guid Id { get; set; } = Guid.CreateVersion7();
 
     /// <summary>
     ///     Gets or sets the name of the file classification.
@@ -26,8 +26,6 @@ public class FileClassification : AuditableEntity
     ///     This property establishes the relationship between the <see cref="FileClassification" /> entity
     ///     and multiple <see cref="FileDetail" /> entities.
     /// </summary>
-    public ICollection<FileDetail> FileDetails { get; set; } = [];
-
     /// <summary>
     ///     Gets or sets a value indicating whether the file classification is considered a "Celebrity."
     ///     This property is used to mark specific classifications with special significance.
@@ -44,6 +42,11 @@ public class FileClassification : AuditableEntity
     ///     Gets or sets the collection of file name parts associated with the file classification.
     ///     This property represents the one-to-many relationship between a file classification
     ///     and its constituent parts that define or describe its naming structure.
+    /// </summary>
+    public ICollection<FileDetail> FileDetails { get; set; } = new List<FileDetail>();
+
+    /// <summary>
+    ///     Gets or sets the collection of filename parts associated with this classification.
     /// </summary>
     public List<FileNamePart> FileNameParts { get; set; } = [];
 }

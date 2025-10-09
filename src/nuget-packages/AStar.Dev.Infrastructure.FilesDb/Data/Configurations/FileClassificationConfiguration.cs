@@ -15,6 +15,9 @@ public class FileClassificationConfiguration : IEntityTypeConfiguration<FileClas
             .ToTable(nameof(FileClassification), Constants.SchemaName)
             .HasKey(fileClassification => fileClassification.Id);
 
+        _ = builder.Property(fc => fc.Id)
+                   .ValueGeneratedNever();
+
         _ = builder.HasIndex(fileClassification => fileClassification.Name).IsUnique();
 
         _ = builder.Property(fileClassification => fileClassification.Name).HasMaxLength(150);

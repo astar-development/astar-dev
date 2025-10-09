@@ -15,7 +15,7 @@ public sealed class FileAccessDetail : AuditableEntity
     /// <summary>
     ///     Gets or sets the date the file details were last updated. I know, shocking...
     /// </summary>
-    public DateTime? DetailsLastUpdated { get; set; }
+    public DateTime DetailsLastUpdated { get; set; } = DateTime.UtcNow;
 
     /// <summary>
     ///     Gets or sets the date the file was last viewed. I know, shocking...

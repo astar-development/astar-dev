@@ -16,6 +16,11 @@ try
 
     Log.Logger = app.Services.GetRequiredService<ILogger>();
 
+    // Log.Logger = new LoggerConfiguration()
+    //              .MinimumLevel.Debug()
+    //              .WriteTo.File("logs/log-testing.log.txt", rollingInterval: RollingInterval.Day)
+    //              .CreateLogger();
+
     await app.RunAsync();
 }
 catch(Exception exception)

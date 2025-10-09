@@ -6,9 +6,7 @@
     <members>
         <member name="T:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesRequest">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesRequest"/>
-                contains the detail of the files being added.
+                The <see cref="T:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesRequest" /> contains the detail of the files being added.
             </summary>
         </member>
         <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesRequest.FilesToAdd">
@@ -16,16 +14,14 @@
             </summary>
         </member>
         <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesRequest.Name">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesRequest.HttpMethod">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse"/>
-                contains the detail of the file being added.
+                The <see cref="T:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse" /> contains the detail of the file being added.
                 The name is pluralised as we actually return a list and the endpoint is pluralised...
             </summary>
         </member>
@@ -90,66 +86,37 @@
         </member>
         <member name="T:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailExtensions">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailExtensions"/>
-                class contains extensions for the
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail"/>
-                class.
+                The <see cref="T:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailExtensions" /> class contains extensions for the <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail" /> class.
             </summary>
         </member>
         <member name="M:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailExtensions.ToAddFilesResponse(System.Collections.Generic.IReadOnlyCollection{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail})">
             <summary>
-                The ToAddFilesResponse will, as the name suggests, map the list of
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail"/>
-                to a list of
-                <see cref="T:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse"/>
+                The ToAddFilesResponse will, as the name suggests, map the list of <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail" /> to a list of <see cref="T:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse" />
             </summary>
-            <param name="fileDetails">The files to map to
-                <see cref="T:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse"/>
-            </param>
-            <returns>The
-                <see cref="T:System.Collections.Generic.IReadOnlyCollection`1"/>
-            </returns>
+            <param name="fileDetails">The files to map to <see cref="T:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesResponse" /></param>
+            <returns>The <see cref="T:System.Collections.Generic.IReadOnlyCollection`1" /></returns>
         </member>
         <member name="M:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailExtensions.ToFileDetailsList(System.Collections.Generic.IReadOnlyCollection{AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd},System.TimeProvider,System.String)">
             <summary>
-                The ToFileDetailsList will, as the name suggests, map the list of
-                <see cref="T:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd"/>
-                to a list of
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail"/>
+                The ToFileDetailsList will, as the name suggests, map the list of <see cref="T:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd" /> to a list of <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail" />
             </summary>
-            <param name="fileDetails">The files to map to
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail"/>
-            </param>
-            <param name="time">An instance of the
-                <see cref="T:System.TimeProvider"/>
-            </param>
+            <param name="fileDetails">The files to map to <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail" /></param>
+            <param name="time">An instance of the <see cref="T:System.TimeProvider" /></param>
             <param name="username">The name of the user performing the update</param>
-            <returns>The
-                <see cref="T:System.Collections.Generic.IReadOnlyCollection`1"/>
-            </returns>
+            <returns>The <see cref="T:System.Collections.Generic.IReadOnlyCollection`1" /></returns>
         </member>
         <member name="M:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailExtensions.ToEvents(System.Collections.Generic.IReadOnlyCollection{AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd},System.TimeProvider,System.String)">
             <summary>
-                The ToEvents will, as the name suggests, map the list of
-                <see cref="T:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd"/>
-                to a list of
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.Event"/>
+                The ToEvents will, as the name suggests, map the list of <see cref="T:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd" /> to a list of <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.Event" />
             </summary>
             <param name="fileDetails">The files to map to Events</param>
-            <param name="time">An instance of the
-                <see cref="T:System.TimeProvider"/>
-            </param>
+            <param name="time">An instance of the <see cref="T:System.TimeProvider" /></param>
             <param name="username">The name of the user performing the update</param>
-            <returns>The
-                <see cref="T:System.Collections.Generic.IReadOnlyCollection`1"/>
-            </returns>
+            <returns>The <see cref="T:System.Collections.Generic.IReadOnlyCollection`1" /></returns>
         </member>
         <member name="T:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd"/>
-                class contains the details of the file to add
+                The <see cref="T:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd" /> class contains the details of the file to add
             </summary>
         </member>
         <member name="P:AStar.Dev.Files.Api.Endpoints.Add.V1.FileDetailToAdd.FileClassifications">
@@ -248,7 +215,7 @@
             </summary>
         </member>
         <member name="M:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesHandler.HandleAsync(AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest,AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,System.TimeProvider,System.String,System.Threading.CancellationToken)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:AStar.Dev.Files.Api.Endpoints.Get.V1.IGetFilesHandler">
             <summary>
@@ -266,9 +233,7 @@
         </member>
         <member name="T:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest"/>
-                contains the search parameters for the Get
+                The <see cref="T:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest" /> contains the search parameters for the Get
             </summary>
         </member>
         <member name="P:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest.SearchFolder">
@@ -309,10 +274,10 @@
             </summary>
         </member>
         <member name="P:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest.Name">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="P:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest.HttpMethod">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesResponse">
             <summary>

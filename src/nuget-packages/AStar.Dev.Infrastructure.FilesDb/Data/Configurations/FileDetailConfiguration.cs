@@ -37,6 +37,24 @@ public class FileDetailConfiguration : IEntityTypeConfiguration<FileDetail>
         _ = builder.ComplexProperty(fileDetail => fileDetail.ImageDetail)
                    .Configure(new ImageDetailConfiguration());
 
+        _ = builder.HasMany(fd => fd.FileClassifications)
+                   .WithMany(fc => fc.FileDetails)
+                   .UsingEntity<Dictionary<string, object>>(
+                                                            "FileDetailClassification",
+                                                            j => j.HasOne<FileClassification>()
+                                                                  .WithMany()
+                                                                  .HasForeignKey("FileClassificationId")
+                                                                  .OnDelete(DeleteBehavior.Cascade),
+                                                            j => j.HasOne<FileDetail>()
+                                                                  .WithMany()
+                                                                  .HasForeignKey("FileDetailId")
+                                                                  .OnDelete(DeleteBehavior.Cascade),
+                                                            j =>
+                                                            {
+                                                                _ = j.HasKey("FileDetailId", "FileClassificationId");
+                                                                _ = j.ToTable("FileDetailClassifications");
+                                                            });
+
         _ = builder.HasIndex(fileDetail => fileDetail.FileHandle).IsUnique();
         _ = builder.HasIndex(fileDetail => fileDetail.FileSize);
 

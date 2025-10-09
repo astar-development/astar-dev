@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.IO.Abstractions;
+using System.Text;
 using AStar.Dev.Infrastructure.Data;
-using AStar.Dev.Utilities;
 
 namespace AStar.Dev.Infrastructure.FilesDb.Models;
 
@@ -35,7 +35,7 @@ public sealed class FileDetail : AuditableEntity
 
     /// <summary>
     /// </summary>
-    public ICollection<FileClassification> FileClassifications { get; set; } = [];
+    public ICollection<FileClassification> FileClassifications { get; set; } = new List<FileClassification>();
 
     /// <summary>
     ///     Gets or sets the ID of the <see href="FileDetail"></see>. I know, shocking...
@@ -101,6 +101,14 @@ public sealed class FileDetail : AuditableEntity
     /// <returns>
     ///     This object serialized as a JSON object.
     /// </returns>
+    /// <inheritdoc />
     public override string ToString()
-        => this.ToJson();
+    {
+        var sb = new StringBuilder();
+        _ = sb.Append(FileName);
+        _ = sb.Append(" - ");
+        _ = sb.Append(FullNameWithPath);
+
+        return sb.ToString();
+    }
 }

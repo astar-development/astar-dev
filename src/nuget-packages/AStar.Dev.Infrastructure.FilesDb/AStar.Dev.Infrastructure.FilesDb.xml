@@ -29,35 +29,35 @@
             </summary>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.Configurations.EventConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{AStar.Dev.Infrastructure.FilesDb.Models.Event})">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Data.Configurations.FileAccessDetailConfiguration">
             <summary>
             </summary>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.Configurations.FileAccessDetailConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{AStar.Dev.Infrastructure.FilesDb.Models.FileAccessDetail})">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Data.Configurations.FileClassificationConfiguration">
             <summary>
             </summary>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.Configurations.FileClassificationConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{AStar.Dev.Infrastructure.FilesDb.Models.FileClassification})">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Data.Configurations.FileDetailConfiguration">
             <summary>
             </summary>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.Configurations.FileDetailConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail})">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Data.Configurations.FileNamePartConfiguration">
             <summary>
             </summary>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.Configurations.FileNamePartConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{AStar.Dev.Infrastructure.FilesDb.Models.FileNamePart})">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Data.Configurations.IComplexPropertyConfiguration`1">
             <summary>
@@ -75,14 +75,14 @@
             </summary>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.Configurations.ModelToIgnoreConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{AStar.Dev.Infrastructure.FilesDb.Models.ModelToIgnore})">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Data.Configurations.TagToIgnoreConfiguration">
             <summary>
             </summary>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.Configurations.TagToIgnoreConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{AStar.Dev.Infrastructure.FilesDb.Models.TagToIgnore})">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Data.FileDetailDeletionStatusExtensions">
             <summary>
@@ -168,9 +168,7 @@
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext"/>
-                class
+                The <see cref="T:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext" /> class
             </summary>
             <remarks>
                 The list of files in the dB
@@ -219,10 +217,6 @@
                 Gets or sets the DuplicatesDetails loaded from the configured view in the database
             </summary>
         </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext.FileKeywordMatches">
-            <summary>
-            </summary>
-        </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <summary>
                 The overridden OnModelCreating method
@@ -265,41 +259,17 @@
                 The original list of files for further filtering.
             </returns>
         </member>
-        <member name="T:AStar.Dev.Infrastructure.FilesDb.Migrations.InitialCreate">
-            <inheritdoc/>
+        <member name="T:AStar.Dev.Infrastructure.FilesDb.Migrations.InitialCreationWithChangedClassifiations">
+            <inheritdoc />
         </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc/>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.InitialCreationWithChangedClassifiations.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
         </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc/>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.InitialCreationWithChangedClassifiations.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
         </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="T:AStar.Dev.Infrastructure.FilesDb.Migrations.MakeDeletionStatusOptional">
-            <inheritdoc/>
-        </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.MakeDeletionStatusOptional.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.MakeDeletionStatusOptional.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.MakeDeletionStatusOptional.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="T:AStar.Dev.Infrastructure.FilesDb.Migrations.FileKeywordMatchTest">
-            <inheritdoc/>
-        </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.FileKeywordMatchTest.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.FileKeywordMatchTest.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc/>
-        </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.FileKeywordMatchTest.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc/>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.InitialCreationWithChangedClassifiations.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.DeletionScope">
             <summary>
@@ -365,23 +335,17 @@
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails"/>
-                class defines the fields that will be mapped from the vw_DuplicatesDetails in the database
+                The <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails" /> class defines the fields that will be mapped from the vw_DuplicatesDetails in the database
             </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails.Id">
             <summary>
-                The ID of the
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail"/>
-                in the Duplicates list
+                The ID of the <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail" /> in the Duplicates list
             </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails.FileAccessDetailId">
             <summary>
-                The FileAccessDetailId of the joined
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileAccessDetail"/>
-                table. The joined data is not in the Duplicates list
+                The FileAccessDetailId of the joined <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileAccessDetail" /> table. The joined data is not in the Duplicates list
             </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.DuplicatesDetails.FileName">
@@ -544,10 +508,10 @@
             </summary>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.EventType.Equals(AStar.Dev.Infrastructure.FilesDb.Models.EventType)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.EventType.Equals(System.Object)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.EventType.ToString">
             <summary>
@@ -556,49 +520,23 @@
             <returns>The name of the event type.</returns>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.EventType.GetHashCode">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.EventType.op_Equality(AStar.Dev.Infrastructure.FilesDb.Models.EventType,AStar.Dev.Infrastructure.FilesDb.Models.EventType)">
             <summary>
-                Overloads the equality operator to compare two
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.EventType"/>
-                objects.
+                Overloads the equality operator to compare two <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.EventType" /> objects.
             </summary>
-            <param name="left">The first
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.EventType"/>
-                to compare.
-            </param>
-            <param name="right">The second
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.EventType"/>
-                to compare.
-            </param>
-            <returns>
-                <c>true</c>
-                if the two
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.EventType"/>
-                objects are equal; otherwise, <c>false</c>.
-            </returns>
+            <param name="left">The first <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.EventType" /> to compare.</param>
+            <param name="right">The second <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.EventType" /> to compare.</param>
+            <returns><c>true</c> if the two <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.EventType" /> objects are equal; otherwise, <c>false</c>.</returns>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.EventType.op_Inequality(AStar.Dev.Infrastructure.FilesDb.Models.EventType,AStar.Dev.Infrastructure.FilesDb.Models.EventType)">
             <summary>
-                Overloads the inequality operator to compare two
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.EventType"/>
-                objects.
+                Overloads the inequality operator to compare two <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.EventType" /> objects.
             </summary>
-            <param name="left">The first
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.EventType"/>
-                to compare.
-            </param>
-            <param name="right">The second
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.EventType"/>
-                to compare.
-            </param>
-            <returns>
-                <c>true</c>
-                if the two
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.EventType"/>
-                objects are not equal; otherwise, <c>false</c>.
-            </returns>
+            <param name="left">The first <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.EventType" /> to compare.</param>
+            <param name="right">The second <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.EventType" /> to compare.</param>
+            <returns><c>true</c> if the two <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.EventType" /> objects are not equal; otherwise, <c>false</c>.</returns>
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.FileAccessDetail">
             <summary>
@@ -641,9 +579,7 @@
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileClassification.Id">
             <summary>
                 Gets or sets the unique identifier for the file classification.
-                This property serves as the primary key for the
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileClassification"/>
-                entity.
+                This property serves as the primary key for the <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileClassification" /> entity.
             </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileClassification.Name">
@@ -653,18 +589,12 @@
                 and is often used to identify or categorize files within the database.
             </summary>
         </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileClassification.FileDetails">
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileClassification.Celebrity">
             <summary>
                 Gets or sets the collection of file details associated with a specific file classification.
-                This property establishes the relationship between the
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileClassification"/>
-                entity
-                and multiple
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail"/>
-                entities.
+                This property establishes the relationship between the <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileClassification" /> entity
+                and multiple <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail" /> entities.
             </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileClassification.Celebrity">
             <summary>
                 Gets or sets a value indicating whether the file classification is considered a "Celebrity."
                 This property is used to mark specific classifications with special significance.
@@ -676,11 +606,16 @@
                 This property determines if files associated with this classification are considered searchable.
             </summary>
         </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileClassification.FileNameParts">
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileClassification.FileDetails">
             <summary>
                 Gets or sets the collection of file name parts associated with the file classification.
                 This property represents the one-to-many relationship between a file classification
                 and its constituent parts that define or describe its naming structure.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileClassification.FileNameParts">
+            <summary>
+                Gets or sets the collection of filename parts associated with this classification.
             </summary>
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail">
@@ -770,6 +705,7 @@
             <returns>
                 This object serialized as a JSON object.
             </returns>
+            <inheritdoc />
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.FileHandle">
             <summary>
@@ -809,27 +745,6 @@
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileId.Value">
             <summary>The value of the File ID</summary>
         </member>
-        <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.FileKeywordMatch">
-            <summary>
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileKeywordMatch.Id">
-            <summary>
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileKeywordMatch.FileName">
-            <summary>
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileKeywordMatch.Keyword">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.FileKeywordMatch.ToString">
-            <summary>
-            </summary>
-            <returns></returns>
-        </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.FileName">
             <summary>
             </summary>
@@ -857,9 +772,7 @@
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileNamePart.Id">
             <summary>
-                Gets or sets the unique identifier for the
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileNamePart"/>
-                entity.
+                Gets or sets the unique identifier for the <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileNamePart" /> entity.
                 This property serves as the primary key in the database to distinguish
                 each record of file name parts.
             </summary>
@@ -895,9 +808,7 @@
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.FileSize.Create(System.Int64,System.Nullable{System.Int64},System.Nullable{System.Int64})">
             <summary>
-                The Create method will return a populated instance of the
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileSize"/>
-                class
+                The Create method will return a populated instance of the <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileSize" /> class
             </summary>
             <param name="fileLength">
                 The length of the file
@@ -909,7 +820,7 @@
                 The width of the file if an image
             </param>
             <returns>
-                A populated instance of<see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileSize"/>.
+                A populated instance of <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileSize" />.
             </returns>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.FileSize.ToString">
@@ -931,18 +842,13 @@
                 Height, Width and Length - making this more of an ImageComparer...
             </summary>
             <param name="leftFileSize">
-                An instance of the
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileSize"/>
-                class to compare
+                An instance of the <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileSize" /> class to compare
             </param>
             <param name="rightFileSize">
-                The other instance of the
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileSize"/>
-                class to compare
+                The other instance of the <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileSize" /> class to compare
             </param>
             <returns>
-                <c>true</c>
-                if the files are deemed to be the same size, <c>false</c> otherwise
+                <c>true</c> if the files are deemed to be the same size, <c>false</c> otherwise
             </returns>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Models.FileSizeEqualityComparer.GetHashCode(AStar.Dev.Infrastructure.FilesDb.Models.FileSize)">
@@ -951,9 +857,7 @@
                 method
             </summary>
             <param name="fileSize">
-                The
-                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileSize"/>
-                to calculate the appropriate hash-code for
+                The <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileSize" /> to calculate the appropriate hash-code for
             </param>
             <returns>
                 The hash-code, combined from the relevant properties own hash-codes
