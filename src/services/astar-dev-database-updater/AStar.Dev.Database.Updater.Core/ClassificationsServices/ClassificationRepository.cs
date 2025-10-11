@@ -2,7 +2,7 @@ using AStar.Dev.Infrastructure.FilesDb.Data;
 using AStar.Dev.Infrastructure.FilesDb.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace AStar.Dev.Database.Updater.Core.Classifications;
+namespace AStar.Dev.Database.Updater.Core.ClassificationsServices;
 
 /// <summary>
 ///     Handles data access for FileClassification entities using EF Core.

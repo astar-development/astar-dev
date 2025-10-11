@@ -1,6 +1,6 @@
 using AStar.Dev.Database.Updater.Core.Models;
 
-namespace AStar.Dev.Database.Updater.Core.Classifications;
+namespace AStar.Dev.Database.Updater.Core.ClassificationsServices;
 
 /// <summary>
 ///     The <see cref="ClassificationMappingExtensions" /> containing the ClassificationMapping extensions

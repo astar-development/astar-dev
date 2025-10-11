@@ -15,7 +15,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="AStar.Dev.Utilities" Version="1.6.2"/>
         <PackageReference Include="AStar.Dev.Test.DbContext.Helpers" Version="0.4.2"/>
         <PackageReference Include="AStar.Dev.Test.Helpers.Minimal.Api" Version="0.1.0"/>
         <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.0"/>

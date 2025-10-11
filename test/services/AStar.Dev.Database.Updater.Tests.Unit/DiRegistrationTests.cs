@@ -37,6 +37,6 @@ public class DiRegistrationTests
             count++;
         }
 
-        count.ShouldBeGreaterThanOrEqualTo(14);
+        count.ShouldBeGreaterThanOrEqualTo(12);
     }
 }

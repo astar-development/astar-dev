@@ -2,7 +2,7 @@ using AStar.Dev.Database.Updater.Core.Models;
 using AStar.Dev.Infrastructure.FilesDb.Models;
 using Serilog;
 
-namespace AStar.Dev.Database.Updater.Core.Classifications;
+namespace AStar.Dev.Database.Updater.Core.ClassificationsServices;
 
 /// <summary>
 ///     Coordinates the classification processing workflow: loading, creating, and updating.

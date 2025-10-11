@@ -2,9 +2,8 @@ using System.IO.Abstractions;
 using System.Text.Json;
 using AStar.Dev.Aspire.Common;
 using AStar.Dev.Database.Updater.Core;
-using AStar.Dev.Database.Updater.Core.Classifications;
-using AStar.Dev.Database.Updater.Core.FileKeywordProcessor;
-using AStar.Dev.Database.Updater.Core.Files;
+using AStar.Dev.Database.Updater.Core.ClassificationsServices;
+using AStar.Dev.Database.Updater.Core.FileDetailsServices;
 using AStar.Dev.Infrastructure.FilesDb.Data;
 using AStar.Dev.Logging.Extensions;
 using AStar.Dev.ServiceDefaults;
@@ -49,9 +48,9 @@ public static class HostApplicationBuilderExtensions
         _ = builder.Services.AddSerilog((sp, loggerConfig) => loggerConfig.ReadFrom.Configuration(sp.CreateScope().ServiceProvider.GetRequiredService<IConfiguration>()));
 
         //_ = builder.Services.AddHostedService<AddNewFilesBackgroundService>();
-        _ = builder.Services.AddHostedService<FileClassificationsService>();
-        _ = builder.Services.AddHostedService<FileKeywordProcessorService>();
-        _ = builder.Services.AddScoped<FileClassificationsService>();
+        _ = builder.Services.AddHostedService<FileClassificationsBackgroundService>();
+        _ = builder.Services.AddHostedService<FileKeywordProcessorBackgroundService>();
+        _ = builder.Services.AddScoped<FileClassificationsBackgroundService>();
 
         builder.AddSqlServerDbContext<FilesContext>(AspireConstants.Sql.FilesDb, settings =>
                                                                                  {
@@ -60,18 +59,19 @@ public static class HostApplicationBuilderExtensions
                                                                                  });
 
         _ = builder.Services.AddScoped<FileListService>();
+        _ = builder.Services.AddScoped<FileDetailsProcessorService>();
         _ = builder.Services.AddScoped<ClassificationProcessor>();
         _ = builder.Services.AddScoped<ClassificationRepository>();
         _ = builder.Services.AddSingleton<ClassificationBuilder>();
 
-        _ = builder.Services.AddScoped<AddNewFilesService>();
         _ = builder.Services.AddSingleton(TimeProvider.System);
         _ = builder.Services.AddSingleton<ClassificationsMapper>();
         _ = builder.Services.AddSingleton<IValidateOptions<DatabaseUpdaterConfiguration>, DatabaseUpdaterConfigurationValidator>();
         _ = builder.Services.AddSingleton<TimeDelay>();
         _ = builder.Services.AddSingleton<IFileSystem, FileSystem>();
 
-        _ = builder.Services.AddScoped<FileScanner>();
+        _ = builder.Services.AddScoped<FilesProcessor>();
+        _ = builder.Services.AddScoped<FileHandleService>();
         _ = builder.Services.AddScoped<IKeywordProvider, EfKeywordProvider>();
 
         builder.Services.AddHealthChecks();

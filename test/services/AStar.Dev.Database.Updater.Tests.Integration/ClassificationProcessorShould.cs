@@ -1,5 +1,5 @@
 using AStar.Dev.Aspire.Common;
-using AStar.Dev.Database.Updater.Core.Classifications;
+using AStar.Dev.Database.Updater.Core.ClassificationsServices;
 using AStar.Dev.Database.Updater.Core.Models;
 using AStar.Dev.Infrastructure.FilesDb.Data;
 using Microsoft.EntityFrameworkCore;
@@ -7,14 +7,13 @@ using Microsoft.Extensions.Logging;
 
 namespace AStar.Dev.Database.Updater;
 
-public class ClassificationProcessorShould : IDisposable
+public sealed class ClassificationProcessorShould : IDisposable
 {
     private static readonly TimeSpan      DefaultTimeout = TimeSpan.FromSeconds(60);
     private                 FilesContext? _context;
 
     /// <inheritdoc />
-    public void Dispose()
-        => _context?.Database.EnsureDeleted();
+    public void Dispose() { }
 
     [Fact(Timeout = 120_000)]
     public async Task Should_Add_New_Classifications_And_FileNameParts()

@@ -6,7 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace AStar.Dev.Database.Updater.Core.Classifications;
+namespace AStar.Dev.Database.Updater.Core.ClassificationsServices;
 
 /// <summary>
 ///     The <see cref="ClassificationsMapper" /> that handles adding any new file > database classifications
