@@ -4,12 +4,12 @@
         <name>AStar.Dev.Database.Updater.Core</name>
     </assembly>
     <members>
-        <member name="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationBuilder">
+        <member name="T:AStar.Dev.Database.Updater.Core.ClassificationsServices.ClassificationBuilder">
             <summary>
                 Responsible for constructing FileClassification and FileNamePart entities.
             </summary>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Classifications.ClassificationBuilder.CreateClassification(System.String,AStar.Dev.Database.Updater.Core.Models.ClassificationMapping)">
+        <member name="M:AStar.Dev.Database.Updater.Core.ClassificationsServices.ClassificationBuilder.CreateClassification(System.String,AStar.Dev.Database.Updater.Core.Models.ClassificationMapping)">
             <summary>
                 Creates a new FileClassification from a mapping source.
             </summary>
@@ -17,7 +17,7 @@
             <param name="source">The source mapping containing metadata.</param>
             <returns>A new FileClassification instance.</returns>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Classifications.ClassificationBuilder.CreateMissingParts(System.Collections.Generic.IEnumerable{AStar.Dev.Database.Updater.Core.Models.ClassificationMapping},System.Collections.Generic.HashSet{System.String})">
+        <member name="M:AStar.Dev.Database.Updater.Core.ClassificationsServices.ClassificationBuilder.CreateMissingParts(System.Collections.Generic.IEnumerable{AStar.Dev.Database.Updater.Core.Models.ClassificationMapping},System.Collections.Generic.HashSet{System.String})">
             <summary>
                 Creates a list of missing FileNameParts based on mappings and existing texts.
             </summary>
@@ -25,12 +25,14 @@
             <param name="existingTexts">Set of already existing file name texts.</param>
             <returns>List of new FileNamePart entities.</returns>
         </member>
-        <member name="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationMappingExtensions">
+        <member name="T:AStar.Dev.Database.Updater.Core.ClassificationsServices.ClassificationMappingExtensions">
             <summary>
-                The <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationMappingExtensions" /> containing the ClassificationMapping extensions
+                The
+                <see cref="T:AStar.Dev.Database.Updater.Core.ClassificationsServices.ClassificationMappingExtensions"/>
+                containing the ClassificationMapping extensions
             </summary>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Classifications.ClassificationMappingExtensions.AddFileClassificationsAsync(System.Collections.Generic.IEnumerable{AStar.Dev.Database.Updater.Core.Models.ClassificationMapping},AStar.Dev.Database.Updater.Core.Classifications.ClassificationProcessor,System.Threading.CancellationToken)">
+        <member name="M:AStar.Dev.Database.Updater.Core.ClassificationsServices.ClassificationMappingExtensions.AddFileClassificationsAsync(System.Collections.Generic.IEnumerable{AStar.Dev.Database.Updater.Core.Models.ClassificationMapping},AStar.Dev.Database.Updater.Core.ClassificationsServices.ClassificationProcessor,System.Threading.CancellationToken)">
             <summary>
                 Adds classification mappings to the database context, creating missing entries.
             </summary>
@@ -39,17 +41,17 @@
             <param name="stoppingToken"></param>
             <returns><c>true</c> if successful, otherwise <c>false</c></returns>
         </member>
-        <member name="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationProcessor">
+        <member name="T:AStar.Dev.Database.Updater.Core.ClassificationsServices.ClassificationProcessor">
             <summary>
                 Coordinates the classification processing workflow: loading, creating, and updating.
             </summary>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Classifications.ClassificationProcessor.#ctor(AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository,AStar.Dev.Database.Updater.Core.Classifications.ClassificationBuilder,Serilog.ILogger)">
+        <member name="M:AStar.Dev.Database.Updater.Core.ClassificationsServices.ClassificationProcessor.#ctor(AStar.Dev.Database.Updater.Core.ClassificationsServices.ClassificationRepository,AStar.Dev.Database.Updater.Core.ClassificationsServices.ClassificationBuilder,Serilog.ILogger)">
             <summary>
                 Coordinates the classification processing workflow: loading, creating, and updating.
             </summary>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Classifications.ClassificationProcessor.ProcessAsync(System.Collections.Generic.IEnumerable{AStar.Dev.Database.Updater.Core.Models.ClassificationMapping},System.Threading.CancellationToken)">
+        <member name="M:AStar.Dev.Database.Updater.Core.ClassificationsServices.ClassificationProcessor.ProcessAsync(System.Collections.Generic.IEnumerable{AStar.Dev.Database.Updater.Core.Models.ClassificationMapping},System.Threading.CancellationToken)">
             <summary>
                 Processes classification mappings and updates the database context accordingly.
             </summary>
@@ -57,67 +59,71 @@
             <param name="stoppingToken"></param>
             <returns>True if processing completes successfully.</returns>
         </member>
-        <member name="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository">
+        <member name="T:AStar.Dev.Database.Updater.Core.ClassificationsServices.ClassificationRepository">
             <summary>
                 Handles data access for FileClassification entities using EF Core.
             </summary>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository.#ctor(AStar.Dev.Infrastructure.FilesDb.Data.FilesContext)">
+        <member name="M:AStar.Dev.Database.Updater.Core.ClassificationsServices.ClassificationRepository.#ctor(AStar.Dev.Infrastructure.FilesDb.Data.FilesContext)">
             <summary>
                 Handles data access for FileClassification entities using EF Core.
             </summary>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository.GetExistingClassifications(System.Collections.Generic.HashSet{System.String})">
+        <member name="M:AStar.Dev.Database.Updater.Core.ClassificationsServices.ClassificationRepository.GetExistingClassifications(System.Collections.Generic.HashSet{System.String})">
             <summary>
                 Retrieves existing classifications from the database, including their file name parts.
             </summary>
             <param name="names">Set of classification names to look up.</param>
             <returns>Dictionary of classification name to FileClassification.</returns>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository.GetExistingClassifications">
+        <member name="M:AStar.Dev.Database.Updater.Core.ClassificationsServices.ClassificationRepository.GetExistingClassifications">
             <summary>
                 Retrieves existing classifications from the database, including their file name parts.
             </summary>
             <returns>Dictionary of classification name to FileClassification.</returns>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository.AddClassifications(System.Collections.Generic.IEnumerable{AStar.Dev.Infrastructure.FilesDb.Models.FileClassification})">
+        <member name="M:AStar.Dev.Database.Updater.Core.ClassificationsServices.ClassificationRepository.AddClassifications(System.Collections.Generic.IEnumerable{AStar.Dev.Infrastructure.FilesDb.Models.FileClassification})">
             <summary>
                 Adds new classifications to the database context.
             </summary>
             <param name="classifications">List of new FileClassification entities.</param>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository.SaveChangesAsync(System.Threading.CancellationToken)">
+        <member name="M:AStar.Dev.Database.Updater.Core.ClassificationsServices.ClassificationRepository.SaveChangesAsync(System.Threading.CancellationToken)">
             <summary>
             </summary>
         </member>
-        <member name="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationsMapper">
+        <member name="T:AStar.Dev.Database.Updater.Core.ClassificationsServices.ClassificationsMapper">
             <summary>
-                The <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationsMapper" /> that handles adding any new file > database classifications
-            </summary>
-            <param name="configuration"></param>
-            <param name="config"></param>
-            <param name="logger"></param>
-            <remarks>Before we can progress to testing this, we need to change the ClassificationsMapper to be more testable</remarks>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Classifications.ClassificationsMapper.#ctor(Microsoft.Extensions.Options.IOptions{AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration},Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.Classifications.ClassificationsMapper})">
-            <summary>
-                The <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationsMapper" /> that handles adding any new file > database classifications
+                The
+                <see cref="T:AStar.Dev.Database.Updater.Core.ClassificationsServices.ClassificationsMapper"/>
+                that handles adding any new file > database classifications
             </summary>
             <param name="configuration"></param>
             <param name="config"></param>
             <param name="logger"></param>
             <remarks>Before we can progress to testing this, we need to change the ClassificationsMapper to be more testable</remarks>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Classifications.ClassificationsMapper.LoadClassificationMappings">
+        <member name="M:AStar.Dev.Database.Updater.Core.ClassificationsServices.ClassificationsMapper.#ctor(Microsoft.Extensions.Options.IOptions{AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration},Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.ClassificationsServices.ClassificationsMapper})">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Database.Updater.Core.ClassificationsServices.ClassificationsMapper"/>
+                that handles adding any new file > database classifications
+            </summary>
+            <param name="configuration"></param>
+            <param name="config"></param>
+            <param name="logger"></param>
+            <remarks>Before we can progress to testing this, we need to change the ClassificationsMapper to be more testable</remarks>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.ClassificationsServices.ClassificationsMapper.LoadClassificationMappings">
             <summary>
                 The LoadClassificationMappings does exactly what its name says
             </summary>
             <returns>An instance of <see cref="T:AStar.Dev.Functional.Extensions.Result`2" /> to denote the success / failure of the load</returns>
         </member>
-        <member name="T:AStar.Dev.Database.Updater.Core.Classifications.FileClassificationsBackgroundService">
+        <member name="T:AStar.Dev.Database.Updater.Core.ClassificationsServices.FileClassificationsBackgroundService">
             <summary>
                 The
-                <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.FileClassificationsBackgroundService"/>
+                <see cref="T:AStar.Dev.Database.Updater.Core.ClassificationsServices.FileClassificationsBackgroundService"/>
                 class contains the available service(s) available for the
                 <see cref="T:AStar.Dev.Database.Updater.Core.Models.ClassificationMapping"/>
                 class
@@ -127,10 +133,10 @@
                 to get the required services from
             </param>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Classifications.FileClassificationsBackgroundService.#ctor(Microsoft.Extensions.DependencyInjection.IServiceScopeFactory)">
+        <member name="M:AStar.Dev.Database.Updater.Core.ClassificationsServices.FileClassificationsBackgroundService.#ctor(Microsoft.Extensions.DependencyInjection.IServiceScopeFactory)">
             <summary>
                 The
-                <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.FileClassificationsBackgroundService"/>
+                <see cref="T:AStar.Dev.Database.Updater.Core.ClassificationsServices.FileClassificationsBackgroundService"/>
                 class contains the available service(s) available for the
                 <see cref="T:AStar.Dev.Database.Updater.Core.Models.ClassificationMapping"/>
                 class
@@ -140,10 +146,10 @@
                 to get the required services from
             </param>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Classifications.FileClassificationsBackgroundService.ExecuteAsync(System.Threading.CancellationToken)">
+        <member name="M:AStar.Dev.Database.Updater.Core.ClassificationsServices.FileClassificationsBackgroundService.ExecuteAsync(System.Threading.CancellationToken)">
             <inheritdoc />
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Classifications.FileClassificationsBackgroundService.AddNewMappingsToTheDatabase(System.Threading.CancellationToken)">
+        <member name="M:AStar.Dev.Database.Updater.Core.ClassificationsServices.FileClassificationsBackgroundService.AddNewMappingsToTheDatabase(System.Threading.CancellationToken)">
             <summary>
                 The AddNewMappingsToTheDatabase method will process the mappings and add any new mappings to the context
             </summary>
@@ -189,28 +195,28 @@
                 Gets or sets the time to start the new files addition
             </summary>
         </member>
-        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.EfKeywordProvider">
+        <member name="T:AStar.Dev.Database.Updater.Core.FileDetailsServices.EfKeywordProvider">
             <summary>
             </summary>
             <param name="db"></param>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.EfKeywordProvider.#ctor(AStar.Dev.Infrastructure.FilesDb.Data.FilesContext)">
+        <member name="M:AStar.Dev.Database.Updater.Core.FileDetailsServices.EfKeywordProvider.#ctor(AStar.Dev.Infrastructure.FilesDb.Data.FilesContext)">
             <summary>
             </summary>
             <param name="db"></param>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.EfKeywordProvider.GetKeywordsAsync(System.Threading.CancellationToken)">
+        <member name="M:AStar.Dev.Database.Updater.Core.FileDetailsServices.EfKeywordProvider.GetKeywordsAsync(System.Threading.CancellationToken)">
             <inheritdoc />
         </member>
-        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileDetailsProcessorService">
+        <member name="T:AStar.Dev.Database.Updater.Core.FileDetailsServices.FileDetailsProcessorService">
             <summary>
             </summary>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileDetailsProcessorService.#ctor(AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileHandleService,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileDetailsProcessorService})">
+        <member name="M:AStar.Dev.Database.Updater.Core.FileDetailsServices.FileDetailsProcessorService.#ctor(AStar.Dev.Database.Updater.Core.FileDetailsServices.FileHandleService,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.FileDetailsServices.FileDetailsProcessorService})">
             <summary>
             </summary>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileDetailsProcessorService.ProcessFileDetailAsync(AStar.Dev.Infrastructure.FilesDb.Models.FileDetail,System.Collections.Generic.List{AStar.Dev.Infrastructure.FilesDb.Models.FileClassification},System.Collections.Generic.List{AStar.Dev.Infrastructure.FilesDb.Models.FileHandle},System.Int32,System.Int32,System.Collections.Generic.IReadOnlyList{AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileNamePartsWithClassifications})">
+        <member name="M:AStar.Dev.Database.Updater.Core.FileDetailsServices.FileDetailsProcessorService.ProcessFileDetailAsync(AStar.Dev.Infrastructure.FilesDb.Models.FileDetail,System.Collections.Generic.List{AStar.Dev.Infrastructure.FilesDb.Models.FileClassification},System.Collections.Generic.List{AStar.Dev.Infrastructure.FilesDb.Models.FileHandle},System.Int32,System.Int32,System.Collections.Generic.IReadOnlyList{AStar.Dev.Database.Updater.Core.FileDetailsServices.FileNamePartsWithClassifications})">
             <summary>
             </summary>
             <param name="fileDetail"></param>
@@ -221,24 +227,24 @@
             <param name="keywords"></param>
             <returns></returns>
         </member>
-        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileHandleService">
+        <member name="T:AStar.Dev.Database.Updater.Core.FileDetailsServices.FileHandleService">
             <summary>
             </summary>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileHandleService.GenerateFileHandle(System.String)">
+        <member name="M:AStar.Dev.Database.Updater.Core.FileDetailsServices.FileHandleService.GenerateFileHandle(System.String)">
             <summary>
             </summary>
             <param name="file"></param>
             <returns></returns>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileHandleService.GenerateFileHandle(AStar.Dev.Infrastructure.FilesDb.Models.FileDetail,System.Collections.Generic.List{AStar.Dev.Infrastructure.FilesDb.Models.FileHandle})">
+        <member name="M:AStar.Dev.Database.Updater.Core.FileDetailsServices.FileHandleService.GenerateFileHandle(AStar.Dev.Infrastructure.FilesDb.Models.FileDetail,System.Collections.Generic.List{AStar.Dev.Infrastructure.FilesDb.Models.FileHandle})">
             <summary>
             </summary>
             <param name="fileInfo"></param>
             <param name="fileHandlesAlreadyInTheContext"></param>
             <returns></returns>
         </member>
-        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileKeywordProcessorBackgroundService">
+        <member name="T:AStar.Dev.Database.Updater.Core.FileDetailsServices.FileKeywordProcessorBackgroundService">
             <summary>
                 Service responsible for processing keywords in files within a specified directory.
                 It extends the
@@ -255,7 +261,7 @@
                 Dependencies must be registered in the DI container before using this service.
             </remarks>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileKeywordProcessorBackgroundService.#ctor(Microsoft.Extensions.DependencyInjection.IServiceScopeFactory)">
+        <member name="M:AStar.Dev.Database.Updater.Core.FileDetailsServices.FileKeywordProcessorBackgroundService.#ctor(Microsoft.Extensions.DependencyInjection.IServiceScopeFactory)">
             <summary>
                 Service responsible for processing keywords in files within a specified directory.
                 It extends the
@@ -272,22 +278,22 @@
                 Dependencies must be registered in the DI container before using this service.
             </remarks>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileKeywordProcessorBackgroundService.ExecuteAsync(System.Threading.CancellationToken)">
+        <member name="M:AStar.Dev.Database.Updater.Core.FileDetailsServices.FileKeywordProcessorBackgroundService.ExecuteAsync(System.Threading.CancellationToken)">
             <inheritdoc />
         </member>
-        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileListService">
+        <member name="T:AStar.Dev.Database.Updater.Core.FileDetailsServices.FileListService">
             <summary>
                 Service responsible for retrieving a list of file paths from a specified directory,
                 excluding those already present in the database context.
             </summary>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileListService.#ctor(System.IO.Abstractions.IFileSystem,AStar.Dev.Infrastructure.FilesDb.Data.FilesContext)">
+        <member name="M:AStar.Dev.Database.Updater.Core.FileDetailsServices.FileListService.#ctor(System.IO.Abstractions.IFileSystem,AStar.Dev.Infrastructure.FilesDb.Data.FilesContext)">
             <summary>
                 Service responsible for retrieving a list of file paths from a specified directory,
                 excluding those already present in the database context.
             </summary>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileListService.Get(System.String,System.Threading.CancellationToken)">
+        <member name="M:AStar.Dev.Database.Updater.Core.FileDetailsServices.FileListService.Get(System.String,System.Threading.CancellationToken)">
             <summary>
                 Retrieves a list of file details for the files located in the specified directory path that are not already present in the database.
             </summary>
@@ -300,13 +306,102 @@
                 on failure.
             </returns>
         </member>
+        <member name="T:AStar.Dev.Database.Updater.Core.FileDetailsServices.FileNamePartsWithClassifications">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Database.Updater.Core.FileDetailsServices.FileNamePartsWithClassifications.Id">
+            <summary>
+                Gets or sets the unique identifier for the <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileNamePart" /> entity.
+                This property serves as the primary key in the database to distinguish
+                each record of file name parts.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Database.Updater.Core.FileDetailsServices.FileNamePartsWithClassifications.Text">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Database.Updater.Core.FileDetailsServices.FileNamePartsWithClassifications.Name">
+            <summary>
+                Gets or sets the name of the file classification.
+                This property represents the descriptive label for a specific classification
+                and is often used to identify or categorize files within the database.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Database.Updater.Core.FileDetailsServices.FileNamePartsWithClassifications.Celebrity">
+            <summary>
+                Gets or sets a value indicating whether the file classification is considered a "Celebrity."
+                This property is used to mark specific classifications with special significance.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Database.Updater.Core.FileDetailsServices.FileNamePartsWithClassifications.IncludeInSearch">
+            <summary>
+                Gets or sets a value indicating whether this classification should be included in search results.
+                This property determines if files associated with this classification are considered searchable.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Database.Updater.Core.FileDetailsServices.FileNamePartsWithClassifications.FileNameParts">
+            <summary>
+                Gets or sets the collection of file name parts associated with the file classification.
+                This property represents the one-to-many relationship between a file classification
+                and its constituent parts that define or describe its naming structure.
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Database.Updater.Core.FileDetailsServices.FilesProcessor">
+            <summary>
+                The FilesProcessor class is responsible for processing files to check for keywords
+                or specific classifications using provided services for classification and keyword detection.
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileDetailsServices.FilesProcessor.#ctor(AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,AStar.Dev.Database.Updater.Core.FileDetailsServices.IKeywordProvider,AStar.Dev.Database.Updater.Core.FileDetailsServices.FileDetailsProcessorService,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.FileDetailsServices.FilesProcessor})">
+            <summary>
+                The FilesProcessor class is responsible for processing files to check for keywords
+                or specific classifications using provided services for classification and keyword detection.
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileDetailsServices.FilesProcessor.ProcessAsync(System.Collections.Generic.IReadOnlyCollection{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},System.Threading.CancellationToken)">
+            <summary>
+                Processes a collection of files to process keywords, applying regex patterns to identify matches,
+                and persists relevant information into the database.
+            </summary>
+            <param name="filesToProcess">A read-only collection of FileDetail objects representing the files to be processed.</param>
+            <param name="cancellationToken">An optional token to observe while waiting for the task to complete.</param>
+            <returns>
+                A Result object that resolves to either:
+                - A boolean indicating success (true indicates successful processing).
+                - An ErrorResponse in case of a failure.
+            </returns>
+        </member>
+        <member name="T:AStar.Dev.Database.Updater.Core.FileDetailsServices.IKeywordProvider">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileDetailsServices.IKeywordProvider.GetKeywordsAsync(System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AStar.Dev.Database.Updater.Core.FileDetailsServices.KeywordRegexBuilder">
+            <summary>
+                Provides helpers for building keyword regex patterns.
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileDetailsServices.KeywordRegexBuilder.BuildKeywordPattern(System.Collections.Generic.IReadOnlyList{AStar.Dev.Database.Updater.Core.FileDetailsServices.FileNamePartsWithClassifications})">
+            <summary>
+                Builds a regex pattern that matches both single-word and multi-word keywords.
+                Single words and multi-word phrases are wrapped in \b boundaries.
+            </summary>
+        </member>
         <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileNamePartsWithClassifications">
             <summary>
             </summary>
         </member>
         <member name="P:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileNamePartsWithClassifications.Id">
             <summary>
-                Gets or sets the unique identifier for the <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileNamePart" /> entity.
+                Gets or sets the unique identifier for the
+                <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileNamePart"/>
+                entity.
                 This property serves as the primary key in the database to distinguish
                 each record of file name parts.
             </summary>
@@ -340,41 +435,6 @@
                 This property represents the one-to-many relationship between a file classification
                 and its constituent parts that define or describe its naming structure.
             </summary>
-        </member>
-        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FilesProcessor">
-            <summary>
-                The FilesProcessor class is responsible for processing files to check for keywords
-                or specific classifications using provided services for classification and keyword detection.
-            </summary>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FilesProcessor.#ctor(AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,AStar.Dev.Database.Updater.Core.FileKeywordProcessor.IKeywordProvider,AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileDetailsProcessorService,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FilesProcessor})">
-            <summary>
-                The FilesProcessor class is responsible for processing files to check for keywords
-                or specific classifications using provided services for classification and keyword detection.
-            </summary>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FilesProcessor.ProcessAsync(System.Collections.Generic.IReadOnlyCollection{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},System.Threading.CancellationToken)">
-            <summary>
-                Processes a collection of files to process keywords, applying regex patterns to identify matches,
-                and persists relevant information into the database.
-            </summary>
-            <param name="filesToProcess">A read-only collection of FileDetail objects representing the files to be processed.</param>
-            <param name="cancellationToken">An optional token to observe while waiting for the task to complete.</param>
-            <returns>
-                A Result object that resolves to either:
-                - A boolean indicating success (true indicates successful processing).
-                - An ErrorResponse in case of a failure.
-            </returns>
-        </member>
-        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.IKeywordProvider">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.IKeywordProvider.GetKeywordsAsync(System.Threading.CancellationToken)">
-            <summary>
-            </summary>
-            <param name="cancellationToken"></param>
-            <returns></returns>
         </member>
         <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.KeywordRegexBuilder">
             <summary>
