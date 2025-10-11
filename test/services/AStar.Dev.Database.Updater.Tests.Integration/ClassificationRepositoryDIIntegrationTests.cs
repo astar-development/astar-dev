@@ -1,8 +1,8 @@
-using AStar.Dev.Database.Updater.Core.Classifications;
+using AStar.Dev.Database.Updater.Core.ClassificationsServices;
 using AStar.Dev.Infrastructure.FilesDb.Models;
 using AStar.Dev.TestHelpers;
 
-namespace AStar.Dev.Database.Updater.Tests.Integration;
+namespace AStar.Dev.Database.Updater;
 
 public class ClassificationRepositoryDIIntegrationTests
 {

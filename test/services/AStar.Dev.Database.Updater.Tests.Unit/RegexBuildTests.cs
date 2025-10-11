@@ -1,5 +1,5 @@
 using System.Text.RegularExpressions;
-using AStar.Dev.Database.Updater.Core.FileKeywordProcessor;
+using AStar.Dev.Database.Updater.Core.FileDetailsServices;
 
 namespace AStar.Dev.Database.Updater.Tests.Unit;
 

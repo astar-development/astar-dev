@@ -949,5 +949,14 @@
             <param name="result">The Result object being extended.</param>
             <returns>A success result without change if applicable, otherwise, the exception will be mapped to an ErrorResponse</returns>
         </member>
+        <member name="M:AStar.Dev.Functional.Extensions.TryExtensions.ToErrorResponseAsync``1(System.Threading.Tasks.Task{AStar.Dev.Functional.Extensions.Result{``0,System.Exception}})">
+            <summary>
+                Converts a Result with an Exception to a Result with an ErrorResponse (specifically, the base exception message is mapped to the ErrorResponse - please note: NO translation
+                happens...).
+            </summary>
+            <typeparam name="T">The type of the successful result</typeparam>
+            <param name="result">The Result object being extended.</param>
+            <returns>A success result without change if applicable, otherwise, the exception will be mapped to an ErrorResponse</returns>
+        </member>
     </members>
 </doc>

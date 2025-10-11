@@ -114,26 +114,36 @@
             </summary>
             <returns>An instance of <see cref="T:AStar.Dev.Functional.Extensions.Result`2" /> to denote the success / failure of the load</returns>
         </member>
-        <member name="T:AStar.Dev.Database.Updater.Core.Classifications.FileClassificationsService">
+        <member name="T:AStar.Dev.Database.Updater.Core.Classifications.FileClassificationsBackgroundService">
             <summary>
-                The <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.FileClassificationsService" /> class contains the available service(s) available for the <see cref="T:AStar.Dev.Database.Updater.Core.Models.ClassificationMapping" /> class
+                The
+                <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.FileClassificationsBackgroundService"/>
+                class contains the available service(s) available for the
+                <see cref="T:AStar.Dev.Database.Updater.Core.Models.ClassificationMapping"/>
+                class
             </summary>
-            <param name="serviceScopeFactory">The instance of <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceScopeFactory" /> to obtain the required services from</param>
+            <param name="serviceScopeFactory">The instance of
+                <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceScopeFactory"/>
+                to get the required services from
+            </param>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Classifications.FileClassificationsService.#ctor(Microsoft.Extensions.DependencyInjection.IServiceScopeFactory)">
+        <member name="M:AStar.Dev.Database.Updater.Core.Classifications.FileClassificationsBackgroundService.#ctor(Microsoft.Extensions.DependencyInjection.IServiceScopeFactory)">
             <summary>
-                The <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.FileClassificationsService" /> class contains the available service(s) available for the <see cref="T:AStar.Dev.Database.Updater.Core.Models.ClassificationMapping" /> class
+                The
+                <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.FileClassificationsBackgroundService"/>
+                class contains the available service(s) available for the
+                <see cref="T:AStar.Dev.Database.Updater.Core.Models.ClassificationMapping"/>
+                class
             </summary>
-            <param name="serviceScopeFactory">The instance of <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceScopeFactory" /> to obtain the required services from</param>
+            <param name="serviceScopeFactory">The instance of
+                <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceScopeFactory"/>
+                to get the required services from
+            </param>
         </member>
-        <member name="P:AStar.Dev.Database.Updater.Core.Classifications.FileClassificationsService.ClassificationsLoading">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Classifications.FileClassificationsService.ExecuteAsync(System.Threading.CancellationToken)">
+        <member name="M:AStar.Dev.Database.Updater.Core.Classifications.FileClassificationsBackgroundService.ExecuteAsync(System.Threading.CancellationToken)">
             <inheritdoc />
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Classifications.FileClassificationsService.AddNewMappingsToTheDatabase(System.Threading.CancellationToken)">
+        <member name="M:AStar.Dev.Database.Updater.Core.Classifications.FileClassificationsBackgroundService.AddNewMappingsToTheDatabase(System.Threading.CancellationToken)">
             <summary>
                 The AddNewMappingsToTheDatabase method will process the mappings and add any new mappings to the context
             </summary>
@@ -192,18 +202,103 @@
         <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.EfKeywordProvider.GetKeywordsAsync(System.Threading.CancellationToken)">
             <inheritdoc />
         </member>
-        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileKeywordProcessorService">
+        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileDetailsProcessorService">
             <summary>
             </summary>
-            <param name="serviceScopeFactory"></param>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileKeywordProcessorService.#ctor(Microsoft.Extensions.DependencyInjection.IServiceScopeFactory)">
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileDetailsProcessorService.#ctor(AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileHandleService,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileDetailsProcessorService})">
             <summary>
             </summary>
-            <param name="serviceScopeFactory"></param>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileKeywordProcessorService.ExecuteAsync(System.Threading.CancellationToken)">
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileDetailsProcessorService.ProcessFileDetailAsync(AStar.Dev.Infrastructure.FilesDb.Models.FileDetail,System.Collections.Generic.List{AStar.Dev.Infrastructure.FilesDb.Models.FileClassification},System.Collections.Generic.List{AStar.Dev.Infrastructure.FilesDb.Models.FileHandle},System.Int32,System.Int32,System.Collections.Generic.IReadOnlyList{AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileNamePartsWithClassifications})">
+            <summary>
+            </summary>
+            <param name="fileDetail"></param>
+            <param name="classifications"></param>
+            <param name="fileHandlesAlreadyInTheContext"></param>
+            <param name="counter"></param>
+            <param name="writeCount"></param>
+            <param name="keywords"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileHandleService">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileHandleService.GenerateFileHandle(System.String)">
+            <summary>
+            </summary>
+            <param name="file"></param>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileHandleService.GenerateFileHandle(AStar.Dev.Infrastructure.FilesDb.Models.FileDetail,System.Collections.Generic.List{AStar.Dev.Infrastructure.FilesDb.Models.FileHandle})">
+            <summary>
+            </summary>
+            <param name="fileInfo"></param>
+            <param name="fileHandlesAlreadyInTheContext"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileKeywordProcessorBackgroundService">
+            <summary>
+                Service responsible for processing keywords in files within a specified directory.
+                It extends the
+                <see cref="T:Microsoft.Extensions.Hosting.BackgroundService"/>
+                class, enabling it to run as a
+                hosted background task. The service periodically scans files for processing based
+                on configurations provided at runtime.
+            </summary>
+            <remarks>
+                This service uses dependency injection to resolve required services such as
+                <see cref="T:Microsoft.Extensions.Logging.ILogger"/>, <c>FileScanner</c>, and <c>FileListService</c>.
+                It coordinates the scanning and processing of files, handling scenarios including
+                error logging for failed operations.
+                Dependencies must be registered in the DI container before using this service.
+            </remarks>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileKeywordProcessorBackgroundService.#ctor(Microsoft.Extensions.DependencyInjection.IServiceScopeFactory)">
+            <summary>
+                Service responsible for processing keywords in files within a specified directory.
+                It extends the
+                <see cref="T:Microsoft.Extensions.Hosting.BackgroundService"/>
+                class, enabling it to run as a
+                hosted background task. The service periodically scans files for processing based
+                on configurations provided at runtime.
+            </summary>
+            <remarks>
+                This service uses dependency injection to resolve required services such as
+                <see cref="T:Microsoft.Extensions.Logging.ILogger"/>, <c>FileScanner</c>, and <c>FileListService</c>.
+                It coordinates the scanning and processing of files, handling scenarios including
+                error logging for failed operations.
+                Dependencies must be registered in the DI container before using this service.
+            </remarks>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileKeywordProcessorBackgroundService.ExecuteAsync(System.Threading.CancellationToken)">
             <inheritdoc />
+        </member>
+        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileListService">
+            <summary>
+                Service responsible for retrieving a list of file paths from a specified directory,
+                excluding those already present in the database context.
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileListService.#ctor(System.IO.Abstractions.IFileSystem,AStar.Dev.Infrastructure.FilesDb.Data.FilesContext)">
+            <summary>
+                Service responsible for retrieving a list of file paths from a specified directory,
+                excluding those already present in the database context.
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileListService.Get(System.String,System.Threading.CancellationToken)">
+            <summary>
+                Retrieves a list of file details for the files located in the specified directory path that are not already present in the database.
+            </summary>
+            <param name="path">The root directory path to search for files.</param>
+            <param name="stoppingToken">A token to observe for any cancellation requests.</param>
+            <returns>
+                A task that represents the asynchronous operation. The task result contains a
+                <see cref="T:AStar.Dev.Functional.Extensions.Result`2"/>
+                object with a collection of file details on success or an error response
+                on failure.
+            </returns>
         </member>
         <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileNamePartsWithClassifications">
             <summary>
@@ -246,27 +341,30 @@
                 and its constituent parts that define or describe its naming structure.
             </summary>
         </member>
-        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileScanner">
+        <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FilesProcessor">
             <summary>
+                The FilesProcessor class is responsible for processing files to check for keywords
+                or specific classifications using provided services for classification and keyword detection.
             </summary>
-            <param name="serviceScopeFactory"></param>
-            <param name="classificationRepository"></param>
-            <param name="keywordProvider"></param>
-            <param name="logger"></param>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileScanner.#ctor(Microsoft.Extensions.DependencyInjection.IServiceScopeFactory,AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository,AStar.Dev.Database.Updater.Core.FileKeywordProcessor.IKeywordProvider,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileScanner})">
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FilesProcessor.#ctor(AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,AStar.Dev.Database.Updater.Core.FileKeywordProcessor.IKeywordProvider,AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileDetailsProcessorService,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FilesProcessor})">
             <summary>
+                The FilesProcessor class is responsible for processing files to check for keywords
+                or specific classifications using provided services for classification and keyword detection.
             </summary>
-            <param name="serviceScopeFactory"></param>
-            <param name="classificationRepository"></param>
-            <param name="keywordProvider"></param>
-            <param name="logger"></param>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FileScanner.ScanFilesAsync(System.Collections.Generic.IReadOnlyCollection{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},System.Threading.CancellationToken)">
+        <member name="M:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.FilesProcessor.ProcessAsync(System.Collections.Generic.IReadOnlyCollection{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},System.Threading.CancellationToken)">
             <summary>
+                Processes a collection of files to process keywords, applying regex patterns to identify matches,
+                and persists relevant information into the database.
             </summary>
-            <param name="filesToProcess"></param>
-            <param name="cancellationToken"></param>
+            <param name="filesToProcess">A read-only collection of FileDetail objects representing the files to be processed.</param>
+            <param name="cancellationToken">An optional token to observe while waiting for the task to complete.</param>
+            <returns>
+                A Result object that resolves to either:
+                - A boolean indicating success (true indicates successful processing).
+                - An ErrorResponse in case of a failure.
+            </returns>
         </member>
         <member name="T:AStar.Dev.Database.Updater.Core.FileKeywordProcessor.IKeywordProvider">
             <summary>
@@ -288,76 +386,6 @@
                 Builds a regex pattern that matches both single-word and multi-word keywords.
                 Single words and multi-word phrases are wrapped in \b boundaries.
             </summary>
-        </member>
-        <member name="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService">
-            <summary>
-                The <see cref="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService" /> class
-            </summary>
-            <param name="serviceProvider">The <see cref="T:System.IServiceProvider" /> required by the AddNewFilesBackgroundService</param>
-            <param name="timeDelay"></param>
-            <param name="config"></param>
-            <param name="logger">An instance of the <see cref="T:Microsoft.Extensions.Logging.ILogger" /> to log status / errors</param>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService.#ctor(System.IServiceProvider,AStar.Dev.Database.Updater.Core.TimeDelay,Microsoft.Extensions.Options.IOptions{AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration},Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService})">
-            <summary>
-                The <see cref="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService" /> class
-            </summary>
-            <param name="serviceProvider">The <see cref="T:System.IServiceProvider" /> required by the AddNewFilesBackgroundService</param>
-            <param name="timeDelay"></param>
-            <param name="config"></param>
-            <param name="logger">An instance of the <see cref="T:Microsoft.Extensions.Logging.ILogger" /> to log status / errors</param>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Files.AddNewFilesBackgroundService.ExecuteAsync(System.Threading.CancellationToken)">
-            <summary>
-                The StartAsync method is called by the runtime and will update the database with any new files
-            </summary>
-            <param name="stoppingToken">A cancellation token to optionally cancel the operation</param>
-        </member>
-        <member name="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesService">
-            <summary>
-                The <see cref="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesService" /> class
-            </summary>
-            <param name="fileSystem">An instance of <see cref="T:System.IO.Abstractions.IFileSystem" /> to retrieve the files from</param>
-            <param name="config">An instance of the <see cref="T:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration" /> options used to configure the addition of the new files</param>
-            <param name="filesContext">An instance of the <see cref="T:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext" /></param>
-            <param name="classificationRepository">An instance of the <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository" /> </param>
-            <param name="logger">An instance of the <see cref="T:Microsoft.Extensions.Logging.ILogger" /> to log status / errors</param>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Files.AddNewFilesService.#ctor(System.IO.Abstractions.IFileSystem,Microsoft.Extensions.Options.IOptions{AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration},AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository,AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.Files.AddNewFilesService})">
-            <summary>
-                The <see cref="T:AStar.Dev.Database.Updater.Core.Files.AddNewFilesService" /> class
-            </summary>
-            <param name="fileSystem">An instance of <see cref="T:System.IO.Abstractions.IFileSystem" /> to retrieve the files from</param>
-            <param name="config">An instance of the <see cref="T:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration" /> options used to configure the addition of the new files</param>
-            <param name="filesContext">An instance of the <see cref="T:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext" /></param>
-            <param name="classificationRepository">An instance of the <see cref="T:AStar.Dev.Database.Updater.Core.Classifications.ClassificationRepository" /> </param>
-            <param name="logger">An instance of the <see cref="T:Microsoft.Extensions.Logging.ILogger" /> to log status / errors</param>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Files.AddNewFilesService.FindNewFilesAndAddToDatabaseAsync(System.Threading.CancellationToken)">
-            <summary>
-                The FindNewFilesAndAddToDatabaseAsync method is called to update the database with any new files
-            </summary>
-            <param name="stoppingToken">A cancellation token to optionally cancel the operation</param>
-        </member>
-        <member name="T:AStar.Dev.Database.Updater.Core.Files.FileListService">
-            <summary>
-
-            </summary>
-            <param name="serviceScopeFactory"></param>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Files.FileListService.#ctor(Microsoft.Extensions.DependencyInjection.IServiceScopeFactory)">
-            <summary>
-
-            </summary>
-            <param name="serviceScopeFactory"></param>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.Files.FileListService.Get(System.String,System.Threading.CancellationToken)">
-            <summary>
-
-            </summary>
-            <param name="path"></param>
-            <param name="stoppingToken"></param>
-            <returns></returns>
         </member>
         <member name="T:AStar.Dev.Database.Updater.Core.Models.ApiConfiguration">
             <summary>

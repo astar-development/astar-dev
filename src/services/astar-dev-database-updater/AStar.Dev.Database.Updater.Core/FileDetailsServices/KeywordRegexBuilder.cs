@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-namespace AStar.Dev.Database.Updater.Core.FileKeywordProcessor;
+namespace AStar.Dev.Database.Updater.Core.FileDetailsServices;
 
 /// <summary>
 ///     Provides helpers for building keyword regex patterns.

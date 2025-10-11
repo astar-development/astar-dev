@@ -44,8 +44,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="AStar.Dev.Utilities" Version="1.6.2"/>
-        <PackageReference Include="AStar.Dev.Functional.Extensions" Version="0.4.5"/>
         <PackageReference Include="AStar.Dev.Technical.Debt.Reporting" Version="0.2.1"/>
     </ItemGroup>
 

@@ -1,7 +1,7 @@
 using AStar.Dev.Database.Updater.Core.Models;
 using AStar.Dev.Infrastructure.FilesDb.Models;
 
-namespace AStar.Dev.Database.Updater.Core.Classifications;
+namespace AStar.Dev.Database.Updater.Core.ClassificationsServices;
 
 /// <summary>
 ///     Responsible for constructing FileClassification and FileNamePart entities.

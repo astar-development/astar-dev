@@ -1,6 +1,6 @@
 using AStar.Dev.Infrastructure.FilesDb.Models;
 
-namespace AStar.Dev.Database.Updater.Core.FileKeywordProcessor;
+namespace AStar.Dev.Database.Updater.Core.FileDetailsServices;
 
 /// <summary>
 /// </summary>

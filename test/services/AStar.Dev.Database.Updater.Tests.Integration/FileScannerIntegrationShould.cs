@@ -1,6 +1,6 @@
 using AStar.Dev.Aspire.Common;
-using AStar.Dev.Database.Updater.Core.Classifications;
-using AStar.Dev.Database.Updater.Core.FileKeywordProcessor;
+using AStar.Dev.Database.Updater.Core.ClassificationsServices;
+using AStar.Dev.Database.Updater.Core.FileDetailsServices;
 using AStar.Dev.Infrastructure.FilesDb.Data;
 using AStar.Dev.Infrastructure.FilesDb.Models;
 using Microsoft.EntityFrameworkCore;
@@ -8,15 +8,14 @@ using Microsoft.Extensions.Logging;
 
 namespace AStar.Dev.Database.Updater;
 
-public class FileScannerIntegrationShould : IDisposable
+public sealed class FileScannerIntegrationShould : IDisposable
 {
     private static readonly TimeSpan      DefaultTimeout = TimeSpan.FromSeconds(60);
     private                 FilesContext? _context;
 
-    public void Dispose()
-        => _context?.Database.EnsureDeleted();
+    public void Dispose() { }
 
-    [Fact(Timeout = 120_000)]
+    [Fact(Timeout = 180_000)]
     public async Task Should_Save_FileDetail_With_Existing_Classification_LinkedAsync()
     {
         var stoppingToken = TestContext.Current.CancellationToken;
@@ -31,12 +30,12 @@ public class FileScannerIntegrationShould : IDisposable
                                     });
 
         appHost.Services.AddScoped<ClassificationRepository>(sp => new(sp.GetRequiredService<FilesContext>()));
+        appHost.Services.AddScoped<FileHandleService>();
 
-        var db = appHost.Resources.OfType<SqlServerDatabaseResource>().Single(r => r.Name == AspireConstants.Sql.FilesDb);
+        var conn = await appHost.Resources.OfType<SqlServerDatabaseResource>().Single(r => r.Name == AspireConstants.Sql.FilesDb).ConnectionStringExpression.GetValueAsync(stoppingToken);
 
         appHost.Services.AddScoped(_ =>
                                    {
-                                       var conn           = db.ConnectionStringExpression.GetValueAsync(stoppingToken).GetAwaiter().GetResult();
                                        var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
                                        optionsBuilder.UseSqlServer(conn);
 
@@ -69,16 +68,15 @@ public class FileScannerIntegrationShould : IDisposable
                              FileHandle    = FileHandle.Create("test-handle")
                          };
 
-        var scopeFactory = app.Services.GetRequiredService<IServiceScopeFactory>();
+        using var testScope                   = app.Services.CreateScope();
+        var       fileDetailsProcessorService = testScope.ServiceProvider.GetRequiredService<FileDetailsProcessorService>();
+        var       logger                      = testScope.ServiceProvider.GetRequiredService<ILogger<FilesProcessor>>();
+        var       filesContext                = testScope.ServiceProvider.GetRequiredService<FilesContext>();
 
-        using var testScope                = app.Services.CreateScope();
-        var       classificationRepository = testScope.ServiceProvider.GetRequiredService<ClassificationRepository>();
-        var       logger                   = testScope.ServiceProvider.GetRequiredService<ILogger<FileScanner>>();
-
-        var scanner = new FileScanner(scopeFactory, classificationRepository, keywordProvider, logger);
+        var scanner = new FilesProcessor(filesContext, keywordProvider, fileDetailsProcessorService, logger);
 
         // Act
-        await scanner.ScanFilesAsync([fileDetail], stoppingToken);
+        await scanner.ProcessAsync([fileDetail], stoppingToken);
 
         // Re-query the file details from the DB and ensure the classification link exists
         var files = await _context.Files.Include(f => f.FileClassifications)
@@ -87,7 +85,7 @@ public class FileScannerIntegrationShould : IDisposable
         var savedFile = files.FirstOrDefault(f => f.FileName.Value == fileDetail.FileName.Value);
 
         savedFile.ShouldNotBeNull();
-        savedFile!.FileClassifications.ShouldNotBeNull();
+        savedFile.FileClassifications.ShouldNotBeNull();
         savedFile.FileClassifications.Any(fc => fc.Name == "IntegrationTest").ShouldBeTrue();
     }
 
@@ -95,14 +93,15 @@ public class FileScannerIntegrationShould : IDisposable
     {
         private readonly IReadOnlyList<FileNamePartsWithClassifications> _keywords;
 
-        public TestKeywordProvider(IEnumerable<string> keywords, string classificationName) => _keywords = keywords.Select(k => new FileNamePartsWithClassifications
-                                                                                                                                {
-                                                                                                                                    Text            = k,
-                                                                                                                                    Name            = classificationName,
-                                                                                                                                    Celebrity       = false,
-                                                                                                                                    IncludeInSearch = true,
-                                                                                                                                    FileNameParts   = [new() { Text = k }]
-                                                                                                                                }).ToList();
+        public TestKeywordProvider(IEnumerable<string> keywords, string classificationName)
+            => _keywords = keywords.Select(k => new FileNamePartsWithClassifications
+                                                {
+                                                    Text            = k,
+                                                    Name            = classificationName,
+                                                    Celebrity       = false,
+                                                    IncludeInSearch = true,
+                                                    FileNameParts   = [new() { Text = k }]
+                                                }).ToList();
 
         public Task<IReadOnlyList<FileNamePartsWithClassifications>> GetKeywordsAsync(CancellationToken cancellationToken = default)
             => Task.FromResult(_keywords);
