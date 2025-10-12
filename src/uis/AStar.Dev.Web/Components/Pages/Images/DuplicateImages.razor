@@ -8,31 +8,46 @@
     <DataAnnotationsValidator/>
     <FluentValidationSummary/>
 
-
-    <FluentStack Orientation="Orientation.Horizontal" Spacing="Spacing.Small">
-        <FluentGrid Spacing="@Spacing" AdaptiveRendering="true" Justify="@Justification" Style="padding: 4px; ">
-            <FluentGridItem xs="12">
-                <div class="card">
-                    xs="12"
-                </div>
-            </FluentGridItem>
-        </FluentGrid>
-
-
-        <div>>
-            <FluentTextField Name="startingDirectory" @bind-Value="SearchModel.StartingDirectory" Label="StartingDirectory" Required/>
-            <FluentValidationMessage For="@(() => SearchModel.StartingDirectory)"/>
-        </div>
-        <div>>
-            <FluentSelect Name="class" Id="classification" @bind-Value="SearchModel.SearchType" TOption="string" Required Label="File Classification">
-                <FluentOption Value="">Select classification ...</FluentOption>
-                <FluentOption Value="Images">Images</FluentOption>
-                <FluentOption Value="Files">Files</FluentOption>
-                <FluentOption Value="All">All</FluentOption>
-            </FluentSelect>
-            <FluentValidationMessage For="@(() => SearchModel.SearchType)"/>
-        </div>
-
-        <FluentButton Type="ButtonType.Submit" Appearance="Appearance.Accent">Start Search</FluentButton>
-    </FluentStack>
+    <FluentGrid Spacing="@_spacing" OnBreakpointEnter="@OnBreakpointEnterHandler" AdaptiveRendering="true" Justify="@_justifyContent" Style="background-color: var(--neutral-layer-3); padding: 4px; ">
+        <FluentGridItem xs="6" sm="3">
+            <div class="card">
+                xs="6" sm="3"
+                <FluentTextField Name="startingDirectory" @bind-Value="SearchModel.StartingDirectory" Label="StartingDirectory" Required style="width: 100%;"/>
+                <FluentValidationMessage For="@(() => SearchModel.StartingDirectory)"/>
+            </div>
+        </FluentGridItem>
+        <FluentGridItem xs="6" sm="3">
+            <div class="card">
+                xs="6" sm="3"
+                <FluentTextField Name="startingDirectory" @bind-Value="SearchModel.StartingDirectory" Label="StartingDirectory" Required style="width: 100%;"/>
+                <FluentValidationMessage For="@(() => SearchModel.StartingDirectory)"/>
+            </div>
+        </FluentGridItem>
+        <FluentGridItem xs="6" sm="3">
+            <div class="card">
+                xs="6" sm="3"
+                <FluentTextField Name="startingDirectory" @bind-Value="SearchModel.StartingDirectory" Label="StartingDirectory" Required/>
+                <FluentValidationMessage For="@(() => SearchModel.StartingDirectory)"/>
+            </div>
+        </FluentGridItem>
+        <FluentGridItem xs="6" sm="3">
+            <div class="card">
+                xs="6" sm="3"
+                <FluentTextField Name="startingDirectory" @bind-Value="SearchModel.StartingDirectory" Label="StartingDirectory" Required/>
+                <FluentValidationMessage For="@(() => SearchModel.StartingDirectory)"/>
+            </div>
+        </FluentGridItem>
+        <FluentGridItem xs="3">
+            <div class="card">
+                xs="3"
+                <FluentTextField Name="startingDirectory" @bind-Value="SearchModel.StartingDirectory" Label="StartingDirectory" Required/>
+                <FluentValidationMessage For="@(() => SearchModel.StartingDirectory)"/>
+            </div>
+        </FluentGridItem>
+        <FluentGridItem xs="12">
+            <div class="card">
+                <FluentButton Type="ButtonType.Submit" Appearance="Appearance.Accent" style="width: 100%;">Start Search</FluentButton>
+            </div>
+        </FluentGridItem>
+    </FluentGrid>
 </EditForm>

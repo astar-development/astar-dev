@@ -6,8 +6,8 @@ namespace AStar.Dev.Web.Components.Pages.Images;
 
 public partial class DuplicateImages : ComponentBase
 {
-    private readonly JustifyContent Justification = JustifyContent.FlexStart;
-    private readonly int            Spacing       = 3;
+    private readonly JustifyContent _justifyContent = JustifyContent.FlexStart;
+    private readonly int            _spacing        = 3;
 
     [SupplyParameterFromForm]
     private SearchModel SearchModel { get; } = new();
@@ -15,4 +15,6 @@ public partial class DuplicateImages : ComponentBase
     private void HandleValidSubmit()
     {
     }
+
+    private void OnBreakpointEnterHandler(GridItemSize size) => Console.WriteLine($"Page Size: {size}");
 }

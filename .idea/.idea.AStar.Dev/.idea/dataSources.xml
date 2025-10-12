@@ -78,5 +78,12 @@
       <jdbc-url>Server=127.0.0.1,32857;User ID=sa;Password=&lt;SecurePasswordHere1!&gt;;TrustServerCertificate=true</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="sql1" uuid="5ac15dc0-0abd-4568-9f58-1485b2eaa809">
+      <driver-ref>sqlserver.jb</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.jetbrains.jdbc.sqlserver.SqlServerDriver</jdbc-driver>
+      <jdbc-url>Server=127.0.0.1,40755;User ID=sa;Password=&lt;SecurePasswordHere1!&gt;;TrustServerCertificate=true</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
