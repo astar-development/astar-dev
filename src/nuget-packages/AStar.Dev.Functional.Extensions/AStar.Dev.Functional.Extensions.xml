@@ -11,13 +11,14 @@
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.EnumerableExtensions.FirstOrNone``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean})">
             <summary>
-                An extension method that, rather than returning null if no object matches the predicate, it will return a suitable instance of<see
-                    cref="T:AStar.Dev.Functional.Extensions.Option`1.None"/>.
+                An extension method that, rather than returning null if no object matches the predicate, it will return
+                a suitable instance of<see cref="T:AStar.Dev.Functional.Extensions.Option`1.None"/>.
             </summary>
             <typeparam name="T">The type of the parameter.</typeparam>
             <param name="sequence">The sequence of objects to search.</param>
             <param name="predicate">The predicate to apply.</param>
-            <returns>The option, containing the item or a suitable instance of<see cref="T:AStar.Dev.Functional.Extensions.Option`1.None"/>.
+            <returns>The option, containing the item or a suitable instance of<see
+                    cref="T:AStar.Dev.Functional.Extensions.Option`1.None"/>.
             </returns>
         </member>
         <member name="T:AStar.Dev.Functional.Extensions.ErrorResponse">
@@ -52,7 +53,8 @@
         </member>
         <member name="T:AStar.Dev.Functional.Extensions.OptionExtensions">
             <summary>
-                Functional helpers and utilities for working with<see cref="T:AStar.Dev.Functional.Extensions.Option`1"/>.
+                Functional helpers and utilities for working with<see
+                    cref="T:AStar.Dev.Functional.Extensions.Option`1"/>.
             </summary>
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.OptionExtensions.TryGetValue``1(AStar.Dev.Functional.Extensions.Option{``0},``0@)">
@@ -62,7 +64,8 @@
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.OptionExtensions.ToOption``1(``0)">
             <summary>
-                Converts a value to an<see cref="T:AStar.Dev.Functional.Extensions.Option`1"/>, treating default/null as <c>None</c>.
+                Converts a value to an<see cref="T:AStar.Dev.Functional.Extensions.Option`1"/>, treating default/null as <c>
+                None</c>.
             </summary>
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.OptionExtensions.ToOption``1(``0,System.Func{``0,System.Boolean})">
@@ -162,17 +165,20 @@
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.OptionExtensions.BindAsync``2(AStar.Dev.Functional.Extensions.Option{``0},System.Func{``0,System.Threading.Tasks.Task{AStar.Dev.Functional.Extensions.Option{``1}}})">
             <summary>
-                Asynchronously chains another<see cref="T:AStar.Dev.Functional.Extensions.Option`1"/>-producing function.
+                Asynchronously chains another<see cref="T:AStar.Dev.Functional.Extensions.Option`1"/>-producing
+                function.
             </summary>
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.OptionExtensions.BindAsync``2(System.Threading.Tasks.Task{AStar.Dev.Functional.Extensions.Option{``0}},System.Func{``0,AStar.Dev.Functional.Extensions.Option{``1}})">
             <summary>
-                Asynchronously chains another<see cref="T:AStar.Dev.Functional.Extensions.Option`1"/>-producing function.
+                Asynchronously chains another<see cref="T:AStar.Dev.Functional.Extensions.Option`1"/>-producing
+                function.
             </summary>
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.OptionExtensions.BindAsync``2(System.Threading.Tasks.Task{AStar.Dev.Functional.Extensions.Option{``0}},System.Func{``0,System.Threading.Tasks.Task{AStar.Dev.Functional.Extensions.Option{``1}}})">
             <summary>
-                Asynchronously chains another<see cref="T:AStar.Dev.Functional.Extensions.Option`1"/>-producing function.
+                Asynchronously chains another<see cref="T:AStar.Dev.Functional.Extensions.Option`1"/>-producing
+                function.
             </summary>
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.OptionExtensions.ToResultAsync``2(AStar.Dev.Functional.Extensions.Option{``0},System.Func{System.Threading.Tasks.Task{``1}})">
@@ -306,7 +312,8 @@
         </member>
         <member name="T:AStar.Dev.Functional.Extensions.Option`1">
             <summary>
-                Represents an optional value that may be present (<see cref="T:AStar.Dev.Functional.Extensions.Option`1.Some"/>) or absent (<see
+                Represents an optional value that may be present (<see
+                    cref="T:AStar.Dev.Functional.Extensions.Option`1.Some"/>) or absent (<see
                     cref="T:AStar.Dev.Functional.Extensions.Option`1.None"/>).
             </summary>
             <typeparam name="T">The type of the optional value.</typeparam>
@@ -315,7 +322,8 @@
             <summary>
                 Implicitly converts a value to an<see cref="T:AStar.Dev.Functional.Extensions.Option`1"/>.
             </summary>
-            <param name="value">The value to wrap. Null becomes<see cref="T:AStar.Dev.Functional.Extensions.Option`1.None"/>.
+            <param name="value">The value to wrap. Null becomes<see
+                    cref="T:AStar.Dev.Functional.Extensions.Option`1.None"/>.
             </param>
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.Option`1.Match``1(System.Func{`0,``0},System.Func{``0})">
@@ -328,7 +336,8 @@
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.Option`1.Equals(System.Object)">
             <summary>
-                Determines whether the specified object is equal to the current<see cref="T:AStar.Dev.Functional.Extensions.Option`1"/>.
+                Determines whether the specified object is equal to the current<see
+                    cref="T:AStar.Dev.Functional.Extensions.Option`1"/>.
             </summary>
             <param name="obj">The object to compare with the current instance.</param>
             <returns>
@@ -338,9 +347,12 @@
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.Option`1.GetHashCode">
             <summary>
-                Returns a hash code for the current instance of the<see cref="T:AStar.Dev.Functional.Extensions.Option`1"/>.
-                For<see cref="T:AStar.Dev.Functional.Extensions.Option`1.Some"/>, the hash code is computed based on its type and value.
-                For<see cref="T:AStar.Dev.Functional.Extensions.Option`1.None"/>, the hash code is derived from its type.
+                Returns a hash code for the current instance of the<see
+                    cref="T:AStar.Dev.Functional.Extensions.Option`1"/>.
+                For<see cref="T:AStar.Dev.Functional.Extensions.Option`1.Some"/>, the hash code is computed based on its
+                type and value.
+                For<see cref="T:AStar.Dev.Functional.Extensions.Option`1.None"/>, the hash code is derived from its
+                type.
             </summary>
             <returns>
                 An integer representing the hash code of the current instance.
@@ -560,7 +572,8 @@
         </member>
         <member name="T:AStar.Dev.Functional.Extensions.ResultExtensions">
             <summary>
-                Provides functional operations for transforming and composing<see cref="T:AStar.Dev.Functional.Extensions.Result`2"/>.
+                Provides functional operations for transforming and composing<see
+                    cref="T:AStar.Dev.Functional.Extensions.Result`2"/>.
             </summary>
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.ResultExtensions.MatchAsync``3(System.Threading.Tasks.Task{AStar.Dev.Functional.Extensions.Result{``0,``1}},System.Func{``0,System.Threading.Tasks.Task{``2}},System.Func{``1,System.Threading.Tasks.Task{``2}})">
@@ -731,7 +744,8 @@
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.ResultExtensions.Bind``3(AStar.Dev.Functional.Extensions.Result{``0,``1},System.Func{``0,AStar.Dev.Functional.Extensions.Result{``2,``1}})">
             <summary>
-                Chains the current result to another<see cref="T:AStar.Dev.Functional.Extensions.Result`2"/>-producing function,
+                Chains the current result to another<see cref="T:AStar.Dev.Functional.Extensions.Result`2"/>-producing
+                function,
                 allowing for functional composition across result types.
             </summary>
             <typeparam name="TSuccess">The original type of the success value.</typeparam>
@@ -746,14 +760,16 @@
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.ResultExtensions.BindAsync``3(AStar.Dev.Functional.Extensions.Result{``0,``1},System.Func{``0,System.Threading.Tasks.Task{AStar.Dev.Functional.Extensions.Result{``2,``1}}})">
             <summary>
-                Asynchronously chains the current result to another<see cref="T:AStar.Dev.Functional.Extensions.Result`2"/>-producing function,
+                Asynchronously chains the current result to another<see
+                    cref="T:AStar.Dev.Functional.Extensions.Result`2"/>-producing function,
                 allowing for functional composition across result types.
             </summary>
             <typeparam name="TSuccess">The original type of the success value.</typeparam>
             <typeparam name="TError">The type of the error value.</typeparam>
             <typeparam name="TNew">The type of the new result's success value.</typeparam>
             <param name="result">The result to bind.</param>
-            <param name="bindAsync">An asynchronous function that returns a new<see cref="T:AStar.Dev.Functional.Extensions.Result`2"/>.
+            <param name="bindAsync">An asynchronous function that returns a new<see
+                    cref="T:AStar.Dev.Functional.Extensions.Result`2"/>.
             </param>
             <returns>
                 A task representing the result of the binding function if the original was successful; otherwise, the original error.
@@ -761,7 +777,8 @@
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.ResultExtensions.BindAsync``3(System.Threading.Tasks.Task{AStar.Dev.Functional.Extensions.Result{``0,``1}},System.Func{``0,AStar.Dev.Functional.Extensions.Result{``2,``1}})">
             <summary>
-                Asynchronously chains the current result to another<see cref="T:AStar.Dev.Functional.Extensions.Result`2"/>-producing function,
+                Asynchronously chains the current result to another<see
+                    cref="T:AStar.Dev.Functional.Extensions.Result`2"/>-producing function,
                 allowing for functional composition across result types.
             </summary>
             <typeparam name="TSuccess">The original type of the success value.</typeparam>
@@ -776,14 +793,16 @@
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.ResultExtensions.BindAsync``3(System.Threading.Tasks.Task{AStar.Dev.Functional.Extensions.Result{``0,``1}},System.Func{``0,System.Threading.Tasks.Task{AStar.Dev.Functional.Extensions.Result{``2,``1}}})">
             <summary>
-                Asynchronously chains the current result to another<see cref="T:AStar.Dev.Functional.Extensions.Result`2"/>-producing function,
+                Asynchronously chains the current result to another<see
+                    cref="T:AStar.Dev.Functional.Extensions.Result`2"/>-producing function,
                 allowing for functional composition across result types.
             </summary>
             <typeparam name="TSuccess">The original type of the success value.</typeparam>
             <typeparam name="TError">The type of the error value.</typeparam>
             <typeparam name="TNew">The type of the new result's success value.</typeparam>
             <param name="resultTask">A task representing the result to bind.</param>
-            <param name="bindAsync">An asynchronous function that returns a new<see cref="T:AStar.Dev.Functional.Extensions.Result`2"/>.
+            <param name="bindAsync">An asynchronous function that returns a new<see
+                    cref="T:AStar.Dev.Functional.Extensions.Result`2"/>.
             </param>
             <returns>
                 A task representing the result of the binding function if the original was successful; otherwise, the original error.
@@ -791,7 +810,8 @@
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.ResultExtensions.Tap``2(AStar.Dev.Functional.Extensions.Result{``0,``1},System.Action{``0})">
             <summary>
-                Executes a side-effect action on the success value of a<see cref="T:AStar.Dev.Functional.Extensions.Result`2"/>,
+                Executes a side-effect action on the success value of a<see
+                    cref="T:AStar.Dev.Functional.Extensions.Result`2"/>,
                 returning the original result unchanged.
             </summary>
             <typeparam name="TSuccess">The type of the success value.</typeparam>
@@ -806,7 +826,8 @@
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.ResultExtensions.TapError``2(AStar.Dev.Functional.Extensions.Result{``0,``1},System.Action{``1})">
             <summary>
-                Executes a side-effect action on the error value of a<see cref="T:AStar.Dev.Functional.Extensions.Result`2"/>,
+                Executes a side-effect action on the error value of a<see
+                    cref="T:AStar.Dev.Functional.Extensions.Result`2"/>,
                 returning the original result unchanged.
             </summary>
             <typeparam name="TSuccess">The type of the success value.</typeparam>
@@ -821,7 +842,8 @@
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.ResultExtensions.TapAsync``2(AStar.Dev.Functional.Extensions.Result{``0,``1},System.Func{``0,System.Threading.Tasks.Task})">
             <summary>
-                Asynchronously executes a side-effect action on the success value of a<see cref="T:AStar.Dev.Functional.Extensions.Result`2"/>,
+                Asynchronously executes a side-effect action on the success value of a<see
+                    cref="T:AStar.Dev.Functional.Extensions.Result`2"/>,
                 returning the original result unchanged.
             </summary>
             <typeparam name="TSuccess">The type of the success value.</typeparam>
@@ -836,7 +858,8 @@
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.ResultExtensions.TapAsync``2(System.Threading.Tasks.Task{AStar.Dev.Functional.Extensions.Result{``0,``1}},System.Func{``0,System.Threading.Tasks.Task})">
             <summary>
-                Asynchronously executes a side-effect action on the success value of a<see cref="T:AStar.Dev.Functional.Extensions.Result`2"/>,
+                Asynchronously executes a side-effect action on the success value of a<see
+                    cref="T:AStar.Dev.Functional.Extensions.Result`2"/>,
                 returning the original result unchanged.
             </summary>
             <typeparam name="TSuccess">The type of the success value.</typeparam>
@@ -851,7 +874,8 @@
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.ResultExtensions.TapAsync``2(System.Threading.Tasks.Task{AStar.Dev.Functional.Extensions.Result{``0,``1}},System.Action{``0})">
             <summary>
-                Executes a side-effect action on the success value of a<see cref="T:AStar.Dev.Functional.Extensions.Result`2"/>,
+                Executes a side-effect action on the success value of a<see
+                    cref="T:AStar.Dev.Functional.Extensions.Result`2"/>,
                 returning the original result unchanged.
             </summary>
             <typeparam name="TSuccess">The type of the success value.</typeparam>
@@ -866,7 +890,8 @@
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.ResultExtensions.TapErrorAsync``2(AStar.Dev.Functional.Extensions.Result{``0,``1},System.Func{``1,System.Threading.Tasks.Task})">
             <summary>
-                Asynchronously executes a side-effect action on the error value of a<see cref="T:AStar.Dev.Functional.Extensions.Result`2"/>,
+                Asynchronously executes a side-effect action on the error value of a<see
+                    cref="T:AStar.Dev.Functional.Extensions.Result`2"/>,
                 returning the original result unchanged.
             </summary>
             <typeparam name="TSuccess">The type of the success value.</typeparam>
@@ -881,7 +906,8 @@
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.ResultExtensions.TapErrorAsync``2(System.Threading.Tasks.Task{AStar.Dev.Functional.Extensions.Result{``0,``1}},System.Action{``1})">
             <summary>
-                Executes a side-effect action on the error value of a<see cref="T:AStar.Dev.Functional.Extensions.Result`2"/>,
+                Executes a side-effect action on the error value of a<see
+                    cref="T:AStar.Dev.Functional.Extensions.Result`2"/>,
                 returning the original result unchanged.
             </summary>
             <typeparam name="TSuccess">The type of the success value.</typeparam>
@@ -896,7 +922,8 @@
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.ResultExtensions.TapErrorAsync``2(System.Threading.Tasks.Task{AStar.Dev.Functional.Extensions.Result{``0,``1}},System.Func{``1,System.Threading.Tasks.Task})">
             <summary>
-                Asynchronously executes a side-effect action on the error value of a<see cref="T:AStar.Dev.Functional.Extensions.Result`2"/>,
+                Asynchronously executes a side-effect action on the error value of a<see
+                    cref="T:AStar.Dev.Functional.Extensions.Result`2"/>,
                 returning the original result unchanged.
             </summary>
             <typeparam name="TSuccess">The type of the success value.</typeparam>
@@ -942,8 +969,8 @@
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.TryExtensions.ToErrorResponse``1(AStar.Dev.Functional.Extensions.Result{``0,System.Exception})">
             <summary>
-                Converts a Result with an Exception to a Result with an ErrorResponse (specifically, the base exception message is mapped to the ErrorResponse - please note: NO translation
-                happens...).
+                Converts a Result with an Exception to a Result with an ErrorResponse (specifically, the base exception
+                message is mapped to the ErrorResponse - please note: NO translation happens...).
             </summary>
             <typeparam name="T">The type of the successful result</typeparam>
             <param name="result">The Result object being extended.</param>
@@ -951,8 +978,8 @@
         </member>
         <member name="M:AStar.Dev.Functional.Extensions.TryExtensions.ToErrorResponseAsync``1(System.Threading.Tasks.Task{AStar.Dev.Functional.Extensions.Result{``0,System.Exception}})">
             <summary>
-                Converts a Result with an Exception to a Result with an ErrorResponse (specifically, the base exception message is mapped to the ErrorResponse - please note: NO translation
-                happens...).
+                Converts a Result with an Exception to a Result with an ErrorResponse (specifically, the base exception
+                message is mapped to the ErrorResponse - please note: NO translation happens...).
             </summary>
             <typeparam name="T">The type of the successful result</typeparam>
             <param name="result">The Result object being extended.</param>

@@ -16663,7 +16663,7 @@
       <AssembliesChecksum>19721854</AssembliesChecksum>
       <Current>1</Current>
       <FileGroupsChecksum>2580033660301081</FileGroupsChecksum>
-      <Fingerprint>1.37717/00000000-0000-0000-0000-000000000000@bb5f151f1555</Fingerprint>
+      <Fingerprint>1.37717/00000000-0000-0000-0000-000000000000@f073b6fcd9a0</Fingerprint>
       <Grants>1|database||1|connect|G
 1|database||2|connect|G
 1|database||5|connect|G
@@ -16688,8 +16688,8 @@
       <ObjectId>2</ObjectId>
       <CollationName>SQL_Latin1_General_CP1_CI_AS</CollationName>
     </database>
-    <linked-server id="5548" parent="1" name="bb5f151f1555">
-      <DataSource>bb5f151f1555</DataSource>
+    <linked-server id="5548" parent="1" name="f073b6fcd9a0">
+      <DataSource>f073b6fcd9a0</DataSource>
       <Product>SQL Server</Product>
       <ProviderName>SQLNCLI</ProviderName>
     </linked-server>
@@ -16702,96 +16702,115 @@
       <Enabled>1</Enabled>
       <ObjectId>2</ObjectId>
       <Type>server-role</Type>
+      <OwnerId>1</OwnerId>
     </login>
     <login id="5551" parent="1" name="sysadmin">
       <Enabled>1</Enabled>
       <ObjectId>3</ObjectId>
       <Type>server-role</Type>
+      <OwnerId>1</OwnerId>
     </login>
     <login id="5552" parent="1" name="securityadmin">
       <Enabled>1</Enabled>
       <ObjectId>4</ObjectId>
       <Type>server-role</Type>
+      <OwnerId>1</OwnerId>
     </login>
     <login id="5553" parent="1" name="serveradmin">
       <Enabled>1</Enabled>
       <ObjectId>5</ObjectId>
       <Type>server-role</Type>
+      <OwnerId>1</OwnerId>
     </login>
     <login id="5554" parent="1" name="setupadmin">
       <Enabled>1</Enabled>
       <ObjectId>6</ObjectId>
       <Type>server-role</Type>
+      <OwnerId>1</OwnerId>
     </login>
     <login id="5555" parent="1" name="processadmin">
       <Enabled>1</Enabled>
       <ObjectId>7</ObjectId>
       <Type>server-role</Type>
+      <OwnerId>1</OwnerId>
     </login>
     <login id="5556" parent="1" name="diskadmin">
       <Enabled>1</Enabled>
       <ObjectId>8</ObjectId>
       <Type>server-role</Type>
+      <OwnerId>1</OwnerId>
     </login>
     <login id="5557" parent="1" name="dbcreator">
       <Enabled>1</Enabled>
       <ObjectId>9</ObjectId>
       <Type>server-role</Type>
+      <OwnerId>1</OwnerId>
     </login>
     <login id="5558" parent="1" name="bulkadmin">
       <Enabled>1</Enabled>
       <ObjectId>10</ObjectId>
       <Type>server-role</Type>
+      <OwnerId>1</OwnerId>
     </login>
     <login id="5559" parent="1" name="##MS_ServerStateReader##">
       <Enabled>1</Enabled>
       <ObjectId>11</ObjectId>
       <Type>server-role</Type>
+      <OwnerId>1</OwnerId>
     </login>
     <login id="5560" parent="1" name="##MS_ServerStateManager##">
       <Enabled>1</Enabled>
       <ObjectId>12</ObjectId>
       <Type>server-role</Type>
+      <OwnerId>1</OwnerId>
     </login>
     <login id="5561" parent="1" name="##MS_DefinitionReader##">
       <Enabled>1</Enabled>
       <ObjectId>13</ObjectId>
       <Type>server-role</Type>
+      <OwnerId>1</OwnerId>
     </login>
     <login id="5562" parent="1" name="##MS_DatabaseConnector##">
       <Enabled>1</Enabled>
       <ObjectId>14</ObjectId>
       <Type>server-role</Type>
+      <OwnerId>1</OwnerId>
     </login>
     <login id="5563" parent="1" name="##MS_DatabaseManager##">
       <Enabled>1</Enabled>
       <ObjectId>15</ObjectId>
       <Type>server-role</Type>
+      <OwnerId>1</OwnerId>
     </login>
     <login id="5564" parent="1" name="##MS_LoginManager##">
       <Enabled>1</Enabled>
       <ObjectId>16</ObjectId>
       <Type>server-role</Type>
+      <OwnerId>1</OwnerId>
     </login>
     <login id="5565" parent="1" name="##MS_SecurityDefinitionReader##">
       <Enabled>1</Enabled>
       <ObjectId>17</ObjectId>
       <Type>server-role</Type>
+      <OwnerId>1</OwnerId>
     </login>
     <login id="5566" parent="1" name="##MS_PerformanceDefinitionReader##">
       <Enabled>1</Enabled>
       <ObjectId>18</ObjectId>
       <Type>server-role</Type>
+      <OwnerId>1</OwnerId>
     </login>
     <login id="5567" parent="1" name="##MS_ServerSecurityStateReader##">
       <Enabled>1</Enabled>
       <ObjectId>19</ObjectId>
       <Type>server-role</Type>
+      <OwnerId>1</OwnerId>
     </login>
     <login id="5568" parent="1" name="##MS_ServerPerformanceStateReader##">
       <Enabled>1</Enabled>
       <ObjectId>20</ObjectId>
       <Type>server-role</Type>
+      <OwnerId>1</OwnerId>
     </login>
     <login id="5569" parent="1" name="##MS_SQLResourceSigningCertificate##">
       <DefaultDatabase>master</DefaultDatabase>
@@ -16989,9 +17008,9 @@
 149575571|||0|select|G
 2107154552|||0|select|G
 2123154609|||0|select|G</Grants>
-      <IntrospectionTimestamp>2025-10-02.23:25:26</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2025-10-15.21:48:54</IntrospectionTimestamp>
       <LastIntrospectionLevel>3</LastIntrospectionLevel>
-      <LastIntrospectionLocalTimestamp>2025-10-02.22:25:30</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-10-15.20:48:56</LastIntrospectionLocalTimestamp>
       <ObjectId>1</ObjectId>
       <PermissionsCheckSum>5535732753</PermissionsCheckSum>
     </schema>

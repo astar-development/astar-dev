@@ -75,7 +75,7 @@ public static class DistributedApplicationBuilderExtensions
                                      .WithReference(filesDb)
                                      .WaitFor(filesDb)
                                      .WithReference(migrations)
-                                     .WaitFor(migrations)
+                                     .WaitForCompletion(migrations)
                                      .WithReference(rabbitMq)
                                      .WaitFor(rabbitMq)
                                      .WithHttpHealthCheck(HealthEndpoint);
@@ -86,7 +86,7 @@ public static class DistributedApplicationBuilderExtensions
                                      .WithReference(filesDb)
                                      .WaitFor(filesDb)
                                      .WithReference(migrations)
-                                     .WaitFor(migrations)
+                                     .WaitForCompletion(migrations)
                                      .WithReference(rabbitMq)
                                      .WaitFor(rabbitMq)
                                      .WithParentRelationship(sqlServer);

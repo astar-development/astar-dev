@@ -20,7 +20,8 @@
         <Project Path="src/apis/AStar.Dev.ToDo.Api/AStar.Dev.ToDo.Api.csproj"/>
     </Folder>
     <Folder Name="/src/nuget-packages/">
-        <Project Path="src\nuget-packages\AStar.Dev.Functional.Extensions\AStar.Dev.Functional.Extensions.csproj" Type="Classic C#"/>
+        <Project Path="src\nuget-packages\AStar.Dev.Functional.Extensions\AStar.Dev.Functional.Extensions.csproj"
+                 Type="Classic C#"/>
         <Project Path="src\nuget-packages\AStar.Dev.Infrastructure.FilesDb\AStar.Dev.Infrastructure.FilesDb.csproj"/>
         <Project Path="src\nuget-packages\AStar.Dev.Infrastructure\AStar.Dev.Infrastructure.csproj"/>
         <Project Path="src\nuget-packages\AStar.Dev.Utilities\AStar.Dev.Utilities.csproj" Type="Classic C#"/>
@@ -30,11 +31,14 @@
         <Project Path="src/services/AStar.Dev.Wallpaper.Scrapper/AStar.Dev.Wallpaper.Scrapper.csproj"/>
     </Folder>
     <Folder Name="/src/services/astar-dev-database-updater/">
-        <Project Path="src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.csproj"/>
-        <Project Path="src\services\astar-dev-database-updater\AStar.Dev.Database.Updater\AStar.Dev.Database.Updater.csproj"/>
+        <Project
+                Path="src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.csproj"/>
+        <Project
+                Path="src\services\astar-dev-database-updater\AStar.Dev.Database.Updater\AStar.Dev.Database.Updater.csproj"/>
     </Folder>
     <Folder Name="/src/services/migrations/">
-        <Project Path="src/services/migrations/AStar.Dev.FilesDb.MigrationService/AStar.Dev.FilesDb.MigrationService.csproj"/>
+        <Project
+                Path="src/services/migrations/AStar.Dev.FilesDb.MigrationService/AStar.Dev.FilesDb.MigrationService.csproj"/>
     </Folder>
     <Folder Name="/src/uis/">
         <Project Path="src/uis/AStar.Dev.Web/AStar.Dev.Web.csproj"/>
@@ -44,7 +48,9 @@
         <Project Path="src\_aspire\AStar.Dev.Aspire.Common\AStar.Dev.Aspire.Common.csproj" Type="Classic C#"/>
         <Project Path="src\_aspire\AStar.Dev.ServiceDefaults\AStar.Dev.ServiceDefaults.csproj" Type="Classic C#"/>
     </Folder>
-    <Folder Name="/test/"/>
+    <Folder Name="/test/">
+        <Project Path="test\test-helpers\AStar.Dev.TestHelpers\AStar.Dev.TestHelpers.csproj" Type="Classic C#"/>
+    </Folder>
     <Folder Name="/test/apis/"/>
     <Folder Name="/test/apis/AStar.Dev.Admin.Api/">
         <Project Path="test/apis/AStar.Dev.Admin.Api.Tests.EndToEnd/AStar.Dev.Admin.Api.Tests.EndToEnd.csproj"/>
@@ -62,12 +68,20 @@
         <Project Path="test/apis/AStar.Dev.Images.Api.Tests.Unit/AStar.Dev.Images.Api.Tests.Unit.csproj"/>
     </Folder>
     <Folder Name="/test/nuget-packages/">
-        <Project Path="test/services/AStar.Dev.Database.Updater.Core.Tests.Unit/AStar.Dev.Database.Updater.Core.Tests.Unit.csproj"/>
-        <Project Path="test/services/AStar.Dev.Database.Updater.Tests.Integration/AStar.Dev.Database.Updater.Tests.Integration.csproj"/>
-        <Project Path="test/services/AStar.Dev.Database.Updater.Tests.Unit/AStar.Dev.Database.Updater.Tests.Unit.csproj"/>
-        <Project Path="test\nuget-packages\AStar.Dev.Functional.Extensions.Tests.Unit\AStar.Dev.Functional.Extensions.Tests.Unit.csproj" Type="Classic C#"/>
-        <Project Path="test\nuget-packages\AStar.Dev.Test.Helpers.EndToEnd.Tests.Unit\AStar.Dev.Test.Helpers.EndToEnd.Tests.Unit.csproj" Type="Classic C#"/>
-        <Project Path="test\nuget-packages\AStar.Dev.Utilities.Tests.Unit\AStar.Dev.Utilities.Tests.Unit.csproj" Type="Classic C#"/>
+        <Project
+                Path="test/services/AStar.Dev.Database.Updater.Core.Tests.Unit/AStar.Dev.Database.Updater.Core.Tests.Unit.csproj"/>
+        <Project
+                Path="test/services/AStar.Dev.Database.Updater.Tests.Integration/AStar.Dev.Database.Updater.Tests.Integration.csproj"/>
+        <Project
+                Path="test/services/AStar.Dev.Database.Updater.Tests.Unit/AStar.Dev.Database.Updater.Tests.Unit.csproj"/>
+        <Project
+                Path="test\nuget-packages\AStar.Dev.Functional.Extensions.Tests.Unit\AStar.Dev.Functional.Extensions.Tests.Unit.csproj"
+                Type="Classic C#"/>
+        <Project
+                Path="test\nuget-packages\AStar.Dev.Test.Helpers.EndToEnd.Tests.Unit\AStar.Dev.Test.Helpers.EndToEnd.Tests.Unit.csproj"
+                Type="Classic C#"/>
+        <Project Path="test\nuget-packages\AStar.Dev.Utilities.Tests.Unit\AStar.Dev.Utilities.Tests.Unit.csproj"
+                 Type="Classic C#"/>
     </Folder>
     <Folder Name="/test/uis/">
         <Project Path="test/uis/AStar.Dev.Web.UI.Tests.Integration/AStar.Dev.Web.UI.Tests.Integration.csproj"/>
