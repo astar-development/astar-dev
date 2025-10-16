@@ -24,8 +24,8 @@ public static class SqliteTestHelper
     public static async Task<FilesContext> CreateContextAsync(SqliteConnection connection)
     {
         var options = new DbContextOptionsBuilder<FilesContext>()
-                      .UseSqlite(connection)
-                      .Options;
+            .UseSqlite(connection)
+            .Options;
 
         var ctx = new FilesContext(options);
         await ctx.Database.EnsureCreatedAsync();

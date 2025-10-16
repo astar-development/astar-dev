@@ -13,6 +13,7 @@
             <FluentNavLink Href="weather" Icon="@(new Size20.WeatherPartlyCloudyDay())" IconColor="Color.Accent">Weather</FluentNavLink>
             <FluentNavLink Href="nuget-documentation" Icon="@(new Size20.Document())" IconColor="Color.Accent">NuGet Documentation</FluentNavLink>
             <FluentNavLink Href="kids-games" Icon="@(new Size20.Games())" IconColor="Color.Accent">Kids Games</FluentNavLink>
+            <FluentNavLink Href="/images/duplicate-images" Icon="@(new Size20.People())" IconColor="Color.Accent">Duplicate Images</FluentNavLink>
 
             @if (!_isAuthenticated)
             {
@@ -20,6 +21,7 @@
             }
             else
             {
+                <FluentNavLink Href="/images/duplicate-images" Icon="@(new Size20.People())" IconColor="Color.Accent">Duplicate Images</FluentNavLink>
                 <FluentNavLink Href="MicrosoftIdentity/Account/SignOut" Icon="@(new Size20.SignOut())" IconColor="Color.Accent">Sign out, @_firstName</FluentNavLink>
             }
         </FluentNavMenu>

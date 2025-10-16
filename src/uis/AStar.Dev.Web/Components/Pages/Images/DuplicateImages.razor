@@ -1,6 +1,9 @@
 @page "/images/duplicate-images"
+@using AStar.Dev.Web.Components.Pages.Shared
+@attribute [AllowAnonymous]
 
 <PageTitle>@App.PageTitle("Duplicate Images")</PageTitle>
 
 <h1>Duplicate Images</h1>
 
+<Search OnValidSubmit="@HandleValidSubmit"/>

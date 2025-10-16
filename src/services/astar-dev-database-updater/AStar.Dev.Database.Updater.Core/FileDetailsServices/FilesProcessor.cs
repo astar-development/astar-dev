@@ -10,7 +10,11 @@ namespace AStar.Dev.Database.Updater.Core.FileDetailsServices;
 ///     The FilesProcessor class is responsible for processing files to check for keywords
 ///     or specific classifications using provided services for classification and keyword detection.
 /// </summary>
-public class FilesProcessor(FilesContext filesContext, IKeywordProvider keywordProvider, FileDetailsProcessorService fileDetailsProcessorService, ILogger<FilesProcessor> logger)
+public class FilesProcessor(
+    FilesContext filesContext,
+    IKeywordProvider keywordProvider,
+    FileDetailsProcessorService fileDetailsProcessorService,
+    ILogger<FilesProcessor> logger)
 {
     /// <summary>
     ///     Processes a collection of files to process keywords, applying regex patterns to identify matches,
@@ -68,7 +72,8 @@ public class FilesProcessor(FilesContext filesContext, IKeywordProvider keywordP
         return await SaveFileDetailsAsync(writeCount, fileDetails, cancellationToken);
     }
 
-    private async Task<Result<bool, ErrorResponse>> SaveFileDetailsAsync(int writeCount, List<FileDetail> fileDetails, CancellationToken cancellationToken)
+    private async Task<Result<bool, ErrorResponse>> SaveFileDetailsAsync(int writeCount, List<FileDetail> fileDetails,
+        CancellationToken cancellationToken)
         => await Try.RunAsync(async () =>
                               {
                                   filesContext.Files.AddRange(fileDetails);

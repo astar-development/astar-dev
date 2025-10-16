@@ -26,25 +26,28 @@ public class FileKeywordProcessorBackgroundService(IServiceScopeFactory serviceS
     /// <inheritdoc />
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        var (rootDirectory, fileScanner, fileListService) = GetRequiredServices();
+        var (databaseUpdaterConfiguration, fileScanner, fileListService) = GetRequiredServices();
 
-        await fileListService.Get(rootDirectory, stoppingToken)
-                             .MatchAsync(
-                                         fileList => fileScanner.ProcessAsync(fileList, stoppingToken),
-                                         error =>
-                                         {
-                                             _logger.LogError("Error in FileKeywordProcessorService: {Error}", error.Message);
+        if(databaseUpdaterConfiguration.RunNewFilesService)
+        {
+            await fileListService.Get(databaseUpdaterConfiguration.RootDirectory, stoppingToken)
+                .MatchAsync(
+                    fileList => fileScanner.ProcessAsync(fileList, stoppingToken),
+                    error =>
+                    {
+                        _logger.LogError("Error in FileKeywordProcessorService: {Error}", error.Message);
 
-                                             return Task.CompletedTask;
-                                         });
+                        return Task.CompletedTask;
+                    });
+        }
     }
 
-    private (string config, FilesProcessor fileScanner, FileListService fileListService) GetRequiredServices()
+    private (DatabaseUpdaterConfiguration config, FilesProcessor fileScanner, FileListService fileListService) GetRequiredServices()
     {
-        using var scope           = serviceScopeFactory.CreateScope();
-        var       config          = scope.ServiceProvider.GetRequiredService<IOptions<DatabaseUpdaterConfiguration>>().Value.RootDirectory;
-        var       fileScanner     = scope.ServiceProvider.GetRequiredService<FilesProcessor>();
-        var       fileListService = scope.ServiceProvider.GetRequiredService<FileListService>();
+        using var scope = serviceScopeFactory.CreateScope();
+        var config = scope.ServiceProvider.GetRequiredService<IOptions<DatabaseUpdaterConfiguration>>().Value;
+        var fileScanner = scope.ServiceProvider.GetRequiredService<FilesProcessor>();
+        var fileListService = scope.ServiceProvider.GetRequiredService<FileListService>();
         _logger = scope.ServiceProvider.GetRequiredService<ILogger<FileKeywordProcessorBackgroundService>>();
 
         return (config, fileScanner, fileListService);

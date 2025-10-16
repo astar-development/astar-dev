@@ -3,6 +3,7 @@ using AStar.Dev.Functional.Extensions;
 using AStar.Dev.Infrastructure.FilesDb.Data;
 using AStar.Dev.Infrastructure.FilesDb.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace AStar.Dev.Database.Updater.Core.FileDetailsServices;
 
@@ -10,7 +11,7 @@ namespace AStar.Dev.Database.Updater.Core.FileDetailsServices;
 ///     Service responsible for retrieving a list of file paths from a specified directory,
 ///     excluding those already present in the database context.
 /// </summary>
-public class FileListService(IFileSystem fileSystem, FilesContext filesContext)
+public class FileListService(IFileSystem fileSystem, IServiceScopeFactory scopeFactory)
 {
     /// <summary>
     ///     Retrieves a list of file details for the files located in the specified directory path that are not already present in the database.
@@ -24,7 +25,7 @@ public class FileListService(IFileSystem fileSystem, FilesContext filesContext)
     public async Task<Result<List<FileDetail>, ErrorResponse>> Get(string path, CancellationToken stoppingToken)
     {
         var enumerationOptions = new EnumerationOptions { IgnoreInaccessible = true, RecurseSubdirectories = true, ReturnSpecialDirectories = false };
-
+        var filesContext = scopeFactory.CreateScope().ServiceProvider.GetRequiredService<FilesContext>();
         var filesAlreadyInTheContext = await filesContext.Files.AsNoTracking().Select(f => f.FullNameWithPath).ToListAsync(stoppingToken);
 
         return GetFileList(path, enumerationOptions)
