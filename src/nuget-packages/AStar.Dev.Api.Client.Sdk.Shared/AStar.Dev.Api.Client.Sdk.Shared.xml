@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AStar.Dev.Api.Client.Sdk.Shared</name>
+    </assembly>
+    <members>
+        <member name="T:AStar.Dev.Api.Client.Sdk.Shared.AddApiHttpClient">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Api.Client.Sdk.Shared.AddApiHttpClient.AddApiClient``2(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.String[])">
+            <summary>
+            </summary>
+            <param name="services"></param>
+            <param name="scopes"></param>
+            <typeparam name="TApiClient"></typeparam>
+            <typeparam name="TApiConfiguration"></typeparam>
+        </member>
+        <member name="T:AStar.Dev.Api.Client.Sdk.Shared.IApiConfiguration">
+            <summary>
+                Defines the
+                <see cref="T:AStar.Dev.Api.Client.Sdk.Shared.IApiConfiguration"/>
+                interface
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Api.Client.Sdk.Shared.IApiConfiguration.BaseUrl">
+            <summary>
+                Gets or sets the Base URL for the API
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Api.Client.Sdk.Shared.IApiConfiguration.Scopes">
+            <summary>
+                Gets or sets the Scopes for the API
+            </summary>
+        </member>
+    </members>
+</doc>

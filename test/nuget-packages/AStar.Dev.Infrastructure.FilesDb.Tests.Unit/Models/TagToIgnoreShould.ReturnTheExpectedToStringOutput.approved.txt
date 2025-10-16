@@ -1,0 +1,5 @@
+﻿{
+  "id": 0,
+  "value": "",
+  "ignoreImage": false
+}

@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AStar.Dev.Usage.Api.Client.SDK</name>
+    </assembly>
+    <members>
+        <member name="T:AStar.Dev.Usage.Api.Client.SDK.Constants">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Usage.Api.Client.SDK.Constants"/>
+                class containing the project-specific constants
+            </summary>
+        </member>
+        <member name="F:AStar.Dev.Usage.Api.Client.SDK.Constants.ApiName">
+            <summary>
+                Gets the Api Name
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Usage.Api.Client.SDK.UsageApi.UsageApiConfiguration">
+            <summary>
+                The <see href="UsageApiConfiguration"></see> class containing the current configuration settings
+            </summary>
+        </member>
+        <member name="F:AStar.Dev.Usage.Api.Client.SDK.UsageApi.UsageApiConfiguration.SectionLocation">
+            <summary>
+                Gets the Section Location for the API configuration from within the appSettings.Json file
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Usage.Api.Client.SDK.UsageApi.UsageApiConfiguration.BaseUrl">
+            <inheritdoc/>
+        </member>
+        <member name="P:AStar.Dev.Usage.Api.Client.SDK.UsageApi.UsageApiConfiguration.Scopes">
+            <inheritdoc/>
+        </member>
+        <member name="T:AStar.Dev.Usage.Api.Client.SDK.UsageApi.UsageApiClient">
+            <summary>
+                The <see href="Images.ApiClient"></see> class
+            </summary>
+            <param name="httpClient"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:AStar.Dev.Usage.Api.Client.SDK.UsageApi.UsageApiClient.#ctor(System.Net.Http.HttpClient,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Usage.Api.Client.SDK.UsageApi.UsageApiClient})">
+            <summary>
+                The <see href="Images.ApiClient"></see> class
+            </summary>
+            <param name="httpClient"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:AStar.Dev.Usage.Api.Client.SDK.UsageApi.UsageApiClient.GetHealthAsync(System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AStar.Dev.Usage.Api.Client.SDK.UsageApi.UsageApiClient.GetApiUsageEventsAsync">
+            <summary>
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

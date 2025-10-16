@@ -1,0 +1,435 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AStar.Dev.Infrastructure.AdminDb</name>
+    </assembly>
+    <members>
+        <member name="T:AStar.Dev.Infrastructure.AdminDb.AdminContext">
+            <summary>
+                The AdminContext class
+            </summary>
+            <remarks>
+                The various classes that make up the admin context
+            </remarks>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.AdminDb.AdminContext.#ctor">
+            <summary>
+                Alternative constructor used when creating migrations, the connection string is hard-coded
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.AdminDb.AdminContext.#ctor(AStar.Dev.Infrastructure.Data.ConnectionString,AStar.Dev.Infrastructure.Data.AStarDbContextOptions)">
+            <summary>
+            </summary>
+            <param name="connectionString">
+            </param>
+            <param name="astarDbContextOptions">
+            </param>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.AdminDb.AdminContext.#ctor(Microsoft.EntityFrameworkCore.DbContextOptions{AStar.Dev.Infrastructure.AdminDb.AdminContext})">
+            <summary>
+            </summary>
+            <param name="options"></param>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.AdminContext.ScrapeDirectories">
+            <summary>
+                ScrapeDirectories
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.AdminContext.SearchCategory">
+            <summary>
+                SearchCategory
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.AdminContext.SearchConfiguration">
+            <summary>
+                SearchConfiguration
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.AdminContext.SiteConfiguration">
+            <summary>
+                SiteConfigurations
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.AdminDb.AdminContext.OnModelCreating(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <summary>
+                The overridden OnModelCreating method.
+            </summary>
+            <param name="modelBuilder">
+            </param>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.AdminDb.AdminContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <summary>
+                The overridden OnConfiguring method.
+            </summary>
+            <param name="optionsBuilder">
+            </param>
+        </member>
+        <member name="T:AStar.Dev.Infrastructure.AdminDb.Configurations.ScrapeDirectoryConfiguration">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Infrastructure.AdminDb.Configurations.ScrapeDirectoryConfiguration"/>
+                class containing, you guessed it, the ScrapeDirectory configuration settings
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.AdminDb.Configurations.ScrapeDirectoryConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{AStar.Dev.Infrastructure.AdminDb.Models.ScrapeDirectory})">
+            <summary>
+                The Configure method will configure the ScrapeDirectory table in the database
+            </summary>
+            <param name="builder">An instance of the
+                <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Builders.ElementTypeBuilder"/>
+                to add the configuration to
+            </param>
+            <returns>void</returns>
+        </member>
+        <member name="T:AStar.Dev.Infrastructure.AdminDb.Configurations.SearchCategoryConfiguration">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Infrastructure.AdminDb.Configurations.SearchCategoryConfiguration"/>
+                class containing, you guessed it, the SearchCategory configuration settings
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.AdminDb.Configurations.SearchCategoryConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{AStar.Dev.Infrastructure.AdminDb.Models.SearchCategory})">
+            <summary>
+                The Configure method will configure the SearchCategory table in the database
+            </summary>
+            <param name="builder">An instance of the
+                <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Builders.ElementTypeBuilder"/>
+                to add the configuration to
+            </param>
+            <returns>void</returns>
+        </member>
+        <member name="T:AStar.Dev.Infrastructure.AdminDb.Configurations.SearchConfigurationConfiguration">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Infrastructure.AdminDb.Configurations.SearchConfigurationConfiguration"/>
+                class containing, you guessed it, the SearchConfiguration configuration settings
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.AdminDb.Configurations.SearchConfigurationConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{AStar.Dev.Infrastructure.AdminDb.Models.SearchConfiguration})">
+            <summary>
+                The Configure method will configure the SearchConfiguration table in the database
+            </summary>
+            <param name="builder">An instance of the
+                <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Builders.ElementTypeBuilder"/>
+                to add the configuration to
+            </param>
+            <returns>void</returns>
+        </member>
+        <member name="T:AStar.Dev.Infrastructure.AdminDb.Configurations.SiteConfigurationConfiguration">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Infrastructure.AdminDb.Configurations.SiteConfigurationConfiguration"/>
+                class containing, you guessed it, the SiteConfiguration configuration settings
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.AdminDb.Configurations.SiteConfigurationConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{AStar.Dev.Infrastructure.AdminDb.Models.SiteConfiguration})">
+            <summary>
+                The Configure method will configure the SiteConfiguration table in the database
+            </summary>
+            <param name="builder">An instance of the
+                <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Builders.ElementTypeBuilder"/>
+                to add the configuration to
+            </param>
+            <returns>void</returns>
+        </member>
+        <member name="T:AStar.Dev.Infrastructure.AdminDb.Migrations.InitialCreation">
+            <inheritdoc/>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.AdminDb.Migrations.InitialCreation.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.AdminDb.Migrations.InitialCreation.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.AdminDb.Migrations.InitialCreation.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="T:AStar.Dev.Infrastructure.AdminDb.Models.ScrapeDirectory">
+            <summary>
+                The <see href="ScrapeDirectories"></see> class containing the Scrape Directories Configuration and extending
+                <see cref="T:AStar.Dev.Infrastructure.Data.AuditableEntity"/>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.ScrapeDirectory.Id">
+            <summary>
+                Gets or sets The ID of the configuration
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.ScrapeDirectory.ScrapeDirectoryId">
+            <summary>
+                Gets or sets the ScrapeDirectoryId - whilst the name sounds the same; this is the Scrape-directory-specific ID and
+                is used as part of the Historical modelling for each Scrape Directory contained within the table
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.ScrapeDirectory.RootDirectory">
+            <summary>
+                Gets or sets the Root Directory for everything - search and save
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.ScrapeDirectory.BaseSaveDirectory">
+            <summary>
+                Gets or sets the Base Save Directory for the saving post search - appended to the root directory
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.ScrapeDirectory.BaseDirectory">
+            <summary>
+                Gets or sets the Base Directory for the search checks - appended to the root directory
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.ScrapeDirectory.BaseDirectoryFamous">
+            <summary>
+                Gets or sets the Base Directory Famous for the search checks for famous people - appended to the root directory
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.ScrapeDirectory.SubDirectoryName">
+            <summary>
+                Gets or sets the default subdirectory name for the save - appended to the root directory
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Infrastructure.AdminDb.Models.SearchCategory">
+            <summary>
+                The <see href="SearchCategory"></see> class containing the Search Category Configuration and extending
+                <see cref="T:AStar.Dev.Infrastructure.Data.AuditableEntity"/>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SearchCategory.Id">
+            <summary>
+                Gets or sets The ID of the search category
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SearchCategory.SearchCategoryId">
+            <summary>
+                Gets or sets the SearchCategoryId - whilst the name sounds the same, this is the Search-category-specific ID and is
+                used as part of the Historical modelling for each search category contained within the table
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SearchCategory.Order">
+            <summary>
+                Gets or sets the Order of the search category - i.e. which category should be 1st, 2nd, etc.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SearchCategory.Name">
+            <summary>
+                Gets or sets the Name of the category
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SearchCategory.LastKnownImageCount">
+            <summary>
+                Gets or sets the Last Known Image Count
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SearchCategory.LastPageVisited">
+            <summary>
+                Gets or sets the Last Page Visited number
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SearchCategory.TotalPages">
+            <summary>
+                Gets or sets the Total Pages for the results
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Infrastructure.AdminDb.Models.SearchConfiguration">
+            <summary>
+                The <see href="SearchConfiguration"></see> class extends<see cref="T:AStar.Dev.Infrastructure.Data.AuditableEntity"/>.
+                The <see href="SearchConfiguration"></see> class containing the full Scrape Configuration.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SearchConfiguration.Id">
+            <summary>
+                Gets or sets The ID of the configuration.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SearchConfiguration.SearchConfigurationId">
+            <summary>
+                Gets or sets the SearchConfigurationId - whilst the name sounds the same, this is the search-configuration-specific
+                ID and is used as part of the Historical modelling for each Search Configuration contained within the table
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SearchConfiguration.SearchString">
+            <summary>
+                Gets or sets the default Search String
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SearchConfiguration.TopWallpapers">
+            <summary>
+                Gets or sets the TopWallpapers URI
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SearchConfiguration.SearchStringPrefix">
+            <summary>
+                Gets or sets the Search String Prefix
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SearchConfiguration.SearchStringSuffix">
+            <summary>
+                Gets or sets the Search StringSuffix
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SearchConfiguration.Subscriptions">
+            <summary>
+                Gets or sets the Subscriptions something
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SearchConfiguration.ImagePauseInSeconds">
+            <summary>
+                Gets or sets the base Image Pause In Seconds
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SearchConfiguration.StartingPageNumber">
+            <summary>
+                Gets or sets the Starting Page Number
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SearchConfiguration.TotalPages">
+            <summary>
+                Gets or sets the Total Pages for the New Subscription search
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SearchConfiguration.UseHeadless">
+            <summary>
+                Gets or sets the Use Headless to determine whether to run in headless mode or not
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SearchConfiguration.SubscriptionsStartingPageNumber">
+            <summary>
+                Gets or sets the Subscriptions Starting Page Number
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SearchConfiguration.SubscriptionsTotalPages">
+            <summary>
+                Gets or sets the Subscriptions Total Pages
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SearchConfiguration.TopWallpapersTotalPages">
+            <summary>
+                Gets or sets the Top Wallpapers Total Pages
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SearchConfiguration.TopWallpapersStartingPageNumber">
+            <summary>
+                Gets or sets the Top Wallpapers Starting Page Number
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SearchConfiguration.SlowMotionDelayInMilliseconds">
+            <summary>
+                Gets or sets the slow-motion delay (in milliseconds)
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SearchConfiguration.SiteConfigurationSlug">
+            <summary>
+                Gets or sets the SiteConfigurationSlug - this is the site-specific SiteConfigurationSlug (text representation of the site) and is
+                used as part of the Historical modelling for each Site Configuration contained within the table
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Infrastructure.AdminDb.Models.SiteConfiguration">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Infrastructure.AdminDb.Models.SiteConfiguration"/>
+                class, extending
+                <see cref="T:AStar.Dev.Infrastructure.Data.AuditableEntity"/>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SiteConfiguration.Id">
+            <summary>
+                Gets or sets The ID of the Site Configuration
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SiteConfiguration.SiteConfigurationSlug">
+            <summary>
+                Gets or sets the SiteConfigurationSlug - this is the site-specific SiteConfigurationSlug (text representation of the site) and is
+                used as part of the Historical modelling for each Site Configuration contained within the table
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SiteConfiguration.BaseUrl">
+            <summary>
+                Gets or sets the Base Url for the login and search
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SiteConfiguration.LoginUrl">
+            <summary>
+                Gets or sets the Login Url - relative to the
+                <see cref="P:AStar.Dev.Infrastructure.AdminDb.Models.SiteConfiguration.BaseUrl"/>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SiteConfiguration.LoginEmailAddress">
+            <summary>
+                Gets or sets the Login Email Address
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SiteConfiguration.Username">
+            <summary>
+                Gets or sets the Username
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SiteConfiguration.Password">
+            <summary>
+                Gets or sets the Password
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Infrastructure.AdminDb.SeedData.ScrapeDirectoryData">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Infrastructure.AdminDb.SeedData.ScrapeDirectoryData"/>
+                adds the default Scrape Directory configuration when no entry exists
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.AdminDb.SeedData.ScrapeDirectoryData.Seed(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+                The seed method to populate the database with
+            </summary>
+            <param name="context">The
+                <see cref="T:Microsoft.EntityFrameworkCore.DbContext"/>
+                to populate
+            </param>
+        </member>
+        <member name="T:AStar.Dev.Infrastructure.AdminDb.SeedData.SearchCategoryData">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Infrastructure.AdminDb.SeedData.SearchCategoryData"/>
+                adds the default Search Category configuration when no entry exists.
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.AdminDb.SeedData.SearchCategoryData.Seed(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+                The seed method to populate the database with
+            </summary>
+            <param name="context">The
+                <see cref="T:Microsoft.EntityFrameworkCore.DbContext"/>
+                to populate
+            </param>
+        </member>
+        <member name="T:AStar.Dev.Infrastructure.AdminDb.SeedData.SearchConfigurationData">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Infrastructure.AdminDb.SeedData.SearchConfigurationData"/>
+                adds the default Search Configuration when no entry exists
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.AdminDb.SeedData.SearchConfigurationData.Seed(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+                The seed method to populate the database with
+            </summary>
+            <param name="context">The
+                <see cref="T:Microsoft.EntityFrameworkCore.DbContext"/>
+                to populate
+            </param>
+        </member>
+        <member name="T:AStar.Dev.Infrastructure.AdminDb.SeedData.SiteConfigurationData">
+            <summary>
+                The
+                <see cref="T:AStar.Dev.Infrastructure.AdminDb.SeedData.SiteConfigurationData"/>
+                adds the default Site Configuration when no entry exists.
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.AdminDb.SeedData.SiteConfigurationData.Seed(Microsoft.EntityFrameworkCore.DbContext)">
+            <summary>
+                The seed method to populate the database with
+            </summary>
+            <param name="context">The
+                <see cref="T:Microsoft.EntityFrameworkCore.DbContext"/>
+                to populate
+            </param>
+        </member>
+    </members>
+</doc>
