@@ -48,9 +48,7 @@
         <Project Path="src\_aspire\AStar.Dev.Aspire.Common\AStar.Dev.Aspire.Common.csproj" Type="Classic C#"/>
         <Project Path="src\_aspire\AStar.Dev.ServiceDefaults\AStar.Dev.ServiceDefaults.csproj" Type="Classic C#"/>
     </Folder>
-    <Folder Name="/test/">
-        <Project Path="test\test-helpers\AStar.Dev.TestHelpers\AStar.Dev.TestHelpers.csproj" Type="Classic C#"/>
-    </Folder>
+    <Folder Name="/test/"/>
     <Folder Name="/test/apis/"/>
     <Folder Name="/test/apis/AStar.Dev.Admin.Api/">
         <Project Path="test/apis/AStar.Dev.Admin.Api.Tests.EndToEnd/AStar.Dev.Admin.Api.Tests.EndToEnd.csproj"/>

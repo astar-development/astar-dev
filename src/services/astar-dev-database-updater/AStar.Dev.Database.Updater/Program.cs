@@ -4,7 +4,8 @@ using Serilog;
 using ILogger = Serilog.ILogger;
 
 var startTime = DateTime.Now;
-var applicationName = typeof(IAssemblyMarker).Assembly.GetName().Name!;
+
+ILogger? logger = null;
 
 try
 {
@@ -14,17 +15,22 @@ try
     var app = builder.Build();
 
     Log.Logger = app.Services.GetRequiredService<ILogger>();
-    Log.Information("Starting {AppName}", applicationName);
+
+    // Log.Logger = new LoggerConfiguration()
+    //              .MinimumLevel.Debug()
+    //              .WriteTo.File("logs/log-testing.log.txt", rollingInterval: RollingInterval.Day)
+    //              .CreateLogger();
 
     await app.RunAsync();
 }
 catch(Exception exception)
 {
-    Log.Error(exception, "Fatal error occurred in {AppName}", applicationName);
+    logger?.Fatal(exception, "An error occured while running the application. Message: {ErrorMessage}",
+        exception.Message);
 }
 finally
 {
-    Log.Information("Stopped after {ProcessingTimeMilliseconds}", DateTime.Now - startTime);
+    logger?.Information("Stopped after {ProcessingTimeMilliseconds}", DateTime.Now - startTime);
     Log.CloseAndFlush();
 }
 

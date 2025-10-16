@@ -287,7 +287,7 @@
                 excluding those already present in the database context.
             </summary>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileDetailsServices.FileListService.#ctor(System.IO.Abstractions.IFileSystem,AStar.Dev.Infrastructure.FilesDb.Data.FilesContext)">
+        <member name="M:AStar.Dev.Database.Updater.Core.FileDetailsServices.FileListService.#ctor(System.IO.Abstractions.IFileSystem,Microsoft.Extensions.DependencyInjection.IServiceScopeFactory)">
             <summary>
                 Service responsible for retrieving a list of file paths from a specified directory,
                 excluding those already present in the database context.
@@ -353,7 +353,7 @@
                 or specific classifications using provided services for classification and keyword detection.
             </summary>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileDetailsServices.FilesProcessor.#ctor(Microsoft.Extensions.DependencyInjection.IServiceScopeFactory,AStar.Dev.Database.Updater.Core.FileDetailsServices.IKeywordProvider,AStar.Dev.Database.Updater.Core.FileDetailsServices.FileDetailsProcessorService,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.FileDetailsServices.FilesProcessor})">
+        <member name="M:AStar.Dev.Database.Updater.Core.FileDetailsServices.FilesProcessor.#ctor(AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,AStar.Dev.Database.Updater.Core.FileDetailsServices.IKeywordProvider,AStar.Dev.Database.Updater.Core.FileDetailsServices.FileDetailsProcessorService,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.FileDetailsServices.FilesProcessor})">
             <summary>
                 The FilesProcessor class is responsible for processing files to check for keywords
                 or specific classifications using provided services for classification and keyword detection.

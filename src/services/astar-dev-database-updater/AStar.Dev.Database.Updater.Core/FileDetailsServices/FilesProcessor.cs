@@ -2,7 +2,6 @@ using AStar.Dev.Functional.Extensions;
 using AStar.Dev.Infrastructure.FilesDb.Data;
 using AStar.Dev.Infrastructure.FilesDb.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace AStar.Dev.Database.Updater.Core.FileDetailsServices;
@@ -12,7 +11,7 @@ namespace AStar.Dev.Database.Updater.Core.FileDetailsServices;
 ///     or specific classifications using provided services for classification and keyword detection.
 /// </summary>
 public class FilesProcessor(
-    IServiceScopeFactory serviceScopeFactory,
+    FilesContext filesContext,
     IKeywordProvider keywordProvider,
     FileDetailsProcessorService fileDetailsProcessorService,
     ILogger<FilesProcessor> logger)
@@ -31,7 +30,6 @@ public class FilesProcessor(
     public async Task<Result<bool, ErrorResponse>> ProcessAsync(IReadOnlyCollection<FileDetail> filesToProcess, CancellationToken cancellationToken)
     {
         var counter                        = 0;
-        var filesContext = serviceScopeFactory.CreateScope().ServiceProvider.GetRequiredService<FilesContext>();
         var fileHandlesAlreadyInTheContext = await filesContext.Files.Select(f => f.FileHandle).ToListAsync(cancellationToken);
 
         var classifications = await filesContext.FileClassifications
@@ -62,7 +60,7 @@ public class FilesProcessor(
                     continue;
                 }
 
-                await SaveFileDetailsAsync(writeCount, fileDetails, filesContext, cancellationToken);
+                await SaveFileDetailsAsync(writeCount, fileDetails, cancellationToken);
                 fileDetails.Clear();
             }
             catch(Exception e)
@@ -71,11 +69,11 @@ public class FilesProcessor(
             }
         }
 
-        return await SaveFileDetailsAsync(writeCount, fileDetails, filesContext, cancellationToken);
+        return await SaveFileDetailsAsync(writeCount, fileDetails, cancellationToken);
     }
 
     private async Task<Result<bool, ErrorResponse>> SaveFileDetailsAsync(int writeCount, List<FileDetail> fileDetails,
-        FilesContext filesContext, CancellationToken cancellationToken)
+        CancellationToken cancellationToken)
         => await Try.RunAsync(async () =>
                               {
                                   filesContext.Files.AddRange(fileDetails);

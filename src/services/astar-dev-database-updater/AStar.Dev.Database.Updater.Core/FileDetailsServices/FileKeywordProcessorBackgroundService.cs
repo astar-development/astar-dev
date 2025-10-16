@@ -26,12 +26,7 @@ public class FileKeywordProcessorBackgroundService(IServiceScopeFactory serviceS
     /// <inheritdoc />
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        using var scope = serviceScopeFactory.CreateScope();
-        var rootDirectory = scope.ServiceProvider.GetRequiredService<IOptions<DatabaseUpdaterConfiguration>>().Value
-            .RootDirectory;
-        var fileScanner = scope.ServiceProvider.GetRequiredService<FilesProcessor>();
-        var fileListService = scope.ServiceProvider.GetRequiredService<FileListService>();
-        _logger = scope.ServiceProvider.GetRequiredService<ILogger<FileKeywordProcessorBackgroundService>>();
+        var (rootDirectory, fileScanner, fileListService) = GetRequiredServices();
 
         await fileListService.Get(rootDirectory, stoppingToken)
                              .MatchAsync(
@@ -42,5 +37,17 @@ public class FileKeywordProcessorBackgroundService(IServiceScopeFactory serviceS
 
                                              return Task.CompletedTask;
                                          });
+    }
+
+    private (string config, FilesProcessor fileScanner, FileListService fileListService) GetRequiredServices()
+    {
+        using var scope = serviceScopeFactory.CreateScope();
+        var config = scope.ServiceProvider.GetRequiredService<IOptions<DatabaseUpdaterConfiguration>>().Value
+            .RootDirectory;
+        var fileScanner = scope.ServiceProvider.GetRequiredService<FilesProcessor>();
+        var fileListService = scope.ServiceProvider.GetRequiredService<FileListService>();
+        _logger = scope.ServiceProvider.GetRequiredService<ILogger<FileKeywordProcessorBackgroundService>>();
+
+        return (config, fileScanner, fileListService);
     }
 }

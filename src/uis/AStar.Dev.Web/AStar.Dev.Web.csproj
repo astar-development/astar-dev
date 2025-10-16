@@ -37,10 +37,6 @@
         <ProjectReference Include="..\..\_aspire\AStar.Dev.ServiceDefaults\AStar.Dev.ServiceDefaults.csproj"/>
     </ItemGroup>
 
-    <ItemGroup>
-        <Using Include="JetBrains.Annotations"/>
-    </ItemGroup>
-
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
         <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
         <NoWarn>1701;1702;</NoWarn>
