@@ -28,11 +28,13 @@ public class SearchModel
 
     /// <summary>
     /// </summary>
+    // ReSharper disable once UseNameOfInsteadOfToString - breaks the UI mappings and submission
     public string SearchType { get; set; } = Models.SearchType.Duplicates.ToString();
 
     /// <summary>
     /// </summary>
-    public SortOrder SortOrder { get; set; }
+    // ReSharper disable once UseNameOfInsteadOfToString - breaks the UI mappings and submission
+    public string SortOrder { get; set; } = Models.SortOrder.SizeDescending.ToString();
 
     /// <summary>
     /// </summary>

@@ -12,17 +12,27 @@ public partial class Search : ComponentBase
 
     [Parameter] public EventCallback<SearchModel> OnValidSubmit { get; set; }
 
-    private string GetDaysText(int days) => days == 0 ? "Include all" : $"{days} days";
+    private static string GetDaysText(int days) => days == 0 ? "Include all" : $"{days} days";
 
-    private IEnumerable<SearchType> SearchTypeOptions => Enum.GetValues<SearchType>();
+    private static IEnumerable<SearchType> SearchTypeOptions => Enum.GetValues<SearchType>();
+    private static IEnumerable<SortOrder> SortOrderOptions => Enum.GetValues<SortOrder>();
 
-    private string GetSearchTypeText(SearchType searchType) => searchType switch
+    private static string GetSearchTypeText(SearchType searchType) => searchType switch
     {
         SearchType.Images => "Images",
         SearchType.All => "All Files",
         SearchType.Duplicates => "Duplicates",
         SearchType.DuplicateImages => "Duplicate Images",
         _ => searchType.ToString()
+    };
+
+    private static string GetSearchOrderText(SortOrder sortOrder) => sortOrder switch
+    {
+        SortOrder.NameAscending => "Name Ascending",
+        SortOrder.NameDescending => "Name Descending",
+        SortOrder.SizeDescending => "Size Descending",
+        SortOrder.SizeAscending => "Size Ascending",
+        _ => sortOrder.ToString()
     };
 
     private async Task HandleFormSubmit(EditContext context) => await OnValidSubmit.InvokeAsync(SearchModel);

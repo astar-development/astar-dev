@@ -47,7 +47,12 @@
         </FluentGridItem>
         <FluentGridItem xs="6" sm="3">
             <div class="card">
-                Sort order
+                <FluentSelect Label="Sort Order"
+                              @bind-Value="SearchModel.SortOrder"
+                              Items="@SortOrderOptions"
+                              OptionValue="@(x => x.ToString())"
+                              OptionText="@(x => GetSearchOrderText(x))"
+                              style="width: 100%;"/>
             </div>
         </FluentGridItem>
         <FluentGridItem xs="12">

@@ -59,24 +59,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Shared/Search.razor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Shared/Search.razor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Models/SearchType.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Models/SortOrder.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/AStar.Dev.Functional.Extensions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/AStar.Dev.Functional.Extensions.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure/AStar.Dev.Infrastructure.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure/AStar.Dev.Infrastructure.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Utilities/AStar.Dev.Utilities.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Utilities/AStar.Dev.Utilities.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/DatabaseUpdaterConfiguration.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/DatabaseUpdaterConfiguration.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileDetailsServices/FileKeywordProcessorBackgroundService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileDetailsServices/FileKeywordProcessorBackgroundService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater/appsettings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/AStar.Dev.Web.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/AStar.Dev.Web.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/NavMenu.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/NavMenu.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Images/DuplicateImages.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Images/DuplicateImages.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Images/DuplicateImages.razor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Images/DuplicateImages.razor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Shared/Search.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Shared/Search.razor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Shared/Search.razor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Shared/Search.razor.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Models/SearchModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Models/SearchModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -116,6 +106,9 @@
     &quot;assignee&quot;: &quot;jaybarden1&quot;
   }
 }</component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="a02a9a6e-948e-41e3-9bf4-8d3b156a556d" />
+  </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/astar-development/astar-dev.git&quot;,
@@ -962,14 +955,6 @@
       <workItem from="1760560842903" duration="243000" />
       <workItem from="1760561102257" duration="922000" />
     </task>
-    <task id="LOCAL-00069" summary="Committing before trying Claude 3.7 Sonnet to &#10;&#10;create the functional result type and all Map, Match, etc. methods">
-      <option name="closed" value="true" />
-      <created>1755026582585</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1755026582585</updated>
-    </task>
     <task id="LOCAL-00070" summary="Reimplement the Result and associated classes">
       <option name="closed" value="true" />
       <created>1755034924786</created>
@@ -1354,7 +1339,15 @@
       <option name="project" value="LOCAL" />
       <updated>1760640521754</updated>
     </task>
-    <option name="localTasksCounter" value="118" />
+    <task id="LOCAL-00118" summary="Updating the new Search component&#10;&#10;Additional changes in the model and the DuplicateImages.razor.cs files">
+      <option name="closed" value="true" />
+      <created>1760647965226</created>
+      <option name="number" value="00118" />
+      <option name="presentableId" value="LOCAL-00118" />
+      <option name="project" value="LOCAL" />
+      <updated>1760647965226</updated>
+    </task>
+    <option name="localTasksCounter" value="119" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1405,7 +1398,6 @@
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Update Error.razor route and&#10; &#10;exception handler to `/unexpected-error`, and allow anonymous access" />
     <MESSAGE value="Remove `AStar.Dev.sln` solution file as moved to slnx" />
     <MESSAGE value="Add missing pages and update format of games" />
     <MESSAGE value="Update the security headers" />
@@ -1430,7 +1422,8 @@
     <MESSAGE value="FluentUI NuGet updates" />
     <MESSAGE value="Add example from FluentUI and start on Dup Images" />
     <MESSAGE value="Not sure where some files came from&#10;&#10;Changes are actually resolving the FilesContext disposed issue" />
-    <option name="LAST_COMMIT_MESSAGE" value="Not sure where some files came from&#10;&#10;Changes are actually resolving the FilesContext disposed issue" />
+    <MESSAGE value="Updating the new Search component&#10;&#10;Additional changes in the model and the DuplicateImages.razor.cs files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updating the new Search component&#10;&#10;Additional changes in the model and the DuplicateImages.razor.cs files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1545,16 +1538,42 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Images/DuplicateImages.razor.cs</url>
-          <line>15</line>
+          <line>13</line>
           <properties documentPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Images/DuplicateImages.razor.cs" containingFunctionPresentation="Method 'HandleValidSubmit'">
             <startOffsets>
-              <option value="555" />
+              <option value="470" />
             </startOffsets>
             <endOffsets>
-              <option value="679" />
+              <option value="594" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Images/DuplicateImages.razor.cs</url>
+          <line>10</line>
+          <properties documentPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Images/DuplicateImages.razor.cs" containingFunctionPresentation="Method 'HandleValidSubmit'">
+            <startOffsets>
+              <option value="258" />
+            </startOffsets>
+            <endOffsets>
+              <option value="345" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Shared/Search.razor.cs</url>
+          <line>36</line>
+          <properties documentPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Shared/Search.razor.cs" containingFunctionPresentation="Method 'HandleFormSubmit'">
+            <startOffsets>
+              <option value="1479" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1523" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
