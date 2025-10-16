@@ -27,7 +27,7 @@ public class ResultShould
     }
 
     [Fact]
-    public async Task MatchAsyncToSuccessAsyncHandlerWhenResultIsOk()
+    public async Task MatchAsyncToSuccessAsyncHandlerWhenResultIsOkAsync()
     {
         var result = new Result<string, int>.Ok("success");
 
@@ -39,7 +39,7 @@ public class ResultShould
     }
 
     [Fact]
-    public async Task MatchAsyncToErrorHandlerWhenResultIsError()
+    public async Task MatchAsyncToErrorHandlerWhenResultIsErrorAsync()
     {
         var result = new Result<string, int>.Error(42);
 
@@ -51,7 +51,7 @@ public class ResultShould
     }
 
     [Fact]
-    public async Task MatchAsyncToSuccessHandlerAndAsyncErrorHandlerWhenResultIsOk()
+    public async Task MatchAsyncToSuccessHandlerAndAsyncErrorHandlerWhenResultIsOkAsync()
     {
         var result = new Result<string, int>.Ok("success");
 
@@ -63,7 +63,7 @@ public class ResultShould
     }
 
     [Fact]
-    public async Task MatchAsyncToSuccessHandlerAndAsyncErrorHandlerWhenResultIsError()
+    public async Task MatchAsyncToSuccessHandlerAndAsyncErrorHandlerWhenResultIsErrorAsync()
     {
         var result = new Result<string, int>.Error(42);
 
@@ -75,7 +75,7 @@ public class ResultShould
     }
 
     [Fact]
-    public async Task MatchAsyncToAsyncSuccessHandlerAndAsyncErrorHandlerWhenResultIsOk()
+    public async Task MatchAsyncToAsyncSuccessHandlerAndAsyncErrorHandlerWhenResultIsOkAsync()
     {
         var result = new Result<string, int>.Ok("success");
 
@@ -87,7 +87,7 @@ public class ResultShould
     }
 
     [Fact]
-    public async Task MatchAsyncToAsyncSuccessHandlerAndAsyncErrorHandlerWhenResultIsError()
+    public async Task MatchAsyncToAsyncSuccessHandlerAndAsyncErrorHandlerWhenResultIsErrorAsync()
     {
         var result = new Result<string, int>.Error(42);
 
