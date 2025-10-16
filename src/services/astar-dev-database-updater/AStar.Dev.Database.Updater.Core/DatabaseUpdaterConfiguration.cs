@@ -27,6 +27,12 @@ public class DatabaseUpdaterConfiguration
     public required bool HonourFirstDelay { get; set; }
 
     /// <summary>
+    ///     Gets or sets whether to run the new files service
+    /// </summary>
+    [Required]
+    public required bool RunNewFilesService { get; set; }
+
+    /// <summary>
     ///     Gets or sets the full path (including the name) of the CSV Mappings file
     /// </summary>
     [Required]

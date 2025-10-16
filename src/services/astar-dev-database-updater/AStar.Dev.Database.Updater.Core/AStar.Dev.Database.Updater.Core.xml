@@ -175,6 +175,11 @@
                 Gets or sets whether to honour (i.e.: not skip) the first delay of the scheduled run.
             </summary>
         </member>
+        <member name="P:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration.RunNewFilesService">
+            <summary>
+                Gets or sets whether to run the new files service
+            </summary>
+        </member>
         <member name="P:AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration.MappingsFilePath">
             <summary>
                 Gets or sets the full path (including the name) of the CSV Mappings file

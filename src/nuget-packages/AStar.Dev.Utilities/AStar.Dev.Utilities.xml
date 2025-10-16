@@ -292,8 +292,7 @@
             </example>
         </member>
         <member name="T:System.Text.RegularExpressions.Generated.LowercaseLettersRegex_0">
-            <summary>Custom<see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the
-                LowercaseLettersRegex method.
+            <summary>Custom<see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the LowercaseLettersRegex method.
             </summary>
         </member>
         <member name="F:System.Text.RegularExpressions.Generated.LowercaseLettersRegex_0.Instance">
@@ -333,8 +332,7 @@
             <returns>true if a possible match was found; false if no more matches are possible.</returns>
         </member>
         <member name="T:System.Text.RegularExpressions.Generated.UppercaseLettersRegex_1">
-            <summary>Custom<see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the
-                UppercaseLettersRegex method.
+            <summary>Custom<see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the UppercaseLettersRegex method.
             </summary>
         </member>
         <member name="F:System.Text.RegularExpressions.Generated.UppercaseLettersRegex_1.Instance">
@@ -414,8 +412,7 @@
             <returns>true if a possible match was found; false if no more matches are possible.</returns>
         </member>
         <member name="T:System.Text.RegularExpressions.Generated.SpecialCharacterRegex_3">
-            <summary>Custom<see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the
-                SpecialCharacterRegex method.
+            <summary>Custom<see cref="T:System.Text.RegularExpressions.Regex"/>-derived type for the SpecialCharacterRegex method.
             </summary>
         </member>
         <member name="F:System.Text.RegularExpressions.Generated.SpecialCharacterRegex_3.Instance">
@@ -455,8 +452,7 @@
             <returns>true if a possible match was found; false if no more matches are possible.</returns>
         </member>
         <member name="T:System.Text.RegularExpressions.Generated.Utilities">
-            <summary>Helper methods used by generated<see cref="T:System.Text.RegularExpressions.Regex"/>-derived
-                implementations.
+            <summary>Helper methods used by generated<see cref="T:System.Text.RegularExpressions.Regex"/>-derived implementations.
             </summary>
         </member>
         <member name="F:System.Text.RegularExpressions.Generated.Utilities.s_nonAscii_8CD7FC6D8414F97879531EB4BA8F837AAE4E0F47B7968451545B13CB721CD784">
