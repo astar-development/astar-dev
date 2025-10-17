@@ -75,18 +75,44 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources/088a29ee-088f-4bd8-ba92-79be0107c677.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources/bd29739c-f049-4b1a-98a1-1698361d4b7e.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/copilot-instructions.md" beforeDir="false" afterPath="$PROJECT_DIR$/.github/copilot-instructions.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/prompts/xunit.prompt.md" beforeDir="false" afterPath="$PROJECT_DIR$/.github/prompts/xunit.prompt.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AStar.Dev.slnx" beforeDir="false" afterPath="$PROJECT_DIR$/AStar.Dev.slnx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Admin.Api.Client.Sdk/AStar.Dev.Admin.Api.Client.Sdk.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Admin.Api.Client.Sdk/AStar.Dev.Admin.Api.Client.Sdk.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.Client.Sdk.Shared/AStar.Dev.Api.Client.Sdk.Shared.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.Client.Sdk.Shared/AStar.Dev.Api.Client.Sdk.Shared.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.HealthChecks/AStar.Dev.Api.HealthChecks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.HealthChecks/AStar.Dev.Api.HealthChecks.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.Usage.Sdk/AStar.Dev.Api.Usage.Sdk.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Api.Usage.Sdk/AStar.Dev.Api.Usage.Sdk.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.AspNet.Extensions/AStar.Dev.AspNet.Extensions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.AspNet.Extensions/AStar.Dev.AspNet.Extensions.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.SDK/AStar.Dev.Files.Api.Client.SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Files.Api.Client.SDK/AStar.Dev.Files.Api.Client.SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Fluent.Assignments/AStar.Dev.Fluent.Assignments.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Fluent.Assignments/AStar.Dev.Fluent.Assignments.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/AStar.Dev.Functional.Extensions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/AStar.Dev.Functional.Extensions.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Images.Api.Client.SDK/AStar.Dev.Images.Api.Client.SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Images.Api.Client.SDK/AStar.Dev.Images.Api.Client.SDK.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.AdminDb/AStar.Dev.Infrastructure.AdminDb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.AdminDb/AStar.Dev.Infrastructure.AdminDb.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.AdminDb/AdminContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.AdminDb/AdminContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Models/FileDetail.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Models/FileDetail.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.UsageDb/AStar.Dev.Infrastructure.UsageDb.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.UsageDb/AStar.Dev.Infrastructure.UsageDb.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.UsageDb/Data/ApiUsageContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.UsageDb/Data/ApiUsageContext.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure/AStar.Dev.Infrastructure.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure/AStar.Dev.Infrastructure.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Logging.Extensions/AStar.Dev.Logging.Extensions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Logging.Extensions/AStar.Dev.Logging.Extensions.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Minimal.Api.Extensions/AStar.Dev.Minimal.Api.Extensions.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Minimal.Api.Extensions/AStar.Dev.Minimal.Api.Extensions.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Technical.Debt.Reporting/AStar.Dev.Technical.Debt.Reporting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Technical.Debt.Reporting/AStar.Dev.Technical.Debt.Reporting.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Usage.Api.Client.SDK/AStar.Dev.Usage.Api.Client.SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Usage.Api.Client.SDK/AStar.Dev.Usage.Api.Client.SDK.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Utilities/AStar.Dev.Utilities.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Utilities/AStar.Dev.Utilities.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Tests.Integration/AStar.Dev.Database.Updater.Tests.Integration.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Tests.Integration/AStar.Dev.Database.Updater.Tests.Integration.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Tests.Unit/AStar.Dev.Database.Updater.Tests.Unit.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Tests.Unit/AStar.Dev.Database.Updater.Tests.Unit.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Tests.Unit/TestHelpers/SqliteTestHelper.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/FileNamePartsWithClassifications.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/FileNamePartsWithClassifications.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/KeywordRegexBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileKeywordProcessor/KeywordRegexBuilder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/FilesApi/FilesApiClientShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/FilesApi/FilesApiClientShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Images.Api.Client.Sdk.Tests.Unit/ImagesApiClientShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Images.Api.Client.Sdk.Tests.Unit/ImagesApiClientShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Infrastructure.FilesDb.Tests.Unit/AStar.Dev.Infrastructure.FilesDb.Tests.Unit.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Infrastructure.FilesDb.Tests.Unit/AStar.Dev.Infrastructure.FilesDb.Tests.Unit.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Infrastructure.FilesDb.Tests.Unit/Data/FilesContextExtensionsShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Infrastructure.FilesDb.Tests.Unit/Data/FilesContextExtensionsShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Infrastructure.FilesDb.Tests.Unit/Fixtures/FilesContextFixture.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Infrastructure.FilesDb.Tests.Unit/Fixtures/FilesContextFixture.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Infrastructure.FilesDb.Tests.Unit/Fixtures/MockFilesContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Infrastructure.FilesDb.Tests.Unit/Fixtures/MockFilesContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Infrastructure.FilesDb.Tests.Unit/TestFiles/files.json" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Infrastructure.FilesDb.Tests.Unit/TestFiles/files.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Core.Tests.Unit/Models/ApiConfigurationShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Core.Tests.Unit/Models/ApiConfigurationShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Core.Tests.Unit/Models/DirectoryChangeShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Core.Tests.Unit/Models/DirectoryChangeShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Core.Tests.Unit/Models/DirectoryChangesShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Core.Tests.Unit/Models/DirectoryChangesShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/test-helpers/AStar.Dev.TestHelpers/SqliteTestScope.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/test-helpers/AStar.Dev.TestHelpers/SqliteTestScope.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,19 +174,14 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/21c12b75b72ded3579a2533dad7d6ecc6997b19ffd5a7daf7a3bba1c381f53a/TaskContinuation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/2280f6b68568823fe54b6fb0be31b9cbce4c9aa7882ea9482c7f66bc84f4930/ExecutionContext.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/51474adfb97e7f5c4d4a668a38eddd80911fa43de685b2b38f2ef4801dd3cabd/Randomizer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/6c8bb3f6cd70f534b18649a776f768ac96ee71c94296c059f422865b46fc1/ServiceCollectionExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/a6f52f75db0c77bb83f322fb52f52cef9cff6cdafbb94dfec214bab243d18/Task.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bf9021a960b74107a7e141aa06bc9d8a0a53c929178c2fb95b1597be8af8dc/ExceptionDispatchInfo.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cf8ce16f663ad35e6bc7ffcf5e8da563fa0f590c45d8d9d53b5ce4751d8975/JsonConverterOfT.ReadCore.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/cfb8165d037ea5062589e7be2a322d53397b1abadab026bb319132b6a24556/Host.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d4add5c92cbab0a855876709b0a3af1a731faf96e8e134ee7787a2c262028/ThrowHelper.Serialization.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/e5ace92664429b8b34b68b587316fb211811b58aeb53422b43cecca2ad2bdaf3/AsyncTaskMethodBuilderT.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../.microsoft/usersecrets/071c836b-0b36-430b-835e-9da35586b04b/secrets.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../.microsoft/usersecrets/6ae4796b-5ba0-4a62-b94d-462ffbb31419/secrets.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../.microsoft/usersecrets/b8c500a1-90ed-4137-9946-9a465d25e1f1/secrets.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../.microsoft/usersecrets/d7e61e34-084f-4c2b-9be8-5925170dc3b7/secrets.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../.microsoft/usersecrets/de59e358-ff3a-4807-b13f-2ea13b595a7a/secrets.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../.nuget/NuGet/NuGet.Config" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../.nuget/packages/microsoft.net.test.sdk/18.0.0/build/net8.0/Microsoft.NET.Test.Sdk.Program.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock:///home/jason/Repos/src/_aspire/AStar.Dev.AppHost/DistributedApplicationBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Models/FileNamePart.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileDetailsServices/FileDetailsProcessorService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/FileDetailsServices/FileHandleService.cs" root0="FORCE_HIGHLIGHTING" />
@@ -240,9 +261,7 @@
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Models/SortOrder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/WebApplicationBuilderExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/test/apis/AStar.Dev.Files.Api.Tests.Unit/Endpoints/Get/V1/GetFilesHandlerStructureShould.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///home/jason/Repos/test/nuget-packages/AStar.Dev.Functional.Extensions.Tests.Unit/OptionShould.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Core.Tests.Unit/ErrorResponseShould.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///home/jason/Repos/test/services/AStar.Dev.Database.Updater.Tests.Integration/ClassificationRepositoryDIIntegrationTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Tests.Unit/HostApplicationBuilderExtensionsShould.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/test/services/AStar.Dev.Database.Updater.Tests.Unit/RegexBuildTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file:///tmp/JetBrainsPerUserTemp-1000-1/SourceGeneratedDocuments/41A28BA514B7C99EA82CD770/Microsoft.Extensions.Options.SourceGeneration/Microsoft.Extensions.Options.Generators.OptionsValidatorGenerator/Validators.g.cs" root0="FORCE_HIGHLIGHTING" />
@@ -263,61 +282,62 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.AStar.Dev.Database.Updater.Api: https.executor": "Run",
-    ".NET Launch Settings Profile.AStar.Dev.Database.Updater: http.executor": "Debug",
-    ".NET Launch Settings Profile.AStar.Dev.Database.Updater: https.executor": "Debug",
-    ".NET Launch Settings Profile.AStar.Dev.Files.Api: https.executor": "Debug",
-    ".NET Launch Settings Profile.AStar.Dev.Web: https.executor": "Run",
-    ".NET Project.TemporaryConsoleApp.executor": "Run",
-    "048590b5-e09c-40ff-b78c-f96a021a888b.executor": "Debug",
-    "0ab30047-51d5-4fe8-9824-80c2209700c0.executor": "Debug",
-    "157d886d-0a11-45b5-b1e8-641349d3cc41.executor": "Debug",
-    "1afee44e-d26b-4857-a49f-24d39a2fcaa6.executor": "Debug",
-    "22071734-6c60-41bb-aea8-3be1144d15bd.executor": "Debug",
-    "2436cf6c-ebae-489c-86b6-61b0bc2fc51c.executor": "Debug",
-    "350a68dd-7b54-4a0c-82a3-cfafaee8412e.executor": "Debug",
-    "37e8db58-7b27-4d30-8126-079f70986791.executor": "Debug",
-    "3fedafc0-0fb1-4eed-a33e-4a477105118f.executor": "Debug",
-    "5394ae1f-e1ba-4997-9785-ae0f83daa327.executor": "Debug",
-    "74865cb9-5982-44cc-8c44-3e1395390114.executor": "Debug",
-    "7c7cfc4b-6687-4737-8b94-051b497f8a62.executor": "Debug",
-    "843b7700-6fc6-465e-a3ac-795da6dc3892.executor": "Debug",
-    "8cbff862-16b7-48f9-b845-ce6464b5344d.executor": "Debug",
-    "8f5608de-07aa-4783-bcab-f5e36f698d95.executor": "Debug",
-    "8fd607c9-dea8-4b95-8264-467bd8bce66a.executor": "Debug",
-    "914741fe-f341-44e1-8b87-fe204e63e988.executor": "Debug",
-    "9495bff0-763e-483b-8a28-0fa8d1d1e16c.executor": "Debug",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Aspire Host.AStar.Dev.AppHost: http.executor": "Run",
-    "Aspire Host.AStar.Dev.AppHost: https.executor": "Debug",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "a7c202b2-347a-4ed8-925f-a1edb2b07258.executor": "Debug",
-    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
-    "e17f45b0-a300-46c0-be33-f577373f589d.executor": "Debug",
-    "e1fa419c-f915-45ea-a5b9-af0e54288449.executor": "Debug",
-    "ead053aa-6f06-48a9-a614-f676b2fe4dd5.executor": "Debug",
-    "fe711191-94fe-41bc-93a1-ff6c72b91e6f.executor": "Debug",
-    "git-widget-placeholder": "features/implement-duplicates-search",
-    "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/home/jason/Repos/astar-dev/test/test-helpers/AStar.Dev.TestHelpers/AStar.Dev.TestHelpers.csproj",
-    "list.type.of.created.stylesheet": "CSS",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "vcs.Git",
-    "to.speed.mode.migration.done": "true",
-    "ts.external.directory.path": "/home/jason-barden/.local/share/JetBrains/Toolbox/apps/rider/plugins/javascript-plugin/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.AStar.Dev.Database.Updater.Api: https.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Launch Settings Profile.AStar.Dev.Database.Updater: http.executor&quot;: &quot;Debug&quot;,
+    &quot;.NET Launch Settings Profile.AStar.Dev.Database.Updater: https.executor&quot;: &quot;Debug&quot;,
+    &quot;.NET Launch Settings Profile.AStar.Dev.Files.Api: https.executor&quot;: &quot;Debug&quot;,
+    &quot;.NET Launch Settings Profile.AStar.Dev.Web: https.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Project.TemporaryConsoleApp.executor&quot;: &quot;Run&quot;,
+    &quot;048590b5-e09c-40ff-b78c-f96a021a888b.executor&quot;: &quot;Debug&quot;,
+    &quot;0ab30047-51d5-4fe8-9824-80c2209700c0.executor&quot;: &quot;Debug&quot;,
+    &quot;157d886d-0a11-45b5-b1e8-641349d3cc41.executor&quot;: &quot;Debug&quot;,
+    &quot;1afee44e-d26b-4857-a49f-24d39a2fcaa6.executor&quot;: &quot;Debug&quot;,
+    &quot;22071734-6c60-41bb-aea8-3be1144d15bd.executor&quot;: &quot;Debug&quot;,
+    &quot;2436cf6c-ebae-489c-86b6-61b0bc2fc51c.executor&quot;: &quot;Debug&quot;,
+    &quot;350a68dd-7b54-4a0c-82a3-cfafaee8412e.executor&quot;: &quot;Debug&quot;,
+    &quot;37e8db58-7b27-4d30-8126-079f70986791.executor&quot;: &quot;Debug&quot;,
+    &quot;3fedafc0-0fb1-4eed-a33e-4a477105118f.executor&quot;: &quot;Debug&quot;,
+    &quot;5394ae1f-e1ba-4997-9785-ae0f83daa327.executor&quot;: &quot;Debug&quot;,
+    &quot;74865cb9-5982-44cc-8c44-3e1395390114.executor&quot;: &quot;Debug&quot;,
+    &quot;7c7cfc4b-6687-4737-8b94-051b497f8a62.executor&quot;: &quot;Debug&quot;,
+    &quot;843b7700-6fc6-465e-a3ac-795da6dc3892.executor&quot;: &quot;Debug&quot;,
+    &quot;8cbff862-16b7-48f9-b845-ce6464b5344d.executor&quot;: &quot;Debug&quot;,
+    &quot;8f5608de-07aa-4783-bcab-f5e36f698d95.executor&quot;: &quot;Debug&quot;,
+    &quot;8fd607c9-dea8-4b95-8264-467bd8bce66a.executor&quot;: &quot;Debug&quot;,
+    &quot;914741fe-f341-44e1-8b87-fe204e63e988.executor&quot;: &quot;Debug&quot;,
+    &quot;9495bff0-763e-483b-8a28-0fa8d1d1e16c.executor&quot;: &quot;Debug&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Aspire Host.AStar.Dev.AppHost: http.executor&quot;: &quot;Run&quot;,
+    &quot;Aspire Host.AStar.Dev.AppHost: https.executor&quot;: &quot;Debug&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;a7c202b2-347a-4ed8-925f-a1edb2b07258.executor&quot;: &quot;Debug&quot;,
+    &quot;c90f2d8f-7026-4492-a5ca-dd8529960116.executor&quot;: &quot;Debug&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;e17f45b0-a300-46c0-be33-f577373f589d.executor&quot;: &quot;Debug&quot;,
+    &quot;e1fa419c-f915-45ea-a5b9-af0e54288449.executor&quot;: &quot;Debug&quot;,
+    &quot;ead053aa-6f06-48a9-a614-f676b2fe4dd5.executor&quot;: &quot;Debug&quot;,
+    &quot;fe711191-94fe-41bc-93a1-ff6c72b91e6f.executor&quot;: &quot;Debug&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;features/implement-duplicates-search&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/jason/Repos/astar-dev/test/test-helpers/AStar.Dev.TestHelpers/AStar.Dev.TestHelpers.csproj&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/jason-barden/.local/share/JetBrains/Toolbox/apps/rider/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Aspire Host.AStar.Dev.AppHost: https">
     <configuration name="AStar.Dev.AppHost: https" type="AspireHostConfiguration" factoryName="Aspire Host" activateToolWindowBeforeRun="false">
       <option name="PROJECT_FILE_PATH" value="$PROJECT_DIR$/src/_aspire/AStar.Dev.AppHost/AStar.Dev.AppHost.csproj" />
@@ -1360,15 +1380,9 @@
       <workItem from="1760560067066" duration="756000" />
       <workItem from="1760560842903" duration="243000" />
       <workItem from="1760561102257" duration="922000" />
-      <workItem from="1760652749512" duration="2081000" />
-    </task>
-    <task id="LOCAL-00072" summary="Reimplement Try to use Result.&#10;&#10;Add / update markdown files for Result and Option">
-      <option name="closed" value="true" />
-      <created>1755042941662</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1755042941662</updated>
+      <workItem from="1760652749512" duration="2353000" />
+      <workItem from="1760687485388" duration="9495000" />
+      <workItem from="1760725861506" duration="228000" />
     </task>
     <task id="LOCAL-00073" summary="Not sure how the 2 publish steps came back...&#10;&#10;commented out again and also added a codeql.yml from the GitHub docs">
       <option name="closed" value="true" />
@@ -1754,19 +1768,32 @@
       <option name="project" value="LOCAL" />
       <updated>1760652192651</updated>
     </task>
-    <option name="localTasksCounter" value="121" />
+    <task id="LOCAL-00121" summary="Bring most NuGet package projects back">
+      <option name="closed" value="true" />
+      <created>1760654898673</created>
+      <option name="number" value="00121" />
+      <option name="presentableId" value="LOCAL-00121" />
+      <option name="project" value="LOCAL" />
+      <updated>1760654898674</updated>
+    </task>
+    <option name="localTasksCounter" value="122" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="UnitTestsCoverage.Settings">
-    <option name="coveragePercentColumnWidth" value="86" />
+    <option name="coveragePercentColumnWidth" value="74" />
     <option name="sortOrder" value="DESCENDING" />
     <option name="sortedColumn" value="1" />
-    <option name="symbolColumnWidth" value="371" />
+    <option name="symbolColumnWidth" value="313" />
     <coverage-tree-state>
-      <expand />
+      <expand>
+        <path>
+          <item name="rootNode" type="c53c71d1:RiderDotCoverCoverageTreeModel$RootNode" />
+          <item name="Total 0% 3089/3089" type="8b8fad3a:RiderDotCoverCoverageTreeNode" />
+        </path>
+      </expand>
       <select />
     </coverage-tree-state>
   </component>
@@ -1805,7 +1832,6 @@
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Update the security headers" />
     <MESSAGE value="Add initial components and refactor services&#10;&#10;- Introduced `NavMenu` and `SettingsPanel` components for enhanced UI functionality.&#10;- Added authorization attribute to pages via `_Imports.razor`.&#10;- Implemented helper methods in `WebApplicationExtensions` for security improvements by removing server headers.&#10;- Provided initial implementations for `Counter` and `Weather` pages for basic functionality.&#10;- Included global styling with `app.css`.&#10;- Refactored and removed unused menu services (`DirectoriesMenuService`, `GamesMenuService`, `ImagesMenuService`, `FileMenuService`, and `AdminMenuService`)." />
     <MESSAGE value="Back to compiling but tweaks to login still required" />
     <MESSAGE value="Update package dependencies and XML documentation formatting&#10;&#10;- Bump `Microsoft.Identity.Web` to version 3.14.1 across multiple projects.&#10;- Bump `Microsoft.Extensions.Http.Resilience` to version 9.9.0 in `AStar.Dev.ServiceDefaults`.&#10;- Update `TestableIO.System.IO.Abstractions` dependencies to 22.0.16 in relevant projects.&#10;- Refactor XML documentation by simplifying formatting for improved readability." />
@@ -1830,7 +1856,8 @@
     <MESSAGE value="Updating the new Search component&#10;&#10;Additional changes in the model and the DuplicateImages.razor.cs files" />
     <MESSAGE value="Complete the initial UI design" />
     <MESSAGE value="Unrelated but separate the Result tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Unrelated but separate the Result tests" />
+    <MESSAGE value="Bring most NuGet package projects back" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bring most NuGet package projects back" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1862,8 +1889,28 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/src/nuget-packages/AStar.Dev.AspNet.Extensions/Handlers/GlobalExceptionHandler.cs</url>
           <line>40</line>
-          <properties documentPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.AspNet.Extensions/Handlers/GlobalExceptionHandler.cs" containingFunctionPresentation="Method 'TryHandleAsync'" />
+          <properties documentPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.AspNet.Extensions/Handlers/GlobalExceptionHandler.cs" containingFunctionPresentation="Method 'TryHandleAsync'">
+            <startOffsets>
+              <option value="1516" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1653" />
+            </endOffsets>
+          </properties>
           <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Infrastructure.FilesDb.Tests.Unit/Fixtures/MockFilesContext.cs</url>
+          <line>64</line>
+          <properties documentPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Infrastructure.FilesDb.Tests.Unit/Fixtures/MockFilesContext.cs" containingFunctionPresentation="Method 'AddMockFiles'">
+            <startOffsets>
+              <option value="1815" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1875" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

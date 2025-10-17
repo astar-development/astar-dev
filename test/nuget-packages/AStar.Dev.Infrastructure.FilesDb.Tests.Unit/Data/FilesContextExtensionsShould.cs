@@ -11,13 +11,13 @@ public sealed class FilesContextExtensionsShould(FilesContextFixture filesContex
     private const bool IncludeMarkedForDeletion = true;
     private const bool ExcludeMarkedForDeletion = false;
     private const bool ExcludeViewed = true;
-    private readonly FilesContext sut = filesContextFixture.Sut;
+    private readonly FilesContext _sut = filesContextFixture.Sut;
 
     [Fact(Skip = "The underlying code is broken")]
     public void
         ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedAndDeletePendingAreTrueAndViewedAreNotExcluded()
     {
-        var response = sut.Files.GetMatchingFiles("c:\\temp", Recursive, "searchTypeNotRelevant", IncludeSoftDeleted,
+        var response = _sut.Files.GetMatchingFiles("c:\\temp", Recursive, "searchTypeNotRelevant", IncludeSoftDeleted,
             IncludeMarkedForDeletion, !ExcludeViewed, CancellationToken.None);
 
         response.ToString()!.ShouldMatchApproved();
@@ -26,7 +26,7 @@ public sealed class FilesContextExtensionsShould(FilesContextFixture filesContex
     [Fact(Skip = "The underlying code is broken")]
     public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedAndDeletePendingAreTrueAndViewedAreExcluded()
     {
-        var response = sut.Files.GetMatchingFiles("c:\\temp", Recursive, "searchTypeNotRelevant", IncludeSoftDeleted,
+        var response = _sut.Files.GetMatchingFiles("c:\\temp", Recursive, "searchTypeNotRelevant", IncludeSoftDeleted,
             IncludeMarkedForDeletion, ExcludeViewed, CancellationToken.None);
 
         response.ToString()!.ShouldMatchApproved();
@@ -35,7 +35,7 @@ public sealed class FilesContextExtensionsShould(FilesContextFixture filesContex
     [Fact(Skip = "The underlying code is broken")]
     public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedIsTrueButDeletePendingIsFalse()
     {
-        var response = sut.Files.GetMatchingFiles("c:\\temp", Recursive, "searchTypeNotRelevant", IncludeSoftDeleted,
+        var response = _sut.Files.GetMatchingFiles("c:\\temp", Recursive, "searchTypeNotRelevant", IncludeSoftDeleted,
             ExcludeMarkedForDeletion, ExcludeViewed, CancellationToken.None);
 
         response.ToString()!.ShouldMatchApproved();
@@ -44,7 +44,7 @@ public sealed class FilesContextExtensionsShould(FilesContextFixture filesContex
     [Fact(Skip = "The underlying code is broken")]
     public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedIsFalseButDeletePendingIsTrue()
     {
-        var response = sut.Files.GetMatchingFiles("c:\\temp", Recursive, "searchTypeNotRelevant", ExcludeSoftDeleted,
+        var response = _sut.Files.GetMatchingFiles("c:\\temp", Recursive, "searchTypeNotRelevant", ExcludeSoftDeleted,
             IncludeMarkedForDeletion, ExcludeViewed, CancellationToken.None);
 
         response.ToString()!.ShouldMatchApproved();
@@ -53,7 +53,7 @@ public sealed class FilesContextExtensionsShould(FilesContextFixture filesContex
     [Fact(Skip = "The underlying code is broken")]
     public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedAndDeletePendingAreFalse()
     {
-        var response = sut.Files.GetMatchingFiles("c:\\temp", Recursive, "searchTypeNotRelevant", ExcludeSoftDeleted,
+        var response = _sut.Files.GetMatchingFiles("c:\\temp", Recursive, "searchTypeNotRelevant", ExcludeSoftDeleted,
             ExcludeMarkedForDeletion, ExcludeViewed, CancellationToken.None);
 
         response.ToString()!.ShouldMatchApproved();
@@ -62,7 +62,7 @@ public sealed class FilesContextExtensionsShould(FilesContextFixture filesContex
     [Fact(Skip = "The underlying code is broken")]
     public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedAndDeletePendingAreTrue_ImagesOnly()
     {
-        var response = sut.Files.GetMatchingFiles("c:\\temp", Recursive, "Images", IncludeSoftDeleted,
+        var response = _sut.Files.GetMatchingFiles("c:\\temp", Recursive, "Images", IncludeSoftDeleted,
             IncludeMarkedForDeletion, ExcludeViewed, CancellationToken.None);
 
         response.ToString()!.ShouldMatchApproved();
@@ -71,7 +71,7 @@ public sealed class FilesContextExtensionsShould(FilesContextFixture filesContex
     [Fact(Skip = "The underlying code is broken")]
     public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedIsTrueButDeletePendingIsFalse_ImagesOnly()
     {
-        var response = sut.Files.GetMatchingFiles("c:\\temp", Recursive, "Images", IncludeSoftDeleted,
+        var response = _sut.Files.GetMatchingFiles("c:\\temp", Recursive, "Images", IncludeSoftDeleted,
             ExcludeMarkedForDeletion, ExcludeViewed, CancellationToken.None);
 
         response.ToString()!.ShouldMatchApproved();
@@ -80,7 +80,7 @@ public sealed class FilesContextExtensionsShould(FilesContextFixture filesContex
     [Fact(Skip = "The underlying code is broken")]
     public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedIsFalseButDeletePendingIsTrue_ImagesOnly()
     {
-        var response = sut.Files.GetMatchingFiles("c:\\temp", Recursive, "Images", ExcludeSoftDeleted,
+        var response = _sut.Files.GetMatchingFiles("c:\\temp", Recursive, "Images", ExcludeSoftDeleted,
             IncludeMarkedForDeletion, ExcludeViewed, CancellationToken.None);
 
         response.ToString()!.ShouldMatchApproved();
@@ -89,7 +89,7 @@ public sealed class FilesContextExtensionsShould(FilesContextFixture filesContex
     [Fact(Skip = "The underlying code is broken")]
     public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedAndDeletePendingAreFalse_ImagesOnly()
     {
-        var response = sut.Files.GetMatchingFiles("c:\\temp", Recursive, "Images", ExcludeSoftDeleted,
+        var response = _sut.Files.GetMatchingFiles("c:\\temp", Recursive, "Images", ExcludeSoftDeleted,
             ExcludeMarkedForDeletion, ExcludeViewed, CancellationToken.None);
 
         response.ToString()!.ShouldMatchApproved();
@@ -100,7 +100,7 @@ public sealed class FilesContextExtensionsShould(FilesContextFixture filesContex
     {
         const int filesNotSoftDeletedOrPendingDeletionCount = 101;
 
-        var matchingFilesCount = sut.Files
+        var matchingFilesCount = _sut.Files
             .GetMatchingFiles(@"c:\", Recursive, "AllFiles", ExcludeSoftDeleted, ExcludeMarkedForDeletion, !ExcludeViewed,
                 CancellationToken.None)
             .Count();
@@ -113,7 +113,7 @@ public sealed class FilesContextExtensionsShould(FilesContextFixture filesContex
     {
         const int filesNotSoftDeletedOrPendingDeletionCount = 66;
 
-        var matchingFilesCount = sut.Files
+        var matchingFilesCount = _sut.Files
             .GetMatchingFiles(@"c:\", Recursive, "Images", ExcludeSoftDeleted, ExcludeMarkedForDeletion, !ExcludeViewed,
                 CancellationToken.None)
             .Count();
@@ -124,7 +124,7 @@ public sealed class FilesContextExtensionsShould(FilesContextFixture filesContex
     [Fact(Skip = "The underlying code is broken")]
     public void GetTheExpectedCountWhenFilterAppliedThatTargetsTopLevelFolderOnlyWhichIsEmpty()
     {
-        var matchingFilesCount = sut.Files
+        var matchingFilesCount = _sut.Files
             .GetMatchingFiles(@"c:\", NotRecursive, "Images", ExcludeSoftDeleted, ExcludeMarkedForDeletion,
                 !ExcludeViewed, CancellationToken.None)
             .Count();
@@ -137,7 +137,7 @@ public sealed class FilesContextExtensionsShould(FilesContextFixture filesContex
     {
         const int filesNotSoftDeletedOrPendingDeletionCount = 24;
 
-        var matchingFilesCount = sut.Files
+        var matchingFilesCount = _sut.Files
             .GetMatchingFiles(@"c:\temp\wwwroot - Copy\AI", Recursive, "Images", ExcludeSoftDeleted,
                 ExcludeMarkedForDeletion, !ExcludeViewed, CancellationToken.None)
             .Count();
@@ -150,7 +150,7 @@ public sealed class FilesContextExtensionsShould(FilesContextFixture filesContex
     {
         const int filesNotSoftDeletedOrPendingDeletionCount = 17;
 
-        var matchingFilesCount = sut.Files
+        var matchingFilesCount = _sut.Files
             .GetMatchingFiles(@"c:\temp\wwwroot - Copy\AI", NotRecursive, "Images", ExcludeSoftDeleted,
                 ExcludeMarkedForDeletion, !ExcludeViewed, CancellationToken.None)
             .Count();
@@ -163,7 +163,7 @@ public sealed class FilesContextExtensionsShould(FilesContextFixture filesContex
     {
         const int filesNotSoftDeletedOrPendingDeletionCount = 32;
 
-        var matchingFilesCount = sut.Files
+        var matchingFilesCount = _sut.Files
             .GetMatchingFiles(@"c:\temp\wwwroot - Copy", Recursive, "Images", IncludeSoftDeleted,
                 ExcludeMarkedForDeletion, !ExcludeViewed, CancellationToken.None)
             .Count();
@@ -176,7 +176,7 @@ public sealed class FilesContextExtensionsShould(FilesContextFixture filesContex
     {
         const int filesNotSoftDeletedOrPendingDeletionCount = 33;
 
-        var matchingFilesCount = sut.Files
+        var matchingFilesCount = _sut.Files
             .GetMatchingFiles(@"c:\temp\wwwroot - Copy", Recursive, "Images", ExcludeSoftDeleted,
                 IncludeMarkedForDeletion, !ExcludeViewed, CancellationToken.None)
             .Count();
@@ -190,7 +190,7 @@ public sealed class FilesContextExtensionsShould(FilesContextFixture filesContex
     {
         const int filesNotSoftDeletedOrPendingDeletionCount = 35;
 
-        var matchingFilesCount = sut.Files
+        var matchingFilesCount = _sut.Files
             .GetMatchingFiles(@"c:\temp\wwwroot - Copy", Recursive, "Images", IncludeSoftDeleted,
                 IncludeMarkedForDeletion, !ExcludeViewed, CancellationToken.None)
             .Count();

@@ -20,11 +20,13 @@ Your goal is to help me write effective unit tests with XUnit.V3, covering both 
 
 - No test class attributes required (unlike MSTest/NUnit)
 - Use fact-based tests with `[Fact]` attribute for simple tests
-- Follow the Arrange-Act-Assert (AAA) pattern
-- Name tests using the pattern `MethodName_Scenario_ExpectedBehavior`
+- Follow the Arrange-Act-Assert (AAA) pattern, but do not add AAA comments
+- Name tests using the pattern `Scenario_ExpectedBehavior`
 - Use constructor for setup and `IDisposable.Dispose()` for teardown
 - Use `IClassFixture<T>` for shared context between tests in a class
 - Use `ICollectionFixture<T>` for shared context between multiple test classes
+- Use expression-bodied members for concise test methods when appropriate
+- All files should have a single blank line at the end
 
 ## Standard Tests
 

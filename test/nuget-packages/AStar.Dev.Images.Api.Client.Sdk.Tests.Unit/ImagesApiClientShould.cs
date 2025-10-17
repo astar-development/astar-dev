@@ -8,7 +8,7 @@ public sealed class ImagesApiClientShould
 
 {
     [Fact]
-    public async Task ReturnExpectedFailureFromGetHealthAsyncWhenTheApIsiUnreachable()
+    public async Task ReturnExpectedFailureFromGetHealthAsyncWhenTheApIsiUnreachableAsync()
     {
         var handler = new MockHttpRequestExceptionErrorHttpMessageHandler();
 
@@ -22,7 +22,7 @@ public sealed class ImagesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedFailureMessageFromGetHealthAsyncWhenCheckFails()
+    public async Task ReturnExpectedFailureMessageFromGetHealthAsyncWhenCheckFailsAsync()
     {
         var handler = new MockInternalServerErrorHttpMessageHandler("Health Check failed - Internal Server Error.");
 
@@ -36,7 +36,7 @@ public sealed class ImagesApiClientShould
     }
 
     [Fact]
-    public async Task ReturnExpectedMessageFromGetHealthAsyncWhenCheckSucceeds()
+    public async Task ReturnExpectedMessageFromGetHealthAsyncWhenCheckSucceedsAsync()
     {
         var handler = new MockSuccessHttpMessageHandler("");
 

@@ -18,9 +18,7 @@
         </member>
         <member name="T:AStar.Dev.Api.Client.Sdk.Shared.IApiConfiguration">
             <summary>
-                Defines the
-                <see cref="T:AStar.Dev.Api.Client.Sdk.Shared.IApiConfiguration"/>
-                interface
+                Defines the <see cref="T:AStar.Dev.Api.Client.Sdk.Shared.IApiConfiguration" /> interface
             </summary>
         </member>
         <member name="P:AStar.Dev.Api.Client.Sdk.Shared.IApiConfiguration.BaseUrl">

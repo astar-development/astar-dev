@@ -34,7 +34,7 @@ public sealed class SqliteTestScope : IAsyncDisposable
         var ctx = new FilesContext(options);
         await ctx.Database.EnsureCreatedAsync();
 
-        return new SqliteTestScope(connection, ctx);
+        return new(connection, ctx);
     }
 
     public async ValueTask DisposeAsync()

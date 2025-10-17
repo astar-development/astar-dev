@@ -1,6 +1,7 @@
 ﻿using System.Text.Json;
 using AStar.Dev.Infrastructure.FilesDb.Data;
 using AStar.Dev.Infrastructure.FilesDb.Models;
+using Bogus;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 
@@ -8,7 +9,7 @@ namespace AStar.Dev.Infrastructure.FilesDb.Fixtures;
 
 public class MockFilesContext : IDisposable
 {
-    private bool disposedValue;
+    private bool _disposedValue;
 
     public MockFilesContext()
     {
@@ -39,7 +40,7 @@ public class MockFilesContext : IDisposable
 
     protected virtual void Dispose(bool disposing)
     {
-        if(disposedValue)
+        if(_disposedValue)
         {
             return;
         }
@@ -49,11 +50,18 @@ public class MockFilesContext : IDisposable
             Context.Dispose();
         }
 
-        disposedValue = true;
+        _disposedValue = true;
     }
 
     private static void AddMockFiles(FilesContext mockFilesContext)
     {
+        var bogus = new Faker<FileDetail>()
+            .UseSeed(1234)
+            .RuleFor(fileDetail => fileDetail.Id, f=> new() {Value = f.Random.Guid()})
+            .RuleFor(fileDetail=>fileDetail.FileName, f => new(f.System.FileName()))
+            .RuleFor(fileDetail=>fileDetail.DirectoryName, f => new(f.System.DirectoryPath()));
+        
+        var testFiles = bogus.Generate(100);
         var filesAsJson = File.ReadAllText(@"TestFiles/files.json");
 
         var listFromJson = JsonSerializer.Deserialize<IEnumerable<FileDetail>>(filesAsJson)!;

@@ -6,17 +6,13 @@
     <members>
         <member name="T:AStar.Dev.Fluent.Assignments.FluentAssignmentsExtensions">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Fluent.Assignments.FluentAssignmentsExtensions"/>
-                class contains the initial extension methods. Over time, this may be
+                The <see cref="T:AStar.Dev.Fluent.Assignments.FluentAssignmentsExtensions" /> class contains the initial extension methods. Over time, this may be
                 separated into separate classes
             </summary>
         </member>
         <member name="M:AStar.Dev.Fluent.Assignments.FluentAssignmentsExtensions.WillBeSet``1(``0)">
             <summary>
-                The
-                <see cref="M:AStar.Dev.Fluent.Assignments.FluentAssignmentsExtensions.WillBeSet``1(``0)"/>
-                method provides a simple pass-through starting point for the assignment.
+                The <see cref="M:AStar.Dev.Fluent.Assignments.FluentAssignmentsExtensions.WillBeSet``1(``0)" /> method provides a simple pass-through starting point for the assignment.
                 There is no functionality in this method, it exists purely to make the sentence more fluent / readable
             </summary>
             <typeparam name="T">The type of the parameter for the assignment</typeparam>

@@ -67,9 +67,7 @@
         </member>
         <member name="T:AStar.Dev.Api.Usage.Sdk.Metrics.IEndpointName">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Api.Usage.Sdk.Metrics.IEndpointName"/>
-                interface contains additional information for logging the API Usage.
+                The <see cref="T:AStar.Dev.Api.Usage.Sdk.Metrics.IEndpointName" /> interface contains additional information for logging the API Usage.
             </summary>
         </member>
         <member name="P:AStar.Dev.Api.Usage.Sdk.Metrics.IEndpointName.Name">

@@ -6,9 +6,7 @@
     <members>
         <member name="T:AStar.Dev.Minimal.Api.Extensions.ApiVersion">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Minimal.Api.Extensions.ApiVersion"/>
-                class contains the parameters used during 'CreatedAtRoute' responses in the APIs
+                The <see cref="T:AStar.Dev.Minimal.Api.Extensions.ApiVersion" /> class contains the parameters used during 'CreatedAtRoute' responses in the APIs
             </summary>
         </member>
         <member name="P:AStar.Dev.Minimal.Api.Extensions.ApiVersion.Version">
@@ -18,44 +16,28 @@
         </member>
         <member name="T:AStar.Dev.Minimal.Api.Extensions.RouteHandlerBuilderExtensions">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Minimal.Api.Extensions.RouteHandlerBuilderExtensions"/>
-                class adds a series of methods to reduce duplication across minimal APIs.
+                The <see cref="T:AStar.Dev.Minimal.Api.Extensions.RouteHandlerBuilderExtensions" /> class adds a series of methods to reduce duplication across minimal APIs.
             </summary>
         </member>
         <member name="M:AStar.Dev.Minimal.Api.Extensions.RouteHandlerBuilderExtensions.AddBasicProduces``1(Microsoft.AspNetCore.Builder.RouteHandlerBuilder)">
             <summary>
                 The AddBasicProduces method will add the successful, unauthorised and internal server error responses.
             </summary>
-            <param name="routeBuilder">The instance of
-                <see cref="T:Microsoft.AspNetCore.Builder.RouteHandlerBuilder"/>
-                to add the methods to
-            </param>
+            <param name="routeBuilder">The instance of <see cref="T:Microsoft.AspNetCore.Builder.RouteHandlerBuilder" /> to add the methods to</param>
             <typeparam name="T">The type of the successful response</typeparam>
-            <returns>The original
-                <see cref="T:Microsoft.AspNetCore.Builder.RouteHandlerBuilder"/>
-                to facilitate further chaining
-            </returns>
+            <returns>The original <see cref="T:Microsoft.AspNetCore.Builder.RouteHandlerBuilder" /> to facilitate further chaining</returns>
         </member>
         <member name="M:AStar.Dev.Minimal.Api.Extensions.RouteHandlerBuilderExtensions.AddBasicWithAdditionalProduces``1(Microsoft.AspNetCore.Builder.RouteHandlerBuilder)">
             <summary>
-                The AddBasicWithAdditionalProduces method extends the
-                <seealso cref="M:AStar.Dev.Minimal.Api.Extensions.RouteHandlerBuilderExtensions.AddBasicProduces``1(Microsoft.AspNetCore.Builder.RouteHandlerBuilder)"/>
-                method to add:
+                The AddBasicWithAdditionalProduces method extends the <seealso cref="M:AStar.Dev.Minimal.Api.Extensions.RouteHandlerBuilderExtensions.AddBasicProduces``1(Microsoft.AspNetCore.Builder.RouteHandlerBuilder)" /> method to add:
                 403
                 404
                 400, and
                 422
             </summary>
-            <param name="routeBuilder">The instance of
-                <see cref="T:Microsoft.AspNetCore.Builder.RouteHandlerBuilder"/>
-                to add the methods to
-            </param>
+            <param name="routeBuilder">The instance of <see cref="T:Microsoft.AspNetCore.Builder.RouteHandlerBuilder" /> to add the methods to</param>
             <typeparam name="T">The type of the successful response</typeparam>
-            <returns>The original
-                <see cref="T:Microsoft.AspNetCore.Builder.RouteHandlerBuilder"/>
-                to facilitate further chaining
-            </returns>
+            <returns>The original <see cref="T:Microsoft.AspNetCore.Builder.RouteHandlerBuilder" /> to facilitate further chaining</returns>
         </member>
     </members>
 </doc>

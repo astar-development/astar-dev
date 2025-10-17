@@ -30,6 +30,8 @@ These instructions give coding agents the minimal, focused context they need to 
 - CI uses the repository-level GitHub workflow at `.github/workflows/main_astar-dev.yml` which runs `dotnet build --configuration Release` and a dotnet coverage command. Follow the same `dotnet` commands locally:
   - Build: `dotnet build --configuration Release` from repository root.
   - Test (fast): `dotnet test --filter "FullyQualifiedName!~Tests.EndToEnd&FullyQualifiedName!~Tests.Integration"` to run unit tests only (the CI wraps this with coverage collector).
+  - Tests: existing tests use xUnit V2 and V3, however, new tests should use V3 only. Shouldly is used for assertions.
+  - When creating new production code, add unit tests in the corresponding `test/*` project. Follow existing test patterns.
 
 ## How services start (local dev hints)
 

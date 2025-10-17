@@ -67,88 +67,67 @@
         </member>
         <member name="T:AStar.Dev.Infrastructure.AdminDb.Configurations.ScrapeDirectoryConfiguration">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Infrastructure.AdminDb.Configurations.ScrapeDirectoryConfiguration"/>
-                class containing, you guessed it, the ScrapeDirectory configuration settings
+                The <see cref="T:AStar.Dev.Infrastructure.AdminDb.Configurations.ScrapeDirectoryConfiguration" /> class containing, you guessed it, the ScrapeDirectory configuration settings
             </summary>
         </member>
         <member name="M:AStar.Dev.Infrastructure.AdminDb.Configurations.ScrapeDirectoryConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{AStar.Dev.Infrastructure.AdminDb.Models.ScrapeDirectory})">
             <summary>
                 The Configure method will configure the ScrapeDirectory table in the database
             </summary>
-            <param name="builder">An instance of the
-                <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Builders.ElementTypeBuilder"/>
-                to add the configuration to
-            </param>
+            <param name="builder">An instance of the <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Builders.ElementTypeBuilder" /> to add the configuration to</param>
             <returns>void</returns>
         </member>
         <member name="T:AStar.Dev.Infrastructure.AdminDb.Configurations.SearchCategoryConfiguration">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Infrastructure.AdminDb.Configurations.SearchCategoryConfiguration"/>
-                class containing, you guessed it, the SearchCategory configuration settings
+                The <see cref="T:AStar.Dev.Infrastructure.AdminDb.Configurations.SearchCategoryConfiguration" /> class containing, you guessed it, the SearchCategory configuration settings
             </summary>
         </member>
         <member name="M:AStar.Dev.Infrastructure.AdminDb.Configurations.SearchCategoryConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{AStar.Dev.Infrastructure.AdminDb.Models.SearchCategory})">
             <summary>
                 The Configure method will configure the SearchCategory table in the database
             </summary>
-            <param name="builder">An instance of the
-                <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Builders.ElementTypeBuilder"/>
-                to add the configuration to
-            </param>
+            <param name="builder">An instance of the <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Builders.ElementTypeBuilder" /> to add the configuration to</param>
             <returns>void</returns>
         </member>
         <member name="T:AStar.Dev.Infrastructure.AdminDb.Configurations.SearchConfigurationConfiguration">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Infrastructure.AdminDb.Configurations.SearchConfigurationConfiguration"/>
-                class containing, you guessed it, the SearchConfiguration configuration settings
+                The <see cref="T:AStar.Dev.Infrastructure.AdminDb.Configurations.SearchConfigurationConfiguration" /> class containing, you guessed it, the SearchConfiguration configuration settings
             </summary>
         </member>
         <member name="M:AStar.Dev.Infrastructure.AdminDb.Configurations.SearchConfigurationConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{AStar.Dev.Infrastructure.AdminDb.Models.SearchConfiguration})">
             <summary>
                 The Configure method will configure the SearchConfiguration table in the database
             </summary>
-            <param name="builder">An instance of the
-                <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Builders.ElementTypeBuilder"/>
-                to add the configuration to
-            </param>
+            <param name="builder">An instance of the <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Builders.ElementTypeBuilder" /> to add the configuration to</param>
             <returns>void</returns>
         </member>
         <member name="T:AStar.Dev.Infrastructure.AdminDb.Configurations.SiteConfigurationConfiguration">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Infrastructure.AdminDb.Configurations.SiteConfigurationConfiguration"/>
-                class containing, you guessed it, the SiteConfiguration configuration settings
+                The <see cref="T:AStar.Dev.Infrastructure.AdminDb.Configurations.SiteConfigurationConfiguration" /> class containing, you guessed it, the SiteConfiguration configuration settings
             </summary>
         </member>
         <member name="M:AStar.Dev.Infrastructure.AdminDb.Configurations.SiteConfigurationConfiguration.Configure(Microsoft.EntityFrameworkCore.Metadata.Builders.EntityTypeBuilder{AStar.Dev.Infrastructure.AdminDb.Models.SiteConfiguration})">
             <summary>
                 The Configure method will configure the SiteConfiguration table in the database
             </summary>
-            <param name="builder">An instance of the
-                <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Builders.ElementTypeBuilder"/>
-                to add the configuration to
-            </param>
+            <param name="builder">An instance of the <see cref="T:Microsoft.EntityFrameworkCore.Metadata.Builders.ElementTypeBuilder" /> to add the configuration to</param>
             <returns>void</returns>
         </member>
         <member name="T:AStar.Dev.Infrastructure.AdminDb.Migrations.InitialCreation">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:AStar.Dev.Infrastructure.AdminDb.Migrations.InitialCreation.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:AStar.Dev.Infrastructure.AdminDb.Migrations.InitialCreation.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:AStar.Dev.Infrastructure.AdminDb.Migrations.InitialCreation.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:AStar.Dev.Infrastructure.AdminDb.Models.ScrapeDirectory">
             <summary>
-                The <see href="ScrapeDirectories"></see> class containing the Scrape Directories Configuration and extending
-                <see cref="T:AStar.Dev.Infrastructure.Data.AuditableEntity"/>
+                The <see href="ScrapeDirectories"></see> class containing the Scrape Directories Configuration and extending <see cref="T:AStar.Dev.Infrastructure.Data.AuditableEntity" />
             </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.ScrapeDirectory.Id">
@@ -189,8 +168,7 @@
         </member>
         <member name="T:AStar.Dev.Infrastructure.AdminDb.Models.SearchCategory">
             <summary>
-                The <see href="SearchCategory"></see> class containing the Search Category Configuration and extending
-                <see cref="T:AStar.Dev.Infrastructure.Data.AuditableEntity"/>
+                The <see href="SearchCategory"></see> class containing the Search Category Configuration and extending <see cref="T:AStar.Dev.Infrastructure.Data.AuditableEntity" />
             </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SearchCategory.Id">
@@ -231,7 +209,7 @@
         </member>
         <member name="T:AStar.Dev.Infrastructure.AdminDb.Models.SearchConfiguration">
             <summary>
-                The <see href="SearchConfiguration"></see> class extends<see cref="T:AStar.Dev.Infrastructure.Data.AuditableEntity"/>.
+                The <see href="SearchConfiguration"></see> class extends <see cref="T:AStar.Dev.Infrastructure.Data.AuditableEntity" />.
                 The <see href="SearchConfiguration"></see> class containing the full Scrape Configuration.
             </summary>
         </member>
@@ -324,10 +302,7 @@
         </member>
         <member name="T:AStar.Dev.Infrastructure.AdminDb.Models.SiteConfiguration">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Infrastructure.AdminDb.Models.SiteConfiguration"/>
-                class, extending
-                <see cref="T:AStar.Dev.Infrastructure.Data.AuditableEntity"/>
+                The <see cref="T:AStar.Dev.Infrastructure.AdminDb.Models.SiteConfiguration" /> class, extending <see cref="T:AStar.Dev.Infrastructure.Data.AuditableEntity" />
             </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SiteConfiguration.Id">
@@ -348,8 +323,7 @@
         </member>
         <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SiteConfiguration.LoginUrl">
             <summary>
-                Gets or sets the Login Url - relative to the
-                <see cref="P:AStar.Dev.Infrastructure.AdminDb.Models.SiteConfiguration.BaseUrl"/>
+                Gets or sets the Login Url - relative to the <see cref="P:AStar.Dev.Infrastructure.AdminDb.Models.SiteConfiguration.BaseUrl" />
             </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.AdminDb.Models.SiteConfiguration.LoginEmailAddress">
@@ -369,67 +343,47 @@
         </member>
         <member name="T:AStar.Dev.Infrastructure.AdminDb.SeedData.ScrapeDirectoryData">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Infrastructure.AdminDb.SeedData.ScrapeDirectoryData"/>
-                adds the default Scrape Directory configuration when no entry exists
+                The <see cref="T:AStar.Dev.Infrastructure.AdminDb.SeedData.ScrapeDirectoryData" /> adds the default Scrape Directory configuration when no entry exists
             </summary>
         </member>
         <member name="M:AStar.Dev.Infrastructure.AdminDb.SeedData.ScrapeDirectoryData.Seed(Microsoft.EntityFrameworkCore.DbContext)">
             <summary>
                 The seed method to populate the database with
             </summary>
-            <param name="context">The
-                <see cref="T:Microsoft.EntityFrameworkCore.DbContext"/>
-                to populate
-            </param>
+            <param name="context">The <see cref="T:Microsoft.EntityFrameworkCore.DbContext" /> to populate</param>
         </member>
         <member name="T:AStar.Dev.Infrastructure.AdminDb.SeedData.SearchCategoryData">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Infrastructure.AdminDb.SeedData.SearchCategoryData"/>
-                adds the default Search Category configuration when no entry exists.
+                The <see cref="T:AStar.Dev.Infrastructure.AdminDb.SeedData.SearchCategoryData" /> adds the default Search Category configuration when no entry exists.
             </summary>
         </member>
         <member name="M:AStar.Dev.Infrastructure.AdminDb.SeedData.SearchCategoryData.Seed(Microsoft.EntityFrameworkCore.DbContext)">
             <summary>
                 The seed method to populate the database with
             </summary>
-            <param name="context">The
-                <see cref="T:Microsoft.EntityFrameworkCore.DbContext"/>
-                to populate
-            </param>
+            <param name="context">The <see cref="T:Microsoft.EntityFrameworkCore.DbContext" /> to populate</param>
         </member>
         <member name="T:AStar.Dev.Infrastructure.AdminDb.SeedData.SearchConfigurationData">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Infrastructure.AdminDb.SeedData.SearchConfigurationData"/>
-                adds the default Search Configuration when no entry exists
+                The <see cref="T:AStar.Dev.Infrastructure.AdminDb.SeedData.SearchConfigurationData" /> adds the default Search Configuration when no entry exists
             </summary>
         </member>
         <member name="M:AStar.Dev.Infrastructure.AdminDb.SeedData.SearchConfigurationData.Seed(Microsoft.EntityFrameworkCore.DbContext)">
             <summary>
                 The seed method to populate the database with
             </summary>
-            <param name="context">The
-                <see cref="T:Microsoft.EntityFrameworkCore.DbContext"/>
-                to populate
-            </param>
+            <param name="context">The <see cref="T:Microsoft.EntityFrameworkCore.DbContext" /> to populate</param>
         </member>
         <member name="T:AStar.Dev.Infrastructure.AdminDb.SeedData.SiteConfigurationData">
             <summary>
-                The
-                <see cref="T:AStar.Dev.Infrastructure.AdminDb.SeedData.SiteConfigurationData"/>
-                adds the default Site Configuration when no entry exists.
+                The <see cref="T:AStar.Dev.Infrastructure.AdminDb.SeedData.SiteConfigurationData" /> adds the default Site Configuration when no entry exists.
             </summary>
         </member>
         <member name="M:AStar.Dev.Infrastructure.AdminDb.SeedData.SiteConfigurationData.Seed(Microsoft.EntityFrameworkCore.DbContext)">
             <summary>
                 The seed method to populate the database with
             </summary>
-            <param name="context">The
-                <see cref="T:Microsoft.EntityFrameworkCore.DbContext"/>
-                to populate
-            </param>
+            <param name="context">The <see cref="T:Microsoft.EntityFrameworkCore.DbContext" /> to populate</param>
         </member>
     </members>
 </doc>
