@@ -43,10 +43,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="AStar.Dev.Technical.Debt.Reporting" Version="0.2.1"/>
-    </ItemGroup>
-
-    <ItemGroup>
         <PackageReference Include="TestableIO.System.IO.Abstractions.Wrappers" Version="22.0.16"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.10"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.10">
@@ -62,6 +58,7 @@
 
     <ItemGroup>
         <ProjectReference Include="..\AStar.Dev.Infrastructure\AStar.Dev.Infrastructure.csproj"/>
+        <ProjectReference Include="..\AStar.Dev.Technical.Debt.Reporting\AStar.Dev.Technical.Debt.Reporting.csproj"/>
         <ProjectReference Include="..\AStar.Dev.Utilities\AStar.Dev.Utilities.csproj"/>
     </ItemGroup>
 

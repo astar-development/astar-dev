@@ -18,6 +18,7 @@
     <Project Path="src/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.csproj" />
     <Project Path="src/apis/AStar.Dev.Images.Api/AStar.Dev.Images.Api.csproj" />
     <Project Path="src/apis/AStar.Dev.ToDo.Api/AStar.Dev.ToDo.Api.csproj" />
+      <Project Path="src\apis\AStar.Dev.Files.Classifications.Api\AStar.Dev.Files.Classifications.Api.csproj" Type="Classic C#"/>
   </Folder>
   <Folder Name="/src/nuget-packages/">
     <Project Path="src\nuget-packages\AStar.Dev.Admin.Api.Client.Sdk\AStar.Dev.Admin.Api.Client.Sdk.csproj" Type="Classic C#" />
@@ -68,7 +69,9 @@
     <Project Path="src\_aspire\AStar.Dev.ServiceDefaults\AStar.Dev.ServiceDefaults.csproj" Type="Classic C#" />
   </Folder>
   <Folder Name="/test/" />
-  <Folder Name="/test/apis/" />
+    <Folder Name="/test/apis/">
+        <Project Path="test\AStar.Dev.Files.Classifications.Api.Tests.Unit\AStar.Dev.Files.Classifications.Api.Tests.Unit.csproj" Type="Classic C#"/>
+    </Folder>
   <Folder Name="/test/apis/AStar.Dev.Admin.Api/">
     <Project Path="test/apis/AStar.Dev.Admin.Api.Tests.EndToEnd/AStar.Dev.Admin.Api.Tests.EndToEnd.csproj" />
     <Project Path="test/apis/AStar.Dev.Admin.Api.Tests.Integration/AStar.Dev.Admin.Api.Tests.Integration.csproj" />
