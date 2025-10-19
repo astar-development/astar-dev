@@ -14,7 +14,7 @@ namespace AStar.Dev.Files.Api.Client.SDK.FilesApi;
 /// </summary>
 /// <param name="httpClient"></param>
 /// <param name="logger"></param>
-public sealed class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition tokenAcquisitionService,*/ ILogger<FilesApiClient> logger) : IApiClient
+public class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition tokenAcquisitionService,*/ ILogger<FilesApiClient> logger) : IFilesApiClient
 {
     private static readonly JsonSerializerOptions JsonSerializerOptions = new(JsonSerializerDefaults.Web);
 
@@ -103,6 +103,23 @@ public sealed class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition to
         logger.LogDebug("Response.StatusCode: {Response_StatusCode}", response.StatusCode);
 
         return (await response.Content.ReadFromJsonAsync<IReadOnlyCollection<DuplicatesList>>())!;
+    }
+
+    /// <summary>
+    ///     The GetFileClassificationsAsync method will get all file classifications
+    /// </summary>
+    /// <returns>A collection of file classifications</returns>
+    /// <exception cref="InvalidOperationException"></exception>
+    public virtual async Task<IReadOnlyCollection<FileClassification>> GetFileClassificationsAsync()
+    {
+        logger.LogInformation("Getting the list of file classifications.");
+
+        var response = await httpClient.GetAsync("api/file-classifications?version=1");
+        var content = await response.Content.ReadAsStringAsync();
+
+        return response.IsSuccessStatusCode
+            ? content.FromJson<IReadOnlyCollection<FileClassification>>(Utilities.Constants.WebDeserialisationSettings)
+            : throw new InvalidOperationException(content);
     }
 
     /// <summary>
@@ -344,6 +361,34 @@ public sealed class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition to
             return ex.Message;
         }
     }
+
+    /// <summary>
+    /// </summary>
+    /// <param name="request"></param>
+    /// <returns></returns>
+    /// <exception cref="NotImplementedException"></exception>
+    public Task<string> UpdateFileDirectoryAsync(DirectoryChangeRequest request) => throw new NotImplementedException();
+
+    /// <summary>
+    /// </summary>
+    /// <param name="fileId"></param>
+    /// <returns></returns>
+    /// <exception cref="NotImplementedException"></exception>
+    public Task<string> UpdateFileLastViewedAsync(int fileId) => throw new NotImplementedException();
+
+    /// <summary>
+    /// </summary>
+    /// <param name="fileDetail"></param>
+    /// <returns></returns>
+    /// <exception cref="NotImplementedException"></exception>
+    public Task<string> PushFileDetailAsync(FileDetail fileDetail) => throw new NotImplementedException();
+
+    /// <summary>
+    /// </summary>
+    /// <param name="fileDetails"></param>
+    /// <returns></returns>
+    /// <exception cref="NotImplementedException"></exception>
+    public Task<string> PushFileDetailsAsync(IEnumerable<FileDetail> fileDetails) => throw new NotImplementedException();
 
     /// <summary>
     ///     The UpdateFileAsync method will, as the name suggests, update the file - currently, the directory is the only thing

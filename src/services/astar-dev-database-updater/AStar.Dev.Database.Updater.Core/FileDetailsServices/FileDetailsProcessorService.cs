@@ -1,4 +1,5 @@
 using System.Text.RegularExpressions;
+using AStar.Dev.FileServices.Common;
 using AStar.Dev.Functional.Extensions;
 using AStar.Dev.Infrastructure.FilesDb.Models;
 using AStar.Dev.Utilities;
@@ -23,8 +24,7 @@ public class FileDetailsProcessorService(FileHandleService fileHandleService, IL
     public (int counter, int writeCount) ProcessFileDetailAsync(FileDetail fileDetail, List<FileClassification> classifications, List<FileHandle> fileHandlesAlreadyInTheContext,
                                                                 int        counter,    int                      writeCount,      IReadOnlyList<FileNamePartsWithClassifications> keywords)
     {
-        var pattern = KeywordRegexBuilder.BuildKeywordPattern(keywords);
-        var regex   = new Regex(pattern, RegexOptions.IgnoreCase | RegexOptions.Compiled);
+        var regex = KeywordRegexBuilder.BuildKeywordPattern(keywords);
 
         var nameToCheck = fileDetail.FullNameWithPath.SanitizeFilePath();
 
@@ -36,13 +36,13 @@ public class FileDetailsProcessorService(FileHandleService fileHandleService, IL
 
         if(fileDetail.FileName.Value.IsImage())
         {
-            UpdateFileDetailsForImage(fileDetail).TapError(exception => TemporaryLogFileScanningError(exception, fileDetail.FullNameWithPath));
+            _ = UpdateFileDetailsForImage(fileDetail).TapError(exception => TemporaryLogFileScanningError(exception, fileDetail.FullNameWithPath));
         }
 
         return (counter, writeCount);
     }
 
-    private void TemporaryLogFileScanningError(Exception e, string path) => logger.LogError(e, "An error occured while scanning file: {FileName}", path);
+    private void TemporaryLogFileScanningError(Exception e, string path) => logger.LogError(e, "An error occurred while scanning file: {FileName}", path);
 
     private int ProcessMatches(IEnumerable<string> nonEmptyMatches, int counter, List<FileClassification> classifications, FileDetail fileWithClassifications)
     {

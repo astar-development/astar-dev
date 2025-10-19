@@ -60,7 +60,7 @@ public class FilesProcessor(
                     continue;
                 }
 
-                await SaveFileDetailsAsync(writeCount, fileDetails, cancellationToken);
+                _ = await SaveFileDetailsAsync(writeCount, fileDetails, cancellationToken);
                 fileDetails.Clear();
             }
             catch(Exception e)
@@ -84,5 +84,5 @@ public class FilesProcessor(
                               })
                     .ToErrorResponseAsync();
 
-    private void TemporaryLogFileScanningError(Exception e, string path) => logger.LogError(e, "An error occured while scanning file: {FileName}", path);
+    private void TemporaryLogFileScanningError(Exception e, string path) => logger.LogError(e, "An error occurred while scanning file: {FileName}", path);
 }

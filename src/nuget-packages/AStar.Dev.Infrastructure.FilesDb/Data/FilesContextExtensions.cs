@@ -38,7 +38,7 @@ public static class FilesContextExtensions
     /// <returns>
     ///     The original list of files for further filtering.
     /// </returns>
-    public static IEnumerable<FileDetail> GetMatchingFiles(this DbSet<FileDetail> files,
+    public static IList<FileDetail> GetMatchingFiles(this DbSet<FileDetail> files,
                                                            string                 startingFolder,
                                                            bool                   recursive,
                                                            string                 searchType,

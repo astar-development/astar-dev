@@ -210,6 +210,55 @@
             <summary>
             </summary>
         </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.FileClassifications.V1.GetFileClassificationsHandler">
+            <summary>
+                Handler for retrieving file classifications
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileClassifications.V1.GetFileClassificationsHandler.HandleAsync(AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,System.Threading.CancellationToken)">
+            <summary>
+                Handles the request to get all file classifications
+            </summary>
+            <param name="filesContext">The database context</param>
+            <param name="cancellationToken">Cancellation token</param>
+            <returns>A collection of file classifications</returns>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.FileClassifications.V1.GetFileClassificationsResponse">
+            <summary>
+                Response model for file classification data
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.FileClassifications.V1.GetFileClassificationsResponse.Id">
+            <summary>
+                Gets or sets the unique identifier for the file classification
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.FileClassifications.V1.GetFileClassificationsResponse.Name">
+            <summary>
+                Gets or sets the name of the file classification
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.FileClassifications.V1.GetFileClassificationsResponse.IncludeInSearch">
+            <summary>
+                Gets or sets whether this classification should be included in search
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Endpoints.FileClassifications.V1.GetFileClassificationsResponse.Celebrity">
+            <summary>
+                Gets or sets whether this classification is marked as a celebrity
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.FileClassifications.V1.MapGetFileClassificationsEndpoint">
+            <summary>
+                Maps the file classifications GET endpoint
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.FileClassifications.V1.MapGetFileClassificationsEndpoint.MapFileClassificationsGetEndpoint(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder)">
+            <summary>
+                Maps the file classifications GET endpoint to the route builder
+            </summary>
+            <param name="endpointRouteBuilder">The endpoint route builder</param>
+        </member>
         <member name="T:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesHandler">
             <summary>
             </summary>

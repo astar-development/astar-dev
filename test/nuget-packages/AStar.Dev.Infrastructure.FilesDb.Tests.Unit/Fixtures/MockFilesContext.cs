@@ -1,5 +1,4 @@
-﻿using System.Text.Json;
-using AStar.Dev.Infrastructure.FilesDb.Data;
+﻿using AStar.Dev.Infrastructure.FilesDb.Data;
 using AStar.Dev.Infrastructure.FilesDb.Models;
 using Bogus;
 using Microsoft.Data.Sqlite;
@@ -26,7 +25,6 @@ public class MockFilesContext : IDisposable
         _ = Context.Database.EnsureCreated();
 
         AddMockFiles(Context);
-        _ = Context.SaveChanges();
     }
 
     public FilesContext Context { get; }
@@ -55,25 +53,17 @@ public class MockFilesContext : IDisposable
 
     private static void AddMockFiles(FilesContext mockFilesContext)
     {
+        var fileExtension = new[] { "jpg", "jpeg", "bmp", "png", "txt", "txt", "doc", "xls", "pdf", "html" };
         var bogus = new Faker<FileDetail>()
             .UseSeed(1234)
             .RuleFor(fileDetail => fileDetail.Id, f=> new() {Value = f.Random.Guid()})
-            .RuleFor(fileDetail=>fileDetail.FileName, f => new(f.System.FileName()))
+            .RuleFor(fileDetail => fileDetail.FileName, f => new(f.System.FileName(f.PickRandom(fileExtension))))
             .RuleFor(fileDetail=>fileDetail.DirectoryName, f => new(f.System.DirectoryPath()));
         
         var testFiles = bogus.Generate(100);
-        var filesAsJson = File.ReadAllText(@"TestFiles/files.json");
+        testFiles.ForEach(item => item.FileHandle = new($"{item.DirectoryName.Value}-{item.FileName.Value}-{item.Id}"));
 
-        var listFromJson = JsonSerializer.Deserialize<IEnumerable<FileDetail>>(filesAsJson)!;
-
-        foreach(var item in listFromJson)
-        {
-            if(mockFilesContext.Files.FirstOrDefault(f => f.FileName == item.FileName && f.DirectoryName == item.DirectoryName) == null)
-            {
-                item.FileHandle = new($"{item.DirectoryName.Value}-{item.FileName.Value}-{item.Id}");
-                mockFilesContext.Files.Add(item);
-                mockFilesContext.SaveChanges();
-            }
-        }
+        mockFilesContext.Files.AddRange(testFiles);
+        mockFilesContext.SaveChanges();
     }
 }

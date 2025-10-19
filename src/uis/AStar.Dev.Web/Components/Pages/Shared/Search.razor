@@ -20,6 +20,33 @@
                 <FluentSwitch @bind-Value="SearchModel.Recursive" Label="Recursive" style="margin-top: 24px;"/>
             </div>
         </FluentGridItem>
+        <FluentGridItem xs="6" sm="4">
+            <div class="card">
+                <FluentSelect Label="File Classification 1"
+                              @bind-Value="SearchModel.FileClassification1"
+                              Items="@FileClassifications"
+                              OptionValue="@(x => x.Id.ToString())"
+                              OptionText="@(x => x.Name)"
+                              style="width: 100%;"/>
+            </div>
+        </FluentGridItem>
+        <FluentGridItem xs="6" sm="2">
+            <div class="card">
+                <FluentSwitch @bind-Value="SearchModel.UseAndOperator"
+                              Label="@(SearchModel.UseAndOperator ? "AND" : "OR")"
+                              style="margin-top: 24px;"/>
+            </div>
+        </FluentGridItem>
+        <FluentGridItem xs="6" sm="4">
+            <div class="card">
+                <FluentSelect Label="File Classification 2"
+                              @bind-Value="SearchModel.FileClassification2"
+                              Items="@FileClassifications"
+                              OptionValue="@(x => x.Id.ToString())"
+                              OptionText="@(x => x.Name)"
+                              style="width: 100%;"/>
+            </div>
+        </FluentGridItem>
         <FluentGridItem xs="6" sm="3">
             <div class="card">
                 <FluentSelect Label="Exclude Viewed Within Days"

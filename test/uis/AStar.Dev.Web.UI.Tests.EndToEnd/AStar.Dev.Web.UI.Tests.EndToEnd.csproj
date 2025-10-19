@@ -42,7 +42,7 @@
         <Content Include="**/*.feature"/>
     </ItemGroup>
     <ItemGroup>
-        <Using Include="Xunit"/>
+        <Using Include="Xunit" />
         <Using Include="Shouldly"/>
         <Using Include="Reqnroll"/>
         <Using Include="Microsoft.Playwright"/>

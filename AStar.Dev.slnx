@@ -38,6 +38,7 @@
     <Project Path="src\nuget-packages\AStar.Dev.Logging.Extensions\AStar.Dev.Logging.Extensions.csproj" Type="Classic C#" />
     <Project Path="src\nuget-packages\AStar.Dev.Minimal.Api.Extensions\AStar.Dev.Minimal.Api.Extensions.csproj" Type="Classic C#" />
     <Project Path="src\nuget-packages\AStar.Dev.Technical.Debt.Reporting\AStar.Dev.Technical.Debt.Reporting.csproj" Type="Classic C#" />
+      <Project Path="src\nuget-packages\AStar.Dev.Test.DbContext.Helpers\AStar.Dev.Test.DbContext.Helpers.csproj" Type="Classic C#"/>
     <Project Path="src\nuget-packages\AStar.Dev.Test.Helpers.EndToEnd\AStar.Dev.Test.Helpers.EndToEnd.csproj" Type="Classic C#" />
     <Project Path="src\nuget-packages\AStar.Dev.Test.Helpers.Integration\AStar.Dev.Test.Helpers.Integration.csproj" Type="Classic C#" />
     <Project Path="src\nuget-packages\AStar.Dev.Test.Helpers.Minimal.Api\AStar.Dev.Test.Helpers.Minimal.Api.csproj" Type="Classic C#" />
@@ -49,6 +50,7 @@
   <Folder Name="/src/services/">
     <Project Path="src/services/AStar.Dev.Usage.Logger/AStar.Dev.Usage.Logger.csproj" />
     <Project Path="src/services/AStar.Dev.Wallpaper.Scrapper/AStar.Dev.Wallpaper.Scrapper.csproj" />
+      <Project Path="src\services\AStar.Dev.FileServices.Common\AStar.Dev.FileServices.Common.csproj" Type="Classic C#"/>
   </Folder>
   <Folder Name="/src/services/astar-dev-database-updater/">
     <Project Path="src/services/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.csproj" />
@@ -75,7 +77,7 @@
   <Folder Name="/test/apis/AStar.Dev.Files.Api/">
     <Project Path="test/apis/AStar.Dev.Files.Api.Tests.EndToEnd/AStar.Dev.Files.Api.Tests.EndToEnd.csproj" />
     <Project Path="test/apis/AStar.Dev.Files.Api.Tests.Integration/AStar.Dev.Files.Api.Tests.Integration.csproj" />
-    <Project Path="test/apis/AStar.Dev.Files.Api.Tests.Unit/AStar.Dev.Files.Api.Tests.Unit.csproj" />
+      <Project Path="test\apis\AStar.Dev.Files.Api.Tests.Unit\AStar.Dev.Files.Api.Tests.Unit.csproj" Type="Classic C#"/>
   </Folder>
   <Folder Name="/test/apis/AStar.Dev.Images.Api/">
     <Project Path="test/apis/AStar.Dev.Images.Api.Tests.EndToEnd/AStar.Dev.Images.Api.Tests.EndToEnd.csproj" />
@@ -109,6 +111,7 @@
     <Project Path="test/services/AStar.Dev.Database.Updater.Core.Tests.Unit/AStar.Dev.Database.Updater.Core.Tests.Unit.csproj" />
     <Project Path="test/services/AStar.Dev.Database.Updater.Tests.Integration/AStar.Dev.Database.Updater.Tests.Integration.csproj" />
     <Project Path="test/services/AStar.Dev.Database.Updater.Tests.Unit/AStar.Dev.Database.Updater.Tests.Unit.csproj" />
+      <Project Path="test\services\AStar.Dev.FileServices.Common.Tests.Unit\AStar.Dev.FileServices.Common.Tests.Unit.csproj" Type="Classic C#"/>
   </Folder>
   <Folder Name="/test/uis/">
     <Project Path="test/uis/AStar.Dev.Web.UI.Tests.Integration/AStar.Dev.Web.UI.Tests.Integration.csproj" />

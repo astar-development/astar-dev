@@ -25,7 +25,7 @@ try
 }
 catch(Exception exception)
 {
-    logger?.Fatal(exception, "An error occured while running the application. Message: {ErrorMessage}",
+    logger?.Fatal(exception, "An error occurred while running the application. Message: {ErrorMessage}",
         exception.Message);
 }
 finally

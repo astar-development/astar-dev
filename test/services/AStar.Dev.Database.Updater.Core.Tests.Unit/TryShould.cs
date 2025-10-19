@@ -146,8 +146,5 @@ public class TryTests
     }
 
     // Custom exception for testing
-    private class CustomTestException : Exception
-    {
-        public CustomTestException(string message) : base(message) { }
-    }
+    private class CustomTestException(string message) : Exception(message);
 }

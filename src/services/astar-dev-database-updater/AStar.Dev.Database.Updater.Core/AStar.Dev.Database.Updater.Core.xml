@@ -94,16 +94,14 @@
             <summary>
                 The <see cref="T:AStar.Dev.Database.Updater.Core.ClassificationsServices.ClassificationsMapper" /> that handles adding any new file > database classifications
             </summary>
-            <param name="configuration"></param>
             <param name="config"></param>
             <param name="logger"></param>
             <remarks>Before we can progress to testing this, we need to change the ClassificationsMapper to be more testable</remarks>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.ClassificationsServices.ClassificationsMapper.#ctor(Microsoft.Extensions.Options.IOptions{AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration},Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.ClassificationsServices.ClassificationsMapper})">
+        <member name="M:AStar.Dev.Database.Updater.Core.ClassificationsServices.ClassificationsMapper.#ctor(Microsoft.Extensions.Options.IOptions{AStar.Dev.Database.Updater.Core.DatabaseUpdaterConfiguration},Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.ClassificationsServices.ClassificationsMapper})">
             <summary>
                 The <see cref="T:AStar.Dev.Database.Updater.Core.ClassificationsServices.ClassificationsMapper" /> that handles adding any new file > database classifications
             </summary>
-            <param name="configuration"></param>
             <param name="config"></param>
             <param name="logger"></param>
             <remarks>Before we can progress to testing this, we need to change the ClassificationsMapper to be more testable</remarks>
@@ -215,12 +213,6 @@
         <member name="T:AStar.Dev.Database.Updater.Core.FileDetailsServices.FileHandleService">
             <summary>
             </summary>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileDetailsServices.FileHandleService.GenerateFileHandle(System.String)">
-            <summary>
-            </summary>
-            <param name="file"></param>
-            <returns></returns>
         </member>
         <member name="M:AStar.Dev.Database.Updater.Core.FileDetailsServices.FileHandleService.GenerateFileHandle(AStar.Dev.Infrastructure.FilesDb.Models.FileDetail,System.Collections.Generic.List{AStar.Dev.Infrastructure.FilesDb.Models.FileHandle})">
             <summary>

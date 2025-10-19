@@ -27,8 +27,8 @@ Keep instructions short and concrete — point to exact files and examples the a
 - Build repository (CI): from repo root run
   - dotnet build --configuration Release
 - Run unit tests (fast):
-  - dotnet test --filter "FullyQualifiedName!~Tests.EndToEnd&FullyQualifiedName!~Tests.Integration"
-  - Tests primarily use xUnit and Shouldly; prefer xUnit V3 (project mix may have v2 and v3 referenced, follow the consumer project's csproj).
+  - dotnet test --filter 'FullyQualifiedName!~Tests.EndToEnd&FullyQualifiedName!~Tests.Integration'
+  - Tests primarily use xUnit V3 and Shouldly. NSubstitute is used for mocking when necessary.
 - When adding shared runtime code, add to `src/nuget-packages/*` and reference the project instead of introducing new global packages.
 
 ## Project-specific conventions and patterns
@@ -37,6 +37,8 @@ Keep instructions short and concrete — point to exact files and examples the a
 - Telemetry & logging: Serilog + OpenTelemetry. Do not add duplicate OTLP exporters — use `AddOpenTelemetryExporters()` from service defaults.
 - Configuration keys: use the existing `Parameters` entries (e.g., `Parameters:sql1-password`) and `applicationConfiguration` keys when present.
 - Tests: put unit tests in `test/<area>/*.Tests.Unit` and follow existing patterns (Shouldly for assertions, test fixtures in Fixtures/ when needed).
+- Whilst the AAA pattern is used, comments should not be added to a test unless the logic is complex. If the logic is complex, consider breaking it into multiple tests. Instead of comments, use blank lines to separate the Arrange, Act, and Assert sections.
+- Using statements for Shouldly and Xunit are not required as they are included globally via the relevant `csproj`.
 
 ## Integration & cross-component communication
 
@@ -88,7 +90,7 @@ Keep instructions short and concrete — point to exact files and examples the a
 
 - CI uses the repository-level GitHub workflow at `.github/workflows/main_astar-dev.yml` which runs `dotnet build --configuration Release` and a dotnet coverage command. Follow the same `dotnet` commands locally:
   - Build: `dotnet build --configuration Release` from repository root.
-  - Test (fast): `dotnet test --filter "FullyQualifiedName!~Tests.EndToEnd&FullyQualifiedName!~Tests.Integration"` to run unit tests only (the CI wraps this with coverage collector).
+  - Test (fast): `dotnet test --filter 'FullyQualifiedName!~Tests.EndToEnd&FullyQualifiedName!~Tests.Integration'` to run unit tests only (the CI wraps this with coverage collector).
   - Tests: existing tests use xUnit V2 and V3, however, new tests should use V3 only. Shouldly is used for assertions.
   - When creating new production code, add unit tests in the corresponding `test/*` project. Follow existing test patterns.
 
