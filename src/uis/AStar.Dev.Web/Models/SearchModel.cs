@@ -39,4 +39,9 @@ public class SearchModel
     /// <summary>
     /// </summary>
     public IEnumerable<int> ExcludeViewedWithinDaysOptions { get; } = [0, 1, 3, 7, 14, 30];
+
+    public string? FileClassification1 { get; set; }
+    public string? FileClassification2 { get; set; }
+    public bool UseAndOperator { get; set; } = true;
+
 }

@@ -12,6 +12,7 @@ using AStar.Dev.AspNet.Extensions.WebApplicationBuilderExtensions;
 using AStar.Dev.Auth.Extensions;
 using AStar.Dev.Files.Api;
 using AStar.Dev.Files.Api.Endpoints.Add.V1;
+using AStar.Dev.Files.Api.Endpoints.FileClassifications.V1;
 using AStar.Dev.Files.Api.Endpoints.Get.V1;
 using AStar.Dev.Infrastructure.FilesDb.Data;
 using AStar.Dev.ServiceDefaults;
@@ -93,6 +94,7 @@ try
 
     services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
     services.AddScoped<IGetFilesHandler, GetFilesHandler>();
+    services.AddScoped<GetFileClassificationsHandler>();
 
     var app = builder.Build()
                      .UseApiServices();
@@ -117,6 +119,7 @@ try
 
     app.MapFilesPostEndpoint();
     app.MapFilesGetEndpoint();
+    app.MapFileClassificationsGetEndpoint();
     app.UseExceptionHandler();
 
     await app.RunAsync();

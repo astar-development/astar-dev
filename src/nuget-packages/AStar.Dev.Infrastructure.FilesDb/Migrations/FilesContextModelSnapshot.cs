@@ -20,7 +20,7 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
             modelBuilder
                 .HasDefaultSchema("files")
                 .UseCollation("SQL_Latin1_General_CP1_CI_AS")
-                .HasAnnotation("ProductVersion", "9.0.9")
+                .HasAnnotation("ProductVersion", "9.0.10")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);

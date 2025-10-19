@@ -1,0 +1,307 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AStar.Dev.Admin.Api.Client.Sdk</name>
+    </assembly>
+    <members>
+        <member name="T:AStar.Dev.Admin.Api.Client.Sdk.AdminApi.AdminApiClient">
+            <summary>
+                The <see href="AdminApiClient"></see> class.
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Admin.Api.Client.Sdk.AdminApi.AdminApiClient.#ctor(System.Net.Http.HttpClient,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Admin.Api.Client.Sdk.AdminApi.AdminApiClient})">
+            <summary>
+                The <see href="AdminApiClient"></see> class.
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Admin.Api.Client.Sdk.AdminApi.AdminApiClient.GetHealthAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:AStar.Dev.Admin.Api.Client.Sdk.AdminApi.AdminApiClient.GetSiteConfigurationAsync">
+            <summary>
+                The GetSiteConfigurationAsync method will get the User Configuration.
+            </summary>
+            <returns>The Site Configuration - populated or empty</returns>
+        </member>
+        <member name="T:AStar.Dev.Admin.Api.Client.Sdk.AdminApi.AdminApiConfiguration">
+            <summary>
+                The <see href="AdminApiConfiguration"></see> class containing the current configuration settings.
+            </summary>
+        </member>
+        <member name="F:AStar.Dev.Admin.Api.Client.Sdk.AdminApi.AdminApiConfiguration.SectionLocation">
+            <summary>
+                Gets the Section Location for the API configuration from within the appSettings.Json file.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.AdminApi.AdminApiConfiguration.BaseUrl">
+            <inheritdoc />
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.AdminApi.AdminApiConfiguration.Scopes">
+            <inheritdoc />
+        </member>
+        <member name="T:AStar.Dev.Admin.Api.Client.Sdk.Constants">
+            <summary>
+                The <see cref="T:AStar.Dev.Admin.Api.Client.Sdk.Constants" /> class containing the project-specific constants.
+            </summary>
+        </member>
+        <member name="F:AStar.Dev.Admin.Api.Client.Sdk.Constants.ApiName">
+            <summary>
+                Gets the Api Name.
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Admin.Api.Client.Sdk.Models.ModelToIgnore">
+            <summary>
+                The <see href="ModelToIgnore"></see> class.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.ModelToIgnore.Value">
+            <summary>
+                Gets or sets the value of the Model to ignore completely. I know, shocking...
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Admin.Api.Client.Sdk.Models.ModelToIgnore.ToString">
+            <summary>
+                Returns this object in JSON format
+            </summary>
+            <returns>
+                This object serialized as a JSON object.
+            </returns>
+        </member>
+        <member name="T:AStar.Dev.Admin.Api.Client.Sdk.Models.ScrapeDirectories">
+            <summary>
+                The <see href="ScrapeDirectories"></see> class containing the Scrape Directories Configuration.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.ScrapeDirectories.Id">
+            <summary>
+                Gets or sets The ID of the configuration.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.ScrapeDirectories.RootDirectory">
+            <summary>
+                Gets or sets the Root Directory for everything - search and save.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.ScrapeDirectories.BaseSaveDirectory">
+            <summary>
+                Gets or sets the Base Save Directory for the saving post search - appended to the root directory.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.ScrapeDirectories.BaseDirectory">
+            <summary>
+                Gets or sets the Base Directory for the search checks - appended to the root directory.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.ScrapeDirectories.BaseDirectoryFamous">
+            <summary>
+                Gets or sets the Base Directory Famous for the search checks for famous people - appended to the root directory.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.ScrapeDirectories.SubDirectoryName">
+            <summary>
+                Gets or sets the default subdirectory name for the save - appended to the root directory.
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Admin.Api.Client.Sdk.Models.SearchCategory">
+            <summary>
+                The <see href="SearchCategory"></see> class containing the full Search Category definition
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.SearchCategory.Id">
+            <summary>
+                Gets or sets The ID of the search category.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.SearchCategory.Order">
+            <summary>
+                Gets or sets the Order of the search category - i.e. which category should be 1st, 2nd, etc.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.SearchCategory.Name">
+            <summary>
+                Gets or sets the Name of the category.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.SearchCategory.LastKnownImageCount">
+            <summary>
+                Gets or sets the Last Known Image Count.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.SearchCategory.LastPageVisited">
+            <summary>
+                Gets or sets the Last Page Visited number.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.SearchCategory.TotalPages">
+            <summary>
+                Gets or sets the Total Pages for the results.
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Admin.Api.Client.Sdk.Models.SearchConfiguration">
+            <summary>
+                The <see href="SearchConfiguration"></see> class containing the full Search Configuration.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.SearchConfiguration.Id">
+            <summary>
+                Gets or sets The ID of the configuration.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.SearchConfiguration.BaseUrl">
+            <summary>
+                Gets or sets the Base Url for the login and search.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.SearchConfiguration.LoginUrl">
+            <summary>
+                Gets or sets the Login Url.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.SearchConfiguration.SearchCategories">
+            <summary>
+                Gets or sets the Search Categories.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.SearchConfiguration.SearchString">
+            <summary>
+                Gets or sets the default Search String.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.SearchConfiguration.TopWallpapers">
+            <summary>
+                Gets or sets the TopWallpapers something.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.SearchConfiguration.SearchStringPrefix">
+            <summary>
+                Gets or sets the Search String Prefix.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.SearchConfiguration.SearchStringSuffix">
+            <summary>
+                Gets or sets the Search StringSuffix.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.SearchConfiguration.Subscriptions">
+            <summary>
+                Gets or sets the Subscriptions something.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.SearchConfiguration.ImagePauseInSeconds">
+            <summary>
+                Gets or sets the base Image Pause In Seconds.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.SearchConfiguration.StartingPageNumber">
+            <summary>
+                Gets or sets the Starting Page Number.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.SearchConfiguration.TotalPages">
+            <summary>
+                Gets or sets the Total Pages for the New Subscription search.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.SearchConfiguration.UseHeadless">
+            <summary>
+                Gets or sets the Use Headless to determine whether to run in headless mode or not.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.SearchConfiguration.SubscriptionsStartingPageNumber">
+            <summary>
+                Gets or sets the Subscriptions Starting Page Number.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.SearchConfiguration.SubscriptionsTotalPages">
+            <summary>
+                Gets or sets the Subscriptions Total Pages.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.SearchConfiguration.TopWallpapersTotalPages">
+            <summary>
+                Gets or sets the Top Wallpapers Total Pages.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.SearchConfiguration.TopWallpapersStartingPageNumber">
+            <summary>
+                Gets or sets the Top Wallpapers Starting Page Number.
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Admin.Api.Client.Sdk.Models.SiteConfiguration">
+            <summary>
+                The <see href="SiteConfiguration"></see> class containing Site Configuration.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.SiteConfiguration.Id">
+            <summary>
+                Gets or sets The ID of the configuration
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.SiteConfiguration.LoginEmailAddress">
+            <summary>
+                Gets or sets the Login Email Address
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.SiteConfiguration.Username">
+            <summary>
+                Gets or sets the Username
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.SiteConfiguration.Password">
+            <summary>
+                Gets or sets the Password
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.SiteConfiguration.SiteConfigurationSlug">
+            <summary>
+                Gets or sets the Site Configuration Slug
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.SiteConfiguration.BaseUrl">
+            <summary>
+                Gets or sets the Base URL
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.SiteConfiguration.LoginUrl">
+            <summary>
+                Gets or sets the Login URL
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Admin.Api.Client.Sdk.Models.TagToIgnore">
+            <summary>
+                The <see href="TagToIgnore"></see> class.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.TagToIgnore.Value">
+            <summary>
+                Gets or sets the value of the tag to ignore. I know, shocking...
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Admin.Api.Client.Sdk.Models.TagToIgnore.IgnoreImage">
+            <summary>
+                Gets or sets the Ignore Image property. When set to <c>true</c>, the image is ignored irrespective of any other
+                setting.
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Admin.Api.Client.Sdk.Models.TagToIgnore.ToString">
+            <summary>
+                Returns this object in JSON format
+            </summary>
+            <returns>
+                This object serialized as a JSON object.
+            </returns>
+        </member>
+        <member name="T:AStar.Dev.Admin.Api.Client.Sdk.ServiceCollectionExtensions">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Admin.Api.Client.Sdk.ServiceCollectionExtensions.AddAdminApiClient(Microsoft.Extensions.DependencyInjection.IServiceCollection,Microsoft.Extensions.Configuration.IConfiguration,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Admin.Api.Client.Sdk.AdminApi.AdminApiClient})">
+            <summary>
+            </summary>
+            <param name="services"></param>
+            <param name="configuration"></param>
+            <param name="logger"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

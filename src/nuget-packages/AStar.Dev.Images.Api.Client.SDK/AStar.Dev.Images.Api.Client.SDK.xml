@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AStar.Dev.Images.Api.Client.SDK</name>
+    </assembly>
+    <members>
+        <member name="T:AStar.Dev.Images.Api.Client.SDK.Constants">
+            <summary>
+                The <see cref="T:AStar.Dev.Images.Api.Client.SDK.Constants" /> class containing the project-specific constants
+            </summary>
+        </member>
+        <member name="F:AStar.Dev.Images.Api.Client.SDK.Constants.ApiName">
+            <summary>
+                Gets the Api Name
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Images.Api.Client.SDK.ImagesApi.ImagesApiClient">
+            <summary>
+                The <see href="Images.ApiClient"></see> class
+            </summary>
+            <param name="httpClient"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:AStar.Dev.Images.Api.Client.SDK.ImagesApi.ImagesApiClient.#ctor(System.Net.Http.HttpClient,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Images.Api.Client.SDK.ImagesApi.ImagesApiClient})">
+            <summary>
+                The <see href="Images.ApiClient"></see> class
+            </summary>
+            <param name="httpClient"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:AStar.Dev.Images.Api.Client.SDK.ImagesApi.ImagesApiClient.GetHealthAsync(System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="M:AStar.Dev.Images.Api.Client.SDK.ImagesApi.ImagesApiClient.GetImageAsync(System.String,System.Int32,System.Boolean)">
+            <summary>
+            </summary>
+            <param name="imagePath"></param>
+            <param name="maximumSizeInPixels"></param>
+            <param name="thumbnail"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AStar.Dev.Images.Api.Client.SDK.ImagesApi.ImagesApiConfiguration">
+            <summary>
+                The <see href="ImagesApiConfiguration"></see> class containing the current configuration settings
+            </summary>
+        </member>
+        <member name="F:AStar.Dev.Images.Api.Client.SDK.ImagesApi.ImagesApiConfiguration.SectionLocation">
+            <summary>
+                Gets the Section Location for the API configuration from within the appSettings.Json file
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Images.Api.Client.SDK.ImagesApi.ImagesApiConfiguration.BaseUrl">
+            <inheritdoc />
+        </member>
+        <member name="P:AStar.Dev.Images.Api.Client.SDK.ImagesApi.ImagesApiConfiguration.Scopes">
+            <inheritdoc />
+        </member>
+        <member name="T:AStar.Dev.Images.Api.Client.SDK.Models.NotFound">
+            <summary>
+                The <see cref="T:AStar.Dev.Images.Api.Client.SDK.Models.NotFound" /> class that can be used to supply an image for the "not found" event
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Images.Api.Client.SDK.Models.NotFound.Image">
+            <summary>
+                Gets the <see cref="T:System.Byte" /> array representing the "not found" image
+            </summary>
+        </member>
+    </members>
+</doc>

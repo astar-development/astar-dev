@@ -30,7 +30,7 @@ public class FileKeywordProcessorBackgroundService(IServiceScopeFactory serviceS
 
         if(databaseUpdaterConfiguration.RunNewFilesService)
         {
-            await fileListService.Get(databaseUpdaterConfiguration.RootDirectory, stoppingToken)
+            _ = await fileListService.Get(databaseUpdaterConfiguration.RootDirectory, stoppingToken)
                 .MatchAsync(
                     fileList => fileScanner.ProcessAsync(fileList, stoppingToken),
                     error =>

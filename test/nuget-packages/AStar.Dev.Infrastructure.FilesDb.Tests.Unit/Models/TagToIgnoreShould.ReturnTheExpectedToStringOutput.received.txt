@@ -1,0 +1,7 @@
+{
+  "id": 0,
+  "value": "",
+  "ignoreImage": false,
+  "updatedBy": "Jay Barden",
+  "updatedOn": "2025-10-17T21:41:37.2040075+00:00"
+}

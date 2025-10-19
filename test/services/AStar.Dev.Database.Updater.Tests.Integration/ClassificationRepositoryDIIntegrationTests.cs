@@ -4,7 +4,7 @@ using AStar.Dev.TestHelpers;
 
 namespace AStar.Dev.Database.Updater;
 
-public class ClassificationRepositoryDIIntegrationTests
+public class ClassificationRepositoryDiIntegrationTests
 {
     [Fact]
     public async Task ClassificationRepository_resolves_in_scoped_DI_and_tracks_entities_per_scope_Async()

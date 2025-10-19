@@ -1,15 +1,76 @@
 ## Purpose
 
-These instructions give coding agents the minimal, focused context they need to be productive in the AStar.Dev repository. They purposely call out architecture, conventions, and common developer workflows discovered in the codebase so agents can write code and tests that fit the project.
+Give coding agents the minimal, focused context they need to be immediately productive in the AStar.Dev monorepo.
+Keep instructions short and concrete — point to exact files and examples the agent should reuse.
 
 ## High-level architecture (what to know fast)
 
-- This is a .NET 9 monorepo built around the Aspire patterns. Projects are grouped under `src/` and tests under `test/`.
-- Key surface areas:
-  - Host / orchestration: `src/_aspire/AStar.Dev.AppHost/AppHost.cs` — builds a DistributedApplication and calls `AddApplicationProjects(...)` using a `sqlServerMountDirectory` from configuration.
-  - Service defaults and shared helpers: `src/_aspire/AStar.Dev.ServiceDefaults/Extensions.cs` — common AddServiceDefaults extension used by services to enable health checks, OpenTelemetry, and service discovery.
-  - Per-API projects: `src/apis/*` — each API uses a minimal `Program.cs` with extension helpers (e.g., `AddServiceDefaults`, `AddSqlServerDbContext`, `AddRabbitMQClient`, `AddUsageServices`). Example: `src/apis/AStar.Dev.Files.Api/Program.cs`.
-  - UI: `src/uis/AStar.Dev.Web` — Blazor/ASP.NET UI project using `AddApplicationServices()` and `UseApplicationServices()`.
+- Monorepo of .NET 9 projects grouped under `src/` and tests under `test/`.
+- The repo follows the Aspire patterns: shared helpers live in the `_aspire/` folder and are consumed by APIs, services and the UI.
+- Important surface areas you should read before editing code:
+  - App host / orchestration: `src/_aspire/AStar.Dev.AppHost/AppHost.cs` — builds a DistributedApplication and wires application projects.
+  - Shared service helpers: `src/_aspire/AStar.Dev.ServiceDefaults/Extensions.cs` — AddServiceDefaults, OpenTelemetry wiring, health checks.
+  - Constants (authoritative names): `src/_aspire/AStar.Dev.Aspire.Common/AspireConstants.cs` — DB and service name constants.
+  - Example API wiring: `src/apis/AStar.Dev.Files.Api/Program.cs` shows the typical minimal Program.cs and extension usage.
+  - Shared packages: `src/nuget-packages/*` contain code intended for reuse across services; prefer adding cross-cutting changes here.
+
+## What to read & re-use (concrete files)
+
+- Use `AspireConstants` for DB/service names (avoid string literals): `src/_aspire/AStar.Dev.Aspire.Common/AspireConstants.cs`.
+- Reuse `AddServiceDefaults()` from `src/_aspire/AStar.Dev.ServiceDefaults/Extensions.cs` for telemetry, logging, health checks.
+- Register EF contexts with `AddSqlServerDbContext<TContext>(name)` — pass names from `AspireConstants.Sql.*`.
+- RabbitMQ clients use the constant `AspireConstants.Services.AstarMessaging` when registering/consuming.
+- AppHost uses `applicationConfiguration:sqlServerMountDirectory` — check `src/_aspire/AStar.Dev.AppHost/appsettings.json` for local dev hints.
+
+## Developer workflows & commands
+
+- Build repository (CI): from repo root run
+  - dotnet build --configuration Release
+- Run unit tests (fast):
+  - dotnet test --filter 'FullyQualifiedName!~Tests.EndToEnd&FullyQualifiedName!~Tests.Integration'
+  - Tests primarily use xUnit V3 and Shouldly. NSubstitute is used for mocking when necessary.
+- When adding shared runtime code, add to `src/nuget-packages/*` and reference the project instead of introducing new global packages.
+
+## Project-specific conventions and patterns
+
+- Tiny Program.cs: services and APIs are composed via extension methods. Prefer adding extension helpers in `_aspire` or `src/nuget-packages`.
+- Telemetry & logging: Serilog + OpenTelemetry. Do not add duplicate OTLP exporters — use `AddOpenTelemetryExporters()` from service defaults.
+- Configuration keys: use the existing `Parameters` entries (e.g., `Parameters:sql1-password`) and `applicationConfiguration` keys when present.
+- Tests: put unit tests in `test/<area>/*.Tests.Unit` and follow existing patterns (Shouldly for assertions, test fixtures in Fixtures/ when needed).
+- Whilst the AAA pattern is used, comments should not be added to a test unless the logic is complex. If the logic is complex, consider breaking it into multiple tests. Instead of comments, use blank lines to separate the Arrange, Act, and Assert sections.
+- Using statements for Shouldly and Xunit are not required as they are included globally via the relevant `csproj`.
+
+## Integration & cross-component communication
+
+- Database contexts: EF DbContexts registered with `AddSqlServerDbContext<T>(name)` use the named DBs from `AspireConstants.Sql.*`.
+- Message bus: RabbitMQ client names come from `AspireConstants.Services.*` — follow that naming for publishers/subscribers.
+- AppHost mounts local SQL folders via `applicationConfiguration:sqlServerMountDirectory` — used for local integration runs.
+
+## Editing guidance (what NOT to change without approval)
+
+- Do not change values in `AspireConstants.cs` without coordinating infra/deployments — these are authoritative.
+- Avoid adding new top-level telemetry exporters or duplicate service discovery wiring; reuse `AddServiceDefaults` and `AddOpenTelemetryExporters()`.
+
+## Quick examples (copy/paste patterns)
+
+- Register files DB context (use constants):
+  - builder.AddSqlServerDbContext<FilesContext>(AspireConstants.Sql.FilesDb);
+- Add RabbitMQ client:
+  - builder.AddRabbitMQClient(AspireConstants.Services.AstarMessaging);
+
+## Where to add shared code
+
+- If the change is cross-cutting (telemetry, DI helpers, logging) add an extension in `_aspire/` or create/update a project under `src/nuget-packages/` so it can be consumed across services.
+
+## Tests & CI expectations
+
+- New production code should include unit tests in the relevant `test/*` project. Follow local test project references (xUnit + Shouldly) and CI filters.
+- CI workflow: `.github/workflows/main_astar-dev.yml` runs build + coverage; ensure changes don't dramatically increase test runtime.
+
+## If you need more context
+
+- Look at these files first: `src/_aspire/AStar.Dev.ServiceDefaults/Extensions.cs`, `src/_aspire/AStar.Dev.Aspire.Common/AspireConstants.cs`, `src/_aspire/AStar.Dev.AppHost/AppHost.cs`, `src/apis/AStar.Dev.Files.Api/Program.cs`.
+- If a service fails to start locally, check `appsettings.Development.json` in the service project and `applicationConfiguration:sqlServerMountDirectory` in AppHost appsettings.
 
 ## Naming & configuration conventions
 
@@ -29,7 +90,9 @@ These instructions give coding agents the minimal, focused context they need to 
 
 - CI uses the repository-level GitHub workflow at `.github/workflows/main_astar-dev.yml` which runs `dotnet build --configuration Release` and a dotnet coverage command. Follow the same `dotnet` commands locally:
   - Build: `dotnet build --configuration Release` from repository root.
-  - Test (fast): `dotnet test --filter "FullyQualifiedName!~Tests.EndToEnd&FullyQualifiedName!~Tests.Integration"` to run unit tests only (the CI wraps this with coverage collector).
+  - Test (fast): `dotnet test --filter 'FullyQualifiedName!~Tests.EndToEnd&FullyQualifiedName!~Tests.Integration'` to run unit tests only (the CI wraps this with coverage collector).
+  - Tests: existing tests use xUnit V2 and V3, however, new tests should use V3 only. Shouldly is used for assertions.
+  - When creating new production code, add unit tests in the corresponding `test/*` project. Follow existing test patterns.
 
 ## How services start (local dev hints)
 
@@ -68,6 +131,3 @@ These instructions give coding agents the minimal, focused context they need to 
 2. Update/consume `AspireConstants` when adding new services or DBs.
 3. Ensure telemetry and exporters aren't duplicated (reuse `AddOpenTelemetryExporters`).
 4. Run unit tests (see Test section) and ensure CI-friendly filters are respected.
-
----
-If any of these areas look incomplete or you'd like the instructions tuned toward a particular task (adding an API, adding a nuget-packages project, or running the whole solution locally), tell me which area to expand and I'll iterate.

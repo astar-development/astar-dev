@@ -30,7 +30,7 @@ public class OptionShould
     }
 
     [Fact]
-    public async Task MatchAsyncToSomeAsyncHandlerWhenOptionIsSome()
+    public async Task MatchAsyncToSomeAsyncHandlerWhenOptionIsSomeAsync()
     {
         var option = Option.Some(42);
 
@@ -42,7 +42,7 @@ public class OptionShould
     }
 
     [Fact]
-    public async Task MatchAsyncToNoneHandlerWhenOptionIsNone()
+    public async Task MatchAsyncToNoneHandlerWhenOptionIsNoneAsync()
     {
         var option = Option.None<int>();
 
@@ -54,7 +54,7 @@ public class OptionShould
     }
 
     [Fact]
-    public async Task MatchAsyncToSomeHandlerAndAsyncNoneHandlerWhenOptionIsSome()
+    public async Task MatchAsyncToSomeHandlerAndAsyncNoneHandlerWhenOptionIsSomeAsync()
     {
         var option = Option.Some(42);
 
@@ -66,7 +66,7 @@ public class OptionShould
     }
 
     [Fact]
-    public async Task MatchAsyncToSomeHandlerAndAsyncNoneHandlerWhenOptionIsNone()
+    public async Task MatchAsyncToSomeHandlerAndAsyncNoneHandlerWhenOptionIsNoneAsync()
     {
         var option = Option.None<int>();
 
@@ -78,7 +78,7 @@ public class OptionShould
     }
 
     [Fact]
-    public async Task MatchAsyncToAsyncSomeHandlerAndAsyncNoneHandlerWhenOptionIsSome()
+    public async Task MatchAsyncToAsyncSomeHandlerAndAsyncNoneHandlerWhenOptionIsSomeAsync()
     {
         var option = Option.Some(42);
 
@@ -90,7 +90,7 @@ public class OptionShould
     }
 
     [Fact]
-    public async Task MatchAsyncToAsyncSomeHandlerAndAsyncNoneHandlerWhenOptionIsNone()
+    public async Task MatchAsyncToAsyncSomeHandlerAndAsyncNoneHandlerWhenOptionIsNoneAsync()
     {
         var option = Option.None<int>();
 
@@ -682,7 +682,7 @@ public class OptionShould
     }
 
     [Fact]
-    public async Task MapAsyncWithSomeOption()
+    public async Task MapAsyncWithSomeOptionAsync()
     {
         var option = Option.Some(42);
 
@@ -693,7 +693,7 @@ public class OptionShould
     }
 
     [Fact]
-    public async Task MapAsyncWithNoneOption()
+    public async Task MapAsyncWithNoneOptionAsync()
     {
         var option = Option.None<int>();
 
@@ -703,7 +703,7 @@ public class OptionShould
     }
 
     [Fact]
-    public async Task MapAsyncWithTaskOption()
+    public async Task MapAsyncWithTaskOptionAsync()
     {
         var optionTask = Task.FromResult(Option.Some(42));
 
@@ -714,7 +714,7 @@ public class OptionShould
     }
 
     [Fact]
-    public async Task MapAsyncWithTaskOptionAndAsyncMapper()
+    public async Task MapAsyncWithTaskOptionAndAsyncMapperAsync()
     {
         var optionTask = Task.FromResult(Option.Some(42));
 
@@ -725,7 +725,7 @@ public class OptionShould
     }
 
     [Fact]
-    public async Task BindAsyncWithSomeOption()
+    public async Task BindAsyncWithSomeOptionAsync()
     {
         var option = Option.Some(42);
 
@@ -736,7 +736,7 @@ public class OptionShould
     }
 
     [Fact]
-    public async Task BindAsyncWithNoneOption()
+    public async Task BindAsyncWithNoneOptionAsync()
     {
         var option = Option.None<int>();
 
@@ -746,7 +746,7 @@ public class OptionShould
     }
 
     [Fact]
-    public async Task ToResultAsyncWithSomeOption()
+    public async Task ToResultAsyncWithSomeOptionAsync()
     {
         var option = Option.Some(42);
 
@@ -757,7 +757,7 @@ public class OptionShould
     }
 
     [Fact]
-    public async Task ToResultAsyncWithNoneOption()
+    public async Task ToResultAsyncWithNoneOptionAsync()
     {
         var option = Option.None<int>();
 
@@ -768,7 +768,7 @@ public class OptionShould
     }
 
     [Fact]
-    public async Task TapAsyncWithSomeOption()
+    public async Task TapAsyncWithSomeOptionAsync()
     {
         var option             = Option.Some(42);
         var sideEffectExecuted = false;
@@ -788,7 +788,7 @@ public class OptionShould
     }
 
     [Fact]
-    public async Task TapAsyncWithNoneOption()
+    public async Task TapAsyncWithNoneOptionAsync()
     {
         var option             = Option.None<int>();
         var sideEffectExecuted = false;
@@ -805,7 +805,7 @@ public class OptionShould
     }
 
     [Fact]
-    public async Task OrElseAsyncWithSomeOption()
+    public async Task OrElseAsyncWithSomeOptionAsync()
     {
         var option         = Option.Some(42);
         var fallbackCalled = false;
@@ -822,7 +822,7 @@ public class OptionShould
     }
 
     [Fact]
-    public async Task OrElseAsyncWithNoneOption()
+    public async Task OrElseAsyncWithNoneOptionAsync()
     {
         var option         = Option.None<int>();
         var fallbackCalled = false;
@@ -839,7 +839,7 @@ public class OptionShould
     }
 
     [Fact]
-    public async Task BindAsyncWithTaskOptionAndSyncBinder()
+    public async Task BindAsyncWithTaskOptionAndSyncBinderAsync()
     {
         var optionTask = Task.FromResult(Option.Some(42));
 
@@ -850,7 +850,7 @@ public class OptionShould
     }
 
     [Fact]
-    public async Task ToResultAsyncWithTaskOptionAndSyncErrorFactory()
+    public async Task ToResultAsyncWithTaskOptionAndSyncErrorFactoryAsync()
     {
         var optionTask = Task.FromResult(Option.None<int>());
 
@@ -861,7 +861,7 @@ public class OptionShould
     }
 
     [Fact]
-    public async Task ToResultAsyncWithTaskOptionAndAsyncErrorFactory()
+    public async Task ToResultAsyncWithTaskOptionAndAsyncErrorFactoryAsync()
     {
         var optionTask = Task.FromResult(Option.None<int>());
 
@@ -872,7 +872,7 @@ public class OptionShould
     }
 
     [Fact]
-    public async Task TapAsyncWithTaskOptionAndSyncAction()
+    public async Task TapAsyncWithTaskOptionAndSyncActionAsync()
     {
         var optionTask         = Task.FromResult(Option.Some(42));
         var sideEffectExecuted = false;
@@ -891,7 +891,7 @@ public class OptionShould
     }
 
     [Fact]
-    public async Task TapAsyncWithTaskOptionAndAsyncAction()
+    public async Task TapAsyncWithTaskOptionAndAsyncActionAsync()
     {
         var optionTask         = Task.FromResult(Option.Some(42));
         var sideEffectExecuted = false;
@@ -912,7 +912,7 @@ public class OptionShould
     }
 
     [Fact]
-    public async Task OrElseAsyncWithTaskOptionAndSyncFallback()
+    public async Task OrElseAsyncWithTaskOptionAndSyncFallbackAsync()
     {
         var optionTask = Task.FromResult(Option.None<int>());
 
@@ -922,7 +922,7 @@ public class OptionShould
     }
 
     [Fact]
-    public async Task OrElseAsyncWithTaskOptionAndAsyncFallback()
+    public async Task OrElseAsyncWithTaskOptionAndAsyncFallbackAsync()
     {
         var optionTask     = Task.FromResult(Option.None<int>());
         var fallbackCalled = false;
@@ -939,7 +939,7 @@ public class OptionShould
     }
 
     [Fact]
-    public async Task ReturnSomeValueWithTaskOrElseAsyncWhenOptionIsSome()
+    public async Task ReturnSomeValueWithTaskOrElseAsyncWhenOptionIsSomeAsync()
     {
         var optionTask     = Task.FromResult(Option.Some(42));
         var fallbackCalled = false;

@@ -1,4 +1,0 @@
-﻿{
-  "width": null,
-  "height": null
-}

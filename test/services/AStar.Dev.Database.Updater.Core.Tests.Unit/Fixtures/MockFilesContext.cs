@@ -21,14 +21,14 @@ public class MockFilesContext : IDisposable
         _ = _context.SaveChanges();
     }
 
+    public FilesContext Context() => _context;
+
     public void Dispose()
     {
-        // Do not change this code. Put cleanup code in 'Dispose(bool disposing)' method
+        // Do not change this code. Put cleanup code in the 'Dispose(bool disposing)' method below
         Dispose(true);
         GC.SuppressFinalize(this);
     }
-
-    public FilesContext Context() => _context;
 
     protected virtual void Dispose(bool disposing)
     {

@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
 using System.IO.Abstractions;
 using System.Text;
 using AStar.Dev.Infrastructure.Data;
@@ -8,6 +9,7 @@ namespace AStar.Dev.Infrastructure.FilesDb.Models;
 /// <summary>
 ///     The FileDetail class containing the current properties
 /// </summary>
+[DebuggerDisplay("FileName: {FileName.Value}, DirectoryName: {DirectoryName.Value}")]
 public sealed class FileDetail : AuditableEntity
 {
     /// <summary>

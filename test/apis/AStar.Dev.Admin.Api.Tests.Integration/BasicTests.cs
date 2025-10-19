@@ -10,7 +10,7 @@ public sealed class BasicTests(CustomWebApplicationFactory<IAssemblyMarker> fact
     {
         var client = factory.CreateClient();
 
-        var response = await client.GetAsync("/?version=1");
+        var response = await client.GetAsync("/?version=1", TestContext.Current.CancellationToken);
 
         _ = response.EnsureSuccessStatusCode();
         response.Content.Headers.ContentType?.ToString().ShouldBe(MediaTypeNames.Text.Html);

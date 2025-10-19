@@ -1,9 +1,6 @@
-using System;
-using System.Threading.Tasks;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using AStar.Dev.Infrastructure.FilesDb.Data;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace AStar.Dev.TestHelpers;
 
@@ -34,7 +31,7 @@ public sealed class SqliteTestScope : IAsyncDisposable
         var ctx = new FilesContext(options);
         await ctx.Database.EnsureCreatedAsync();
 
-        return new SqliteTestScope(connection, ctx);
+        return new(connection, ctx);
     }
 
     public async ValueTask DisposeAsync()
