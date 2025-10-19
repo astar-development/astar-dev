@@ -4,6 +4,8 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace AStar.Dev.Test.DbContext.Helpers;
 
+/// <summary>
+/// </summary>
 public static class TestSetup
 {
     static TestSetup()
@@ -19,10 +21,12 @@ public static class TestSetup
             .AddUserSecrets<FilesContextFixture>()
             .Build();
 
-        serviceCollection.AddSingleton<IConfiguration>(configuration);
+        _ = serviceCollection.AddSingleton<IConfiguration>(configuration);
 
         ServiceProvider = serviceCollection.BuildServiceProvider();
     }
 
+    /// <summary>
+    /// </summary>
     public static ServiceProvider ServiceProvider { get; private set; }
 }

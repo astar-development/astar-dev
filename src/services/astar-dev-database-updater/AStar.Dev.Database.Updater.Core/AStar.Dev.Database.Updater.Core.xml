@@ -195,7 +195,7 @@
             <summary>
             </summary>
         </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileDetailsServices.FileDetailsProcessorService.#ctor(AStar.Dev.Database.Updater.Core.FileDetailsServices.FileHandleService,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.FileDetailsServices.FileDetailsProcessorService})">
+        <member name="M:AStar.Dev.Database.Updater.Core.FileDetailsServices.FileDetailsProcessorService.#ctor(AStar.Dev.FileServices.Common.FileHandleService,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Database.Updater.Core.FileDetailsServices.FileDetailsProcessorService})">
             <summary>
             </summary>
         </member>
@@ -208,17 +208,6 @@
             <param name="counter"></param>
             <param name="writeCount"></param>
             <param name="keywords"></param>
-            <returns></returns>
-        </member>
-        <member name="T:AStar.Dev.Database.Updater.Core.FileDetailsServices.FileHandleService">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:AStar.Dev.Database.Updater.Core.FileDetailsServices.FileHandleService.GenerateFileHandle(AStar.Dev.Infrastructure.FilesDb.Models.FileDetail,System.Collections.Generic.List{AStar.Dev.Infrastructure.FilesDb.Models.FileHandle})">
-            <summary>
-            </summary>
-            <param name="fileInfo"></param>
-            <param name="fileHandlesAlreadyInTheContext"></param>
             <returns></returns>
         </member>
         <member name="T:AStar.Dev.Database.Updater.Core.FileDetailsServices.FileKeywordProcessorBackgroundService">

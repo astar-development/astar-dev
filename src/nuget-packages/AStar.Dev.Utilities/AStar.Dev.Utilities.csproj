@@ -33,11 +33,7 @@
         <Title>AStar Dev Utilities</Title>
         <Version>1.6.2</Version>
     </PropertyGroup>
-
-    <ItemGroup>
-        <PackageReference Include="AStar.Dev.Technical.Debt.Reporting" Version="0.2.1"/>
-    </ItemGroup>
-
+    
     <ItemGroup>
         <None Include="LICENSE" Pack="true" PackagePath=""/>
         <None Include="Readme.md" Pack="true" PackagePath=""/>

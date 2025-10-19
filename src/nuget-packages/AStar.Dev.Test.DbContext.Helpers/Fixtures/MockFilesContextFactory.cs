@@ -7,19 +7,24 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace AStar.Dev.Test.DbContext.Helpers.Fixtures;
 
+/// <summary>
+/// </summary>
 public static class MockFilesContextFactory
 {
+    /// <summary>
+    /// </summary>
+    /// <returns></returns>
     public static async Task<FilesContext> CreateMockFilesContextAsync()
     {
         var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
         var config = TestSetup.ServiceProvider.GetRequiredService<IConfiguration>();
         var connectionString = config.GetConnectionString("SqlServer");
-        optionsBuilder.UseSqlServer(connectionString, contextOptionsBuilder => contextOptionsBuilder.EnableRetryOnFailure(3, TimeSpan.FromSeconds(10), null));
+        _ = optionsBuilder.UseSqlServer(connectionString, contextOptionsBuilder => contextOptionsBuilder.EnableRetryOnFailure(3, TimeSpan.FromSeconds(10), null));
         var testFilesContext = new FilesContext(optionsBuilder.Options);
 
         try
         {
-            await testFilesContext.Database.EnsureCreatedAsync();
+            _ = await testFilesContext.Database.EnsureCreatedAsync();
         }
         catch
         {
@@ -29,6 +34,9 @@ public static class MockFilesContextFactory
         return testFilesContext;
     }
 
+    /// <summary>
+    /// </summary>
+    /// <param name="mockFilesContext"></param>
     public static void AddMockFiles(this FilesContext mockFilesContext)
     {
         var combine = Path.Combine(Directory.GetCurrentDirectory(), "../../../../../../src/nuget-packages/AStar.Dev.Test.DbContext.Helpers/TestData/files.json");
@@ -39,12 +47,12 @@ public static class MockFilesContextFactory
         foreach(var item in listFromJson)
         {
             item.FileHandle = FileHandle.Create($"{item.DirectoryName}-{item.FileName}-{item.Id}");
-            mockFilesContext.FileDetails.Add(item);
+            _ = mockFilesContext.Files.Add(item);
         }
 
         try
         {
-            mockFilesContext.SaveChanges();
+            _ = mockFilesContext.SaveChanges();
         }
         catch(Exception exception)
         {

@@ -42,17 +42,11 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="AStar.Dev.Infrastructure.FilesDb" Version="0.1.0"/>
-        <PackageReference Include="AStar.Dev.Utilities" Version="1.6.2"/>
-        <PackageReference Include="AStar.Dev.Technical.Debt.Reporting" Version="0.2.1"/>
-    </ItemGroup>
-
-    <ItemGroup>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.8"/>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.8"/>
-        <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.8"/>
-        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.8"/>
-        <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.8"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.10"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.10"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.10"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.10"/>
+        <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="9.0.10"/>
         <PackageReference Include="Shouldly" Version="4.3.0"/>
         <PackageReference Include="xunit" Version="2.9.3"/>
         <PackageReference Include="xunit.runner.visualstudio" Version="3.1.4">
@@ -65,6 +59,10 @@
         <None Update="appsettings.json">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\AStar.Dev.Infrastructure.FilesDb\AStar.Dev.Infrastructure.FilesDb.csproj"/>
     </ItemGroup>
 
 </Project>

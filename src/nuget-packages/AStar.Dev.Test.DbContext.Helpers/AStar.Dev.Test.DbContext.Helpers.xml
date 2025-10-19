@@ -8,5 +8,61 @@
             <summary>
             </summary>
         </member>
+        <member name="M:AStar.Dev.Test.DbContext.Helpers.Fixtures.FilesContextFixture.#ctor">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Test.DbContext.Helpers.Fixtures.FilesContextFixture.Sut">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Test.DbContext.Helpers.Fixtures.FilesContextFixture.Dispose">
+            <inheritdoc/>
+        </member>
+        <member name="M:AStar.Dev.Test.DbContext.Helpers.Fixtures.FilesContextFixture.Dispose(System.Boolean)">
+            <summary>
+
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="T:AStar.Dev.Test.DbContext.Helpers.Fixtures.MockFilesContextFactory">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Test.DbContext.Helpers.Fixtures.MockFilesContextFactory.CreateMockFilesContextAsync">
+            <summary>
+
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:AStar.Dev.Test.DbContext.Helpers.Fixtures.MockFilesContextFactory.AddMockFiles(AStar.Dev.Infrastructure.FilesDb.Data.FilesContext)">
+            <summary>
+
+            </summary>
+            <param name="mockFilesContext"></param>
+        </member>
+        <member name="T:AStar.Dev.Test.DbContext.Helpers.TestConstants">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="F:AStar.Dev.Test.DbContext.Helpers.TestConstants.SharedIntegrationCollection">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Test.DbContext.Helpers.TestSetup">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Test.DbContext.Helpers.TestSetup.ServiceProvider">
+            <summary>
+
+            </summary>
+        </member>
     </members>
 </doc>

@@ -145,7 +145,6 @@
         </member>
         <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient.UpdateFileDirectoryAsync(AStar.Dev.Files.Api.Client.SDK.Models.DirectoryChangeRequest)">
             <summary>
-
             </summary>
             <param name="request"></param>
             <returns></returns>
@@ -153,7 +152,6 @@
         </member>
         <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient.UpdateFileLastViewedAsync(System.Int32)">
             <summary>
-
             </summary>
             <param name="fileId"></param>
             <returns></returns>
@@ -161,7 +159,6 @@
         </member>
         <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient.PushFileDetailAsync(AStar.Dev.Files.Api.Client.SDK.Models.FileDetail)">
             <summary>
-
             </summary>
             <param name="fileDetail"></param>
             <returns></returns>
@@ -169,7 +166,6 @@
         </member>
         <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient.PushFileDetailsAsync(System.Collections.Generic.IEnumerable{AStar.Dev.Files.Api.Client.SDK.Models.FileDetail})">
             <summary>
-
             </summary>
             <param name="fileDetails"></param>
             <returns></returns>
