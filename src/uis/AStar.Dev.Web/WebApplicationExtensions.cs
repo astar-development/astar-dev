@@ -16,7 +16,7 @@ public static class WebApplicationExtensions
     /// <returns>The configured <see cref="WebApplicationBuilder" /> instance.</returns>
     public static WebApplicationBuilder RemoveServerHeader(this WebApplicationBuilder builder)
     {
-        builder.WebHost.UseKestrel(option => option.AddServerHeader = false);
+        _ = builder.WebHost.UseKestrel(option => option.AddServerHeader = false);
 
         return builder;
     }
@@ -47,32 +47,32 @@ public static class WebApplicationExtensions
     /// </example>
     public static WebApplication UseApplicationServices(this WebApplication app)
     {
-        app.MapHealthChecks("/health");
-        app.UseExceptionHandler("/Error", true);
+        _ = app.MapHealthChecks("/health");
+        _ = app.UseExceptionHandler("/Error", true);
 
         if(!app.Environment.IsDevelopment())
         {
-            app.UseHsts();
+            _ = app.UseHsts();
         }
 
-        app.UseHttpsRedirection();
+        _ = app.UseHttpsRedirection();
 
         var policyCollection = new HeaderPolicyCollection()
                                .AddDefaultSecurityHeaders()
                                .AddPermissionsPolicyWithDefaultSecureDirectives();
 
-        app.UseSecurityHeaders(policyCollection);
+        _ = app.UseSecurityHeaders(policyCollection);
 
-        app.UseAuthentication();
-        app.UseAuthorization();
+        _ = app.UseAuthentication();
+        _ = app.UseAuthorization();
 
-        app.UseAntiforgery();
+        _ = app.UseAntiforgery();
 
-        app.MapStaticAssets();
+        _ = app.MapStaticAssets();
 
-        app.MapControllers();
+        _ = app.MapControllers();
 
-        app.MapRazorComponents<App>()
+        _ = app.MapRazorComponents<App>()
            .AddInteractiveServerRenderMode();
 
         return app;

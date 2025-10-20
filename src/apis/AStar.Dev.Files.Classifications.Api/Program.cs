@@ -1,8 +1,12 @@
+using AStar.Dev.Aspire.Common;
 using AStar.Dev.AspNet.Extensions.WebApplicationBuilderExtensions;
+using AStar.Dev.Infrastructure.FilesDb.Data;
 using AStar.Dev.ServiceDefaults;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.AddServiceDefaults();
+
+builder.AddSqlServerDbContext<FilesContext>(AspireConstants.Sql.FilesDb);
 
 _ = builder
     .DisableServerHeader();
@@ -15,7 +19,7 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if(app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    _ = app.MapOpenApi();
 }
 
 app.UseHttpsRedirection();

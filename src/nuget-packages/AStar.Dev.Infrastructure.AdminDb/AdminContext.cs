@@ -98,18 +98,18 @@ public sealed class AdminContext : DbContext
 
         _ = optionsBuilder.UseSqlServer(_connectionString.Value);
 
-        optionsBuilder
+        _ = optionsBuilder
             .UseSeeding((context, _) =>
             {
                 SeedData(context);
 
-                context.SaveChanges();
+                _ = context.SaveChanges();
             })
             .UseAsyncSeeding(async (context, _, cancellationToken) =>
             {
                 SeedData(context);
 
-                await context.SaveChangesAsync(cancellationToken);
+                _ = await context.SaveChangesAsync(cancellationToken);
             });
 
         if(_astarDbContextOptions.EnableLogging)

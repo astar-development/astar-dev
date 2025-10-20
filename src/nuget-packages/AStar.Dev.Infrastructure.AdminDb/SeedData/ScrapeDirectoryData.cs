@@ -21,7 +21,7 @@ public static class ScrapeDirectoryData
             return;
         }
 
-        context.Set<ScrapeDirectory>()
+        _ = context.Set<ScrapeDirectory>()
             .Add(new()
             {
                 RootDirectory = @"C:\Users\jason_17jx22b",

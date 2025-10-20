@@ -75,15 +75,15 @@ public static class HostApplicationBuilderExtensions
         _ = builder.Services.AddScoped<FileHandleService>();
         _ = builder.Services.AddScoped<IKeywordProvider, EfKeywordProvider>();
 
-        builder.Services.AddHealthChecks();
+        _ = builder.Services.AddHealthChecks();
 
-        builder.Services.AddOpenTelemetry()
+        _ = builder.Services.AddOpenTelemetry()
                .ConfigureResource(r => r.AddService("FileKeywordProcessor"))
                .WithMetrics(mb => mb.AddMeter("FileScanner", "DatabaseWriter"))
                .WithTracing(tb =>
                             {
-                                tb.AddSource("FileScanner", "DatabaseWriter");
-                                tb.AddSource(Constants.ActivitySourceName);
+                                _ = tb.AddSource("FileScanner", "DatabaseWriter");
+                                _ = tb.AddSource(Constants.ActivitySourceName);
                             });
 
         _ = builder.Services.AddOpenTelemetry()

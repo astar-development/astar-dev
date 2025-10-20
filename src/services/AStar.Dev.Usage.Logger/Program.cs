@@ -16,8 +16,8 @@ app.MapHealthChecks("/health");
 // Configure the HTTP request pipeline.
 if(app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
-    app.MapScalarApiReference();
+    _ = app.MapOpenApi();
+    _ = app.MapScalarApiReference();
 }
 
 app.UseHttpsRedirection();

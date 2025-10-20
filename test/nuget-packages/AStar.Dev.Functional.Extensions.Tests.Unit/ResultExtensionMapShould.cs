@@ -9,7 +9,7 @@ public class ResultExtensionMapShould
 
         var mapped = result.Map(value => value.ToString());
 
-        mapped.ShouldBeOfType<Result<string, string>.Ok>();
+        _ = mapped.ShouldBeOfType<Result<string, string>.Ok>();
 
         var matchResult = mapped.Match(
             ok => ok,
@@ -26,7 +26,7 @@ public class ResultExtensionMapShould
 
         var mapped = result.Map(value => value.ToString());
 
-        mapped.ShouldBeOfType<Result<string, string>.Error>();
+        _ = mapped.ShouldBeOfType<Result<string, string>.Error>();
 
         var matchResult = mapped.Match(
             _ => throw new InvalidOperationException("Should not be success"),
@@ -43,7 +43,7 @@ public class ResultExtensionMapShould
 
         var mapped = await result.MapAsync(value => Task.FromResult(value.ToString()));
 
-        mapped.ShouldBeOfType<Result<string, string>.Ok>();
+        _ = mapped.ShouldBeOfType<Result<string, string>.Ok>();
 
         var matchResult = mapped.Match(
             ok => ok,
@@ -60,7 +60,7 @@ public class ResultExtensionMapShould
 
         var mapped = await result.MapAsync(value => Task.FromResult(value.ToString()));
 
-        mapped.ShouldBeOfType<Result<string, string>.Error>();
+        _ = mapped.ShouldBeOfType<Result<string, string>.Error>();
 
         var matchResult = mapped.Match(
             _ => throw new InvalidOperationException("Should not be success"),
@@ -77,7 +77,7 @@ public class ResultExtensionMapShould
 
         var mapped = await resultTask.MapAsync(value => value.ToString());
 
-        mapped.ShouldBeOfType<Result<string, string>.Ok>();
+        _ = mapped.ShouldBeOfType<Result<string, string>.Ok>();
 
         var matchResult = mapped.Match(
             ok => ok,
@@ -94,7 +94,7 @@ public class ResultExtensionMapShould
 
         var mapped = await resultTask.MapAsync(value => value.ToString());
 
-        mapped.ShouldBeOfType<Result<string, string>.Error>();
+        _ = mapped.ShouldBeOfType<Result<string, string>.Error>();
 
         var matchResult = mapped.Match(
             _ => throw new InvalidOperationException("Should not be success"),
@@ -111,7 +111,7 @@ public class ResultExtensionMapShould
 
         var mapped = await resultTask.MapAsync(value => Task.FromResult(value.ToString()));
 
-        mapped.ShouldBeOfType<Result<string, string>.Ok>();
+        _ = mapped.ShouldBeOfType<Result<string, string>.Ok>();
 
         var matchResult = mapped.Match(
             ok => ok,
@@ -128,7 +128,7 @@ public class ResultExtensionMapShould
 
         var mapped = result.MapFailure(error => error.ToString());
 
-        mapped.ShouldBeOfType<Result<string, string>.Error>();
+        _ = mapped.ShouldBeOfType<Result<string, string>.Error>();
 
         var matchResult = mapped.Match(
             _ => throw new InvalidOperationException("Should not be success"),
@@ -145,7 +145,7 @@ public class ResultExtensionMapShould
 
         var mapped = result.MapFailure(error => error.ToString());
 
-        mapped.ShouldBeOfType<Result<string, string>.Ok>();
+        _ = mapped.ShouldBeOfType<Result<string, string>.Ok>();
 
         var matchResult = mapped.Match(
             ok => ok,
@@ -162,7 +162,7 @@ public class ResultExtensionMapShould
 
         var mapped = await result.MapFailureAsync(error => Task.FromResult(error.ToString()));
 
-        mapped.ShouldBeOfType<Result<string, string>.Error>();
+        _ = mapped.ShouldBeOfType<Result<string, string>.Error>();
 
         var matchResult = mapped.Match(
             _ => throw new InvalidOperationException("Should not be success"),
@@ -179,7 +179,7 @@ public class ResultExtensionMapShould
 
         var mapped = await result.MapFailureAsync(error => Task.FromResult(error.ToString()));
 
-        mapped.ShouldBeOfType<Result<string, string>.Ok>();
+        _ = mapped.ShouldBeOfType<Result<string, string>.Ok>();
 
         var matchResult = mapped.Match(
             ok => ok,
@@ -196,7 +196,7 @@ public class ResultExtensionMapShould
 
         var mapped = await resultTask.MapFailureAsync(error => error.ToString());
 
-        mapped.ShouldBeOfType<Result<string, string>.Error>();
+        _ = mapped.ShouldBeOfType<Result<string, string>.Error>();
 
         var matchResult = mapped.Match(
             _ => throw new InvalidOperationException("Should not be success"),
@@ -213,7 +213,7 @@ public class ResultExtensionMapShould
 
         var mapped = await resultTask.MapFailureAsync(error => error.ToString());
 
-        mapped.ShouldBeOfType<Result<string, string>.Ok>();
+        _ = mapped.ShouldBeOfType<Result<string, string>.Ok>();
 
         var matchResult = mapped.Match(
             ok => ok,
@@ -230,7 +230,7 @@ public class ResultExtensionMapShould
 
         var mapped = await resultTask.MapFailureAsync(error => Task.FromResult(error.ToString()));
 
-        mapped.ShouldBeOfType<Result<string, string>.Error>();
+        _ = mapped.ShouldBeOfType<Result<string, string>.Error>();
 
         var matchResult = mapped.Match(
             _ => throw new InvalidOperationException("Should not be success"),
@@ -247,7 +247,7 @@ public class ResultExtensionMapShould
 
         var mapped = await resultTask.MapFailureAsync(error => Task.FromResult(error.ToString()));
 
-        mapped.ShouldBeOfType<Result<string, string>.Ok>();
+        _ = mapped.ShouldBeOfType<Result<string, string>.Ok>();
 
         var matchResult = mapped.Match(
             ok => ok,

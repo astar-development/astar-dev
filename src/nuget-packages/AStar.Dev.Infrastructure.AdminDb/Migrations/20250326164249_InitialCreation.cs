@@ -10,10 +10,10 @@ namespace AStar.Dev.Infrastructure.AdminDb.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.EnsureSchema(
+            _ = migrationBuilder.EnsureSchema(
                 name: "admin");
 
-            migrationBuilder.CreateTable(
+            _ = migrationBuilder.CreateTable(
                 name: "ScrapeDirectory",
                 schema: "admin",
                 columns: table => new
@@ -31,10 +31,10 @@ namespace AStar.Dev.Infrastructure.AdminDb.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ScrapeDirectory", x => x.Id);
+                    _ = table.PrimaryKey("PK_ScrapeDirectory", x => x.Id);
                 });
 
-            migrationBuilder.CreateTable(
+            _ = migrationBuilder.CreateTable(
                 name: "SearchCategory",
                 schema: "admin",
                 columns: table => new
@@ -51,10 +51,10 @@ namespace AStar.Dev.Infrastructure.AdminDb.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SearchCategory", x => x.Id);
+                    _ = table.PrimaryKey("PK_SearchCategory", x => x.Id);
                 });
 
-            migrationBuilder.CreateTable(
+            _ = migrationBuilder.CreateTable(
                 name: "SearchConfiguration",
                 schema: "admin",
                 columns: table => new
@@ -82,10 +82,10 @@ namespace AStar.Dev.Infrastructure.AdminDb.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SearchConfiguration", x => x.Id);
+                    _ = table.PrimaryKey("PK_SearchConfiguration", x => x.Id);
                 });
 
-            migrationBuilder.CreateTable(
+            _ = migrationBuilder.CreateTable(
                 name: "SiteConfiguration",
                 schema: "admin",
                 columns: table => new
@@ -103,26 +103,26 @@ namespace AStar.Dev.Infrastructure.AdminDb.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SiteConfiguration", x => x.Id);
+                    _ = table.PrimaryKey("PK_SiteConfiguration", x => x.Id);
                 });
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
+            _ = migrationBuilder.DropTable(
                 name: "ScrapeDirectory",
                 schema: "admin");
 
-            migrationBuilder.DropTable(
+            _ = migrationBuilder.DropTable(
                 name: "SearchCategory",
                 schema: "admin");
 
-            migrationBuilder.DropTable(
+            _ = migrationBuilder.DropTable(
                 name: "SearchConfiguration",
                 schema: "admin");
 
-            migrationBuilder.DropTable(
+            _ = migrationBuilder.DropTable(
                 name: "SiteConfiguration",
                 schema: "admin");
         }

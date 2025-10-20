@@ -10,10 +10,10 @@ namespace AStar.Dev.Api.Usage.Logger.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.EnsureSchema(
+            _ = migrationBuilder.EnsureSchema(
                 name: "usage");
 
-            migrationBuilder.CreateTable(
+            _ = migrationBuilder.CreateTable(
                 name: "ApiUsageEvent",
                 schema: "usage",
                 columns: table => new
@@ -27,10 +27,10 @@ namespace AStar.Dev.Api.Usage.Logger.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ApiUsageEvent", x => x.Id);
+                    _ = table.PrimaryKey("PK_ApiUsageEvent", x => x.Id);
                 });
 
-            migrationBuilder.CreateIndex(
+            _ = migrationBuilder.CreateIndex(
                 name: "IX_ApiUsageEvent_ApiName",
                 schema: "usage",
                 table: "ApiUsageEvent",
@@ -40,7 +40,7 @@ namespace AStar.Dev.Api.Usage.Logger.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
+            _ = migrationBuilder.DropTable(
                 name: "ApiUsageEvent",
                 schema: "usage");
         }

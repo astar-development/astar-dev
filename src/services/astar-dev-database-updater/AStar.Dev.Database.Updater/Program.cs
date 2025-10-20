@@ -10,7 +10,7 @@ ILogger? logger = null;
 try
 {
     var builder = Host.CreateApplicationBuilder(args);
-    builder.ConfigureApplicationServices();
+    _ = builder.ConfigureApplicationServices();
 
     var app = builder.Build();
 

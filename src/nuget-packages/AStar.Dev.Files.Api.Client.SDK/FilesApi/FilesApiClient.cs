@@ -431,7 +431,7 @@ public class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition tokenAcqu
 
         var response = await httpClient.GetAsync($"/directories/{rootDirectory}?version=1", cancellationToken);
 
-        response.EnsureSuccessStatusCode();
+        _ = response.EnsureSuccessStatusCode();
 
         return (await response.Content.ReadFromJsonAsync<string[]>(cancellationToken))!;
     }

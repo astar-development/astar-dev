@@ -1,6 +1,6 @@
+using AStar.Dev.Infrastructure.FilesDb.Data;
 using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
-using AStar.Dev.Infrastructure.FilesDb.Data;
 
 namespace AStar.Dev.TestHelpers;
 
@@ -29,7 +29,7 @@ public sealed class SqliteTestScope : IAsyncDisposable
                       .Options;
 
         var ctx = new FilesContext(options);
-        await ctx.Database.EnsureCreatedAsync();
+        _ = await ctx.Database.EnsureCreatedAsync();
 
         return new(connection, ctx);
     }

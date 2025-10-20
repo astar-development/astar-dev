@@ -28,7 +28,7 @@ public class FileClassificationsBackgroundService(IServiceScopeFactory serviceSc
         var       mapper                  = scope.ServiceProvider.GetRequiredService<ClassificationsMapper>();
         _logger = scope.ServiceProvider.GetRequiredService<ILogger<FileClassificationsBackgroundService>>();
 
-        await mapper.LoadClassificationMappings()
+        _ = await mapper.LoadClassificationMappings()
                     .MatchAsync(
                                 classifications => classifications.AddFileClassificationsAsync(classificationProcessor, stoppingToken),
                                 error =>

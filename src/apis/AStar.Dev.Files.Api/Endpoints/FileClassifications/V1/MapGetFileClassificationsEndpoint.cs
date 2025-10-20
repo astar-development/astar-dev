@@ -20,7 +20,7 @@ public static class MapGetFileClassificationsEndpoint
             .MapGroup("/api/file-classifications")
             .HasApiVersion(1.0);
 
-        apiGroup.MapGet("/", async ([FromServices] FilesContext filesContext,
+        _ = apiGroup.MapGet("/", async ([FromServices] FilesContext filesContext,
                     [FromServices] GetFileClassificationsHandler handler,
                     CancellationToken cancellationToken)
                 => await handler.HandleAsync(filesContext, cancellationToken))

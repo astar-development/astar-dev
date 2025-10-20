@@ -26,27 +26,27 @@ public static class WebApplicationBuilderExtensions
     {
         var dictionary = new Dictionary<string, object> { { "service.name", "AStar.Dev.Web" }, { "service.namespace", "AStar.Dev.Web" } };
 
-        builder.Services.AddOpenTelemetry().UseAzureMonitor(options =>
+        _ = builder.Services.AddOpenTelemetry().UseAzureMonitor(options =>
                                                             {
                                                                 options.ConnectionString = builder.Configuration["AzureMonitor:ConnectionString"];
                                                             })
                .ConfigureResource(resourceBuilder => resourceBuilder.AddAttributes(dictionary));
 
-        builder.AddServiceDefaults();
+        _ = builder.AddServiceDefaults();
 
-        builder.Services.AddRazorComponents()
+        _ = builder.Services.AddRazorComponents()
                .AddInteractiveServerComponents();
 
-        builder.Services.AddFluentUIComponents();
+        _ = builder.Services.AddFluentUIComponents();
 
-        builder.Services
+        _ = builder.Services
                .AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
                .AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureAd"));
 
-        builder.Services.AddAuthorization();
-        builder.Services.AddHealthChecks();
+        _ = builder.Services.AddAuthorization();
+        _ = builder.Services.AddHealthChecks();
 
-        builder.Services.AddControllersWithViews()
+        _ = builder.Services.AddControllersWithViews()
                .AddMicrosoftIdentityUI();
 
         return builder;

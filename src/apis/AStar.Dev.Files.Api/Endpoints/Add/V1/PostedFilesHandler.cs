@@ -29,7 +29,7 @@ public static class PostedFilesHandler // move to non-static and IoC?
         await filesContext.Files.AddRangeAsync(fileDetailList, cancellationToken);
 
         //await filesContext.Events.AddRangeAsync(events, cancellationToken);
-        await filesContext.SaveChangesAsync(cancellationToken);
+        _ = await filesContext.SaveChangesAsync(cancellationToken);
 
         var responseList = fileDetailList.ToAddFilesResponse();
 
