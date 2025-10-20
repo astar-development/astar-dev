@@ -39,6 +39,7 @@ Keep instructions short and concrete — point to exact files and examples the a
 - Tests: put unit tests in `test/<area>/*.Tests.Unit` and follow existing patterns (Shouldly for assertions, test fixtures in Fixtures/ when needed).
 - Whilst the AAA pattern is used, comments should not be added to a test unless the logic is complex. If the logic is complex, consider breaking it into multiple tests. Instead of comments, use blank lines to separate the Arrange, Act, and Assert sections.
 - Using statements for Shouldly and Xunit are not required as they are included globally via the relevant `csproj`.
+- Public methods in the production code should have XML doc comments. Test methods do not require XML doc comments.
 
 ## Integration & cross-component communication
 

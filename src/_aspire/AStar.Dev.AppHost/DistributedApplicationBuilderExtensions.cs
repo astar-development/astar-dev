@@ -29,6 +29,7 @@ public static class DistributedApplicationBuilderExtensions
 
         var adminApi  = AddAdminApi(distributedApplicationBuilder, adminDb, rabbitMq);
         var filesApi  = AddFilesApi(distributedApplicationBuilder, filesDb, migrations, rabbitMq);
+        var fileClassificationsApi = AddFileClassificationsApi(distributedApplicationBuilder, filesDb, migrations, rabbitMq);
         var imagesApi = AddImagesApi(distributedApplicationBuilder, rabbitMq);
         var usageApi  = AddUsageApi(distributedApplicationBuilder, rabbitMq);
         AddDatabaseUpdaterApi(distributedApplicationBuilder, filesDb, migrations, sqlServer, rabbitMq);
@@ -69,16 +70,28 @@ public static class DistributedApplicationBuilderExtensions
                                      .WithHttpHealthCheck(HealthEndpoint);
 
     private static IResourceBuilder<ProjectResource> AddFilesApi(IDistributedApplicationBuilder           distributedApplicationBuilder, IResourceBuilder<SqlServerDatabaseResource> filesDb,
-                                                                 IResourceBuilder<ProjectResource>        migrations,
-                                                                 IResourceBuilder<RabbitMQServerResource> rabbitMq) =>
+        IResourceBuilder<ProjectResource> migrations,
+        IResourceBuilder<RabbitMQServerResource> rabbitMq) =>
         distributedApplicationBuilder.AddProject<AStar_Dev_Files_Api>(AspireConstants.Apis.FilesApi)
-                                     .WithReference(filesDb)
-                                     .WaitFor(filesDb)
-                                     .WithReference(migrations)
-                                     .WaitFor(migrations)
-                                     .WithReference(rabbitMq)
-                                     .WaitFor(rabbitMq)
-                                     .WithHttpHealthCheck(HealthEndpoint);
+            .WithReference(filesDb)
+            .WaitFor(filesDb)
+            .WithReference(migrations)
+            .WaitFor(migrations)
+            .WithReference(rabbitMq)
+            .WaitFor(rabbitMq)
+            .WithHttpHealthCheck(HealthEndpoint);
+
+    private static IResourceBuilder<ProjectResource> AddFileClassificationsApi(IDistributedApplicationBuilder distributedApplicationBuilder, IResourceBuilder<SqlServerDatabaseResource> filesDb,
+        IResourceBuilder<ProjectResource> migrations,
+        IResourceBuilder<RabbitMQServerResource> rabbitMq) =>
+        distributedApplicationBuilder.AddProject<AStar_Dev_Files_Classifications_Api>(AspireConstants.Apis.FileClassificationsApi)
+            .WithReference(filesDb)
+            .WaitFor(filesDb)
+            .WithReference(migrations)
+            .WaitFor(migrations)
+            .WithReference(rabbitMq)
+            .WaitFor(rabbitMq)
+            .WithHttpHealthCheck(HealthEndpoint);
 
     private static void AddDatabaseUpdaterApi(IDistributedApplicationBuilder    distributedApplicationBuilder, IResourceBuilder<SqlServerDatabaseResource> filesDb,
                                               IResourceBuilder<ProjectResource> migrations, IResourceBuilder<SqlServerServerResource> sqlServer, IResourceBuilder<RabbitMQServerResource> rabbitMq) =>
