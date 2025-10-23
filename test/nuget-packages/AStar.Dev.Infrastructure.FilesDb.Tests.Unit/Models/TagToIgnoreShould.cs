@@ -6,5 +6,5 @@ public sealed class TagToIgnoreShould
 {
     [Fact]
     public void ReturnTheExpectedToStringOutput()
-        => new TagToIgnore(){UpdatedOn = new DateTimeOffset(2025,1,2,3,4,5, new TimeSpan(0, 0, 0))}.ToString().ShouldMatchApproved();
+        => new TagToIgnore { UpdatedOn = new(2025, 1, 2, 3, 4, 5, new(0, 0, 0)) }.ToString().ShouldMatchApproved();
 }

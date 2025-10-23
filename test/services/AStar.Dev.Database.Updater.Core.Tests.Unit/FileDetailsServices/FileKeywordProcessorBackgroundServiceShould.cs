@@ -1,12 +1,13 @@
 using System.Reflection;
 using AStar.Dev.Database.Updater.Core.FileDetailsServices;
 using AStar.Dev.Functional.Extensions;
+using AStar.Dev.Infrastructure.FilesDb.Data;
 using AStar.Dev.Infrastructure.FilesDb.Models;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using NSubstitute;
-using Microsoft.EntityFrameworkCore;
 
 namespace AStar.Dev.Database.Updater.Core.Tests.Unit.FileDetailsServices;
 
@@ -35,8 +36,8 @@ public class FileKeywordProcessorBackgroundServiceShould
             new ()
             {
                 Id = new() { Value = Guid.NewGuid() },
-                FileName = new FileName("a.txt"),
-                DirectoryName = new DirectoryName("/tmp"),
+                FileName = new("a.txt"),
+                DirectoryName = new("/tmp"),
                 FileSize = 0,
                 CreatedDate = DateTimeOffset.UtcNow,
                 UpdatedDate = DateTimeOffset.UtcNow
@@ -46,9 +47,9 @@ public class FileKeywordProcessorBackgroundServiceShould
         var resultOk = new Result<List<FileDetail>, ErrorResponse>.Ok(fileList);
 
     // Build a test FilesContext using an in-memory provider and real FilesProcessor
-    var optionsBuilder = new Microsoft.EntityFrameworkCore.DbContextOptionsBuilder<AStar.Dev.Infrastructure.FilesDb.Data.FilesContext>();
+    var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
     optionsBuilder.UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString());
-    var filesContext = new AStar.Dev.Infrastructure.FilesDb.Data.FilesContext(optionsBuilder.Options);
+    var filesContext = new FilesContext(optionsBuilder.Options);
 
         var keywordProvider = Substitute.For<IKeywordProvider>();
         keywordProvider.GetKeywordsAsync(Arg.Any<CancellationToken>()).Returns(Task.FromResult<IReadOnlyList<FileNamePartsWithClassifications>>(new List<FileNamePartsWithClassifications>()));
@@ -108,12 +109,12 @@ public class FileKeywordProcessorBackgroundServiceShould
         };
         var options = Options.Create(config);
 
-    var resultError = new Result<List<FileDetail>, ErrorResponse>.Error(new ErrorResponse("oops"));
+        var resultError = new Result<List<FileDetail>, ErrorResponse>.Error(new("oops"));
 
         // For error scenario: use an empty MockFileSystem and path that will cause enumeration to throw
-    var optionsBuilder2 = new Microsoft.EntityFrameworkCore.DbContextOptionsBuilder<AStar.Dev.Infrastructure.FilesDb.Data.FilesContext>();
+    var optionsBuilder2 = new DbContextOptionsBuilder<FilesContext>();
     optionsBuilder2.UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString());
-    var filesContext2 = new AStar.Dev.Infrastructure.FilesDb.Data.FilesContext(optionsBuilder2.Options);
+    var filesContext2 = new FilesContext(optionsBuilder2.Options);
 
         var keywordProvider2 = Substitute.For<IKeywordProvider>();
         keywordProvider2.GetKeywordsAsync(Arg.Any<CancellationToken>()).Returns(Task.FromResult<IReadOnlyList<FileNamePartsWithClassifications>>(new List<FileNamePartsWithClassifications>()));

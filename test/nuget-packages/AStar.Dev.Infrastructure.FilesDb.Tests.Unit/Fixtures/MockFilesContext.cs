@@ -58,9 +58,19 @@ public class MockFilesContext : IDisposable
             .UseSeed(1234)
             .RuleFor(fileDetail => fileDetail.Id, f=> new() {Value = f.Random.Guid()})
             .RuleFor(fileDetail => fileDetail.FileSize, f=>  f.Random.Int(100_000, 500_000))
-            .RuleFor(fileDetail => fileDetail.CreatedDate, f=>  f.Person.DateOfBirth)
-            .RuleFor(fileDetail => fileDetail.UpdatedDate, f=>  f.Person.DateOfBirth.AddDays(f.Random.Int(1, 1000)))
-            .RuleFor(fileDetail => fileDetail.UpdatedOn, f=>  f.Person.DateOfBirth.AddDays(f.Random.Int(300, 500)))
+            .RuleFor(fileDetail => fileDetail.CreatedDate, f => f.Date.Recent(10, new DateTime(2025, 1, 2, 3, 4, 5)))
+            .RuleFor(fileDetail => fileDetail.UpdatedDate, f => f.Date.Recent(5, new DateTime(2025, 1, 2, 3, 4, 5)))
+            .RuleFor(fileDetail => fileDetail.UpdatedOn, f => f.Date.Recent(2, new DateTime(2025, 1, 2, 3, 4, 5)))
+            .RuleFor(fileDetail => fileDetail.FileAccessDetail,
+                f => new()
+                {
+                    DetailsLastUpdated = f.Date.Recent(0, new DateTime(2025, 1, 2, 3, 4, 5)),
+                    LastViewed = f.Date.Recent(1, new DateTime(2025, 1, 2, 3, 4, 5)),
+                    UpdatedBy = "Test",
+                    UpdatedOn = f.Date.Recent(2, new DateTime(2025, 1, 2, 3, 4, 5)),
+                    Id = f.Random.Int(),
+                    MoveRequired = f.Random.Bool()
+                })
             .RuleFor(fileDetail => fileDetail.FileName, f => new(f.System.FileName(f.PickRandom(fileExtension))))
             .RuleFor(fileDetail=>fileDetail.DirectoryName, f => new(f.System.DirectoryPath())).RuleFor(f => f.DeletionStatus, (f, fd) =>
             {
