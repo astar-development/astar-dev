@@ -1,6 +1,6 @@
 using System.Net.Mime;
 
-namespace AStar.Dev.Admin.Api;
+namespace AStar.Dev.Admin.Api.Tests.Integration;
 
 public sealed class BasicTests(CustomWebApplicationFactory<IAssemblyMarker> factory)
     : IClassFixture<CustomWebApplicationFactory<IAssemblyMarker>>

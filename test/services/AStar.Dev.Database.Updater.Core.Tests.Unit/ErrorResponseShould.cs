@@ -1,6 +1,7 @@
 using AStar.Dev.Functional.Extensions;
+using AStar.Dev.Utilities;
 
-namespace AStar.Dev.Database.Updater.Core;
+namespace AStar.Dev.Database.Updater.Core.Tests.Unit;
 
 [TestSubject(typeof(ErrorResponse))]
 public class ErrorResponseShould
@@ -63,7 +64,7 @@ public class ErrorResponseShould
         const string message = "Error message for string representation";
 
         var errorResponse        = new ErrorResponse(message);
-        var stringRepresentation = errorResponse.ToString();
+        var stringRepresentation = errorResponse.ToJson().ToString();
 
         stringRepresentation.ShouldContain(message);
     }

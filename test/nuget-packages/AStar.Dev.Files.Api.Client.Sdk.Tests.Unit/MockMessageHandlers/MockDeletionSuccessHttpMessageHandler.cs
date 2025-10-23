@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace AStar.Dev.Files.Api.Client.Sdk.MockMessageHandlers;
+namespace AStar.Dev.Files.Api.Client.Sdk.Tests.Unit.MockMessageHandlers;
 
 public sealed class MockDeletionSuccessHttpMessageHandler : HttpMessageHandler
 {

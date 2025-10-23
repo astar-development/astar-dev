@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using JetBrains.Annotations;
 
-namespace AStar.Dev.Test.Helpers.Minimal.Api;
+namespace AStar.Dev.Test.Helpers.Minimal.Api.Tests.Unit;
 
 [TestSubject(typeof(ResultExtensions))]
 

@@ -39,7 +39,7 @@ public static class FilesContextExtensions
     ///     The original list of files for further filtering.
     /// </returns>
     public static IList<FileDetail> GetMatchingFiles(this DbSet<FileDetail> files,
-                                                           string                 startingFolder,
+                                                           DirectoryName                 startingFolder,
                                                            bool                   recursive,
                                                            string                 searchType,
                                                            bool                   includeSoftDeleted,
@@ -47,6 +47,7 @@ public static class FilesContextExtensions
                                                            bool                   excludeViewed,
                                                            CancellationToken      cancellationToken)
     {
+        var x = files.Include(fileDetail => fileDetail.FileAccessDetail).AsNoTracking().ToList();
         var filesToReturn = files.Include(fileDetail => fileDetail.FileAccessDetail).AsNoTracking().AsQueryable();
 
         if(cancellationToken.IsCancellationRequested)
@@ -55,17 +56,23 @@ public static class FilesContextExtensions
         }
 
         filesToReturn = recursive
-                            ? filesToReturn.Where(file => file.DirectoryName.Value.StartsWith(startingFolder))
-                            : filesToReturn.Where(file => file.DirectoryName.Equals(startingFolder));
+            ? filesToReturn.Where(file => file.DirectoryName.Value.StartsWith(startingFolder.Value))
+            : filesToReturn.Where(file => file.DirectoryName.Value==startingFolder.Value);
+     var y =  recursive
+            ? filesToReturn.Where(file => file.DirectoryName.Value.StartsWith(startingFolder.Value)).ToList()
+            : filesToReturn.Where(file => file.DirectoryName.Value ==startingFolder.Value).ToList();
 
         if(cancellationToken.IsCancellationRequested)
         {
             return [];
         }
 
+        var z = includeSoftDeleted
+            ? filesToReturn.ToList()
+            : filesToReturn.Where(file => file.DeletionStatus != null && file.DeletionStatus.SoftDeleted == null).ToList();
         filesToReturn = includeSoftDeleted
-                            ? filesToReturn
-                            : filesToReturn.Where(file => file.DeletionStatus != null && file.DeletionStatus.SoftDeleted == null);
+            ? filesToReturn
+            : filesToReturn.Where(file => file.DeletionStatus != null && file.DeletionStatus.SoftDeleted == null);
 
         if(cancellationToken.IsCancellationRequested)
         {
@@ -74,6 +81,7 @@ public static class FilesContextExtensions
 
         if(!includeMarkedForDeletion)
         {
+            var a = filesToReturn.Where(file => file.DeletionStatus != null && file.DeletionStatus.SoftDeletePending != null && file.DeletionStatus.HardDeletePending != null).ToList();
             filesToReturn = filesToReturn.Where(file => file.DeletionStatus != null && file.DeletionStatus.SoftDeletePending != null && file.DeletionStatus.HardDeletePending != null);
         }
 
@@ -84,6 +92,13 @@ public static class FilesContextExtensions
 
         if(searchType == "Images")
         {
+            var b = filesToReturn.Where(file => file.FileName.Value.EndsWith("jpg")
+                                                        || file.FileName.Value.EndsWith("jpeg")
+                                                        || file.FileName.Value.EndsWith("bmp")
+                                                        || file.FileName.Value.EndsWith("png")
+                                                        || file.FileName.Value.EndsWith("jfif")
+                                                        || file.FileName.Value.EndsWith("jif")
+                                                        || file.FileName.Value.EndsWith("gif")).ToList();
             filesToReturn = filesToReturn.Where(file => file.FileName.Value.EndsWith("jpg")
                                                         || file.FileName.Value.EndsWith("jpeg")
                                                         || file.FileName.Value.EndsWith("bmp")
@@ -100,6 +115,9 @@ public static class FilesContextExtensions
 
         if(excludeViewed)
         {
+            var xx = filesToReturn.Where(file => file.FileAccessDetail.LastViewed == null ||
+                                                        file.FileAccessDetail.LastViewed <=
+                                                        DateTime.UtcNow.AddDays(-7)).ToList();
             filesToReturn = filesToReturn.Where(file => file.FileAccessDetail.LastViewed == null ||
                                                         file.FileAccessDetail.LastViewed <=
                                                         DateTime.UtcNow.AddDays(-7));

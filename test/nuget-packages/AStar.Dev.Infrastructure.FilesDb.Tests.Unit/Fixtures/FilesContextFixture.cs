@@ -1,6 +1,6 @@
 ﻿using AStar.Dev.Infrastructure.FilesDb.Data;
 
-namespace AStar.Dev.Infrastructure.FilesDb.Fixtures;
+namespace AStar.Dev.Infrastructure.FilesDb.Tests.Unit.Fixtures;
 
 public class FilesContextFixture : IDisposable
 {

@@ -1,6 +1,7 @@
 using AStar.Dev.Infrastructure.FilesDb.Data;
-using AStar.Dev.Files.Classifications.Api.Services;
 using Microsoft.EntityFrameworkCore;
+
+namespace AStar.Dev.Files.Classifications.Api.Services;
 
 /// <summary>
 /// Service to fetch file classifications from the database.

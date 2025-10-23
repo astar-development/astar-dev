@@ -2,7 +2,7 @@
 using AStar.Dev.Utilities;
 using Microsoft.AspNetCore.Builder;
 
-namespace AStar.Dev.Logging.Extensions;
+namespace AStar.Dev.Logging.Extensions.Tests.Unit;
 
 public sealed class LoggingExtensionsShould
 {

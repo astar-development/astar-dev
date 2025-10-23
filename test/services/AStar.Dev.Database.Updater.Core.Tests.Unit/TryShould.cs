@@ -1,6 +1,6 @@
 using AStar.Dev.Functional.Extensions;
 
-namespace AStar.Dev.Database.Updater.Core;
+namespace AStar.Dev.Database.Updater.Core.Tests.Unit;
 
 public class TryTests
 {

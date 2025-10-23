@@ -1,5 +1,6 @@
 using AStar.Dev.Aspire.Common;
 using AStar.Dev.AspNet.Extensions.WebApplicationBuilderExtensions;
+using AStar.Dev.Files.Classifications.Api;
 using AStar.Dev.Infrastructure.FilesDb.Data;
 using AStar.Dev.ServiceDefaults;
 
@@ -42,7 +43,10 @@ app.MapGet("/weatherforecast", () =>
 
 app.Run();
 
-internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
+namespace AStar.Dev.Files.Classifications.Api
 {
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
+    {
+        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    }
 }

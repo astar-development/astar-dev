@@ -1,6 +1,6 @@
 ﻿using AStar.Dev.Files.Api.Client.SDK.FilesApi;
 
-namespace AStar.Dev.Files.Api.Client.Sdk.FilesApi;
+namespace AStar.Dev.Files.Api.Client.Sdk.Tests.Unit.FilesApi;
 
 public sealed class FilesApiConfigurationShould
 {

@@ -1,9 +1,10 @@
-﻿using JetBrains.Annotations;
+﻿using AStar.Dev.AspNet.Extensions.ConfigurationManagerExtensions;
+using JetBrains.Annotations;
 using Microsoft.Extensions.Configuration;
 
-namespace AStar.Dev.AspNet.Extensions.ConfigurationManagerExtensions;
+namespace AStar.Dev.AspNet.Extensions.Tests.Unit.ConfigurationManagerExtensions;
 
-[TestSubject(typeof(ConfigurationManagerExtensions))]
+[TestSubject(typeof(Extensions.ConfigurationManagerExtensions.ConfigurationManagerExtensions))]
 public sealed class ConfigurationManagerExtensionsShould
 {
     [Fact]

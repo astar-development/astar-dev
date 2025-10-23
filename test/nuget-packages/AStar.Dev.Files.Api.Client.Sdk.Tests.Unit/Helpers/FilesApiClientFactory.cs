@@ -1,11 +1,11 @@
 ﻿using AStar.Dev.Files.Api.Client.SDK.FilesApi;
-using AStar.Dev.Files.Api.Client.Sdk.MockMessageHandlers;
+using AStar.Dev.Files.Api.Client.Sdk.Tests.Unit.MockMessageHandlers;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Identity.Web;
 using NSubstitute;
 
-namespace AStar.Dev.Files.Api.Client.Sdk.Helpers;
+namespace AStar.Dev.Files.Api.Client.Sdk.Tests.Unit.Helpers;
 
 internal static class FilesApiClientFactory
 {

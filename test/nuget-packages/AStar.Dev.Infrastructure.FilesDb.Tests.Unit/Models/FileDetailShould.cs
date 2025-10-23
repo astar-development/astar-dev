@@ -1,4 +1,6 @@
-﻿namespace AStar.Dev.Infrastructure.FilesDb.Models;
+﻿using AStar.Dev.Infrastructure.FilesDb.Models;
+
+namespace AStar.Dev.Infrastructure.FilesDb.Tests.Unit.Models;
 
 public sealed class FileDetailShould
 {

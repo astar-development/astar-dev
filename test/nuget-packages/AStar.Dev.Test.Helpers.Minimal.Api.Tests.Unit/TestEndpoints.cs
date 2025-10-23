@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Http.HttpResults;
 
-namespace AStar.Dev.Test.Helpers.Minimal.Api;
+namespace AStar.Dev.Test.Helpers.Minimal.Api.Tests.Unit;
 
 internal static class TestEndpoints
 {

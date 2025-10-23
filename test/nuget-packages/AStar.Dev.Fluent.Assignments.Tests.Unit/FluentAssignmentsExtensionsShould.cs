@@ -1,4 +1,4 @@
-namespace AStar.Dev.Fluent.Assignments;
+namespace AStar.Dev.Fluent.Assignments.Tests.Unit;
 
 public sealed class FluentAssignmentsExtensionsShould
 {

@@ -4,5 +4,49 @@
         <name>AStar.Dev.Files.Classifications.Api</name>
     </assembly>
     <members>
+        <member name="T:AStar.Dev.Files.Classifications.Api.Endpoints.GetFileClassificationsEndpoint">
+            <summary>
+            Endpoint to retrieve file classifications.
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Files.Classifications.Api.Endpoints.GetFileClassificationsEndpoint.#ctor(AStar.Dev.Files.Classifications.Api.Services.IFileClassificationsService)">
+            <summary>
+            Endpoint to retrieve file classifications.
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Files.Classifications.Api.Endpoints.GetFileClassificationsEndpoint.Configure">
+            <inheritdoc/>
+        </member>
+        <member name="M:AStar.Dev.Files.Classifications.Api.Endpoints.GetFileClassificationsEndpoint.HandleAsync(System.Threading.CancellationToken)">
+            <inheritdoc/>
+        </member>
+        <member name="T:AStar.Dev.Files.Classifications.Api.Services.FileClassificationsService">
+            <summary>
+            Service to fetch file classifications from the database.
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Files.Classifications.Api.Services.FileClassificationsService.#ctor(AStar.Dev.Infrastructure.FilesDb.Data.FilesContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:AStar.Dev.Files.Classifications.Api.Services.FileClassificationsService"/> class.
+            </summary>
+            <param name="context">The database context for accessing file classifications.</param>
+        </member>
+        <member name="M:AStar.Dev.Files.Classifications.Api.Services.FileClassificationsService.GetFileClassificationsAsync">
+            <summary>
+            Retrieves a list of distinct file classifications.
+            </summary>
+            <returns>A collection of file classification names.</returns>
+        </member>
+        <member name="T:AStar.Dev.Files.Classifications.Api.Services.IFileClassificationsService">
+            <summary>
+            Service interface for fetching file classifications.
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Files.Classifications.Api.Services.IFileClassificationsService.GetFileClassificationsAsync">
+            <summary>
+            Retrieves a list of distinct file classifications.
+            </summary>
+            <returns>A collection of file classification names.</returns>
+        </member>
     </members>
 </doc>

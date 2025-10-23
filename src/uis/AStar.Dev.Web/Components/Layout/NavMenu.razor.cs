@@ -18,7 +18,7 @@ public partial class NavMenu : ComponentBase
         var authState = await AuthenticationStateTask;
         var user      = authState.User;
         _isAuthenticated = user.Identity?.IsAuthenticated ?? false;
-        _firstName       = _isAuthenticated ? ExtractFirstName(user!) : null;
+        _firstName       = _isAuthenticated ? ExtractFirstName(user) : null;
     }
 
     private static string ExtractFirstName(ClaimsPrincipal user)

@@ -2,7 +2,7 @@
 using System.Text.Json;
 using AStar.Dev.Api.HealthChecks;
 
-namespace AStar.Dev.Images.Api.Client.Sdk.MockMessageHandlers;
+namespace AStar.Dev.Images.Api.Client.Sdk.Tests.Unit.MockMessageHandlers;
 
 public sealed class MockSuccessHttpMessageHandler(string responseRequired) : HttpMessageHandler
 {

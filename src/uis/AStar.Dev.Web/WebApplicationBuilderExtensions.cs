@@ -1,3 +1,5 @@
+using AStar.Dev.Api.Client.Sdk.Shared;
+using AStar.Dev.Files.Api.Client.SDK.FilesApi;
 using AStar.Dev.ServiceDefaults;
 using Azure.Monitor.OpenTelemetry.AspNetCore;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
@@ -29,6 +31,7 @@ public static class WebApplicationBuilderExtensions
         _ = builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = builder.Configuration["AzureMonitor:ConnectionString"])
                .ConfigureResource(resourceBuilder => resourceBuilder.AddAttributes(dictionary));
 
+        builder.Services.AddApiClient<FilesApiClient, FilesApiConfiguration>([""]);
         _ = builder.AddServiceDefaults();
         _ = builder.Services.AddCascadingAuthenticationState();
         _ = builder.Services.AddRazorComponents()

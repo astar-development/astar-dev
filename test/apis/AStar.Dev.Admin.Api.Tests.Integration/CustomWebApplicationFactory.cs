@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Testing;
 using Microsoft.AspNetCore.TestHost;
 
-namespace AStar.Dev.Admin.Api;
+namespace AStar.Dev.Admin.Api.Tests.Integration;
 
 public sealed class CustomWebApplicationFactory<TProgram>
     : WebApplicationFactory<TProgram>

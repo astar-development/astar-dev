@@ -21,6 +21,5 @@ public sealed class ApiConfiguration
     /// <summary>
     /// </summary>
     /// <returns></returns>
-    public override string ToString()
-        => this.ToJson();
+    public override string ToString() => this.ToJson();
 }

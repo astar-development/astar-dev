@@ -228,7 +228,7 @@
             <summary>
             </summary>
         </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.FilesContextExtensions.GetMatchingFiles(Microsoft.EntityFrameworkCore.DbSet{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},System.String,System.Boolean,System.String,System.Boolean,System.Boolean,System.Boolean,System.Threading.CancellationToken)">
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.FilesContextExtensions.GetMatchingFiles(Microsoft.EntityFrameworkCore.DbSet{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},AStar.Dev.Infrastructure.FilesDb.Models.DirectoryName,System.Boolean,System.String,System.Boolean,System.Boolean,System.Boolean,System.Threading.CancellationToken)">
             <summary>
             </summary>
             <param name="files">

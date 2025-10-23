@@ -1,6 +1,6 @@
 ﻿using System.Net;
 
-namespace AStar.Dev.Images.Api.Client.Sdk.MockMessageHandlers;
+namespace AStar.Dev.Images.Api.Client.Sdk.Tests.Unit.MockMessageHandlers;
 
 public sealed class MockInternalServerErrorHttpMessageHandler(string errorMessage) : HttpMessageHandler
 {

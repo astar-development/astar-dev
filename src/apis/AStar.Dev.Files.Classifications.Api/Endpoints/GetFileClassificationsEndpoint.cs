@@ -1,4 +1,5 @@
 using AStar.Dev.Files.Classifications.Api.Services;
+using FastEndpoints;
 
 namespace AStar.Dev.Files.Classifications.Api.Endpoints;
 

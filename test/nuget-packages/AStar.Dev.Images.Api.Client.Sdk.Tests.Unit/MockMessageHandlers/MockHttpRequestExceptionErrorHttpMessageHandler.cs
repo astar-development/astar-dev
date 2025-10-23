@@ -1,4 +1,4 @@
-﻿namespace AStar.Dev.Images.Api.Client.Sdk.MockMessageHandlers;
+﻿namespace AStar.Dev.Images.Api.Client.Sdk.Tests.Unit.MockMessageHandlers;
 
 public sealed class MockHttpRequestExceptionErrorHttpMessageHandler : HttpMessageHandler
 {

@@ -1,8 +1,8 @@
 ﻿using JetBrains.Annotations;
 
-namespace AStar.Dev.AspNet.Extensions.PipelineExtensions;
+namespace AStar.Dev.AspNet.Extensions.Tests.Unit.PipelineExtensions;
 
-[TestSubject(typeof(PipelineExtensions))]
+[TestSubject(typeof(Extensions.PipelineExtensions.PipelineExtensions))]
 public sealed class PipelineExtensionsShould
 {
     [Fact]

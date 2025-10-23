@@ -5,7 +5,7 @@ using AStar.Dev.Infrastructure.FilesDb.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace AStar.Dev.Database.Updater;
+namespace AStar.Dev.Database.Updater.Tests.Integration;
 
 public sealed class ClassificationProcessorShould : IDisposable
 {
