@@ -332,6 +332,34 @@
                 - An ErrorResponse in case of a failure.
             </returns>
         </member>
+        <member name="T:AStar.Dev.Database.Updater.Core.FileDetailsServices.IFileListService">
+            <summary>
+            Service responsible for retrieving a list of files from a directory.
+            This interface exists to allow easier unit testing of classes that depend on file list retrieval.
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileDetailsServices.IFileListService.Get(System.String,System.Threading.CancellationToken)">
+            <summary>
+            Retrieves a list of <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail"/> instances for files under the provided path.
+            </summary>
+            <param name="path">Root directory to enumerate.</param>
+            <param name="stoppingToken">Cancellation token to observe.</param>
+            <returns>A Result containing the list of file details or an ErrorResponse.</returns>
+        </member>
+        <member name="T:AStar.Dev.Database.Updater.Core.FileDetailsServices.IFilesProcessor">
+            <summary>
+            Processes a collection of <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail"/> objects for keywords and classifications.
+            Exposed as an interface to allow mocking or faking during unit tests.
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Database.Updater.Core.FileDetailsServices.IFilesProcessor.ProcessAsync(System.Collections.Generic.IReadOnlyCollection{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},System.Threading.CancellationToken)">
+            <summary>
+            Processes the provided files and persists any findings.
+            </summary>
+            <param name="filesToProcess">Files to process.</param>
+            <param name="cancellationToken">Token to observe for cancellation.</param>
+            <returns>A Result containing true on success or an ErrorResponse on failure.</returns>
+        </member>
         <member name="T:AStar.Dev.Database.Updater.Core.FileDetailsServices.IKeywordProvider">
             <summary>
             </summary>

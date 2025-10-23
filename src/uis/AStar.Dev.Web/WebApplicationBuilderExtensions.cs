@@ -26,16 +26,13 @@ public static class WebApplicationBuilderExtensions
     {
         var dictionary = new Dictionary<string, object> { { "service.name", "AStar.Dev.Web" }, { "service.namespace", "AStar.Dev.Web" } };
 
-        _ = builder.Services.AddOpenTelemetry().UseAzureMonitor(options =>
-                                                            {
-                                                                options.ConnectionString = builder.Configuration["AzureMonitor:ConnectionString"];
-                                                            })
+        _ = builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = builder.Configuration["AzureMonitor:ConnectionString"])
                .ConfigureResource(resourceBuilder => resourceBuilder.AddAttributes(dictionary));
 
         _ = builder.AddServiceDefaults();
-
+        _ = builder.Services.AddCascadingAuthenticationState();
         _ = builder.Services.AddRazorComponents()
-               .AddInteractiveServerComponents();
+               .AddInteractiveServerComponents().AddAuthenticationStateSerialization(options => options.SerializeAllClaims = true);
 
         _ = builder.Services.AddFluentUIComponents();
 

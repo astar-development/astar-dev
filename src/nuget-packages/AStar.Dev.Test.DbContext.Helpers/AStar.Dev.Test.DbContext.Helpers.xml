@@ -17,7 +17,7 @@
             </summary>
         </member>
         <member name="M:AStar.Dev.Test.DbContext.Helpers.Fixtures.FilesContextFixture.Dispose">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:AStar.Dev.Test.DbContext.Helpers.Fixtures.FilesContextFixture.Dispose(System.Boolean)">
             <summary>

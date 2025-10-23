@@ -11,7 +11,7 @@ namespace AStar.Dev.Database.Updater.Core.FileDetailsServices;
 ///     Service responsible for retrieving a list of file paths from a specified directory,
 ///     excluding those already present in the database context.
 /// </summary>
-public class FileListService(IFileSystem fileSystem, IServiceScopeFactory scopeFactory)
+public class FileListService(IFileSystem fileSystem, IServiceScopeFactory scopeFactory) : IFileListService
 {
     /// <summary>
     ///     Retrieves a list of file details for the files located in the specified directory path that are not already present in the database.

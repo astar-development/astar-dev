@@ -42,12 +42,12 @@ public class FileKeywordProcessorBackgroundService(IServiceScopeFactory serviceS
         }
     }
 
-    private (DatabaseUpdaterConfiguration config, FilesProcessor fileScanner, FileListService fileListService) GetRequiredServices()
+    private (DatabaseUpdaterConfiguration config, IFilesProcessor fileScanner, IFileListService fileListService) GetRequiredServices()
     {
         using var scope = serviceScopeFactory.CreateScope();
         var config = scope.ServiceProvider.GetRequiredService<IOptions<DatabaseUpdaterConfiguration>>().Value;
-        var fileScanner = scope.ServiceProvider.GetRequiredService<FilesProcessor>();
-        var fileListService = scope.ServiceProvider.GetRequiredService<FileListService>();
+        var fileScanner = scope.ServiceProvider.GetRequiredService<IFilesProcessor>();
+        var fileListService = scope.ServiceProvider.GetRequiredService<IFileListService>();
         _logger = scope.ServiceProvider.GetRequiredService<ILogger<FileKeywordProcessorBackgroundService>>();
 
         return (config, fileScanner, fileListService);

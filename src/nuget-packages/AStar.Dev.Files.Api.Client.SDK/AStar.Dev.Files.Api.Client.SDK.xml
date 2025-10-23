@@ -228,8 +228,7 @@
                 An instance of the <see href="SearchParameters"></see> class defining the search
                 criteria for the files search
             </param>
-            <returns>An enumerable list of <see href="FileDetail"></see> instances
-            </returns>
+            <returns>An enumerable list of <see href="FileDetail"></see> instances</returns>
             <exception cref="T:System.InvalidOperationException"></exception>
         </member>
         <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.IFilesApiClient.GetDuplicateFilesAsync(AStar.Dev.Files.Api.Client.SDK.Models.SearchParameters)">
@@ -241,8 +240,7 @@
                 An instance of the <see href="SearchParameters"></see> class defining the search
                 criteria for the duplicate files search
             </param>
-            <returns>An enumerable list of <see href="DuplicateGroup"></see> instances
-            </returns>
+            <returns>An enumerable list of <see href="DuplicateGroup"></see> instances</returns>
             <exception cref="T:System.InvalidOperationException"></exception>
         </member>
         <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.IFilesApiClient.GetFileClassificationsAsync">
@@ -267,8 +265,7 @@
                 The GetFileAccessDetail method will, as its name suggests, get the file access details for the specified file
             </summary>
             <param name="fileId">The ID of the file to retrieve the File Access Details from the database</param>
-            <returns>An instance of <see href="FileAccessDetail"></see> for the specified File ID
-            </returns>
+            <returns>An instance of <see href="FileAccessDetail"></see> for the specified File ID</returns>
             <exception cref="T:System.InvalidOperationException"></exception>
         </member>
         <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.IFilesApiClient.GetFileDetail(System.Int32)">

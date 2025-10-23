@@ -103,13 +103,13 @@ public sealed class AdminContext : DbContext
             {
                 SeedData(context);
 
-                _ = context.SaveChanges();
+                context.SaveChanges();
             })
             .UseAsyncSeeding(async (context, _, cancellationToken) =>
             {
                 SeedData(context);
 
-                _ = await context.SaveChangesAsync(cancellationToken);
+                await context.SaveChangesAsync(cancellationToken);
             });
 
         if(_astarDbContextOptions.EnableLogging)

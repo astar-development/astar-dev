@@ -15,6 +15,8 @@ public class FilesProcessor(
     IKeywordProvider keywordProvider,
     FileDetailsProcessorService fileDetailsProcessorService,
     ILogger<FilesProcessor> logger)
+
+    : IFilesProcessor
 {
     /// <summary>
     ///     Processes a collection of files to process keywords, applying regex patterns to identify matches,

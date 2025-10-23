@@ -59,7 +59,8 @@ public static class HostApplicationBuilderExtensions
                                                                                      settings.DisableRetry   = false;
                                                                                  });
 
-        _ = builder.Services.AddScoped<FileListService>();
+    _ = builder.Services.AddScoped<FileListService>();
+    _ = builder.Services.AddScoped<IFileListService, FileListService>();
         _ = builder.Services.AddScoped<FileDetailsProcessorService>();
         _ = builder.Services.AddScoped<ClassificationProcessor>();
         _ = builder.Services.AddScoped<ClassificationRepository>();
@@ -71,7 +72,8 @@ public static class HostApplicationBuilderExtensions
         _ = builder.Services.AddSingleton<TimeDelay>();
         _ = builder.Services.AddSingleton<IFileSystem, FileSystem>();
 
-        _ = builder.Services.AddScoped<FilesProcessor>();
+    _ = builder.Services.AddScoped<FilesProcessor>();
+    _ = builder.Services.AddScoped<IFilesProcessor, FilesProcessor>();
         _ = builder.Services.AddScoped<FileHandleService>();
         _ = builder.Services.AddScoped<IKeywordProvider, EfKeywordProvider>();
 
