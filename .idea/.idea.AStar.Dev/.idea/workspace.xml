@@ -1943,15 +1943,7 @@
       <workItem from="1761328734156" duration="1121000" />
       <workItem from="1761330899816" duration="169000" />
       <workItem from="1761336735451" duration="4418000" />
-      <workItem from="1761423695317" duration="5704000" />
-    </task>
-    <task id="LOCAL-00083" summary="Commiting even though levels do not work...yet">
-      <option name="closed" value="true" />
-      <created>1755983664555</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1755983664556</updated>
+      <workItem from="1761423695317" duration="5774000" />
     </task>
     <task id="LOCAL-00084" summary="Update menu and add basic authentication">
       <option name="closed" value="true" />
@@ -2337,7 +2329,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761428812295</updated>
     </task>
-    <option name="localTasksCounter" value="132" />
+    <task id="LOCAL-00132" summary="remove commented code">
+      <option name="closed" value="true" />
+      <created>1761429439817</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1761429439817</updated>
+    </task>
+    <option name="localTasksCounter" value="133" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -2388,7 +2388,6 @@
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Resolving some of the dB updater bugs&#10;&#10;Main one left is the file part matching - &quot;car&quot; is matched when &quot;carrot&quot;. Need to update the algorithym" />
     <MESSAGE value="Rewriting the Database Updater&#10;&#10;At the moment, it is very rough but proves the approach.&#10;&#10;Next steps, decide whether to move back to a hosted service (likely) or continue with the endpoint (possible but not so likely)" />
     <MESSAGE value="Remove the temporary API project and update db Updater&#10;&#10;Changes include reworking the Tracker to remove the need to manually increment/decrement" />
     <MESSAGE value="Have updated the Regex and misc other changes&#10;&#10;However, when running locally, it doesn't seem to do anything...&#10;&#10;Will go back to previous code to check whether it did , or, if I just missed a breaking change earlier..." />
@@ -2413,7 +2412,8 @@
     <MESSAGE value="hhjkl;lkjhjkjklkj" />
     <MESSAGE value="llllllll" />
     <MESSAGE value="another attempt to get the gpg to work..." />
-    <option name="LAST_COMMIT_MESSAGE" value="another attempt to get the gpg to work..." />
+    <MESSAGE value="remove commented code" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove commented code" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
