@@ -52,6 +52,7 @@ try
     var events               = buildServiceProvider.GetRequiredService<JwtEvents>();
 #pragma warning restore ASP0000
 
+    // ToDo - get the settings from config
     _ = builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
            .AddJwtBearer("Bearer", jwtOptions =>
                                    {

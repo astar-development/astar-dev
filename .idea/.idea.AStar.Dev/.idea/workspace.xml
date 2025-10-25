@@ -95,7 +95,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="" />
+    <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -1943,15 +1945,7 @@
       <workItem from="1761328734156" duration="1121000" />
       <workItem from="1761330899816" duration="169000" />
       <workItem from="1761336735451" duration="4418000" />
-      <workItem from="1761423695317" duration="5774000" />
-    </task>
-    <task id="LOCAL-00084" summary="Update menu and add basic authentication">
-      <option name="closed" value="true" />
-      <created>1756157905265</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1756157905266</updated>
+      <workItem from="1761423695317" duration="6814000" />
     </task>
     <task id="LOCAL-00085" summary="Apply SQ change to NotFound.razor logging">
       <option name="closed" value="true" />
@@ -2337,7 +2331,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761429439817</updated>
     </task>
-    <option name="localTasksCounter" value="133" />
+    <task id="LOCAL-00133" summary="WORK DAMN IT!!!">
+      <option name="closed" value="true" />
+      <created>1761429579890</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1761429579890</updated>
+    </task>
+    <option name="localTasksCounter" value="134" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -2388,7 +2390,6 @@
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Rewriting the Database Updater&#10;&#10;At the moment, it is very rough but proves the approach.&#10;&#10;Next steps, decide whether to move back to a hosted service (likely) or continue with the endpoint (possible but not so likely)" />
     <MESSAGE value="Remove the temporary API project and update db Updater&#10;&#10;Changes include reworking the Tracker to remove the need to manually increment/decrement" />
     <MESSAGE value="Have updated the Regex and misc other changes&#10;&#10;However, when running locally, it doesn't seem to do anything...&#10;&#10;Will go back to previous code to check whether it did , or, if I just missed a breaking change earlier..." />
     <MESSAGE value="Refactor database updater to improve file processing and transition to `FileDetail`.&#10;&#10;- Replace `FileKeywordMatch` with `FileDetail` across several components.&#10;- Implement improved logging for file processing and database writes.&#10;- Enhance parallel file handling logic in `FileScanner`.&#10;- Update health check, writer, and scanner to align with new data model.&#10;- Remove unused `FileKeywordMatch` references and DbSet." />
@@ -2413,7 +2414,8 @@
     <MESSAGE value="llllllll" />
     <MESSAGE value="another attempt to get the gpg to work..." />
     <MESSAGE value="remove commented code" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove commented code" />
+    <MESSAGE value="WORK DAMN IT!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="WORK DAMN IT!!!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
