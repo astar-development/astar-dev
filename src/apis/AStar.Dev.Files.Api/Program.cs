@@ -30,8 +30,6 @@ try
 
     _ = builder
         .DisableServerHeader()
-
-        //.AddSerilogLogging(Configuration.ExternalSettingsFile)
         .Services.AddApiConfiguration(builder.Configuration);
 
     Log.Information("Starting {AppName}", applicationName);
