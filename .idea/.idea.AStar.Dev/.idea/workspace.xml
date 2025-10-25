@@ -1943,15 +1943,7 @@
       <workItem from="1761328734156" duration="1121000" />
       <workItem from="1761330899816" duration="169000" />
       <workItem from="1761336735451" duration="4418000" />
-      <workItem from="1761423695317" duration="4414000" />
-    </task>
-    <task id="LOCAL-00079" summary="Reworking the Games">
-      <option name="closed" value="true" />
-      <created>1755894473598</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1755894473598</updated>
+      <workItem from="1761423695317" duration="4570000" />
     </task>
     <task id="LOCAL-00080" summary="Despite &quot;fixing&quot; deployment on GitHub...">
       <option name="closed" value="true" />
@@ -2337,7 +2329,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761427895695</updated>
     </task>
-    <option name="localTasksCounter" value="128" />
+    <task id="LOCAL-00128" summary="Test commit">
+      <option name="closed" value="true" />
+      <created>1761428217086</created>
+      <option name="number" value="00128" />
+      <option name="presentableId" value="LOCAL-00128" />
+      <option name="project" value="LOCAL" />
+      <updated>1761428217087</updated>
+    </task>
+    <option name="localTasksCounter" value="129" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -2388,7 +2388,6 @@
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Add Deterministic &amp; ContinuousIntegrationBuild to proj files" />
     <MESSAGE value="Not sure whether this is 1step forward or&#10;several steps back..." />
     <MESSAGE value="Need to rework the DbContext usage" />
     <MESSAGE value="Formatting updates" />
@@ -2413,7 +2412,8 @@
     <MESSAGE value="Attempting to get the FilesContextExtensions to work again&#10;&#10;A LOT of attempts with Claude that produced rubbish code... have reverted most of it. Have left some of the abstractions as I may use them shortly" />
     <MESSAGE value="Update all NuGet packages" />
     <MESSAGE value="change pipeline to .net10" />
-    <option name="LAST_COMMIT_MESSAGE" value="change pipeline to .net10" />
+    <MESSAGE value="Test commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
