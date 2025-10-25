@@ -1943,15 +1943,7 @@
       <workItem from="1761328734156" duration="1121000" />
       <workItem from="1761330899816" duration="169000" />
       <workItem from="1761336735451" duration="4418000" />
-      <workItem from="1761423695317" duration="4570000" />
-    </task>
-    <task id="LOCAL-00080" summary="Despite &quot;fixing&quot; deployment on GitHub...">
-      <option name="closed" value="true" />
-      <created>1755900906078</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1755900906078</updated>
+      <workItem from="1761423695317" duration="4627000" />
     </task>
     <task id="LOCAL-00081" summary="And again">
       <option name="closed" value="true" />
@@ -2337,7 +2329,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761428217087</updated>
     </task>
-    <option name="localTasksCounter" value="129" />
+    <task id="LOCAL-00129" summary="hhjkl;lkjhjkjklkj">
+      <option name="closed" value="true" />
+      <created>1761428287358</created>
+      <option name="number" value="00129" />
+      <option name="presentableId" value="LOCAL-00129" />
+      <option name="project" value="LOCAL" />
+      <updated>1761428287358</updated>
+    </task>
+    <option name="localTasksCounter" value="130" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -2388,7 +2388,6 @@
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Not sure whether this is 1step forward or&#10;several steps back..." />
     <MESSAGE value="Need to rework the DbContext usage" />
     <MESSAGE value="Formatting updates" />
     <MESSAGE value="Resolving some of the dB updater bugs&#10;&#10;Main one left is the file part matching - &quot;car&quot; is matched when &quot;carrot&quot;. Need to update the algorithym" />
@@ -2413,7 +2412,8 @@
     <MESSAGE value="Update all NuGet packages" />
     <MESSAGE value="change pipeline to .net10" />
     <MESSAGE value="Test commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="Test commit" />
+    <MESSAGE value="hhjkl;lkjhjkjklkj" />
+    <option name="LAST_COMMIT_MESSAGE" value="hhjkl;lkjhjkjklkj" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
