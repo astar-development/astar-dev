@@ -8,7 +8,11 @@ public class TryTests
     public void RunShouldReturnOkResultWhenFunctionSucceeds()
     {
         var expectedValue = 42;
-        var successFunc   = () => expectedValue;
+
+        int successFunc()
+        {
+            return expectedValue;
+        }
 
         var result = Try.Run(successFunc);
 
@@ -23,7 +27,11 @@ public class TryTests
     {
         var       exceptionMessage  = "Test exception";
         Exception expectedException = new InvalidOperationException(exceptionMessage);
-        Func<int> failingFunc       = () => throw expectedException;
+
+        int failingFunc()
+        {
+            throw expectedException;
+        }
 
         var result = Try.Run(failingFunc);
 
@@ -37,7 +45,10 @@ public class TryTests
     [Fact]
     public void RunShouldCaptureSpecificExceptionTypes()
     {
-        Func<int> argNullFunc = () => throw new ArgumentNullException("testParam");
+        static int argNullFunc()
+        {
+            throw new ArgumentNullException("testParam");
+        }
 
         var result = Try.Run(argNullFunc);
 
@@ -50,7 +61,11 @@ public class TryTests
     public async Task RunAsyncShouldReturnOkResultWhenAsyncFunctionSucceedsAsync()
     {
         var expectedValue = "async result";
-        var successFunc   = () => Task.FromResult(expectedValue);
+
+        Task<string> successFunc()
+        {
+            return Task.FromResult(expectedValue);
+        }
 
         var result = await Try.RunAsync(successFunc);
 
@@ -65,7 +80,11 @@ public class TryTests
     {
         var       exceptionMessage  = "Async test exception";
         Exception expectedException = new InvalidOperationException(exceptionMessage);
-        var       failingFunc       = () => Task.FromException<string>(expectedException);
+
+        Task<string> failingFunc()
+        {
+            return Task.FromException<string>(expectedException);
+        }
 
         var result = await Try.RunAsync(failingFunc);
 
@@ -79,12 +98,12 @@ public class TryTests
     [Fact]
     public async Task RunAsyncShouldCaptureExceptionFromAsyncAwaitOperationAsync()
     {
-        Func<Task<int>> failingAsyncFunc = async () =>
-                                           {
-                                               await Task.Delay(1);
+        static async Task<int> failingAsyncFunc()
+        {
+            await Task.Delay(1);
 
-                                               throw new TimeoutException("Operation timed out");
-                                           };
+            throw new TimeoutException("Operation timed out");
+        }
 
         var result = await Try.RunAsync(failingAsyncFunc);
 

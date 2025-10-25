@@ -21,15 +21,13 @@
                 The <see href="Images.ApiClient"></see> class
             </summary>
             <param name="httpClient"></param>
-            <param name="tokenAcquisitionService"></param>
             <param name="logger"></param>
         </member>
-        <member name="M:AStar.Dev.Images.Api.Client.SDK.ImagesApi.ImagesApiClient.#ctor(System.Net.Http.HttpClient,Microsoft.Identity.Web.ITokenAcquisition,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Images.Api.Client.SDK.ImagesApi.ImagesApiClient})">
+        <member name="M:AStar.Dev.Images.Api.Client.SDK.ImagesApi.ImagesApiClient.#ctor(System.Net.Http.HttpClient,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Images.Api.Client.SDK.ImagesApi.ImagesApiClient})">
             <summary>
                 The <see href="Images.ApiClient"></see> class
             </summary>
             <param name="httpClient"></param>
-            <param name="tokenAcquisitionService"></param>
             <param name="logger"></param>
         </member>
         <member name="M:AStar.Dev.Images.Api.Client.SDK.ImagesApi.ImagesApiClient.GetHealthAsync(System.Threading.CancellationToken)">

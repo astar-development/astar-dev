@@ -109,7 +109,7 @@ public static class OptionExtensions
     public static void Deconstruct<T>(this Option<T> option, out bool isSome, out T? value)
     {
         isSome = option is Option<T>.Some;
-        value  = isSome ? ((Option<T>.Some)option).Value : default;
+        value = isSome ? ((Option<T>.Some)option).Value : default;
     }
 
     /// <summary>
@@ -117,11 +117,11 @@ public static class OptionExtensions
     /// </summary>
     public static async Task<Option<TResult>> MapAsync<T, TResult>(this Option<T> option, Func<T, Task<TResult>> mapAsync)
         => option switch
-           {
-               Option<T>.Some some => new Option<TResult>.Some(await mapAsync(some.Value)),
-               Option<T>.None      => Option.None<TResult>(),
-               _                   => throw new InvalidOperationException(UnreachableMessage)
-           };
+        {
+            Option<T>.Some some => new Option<TResult>.Some(await mapAsync(some.Value)),
+            Option<T>.None => Option.None<TResult>(),
+            _ => throw new InvalidOperationException(UnreachableMessage)
+        };
 
     /// <summary>
     ///     Asynchronously transforms the value inside a Task of <see cref="Option{T}" /> if present.
@@ -144,11 +144,11 @@ public static class OptionExtensions
     /// </summary>
     public static async Task<Option<TResult>> BindAsync<T, TResult>(this Option<T> option, Func<T, Task<Option<TResult>>> bindAsync)
         => option switch
-           {
-               Option<T>.Some some => await bindAsync(some.Value),
-               Option<T>.None      => Option.None<TResult>(),
-               _                   => throw new InvalidOperationException(UnreachableMessage)
-           };
+        {
+            Option<T>.Some some => await bindAsync(some.Value),
+            Option<T>.None => Option.None<TResult>(),
+            _ => throw new InvalidOperationException(UnreachableMessage)
+        };
 
     /// <summary>
     ///     Asynchronously chains another <see cref="Option{T}" />-producing function.
@@ -221,7 +221,7 @@ public static class OptionExtensions
     /// </summary>
     public static async Task<Option<T>> TapAsync<T>(
         this Task<Option<T>> optionTask,
-        Action<T>            action)
+        Action<T> action)
     {
         var option = await optionTask;
 
@@ -243,33 +243,33 @@ public static class OptionExtensions
     /// </summary>
     public static async Task<TResult> MatchAsync<T, TResult>(this Option<T> option, Func<T, Task<TResult>> onSomeAsync, Func<TResult> onNone)
         => option switch
-           {
-               Option<T>.Some some => await onSomeAsync(some.Value),
-               Option<T>.None      => onNone(),
-               _                   => throw new InvalidOperationException(UnreachableMessage)
-           };
+        {
+            Option<T>.Some some => await onSomeAsync(some.Value),
+            Option<T>.None => onNone(),
+            _ => throw new InvalidOperationException(UnreachableMessage)
+        };
 
     /// <summary>
     ///     Pattern matches on the option with an asynchronous function for None.
     /// </summary>
     public static async Task<TResult> MatchAsync<T, TResult>(this Option<T> option, Func<T, TResult> onSome, Func<Task<TResult>> onNoneAsync)
         => option switch
-           {
-               Option<T>.Some some => onSome(some.Value),
-               Option<T>.None      => await onNoneAsync(),
-               _                   => throw new InvalidOperationException(UnreachableMessage)
-           };
+        {
+            Option<T>.Some some => onSome(some.Value),
+            Option<T>.None => await onNoneAsync(),
+            _ => throw new InvalidOperationException(UnreachableMessage)
+        };
 
     /// <summary>
     ///     Pattern matches on the option with asynchronous functions for both Some and None.
     /// </summary>
     public static async Task<TResult> MatchAsync<T, TResult>(this Option<T> option, Func<T, Task<TResult>> onSomeAsync, Func<Task<TResult>> onNoneAsync)
         => option switch
-           {
-               Option<T>.Some some => await onSomeAsync(some.Value),
-               Option<T>.None      => await onNoneAsync(),
-               _                   => throw new InvalidOperationException(UnreachableMessage)
-           };
+        {
+            Option<T>.Some some => await onSomeAsync(some.Value),
+            Option<T>.None => await onNoneAsync(),
+            _ => throw new InvalidOperationException(UnreachableMessage)
+        };
 
     /// <summary>
     ///     Gets the value of the option or returns a fallback value from an async function.

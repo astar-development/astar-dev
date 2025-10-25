@@ -33,7 +33,7 @@ public static class PipelineExtensions
 
         _ = app.UseSwaggerUI(SetupAction(app, enableSwaggerDarkMode));
 
-//           .UseAuthentication()
+        //           .UseAuthentication()
         //         .UseAuthorization();
 
         return app;

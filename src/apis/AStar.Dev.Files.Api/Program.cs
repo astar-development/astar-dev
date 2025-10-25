@@ -99,7 +99,7 @@ try
     var app = builder.Build()
                      .UseApiServices();
 
-// Configure the HTTP request pipeline.
+    // Configure the HTTP request pipeline.
     if(app.Environment.IsDevelopment())
     {
         _ = app.MapOpenApi();

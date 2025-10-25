@@ -18,4 +18,3 @@
 //         EndpointConstants.SiteConfigurationGroupName.ShouldBe("SiteConfigurations");
 // }
 
-

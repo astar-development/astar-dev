@@ -38,9 +38,9 @@ public sealed class FileSizeEqualityComparer : IEqualityComparer<FileSize>
         => HashCode.Combine(fileSize.Height, fileSize.Width, fileSize.FileLength);
 
     private static bool CompareFileSizes(FileSize? leftFileSize, FileSize? rightFileSize)
-        => leftFileSize               != null
-           && rightFileSize           != null
-           && leftFileSize.Height     == rightFileSize.Height
+        => leftFileSize != null
+           && rightFileSize != null
+           && leftFileSize.Height == rightFileSize.Height
            && leftFileSize.FileLength == rightFileSize.FileLength
-           && leftFileSize.Width      == rightFileSize.Width;
+           && leftFileSize.Width == rightFileSize.Width;
 }

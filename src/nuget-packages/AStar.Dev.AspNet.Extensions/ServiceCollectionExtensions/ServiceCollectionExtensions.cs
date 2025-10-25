@@ -85,7 +85,7 @@ public static class ServiceCollectionExtensions
             .EnableApiVersionBinding();
 
         _ = services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
-        _ = services.AddControllers().AddJsonOptions(jsonoptions => { jsonoptions.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()); });
+        _ = services.AddControllers().AddJsonOptions(jsonoptions => jsonoptions.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 
         _ = services.AddSwaggerGen(options =>
         {

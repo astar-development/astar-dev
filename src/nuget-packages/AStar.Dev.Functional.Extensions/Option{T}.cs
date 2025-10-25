@@ -29,11 +29,11 @@ public abstract class Option<T>
     /// <param name="onNone">Function to run when the value is absent.</param>
     public TResult Match<TResult>(Func<T, TResult> onSome, Func<TResult> onNone)
         => this switch
-           {
-               Some some => onSome(some.Value),
-               None      => onNone(),
-               _         => throw new InvalidOperationException("It should not be possible to reach this point.")
-           };
+        {
+            Some some => onSome(some.Value),
+            None => onNone(),
+            _ => throw new InvalidOperationException("It should not be possible to reach this point.")
+        };
 
     /// <summary>
     ///     Determines whether the specified object is equal to the current <see cref="Option{T}" />.
@@ -44,11 +44,11 @@ public abstract class Option<T>
     /// </returns>
     public override bool Equals(object? obj)
         => obj is Option<T> other && this switch
-                                     {
-                                         Some some => other is Some otherSome && EqualityComparer<T>.Default.Equals(some.Value, otherSome.Value),
-                                         None      => other is None,
-                                         _         => false
-                                     };
+        {
+            Some some => other is Some otherSome && EqualityComparer<T>.Default.Equals(some.Value, otherSome.Value),
+            None => other is None,
+            _ => false
+        };
 
     /// <summary>
     ///     Returns a hash code for the current instance of the <see cref="Option{T}" />.
@@ -60,11 +60,11 @@ public abstract class Option<T>
     /// </returns>
     public override int GetHashCode()
         => this switch
-           {
-               Some some => HashCode.Combine(typeof(Some), some.Value),
-               None      => typeof(None).GetHashCode(),
-               _         => 0
-           };
+        {
+            Some some => HashCode.Combine(typeof(Some), some.Value),
+            None => typeof(None).GetHashCode(),
+            _ => 0
+        };
 
     /// <summary>
     ///     Determines whether two <see cref="Option{T}" /> instances are equal at a value level.

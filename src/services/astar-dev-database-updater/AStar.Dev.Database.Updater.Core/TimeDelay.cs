@@ -28,8 +28,8 @@ public class TimeDelay(TimeProvider timeProvider, ILogger<TimeDelay> logger)
 
     private TimeOnly GetCurrentTime() => TimeOnly.FromDateTime(timeProvider.GetLocalNow().DateTime);
 
-    private static TimeSpan TimeToNextOccurrence(TimeOnly targetTime, TimeOnly currentTime) =>
-        targetTime < currentTime
+    private static TimeSpan TimeToNextOccurrence(TimeOnly targetTime, TimeOnly currentTime)
+        => targetTime < currentTime
             ? targetTime.Add(TimeSpan.FromDays(1)) - currentTime
-            : targetTime                           - currentTime;
+            : targetTime - currentTime;
 }

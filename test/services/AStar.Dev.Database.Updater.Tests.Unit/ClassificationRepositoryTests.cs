@@ -17,11 +17,11 @@ public class ClassificationRepositoryTests
         var             repo  = new ClassificationRepository(ctx);
 
         var c1 = new FileClassification { Name = "CatA", Celebrity = false, IncludeInSearch = true };
-        c1.FileNameParts.Add(new() { Text      = "a" });
+        c1.FileNameParts.Add(new() { Text = "a" });
         var c2 = new FileClassification { Name = "CatB", Celebrity = false, IncludeInSearch = true };
-        c2.FileNameParts.Add(new() { Text      = "b" });
+        c2.FileNameParts.Add(new() { Text = "b" });
         var c3 = new FileClassification { Name = "CatC", Celebrity = false, IncludeInSearch = true };
-        c3.FileNameParts.Add(new() { Text      = "c" });
+        c3.FileNameParts.Add(new() { Text = "c" });
 
         ctx.FileClassifications.AddRange(c1, c2, c3);
         _ = await ctx.SaveChangesAsync(CancellationToken.None);

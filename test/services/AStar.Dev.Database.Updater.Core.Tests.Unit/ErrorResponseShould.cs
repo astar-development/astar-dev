@@ -22,9 +22,9 @@ public class ErrorResponseShould
     [InlineData(" ")] // Whitespace only case
     [InlineData("A simple error message.")]
     [InlineData("An error message with special characters: !@#$%^&*()")]
-    [InlineData("An error message with a very long length. "                                 +
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "                  +
-                "Morbi non massa et urna fermentum consequat. "                              +
+    [InlineData("An error message with a very long length. " +
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
+                "Morbi non massa et urna fermentum consequat. " +
                 "Praesent laoreet eros at turpis vehicula, nec ullamcorper felis vehicula. " +
                 "Donec tincidunt vel libero vel facilisis.")] // Long message case
     public void InstantiateWithVariousMessagesMessageShouldMatchInput(string message)

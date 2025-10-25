@@ -14,11 +14,11 @@ public static class FileDetailOrderingExtensions
     /// <returns></returns>
     public static IQueryable<FileDetail> OrderResultsBy(this IQueryable<FileDetail> files, SortOrder sortOrder)
         => sortOrder switch
-           {
-               SortOrder.NameAscending  => files.OrderBy(f => f.FileName.Value),
-               SortOrder.NameDescending => files.OrderByDescending(f => f.FileName.Value),
-               SortOrder.SizeAscending  => files.OrderBy(f => f.FileSize),
-               SortOrder.SizeDescending => files.OrderByDescending(f => f.FileSize),
-               _                        => throw new UnreachableException("If we reach here, a new SortOrder has been added but not included...")
-           };
+        {
+            SortOrder.NameAscending => files.OrderBy(f => f.FileName.Value),
+            SortOrder.NameDescending => files.OrderByDescending(f => f.FileName.Value),
+            SortOrder.SizeAscending => files.OrderBy(f => f.FileSize),
+            SortOrder.SizeDescending => files.OrderByDescending(f => f.FileSize),
+            _ => throw new UnreachableException("If we reach here, a new SortOrder has been added but not included...")
+        };
 }

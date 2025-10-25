@@ -15,18 +15,18 @@ public static class FileDetailExtensions
     public static IReadOnlyCollection<AddFilesResponse> ToAddFilesResponse(this IReadOnlyCollection<FileDetail> fileDetails)
         => fileDetails
            .Select(file => new AddFilesResponse
-                           {
-                               FileName      = file.FileName.Value,
-                               DirectoryName = file.DirectoryName.Value,
-                               Id            = file.Id.Value,
-                               CreatedDate   = file.CreatedDate,
-                               ImageDetails  = new() { Width = file.ImageDetail?.Width, Height = file.ImageDetail?.Height },
-                               FileHandle    = file.FileHandle,
-                               FileSize      = file.FileSize,
+           {
+               FileName = file.FileName.Value,
+               DirectoryName = file.DirectoryName.Value,
+               Id = file.Id.Value,
+               CreatedDate = file.CreatedDate,
+               ImageDetails = new() { Width = file.ImageDetail?.Width, Height = file.ImageDetail?.Height },
+               FileHandle = file.FileHandle,
+               FileSize = file.FileSize,
 
-                               //FileLastModified = file.,
-                               IsImage = file.IsImage
-                           })
+               //FileLastModified = file.,
+               IsImage = file.IsImage
+           })
            .ToList();
 
     /// <summary>
@@ -38,23 +38,23 @@ public static class FileDetailExtensions
     /// <returns>The <see cref="IReadOnlyCollection{FileDetail}" /></returns>
     public static IReadOnlyCollection<FileDetail> ToFileDetailsList(this IReadOnlyCollection<FileDetailToAdd> fileDetails, TimeProvider time, string username)
         => fileDetails.Select(fileDetailToAdd => new FileDetail
-                                                 {
-                                                     FileName      = new(fileDetailToAdd.FileName),
-                                                     DirectoryName = new(fileDetailToAdd.DirectoryName),
-                                                     CreatedDate   = fileDetailToAdd.FileCreated,
-                                                     UpdatedDate   = fileDetailToAdd.FileLastModified,
-                                                     FileSize      = fileDetailToAdd.FileSize,
-                                                     FileHandle    = new(string.Concat("-", fileDetailToAdd.FileName, fileDetailToAdd.FileClassifications.Take(3)).Replace(" ", "-")),
-                                                     UpdatedBy     = username,
-                                                     ImageDetail   = new(fileDetailToAdd.ImageDetails.Width, fileDetailToAdd.ImageDetails.Height),
-                                                     IsImage       = true,
-                                                     UpdatedOn     = time.GetUtcNow(),
-                                                     FileClassifications = fileDetailToAdd.FileClassifications
+            {
+                FileName = new(fileDetailToAdd.FileName),
+                DirectoryName = new(fileDetailToAdd.DirectoryName),
+                CreatedDate = fileDetailToAdd.FileCreated,
+                UpdatedDate = fileDetailToAdd.FileLastModified,
+                FileSize = fileDetailToAdd.FileSize,
+                FileHandle = new(string.Concat("-", fileDetailToAdd.FileName, fileDetailToAdd.FileClassifications.Take(3)).Replace(" ", "-")),
+                UpdatedBy = username,
+                ImageDetail = new(fileDetailToAdd.ImageDetails.Width, fileDetailToAdd.ImageDetails.Height),
+                IsImage = true,
+                UpdatedOn = time.GetUtcNow(),
+                FileClassifications = fileDetailToAdd.FileClassifications
                                                                                           .Select(classification => new Infrastructure.FilesDb.Models.FileClassification
-                                                                                                                    {
-                                                                                                                        Name = classification.Name, Celebrity = classification.Celebrity
-                                                                                                                    }).ToList()
-                                                 })
+                                                                                          {
+                                                                                              Name = classification.Name, Celebrity = classification.Celebrity
+                                                                                          }).ToList()
+            })
                       .ToList();
 
     /// <summary>
@@ -66,18 +66,18 @@ public static class FileDetailExtensions
     /// <returns>The <see cref="IReadOnlyCollection{Events}" /></returns>
     public static IReadOnlyCollection<Event> ToEvents(this IReadOnlyCollection<FileDetailToAdd> fileDetails, TimeProvider time, string username)
         => fileDetails.Select(fileDetailToAdd => new Event
-                                                 {
-                                                     FileName         = fileDetailToAdd.FileName,
-                                                     DirectoryName    = fileDetailToAdd.DirectoryName,
-                                                     FileCreated      = fileDetailToAdd.FileCreated,
-                                                     FileLastModified = fileDetailToAdd.FileLastModified,
-                                                     FileSize         = fileDetailToAdd.FileSize,
-                                                     UpdatedBy        = username,
-                                                     UpdatedOn        = time.GetUtcNow(),
-                                                     Type             = EventType.Add,
-                                                     Handle           = "???",
-                                                     Height           = fileDetailToAdd.ImageDetails.Height,
-                                                     Width            = fileDetailToAdd.ImageDetails.Width
-                                                 })
+            {
+                FileName = fileDetailToAdd.FileName,
+                DirectoryName = fileDetailToAdd.DirectoryName,
+                FileCreated = fileDetailToAdd.FileCreated,
+                FileLastModified = fileDetailToAdd.FileLastModified,
+                FileSize = fileDetailToAdd.FileSize,
+                UpdatedBy = username,
+                UpdatedOn = time.GetUtcNow(),
+                Type = EventType.Add,
+                Handle = "???",
+                Height = fileDetailToAdd.ImageDetails.Height,
+                Width = fileDetailToAdd.ImageDetails.Width
+            })
                       .ToList();
 }

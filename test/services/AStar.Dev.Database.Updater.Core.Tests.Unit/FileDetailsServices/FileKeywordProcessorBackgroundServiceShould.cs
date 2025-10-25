@@ -46,10 +46,10 @@ public class FileKeywordProcessorBackgroundServiceShould
 
         var resultOk = new Result<List<FileDetail>, ErrorResponse>.Ok(fileList);
 
-    // Build a test FilesContext using an in-memory provider and real FilesProcessor
-    var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
-    optionsBuilder.UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString());
-    var filesContext = new FilesContext(optionsBuilder.Options);
+        // Build a test FilesContext using an in-memory provider and real FilesProcessor
+        var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
+        optionsBuilder.UseInMemoryDatabase(Guid.NewGuid().ToString());
+        var filesContext = new FilesContext(optionsBuilder.Options);
 
         var keywordProvider = Substitute.For<IKeywordProvider>();
         keywordProvider.GetKeywordsAsync(Arg.Any<CancellationToken>()).Returns(Task.FromResult<IReadOnlyList<FileNamePartsWithClassifications>>(new List<FileNamePartsWithClassifications>()));
@@ -59,10 +59,10 @@ public class FileKeywordProcessorBackgroundServiceShould
         fileListServiceFake.Get(Arg.Any<string>(), Arg.Any<CancellationToken>())
             .Returns(Task.FromResult<Result<List<FileDetail>, ErrorResponse>>(resultOk));
 
-    var filesProcessorFake = Substitute.For<IFilesProcessor>();
+        var filesProcessorFake = Substitute.For<IFilesProcessor>();
 #pragma warning disable CS4014
-    filesProcessorFake.ProcessAsync(Arg.Any<IReadOnlyCollection<FileDetail>>(), Arg.Any<CancellationToken>())
-        .Returns(Task.FromResult<Result<bool, ErrorResponse>>(new Result<bool, ErrorResponse>.Ok(true)));
+        filesProcessorFake.ProcessAsync(Arg.Any<IReadOnlyCollection<FileDetail>>(), Arg.Any<CancellationToken>())
+            .Returns(Task.FromResult<Result<bool, ErrorResponse>>(new Result<bool, ErrorResponse>.Ok(true)));
 #pragma warning restore CS4014
 
         var logger = Substitute.For<ILogger<FileKeywordProcessorBackgroundService>>();
@@ -82,14 +82,14 @@ public class FileKeywordProcessorBackgroundServiceShould
         var svc = new FileKeywordProcessorBackgroundService(factoryForService);
 
         // Act - ExecuteAsync is protected; invoke via reflection
-    var execute = svc.GetType().GetMethod("ExecuteAsync", BindingFlags.NonPublic | BindingFlags.Instance)!;
-    var task = (Task)execute.Invoke(svc, new object[] { TestContext.Current.CancellationToken })!;
-    await task;
+        var execute = svc.GetType().GetMethod("ExecuteAsync", BindingFlags.NonPublic | BindingFlags.Instance)!;
+        var task = (Task)execute.Invoke(svc, new object[] { TestContext.Current.CancellationToken })!;
+        await task;
 
         // Assert: files processor was invoked with the list returned by the file list service
-    await Task.Yield(); // ensure async call completed
+        await Task.Yield(); // ensure async call completed
 #pragma warning disable CS4014
-    filesProcessorFake.Received(1).ProcessAsync(Arg.Is<IReadOnlyCollection<FileDetail>>(c => c.Count == 1 && c.First().FileName.Value == "a.txt"), Arg.Any<CancellationToken>());
+        filesProcessorFake.Received(1).ProcessAsync(Arg.Is<IReadOnlyCollection<FileDetail>>(c => c.Count == 1 && c.First().FileName.Value == "a.txt"), Arg.Any<CancellationToken>());
 #pragma warning restore CS4014
     }
 
@@ -112,9 +112,10 @@ public class FileKeywordProcessorBackgroundServiceShould
         var resultError = new Result<List<FileDetail>, ErrorResponse>.Error(new("oops"));
 
         // For error scenario: use an empty MockFileSystem and path that will cause enumeration to throw
-    var optionsBuilder2 = new DbContextOptionsBuilder<FilesContext>();
-    optionsBuilder2.UseInMemoryDatabase(databaseName: Guid.NewGuid().ToString());
-    var filesContext2 = new FilesContext(optionsBuilder2.Options);
+        var optionsBuilder2 = new DbContextOptionsBuilder<FilesContext>();
+        optionsBuilder2.UseInMemoryDatabase(Guid.NewGuid().ToString());
+
+        _ = new FilesContext(optionsBuilder2.Options);
 
         var keywordProvider2 = Substitute.For<IKeywordProvider>();
         keywordProvider2.GetKeywordsAsync(Arg.Any<CancellationToken>()).Returns(Task.FromResult<IReadOnlyList<FileNamePartsWithClassifications>>(new List<FileNamePartsWithClassifications>()));
@@ -123,10 +124,10 @@ public class FileKeywordProcessorBackgroundServiceShould
         fileListServiceFake2.Get(Arg.Any<string>(), Arg.Any<CancellationToken>())
             .Returns(Task.FromResult<Result<List<FileDetail>, ErrorResponse>>(resultError));
 
-    var filesProcessorFake2 = Substitute.For<IFilesProcessor>();
+        var filesProcessorFake2 = Substitute.For<IFilesProcessor>();
 #pragma warning disable CS4014
-    filesProcessorFake2.ProcessAsync(Arg.Any<IReadOnlyCollection<FileDetail>>(), Arg.Any<CancellationToken>())
-        .Returns(Task.FromResult<Result<bool, ErrorResponse>>(new Result<bool, ErrorResponse>.Ok(true)));
+        filesProcessorFake2.ProcessAsync(Arg.Any<IReadOnlyCollection<FileDetail>>(), Arg.Any<CancellationToken>())
+            .Returns(Task.FromResult<Result<bool, ErrorResponse>>(new Result<bool, ErrorResponse>.Ok(true)));
 #pragma warning restore CS4014
 
         var providerForService2 = Substitute.For<IServiceProvider>();
@@ -144,13 +145,13 @@ public class FileKeywordProcessorBackgroundServiceShould
         var svc2 = new FileKeywordProcessorBackgroundService(factoryForService2);
 
         // Act - protected method: call via reflection
-    var execute2 = svc2.GetType().GetMethod("ExecuteAsync", BindingFlags.NonPublic | BindingFlags.Instance)!;
-    var task2 = (Task)execute2.Invoke(svc2, new object[] { TestContext.Current.CancellationToken })!;
-    await task2;
+        var execute2 = svc2.GetType().GetMethod("ExecuteAsync", BindingFlags.NonPublic | BindingFlags.Instance)!;
+        var task2 = (Task)execute2.Invoke(svc2, new object[] { TestContext.Current.CancellationToken })!;
+        await task2;
 
-    // Assert: files processor was not called because file list returned an error
+        // Assert: files processor was not called because file list returned an error
 #pragma warning disable CS4014
-    filesProcessorFake2.DidNotReceiveWithAnyArgs().ProcessAsync(default!, default);
+        filesProcessorFake2.DidNotReceiveWithAnyArgs().ProcessAsync(default!, default);
 #pragma warning restore CS4014
     }
 }

@@ -17,13 +17,13 @@ public static class JsonSerializerOptionsExtensions
     /// <param name="jsonSerializerOptions">The <see cref="JsonSerializerOptions" /> instance to configure.</param>
     public static void CreateJsonConfigureOptions(JsonSerializerOptions jsonSerializerOptions)
     {
-        jsonSerializerOptions.PropertyNamingPolicy        = JsonNamingPolicy.CamelCase;
-        jsonSerializerOptions.DefaultIgnoreCondition      = JsonIgnoreCondition.WhenWritingNull;
-        jsonSerializerOptions.WriteIndented               = true;
-        jsonSerializerOptions.Encoder                     = JavaScriptEncoder.Default;
-        jsonSerializerOptions.AllowTrailingCommas         = true;
-        jsonSerializerOptions.NumberHandling              = JsonNumberHandling.AllowReadingFromString;
+        jsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
+        jsonSerializerOptions.DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull;
+        jsonSerializerOptions.WriteIndented = true;
+        jsonSerializerOptions.Encoder = JavaScriptEncoder.Default;
+        jsonSerializerOptions.AllowTrailingCommas = true;
+        jsonSerializerOptions.NumberHandling = JsonNumberHandling.AllowReadingFromString;
         jsonSerializerOptions.PropertyNameCaseInsensitive = true;
-        jsonSerializerOptions.ReferenceHandler            = ReferenceHandler.IgnoreCycles;
+        jsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
     }
 }

@@ -15,8 +15,8 @@ public static class RouteHandlerBuilderExtensions
     /// <param name="routeBuilder">The instance of <see cref="RouteHandlerBuilder" /> to add the methods to</param>
     /// <typeparam name="T">The type of the successful response</typeparam>
     /// <returns>The original <see cref="RouteHandlerBuilder" /> to facilitate further chaining</returns>
-    public static RouteHandlerBuilder AddBasicProduces<T>(this RouteHandlerBuilder routeBuilder) =>
-        routeBuilder
+    public static RouteHandlerBuilder AddBasicProduces<T>(this RouteHandlerBuilder routeBuilder)
+        => routeBuilder
             .Produces<T>()
             .Produces(401)
             .Produces(500);
@@ -31,8 +31,8 @@ public static class RouteHandlerBuilderExtensions
     /// <param name="routeBuilder">The instance of <see cref="RouteHandlerBuilder" /> to add the methods to</param>
     /// <typeparam name="T">The type of the successful response</typeparam>
     /// <returns>The original <see cref="RouteHandlerBuilder" /> to facilitate further chaining</returns>
-    public static RouteHandlerBuilder AddBasicWithAdditionalProduces<T>(this RouteHandlerBuilder routeBuilder) =>
-        routeBuilder.AddBasicProduces<T>()
+    public static RouteHandlerBuilder AddBasicWithAdditionalProduces<T>(this RouteHandlerBuilder routeBuilder)
+        => routeBuilder.AddBasicProduces<T>()
                     .Produces(404)
                     .Produces(403)
                     .Produces<ProblemDetails>(400)

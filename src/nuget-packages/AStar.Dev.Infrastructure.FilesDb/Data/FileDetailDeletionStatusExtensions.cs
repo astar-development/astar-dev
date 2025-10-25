@@ -16,5 +16,5 @@ public static class FileDetailDeletionStatusExtensions
                ? files
                : files.Where(f => f.DeletionStatus != null && f.DeletionStatus.HardDeletePending == null
                                                            && f.DeletionStatus.SoftDeletePending == null
-                                                           && f.DeletionStatus.SoftDeleted       == null);
+                                                           && f.DeletionStatus.SoftDeleted == null);
 }

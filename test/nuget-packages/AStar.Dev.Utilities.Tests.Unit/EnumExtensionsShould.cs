@@ -3,8 +3,8 @@
 public sealed class EnumExtensionsShould
 {
     [Fact]
-    public void ContainTheParseMethodReturningTheExpectedValue() =>
-        "Defined".ParseEnum<AnyEnum>().ShouldBe(AnyEnum.Defined);
+    public void ContainTheParseMethodReturningTheExpectedValue()
+        => "Defined".ParseEnum<AnyEnum>().ShouldBe(AnyEnum.Defined);
 
     [Fact]
     public void ContainTheParseMethodWhichThrowsArgumentExceptionWhenTheValueIsNotFound()

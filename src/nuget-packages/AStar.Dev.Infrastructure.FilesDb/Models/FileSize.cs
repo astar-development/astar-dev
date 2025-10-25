@@ -9,8 +9,8 @@ public sealed class FileSize
     private FileSize(long fileLength, long? height, long? width)
     {
         FileLength = fileLength;
-        Height     = height;
-        Width      = width;
+        Height = height;
+        Width = width;
     }
 
     /// <summary>

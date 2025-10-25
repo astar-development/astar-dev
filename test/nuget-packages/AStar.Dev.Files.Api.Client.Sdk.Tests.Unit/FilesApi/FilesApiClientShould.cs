@@ -59,7 +59,7 @@ public sealed class FilesApiClientShould
         response.ShouldBe(-1);
     }
 
-    [Fact(Skip="Endpoint not implemented")]
+    [Fact(Skip = "Endpoint not implemented")]
     public async Task ReturnExpectedResponseFromTheCountDuplicatesEndpointAsync()
     {
         const int mockDuplicatesCountValue = 1234;
@@ -71,7 +71,7 @@ public sealed class FilesApiClientShould
         response.Count.ShouldBe(mockDuplicatesCountValue);
     }
 
-    [Fact(Skip="Endpoint not implemented")]
+    [Fact(Skip = "Endpoint not implemented")]
     public async Task ReturnExpectedResponseFromTheCountDuplicatesEndpointWhenAnErrorOccursAsync()
     {
         var handler = new MockInternalServerErrorHttpMessageHandler("Count");
@@ -104,7 +104,7 @@ public sealed class FilesApiClientShould
         await sutMethod.ShouldThrowAsync<HttpRequestException>();
     }
 
-    [Fact(Skip="Endpoint not implemented")]
+    [Fact(Skip = "Endpoint not implemented")]
     public async Task ReturnExpectedResponseFromTheListDuplicatesEndpointAsync()
     {
         var handler = new MockSuccessHttpMessageHandler("ListDuplicates");

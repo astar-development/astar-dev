@@ -13,12 +13,12 @@ public class EfKeywordProvider(FilesContext db) : IKeywordProvider
         => await db.FileClassifications
                    .Include(d => d.FileNameParts)
                    .SelectMany(f => f.FileNameParts.Select(fp => new FileNamePartsWithClassifications
-                                                                 {
-                                                                     Id              = fp.Id,
-                                                                     Text            = fp.Text,
-                                                                     Name            = f.Name,
-                                                                     Celebrity       = f.Celebrity,
-                                                                     IncludeInSearch = f.IncludeInSearch
-                                                                 }))
+                   {
+                       Id = fp.Id,
+                       Text = fp.Text,
+                       Name = f.Name,
+                       Celebrity = f.Celebrity,
+                       IncludeInSearch = f.IncludeInSearch
+                   }))
                    .ToListAsync(cancellationToken);
 }

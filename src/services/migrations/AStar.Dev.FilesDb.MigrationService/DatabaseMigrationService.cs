@@ -80,15 +80,15 @@ public class DatabaseMigrationService(IServiceProvider serviceProvider, IHostApp
                                         if(!await dbContext.Files.AnyAsync(stoppingToken))
                                         {
                                             var fileDetail = new FileDetail
-                                                             {
-                                                                 FileName      = new("MockFileName.jpg"),
-                                                                 DirectoryName = new("MockDirectoryName"),
-                                                                 CreatedDate   = DateTimeOffset.UtcNow,
-                                                                 FileHandle    = new("MockFileName-jpg"),
-                                                                 FileSize      = 12345,
-                                                                 IsImage       = true,
-                                                                 ImageDetail   = new(1234, 5678)
-                                                             };
+                                            {
+                                                FileName = new("MockFileName.jpg"),
+                                                DirectoryName = new("MockDirectoryName"),
+                                                CreatedDate = DateTimeOffset.UtcNow,
+                                                FileHandle = new("MockFileName-jpg"),
+                                                FileSize = 12345,
+                                                IsImage = true,
+                                                ImageDetail = new(1234, 5678)
+                                            };
 
                                             var exists = await dbContext.Files.AnyAsync(x => x.FileHandle == fileDetail.FileHandle, stoppingToken);
 

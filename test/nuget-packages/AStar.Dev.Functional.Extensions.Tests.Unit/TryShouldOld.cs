@@ -35,7 +35,7 @@ public class TryShouldOld
         var a = success.Match(x => $"OK: {x}", ex => $"ERR: {ex.Message}");
         var b = failure.Match(x => $"OK: {x}", ex => $"ERR: {ex.Message}");
 
-        Assert.Equal("OK: done",  a);
+        Assert.Equal("OK: done", a);
         Assert.Equal("ERR: fail", b);
     }
 }

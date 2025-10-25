@@ -24,7 +24,8 @@ public static class PostedFilesHandler // move to non-static and IoC?
         }
 
         var fileDetailList = files.FilesToAdd.ToFileDetailsList(time, username);
-        var events         = files.FilesToAdd.ToEvents(time, username);
+
+        _ = files.FilesToAdd.ToEvents(time, username);
 
         await filesContext.Files.AddRangeAsync(fileDetailList, cancellationToken);
 

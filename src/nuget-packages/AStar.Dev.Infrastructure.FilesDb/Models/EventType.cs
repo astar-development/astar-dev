@@ -16,7 +16,7 @@ public sealed class EventType : IEquatable<EventType>
     private EventType(int value, string name)
     {
         Value = value;
-        Name  = name;
+        Name = name;
     }
 
     /// <summary>

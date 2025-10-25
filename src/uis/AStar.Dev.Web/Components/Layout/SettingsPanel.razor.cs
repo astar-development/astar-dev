@@ -30,7 +30,7 @@ public partial class SettingsPanel : ComponentBase
             if(_officeColor != value)
             {
                 _officeColor = value;
-                _            = SaveOfficeColorToStorage();
+                _ = SaveOfficeColorToStorage();
                 StateHasChanged();
             }
         }

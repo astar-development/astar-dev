@@ -554,10 +554,7 @@ public class OptionShould
         var option             = Option.None<int>();
         var sideEffectExecuted = false;
 
-        var result = option.Tap(_ =>
-                                {
-                                    sideEffectExecuted = true;
-                                });
+        var result = option.Tap(_ => sideEffectExecuted = true);
 
         sideEffectExecuted.ShouldBeFalse();
         result.ShouldBeSameAs(option);

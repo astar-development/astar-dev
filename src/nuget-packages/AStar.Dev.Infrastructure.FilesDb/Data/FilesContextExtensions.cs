@@ -32,6 +32,9 @@ public static class FilesContextExtensions
     /// <param name="excludeViewed">
     ///     A boolean to control whether the filter includes files recently viewed or not.
     /// </param>
+    /// <param name="timeProvider">
+    ///     An instance of <see href="TimeProvider"></see> to provide the current time.
+    /// </param>
     /// <param name="cancellationToken">
     ///     An instance of <see href="CancellationToken"></see> to cancel the filter when requested.
     /// </param>
@@ -45,6 +48,7 @@ public static class FilesContextExtensions
                                                            bool                   includeSoftDeleted,
                                                            bool                   includeMarkedForDeletion,
                                                            bool                   excludeViewed,
+                                                           TimeProvider timeProvider,
                                                            CancellationToken      cancellationToken)
     {
         var x = files.Include(fileDetail => fileDetail.FileAccessDetail).AsNoTracking().ToList();
@@ -117,10 +121,10 @@ public static class FilesContextExtensions
         {
             var xx = filesToReturn.Where(file => file.FileAccessDetail.LastViewed == null ||
                                                         file.FileAccessDetail.LastViewed <=
-                                                        DateTime.UtcNow.AddDays(-7)).ToList();
+                                                        timeProvider.GetUtcNow().AddDays(-7)).ToList();
             filesToReturn = filesToReturn.Where(file => file.FileAccessDetail.LastViewed == null ||
                                                         file.FileAccessDetail.LastViewed <=
-                                                        DateTime.UtcNow.AddDays(-7));
+                                                        timeProvider.GetUtcNow().AddDays(-7));
         }
 
         return cancellationToken.IsCancellationRequested ? [] : [.. filesToReturn];

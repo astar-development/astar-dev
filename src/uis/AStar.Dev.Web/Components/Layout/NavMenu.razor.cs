@@ -18,7 +18,7 @@ public partial class NavMenu : ComponentBase
         var authState = await AuthenticationStateTask;
         var user      = authState.User;
         _isAuthenticated = user.Identity?.IsAuthenticated ?? false;
-        _firstName       = _isAuthenticated ? ExtractFirstName(user) : null;
+        _firstName = _isAuthenticated ? ExtractFirstName(user) : null;
     }
 
     private static string ExtractFirstName(ClaimsPrincipal user)
@@ -26,11 +26,11 @@ public partial class NavMenu : ComponentBase
         string[] claimTypes = [ClaimTypes.GivenName, "given_name", "name", ClaimTypes.Name, "preferred_username", ClaimTypes.Email];
 
         return GetNameClaim(user, claimTypes) switch
-               {
-                   var value when value.Contains('@') => value.AsSpan()[..value.IndexOf('@')].ToString(),
-                   var value when value.Contains(' ') => value.AsSpan()[..value.IndexOf(' ')].ToString(),
-                   var value                          => value
-               };
+        {
+            var value when value.Contains('@') => value.AsSpan()[..value.IndexOf('@')].ToString(),
+            var value when value.Contains(' ') => value.AsSpan()[..value.IndexOf(' ')].ToString(),
+            var value => value
+        };
     }
 
     private static string GetNameClaim(ClaimsPrincipal user, string[] claimTypes)

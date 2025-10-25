@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="SonarLintProjectSettings">
-    <option name="bindingEnabled" value="true" />
     <option name="fileExclusions">
       <list>
         <option value="FILE:src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Migrations/20250709215515_RecreateDatabase.cs" />
@@ -10,7 +9,5 @@
         <option value="FILE:test/nuget-packages/AStar.Dev.Infrastructure.FilesDb.Tests.Unit/Data/FilesContextExtensionsShould.cs" />
       </list>
     </option>
-    <option name="projectKey" value="astar-development_astar-dev" />
-    <option name="serverId" value="SonarQube in the Cloud" />
   </component>
 </project>

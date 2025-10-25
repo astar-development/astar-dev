@@ -68,11 +68,11 @@ public static class StringExtensions
     /// <param name="fileName"></param>
     /// <returns></returns>
     public static bool IsImage(this string fileName)
-        => fileName.EndsWith(".jpg",     StringComparison.OrdinalIgnoreCase)
+        => fileName.EndsWith(".jpg", StringComparison.OrdinalIgnoreCase)
            || fileName.EndsWith(".jpeg", StringComparison.OrdinalIgnoreCase)
-           || fileName.EndsWith(".png",  StringComparison.OrdinalIgnoreCase)
-           || fileName.EndsWith(".bmp",  StringComparison.OrdinalIgnoreCase)
-           || fileName.EndsWith(".gif",  StringComparison.OrdinalIgnoreCase);
+           || fileName.EndsWith(".png", StringComparison.OrdinalIgnoreCase)
+           || fileName.EndsWith(".bmp", StringComparison.OrdinalIgnoreCase)
+           || fileName.EndsWith(".gif", StringComparison.OrdinalIgnoreCase);
 
     /// <summary>
     /// </summary>
@@ -116,6 +116,6 @@ public static class StringExtensions
     public static string SanitizeFilePath(this string path)
         => path.Replace(Path.DirectorySeparatorChar, ' ')
                .Replace(Path.AltDirectorySeparatorChar, ' ')
-               .Replace('-',                            ' ')
-               .Replace('_',                            ' ');
+               .Replace('-', ' ')
+               .Replace('_', ' ');
 }

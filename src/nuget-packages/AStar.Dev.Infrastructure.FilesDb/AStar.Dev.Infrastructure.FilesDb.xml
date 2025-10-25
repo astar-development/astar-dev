@@ -228,7 +228,7 @@
             <summary>
             </summary>
         </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.FilesContextExtensions.GetMatchingFiles(Microsoft.EntityFrameworkCore.DbSet{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},AStar.Dev.Infrastructure.FilesDb.Models.DirectoryName,System.Boolean,System.String,System.Boolean,System.Boolean,System.Boolean,System.Threading.CancellationToken)">
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.FilesContextExtensions.GetMatchingFiles(Microsoft.EntityFrameworkCore.DbSet{AStar.Dev.Infrastructure.FilesDb.Models.FileDetail},AStar.Dev.Infrastructure.FilesDb.Models.DirectoryName,System.Boolean,System.String,System.Boolean,System.Boolean,System.Boolean,System.TimeProvider,System.Threading.CancellationToken)">
             <summary>
             </summary>
             <param name="files">
@@ -251,6 +251,9 @@
             </param>
             <param name="excludeViewed">
                 A boolean to control whether the filter includes files recently viewed or not.
+            </param>
+            <param name="timeProvider">
+                An instance of <see href="TimeProvider"></see> to provide the current time.
             </param>
             <param name="cancellationToken">
                 An instance of <see href="CancellationToken"></see> to cancel the filter when requested.

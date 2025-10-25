@@ -11,10 +11,5 @@ internal static class TestEndpoints
         return TypedResults.Ok(todos);
     }
 
-    public static Created<object> Create()
-    {
-        string[] todos = ["a", "b", "c"];
-
-        return TypedResults.Created(new Uri("https://www.example.com/"), new object());
-    }
+    public static Created<object> Create() => TypedResults.Created(new Uri("https://www.example.com/"), new object());
 }
