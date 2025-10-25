@@ -18,7 +18,7 @@ public static class ResultExtensions
     /// <param name="onFailure"></param>
     /// <returns></returns>
     public static async Task<TResult> MatchAsync<TSuccess, TError, TResult>(this Task<Result<TSuccess, TError>> resultTask, Func<TSuccess, Task<TResult>> onSuccess,
-                                                                            Func<TError, Task<TResult>>         onFailure)
+        Func<TError, Task<TResult>> onFailure)
     {
         var result = await resultTask;
 

@@ -1,6 +1,7 @@
 using AStar.Dev.Functional.Extensions;
+using AStar.Dev.Utilities;
 
-namespace AStar.Dev.Database.Updater.Core;
+namespace AStar.Dev.Database.Updater.Core.Tests.Unit;
 
 [TestSubject(typeof(ErrorResponse))]
 public class ErrorResponseShould
@@ -21,9 +22,9 @@ public class ErrorResponseShould
     [InlineData(" ")] // Whitespace only case
     [InlineData("A simple error message.")]
     [InlineData("An error message with special characters: !@#$%^&*()")]
-    [InlineData("An error message with a very long length. "                                 +
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. "                  +
-                "Morbi non massa et urna fermentum consequat. "                              +
+    [InlineData("An error message with a very long length. " +
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
+                "Morbi non massa et urna fermentum consequat. " +
                 "Praesent laoreet eros at turpis vehicula, nec ullamcorper felis vehicula. " +
                 "Donec tincidunt vel libero vel facilisis.")] // Long message case
     public void InstantiateWithVariousMessagesMessageShouldMatchInput(string message)
@@ -63,7 +64,7 @@ public class ErrorResponseShould
         const string message = "Error message for string representation";
 
         var errorResponse        = new ErrorResponse(message);
-        var stringRepresentation = errorResponse.ToString();
+        var stringRepresentation = errorResponse.ToJson().ToString();
 
         stringRepresentation.ShouldContain(message);
     }

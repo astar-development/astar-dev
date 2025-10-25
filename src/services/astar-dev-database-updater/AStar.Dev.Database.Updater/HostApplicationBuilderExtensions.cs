@@ -56,10 +56,11 @@ public static class HostApplicationBuilderExtensions
         builder.AddSqlServerDbContext<FilesContext>(AspireConstants.Sql.FilesDb, settings =>
                                                                                  {
                                                                                      settings.CommandTimeout = 120;
-                                                                                     settings.DisableRetry   = false;
+                                                                                     settings.DisableRetry = false;
                                                                                  });
 
         _ = builder.Services.AddScoped<FileListService>();
+        _ = builder.Services.AddScoped<IFileListService, FileListService>();
         _ = builder.Services.AddScoped<FileDetailsProcessorService>();
         _ = builder.Services.AddScoped<ClassificationProcessor>();
         _ = builder.Services.AddScoped<ClassificationRepository>();
@@ -72,18 +73,19 @@ public static class HostApplicationBuilderExtensions
         _ = builder.Services.AddSingleton<IFileSystem, FileSystem>();
 
         _ = builder.Services.AddScoped<FilesProcessor>();
+        _ = builder.Services.AddScoped<IFilesProcessor, FilesProcessor>();
         _ = builder.Services.AddScoped<FileHandleService>();
         _ = builder.Services.AddScoped<IKeywordProvider, EfKeywordProvider>();
 
-        builder.Services.AddHealthChecks();
+        _ = builder.Services.AddHealthChecks();
 
-        builder.Services.AddOpenTelemetry()
+        _ = builder.Services.AddOpenTelemetry()
                .ConfigureResource(r => r.AddService("FileKeywordProcessor"))
                .WithMetrics(mb => mb.AddMeter("FileScanner", "DatabaseWriter"))
                .WithTracing(tb =>
                             {
-                                tb.AddSource("FileScanner", "DatabaseWriter");
-                                tb.AddSource(Constants.ActivitySourceName);
+                                _ = tb.AddSource("FileScanner", "DatabaseWriter");
+                                _ = tb.AddSource(Constants.ActivitySourceName);
                             });
 
         _ = builder.Services.AddOpenTelemetry()

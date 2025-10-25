@@ -1,7 +1,7 @@
 ﻿using JetBrains.Annotations;
 using Microsoft.OpenApi.Models;
 
-namespace AStar.Dev.AspNet.Extensions;
+namespace AStar.Dev.AspNet.Extensions.Tests.Unit;
 
 [TestSubject(typeof(ApiConfiguration))]
 public sealed class ApiConfigurationTest

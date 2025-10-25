@@ -8,63 +8,63 @@
 // {
 //     private readonly FilesContext sut = filesContextFixture.Sut;
 //
-//     [Fact(Skip = "The underlying code is broken")]
+//     [Fact]
 //     public void ReturnCorrectCountWhenFilteringImages()
 //     {
 //         var response = sut.Files.FilterImagesIfApplicable("Images", CancellationToken.None);
 //
-//         response.ToString()!.ShouldMatchApproved();
+//         response.ToJson().ToString()!.ShouldMatchApproved();
 //     }
 //
-//     [Fact(Skip = "The underlying code is broken")]
+//     [Fact]
 //     public void ReturnCorrectCountWhenAllFileTypesSpecified()
 //     {
 //         var response = sut.Files.FilterImagesIfApplicable("AllFiles", CancellationToken.None);
 //
-//         response.ToString()!.ShouldMatchApproved();
+//         response.ToJson().ToString()!.ShouldMatchApproved();
 //     }
 //
-//     [Fact(Skip = "The underlying code is broken")]
+//     [Fact]
 //     public void ReturnCorrectCountWhenDuplicatesSpecified()
 //     {
 //         var response = sut.Files.FilterImagesIfApplicable("Duplicates", CancellationToken.None);
 //
-//         response.ToString()!.ShouldMatchApproved();
+//         response.ToJson().ToString()!.ShouldMatchApproved();
 //     }
 //
-//     [Fact(Skip = "The underlying code is broken")]
+//     [Fact]
 //     public void ReturnTheExpectedFilesListByNameAscending()
 //     {
 //         var response = sut.Files.OrderFiles(SortOrder.NameAscending);
 //
-//         response.ToString()!.ShouldMatchApproved();
+//         response.ToJson().ToString()!.ShouldMatchApproved();
 //     }
 //
-//     [Fact(Skip = "The underlying code is broken")]
+//     [Fact]
 //     public void ReturnTheExpectedFilesListByNameDescending()
 //     {
 //         var response = sut.Files.OrderFiles(SortOrder.NameDescending);
 //
-//         response.ToString()!.ShouldMatchApproved();
+//         response.ToJson().ToString()!.ShouldMatchApproved();
 //     }
 //
-//     [Fact(Skip = "The underlying code is broken")]
+//     [Fact]
 //     public void ReturnTheExpectedFilesListBySizeAscending()
 //     {
 //         var response = sut.Files.OrderFiles(SortOrder.SizeAscending);
 //
-//         response.ToString()!.ShouldMatchApproved();
+//         response.ToJson().ToString()!.ShouldMatchApproved();
 //     }
 //
-//     [Fact(Skip = "The underlying code is broken")]
+//     [Fact]
 //     public void ReturnTheExpectedFilesListBySizeDescending()
 //     {
 //         var response = sut.Files.OrderFiles(SortOrder.SizeDescending);
 //
-//         response.ToString()!.ShouldMatchApproved();
+//         response.ToJson().ToString()!.ShouldMatchApproved();
 //     }
 //
-//     [Fact(Skip = "The underlying code is broken")]
+//     [Fact]
 //     public void ReturnTheCorrectDuplicatesCount()
 //     {
 //         var response = sut.Files.GetDuplicatesCount(CancellationToken.None);
@@ -72,13 +72,12 @@
 //         response.ShouldBe(30);
 //     }
 //
-//     [Fact(Skip = "The underlying code is broken")]
+//     [Fact]
 //     public void ReturnTheCorrectDuplicates()
 //     {
 //         var response = sut.Files.GetDuplicates();
 //
-//         response.ToString()!.ShouldMatchApproved();
+//         response.ToJson().ToString()!.ShouldMatchApproved();
 //     }
 // }
-
 

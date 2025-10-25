@@ -21,9 +21,9 @@ public static class SearchCategoryData
             return;
         }
 
-        context.Set<SearchCategory>()
+        _ = context.Set<SearchCategory>()
             .Add(new() { Id = 2401, Name = "Initial Category" });
 
-        context.SaveChanges();
+        _ = context.SaveChanges();
     }
 }

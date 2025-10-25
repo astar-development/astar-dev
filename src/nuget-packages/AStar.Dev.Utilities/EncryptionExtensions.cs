@@ -29,7 +29,7 @@ public static class EncryptionExtensions
         using var aesAlg = Aes.Create();
 
         aesAlg.Key = Encoding.UTF8.GetBytes(key ?? Key);
-        aesAlg.IV  = Encoding.UTF8.GetBytes(iv  ?? Iv);
+        aesAlg.IV = Encoding.UTF8.GetBytes(iv ?? Iv);
 
         var encryptor = aesAlg.CreateEncryptor(aesAlg.Key, aesAlg.IV);
 
@@ -62,7 +62,7 @@ public static class EncryptionExtensions
         using var aesAlg = Aes.Create();
 
         aesAlg.Key = Encoding.UTF8.GetBytes(key ?? Key);
-        aesAlg.IV  = Encoding.UTF8.GetBytes(iv  ?? Iv);
+        aesAlg.IV = Encoding.UTF8.GetBytes(iv ?? Iv);
 
         var decryptor = aesAlg.CreateDecryptor(aesAlg.Key, aesAlg.IV);
 

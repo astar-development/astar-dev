@@ -1,8 +1,8 @@
 ﻿using JetBrains.Annotations;
 
-namespace AStar.Dev.AspNet.Extensions.WebApplicationBuilderExtensions;
+namespace AStar.Dev.AspNet.Extensions.Tests.Unit.WebApplicationBuilderExtensions;
 
-[TestSubject(typeof(WebApplicationBuilderExtensions))]
+[TestSubject(typeof(Extensions.WebApplicationBuilderExtensions.WebApplicationBuilderExtensions))]
 public sealed class WebApplicationBuilderExtensionsShould
 {
     [Fact]

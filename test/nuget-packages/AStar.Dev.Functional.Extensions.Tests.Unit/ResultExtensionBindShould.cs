@@ -9,7 +9,7 @@ public class ResultExtensionBindShould
 
         var bound = result.Bind(value => new Result<string, string>.Ok(value.ToString()));
 
-        bound.ShouldBeOfType<Result<string, string>.Ok>();
+        _ = bound.ShouldBeOfType<Result<string, string>.Ok>();
 
         var matchResult = bound.Match(
             ok => ok,
@@ -26,7 +26,7 @@ public class ResultExtensionBindShould
 
         var bound = result.Bind<int, string, string>(value => new Result<string, string>.Error("bound error"));
 
-        bound.ShouldBeOfType<Result<string, string>.Error>();
+        _ = bound.ShouldBeOfType<Result<string, string>.Error>();
 
         var matchResult = bound.Match(
             _ => throw new InvalidOperationException("Should not be success"),
@@ -43,7 +43,7 @@ public class ResultExtensionBindShould
 
         var bound = result.Bind<int, string, string>(value => new Result<string, string>.Ok(value.ToString()));
 
-        bound.ShouldBeOfType<Result<string, string>.Error>();
+        _ = bound.ShouldBeOfType<Result<string, string>.Error>();
 
         var matchResult = bound.Match(
             _ => throw new InvalidOperationException("Should not be success"),
@@ -60,7 +60,7 @@ public class ResultExtensionBindShould
 
         var bound = await result.BindAsync(value => Task.FromResult<Result<string, string>>(new Result<string, string>.Ok(value.ToString())));
 
-        bound.ShouldBeOfType<Result<string, string>.Ok>();
+        _ = bound.ShouldBeOfType<Result<string, string>.Ok>();
 
         var matchResult = bound.Match(
             ok => ok,
@@ -77,7 +77,7 @@ public class ResultExtensionBindShould
 
         var bound = await result.BindAsync(value => Task.FromResult<Result<string, string>>(new Result<string, string>.Error("bound error")));
 
-        bound.ShouldBeOfType<Result<string, string>.Error>();
+        _ = bound.ShouldBeOfType<Result<string, string>.Error>();
 
         var matchResult = bound.Match(
             _ => throw new InvalidOperationException("Should not be success"),
@@ -94,7 +94,7 @@ public class ResultExtensionBindShould
 
         var bound = await result.BindAsync(value => Task.FromResult<Result<string, string>>(new Result<string, string>.Ok(value.ToString())));
 
-        bound.ShouldBeOfType<Result<string, string>.Error>();
+        _ = bound.ShouldBeOfType<Result<string, string>.Error>();
 
         var matchResult = bound.Match(
             _ => throw new InvalidOperationException("Should not be success"),
@@ -111,7 +111,7 @@ public class ResultExtensionBindShould
 
         var bound = await resultTask.BindAsync(value => new Result<string, string>.Ok(value.ToString()));
 
-        bound.ShouldBeOfType<Result<string, string>.Ok>();
+        _ = bound.ShouldBeOfType<Result<string, string>.Ok>();
 
         var matchResult = bound.Match(
             ok => ok,
@@ -128,7 +128,7 @@ public class ResultExtensionBindShould
 
         var bound = await resultTask.BindAsync(value => new Result<string, string>.Error("bound error"));
 
-        bound.ShouldBeOfType<Result<string, string>.Error>();
+        _ = bound.ShouldBeOfType<Result<string, string>.Error>();
 
         var matchResult = bound.Match(
             _ => throw new InvalidOperationException("Should not be success"),
@@ -145,7 +145,7 @@ public class ResultExtensionBindShould
 
         var bound = await resultTask.BindAsync(value => new Result<string, string>.Ok(value.ToString()));
 
-        bound.ShouldBeOfType<Result<string, string>.Error>();
+        _ = bound.ShouldBeOfType<Result<string, string>.Error>();
 
         var matchResult = bound.Match(
             _ => throw new InvalidOperationException("Should not be success"),
@@ -162,7 +162,7 @@ public class ResultExtensionBindShould
 
         var bound = await resultTask.BindAsync(value => Task.FromResult<Result<string, string>>(new Result<string, string>.Ok(value.ToString())));
 
-        bound.ShouldBeOfType<Result<string, string>.Ok>();
+        _ = bound.ShouldBeOfType<Result<string, string>.Ok>();
 
         var matchResult = bound.Match(
             ok => ok,
@@ -179,7 +179,7 @@ public class ResultExtensionBindShould
 
         var bound = await resultTask.BindAsync(value => Task.FromResult<Result<string, string>>(new Result<string, string>.Error("bound error")));
 
-        bound.ShouldBeOfType<Result<string, string>.Error>();
+        _ = bound.ShouldBeOfType<Result<string, string>.Error>();
 
         var matchResult = bound.Match(
             _ => throw new InvalidOperationException("Should not be success"),

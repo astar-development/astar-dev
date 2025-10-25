@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Http.HttpResults;
 
-namespace AStar.Dev.Test.Helpers.Minimal.Api;
+namespace AStar.Dev.Test.Helpers.Minimal.Api.Tests.Unit;
 
 internal static class TestEndpoints
 {
@@ -11,10 +11,5 @@ internal static class TestEndpoints
         return TypedResults.Ok(todos);
     }
 
-    public static Created<object> Create()
-    {
-        string[] todos = ["a", "b", "c"];
-
-        return TypedResults.Created(new Uri("https://www.example.com/"), new object());
-    }
+    public static Created<object> Create() => TypedResults.Created(new Uri("https://www.example.com/"), new object());
 }

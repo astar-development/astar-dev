@@ -1,6 +1,6 @@
 ﻿using AStar.Dev.Images.Api.Client.SDK.ImagesApi;
 
-namespace AStar.Dev.Images.Api.Client.Sdk;
+namespace AStar.Dev.Images.Api.Client.Sdk.Tests.Unit;
 
 public sealed class ImagesApiConfigurationShould
 {

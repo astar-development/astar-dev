@@ -21,7 +21,7 @@ public static class SearchConfigurationData
             return;
         }
 
-        context.Set<SearchConfiguration>()
+        _ = context.Set<SearchConfiguration>()
             .Add(new()
             {
                 SearchString = @"/search?q=id:872\u0026categories=001\u0026purity=111\u0026sorting=date_added\u0026order=desc\u0026ai_art_filter=0\u0026page=",

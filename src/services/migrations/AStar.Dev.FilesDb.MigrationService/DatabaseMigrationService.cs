@@ -31,7 +31,7 @@ public class DatabaseMigrationService(IServiceProvider serviceProvider, IHostApp
         }
         catch(Exception ex)
         {
-            activity?.AddException(ex);
+            _ = activity?.AddException(ex);
             logger.LogError(ex, "Error migrating database");
         }
 
@@ -80,15 +80,15 @@ public class DatabaseMigrationService(IServiceProvider serviceProvider, IHostApp
                                         if(!await dbContext.Files.AnyAsync(stoppingToken))
                                         {
                                             var fileDetail = new FileDetail
-                                                             {
-                                                                 FileName      = new("MockFileName.jpg"),
-                                                                 DirectoryName = new("MockDirectoryName"),
-                                                                 CreatedDate   = DateTimeOffset.UtcNow,
-                                                                 FileHandle    = new("MockFileName-jpg"),
-                                                                 FileSize      = 12345,
-                                                                 IsImage       = true,
-                                                                 ImageDetail   = new(1234, 5678)
-                                                             };
+                                            {
+                                                FileName = new("MockFileName.jpg"),
+                                                DirectoryName = new("MockDirectoryName"),
+                                                CreatedDate = DateTimeOffset.UtcNow,
+                                                FileHandle = new("MockFileName-jpg"),
+                                                FileSize = 12345,
+                                                IsImage = true,
+                                                ImageDetail = new(1234, 5678)
+                                            };
 
                                             var exists = await dbContext.Files.AnyAsync(x => x.FileHandle == fileDetail.FileHandle, stoppingToken);
 
@@ -101,8 +101,8 @@ public class DatabaseMigrationService(IServiceProvider serviceProvider, IHostApp
 
                                             await using var transaction = await dbContext.Database.BeginTransactionAsync(stoppingToken);
 
-                                            await dbContext.Files.AddAsync(fileDetail, stoppingToken);
-                                            await dbContext.SaveChangesAsync(stoppingToken);
+                                            _ = await dbContext.Files.AddAsync(fileDetail, stoppingToken);
+                                            _ = await dbContext.SaveChangesAsync(stoppingToken);
                                             await transaction.CommitAsync(stoppingToken);
                                         }
                                     });

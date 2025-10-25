@@ -1,10 +1,8 @@
-using AStar.Dev.AppHost;
-using Microsoft.Extensions.Configuration;
+using AStar.Dev.AppHost.Configurations;
 
 var builder = DistributedApplication.CreateBuilder(args);
 
-var sqlMountDirectory = builder.Configuration.GetValue<string>("applicationConfiguration:sqlServerMountDirectory")!;
-builder.AddApplicationProjects(sqlMountDirectory);
+builder.AddApplicationProjects();
 
 builder.Build().Run();
 

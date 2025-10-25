@@ -14,7 +14,7 @@ public static class SiteConfigurationData
     /// <param name="context">The <see cref="DbContext" /> to populate</param>
     public static void Seed(DbContext context)
     {
-        context.SaveChanges();
+        _ = context.SaveChanges();
         var siteConfiguration = context.Set<SiteConfiguration>();
 
         if(siteConfiguration.Any())
@@ -22,7 +22,7 @@ public static class SiteConfigurationData
             return;
         }
 
-        context.Set<SiteConfiguration>()
+        _ = context.Set<SiteConfiguration>()
             .Add(new()
             {
                 BaseUrl = "https://wallhaven.cc",
@@ -33,6 +33,6 @@ public static class SiteConfigurationData
                 SiteConfigurationSlug = "https---wallhaven-cc"
             });
 
-        context.SaveChanges();
+        _ = context.SaveChanges();
     }
 }

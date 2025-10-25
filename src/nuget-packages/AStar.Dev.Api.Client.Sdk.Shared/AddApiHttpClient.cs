@@ -27,7 +27,7 @@ public static class AddApiHttpClient
         _ = services.AddHttpClient<TApiClient>()
             .AddMicrosoftIdentityUserAuthenticationHandler(
                 nameof(TApiClient),
-                options => { options.Scopes = optionsScopes; })
+                options => options.Scopes = optionsScopes)
             .ConfigureHttpClient((serviceProvider, client) =>
             {
                 client.BaseAddress = serviceProvider.GetRequiredService<IOptions<TApiConfiguration>>().Value

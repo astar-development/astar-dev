@@ -20,11 +20,15 @@
             <summary>
                 The <see href="FilesApiClient"></see> class
             </summary>
+            <param name="httpClient"></param>
+            <param name="logger"></param>
         </member>
-        <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient.#ctor(System.Net.Http.HttpClient,Microsoft.Identity.Web.ITokenAcquisition,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient})">
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient.#ctor(System.Net.Http.HttpClient,Microsoft.Extensions.Logging.ILogger{AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient})">
             <summary>
                 The <see href="FilesApiClient"></see> class
             </summary>
+            <param name="httpClient"></param>
+            <param name="logger"></param>
         </member>
         <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient.GetHealthAsync(System.Threading.CancellationToken)">
             <inheritdoc/>
@@ -60,8 +64,16 @@
                 An instance of the <see href="SearchParameters"></see> class defining the search
                 criteria for the duplicate files search
             </param>
+            {
             <returns>An enumerable list of <see href="DuplicateGroup"></see> instances
             </returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient.GetFileClassificationsAsync">
+            <summary>
+                The GetFileClassificationsAsync method will get all file classifications
+            </summary>
+            <returns>A collection of file classifications</returns>
             <exception cref="T:System.InvalidOperationException"></exception>
         </member>
         <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient.GetDuplicateFilesCountAsync(AStar.Dev.Files.Api.Client.SDK.Models.SearchParameters)">
@@ -136,6 +148,34 @@
             <param name="fileId">The ID of the file to unmark as move required</param>
             <returns>An awaitable task containing a string with the status of the update</returns>
         </member>
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient.UpdateFileDirectoryAsync(AStar.Dev.Files.Api.Client.SDK.Models.DirectoryChangeRequest)">
+            <summary>
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient.UpdateFileLastViewedAsync(System.Int32)">
+            <summary>
+            </summary>
+            <param name="fileId"></param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient.PushFileDetailAsync(AStar.Dev.Files.Api.Client.SDK.Models.FileDetail)">
+            <summary>
+            </summary>
+            <param name="fileDetail"></param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient.PushFileDetailsAsync(System.Collections.Generic.IEnumerable{AStar.Dev.Files.Api.Client.SDK.Models.FileDetail})">
+            <summary>
+            </summary>
+            <param name="fileDetails"></param>
+            <returns></returns>
+            <exception cref="T:System.NotImplementedException"></exception>
+        </member>
         <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiClient.UpdateFileAsync(AStar.Dev.Files.Api.Client.SDK.Models.DirectoryChangeRequest)">
             <summary>
                 The UpdateFileAsync method will, as the name suggests, update the file - currently, the directory is the only thing
@@ -174,6 +214,156 @@
         </member>
         <member name="P:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiConfiguration.Scopes">
             <inheritdoc/>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Client.SDK.FilesApi.IFilesApiClient">
+            <summary>
+                Interface for Files API Client
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.IFilesApiClient.GetFilesCountAsync(AStar.Dev.Files.Api.Client.SDK.Models.SearchParameters)">
+            <summary>
+                The GetFilesCountAsync method will get the count of the files that match the search parameters
+            </summary>
+            <param name="searchParameters">
+                An instance of the <see href="SearchParameters"></see> class defining the search
+                criteria for the files count
+            </param>
+            <returns>The count of the matching files or -1 if an error occurred</returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.IFilesApiClient.GetFilesAsync(AStar.Dev.Files.Api.Client.SDK.Models.SearchParameters)">
+            <summary>
+                The GetFilesAsync method will, as its name suggests, get the files that match the search parameters
+            </summary>
+            <param name="searchParameters">
+                An instance of the <see href="SearchParameters"></see> class defining the search
+                criteria for the files search
+            </param>
+            <returns>An enumerable list of <see href="FileDetail"></see> instances
+            </returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.IFilesApiClient.GetDuplicateFilesAsync(AStar.Dev.Files.Api.Client.SDK.Models.SearchParameters)">
+            <summary>
+                The GetDuplicateFilesAsync method will, as its name suggests, get the duplicate files that match the search
+                parameters
+            </summary>
+            <param name="searchParameters">
+                An instance of the <see href="SearchParameters"></see> class defining the search
+                criteria for the duplicate files search
+            </param>
+            <returns>An enumerable list of <see href="DuplicateGroup"></see> instances
+            </returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.IFilesApiClient.GetFileClassificationsAsync">
+            <summary>
+                The GetFileClassificationsAsync method will get all file classifications
+            </summary>
+            <returns>A collection of file classifications</returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.IFilesApiClient.GetDuplicateFilesCountAsync(AStar.Dev.Files.Api.Client.SDK.Models.SearchParameters)">
+            <summary>
+                The GetDuplicateFilesCountAsync method will get the count of the duplicate files that match the search parameters
+            </summary>
+            <param name="searchParameters">
+                An instance of the <see href="SearchParameters"></see> class defining the search
+                criteria for the duplicate files count
+            </param>
+            <returns>The count of the matching duplicate files or -1 if an error occurred</returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.IFilesApiClient.GetFileAccessDetail(System.Int32)">
+            <summary>
+                The GetFileAccessDetail method will, as its name suggests, get the file access details for the specified file
+            </summary>
+            <param name="fileId">The ID of the file to retrieve the File Access Details from the database</param>
+            <returns>An instance of <see href="FileAccessDetail"></see> for the specified File ID
+            </returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.IFilesApiClient.GetFileDetail(System.Int32)">
+            <summary>
+                The GetFileDetail method will, as its name suggests, get the file details of the specified file
+            </summary>
+            <param name="fileId">The ID of the file detail to retrieve from the database</param>
+            <returns>
+                An awaitable task containing an instance of <see href="FileDetail"></see> containing the, you guessed it, File
+                details...
+            </returns>
+            <exception cref="T:System.InvalidOperationException"></exception>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.IFilesApiClient.MarkForSoftDeletionAsync(System.Int32)">
+            <summary>
+                The MarkForSoftDeletionAsync method will, as its name suggests, mark the specified file as soft deleted
+            </summary>
+            <param name="fileId">The ID of the file to mark as soft deleted</param>
+            <returns>An awaitable task containing a string with the status of the update</returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.IFilesApiClient.UndoMarkForSoftDeletionAsync(System.Int32)">
+            <summary>
+                The UndoMarkForSoftDeletionAsync method will, as its name suggests, unmark the specified file as soft deleted
+            </summary>
+            <param name="fileId">The ID of the file to unmark as soft deleted</param>
+            <returns>An awaitable task containing a string with the status of the update</returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.IFilesApiClient.MarkForHardDeletionAsync(System.Int32)">
+            <summary>
+                The MarkForHardDeletionAsync method will, as its name suggests, mark the specified file as hard deleted
+            </summary>
+            <param name="fileId">The ID of the file to mark as hard deleted</param>
+            <returns>An awaitable task containing a string with the status of the update</returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.IFilesApiClient.UndoMarkForHardDeletionAsync(System.Int32)">
+            <summary>
+                The UndoMarkForHardDeletionAsync method will, as its name suggests, unmark the specified file as hard deleted
+            </summary>
+            <param name="fileId">The ID of the file to unmark as hard deleted</param>
+            <returns>An awaitable task containing a string with the status of the update</returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.IFilesApiClient.MarkForMovingAsync(System.Int32)">
+            <summary>
+                The MarkForMovingAsync method will, as its name suggests, mark the specified file as requiring moving
+            </summary>
+            <param name="fileId">The ID of the file to mark as move required</param>
+            <returns>An awaitable task containing a string with the status of the update</returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.IFilesApiClient.UndoMarkForMovingAsync(System.Int32)">
+            <summary>
+                The UndoMarkForMovingAsync method will, as its name suggests, unmark the specified file as requiring moving
+            </summary>
+            <param name="fileId">The ID of the file to unmark as move required</param>
+            <returns>An awaitable task containing a string with the status of the update</returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.IFilesApiClient.UpdateFileDirectoryAsync(AStar.Dev.Files.Api.Client.SDK.Models.DirectoryChangeRequest)">
+            <summary>
+                The UpdateFileDirectoryAsync method will, as its name suggests, update the directory of the specified file
+            </summary>
+            <param name="request">
+                An instance of the <see href="DirectoryChangeRequest"></see> class containing the file ID and new
+                directory
+            </param>
+            <returns>An awaitable task containing a string with the status of the update</returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.IFilesApiClient.UpdateFileLastViewedAsync(System.Int32)">
+            <summary>
+                The UpdateFileLastViewedAsync method will, as its name suggests, update the last viewed date of the specified file
+            </summary>
+            <param name="fileId">The ID of the file to update the last viewed date for</param>
+            <returns>An awaitable task containing a string with the status of the update</returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.IFilesApiClient.PushFileDetailAsync(AStar.Dev.Files.Api.Client.SDK.Models.FileDetail)">
+            <summary>
+                The PushFileDetailAsync method will, as its name suggests, push the file detail to the API
+            </summary>
+            <param name="fileDetail">The file detail to push to the API</param>
+            <returns>An awaitable task containing a string with the status of the push</returns>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.FilesApi.IFilesApiClient.PushFileDetailsAsync(System.Collections.Generic.IEnumerable{AStar.Dev.Files.Api.Client.SDK.Models.FileDetail})">
+            <summary>
+                The PushFileDetailsAsync method will, as its name suggests, push multiple file details to the API
+            </summary>
+            <param name="fileDetails">The file details to push to the API</param>
+            <returns>An awaitable task containing a string with the status of the push</returns>
         </member>
         <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.DirectoryChangeRequest">
             <summary>
@@ -216,9 +406,13 @@
                 Gets the FileSize in a nicer, display-friendly, style
             </summary>
         </member>
-        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicateGroup.Files">
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicateGroup.FileGrouping">
             <summary>
-                Gets or sets the list of <see href="FileDetail"></see> objects
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicateGroup.Duplicates">
+            <summary>
+                Gets or sets the list of <see href="DuplicatesDetails"></see> objects
             </summary>
         </member>
         <member name="M:AStar.Dev.Files.Api.Client.SDK.Models.DuplicateGroup.ToString">
@@ -226,6 +420,252 @@
                 Returns this object in JSON format
             </summary>
             <returns>This object serialized as a JSON object</returns>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.Id">
+            <summary>
+                The ID of the
+                <see cref="T:AStar.Dev.Files.Api.Client.SDK.Models.FileDetail"/>
+                in the Duplicates list
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.FileAccessDetailId">
+            <summary>
+                The FileAccessDetailId of the joined
+                <see cref="T:AStar.Dev.Files.Api.Client.SDK.Models.FileAccessDetail"/>
+                table. The joined data is not in the Duplicates list
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.FileName">
+            <summary>
+                Gets or sets the File Name
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.DirectoryName">
+            <summary>
+                Gets or sets the Directory Name
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.Height">
+            <summary>
+                Gets or sets the File Height
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.Width">
+            <summary>
+                Gets or sets the File Width
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.FileSize">
+            <summary>
+                Gets or sets the File Size
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.FileHandle">
+            <summary>
+                Gets or sets the File Handle
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.IsImage">
+            <summary>
+                Gets or sets whether File is an image
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.Instances">
+            <summary>
+                Gets or sets the Instance count for the duplicate group
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.DetailsLastUpdated">
+            <summary>
+                Gets or sets the Details Last Updated
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.LastViewed">
+            <summary>
+                Gets or sets the Last Viewed date
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.SoftDeleted">
+            <summary>
+                Gets or sets the Soft Deleted flag
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.SoftDeletePending">
+            <summary>
+                Gets or sets the SoftDeletePending flag
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.MoveRequired">
+            <summary>
+                Gets or sets the Move Required flag
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.HardDeletePending">
+            <summary>
+                Gets or sets the Hard Delete Pending flag
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesDetails.FullNameWithPath">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.FileGrouping">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileGrouping.FileSize">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileGrouping.Height">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileGrouping.Width">
+            <summary>
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesList">
+            <summary>
+            </summary>
+            <param name="FileSize"></param>
+            <param name="Duplicates"></param>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesList.#ctor(AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail,AStar.Dev.Files.Api.Client.SDK.Models.Duplicates[])">
+            <summary>
+            </summary>
+            <param name="FileSize"></param>
+            <param name="Duplicates"></param>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesList.FileSize">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.DuplicatesList.Duplicates">
+            <summary></summary>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail">
+            <summary>
+            </summary>
+            <param name="FileSize"></param>
+            <param name="Height"></param>
+            <param name="Width"></param>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            </summary>
+            <param name="FileSize"></param>
+            <param name="Height"></param>
+            <param name="Width"></param>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail.FileSize">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail.Height">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail.Width">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileSizeDetail.FileSizeForDisplay">
+            <summary>
+                Gets the FileSize in a nicer, display-friendly, style
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates">
+            <summary>
+            </summary>
+            <param name="Id"></param>
+            <param name="FileAccessDetailId"></param>
+            <param name="FileName"></param>
+            <param name="DirectoryName"></param>
+            <param name="Height"></param>
+            <param name="Width"></param>
+            <param name="FileSize"></param>
+            <param name="FileHandle"></param>
+            <param name="IsImage"></param>
+            <param name="Instances"></param>
+            <param name="DetailsLastUpdated"></param>
+            <param name="LastViewed"></param>
+            <param name="SoftDeleted"></param>
+            <param name="SoftDeletePending"></param>
+            <param name="MoveRequired"></param>
+            <param name="HardDeletePending"></param>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.#ctor(System.Int32,System.Int32,System.String,System.String,System.Int32,System.Int32,System.Int32,System.String,System.Boolean,System.Int32,System.DateTimeOffset,System.Nullable{System.DateTimeOffset},System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            </summary>
+            <param name="Id"></param>
+            <param name="FileAccessDetailId"></param>
+            <param name="FileName"></param>
+            <param name="DirectoryName"></param>
+            <param name="Height"></param>
+            <param name="Width"></param>
+            <param name="FileSize"></param>
+            <param name="FileHandle"></param>
+            <param name="IsImage"></param>
+            <param name="Instances"></param>
+            <param name="DetailsLastUpdated"></param>
+            <param name="LastViewed"></param>
+            <param name="SoftDeleted"></param>
+            <param name="SoftDeletePending"></param>
+            <param name="MoveRequired"></param>
+            <param name="HardDeletePending"></param>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.Id">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.FileAccessDetailId">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.FileName">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.DirectoryName">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.Height">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.Width">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.FileSize">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.FileHandle">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.IsImage">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.Instances">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.DetailsLastUpdated">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.LastViewed">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.SoftDeleted">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.SoftDeletePending">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.MoveRequired">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.HardDeletePending">
+            <summary></summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.Duplicates.FullNameWithPath">
+            <summary>
+            </summary>
         </member>
         <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.ExcludedViewSettings">
             <summary>
@@ -297,6 +737,31 @@
             <returns>
                 This object serialized as a JSON object
             </returns>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.FileClassification">
+            <summary>
+                Represents a file classification
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileClassification.Id">
+            <summary>
+                Gets or sets the unique identifier for the file classification
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileClassification.Name">
+            <summary>
+                Gets or sets the name of the file classification
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileClassification.IncludeInSearch">
+            <summary>
+                Gets or sets whether this classification should be included in search
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Api.Client.SDK.Models.FileClassification.Celebrity">
+            <summary>
+                Gets or sets whether this classification is marked as a celebrity
+            </summary>
         </member>
         <member name="T:AStar.Dev.Files.Api.Client.SDK.Models.FileDetail">
             <summary>

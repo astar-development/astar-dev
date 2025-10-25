@@ -22,7 +22,7 @@ public class FileDetailsProcessorService(FileHandleService fileHandleService, IL
     /// <param name="keywords"></param>
     /// <returns></returns>
     public (int counter, int writeCount) ProcessFileDetailAsync(FileDetail fileDetail, List<FileClassification> classifications, List<FileHandle> fileHandlesAlreadyInTheContext,
-                                                                int        counter,    int                      writeCount,      IReadOnlyList<FileNamePartsWithClassifications> keywords)
+        int counter, int writeCount, IReadOnlyList<FileNamePartsWithClassifications> keywords)
     {
         var regex = KeywordRegexBuilder.BuildKeywordPattern(keywords);
 

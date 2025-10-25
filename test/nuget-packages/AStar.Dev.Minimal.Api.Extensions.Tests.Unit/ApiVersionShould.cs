@@ -1,8 +1,7 @@
-using AStar.Dev.Minimal.Api.Extensions;
 using AStar.Dev.Utilities;
 using JetBrains.Annotations;
 
-namespace AStar.Dev.AspNet.Minimal.Api.Extensions;
+namespace AStar.Dev.Minimal.Api.Extensions.Tests.Unit;
 
 [TestSubject(typeof(ApiVersion))]
 public sealed class ApiVersionShould

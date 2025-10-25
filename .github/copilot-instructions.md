@@ -39,6 +39,7 @@ Keep instructions short and concrete — point to exact files and examples the a
 - Tests: put unit tests in `test/<area>/*.Tests.Unit` and follow existing patterns (Shouldly for assertions, test fixtures in Fixtures/ when needed).
 - Whilst the AAA pattern is used, comments should not be added to a test unless the logic is complex. If the logic is complex, consider breaking it into multiple tests. Instead of comments, use blank lines to separate the Arrange, Act, and Assert sections.
 - Using statements for Shouldly and Xunit are not required as they are included globally via the relevant `csproj`.
+- Public methods in the production code should have XML doc comments. Test methods do not require XML doc comments.
 
 ## Integration & cross-component communication
 
@@ -91,7 +92,7 @@ Keep instructions short and concrete — point to exact files and examples the a
 - CI uses the repository-level GitHub workflow at `.github/workflows/main_astar-dev.yml` which runs `dotnet build --configuration Release` and a dotnet coverage command. Follow the same `dotnet` commands locally:
   - Build: `dotnet build --configuration Release` from repository root.
   - Test (fast): `dotnet test --filter 'FullyQualifiedName!~Tests.EndToEnd&FullyQualifiedName!~Tests.Integration'` to run unit tests only (the CI wraps this with coverage collector).
-  - Tests: existing tests use xUnit V2 and V3, however, new tests should use V3 only. Shouldly is used for assertions.
+  - Tests: existing tests use xUnit. Shouldly is used for assertions. NSubstitute is used for mocking when necessary.
   - When creating new production code, add unit tests in the corresponding `test/*` project. Follow existing test patterns.
 
 ## How services start (local dev hints)

@@ -65,13 +65,13 @@ public static class ServiceCollectionExtensions
             .Bind(configurationManager.GetSection(ApiUsageConfiguration.ConfigurationSectionName));
 
         ApiUsageConfiguration = services.BuildServiceProvider().GetRequiredService<IOptions<ApiUsageConfiguration>>().Value;
-        services.AddProblemDetails();
+        _ = services.AddProblemDetails();
         services.CreateValidatedApiConfiguration(configurationManager);
-        services.AddEndpointsApiExplorer();
-        services.AddHealthChecks();
-        services.AddExceptionHandler<GlobalExceptionHandler>();
+        _ = services.AddEndpointsApiExplorer();
+        _ = services.AddHealthChecks();
+        _ = services.AddExceptionHandler<GlobalExceptionHandler>();
 
-        services.AddApiVersioning(options =>
+        _ = services.AddApiVersioning(options =>
             {
                 options.UnsupportedApiVersionStatusCode = (int)HttpStatusCode.NotImplemented;
                 options.ReportApiVersions = true;
@@ -84,10 +84,10 @@ public static class ServiceCollectionExtensions
             })
             .EnableApiVersionBinding();
 
-        services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
-        services.AddControllers().AddJsonOptions(jsonoptions => { jsonoptions.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()); });
+        _ = services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
+        _ = services.AddControllers().AddJsonOptions(jsonoptions => jsonoptions.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 
-        services.AddSwaggerGen(options =>
+        _ = services.AddSwaggerGen(options =>
         {
             options.AddSecurityDefinition("Bearer", new()
             {

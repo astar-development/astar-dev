@@ -28,11 +28,11 @@ public sealed class FileDetail : AuditableEntity
     [SetsRequiredMembers]
     public FileDetail(IFileInfo fileInfo)
     {
-        FileName      = new(fileInfo.Name);
+        FileName = new(fileInfo.Name);
         DirectoryName = new(fileInfo.DirectoryName!);
-        FileSize      = fileInfo.Length;
-        CreatedDate   = fileInfo.CreationTimeUtc;
-        UpdatedDate   = fileInfo.LastWriteTimeUtc;
+        FileSize = fileInfo.Length;
+        CreatedDate = fileInfo.CreationTimeUtc;
+        UpdatedDate = fileInfo.LastWriteTimeUtc;
     }
 
     /// <summary>

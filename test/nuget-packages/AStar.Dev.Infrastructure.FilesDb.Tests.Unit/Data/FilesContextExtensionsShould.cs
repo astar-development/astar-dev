@@ -1,199 +1,55 @@
-﻿using AStar.Dev.Infrastructure.FilesDb.Fixtures;
+﻿using AStar.Dev.Infrastructure.FilesDb.Data;
+using AStar.Dev.Infrastructure.FilesDb.Tests.Unit.Fixtures;
+using Microsoft.Extensions.Time.Testing;
 
-namespace AStar.Dev.Infrastructure.FilesDb.Data;
+namespace AStar.Dev.Infrastructure.FilesDb.Tests.Unit.Data;
 
 public sealed class FilesContextExtensionsShould(FilesContextFixture filesContextFixture) : IClassFixture<FilesContextFixture>
 {
-    private const bool Recursive = true;
-    private const bool NotRecursive = false;
-    private const bool IncludeSoftDeleted = true;
-    private const bool ExcludeSoftDeleted = false;
-    private const bool IncludeMarkedForDeletion = true;
-    private const bool ExcludeMarkedForDeletion = false;
-    private const bool ExcludeViewed = true;
     private readonly FilesContext _sut = filesContextFixture.Sut;
 
-    [Fact]
-    public void ReturnMatchingFilesWhenRecursiveIsTrueAndAllInclusionOrExclusionsAreSetToInclude()
+    [Theory]
+    [InlineData("/home", false, "AllFiles", false, false, false, 227)]
+    [InlineData("/home", false, "AllFiles", false, false, true, 227)]
+    [InlineData("/home", false, "AllFiles", false, true, false, 234)]
+    [InlineData("/home", false, "AllFiles", false, true, true, 234)]
+    [InlineData("/home", false, "AllFiles", true, false, false, 228)]
+    [InlineData("/home", false, "AllFiles", true, false, true, 228)]
+    [InlineData("/home", false, "AllFiles", true, true, false, 235)]
+    [InlineData("/home", false, "AllFiles", true, true, true, 235)]
+    [InlineData("/home", false, "Images", false, false, false, 94)]
+    [InlineData("/home", false, "Images", false, false, true, 94)]
+    [InlineData("/home", false, "Images", false, true, false, 93)]
+    [InlineData("/home", false, "Images", false, true, true, 93)]
+    [InlineData("/home", false, "Images", true, false, false, 93)]
+    [InlineData("/home", false, "Images", true, false, true, 93)]
+    [InlineData("/home", false, "Images", true, true, false, 94)]
+    [InlineData("/home", false, "Images", true, true, true, 94)]
+    [InlineData("/home", true, "AllFiles", false, false, false, 706)]
+    [InlineData("/home", true, "AllFiles", false, false, true, 706)]
+    [InlineData("/home", true, "AllFiles", false, true, false, 729)]
+    [InlineData("/home", true, "AllFiles", false, true, true, 729)]
+    [InlineData("/home", true, "AllFiles", true, false, false, 719)]
+    [InlineData("/home", true, "AllFiles", true, false, true, 719)]
+    [InlineData("/home", true, "AllFiles", true, true, false, 742)]
+    [InlineData("/home", true, "AllFiles", true, true, true, 742)]
+    [InlineData("/home", true, "Images", false, false, false, 271)]
+    [InlineData("/home", true, "Images", false, false, true, 271)]
+    [InlineData("/home", true, "Images", false, true, false, 276)]
+    [InlineData("/home", true, "Images", false, true, true, 276)]
+    [InlineData("/home", true, "Images", true, false, false, 275)]
+    [InlineData("/home", true, "Images", true, false, true, 275)]
+    [InlineData("/home", true, "Images", true, true, false, 280)]
+    [InlineData("/home", true, "Images", true, true, true, 280)]
+    public void GetTheExpectedCountWhenSpecificFilterApplied(string startingDirectory, bool recursive, string searchType, bool includeSoftDeleted, bool includeMarkedForDeletion, bool includeViewed,
+        int expectedCount)
     {
-        var response = _sut.Files.GetMatchingFiles("/", Recursive, "searchTypeNotRelevant", IncludeSoftDeleted,
-            IncludeMarkedForDeletion, !ExcludeViewed, CancellationToken.None);
-
-        response.ToString()!.ShouldMatchApproved();
-    }
-
-    [Fact(Skip = "The underlying code is broken")]
-    public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedAndDeletePendingAreTrueAndViewedAreExcluded()
-    {
-        var response = _sut.Files.GetMatchingFiles("/", Recursive, "searchTypeNotRelevant", IncludeSoftDeleted,
-            IncludeMarkedForDeletion, ExcludeViewed, CancellationToken.None);
-
-        response.ToString()!.ShouldMatchApproved();
-    }
-
-    [Fact(Skip = "The underlying code is broken")]
-    public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedIsTrueButDeletePendingIsFalse()
-    {
-        var response = _sut.Files.GetMatchingFiles("/", Recursive, "searchTypeNotRelevant", IncludeSoftDeleted,
-            ExcludeMarkedForDeletion, ExcludeViewed, CancellationToken.None);
-
-        response.ToString()!.ShouldMatchApproved();
-    }
-
-    [Fact(Skip = "The underlying code is broken")]
-    public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedIsFalseButDeletePendingIsTrue()
-    {
-        var response = _sut.Files.GetMatchingFiles("/", Recursive, "searchTypeNotRelevant", ExcludeSoftDeleted,
-            IncludeMarkedForDeletion, ExcludeViewed, CancellationToken.None);
-
-        response.ToString()!.ShouldMatchApproved();
-    }
-
-    [Fact(Skip = "The underlying code is broken")]
-    public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedAndDeletePendingAreFalse()
-    {
-        var response = _sut.Files.GetMatchingFiles("/", Recursive, "searchTypeNotRelevant", ExcludeSoftDeleted,
-            ExcludeMarkedForDeletion, ExcludeViewed, CancellationToken.None);
-
-        response.ToString()!.ShouldMatchApproved();
-    }
-
-    [Fact(Skip = "The underlying code is broken")]
-    public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedAndDeletePendingAreTrue_ImagesOnly()
-    {
-        var response = _sut.Files.GetMatchingFiles("/", Recursive, "Images", IncludeSoftDeleted,
-            IncludeMarkedForDeletion, ExcludeViewed, CancellationToken.None);
-
-        response.ToString()!.ShouldMatchApproved();
-    }
-
-    [Fact(Skip = "The underlying code is broken")]
-    public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedIsTrueButDeletePendingIsFalse_ImagesOnly()
-    {
-        var response = _sut.Files.GetMatchingFiles("/", Recursive, "Images", IncludeSoftDeleted,
-            ExcludeMarkedForDeletion, ExcludeViewed, CancellationToken.None);
-
-        response.ToString()!.ShouldMatchApproved();
-    }
-
-    [Fact(Skip = "The underlying code is broken")]
-    public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedIsFalseButDeletePendingIsTrue_ImagesOnly()
-    {
-        var response = _sut.Files.GetMatchingFiles("/", Recursive, "Images", ExcludeSoftDeleted,
-            IncludeMarkedForDeletion, ExcludeViewed, CancellationToken.None);
-
-        response.ToString()!.ShouldMatchApproved();
-    }
-
-    [Fact(Skip = "The underlying code is broken")]
-    public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedAndDeletePendingAreFalse_ImagesOnly()
-    {
-        var response = _sut.Files.GetMatchingFiles("/", Recursive, "Images", ExcludeSoftDeleted,
-            ExcludeMarkedForDeletion, ExcludeViewed, CancellationToken.None);
-
-        response.ToString()!.ShouldMatchApproved();
-    }
-
-    [Fact(Skip = "The underlying code is broken")]
-    public void GetTheExpectedCountWhenFilterAppliedThatCapturesAllFiles()
-    {
-        const int filesNotSoftDeletedOrPendingDeletionCount = 101;
+        var fakeTime = new FakeTimeProvider(new DateTime(2025, 1, 2, 3, 4, 5, DateTimeKind.Utc));
 
         var matchingFilesCount = _sut.Files
-            .GetMatchingFiles(@"c:\", Recursive, "AllFiles", ExcludeSoftDeleted, ExcludeMarkedForDeletion, !ExcludeViewed,
-                CancellationToken.None)
-            .Count();
+            .GetMatchingFiles(new(startingDirectory), recursive, searchType, includeSoftDeleted, includeMarkedForDeletion, includeViewed, fakeTime, CancellationToken.None)
+            .Count;
 
-        matchingFilesCount.ShouldBe(filesNotSoftDeletedOrPendingDeletionCount);
-    }
-
-    [Fact(Skip = "The underlying code is broken")]
-    public void GetTheExpectedCountWhenFilterAppliedThatCapturesAllImageFiles()
-    {
-        const int filesNotSoftDeletedOrPendingDeletionCount = 66;
-
-        var matchingFilesCount = _sut.Files
-            .GetMatchingFiles(@"c:\", Recursive, "Images", ExcludeSoftDeleted, ExcludeMarkedForDeletion, !ExcludeViewed,
-                CancellationToken.None)
-            .Count();
-
-        matchingFilesCount.ShouldBe(filesNotSoftDeletedOrPendingDeletionCount);
-    }
-
-    [Fact(Skip = "The underlying code is broken")]
-    public void GetTheExpectedCountWhenFilterAppliedThatTargetsTopLevelFolderOnlyWhichIsEmpty()
-    {
-        var matchingFilesCount = _sut.Files
-            .GetMatchingFiles(@"c:\", NotRecursive, "Images", ExcludeSoftDeleted, ExcludeMarkedForDeletion,
-                !ExcludeViewed, CancellationToken.None)
-            .Count();
-
-        matchingFilesCount.ShouldBe(0);
-    }
-
-    [Fact(Skip = "The underlying code is broken")]
-    public void GetTheExpectedCountWhenFilterAppliedThatTargetsSpecificFolderRecursively()
-    {
-        const int filesNotSoftDeletedOrPendingDeletionCount = 24;
-
-        var matchingFilesCount = _sut.Files
-            .GetMatchingFiles(@"c:\temp\wwwroot - Copy\AI", Recursive, "Images", ExcludeSoftDeleted,
-                ExcludeMarkedForDeletion, !ExcludeViewed, CancellationToken.None)
-            .Count();
-
-        matchingFilesCount.ShouldBe(filesNotSoftDeletedOrPendingDeletionCount);
-    }
-
-    [Fact(Skip = "The underlying code is broken")]
-    public void GetTheExpectedCountWhenFilterAppliedThatCapturesAllSupportedImageTypesFromStartingSubFolder()
-    {
-        const int filesNotSoftDeletedOrPendingDeletionCount = 17;
-
-        var matchingFilesCount = _sut.Files
-            .GetMatchingFiles(@"c:\temp\wwwroot - Copy\AI", NotRecursive, "Images", ExcludeSoftDeleted,
-                ExcludeMarkedForDeletion, !ExcludeViewed, CancellationToken.None)
-            .Count();
-
-        matchingFilesCount.ShouldBe(filesNotSoftDeletedOrPendingDeletionCount);
-    }
-
-    [Fact(Skip = "The underlying code is broken")]
-    public void GetTheExpectedCountWhenFilterAppliedThatTargetsSpecificFolderRecursivelyButIncludeSoftDeleted()
-    {
-        const int filesNotSoftDeletedOrPendingDeletionCount = 32;
-
-        var matchingFilesCount = _sut.Files
-            .GetMatchingFiles(@"c:\temp\wwwroot - Copy", Recursive, "Images", IncludeSoftDeleted,
-                ExcludeMarkedForDeletion, !ExcludeViewed, CancellationToken.None)
-            .Count();
-
-        matchingFilesCount.ShouldBe(filesNotSoftDeletedOrPendingDeletionCount);
-    }
-
-    [Fact(Skip = "The underlying code is broken")]
-    public void GetTheExpectedCountWhenFilterAppliedThatTargetsSpecificFolderRecursivelyButIncludeMarkedForDeletion()
-    {
-        const int filesNotSoftDeletedOrPendingDeletionCount = 33;
-
-        var matchingFilesCount = _sut.Files
-            .GetMatchingFiles(@"c:\temp\wwwroot - Copy", Recursive, "Images", ExcludeSoftDeleted,
-                IncludeMarkedForDeletion, !ExcludeViewed, CancellationToken.None)
-            .Count();
-
-        matchingFilesCount.ShouldBe(filesNotSoftDeletedOrPendingDeletionCount);
-    }
-
-    [Fact]
-    public void
-        GetTheExpectedCountWhenFilterAppliedThatTargetsSpecificFolderRecursivelyButIncludeSoftDeletedAndIncludeMarkedForDeletion()
-    {
-        const int filesNotSoftDeletedOrPendingDeletionCount = 35;
-
-        var matchingFilesCount = _sut.Files
-            .GetMatchingFiles(@"c:\temp\wwwroot - Copy", Recursive, "Images", IncludeSoftDeleted,
-                IncludeMarkedForDeletion, !ExcludeViewed, CancellationToken.None)
-            .Count();
-
-        matchingFilesCount.ShouldBe(filesNotSoftDeletedOrPendingDeletionCount);
+        matchingFilesCount.ShouldBe(expectedCount);
     }
 }

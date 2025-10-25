@@ -22,6 +22,7 @@
     <ItemGroup>
         <ProjectReference Include="..\..\apis\AStar.Dev.Admin.Api\AStar.Dev.Admin.Api.csproj"/>
         <ProjectReference Include="..\..\apis\AStar.Dev.Files.Api\AStar.Dev.Files.Api.csproj"/>
+        <ProjectReference Include="..\..\apis\AStar.Dev.Files.Classifications.Api\AStar.Dev.Files.Classifications.Api.csproj"/>
         <ProjectReference Include="..\..\apis\AStar.Dev.Images.Api\AStar.Dev.Images.Api.csproj"/>
         <ProjectReference Include="..\..\apis\AStar.Dev.ToDo.Api\AStar.Dev.ToDo.Api.csproj"/>
         <ProjectReference Include="..\..\services\astar-dev-database-updater\AStar.Dev.Database.Updater\AStar.Dev.Database.Updater.csproj"/>

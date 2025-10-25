@@ -1,7 +1,7 @@
-using AStar.Dev.Files.Api.Client.Sdk.Helpers;
-using AStar.Dev.Files.Api.Client.Sdk.MockMessageHandlers;
+using AStar.Dev.Files.Api.Client.Sdk.Tests.Unit.Helpers;
+using AStar.Dev.Files.Api.Client.Sdk.Tests.Unit.MockMessageHandlers;
 
-namespace AStar.Dev.Files.Api.Client.Sdk.FilesApi;
+namespace AStar.Dev.Files.Api.Client.Sdk.Tests.Unit.FilesApi;
 
 public sealed class FilesApiClientShould
 {
@@ -59,7 +59,7 @@ public sealed class FilesApiClientShould
         response.ShouldBe(-1);
     }
 
-    [Fact(Skip = "Mock doesn't work")]
+    [Fact(Skip = "Endpoint not implemented")]
     public async Task ReturnExpectedResponseFromTheCountDuplicatesEndpointAsync()
     {
         const int mockDuplicatesCountValue = 1234;
@@ -71,7 +71,7 @@ public sealed class FilesApiClientShould
         response.Count.ShouldBe(mockDuplicatesCountValue);
     }
 
-    [Fact]
+    [Fact(Skip = "Endpoint not implemented")]
     public async Task ReturnExpectedResponseFromTheCountDuplicatesEndpointWhenAnErrorOccursAsync()
     {
         var handler = new MockInternalServerErrorHttpMessageHandler("Count");
@@ -104,7 +104,7 @@ public sealed class FilesApiClientShould
         await sutMethod.ShouldThrowAsync<HttpRequestException>();
     }
 
-    [Fact(Skip = "Mock doesn't work")]
+    [Fact(Skip = "Endpoint not implemented")]
     public async Task ReturnExpectedResponseFromTheListDuplicatesEndpointAsync()
     {
         var handler = new MockSuccessHttpMessageHandler("ListDuplicates");

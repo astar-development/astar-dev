@@ -31,8 +31,8 @@ public partial class MarkdownView : ComponentBase
         Html = rendered;
     }
 
-    protected override async Task OnAfterRenderAsync(bool firstRender) =>
+    protected override async Task OnAfterRenderAsync(bool firstRender)
 
         // Re-highlight after each render so newly rendered code gets styled
-        await Js.InvokeVoidAsync("highlightMarkdown");
+        => await Js.InvokeVoidAsync("highlightMarkdown");
 }

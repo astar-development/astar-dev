@@ -26,9 +26,9 @@ public static class FileDetailPagingExtensions
 
     private static int RestrictPageSize(int pageSize)
         => pageSize switch
-           {
-               < 1  => 1,
-               > 50 => 50,
-               _    => pageSize
-           };
+        {
+            < 1 => 1,
+            > 50 => 50,
+            _ => pageSize
+        };
 }

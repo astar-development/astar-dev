@@ -1,4 +1,4 @@
-﻿namespace AStar.Dev.AspNet.Minimal.Api.Extensions;
+﻿namespace AStar.Dev.Minimal.Api.Extensions.Tests.Unit;
 
 public sealed class UnitTest1
 {

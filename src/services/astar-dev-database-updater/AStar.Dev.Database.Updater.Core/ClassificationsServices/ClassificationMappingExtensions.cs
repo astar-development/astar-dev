@@ -15,9 +15,9 @@ public static class ClassificationMappingExtensions
     /// <param name="stoppingToken"></param>
     /// <returns><c>true</c> if successful, otherwise <c>false</c></returns>
     public static async Task<bool> AddFileClassificationsAsync(this IEnumerable<ClassificationMapping> mappings, ClassificationProcessor classificationProcessor,
-                                                               CancellationToken                       stoppingToken = default)
+        CancellationToken stoppingToken = default)
     {
-        await classificationProcessor.ProcessAsync(mappings, stoppingToken);
+        _ = await classificationProcessor.ProcessAsync(mappings, stoppingToken);
 
         return true; // ToDo -  Result rather than raw boolean
     }

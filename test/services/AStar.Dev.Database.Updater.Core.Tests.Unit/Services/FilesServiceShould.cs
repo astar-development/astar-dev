@@ -59,7 +59,7 @@
 //     [InlineData("*.js", false, 0)]
 //     public void ReturnTheExpectedFiles(string searchPattern, bool recursive, int expectedCount)
 //     {
-//         var files = sut.GetFilesFromDirectory(@"c:\", searchPattern, recursive);
+//         var files = sut.GetFilesFromDirectory("/", searchPattern, recursive);
 //
 //         files.Count().ShouldBe(expectedCount);
 //     }
@@ -84,7 +84,7 @@
 //     {
 //         var originalMaxId = context.Files.Max(file => file.Id);
 //
-//         await sut.ProcessMovedFiles([@"c:\.editorconfig2", @"c:\demo\9.JPG", @"c:\demo\A-0005.JPG"], [@"c:\"],
+//         await sut.ProcessMovedFiles([@"c:\.editorconfig2", @"c:\demo\9.JPG", @"c:\demo\A-0005.JPG"], ["/"],
 //       CancellationToken.None);
 //
 //         // using var scope = new AssertionScope();
@@ -124,5 +124,4 @@
 //          "the SkiaSharp code fails... will extract shortly");
 //     }
 // }
-
 

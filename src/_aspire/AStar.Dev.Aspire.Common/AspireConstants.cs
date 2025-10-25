@@ -8,6 +8,7 @@ public static class AspireConstants
     {
         public const string AdminApi  = "admin-api";
         public const string FilesApi  = "files-api";
+        public const string FileClassificationsApi = "file-classifications-api";
         public const string ImagesApi = "images-api";
         public const string UsageApi  = "usage-api";
     }

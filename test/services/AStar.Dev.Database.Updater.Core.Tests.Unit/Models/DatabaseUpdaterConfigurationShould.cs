@@ -11,4 +11,3 @@
 //         => new DatabaseUpdaterConfiguration().ToJson().ShouldMatchApproved();
 // }
 
-

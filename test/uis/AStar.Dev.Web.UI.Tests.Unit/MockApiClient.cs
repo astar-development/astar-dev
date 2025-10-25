@@ -8,4 +8,3 @@
 //         Task.FromResult(new HealthStatusResponse { Status = statusToReturn, });
 // }
 
-

@@ -21,8 +21,8 @@ public static class MapGetEndpoint
                        .MapGroup(EndpointConstants.FilesEndpoint)
                        .HasApiVersion(1.0);
 
-        apiGroup.MapGet("/", async ([AsParameters] GetFilesRequest files,           [FromServices] FilesContext filesContext, [FromServices] ClaimsPrincipal claimsPrincipal,
-                                    [FromServices] GetFilesHandler getFilesHandler, CancellationToken           cancellationToken)
+        _ = apiGroup.MapGet("/", async ([AsParameters] GetFilesRequest files, [FromServices] FilesContext filesContext, [FromServices] ClaimsPrincipal claimsPrincipal,
+                    [FromServices] GetFilesHandler getFilesHandler, CancellationToken cancellationToken)
                                  => await getFilesHandler.HandleAsync(files, filesContext, TimeProvider.System, claimsPrincipal.Identity?.Name ?? "Jay Barden", cancellationToken))
                 .Produces<IReadOnlyCollection<GetFilesResponse>>()
                 .Produces(401)

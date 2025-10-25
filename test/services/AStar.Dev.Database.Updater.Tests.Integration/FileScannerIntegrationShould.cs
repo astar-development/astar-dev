@@ -7,7 +7,7 @@ using AStar.Dev.Infrastructure.FilesDb.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace AStar.Dev.Database.Updater;
+namespace AStar.Dev.Database.Updater.Tests.Integration;
 
 public sealed class FileScannerIntegrationShould : IDisposable
 {
@@ -27,7 +27,7 @@ public sealed class FileScannerIntegrationShould : IDisposable
                                     {
                                         logging.SetMinimumLevel(LogLevel.Debug);
                                         logging.AddFilter(appHost.Environment.ApplicationName, LogLevel.Debug);
-                                        logging.AddFilter("Aspire.",                           LogLevel.Debug);
+                                        logging.AddFilter("Aspire.", LogLevel.Debug);
                                     });
 
         appHost.Services.AddScoped<ClassificationRepository>(sp => new(sp.GetRequiredService<FilesContext>()));
@@ -51,7 +51,7 @@ public sealed class FileScannerIntegrationShould : IDisposable
 
         // Arrange: ensure a classification exists in the DB
         var classification = new FileClassification { Name = "IntegrationTest", Celebrity = false, IncludeInSearch = true };
-        classification.FileNameParts.Add(new() { Text      = "integration_keyword" });
+        classification.FileNameParts.Add(new() { Text = "integration_keyword" });
         _context.FileClassifications.Add(classification);
         await _context.SaveChangesAsync(stoppingToken);
 
@@ -60,14 +60,14 @@ public sealed class FileScannerIntegrationShould : IDisposable
 
         // Create a FileDetail whose filename contains the keyword
         var fileDetail = new FileDetail
-                         {
-                             FileName      = new("2025_integration_keyword.jpg"),
-                             DirectoryName = new() { Value = "/tmp" },
-                             FileSize      = 123,
-                             CreatedDate   = DateTimeOffset.UtcNow,
-                             UpdatedDate   = DateTimeOffset.UtcNow,
-                             FileHandle    = FileHandle.Create("test-handle")
-                         };
+        {
+            FileName = new("2025_integration_keyword.jpg"),
+            DirectoryName = new() { Value = "/tmp" },
+            FileSize = 123,
+            CreatedDate = DateTimeOffset.UtcNow,
+            UpdatedDate = DateTimeOffset.UtcNow,
+            FileHandle = FileHandle.Create("test-handle")
+        };
 
         using var testScope                   = app.Services.CreateScope();
         var       fileDetailsProcessorService = testScope.ServiceProvider.GetRequiredService<FileDetailsProcessorService>();
@@ -96,13 +96,13 @@ public sealed class FileScannerIntegrationShould : IDisposable
 
         public TestKeywordProvider(IEnumerable<string> keywords, string classificationName)
             => _keywords = keywords.Select(k => new FileNamePartsWithClassifications
-                                                {
-                                                    Text            = k,
-                                                    Name            = classificationName,
-                                                    Celebrity       = false,
-                                                    IncludeInSearch = true,
-                                                    FileNameParts   = [new() { Text = k }]
-                                                }).ToList();
+            {
+                Text = k,
+                Name = classificationName,
+                Celebrity = false,
+                IncludeInSearch = true,
+                FileNameParts = [new() { Text = k }]
+            }).ToList();
 
         public Task<IReadOnlyList<FileNamePartsWithClassifications>> GetKeywordsAsync(CancellationToken cancellationToken = default)
             => Task.FromResult(_keywords);

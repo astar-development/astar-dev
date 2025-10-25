@@ -26,7 +26,7 @@ var applicationName = typeof(IAssemblyMarker).Assembly.GetName().Name!;
 try
 {
     var builder = WebApplication.CreateBuilder(args);
-    builder.AddServiceDefaults();
+    _ = builder.AddServiceDefaults();
 
     _ = builder
         .DisableServerHeader()
@@ -36,16 +36,16 @@ try
 
     Log.Information("Starting {AppName}", applicationName);
     var services = builder.Services;
-    services.AddApplicationInsightsTelemetry(builder.Configuration);
+    _ = services.AddApplicationInsightsTelemetry(builder.Configuration);
 
     // Optional: forward ILogger logs to Application Insights
-    builder.Logging.AddApplicationInsights();
+    _ = builder.Logging.AddApplicationInsights();
 
     builder.AddSqlServerDbContext<FilesContext>(AspireConstants.Sql.FilesDb);
 
-    services.AddUsageServices(builder.Configuration, typeof(IAssemblyMarker).Assembly);
+    _ = services.AddUsageServices(builder.Configuration, typeof(IAssemblyMarker).Assembly);
 
-    services.AddScoped<IFileSystem, FileSystem>();
+    _ = services.AddScoped<IFileSystem, FileSystem>();
     _ = services.AddScoped<JwtEvents>();
 
     builder.AddRabbitMQClient(AspireConstants.Services.AstarMessaging);
@@ -55,25 +55,25 @@ try
     var events               = buildServiceProvider.GetRequiredService<JwtEvents>();
 #pragma warning restore ASP0000
 
-    builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    _ = builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
            .AddJwtBearer("Bearer", jwtOptions =>
                                    {
                                        jwtOptions.MetadataAddress = "https://login.microsoftonline.com/bb7d94aa-36a9-4a59-a0c1-54a757c47ddf/v2.0/.well-known/openid-configuration";
 
                                        jwtOptions.TokenValidationParameters = new()
-                                                                              {
-                                                                                  ValidIssuer      = "https://sts.windows.net/bb7d94aa-36a9-4a59-a0c1-54a757c47ddf/",
-                                                                                  ValidateIssuer   = true,
-                                                                                  ValidateAudience = true,
-                                                                                  ValidAudiences =
+                                       {
+                                           ValidIssuer = "https://sts.windows.net/bb7d94aa-36a9-4a59-a0c1-54a757c47ddf/",
+                                           ValidateIssuer = true,
+                                           ValidateAudience = true,
+                                           ValidAudiences =
                                                                                   [
                                                                                       "api://11cbc21c-c65d-436e-951e-6b3158357be6",
                                                                                       "api://2ca26585-5929-4aae-86a7-a00c3fc2d061"
                                                                                   ],
-                                                                                  ValidateIssuerSigningKey = true,
-                                                                                  ValidateLifetime         = true,
-                                                                                  ClockSkew                = TimeSpan.FromMinutes(3)
-                                                                              };
+                                           ValidateIssuerSigningKey = true,
+                                           ValidateLifetime = true,
+                                           ClockSkew = TimeSpan.FromMinutes(3)
+                                       };
 
                                        jwtOptions.MapInboundClaims = false;
                                        jwtOptions.Validate();
@@ -82,45 +82,45 @@ try
 
     JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
 
-    services.Configure<JsonOptions>(options =>
+    _ = services.Configure<JsonOptions>(options =>
                                     {
-                                        options.SerializerOptions.ReferenceHandler            = ReferenceHandler.IgnoreCycles;
+                                        options.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
                                         options.SerializerOptions.PropertyNameCaseInsensitive = true;
                                     });
 
-    services.AddAuthorization();
-    services.AddExceptionHandler<GlobalExceptionHandler>();
-    services.AddProblemDetails(options => options.CustomizeProblemDetails = ctx => ctx.ProblemDetails.Extensions.Add("nodeId", Environment.MachineName));
+    _ = services.AddAuthorization();
+    _ = services.AddExceptionHandler<GlobalExceptionHandler>();
+    _ = services.AddProblemDetails(options => options.CustomizeProblemDetails = ctx => ctx.ProblemDetails.Extensions.Add("nodeId", Environment.MachineName));
 
-    services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-    services.AddScoped<IGetFilesHandler, GetFilesHandler>();
-    services.AddScoped<GetFileClassificationsHandler>();
+    _ = services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+    _ = services.AddScoped<IGetFilesHandler, GetFilesHandler>();
+    _ = services.AddScoped<GetFileClassificationsHandler>();
 
     var app = builder.Build()
                      .UseApiServices();
 
-// Configure the HTTP request pipeline.
+    // Configure the HTTP request pipeline.
     if(app.Environment.IsDevelopment())
     {
-        app.MapOpenApi();
-        app.MapScalarApiReference();
+        _ = app.MapOpenApi();
+        _ = app.MapScalarApiReference();
     }
 
     var policyCollection = new HeaderPolicyCollection()
                            .AddDefaultSecurityHeaders()
                            .AddPermissionsPolicyWithDefaultSecureDirectives();
 
-    app.UseSecurityHeaders(policyCollection);
+    _ = app.UseSecurityHeaders(policyCollection);
 
     app.ConfigureRootPage(applicationName.Replace(".", " "))
        .UseMetrics();
 
-    app.MapDefaultEndpoints();
+    _ = app.MapDefaultEndpoints();
 
     app.MapFilesPostEndpoint();
     app.MapFilesGetEndpoint();
     app.MapFileClassificationsGetEndpoint();
-    app.UseExceptionHandler();
+    _ = app.UseExceptionHandler();
 
     await app.RunAsync();
 }

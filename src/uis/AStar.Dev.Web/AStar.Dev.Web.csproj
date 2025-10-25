@@ -15,6 +15,7 @@
         <PackageReference Include="FluentUI.Demo.Shared" Version="4.10.4"/>
         <PackageReference Include="JetBrains.Annotations" Version="2025.2.2"/>
         <PackageReference Include="Markdig" Version="0.42.0"/>
+        <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="9.0.10" />
         <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.23.0"/>
         <PackageReference Include="Microsoft.Extensions.Logging.ApplicationInsights" Version="2.23.0"/>
         <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="9.0.10"/>

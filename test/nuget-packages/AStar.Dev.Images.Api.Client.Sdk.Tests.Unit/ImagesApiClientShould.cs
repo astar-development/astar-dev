@@ -1,8 +1,8 @@
 using AStar.Dev.Images.Api.Client.SDK.ImagesApi;
-using AStar.Dev.Images.Api.Client.Sdk.MockMessageHandlers;
+using AStar.Dev.Images.Api.Client.Sdk.Tests.Unit.MockMessageHandlers;
 using Microsoft.Extensions.Logging.Abstractions;
 
-namespace AStar.Dev.Images.Api.Client.Sdk;
+namespace AStar.Dev.Images.Api.Client.Sdk.Tests.Unit;
 
 public sealed class ImagesApiClientShould
 

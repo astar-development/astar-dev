@@ -5,7 +5,7 @@ using AStar.Dev.Infrastructure.FilesDb.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
-namespace AStar.Dev.Database.Updater;
+namespace AStar.Dev.Database.Updater.Tests.Integration;
 
 public sealed class ClassificationProcessorShould : IDisposable
 {
@@ -30,7 +30,7 @@ public sealed class ClassificationProcessorShould : IDisposable
 
                                             // Override the logging filters from the app's configuration
                                             logging.AddFilter(appHost.Environment.ApplicationName, LogLevel.Debug);
-                                            logging.AddFilter("Aspire.",                           LogLevel.Debug);
+                                            logging.AddFilter("Aspire.", LogLevel.Debug);
 
                                             // To output logs to the xUnit.net ITestOutputHelper, consider adding a package from https://www.nuget.org/packages?q=xunit+logging
                                         });

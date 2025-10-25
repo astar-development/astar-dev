@@ -17,14 +17,14 @@ public class ClassificationRepositoryTests
         var             repo  = new ClassificationRepository(ctx);
 
         var c1 = new FileClassification { Name = "CatA", Celebrity = false, IncludeInSearch = true };
-        c1.FileNameParts.Add(new() { Text      = "a" });
+        c1.FileNameParts.Add(new() { Text = "a" });
         var c2 = new FileClassification { Name = "CatB", Celebrity = false, IncludeInSearch = true };
-        c2.FileNameParts.Add(new() { Text      = "b" });
+        c2.FileNameParts.Add(new() { Text = "b" });
         var c3 = new FileClassification { Name = "CatC", Celebrity = false, IncludeInSearch = true };
-        c3.FileNameParts.Add(new() { Text      = "c" });
+        c3.FileNameParts.Add(new() { Text = "c" });
 
         ctx.FileClassifications.AddRange(c1, c2, c3);
-        await ctx.SaveChangesAsync(CancellationToken.None);
+        _ = await ctx.SaveChangesAsync(CancellationToken.None);
 
         // Act
         var names  = new HashSet<string> { "CatA", "CatC" };
@@ -49,7 +49,7 @@ public class ClassificationRepositoryTests
         var c2 = new FileClassification { Name = "Y", Celebrity = false, IncludeInSearch = true };
 
         ctx.FileClassifications.AddRange(c1, c2);
-        await ctx.SaveChangesAsync(CancellationToken.None);
+        _ = await ctx.SaveChangesAsync(CancellationToken.None);
 
         // Act
         var all = repo.GetExistingClassifications();
@@ -103,8 +103,8 @@ public class ClassificationRepositoryTests
         var             ctx   = scope.Context;
 
         var classification = new FileClassification { Name = "TrackedTest", Celebrity = false, IncludeInSearch = true };
-        ctx.FileClassifications.Add(classification);
-        await ctx.SaveChangesAsync(CancellationToken.None);
+        _ = ctx.FileClassifications.Add(classification);
+        _ = await ctx.SaveChangesAsync(CancellationToken.None);
 
         var repo            = new ClassificationRepository(ctx);
         var classifications = repo.GetExistingClassifications(["TrackedTest"]);
@@ -113,7 +113,7 @@ public class ClassificationRepositoryTests
 
         // Modify fetched entity and Save - changes should be tracked by same context
         fetched.Name = "TrackedTestRenamed";
-        await ctx.SaveChangesAsync(CancellationToken.None);
+        _ = await ctx.SaveChangesAsync(CancellationToken.None);
 
         // Re-query directly from context to confirm change persisted
         ctx.FileClassifications.Any(fc => fc.Name == "TrackedTestRenamed").ShouldBeTrue();

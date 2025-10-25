@@ -1,3 +1,5 @@
+using AStar.Dev.Api.Client.Sdk.Shared;
+using AStar.Dev.Files.Api.Client.SDK.FilesApi;
 using AStar.Dev.ServiceDefaults;
 using Azure.Monitor.OpenTelemetry.AspNetCore;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
@@ -26,27 +28,25 @@ public static class WebApplicationBuilderExtensions
     {
         var dictionary = new Dictionary<string, object> { { "service.name", "AStar.Dev.Web" }, { "service.namespace", "AStar.Dev.Web" } };
 
-        builder.Services.AddOpenTelemetry().UseAzureMonitor(options =>
-                                                            {
-                                                                options.ConnectionString = builder.Configuration["AzureMonitor:ConnectionString"];
-                                                            })
+        _ = builder.Services.AddOpenTelemetry().UseAzureMonitor(options => options.ConnectionString = builder.Configuration["AzureMonitor:ConnectionString"])
                .ConfigureResource(resourceBuilder => resourceBuilder.AddAttributes(dictionary));
 
-        builder.AddServiceDefaults();
+        builder.Services.AddApiClient<FilesApiClient, FilesApiConfiguration>([""]);
+        _ = builder.AddServiceDefaults();
+        _ = builder.Services.AddCascadingAuthenticationState();
+        _ = builder.Services.AddRazorComponents()
+               .AddInteractiveServerComponents().AddAuthenticationStateSerialization(options => options.SerializeAllClaims = true);
 
-        builder.Services.AddRazorComponents()
-               .AddInteractiveServerComponents();
+        _ = builder.Services.AddFluentUIComponents();
 
-        builder.Services.AddFluentUIComponents();
-
-        builder.Services
+        _ = builder.Services
                .AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
                .AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureAd"));
 
-        builder.Services.AddAuthorization();
-        builder.Services.AddHealthChecks();
+        _ = builder.Services.AddAuthorization();
+        _ = builder.Services.AddHealthChecks();
 
-        builder.Services.AddControllersWithViews()
+        _ = builder.Services.AddControllersWithViews()
                .AddMicrosoftIdentityUI();
 
         return builder;
