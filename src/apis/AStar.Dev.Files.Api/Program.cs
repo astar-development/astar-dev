@@ -36,7 +36,6 @@ try
     var services = builder.Services;
     _ = services.AddApplicationInsightsTelemetry(builder.Configuration);
 
-    // Optional: forward ILogger logs to Application Insights
     _ = builder.Logging.AddApplicationInsights();
 
     builder.AddSqlServerDbContext<FilesContext>(AspireConstants.Sql.FilesDb);
