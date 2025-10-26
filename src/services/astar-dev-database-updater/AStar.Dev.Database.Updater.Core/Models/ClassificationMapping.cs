@@ -24,4 +24,9 @@ public class ClassificationMapping
     ///     Gets or sets whether the mapping is searchable
     /// </summary>
     public bool Searchable { get; set; }
+
+    /// <summary>
+    ///     Gets or sets the search level for the mapping
+    /// </summary>
+    public int SearchLevel { get; set; }
 }

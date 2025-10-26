@@ -423,6 +423,11 @@
                 Gets or sets whether the mapping is searchable
             </summary>
         </member>
+        <member name="P:AStar.Dev.Database.Updater.Core.Models.ClassificationMapping.SearchLevel">
+            <summary>
+                Gets or sets the search level for the mapping
+            </summary>
+        </member>
         <member name="T:AStar.Dev.Database.Updater.Core.Models.DatabaseUpdaterConfiguration">
             <summary>
                 The <see cref="T:AStar.Dev.Database.Updater.Core.Models.DatabaseUpdaterConfiguration" /> containing the applicable Database Updater configuration

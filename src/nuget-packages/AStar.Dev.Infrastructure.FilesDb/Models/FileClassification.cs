@@ -15,17 +15,16 @@ public class FileClassification : AuditableEntity
     public Guid Id { get; set; } = Guid.CreateVersion7();
 
     /// <summary>
+    /// </summary>
+    public int SearchLevel { get; set; }
+
+    /// <summary>
     ///     Gets or sets the name of the file classification.
     ///     This property represents the descriptive label for a specific classification
     ///     and is often used to identify or categorize files within the database.
     /// </summary>
     public string Name { get; set; } = string.Empty;
 
-    /// <summary>
-    ///     Gets or sets the collection of file details associated with a specific file classification.
-    ///     This property establishes the relationship between the <see cref="FileClassification" /> entity
-    ///     and multiple <see cref="FileDetail" /> entities.
-    /// </summary>
     /// <summary>
     ///     Gets or sets a value indicating whether the file classification is considered a "Celebrity."
     ///     This property is used to mark specific classifications with special significance.
