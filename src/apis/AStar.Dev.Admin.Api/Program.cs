@@ -1,9 +1,13 @@
 using AStar.Dev.Admin.Api;
+using AStar.Dev.AspNet.Extensions.WebApplicationBuilderExtensions;
 using AStar.Dev.ServiceDefaults;
 using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.AddServiceDefaults();
+
+_ = builder
+    .DisableServerHeader();
 
 builder.Services.AddOpenApi();
 
