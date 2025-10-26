@@ -25,7 +25,7 @@ public class DatabaseMigrationService(IServiceProvider serviceProvider, IHostApp
             using var scope     = serviceProvider.CreateScope();
             var       dbContext = scope.ServiceProvider.GetRequiredService<FilesContext>();
 
-            await EnsureDatabaseAsync(dbContext, stoppingToken);
+            await EnsureDatabaseExistsAsync(dbContext, stoppingToken);
             await RunMigrationAsync(dbContext, stoppingToken);
             await SeedDataAsync(dbContext, stoppingToken);
         }
@@ -39,7 +39,7 @@ public class DatabaseMigrationService(IServiceProvider serviceProvider, IHostApp
         hostApplicationLifetime.StopApplication();
     }
 
-    private async Task EnsureDatabaseAsync(FilesContext dbContext, CancellationToken stoppingToken)
+    private async Task EnsureDatabaseExistsAsync(FilesContext dbContext, CancellationToken stoppingToken)
     {
         var dbCreator = dbContext.GetService<IRelationalDatabaseCreator>();
 
