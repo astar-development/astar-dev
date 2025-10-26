@@ -3,6 +3,7 @@ using AStar.Dev.AspNet.Extensions.WebApplicationBuilderExtensions;
 using AStar.Dev.Files.Classifications.Api;
 using AStar.Dev.Infrastructure.FilesDb.Data;
 using AStar.Dev.ServiceDefaults;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.AddServiceDefaults();
@@ -11,16 +12,26 @@ builder.AddSqlServerDbContext<FilesContext>(AspireConstants.Sql.FilesDb);
 
 _ = builder
     .DisableServerHeader();
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+
 builder.Services.AddOpenApi();
 
+builder.Services.AddHealthChecks();
+
 var app = builder.Build();
+
+var policyCollection = new HeaderPolicyCollection()
+    .AddDefaultSecurityHeaders()
+    .AddPermissionsPolicyWithDefaultSecureDirectives();
+
+app.UseSecurityHeaders(policyCollection);
+
+app.MapHealthChecks("/health");
 
 // Configure the HTTP request pipeline.
 if(app.Environment.IsDevelopment())
 {
     _ = app.MapOpenApi();
+    _ = app.MapScalarApiReference();
 }
 
 app.UseHttpsRedirection();

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -81,10 +82,9 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(350)", maxLength: 350, nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     Celebrity = table.Column<bool>(type: "bit", nullable: false),
                     IncludeInSearch = table.Column<bool>(type: "bit", nullable: false),
-                    SearchLevel = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
                     UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UpdatedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false)
                 },
@@ -134,8 +134,8 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
                     FileAccessDetailId = table.Column<int>(type: "int", nullable: false),
                     FileSize = table.Column<long>(type: "bigint", nullable: false),
-                    FileCreatedDate = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
-                    FileUpdatedDate = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
+                    CreatedDate = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
+                    UpdatedDate = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
                     IsImage = table.Column<bool>(type: "bit", nullable: false),
                     FileHandle = table.Column<string>(type: "nvarchar(256)", nullable: false),
                     DeletionStatusId = table.Column<int>(type: "int", nullable: true),
@@ -172,6 +172,7 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Text = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
+                    IncludeInSearch = table.Column<bool>(type: "bit", nullable: false),
                     FileClassificationId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     UpdatedBy = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     UpdatedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false)

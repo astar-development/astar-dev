@@ -30,15 +30,12 @@ try
 
     _ = builder
         .DisableServerHeader()
-
-        //.AddSerilogLogging(Configuration.ExternalSettingsFile)
         .Services.AddApiConfiguration(builder.Configuration);
 
     Log.Information("Starting {AppName}", applicationName);
     var services = builder.Services;
     _ = services.AddApplicationInsightsTelemetry(builder.Configuration);
 
-    // Optional: forward ILogger logs to Application Insights
     _ = builder.Logging.AddApplicationInsights();
 
     builder.AddSqlServerDbContext<FilesContext>(AspireConstants.Sql.FilesDb);
@@ -55,6 +52,7 @@ try
     var events               = buildServiceProvider.GetRequiredService<JwtEvents>();
 #pragma warning restore ASP0000
 
+    // ToDo - get the settings from config
     _ = builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
            .AddJwtBearer("Bearer", jwtOptions =>
                                    {
