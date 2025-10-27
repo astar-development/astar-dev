@@ -18,7 +18,7 @@ public class FileClassificationConfiguration : IEntityTypeConfiguration<FileClas
         _ = builder.Property(fc => fc.Id)
                    .ValueGeneratedNever();
 
-        _ = builder.HasIndex(fileClassification => fileClassification.Name).IsUnique();
+        _ = builder.HasIndex(fileClassification => new { fileClassification.Name, fileClassification.SearchLevel }).IsUnique();
 
         _ = builder.Property(fileClassification => fileClassification.Name).HasMaxLength(150);
     }

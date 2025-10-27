@@ -21,6 +21,12 @@ public sealed class FilesContext : DbContext
 
     /// <summary>
     /// </summary>
+    /// <param name="optionsBuilder"></param>
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        => optionsBuilder.UseSqlServer("Server=localhost,33433;Database=filesDb;User Id=sa;Password=<SecurePasswordHere1!>;TrustServerCertificate=true;");
+
+    /// <summary>
+    /// </summary>
     public FilesContext()
         : base(new DbContextOptions<FilesContext>())
     {

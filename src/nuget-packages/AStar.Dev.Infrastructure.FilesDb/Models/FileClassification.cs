@@ -19,6 +19,10 @@ public class FileClassification : AuditableEntity
     public int SearchLevel { get; set; }
 
     /// <summary>
+    /// </summary>
+    public int? ParentId { get; set; }
+
+    /// <summary>
     ///     Gets or sets the name of the file classification.
     ///     This property represents the descriptive label for a specific classification
     ///     and is often used to identify or categorize files within the database.

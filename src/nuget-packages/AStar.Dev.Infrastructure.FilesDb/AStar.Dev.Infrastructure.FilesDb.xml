@@ -179,6 +179,12 @@
             </summary>
             <param name="options"></param>
         </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext.OnConfiguring(Microsoft.EntityFrameworkCore.DbContextOptionsBuilder)">
+            <summary>
+
+            </summary>
+            <param name="optionsBuilder"></param>
+        </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Data.FilesContext.#ctor">
             <summary>
             </summary>
@@ -284,6 +290,18 @@
             <inheritdoc/>
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.AddSearchLevel.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="T:AStar.Dev.Infrastructure.FilesDb.Migrations.UpdateFileclassificationsIndex">
+            <inheritdoc/>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.UpdateFileclassificationsIndex.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.UpdateFileclassificationsIndex.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc/>
+        </member>
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.UpdateFileclassificationsIndex.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc/>
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.DeletionScope">
@@ -599,7 +617,10 @@
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileClassification.SearchLevel">
             <summary>
-
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileClassification.ParentId">
+            <summary>
             </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileClassification.Name">

@@ -228,6 +228,9 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
+                    b.Property<int?>("ParentId")
+                        .HasColumnType("int");
+
                     b.Property<int>("SearchLevel")
                         .HasColumnType("int");
 
@@ -240,7 +243,7 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("Name")
+                    b.HasIndex("Name", "SearchLevel")
                         .IsUnique();
 
                     b.ToTable("FileClassification", "files");
