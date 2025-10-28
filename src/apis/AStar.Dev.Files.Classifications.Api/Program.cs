@@ -1,4 +1,5 @@
 using AStar.Dev.Aspire.Common;
+using AStar.Dev.AspNet.Extensions.Handlers;
 using AStar.Dev.AspNet.Extensions.WebApplicationBuilderExtensions;
 using AStar.Dev.Files.Classifications.Api;
 using AStar.Dev.Infrastructure.FilesDb.Data;
@@ -14,6 +15,10 @@ _ = builder
     .DisableServerHeader();
 
 builder.Services.AddOpenApi();
+_ = builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+_ = builder.Services.AddProblemDetails(options => options.CustomizeProblemDetails = ctx => ctx.ProblemDetails.Extensions.Add("nodeId", Environment.MachineName));
+
+_ = builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 builder.Services.AddHealthChecks();
 
@@ -25,7 +30,7 @@ var policyCollection = new HeaderPolicyCollection()
 
 app.UseSecurityHeaders(policyCollection);
 
-app.MapHealthChecks("/health");
+app.MapHealthChecks("/health").ShortCircuit();
 
 // Configure the HTTP request pipeline.
 if(app.Environment.IsDevelopment())
@@ -52,6 +57,10 @@ app.MapGet("/weatherforecast", () =>
     })
     .WithName("GetWeatherForecast");
 
+app.MapShortCircuit(404, "robots.txt", "favicon.ico", "404.html", "sitemap.xml");
+
+
+_ = app.UseExceptionHandler();
 app.Run();
 
 namespace AStar.Dev.Files.Classifications.Api

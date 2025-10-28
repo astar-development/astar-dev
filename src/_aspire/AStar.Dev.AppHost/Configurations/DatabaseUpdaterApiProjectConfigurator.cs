@@ -22,7 +22,7 @@ public static class DatabaseUpdaterApiProjectConfigurator
             .WithReference(filesDb)
             .WaitFor(filesDb)
             .WithReference(migrations)
-            .WaitFor(migrations)
+            .WaitForCompletion(migrations)
             .WithReference(fileClassificationsApi)
             .WaitFor(fileClassificationsApi)
             .WithReference(rabbitMq)

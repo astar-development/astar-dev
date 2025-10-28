@@ -262,17 +262,17 @@
                 The original list of files for further filtering.
             </returns>
         </member>
-        <member name="T:AStar.Dev.Infrastructure.FilesDb.Migrations.InitialCreation">
+        <member name="T:AStar.Dev.Infrastructure.FilesDb.Migrations.RecreateAsChangeInFileClassificationsDidntWork">
             <inheritdoc />
         </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.InitialCreation.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.RecreateAsChangeInFileClassificationsDidntWork.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
             <inheritdoc />
         </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.InitialCreation.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc />
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.RecreateAsChangeInFileClassificationsDidntWork.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc/>
         </member>
-        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.InitialCreation.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc />
+        <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.RecreateAsChangeInFileClassificationsDidntWork.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc/>
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.DeletionScope">
             <summary>
@@ -585,6 +585,14 @@
                 This property serves as the primary key for the <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileClassification" /> entity.
             </summary>
         </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileClassification.SearchLevel">
+            <summary>
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileClassification.ParentId">
+            <summary>
+            </summary>
+        </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileClassification.Name">
             <summary>
                 Gets or sets the name of the file classification.
@@ -593,11 +601,6 @@
             </summary>
         </member>
         <member name="P:AStar.Dev.Infrastructure.FilesDb.Models.FileClassification.Celebrity">
-            <summary>
-                Gets or sets the collection of file details associated with a specific file classification.
-                This property establishes the relationship between the <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileClassification" /> entity
-                and multiple <see cref="T:AStar.Dev.Infrastructure.FilesDb.Models.FileDetail" /> entities.
-            </summary>
             <summary>
                 Gets or sets a value indicating whether the file classification is considered a "Celebrity."
                 This property is used to mark specific classifications with special significance.

@@ -29,8 +29,8 @@ public class FileDetailsProcessorService(FileHandleService fileHandleService, IL
         var nameToCheck = fileDetail.FullNameWithPath.SanitizeFilePath();
 
         var matches = GetFilenameMatches(regex, nameToCheck).Where(m => m.Length > 0);
-
-        counter = ProcessMatches(matches, counter, classifications, fileDetail);
+        var unmatchedClassification = classifications.First(xx => xx.Name == "None");
+        counter = ProcessMatches(matches, counter, classifications, fileDetail, unmatchedClassification);
 
         fileDetail.FileHandle = fileHandleService.GenerateFileHandle(fileDetail, fileHandlesAlreadyInTheContext);
 
@@ -44,13 +44,15 @@ public class FileDetailsProcessorService(FileHandleService fileHandleService, IL
 
     private void TemporaryLogFileScanningError(Exception e, string path) => logger.LogError(e, "An error occurred while scanning file: {FileName}", path);
 
-    private int ProcessMatches(IEnumerable<string> nonEmptyMatches, int counter, List<FileClassification> classifications, FileDetail fileWithClassifications)
+    private int ProcessMatches(IEnumerable<string> nonEmptyMatches, int counter, List<FileClassification> classifications, FileDetail fileWithClassifications,
+        FileClassification unmatchedClassification)
     {
         foreach(var keyword in nonEmptyMatches)
         {
             counter++;
 
-            foreach(var fileClassification in GetFileClassifications(classifications, fileWithClassifications.FullNameWithPath))
+            var fileClassifications = GetFileClassifications(classifications, fileWithClassifications.FullNameWithPath);
+            foreach(var fileClassification in fileClassifications)
             {
                 fileWithClassifications.FileClassifications.Add(fileClassification);
             }
@@ -61,10 +63,15 @@ public class FileDetailsProcessorService(FileHandleService fileHandleService, IL
             }
         }
 
+        if(fileWithClassifications.FileClassifications.Count == 0)
+        {
+            fileWithClassifications.FileClassifications.Add(unmatchedClassification);
+        }
+
         return counter;
     }
 
-    private string[] GetFilenameMatches(Regex regex, string nameToCheck)
+    private static string[] GetFilenameMatches(Regex regex, string nameToCheck)
         => regex.Matches(nameToCheck)
                 .Select(m => m.Value)
                 .Distinct(StringComparer.OrdinalIgnoreCase)
@@ -76,7 +83,7 @@ public class FileDetailsProcessorService(FileHandleService fileHandleService, IL
            where file.Contains(fileNamePart.Text)
            select fileClassification;
 
-    private Result<FileDetail, Exception> UpdateFileDetailsForImage(FileDetail fileDetail)
+    private static Result<FileDetail, Exception> UpdateFileDetailsForImage(FileDetail fileDetail)
         => Try.Run(() =>
                    {
                        fileDetail.IsImage = true;

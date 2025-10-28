@@ -15,7 +15,14 @@ public class ClassificationBuilder
     /// <param name="source">The source mapping containing metadata.</param>
     /// <returns>A new FileClassification instance.</returns>
     public FileClassification CreateClassification(string name, ClassificationMapping source)
-        => new() { Name = name, Celebrity = source.Celebrity, IncludeInSearch = source.Searchable, FileNameParts = [] };
+        => new()
+        {
+            Name = name,
+            Celebrity = source.Celebrity,
+            IncludeInSearch = source.Searchable,
+            FileNameParts = [],
+            SearchLevel = source.SearchLevel
+        };
 
     /// <summary>
     ///     Creates a list of missing FileNameParts based on mappings and existing texts.

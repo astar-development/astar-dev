@@ -1,3 +1,4 @@
+using System.Globalization;
 using AStar.Dev.Database.Updater.Core.Models;
 using AStar.Dev.Infrastructure.FilesDb.Models;
 using Serilog;
@@ -17,11 +18,12 @@ public class ClassificationProcessor(ClassificationRepository repository, Classi
     /// <returns>True if processing completes successfully.</returns>
     public async Task<bool> ProcessAsync(IEnumerable<ClassificationMapping> mappings, CancellationToken stoppingToken)
     {
+        var textInfo = new CultureInfo("en-GB").TextInfo;
         var mappingsList  = mappings.ToList();
-        var distinctNames = mappingsList.Select(m => m.DatabaseMapping).ToHashSet();
+        var distinctNames = mappingsList.Select(m => textInfo.ToTitleCase(m.DatabaseMapping)).ToHashSet();
         var existing      = repository.GetExistingClassifications(distinctNames);
 
-        var newClassifications = CreateMissingClassifications(mappingsList, distinctNames, existing);
+        var newClassifications = CreateMissingClassifications(mappingsList, distinctNames, existing, textInfo);
 
         if(newClassifications.Count > 0)
         {
@@ -29,14 +31,14 @@ public class ClassificationProcessor(ClassificationRepository repository, Classi
             logger.Debug("Added {Count} new classifications", newClassifications.Count);
         }
 
-        AddMissingParts(mappingsList, existing);
+        AddMissingParts(mappingsList, existing, textInfo);
 
         await repository.SaveChangesAsync(stoppingToken);
 
         return true;
     }
 
-    private List<FileClassification> CreateMissingClassifications(List<ClassificationMapping> mappings, HashSet<string> names, Dictionary<string, FileClassification> existing)
+    private List<FileClassification> CreateMissingClassifications(List<ClassificationMapping> mappings, HashSet<string> names, Dictionary<string, FileClassification> existing, TextInfo textInfo)
     {
         var newClassifications = new List<FileClassification>();
 
@@ -47,7 +49,7 @@ public class ClassificationProcessor(ClassificationRepository repository, Classi
                 continue;
             }
 
-            var source = mappings.FirstOrDefault(m => m.DatabaseMapping == name);
+            var source = mappings.FirstOrDefault(m => textInfo.ToTitleCase(m.DatabaseMapping) == name);
 
             if(source == null)
             {
@@ -62,11 +64,11 @@ public class ClassificationProcessor(ClassificationRepository repository, Classi
         return newClassifications;
     }
 
-    private void AddMissingParts(List<ClassificationMapping> mappings, Dictionary<string, FileClassification> existing)
+    private void AddMissingParts(List<ClassificationMapping> mappings, Dictionary<string, FileClassification> existing, TextInfo textInfo)
     {
         foreach(var group in mappings.GroupBy(m => m.DatabaseMapping))
         {
-            if(!existing.TryGetValue(group.Key, out var classification))
+            if(!existing.TryGetValue(textInfo.ToTitleCase(group.Key), out var classification))
             {
                 continue;
             }

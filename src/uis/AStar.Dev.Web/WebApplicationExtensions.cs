@@ -47,7 +47,7 @@ public static class WebApplicationExtensions
     /// </example>
     public static WebApplication UseApplicationServices(this WebApplication app)
     {
-        _ = app.MapHealthChecks("/health");
+        _ = app.MapHealthChecks("/health").ShortCircuit();
         _ = app.UseExceptionHandler("/Error", true);
 
         if(!app.Environment.IsDevelopment())

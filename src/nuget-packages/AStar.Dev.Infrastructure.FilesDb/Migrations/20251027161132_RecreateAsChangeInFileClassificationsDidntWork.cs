@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace AStar.Dev.Infrastructure.FilesDb.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreation : Migration
+    public partial class RecreateAsChangeInFileClassificationsDidntWork : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -82,6 +82,8 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    SearchLevel = table.Column<int>(type: "int", nullable: false),
+                    ParentId = table.Column<Guid>(type: "uniqueidentifier", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(150)", maxLength: 150, nullable: false),
                     Celebrity = table.Column<bool>(type: "bit", nullable: false),
                     IncludeInSearch = table.Column<bool>(type: "bit", nullable: false),
@@ -216,10 +218,10 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_FileClassification_Name",
+                name: "IX_FileClassification_Name_SearchLevel",
                 schema: "files",
                 table: "FileClassification",
-                column: "Name",
+                columns: new[] { "Name", "SearchLevel" },
                 unique: true);
 
             migrationBuilder.CreateIndex(

@@ -11,7 +11,7 @@ builder.Services.AddHealthChecks();
 
 var app = builder.Build();
 
-app.MapHealthChecks("/health");
+app.MapHealthChecks("/health").ShortCircuit();
 
 // Configure the HTTP request pipeline.
 if(app.Environment.IsDevelopment())
