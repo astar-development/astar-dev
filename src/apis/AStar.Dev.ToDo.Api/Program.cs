@@ -1,3 +1,4 @@
+using AStar.Dev.AspNet.Extensions.Handlers;
 using AStar.Dev.ServiceDefaults;
 using AStar.Dev.ToDo.Api;
 using Scalar.AspNetCore;
@@ -6,6 +7,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.AddServiceDefaults();
 
 builder.Services.AddOpenApi();
+_ = builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+_ = builder.Services.AddProblemDetails(options => options.CustomizeProblemDetails = ctx => ctx.ProblemDetails.Extensions.Add("nodeId", Environment.MachineName));
+
+_ = builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
 builder.Services.AddHealthChecks();
 
@@ -17,7 +22,7 @@ var policyCollection = new HeaderPolicyCollection()
 
 app.UseSecurityHeaders(policyCollection);
 
-app.MapHealthChecks("/health");
+app.MapHealthChecks("/health").ShortCircuit();
 
 // Configure the HTTP request pipeline.
 if(app.Environment.IsDevelopment())
@@ -44,6 +49,10 @@ app.MapGet("/weatherforecast", () =>
                                })
    .WithName("GetWeatherForecast");
 
+app.MapShortCircuit(404, "robots.txt", "favicon.ico", "404.html", "sitemap.xml");
+
+
+_ = app.UseExceptionHandler();
 await app.RunAsync();
 
 namespace AStar.Dev.ToDo.Api

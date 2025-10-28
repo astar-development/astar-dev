@@ -13,8 +13,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AStar.Dev.Infrastructure.FilesDb.Migrations
 {
     [DbContext(typeof(FilesContext))]
-    [Migration("20251026225230_UpdateFileclassificationsIndex")]
-    partial class UpdateFileclassificationsIndex
+    [Migration("20251027161132_RecreateAsChangeInFileClassificationsDidntWork")]
+    partial class RecreateAsChangeInFileClassificationsDidntWork
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -230,6 +230,9 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                         .IsRequired()
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
+
+                    b.Property<Guid?>("ParentId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<int>("SearchLevel")
                         .HasColumnType("int");

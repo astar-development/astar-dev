@@ -22,7 +22,7 @@ public static class FileClassificationsApiProjectConfigurator
             .WithReference(filesDb)
             .WaitFor(filesDb)
             .WithReference(migrations)
-            .WaitFor(migrations)
+            .WaitForCompletion(migrations)
             .WithReference(rabbitMq)
             .WaitFor(rabbitMq)
             .WithHttpHealthCheck(config.HealthEndpoint);

@@ -120,6 +120,9 @@ try
     app.MapFileClassificationsGetEndpoint();
     _ = app.UseExceptionHandler();
 
+    app.MapShortCircuit(404, "robots.txt", "favicon.ico", "404.html", "sitemap.xml");
+
+
     await app.RunAsync();
 }
 catch(Exception ex)
