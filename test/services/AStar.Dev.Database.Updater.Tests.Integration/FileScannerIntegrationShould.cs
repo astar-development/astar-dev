@@ -33,7 +33,7 @@ public sealed class FileScannerIntegrationShould : IDisposable
         appHost.Services.AddScoped<ClassificationRepository>(sp => new(sp.GetRequiredService<FilesContext>()));
         appHost.Services.AddScoped<FileHandleService>();
 
-        var conn = await appHost.Resources.OfType<SqlServerDatabaseResource>().Single(r => r.Name == AspireConstants.Sql.FilesDb).ConnectionStringExpression.GetValueAsync(stoppingToken);
+        var conn = await appHost.Resources.OfType<SqlServerDatabaseResource>().Single(r => r.Name == AspireConstants.Sql.AStarDb).ConnectionStringExpression.GetValueAsync(stoppingToken);
 
         appHost.Services.AddScoped(_ =>
                                    {

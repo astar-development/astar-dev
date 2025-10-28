@@ -37,7 +37,7 @@ public sealed class ClassificationProcessorShould : IDisposable
 
             var db = appHost.Resources
                             .OfType<SqlServerDatabaseResource>()
-                            .Single(r => r.Name == AspireConstants.Sql.FilesDb);
+                            .Single(r => r.Name == AspireConstants.Sql.AStarDb);
 
             var connectionString        = await db.ConnectionStringExpression.GetValueAsync(stoppingToken);
             var dbContextOptionsBuilder = new DbContextOptionsBuilder<FilesContext>();

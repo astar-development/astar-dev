@@ -843,5 +843,11 @@
             <param name="result">The Result object being extended.</param>
             <returns>A success result without change if applicable, otherwise, the exception will be mapped to an ErrorResponse</returns>
         </member>
+        <member name="T:AStar.Dev.Functional.Extensions.UnreachableException">
+            <summary>
+            An implementation of an exception that indicates that the code path should be unreachable.
+            This class exists as .Net Standard 2.1 does not have System.Diagnostics.UnreachableException.
+            </summary>
+        </member>
     </members>
 </doc>

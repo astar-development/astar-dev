@@ -269,10 +269,10 @@
             <inheritdoc />
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.RecreateAsChangeInFileClassificationsDidntWork.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="M:AStar.Dev.Infrastructure.FilesDb.Migrations.RecreateAsChangeInFileClassificationsDidntWork.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
-            <inheritdoc/>
+            <inheritdoc />
         </member>
         <member name="T:AStar.Dev.Infrastructure.FilesDb.Models.DeletionScope">
             <summary>
