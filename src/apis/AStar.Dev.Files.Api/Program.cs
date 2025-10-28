@@ -38,7 +38,7 @@ try
 
     _ = builder.Logging.AddApplicationInsights();
 
-    builder.AddSqlServerDbContext<FilesContext>(AspireConstants.Sql.FilesDb);
+    builder.AddSqlServerDbContext<FilesContext>(AspireConstants.Sql.AStarDb);
 
     _ = services.AddUsageServices(builder.Configuration, typeof(IAssemblyMarker).Assembly);
 

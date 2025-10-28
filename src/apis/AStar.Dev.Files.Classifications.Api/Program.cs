@@ -9,7 +9,7 @@ using Scalar.AspNetCore;
 var builder = WebApplication.CreateBuilder(args);
 builder.AddServiceDefaults();
 
-builder.AddSqlServerDbContext<FilesContext>(AspireConstants.Sql.FilesDb);
+builder.AddSqlServerDbContext<FilesContext>(AspireConstants.Sql.AStarDb);
 
 _ = builder
     .DisableServerHeader();

@@ -14,15 +14,13 @@ public sealed class FilesContext : DbContext
     /// <summary>
     /// </summary>
     /// <param name="options"></param>
-    public FilesContext(DbContextOptions<FilesContext> options)
-        : base(options)
+    public FilesContext(DbContextOptions<FilesContext> options) : base(options)
     {
     }
 
     /// <summary>
     /// </summary>
-    public FilesContext()
-        : base(new DbContextOptions<FilesContext>())
+    public FilesContext() : base(new DbContextOptions<FilesContext>())
     {
     }
 

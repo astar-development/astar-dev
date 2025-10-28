@@ -15,10 +15,12 @@ public static class AspireConstants
 
     public static class Sql
     {
-        public const string SqlServer            = "sql1";
-        public const string SqlPasswordParameter = "sql1-password";
-        public const string FilesDb              = "filesDb";
-        public const string AdminDb              = "adminDb";
+        public const string SqlServer                  = "sql1";
+        public const string SqlSaUserPasswordParameter = "sa-user-password";
+        public const string SqlFilesUserPasswordParameter = "files-user-password";
+        public const string SqlAdminUserPasswordParameter = "admin-user-password";
+        public const string SqlUsageUserPasswordParameter = "usage-user-password";
+        public const string AStarDb                    = "astar-db";
     }
 
     public static class Services

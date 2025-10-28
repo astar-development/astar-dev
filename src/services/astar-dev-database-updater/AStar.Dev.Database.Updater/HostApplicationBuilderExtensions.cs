@@ -53,7 +53,7 @@ public static class HostApplicationBuilderExtensions
         _ = builder.Services.AddHostedService<FileKeywordProcessorBackgroundService>();
         _ = builder.Services.AddScoped<FileClassificationsBackgroundService>();
 
-        builder.AddSqlServerDbContext<FilesContext>(AspireConstants.Sql.FilesDb, settings =>
+        builder.AddSqlServerDbContext<FilesContext>(AspireConstants.Sql.AStarDb, settings =>
                                                                                  {
                                                                                      settings.CommandTimeout = 120;
                                                                                      settings.DisableRetry = false;
