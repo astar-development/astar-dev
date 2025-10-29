@@ -5,7 +5,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <AssemblyAttribute Include="System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage"/>
+        <AssemblyAttribute Include="System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage" />
     </ItemGroup>
 
     <ItemGroup>
@@ -13,11 +13,11 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1"/>
-        <PackageReference Include="NetArchTest.Rules" Version="1.3.2"/>
-		<PackageReference Include="JetBrains.Annotations" Version="2025.2.2"/>
-		<PackageReference Include="Shouldly" Version="4.3.0"/>
-		<PackageReference Include="xunit.v3" Version="3.1.0"/>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.14.1" />
+        <PackageReference Include="NetArchTest.Rules" Version="1.3.2" />
+		<PackageReference Include="JetBrains.Annotations" Version="2025.2.2" />
+		<PackageReference Include="Shouldly" Version="4.3.0" />
+		<PackageReference Include="xunit.v3" Version="3.1.0" />
 		<PackageReference Include="xunit.runner.visualstudio" Version="3.1.5">
 			<PrivateAssets>all</PrivateAssets>
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -25,9 +25,13 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\src\uis\AStar.Dev.Web\AStar.Dev.Web.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
         <Using Include="Xunit" />
-        <Using Include="Shouldly"/>
-		<Using Include="JetBrains.Annotations"/>
+        <Using Include="Shouldly" />
+		<Using Include="JetBrains.Annotations" />
     </ItemGroup>
 
 </Project>
