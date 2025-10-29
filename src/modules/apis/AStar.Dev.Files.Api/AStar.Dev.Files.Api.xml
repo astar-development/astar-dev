@@ -4,6 +4,17 @@
         <name>AStar.Dev.Files.Api</name>
     </assembly>
     <members>
+        <member name="T:AStar.Dev.Files.Api.Class1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Class1.DoStuff">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesRequest">
             <summary>
                 The <see cref="T:AStar.Dev.Files.Api.Endpoints.Add.V1.AddFilesRequest" /> contains the detail of the files being added.

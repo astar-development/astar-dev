@@ -1,51 +1,68 @@
 using AStar.Dev.Aspire.Common;
 using AStar.Dev.AspNet.Extensions.Handlers;
 using AStar.Dev.AspNet.Extensions.WebApplicationBuilderExtensions;
-using AStar.Dev.Files.Classifications.Api;
 using AStar.Dev.Infrastructure.FilesDb.Data;
 using AStar.Dev.ServiceDefaults;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Scalar.AspNetCore;
 
-var builder = WebApplication.CreateBuilder(args);
-builder.AddServiceDefaults();
+namespace AStar.Dev.Files.Classifications.Api;
 
-builder.AddSqlServerDbContext<FilesContext>(AspireConstants.Sql.AStarDb);
+/// <summary>
+/// 
+/// </summary>
+public class Class1
+{
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
+    public static async Task DoStuff()
+    {
+        var builder = WebApplication.CreateBuilder();
+        _ = builder.AddServiceDefaults();
 
-_ = builder
-    .DisableServerHeader();
+        builder.AddSqlServerDbContext<FilesContext>(AspireConstants.Sql.AStarDb);
 
-builder.Services.AddOpenApi();
-_ = builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
-_ = builder.Services.AddProblemDetails(options => options.CustomizeProblemDetails = ctx => ctx.ProblemDetails.Extensions.Add("nodeId", Environment.MachineName));
+        _ = builder
+            .DisableServerHeader();
 
-_ = builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+        _ = builder.Services.AddOpenApi();
+        _ = builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+        _ = builder.Services.AddProblemDetails(options => options.CustomizeProblemDetails = ctx => ctx.ProblemDetails.Extensions.Add("nodeId", Environment.MachineName));
 
-builder.Services.AddHealthChecks();
+        _ = builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-var app = builder.Build();
+        _ = builder.Services.AddHealthChecks();
 
-var policyCollection = new HeaderPolicyCollection()
+        var app = builder.Build();
+
+        var policyCollection = new HeaderPolicyCollection()
     .AddDefaultSecurityHeaders()
     .AddPermissionsPolicyWithDefaultSecureDirectives();
 
-app.UseSecurityHeaders(policyCollection);
+        _ = app.UseSecurityHeaders(policyCollection);
 
-app.MapHealthChecks("/health").ShortCircuit();
+        _ = app.MapHealthChecks("/health").ShortCircuit();
 
-// Configure the HTTP request pipeline.
-if(app.Environment.IsDevelopment())
-{
-    _ = app.MapOpenApi();
-    _ = app.MapScalarApiReference();
-}
+        // Configure the HTTP request pipeline.
+        if(app.Environment.IsDevelopment())
+        {
+            _ = app.MapOpenApi();
+            _ = app.MapScalarApiReference();
+        }
 
-app.UseHttpsRedirection();
+        _ = app.UseHttpsRedirection();
 
-var summaries = new[] { "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching" };
+        var summaries = new[] { "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching" };
 
-app.MapGet("/weatherforecast", () =>
-    {
-        var forecast = Enumerable.Range(1, 5).Select(index =>
+        _ = app.MapGet("/weatherforecast", () =>
+            {
+                var forecast = Enumerable.Range(1, 5).Select(index =>
                 new WeatherForecast
                 (
                     DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
@@ -53,20 +70,19 @@ app.MapGet("/weatherforecast", () =>
                     summaries[Random.Shared.Next(summaries.Length)]
                 ))
             .ToArray();
-        return forecast;
-    })
-    .WithName("GetWeatherForecast");
+                return forecast;
+            })
+            .WithName("GetWeatherForecast");
 
-app.MapShortCircuit(404, "robots.txt", "favicon.ico", "404.html", "sitemap.xml");
+        _ = app.MapShortCircuit(404, "robots.txt", "favicon.ico", "404.html", "sitemap.xml");
 
+        _ = app.UseExceptionHandler();
+        await Task.Delay(1);
 
-_ = app.UseExceptionHandler();
-app.Run();
-
-namespace AStar.Dev.Files.Classifications.Api
-{
+    }
     internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
     {
         public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
     }
 }
+

@@ -1,5 +1,6 @@
 using AStar.Dev.Test.Helpers.EndToEnd;
 using AStar.Dev.Test.Helpers.EndToEnd.Models;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Options;
 using Xunit.Abstractions;
 

@@ -3,7 +3,7 @@
     <PropertyGroup>
         <Title>AStar Dev AspNet Minimal API Extensions</Title>
         <Company>AStar Development</Company>
-        <Copyright>AStar Development, 2024</Copyright>
+        <Copyright>AStar Development, 2025</Copyright>
         <PackageReadmeFile>Readme.md</PackageReadmeFile>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <IncludeSymbols>True</IncludeSymbols>

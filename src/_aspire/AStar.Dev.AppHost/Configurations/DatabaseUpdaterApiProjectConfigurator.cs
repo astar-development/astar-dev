@@ -14,7 +14,6 @@ public static class DatabaseUpdaterApiProjectConfigurator
         IResourceBuilder<SqlServerDatabaseResource> filesDb,
         IResourceBuilder<ProjectResource> migrations,
         IResourceBuilder<SqlServerServerResource> sqlServer,
-        IResourceBuilder<ProjectResource> fileClassificationsApi,
         IResourceBuilder<RabbitMQServerResource> rabbitMq)
     {
         var config = GetConfig();
@@ -23,8 +22,6 @@ public static class DatabaseUpdaterApiProjectConfigurator
             .WaitFor(filesDb)
             .WithReference(migrations)
             .WaitForCompletion(migrations)
-            .WithReference(fileClassificationsApi)
-            .WaitFor(fileClassificationsApi)
             .WithReference(rabbitMq)
             .WaitFor(rabbitMq)
             .WithParentRelationship(sqlServer);

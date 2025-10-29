@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <Deterministic>true</Deterministic>
@@ -6,7 +6,11 @@
         <UserSecretsId>6ae4796b-5ba0-4a62-b94d-462ffbb31419</UserSecretsId>
     </PropertyGroup>
 
-    <ItemGroup>
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+	<ItemGroup>
         <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.0"/>
         <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0"/>
         <PackageReference Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer" Version="9.5.2"/>
@@ -38,7 +42,7 @@
 
     <PropertyGroup>
         <Company>AStar Development</Company>
-        <Copyright>AStar Development, 2024</Copyright>
+        <Copyright>AStar Development, 2025</Copyright>
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
         <DocumentationFile>$(AssemblyName).xml</DocumentationFile>
     </PropertyGroup>

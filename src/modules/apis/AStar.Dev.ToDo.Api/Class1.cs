@@ -1,5 +1,4 @@
 using AStar.Dev.AspNet.Extensions.Handlers;
-using AStar.Dev.Images.Api;
 using AStar.Dev.ServiceDefaults;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -8,17 +7,10 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Scalar.AspNetCore;
 
-namespace AStar.Dev.Images.Api;
+namespace AStar.Dev.ToDo.Api;
 
-/// <summary>
-/// 
-/// </summary>
 public static class Class1
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    /// <returns></returns>
     public static async Task DoStuff()
     {
         var builder = WebApplication.CreateBuilder();
@@ -35,8 +27,8 @@ public static class Class1
         var app = builder.Build();
 
         var policyCollection = new HeaderPolicyCollection()
-            .AddDefaultSecurityHeaders()
-            .AddPermissionsPolicyWithDefaultSecureDirectives();
+                   .AddDefaultSecurityHeaders()
+                   .AddPermissionsPolicyWithDefaultSecureDirectives();
 
         _ = app.UseSecurityHeaders(policyCollection);
 
@@ -54,18 +46,18 @@ public static class Class1
         var summaries = new[] { "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching" };
 
         _ = app.MapGet("/weatherforecast", () =>
-            {
-                var forecast = Enumerable.Range(1, 5).Select(index => new WeatherForecast
-                    (
-                        DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-                        Random.Shared.Next(-20, 55),
-                        summaries[Random.Shared.Next(summaries.Length)]
-                    ))
-                    .ToArray();
+        {
+            var forecast = Enumerable.Range(1, 5).Select(index => new WeatherForecast
+                                                                                (
+                                                                                 DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
+                                                                                 Random.Shared.Next(-20, 55),
+                                                                                 summaries[Random.Shared.Next(summaries.Length)]
+                                                                                ))
+                                                        .ToArray();
 
-                return forecast;
-            })
-            .WithName("GetWeatherForecast");
+            return forecast;
+        })
+           .WithName("GetWeatherForecast");
 
         _ = app.MapShortCircuit(404, "robots.txt", "favicon.ico", "404.html", "sitemap.xml");
 
@@ -73,7 +65,6 @@ public static class Class1
         await app.RunAsync();
     }
 }
-
 internal record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
 {
     public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);

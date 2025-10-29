@@ -1,6 +1,9 @@
 ﻿namespace AStar.Dev.Admin.Api;
 
-public class Class1
+/// <summary>
+/// 
+/// </summary>
+public interface IClass1
 {
 
 }

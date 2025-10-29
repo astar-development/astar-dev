@@ -15,12 +15,8 @@ public static class DistributedApplicationBuilderExtensions
         var migrations           = MigrationsConfigurator.Configure(builder, astarDb, sqlServer, sqlSaUserPassword, sqlAdminUserPassword, sqlFilesUserPassword, sqlUsageUserPassword);
         var rabbitMq             = RabbitMqConfigurator.Configure(builder);
 
-        var filesApi               = FilesApiProjectConfigurator.Configure(builder, astarDb, migrations, rabbitMq);
-        var fileClassificationsApi = FileClassificationsApiProjectConfigurator.Configure(builder, astarDb, migrations, rabbitMq);
-        var imagesApi              = ImagesApiProjectConfigurator.Configure(builder, rabbitMq);
-        var usageApi               = UsageApiProjectConfigurator.Configure(builder, rabbitMq);
-        DatabaseUpdaterApiProjectConfigurator.Configure(builder, astarDb, migrations, sqlServer, fileClassificationsApi, rabbitMq);
+        DatabaseUpdaterApiProjectConfigurator.Configure(builder, astarDb, migrations, sqlServer, rabbitMq);
 
-        UiProjectConfigurator.Configure(builder, filesApi, imagesApi, usageApi, fileClassificationsApi, rabbitMq);
+        UiProjectConfigurator.Configure(builder, rabbitMq);
     }
 }
