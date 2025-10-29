@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AStar.Dev.Admin.Api</name>
+    </assembly>
+    <members>
+        <member name="T:AStar.Dev.Admin.Api.IClass1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Admin.Api.IAssemblyMarker">
+            <summary>
+                The IAssemblyMarker interface is used where a class/interface is required to identify the assembly
+                <para>No functionality is (nor should any be) defined by this marker interface</para>
+            </summary>
+        </member>
+    </members>
+</doc>

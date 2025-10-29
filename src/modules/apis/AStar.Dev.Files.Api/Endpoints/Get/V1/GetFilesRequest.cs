@@ -1,6 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 using AStar.Dev.Api.Usage.Sdk.Metrics;
+using Microsoft.AspNetCore.Http;
 
 namespace AStar.Dev.Files.Api.Endpoints.Get.V1;
 

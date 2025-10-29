@@ -1,4 +1,5 @@
 using AStar.Dev.Test.Helpers.EndToEnd.Models;
+using AStar.Dev.Web.UI.Features.AdminPages.AreSecured;
 using Microsoft.Extensions.Options;
 using Reqnroll.BoDi;
 

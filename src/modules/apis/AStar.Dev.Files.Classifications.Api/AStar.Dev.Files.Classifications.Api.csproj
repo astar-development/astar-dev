@@ -1,9 +1,13 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
 		<Deterministic>true</Deterministic>
         <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
     </PropertyGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
 
     <ItemGroup>
         <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.0"/>
@@ -38,7 +42,7 @@
 
     <PropertyGroup>
         <Company>AStar Development</Company>
-        <Copyright>AStar Development, 2024</Copyright>
+        <Copyright>AStar Development, 2025</Copyright>
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
         <DocumentationFile>$(AssemblyName).xml</DocumentationFile>
     </PropertyGroup>

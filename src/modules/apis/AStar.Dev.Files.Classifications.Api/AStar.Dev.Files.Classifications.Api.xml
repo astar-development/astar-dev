@@ -20,6 +20,17 @@
         <member name="M:AStar.Dev.Files.Classifications.Api.Endpoints.GetFileClassificationsEndpoint.HandleAsync(System.Threading.CancellationToken)">
             <inheritdoc/>
         </member>
+        <member name="T:AStar.Dev.Files.Classifications.Api.Class1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Files.Classifications.Api.Class1.DoStuff">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:AStar.Dev.Files.Classifications.Api.Services.FileClassificationsService">
             <summary>
             Service to fetch file classifications from the database.

@@ -1,4 +1,5 @@
 using AStar.Dev.Infrastructure.FilesDb.Data;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
 namespace AStar.Dev.Files.Api.Endpoints.Get.V1;
@@ -15,22 +16,10 @@ public class GetFilesHandler : IGetFilesHandler
             return Results.BadRequest();
         }
 
-        var searchType = Enum.Parse<SearchType>(files.SearchType.ToString());
-
-        var sortOrder = (Infrastructure.FilesDb.Models.SortOrder)Enum.Parse<SortOrder>(files.SortOrder
-                                                                                            .ToString());
-
         IList<GetFilesResponse> fileDetails = await filesContext.Files
                                                                 .WhereDirectoryNameMatches(files.SearchFolder, files.Recursive)
-
-                                                                //.IncludeMarkedForDeletion(files.IncludeMarkedForDeletion)
                                                                 .SelectFilesMatching(files.SearchText)
-
-                                                                //.OrderAsRequested(sortOrder)
-                                                                //.SelectByFileType(searchType)
                                                                 .WhereLastViewedIsOlderThan(files.ExcludeViewedWithinDays, time)
-
-                                                                //.SelectRequestedPage(files.CurrentPage, files.ItemsPerPage)
                                                                 .Select(fileDetail => fileDetail.ToGetFilesResponse())
                                                                 .ToListAsync(cancellationToken);
 

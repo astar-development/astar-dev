@@ -1,4 +1,5 @@
 using AStar.Dev.Infrastructure.FilesDb.Data;
+using Microsoft.AspNetCore.Http;
 
 namespace AStar.Dev.Files.Api.Endpoints.Add.V1;
 
@@ -29,7 +30,6 @@ public static class PostedFilesHandler // move to non-static and IoC?
 
         await filesContext.Files.AddRangeAsync(fileDetailList, cancellationToken);
 
-        //await filesContext.Events.AddRangeAsync(events, cancellationToken);
         _ = await filesContext.SaveChangesAsync(cancellationToken);
 
         var responseList = fileDetailList.ToAddFilesResponse();

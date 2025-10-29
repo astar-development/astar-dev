@@ -13,10 +13,6 @@ public static class UiProjectConfigurator
 
     public static void Configure(
         IDistributedApplicationBuilder builder,
-        IResourceBuilder<ProjectResource> filesApi,
-        IResourceBuilder<ProjectResource> imagesApi,
-        IResourceBuilder<ProjectResource> usageApi,
-        IResourceBuilder<ProjectResource> fileClassificationsApi,
         IResourceBuilder<RabbitMQServerResource> rabbitMq)
     {
         var config = GetConfig();
@@ -24,14 +20,6 @@ public static class UiProjectConfigurator
             .WithExternalHttpEndpoints()
             .WithHttpHealthCheck(config.HealthEndpoint)
             .WithReference(rabbitMq)
-            .WaitFor(rabbitMq)
-            .WithReference(filesApi)
-            .WaitFor(filesApi)
-            .WithReference(fileClassificationsApi)
-            .WaitFor(fileClassificationsApi)
-            .WithReference(imagesApi)
-            .WaitFor(imagesApi)
-            .WithReference(usageApi)
-            .WaitFor(usageApi);
+            .WaitFor(rabbitMq);
     }
 }

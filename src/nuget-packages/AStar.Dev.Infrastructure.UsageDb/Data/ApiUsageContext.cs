@@ -20,7 +20,7 @@ public sealed class ApiUsageContext : DbContext
     /// <param name="connectionString"></param>
     public ApiUsageContext(ConnectionString connectionString)
         : this()
-        => this._connectionString = connectionString;
+        => _connectionString = connectionString;
 
     /// <summary>
     /// </summary>
