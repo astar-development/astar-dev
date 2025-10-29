@@ -1,9 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
-        <Nullable>enable</Nullable>
-        <ImplicitUsings>enable</ImplicitUsings>
         <AnalysisLevel>latest-recommended</AnalysisLevel>
         <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
     </PropertyGroup>
@@ -39,16 +36,6 @@
         <None Include="Readme.md" Pack="true" PackagePath=""/>
         <None Include="astar.png" Pack="true" PackagePath=""/>
     </ItemGroup>
-
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-        <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-        <NoWarn>1701;1702;</NoWarn>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-        <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-        <NoWarn>1701;1702;</NoWarn>
-    </PropertyGroup>
 
     <ItemGroup>
         <None Update="astar.png">

@@ -3,7 +3,7 @@ namespace AStar.Dev.Functional.Extensions.Tests.Unit;
 public class EnumerableExtensionsShould
 {
     [Fact]
-    public void FirstOrNone_ShouldReturnSome_WhenPredicateMatches()
+    public void FirstOrNoneShouldReturnSomeWhenPredicateMatches()
     {
         var list = new List<string> { "apple", "banana", "cherry" };
 
@@ -15,7 +15,7 @@ public class EnumerableExtensionsShould
     }
 
     [Fact]
-    public void FirstOrNone_ShouldReturnNone_WhenNoPredicateMatches()
+    public void FirstOrNoneShouldReturnNoneWhenNoPredicateMatches()
     {
         var list = new List<int> { 1, 2, 3 };
 
@@ -25,7 +25,7 @@ public class EnumerableExtensionsShould
     }
 
     [Fact]
-    public void FirstOrNone_ShouldReturnNone_ForEmptySequence()
+    public void FirstOrNoneShouldReturnNoneForEmptySequence()
     {
         var list = new List<int>();
 
@@ -35,7 +35,7 @@ public class EnumerableExtensionsShould
     }
 
     [Fact]
-    public void FirstOrNone_ShouldReturnFirstMatchingItem()
+    public void FirstOrNoneShouldReturnFirstMatchingItem()
     {
         var list = new List<int> { 2, 4, 6 };
 

@@ -1,10 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-
         <Title>AStar Dev AspNet Minimal API Extensions</Title>
         <Company>AStar Development</Company>
         <Copyright>AStar Development, 2024</Copyright>
@@ -40,26 +36,12 @@
         </None>
     </ItemGroup>
 
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-        <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-        <NoWarn>1701;1702;</NoWarn>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-        <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-        <NoWarn>1701;1702;</NoWarn>
-    </PropertyGroup>
-
     <ItemGroup>
         <None Include="..\..\AStar.png">
             <Pack>True</Pack>
             <PackagePath>/</PackagePath>
             <Link>AStar.png</Link>
         </None>
-    </ItemGroup>
-
-    <ItemGroup>
-
     </ItemGroup>
 
 </Project>

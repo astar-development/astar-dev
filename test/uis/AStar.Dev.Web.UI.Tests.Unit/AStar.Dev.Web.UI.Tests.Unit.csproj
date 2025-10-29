@@ -1,9 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
         <IsPackable>false</IsPackable>
     </PropertyGroup>
 
@@ -17,23 +14,27 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="JetBrains.Annotations" Version="2025.2.2"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="9.0.10"/>
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.0"/>
-        <PackageReference Include="NSubstitute" Version="5.3.0"/>
-        <PackageReference Include="Shouldly" Version="4.3.0"/>
-        <PackageReference Include="xunit.v3" Version="3.1.0"/>
-        <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5">
-            <PrivateAssets>all</PrivateAssets>
-            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-        </PackageReference>
-    </ItemGroup>
+		<PackageReference Include="NSubstitute" Version="5.3.0"/>
+		<PackageReference Include="NSubstitute.Analyzers.CSharp" Version="1.0.17">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="JetBrains.Annotations" Version="2025.2.2"/>
+		<PackageReference Include="Shouldly" Version="4.3.0"/>
+		<PackageReference Include="xunit.v3" Version="3.1.0"/>
+		<PackageReference Include="xunit.runner.visualstudio" Version="3.1.5">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
 
-    <ItemGroup>
-        <Using Include="Xunit"/>
-        <Using Include="Shouldly"/>
-        <Using Include="JetBrains.Annotations"/>
-    </ItemGroup>
+	<ItemGroup>
+		<Using Include="Xunit" />
+		<Using Include="Shouldly"/>
+		<Using Include="JetBrains.Annotations"/>
+	</ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\..\..\src\nuget-packages\AStar.Dev.Infrastructure.FilesDb\AStar.Dev.Infrastructure.FilesDb.csproj"/>
@@ -49,15 +50,5 @@
     <ItemGroup>
         <Folder Include="Components\Layout\"/>
     </ItemGroup>
-
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-        <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-        <NoWarn>1701;1702;IDE0058;</NoWarn>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-        <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-        <NoWarn>1701;1702;IDE0058;</NoWarn>
-    </PropertyGroup>
 
 </Project>

@@ -1,9 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
         <ApplicationIcon>astar.ico</ApplicationIcon>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Authors>AStar Development, Jason Barden</Authors>
@@ -40,15 +37,5 @@
         <PackageReference Include="Microsoft.Extensions.Http.Resilience" Version="9.10.0"/>
         <PackageReference Include="Microsoft.Identity.Web.TokenAcquisition" Version="4.0.1"/>
     </ItemGroup>
-
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-        <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-        <NoWarn>1701;1702;</NoWarn>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-        <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-        <NoWarn>1701;1702;</NoWarn>
-    </PropertyGroup>
 
 </Project>

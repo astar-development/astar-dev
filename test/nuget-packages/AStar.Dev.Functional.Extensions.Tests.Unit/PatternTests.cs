@@ -3,7 +3,7 @@ namespace AStar.Dev.Functional.Extensions.Tests.Unit;
 public class PatternTests
 {
     [Fact]
-    public void IsSome_And_IsNone_WorkCorrectly()
+    public void IsSomeAndIsNoneWorkCorrectly()
     {
         Option<string> some = new Option<string>.Some("value");
         var            none = Option.None<string>();
@@ -16,7 +16,7 @@ public class PatternTests
     }
 
     [Fact]
-    public void IsOk_And_IsError_WorkCorrectly()
+    public void IsOkAndIsErrorWorkCorrectly()
     {
         Result<int, string> ok  = new Result<int, string>.Ok(1);
         Result<int, string> err = new Result<int, string>.Error("fail");
@@ -29,7 +29,7 @@ public class PatternTests
     }
 
     [Fact]
-    public void IsSuccess_And_IsFailure_WorkCorrectly()
+    public void IsSuccessAndIsFailureWorkCorrectly()
     {
         var success = Try.Run(() => 1);
         var failure = Try.Run<int>(() => throw new ArgumentNullException("fail"));

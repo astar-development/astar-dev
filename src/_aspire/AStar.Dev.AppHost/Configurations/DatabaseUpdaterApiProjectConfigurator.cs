@@ -18,7 +18,7 @@ public static class DatabaseUpdaterApiProjectConfigurator
         IResourceBuilder<RabbitMQServerResource> rabbitMq)
     {
         var config = GetConfig();
-        builder.AddProject<AStar_Dev_Database_Updater>(config.ProjectName)
+        _ = builder.AddProject<AStar_Dev_Database_Updater>(config.ProjectName)
             .WithReference(filesDb)
             .WaitFor(filesDb)
             .WithReference(migrations)

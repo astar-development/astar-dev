@@ -17,6 +17,6 @@ public sealed class ApiConfigurationTest
 
         var actual = sut.OpenApiInfo;
 
-        actual.ShouldBeOfType<OpenApiInfo>();
+        _ = actual.ShouldBeOfType<OpenApiInfo>();
     }
 }

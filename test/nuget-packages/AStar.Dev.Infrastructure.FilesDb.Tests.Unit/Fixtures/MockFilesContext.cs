@@ -41,7 +41,7 @@ public sealed class MockFilesContext : IAsyncDisposable, IDisposable
         }
 
         // Create database schema and populate with test data
-        await Context.Database.EnsureCreatedAsync();
+        _ = await Context.Database.EnsureCreatedAsync();
         AddMockFiles(Context);
     }
 
@@ -90,7 +90,7 @@ public sealed class MockFilesContext : IAsyncDisposable, IDisposable
     {
         var testFiles = GenerateMockFiles();
         context.Files.AddRange(testFiles);
-        context.SaveChanges();
+        _ = context.SaveChanges();
     }
 
     private static List<FileDetail> GenerateMockFiles()

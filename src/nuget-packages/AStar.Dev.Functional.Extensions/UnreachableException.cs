@@ -1,4 +1,6 @@
-﻿namespace AStar.Dev.Functional.Extensions;
+﻿using System;
+
+namespace AStar.Dev.Functional.Extensions;
 
 /// <summary>
 /// An implementation of an exception that indicates that the code path should be unreachable.

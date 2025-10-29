@@ -62,7 +62,7 @@ public sealed class FilesContextExtensionsApprovalsShould(FilesContextFixture fi
     }
 
     [Fact]
-    public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedAndDeletePendingAreTrue_ImagesOnly()
+    public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedAndDeletePendingAreTrueImagesOnly()
     {
         var response = _sut.Files
             .GetMatchingFiles(new("/"), Recursive, "Images", IncludeSoftDeleted, IncludeMarkedForDeletion, ExcludeViewed, _fakeTime, CancellationToken.None);
@@ -71,7 +71,7 @@ public sealed class FilesContextExtensionsApprovalsShould(FilesContextFixture fi
     }
 
     [Fact]
-    public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedIsTrueButDeletePendingIsFalse_ImagesOnly()
+    public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedIsTrueButDeletePendingIsFalseImagesOnly()
     {
         var response = _sut.Files
             .GetMatchingFiles(new("/"), Recursive, "Images", IncludeSoftDeleted, ExcludeMarkedForDeletion, ExcludeViewed, _fakeTime, CancellationToken.None);
@@ -80,7 +80,7 @@ public sealed class FilesContextExtensionsApprovalsShould(FilesContextFixture fi
     }
 
     [Fact]
-    public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedIsFalseButDeletePendingIsTrue_ImagesOnly()
+    public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedIsFalseButDeletePendingIsTrueImagesOnly()
     {
         var response = _sut.Files
             .GetMatchingFiles(new("/"), Recursive, "Images", ExcludeSoftDeleted, IncludeMarkedForDeletion, ExcludeViewed, _fakeTime, CancellationToken.None);
@@ -89,7 +89,7 @@ public sealed class FilesContextExtensionsApprovalsShould(FilesContextFixture fi
     }
 
     [Fact]
-    public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedAndDeletePendingAreFalse_ImagesOnly()
+    public void ReturnMatchingFilesWhenRecursiveIsTrueAndIncludeSoftDeletedAndDeletePendingAreFalseImagesOnly()
     {
         var response = _sut.Files
             .GetMatchingFiles(new("/"), Recursive, "Images", ExcludeSoftDeleted, ExcludeMarkedForDeletion, ExcludeViewed, _fakeTime, CancellationToken.None);

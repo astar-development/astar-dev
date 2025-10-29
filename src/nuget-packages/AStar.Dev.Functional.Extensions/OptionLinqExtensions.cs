@@ -1,3 +1,6 @@
+using System;
+using System.Threading.Tasks;
+
 namespace AStar.Dev.Functional.Extensions;
 
 /// <summary>
@@ -17,7 +20,7 @@ public static class OptionLinqExtensions
         => option.Bind(x => bind(x).Map(y => project(x, y)));
 
     /// <summary>
-    ///     Asynchronously projects the value of a <see cref="Task{Option}" /> using the specified function.
+    ///     Asynchronously projects the value of a <see cref="Task{TResult}" /> using the specified function.
     /// </summary>
     public static async Task<Option<TResult>> SelectAwait<T, TResult>(this Task<Option<T>> task, Func<T, Task<TResult>> selector)
     {
