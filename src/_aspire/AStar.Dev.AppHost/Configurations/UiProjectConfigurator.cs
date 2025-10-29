@@ -5,15 +5,14 @@ namespace AStar.Dev.AppHost.Configurations;
 
 public static class UiProjectConfigurator
 {
-    private const string HealthEndpoint = "/health";
+    private const string HealthEndpoint1 = "/health";
 
     public record UiProjectConfig(string ProjectName, string HealthEndpoint);
 
-    public static UiProjectConfig GetConfig() => new(AspireConstants.Ui, HealthEndpoint);
+    public static UiProjectConfig GetConfig() => new(AspireConstants.Ui, HealthEndpoint1);
 
     public static void Configure(
         IDistributedApplicationBuilder builder,
-        IResourceBuilder<ProjectResource> adminApi,
         IResourceBuilder<ProjectResource> filesApi,
         IResourceBuilder<ProjectResource> imagesApi,
         IResourceBuilder<ProjectResource> usageApi,
@@ -21,13 +20,11 @@ public static class UiProjectConfigurator
         IResourceBuilder<RabbitMQServerResource> rabbitMq)
     {
         var config = GetConfig();
-        builder.AddProject<AStar_Dev_Web>(config.ProjectName)
+        _ = builder.AddProject<AStar_Dev_Web>(config.ProjectName)
             .WithExternalHttpEndpoints()
             .WithHttpHealthCheck(config.HealthEndpoint)
             .WithReference(rabbitMq)
             .WaitFor(rabbitMq)
-            .WithReference(adminApi)
-            .WaitFor(adminApi)
             .WithReference(filesApi)
             .WaitFor(filesApi)
             .WithReference(fileClassificationsApi)

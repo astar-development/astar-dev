@@ -1,9 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
         <ApplicationIcon>astar.ico</ApplicationIcon>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Authors>AStar Development, Jason Barden</Authors>
@@ -41,15 +38,5 @@
         <ProjectReference Include="..\AStar.Dev.Api.Usage.Sdk\AStar.Dev.Api.Usage.Sdk.csproj"/>
         <ProjectReference Include="..\AStar.Dev.Infrastructure\AStar.Dev.Infrastructure.csproj"/>
     </ItemGroup>
-
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-        <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-        <NoWarn>1701;1702;</NoWarn>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-        <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-        <NoWarn>1701;1702;</NoWarn>
-    </PropertyGroup>
 
 </Project>

@@ -1,9 +1,9 @@
-namespace AStar.Dev.AppHost.Configurations.Tests;
+namespace AStar.Dev.AppHost.Configurations.Tests.Unit;
 
 public class ImagesApiProjectConfiguratorTests
 {
     [Fact]
-    public void GetConfig_Should_Return_Expected_Values()
+    public void GetConfigShouldReturnExpectedValues()
     {
         // Act
         var config = ImagesApiProjectConfigurator.GetConfig();

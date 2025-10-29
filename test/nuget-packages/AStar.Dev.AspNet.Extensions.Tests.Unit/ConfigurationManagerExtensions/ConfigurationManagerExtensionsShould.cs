@@ -21,7 +21,7 @@ public sealed class ConfigurationManagerExtensionsShould
     public void ReturnTheExpectedConfigurationWhenTheConfigurationKeyExists()
     {
         var sut = new ConfigurationManager();
-        sut.AddJsonFile("testdata/appsettings.json");
+        _ = sut.AddJsonFile("testdata/appsettings.json");
 
         var configuration = sut.GetValidatedConfigurationSection<ApiConfiguration>("apiConfiguration")!;
 

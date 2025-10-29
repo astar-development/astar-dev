@@ -7,5 +7,5 @@ public class ServiceDefaultsLogicTests
     [InlineData("   ", false)]
     [InlineData("http://localhost:4317", true)]
     [InlineData("otlp-endpoint", true)]
-    public void ShouldUseOtlpExporter_ReturnsExpectedResult(string endpoint, bool expected) => Extensions.ServiceDefaultsLogic.ShouldUseOtlpExporter(endpoint).ShouldBe(expected);
+    public void ShouldUseOtlpExporterReturnsExpectedResult(string endpoint, bool expected) => Extensions.ServiceDefaultsLogic.ShouldUseOtlpExporter(endpoint).ShouldBe(expected);
 }

@@ -63,13 +63,14 @@ public static class Extensions
                             });
 
         _ = builder.AddOpenTelemetryExporters();
-
+        
         return builder;
     }
 
     private static TBuilder AddOpenTelemetryExporters<TBuilder>(this TBuilder builder) where TBuilder : IHostApplicationBuilder
     {
-        if(ServiceDefaultsLogic.ShouldUseOtlpExporter(builder.Configuration["OTEL_EXPORTER_OTLP_ENDPOINT"]))
+        string otlpEndpoint = builder.Configuration["OTEL_EXPORTER_OTLP_ENDPOINT"]!;
+        if(ServiceDefaultsLogic.ShouldUseOtlpExporter(otlpEndpoint))
         {
             _ = builder.Services.AddOpenTelemetry().UseOtlpExporter();
         }

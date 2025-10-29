@@ -30,8 +30,8 @@ public class SearchShould : TestContext
             new() { Id = Guid.NewGuid(), Name = "Classification 2", IncludeInSearch = true, Celebrity = false }
         };
 
-        _mockFilesApiClient.GetFileClassificationsAsync().Returns(Task.FromResult<IReadOnlyCollection<FileClassification>>(classifications));
-        Services.AddSingleton(_mockFilesApiClient);
+        _ = _mockFilesApiClient.GetFileClassificationsAsync().Returns(Task.FromResult<IReadOnlyCollection<FileClassification>>(classifications));
+        _ = Services.AddSingleton(_mockFilesApiClient);
 
         // Act
         var cut = RenderComponent<Search>();
@@ -45,8 +45,8 @@ public class SearchShould : TestContext
     {
         // Arrange
         var classifications = new List<FileClassification>();
-        _mockFilesApiClient.GetFileClassificationsAsync().Returns(Task.FromResult<IReadOnlyCollection<FileClassification>>(classifications));
-        Services.AddSingleton(_mockFilesApiClient);
+        _ = _mockFilesApiClient.GetFileClassificationsAsync().Returns(Task.FromResult<IReadOnlyCollection<FileClassification>>(classifications));
+        _ = Services.AddSingleton(_mockFilesApiClient);
 
         // Act
         var cut = RenderComponent<Search>();
@@ -61,8 +61,8 @@ public class SearchShould : TestContext
     {
         // Arrange
         var classifications = new List<FileClassification>();
-        _mockFilesApiClient.GetFileClassificationsAsync().Returns(Task.FromResult<IReadOnlyCollection<FileClassification>>(classifications));
-        Services.AddSingleton(_mockFilesApiClient);
+        _ = _mockFilesApiClient.GetFileClassificationsAsync().Returns(Task.FromResult<IReadOnlyCollection<FileClassification>>(classifications));
+        _ = Services.AddSingleton(_mockFilesApiClient);
 
         // Act
         var cut = RenderComponent<Search>();
@@ -82,8 +82,8 @@ public class SearchShould : TestContext
             new() { Id = Guid.NewGuid(), Name = "Videos", IncludeInSearch = false, Celebrity = true }
         };
 
-        _mockFilesApiClient.GetFileClassificationsAsync().Returns(Task.FromResult<IReadOnlyCollection<FileClassification>>(classifications));
-        Services.AddSingleton(_mockFilesApiClient);
+        _ = _mockFilesApiClient.GetFileClassificationsAsync().Returns(Task.FromResult<IReadOnlyCollection<FileClassification>>(classifications));
+        _ = Services.AddSingleton(_mockFilesApiClient);
 
         // Act
         var cut = RenderComponent<Search>();
@@ -91,7 +91,7 @@ public class SearchShould : TestContext
         // Assert
         await cut.InvokeAsync(async () =>
         {
-            await _mockFilesApiClient.Received(1).GetFileClassificationsAsync();
+            _ = await _mockFilesApiClient.Received(1).GetFileClassificationsAsync();
         });
 
         cut.Markup.ShouldContain("Documents");
@@ -105,8 +105,8 @@ public class SearchShould : TestContext
         // Arrange
         var classifications = new List<FileClassification> { new() { Id = Guid.NewGuid(), Name = "Type1", IncludeInSearch = true, Celebrity = false } };
 
-        _mockFilesApiClient.GetFileClassificationsAsync().Returns(Task.FromResult<IReadOnlyCollection<FileClassification>>(classifications));
-        Services.AddSingleton(_mockFilesApiClient);
+        _ = _mockFilesApiClient.GetFileClassificationsAsync().Returns(Task.FromResult<IReadOnlyCollection<FileClassification>>(classifications));
+        _ = Services.AddSingleton(_mockFilesApiClient);
 
         // Act
         var cut = RenderComponent<Search>();

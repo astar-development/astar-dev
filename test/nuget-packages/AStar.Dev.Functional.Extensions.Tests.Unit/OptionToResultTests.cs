@@ -3,7 +3,7 @@ namespace AStar.Dev.Functional.Extensions.Tests.Unit;
 public class OptionToResultTests
 {
     [Fact]
-    public void ToResult_FromSome_ReturnsOk()
+    public void ToResultFromSomeReturnsOk()
     {
         var opt    = new Option<int>.Some(42);
         var result = opt.ToResult(() => "missing");
@@ -11,7 +11,7 @@ public class OptionToResultTests
     }
 
     [Fact]
-    public void ToResult_FromNone_ReturnsError()
+    public void ToResultFromNoneReturnsError()
     {
         var opt    = Option.None<int>();
         var result = opt.ToResult(() => "missing");

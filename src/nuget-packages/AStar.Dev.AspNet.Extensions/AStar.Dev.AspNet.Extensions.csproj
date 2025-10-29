@@ -1,11 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-    </PropertyGroup>
-
     <ItemGroup>
         <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.0"/>
         <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0"/>
@@ -62,15 +56,5 @@
         <ProjectReference Include="..\AStar.Dev.Api.Usage.Sdk\AStar.Dev.Api.Usage.Sdk.csproj"/>
         <ProjectReference Include="..\AStar.Dev.Technical.Debt.Reporting\AStar.Dev.Technical.Debt.Reporting.csproj"/>
     </ItemGroup>
-
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-        <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-        <NoWarn>1701;1702;</NoWarn>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-        <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-        <NoWarn>1701;1702;</NoWarn>
-    </PropertyGroup>
 
 </Project>

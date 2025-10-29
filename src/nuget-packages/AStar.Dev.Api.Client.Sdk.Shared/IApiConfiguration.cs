@@ -1,3 +1,5 @@
+using System;
+
 namespace AStar.Dev.Api.Client.Sdk.Shared;
 
 /// <summary>

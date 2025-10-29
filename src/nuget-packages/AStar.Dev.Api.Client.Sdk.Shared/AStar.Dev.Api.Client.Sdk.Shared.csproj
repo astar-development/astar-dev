@@ -2,9 +2,6 @@
 
 
     <PropertyGroup>
-        <TargetFramework>net9.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
         <ApplicationIcon>astar.ico</ApplicationIcon>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Authors>AStar Development, Jason Barden</Authors>
@@ -38,15 +35,5 @@
             <HintPath>..\..\..\..\..\.nuget\packages\microsoft.identity.web\3.7.1\lib\net9.0\Microsoft.Identity.Web.dll</HintPath>
         </Reference>
     </ItemGroup>
-
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-        <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-        <NoWarn>1701;1702;</NoWarn>
-    </PropertyGroup>
-
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-        <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
-        <NoWarn>1701;1702;</NoWarn>
-    </PropertyGroup>
 
 </Project>

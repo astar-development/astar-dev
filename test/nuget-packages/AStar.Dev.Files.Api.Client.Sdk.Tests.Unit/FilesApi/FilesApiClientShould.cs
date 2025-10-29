@@ -101,7 +101,7 @@ public sealed class FilesApiClientShould
 
         Func<Task> sutMethod = async () => await sut.GetFilesAsync(new());
 
-        await sutMethod.ShouldThrowAsync<HttpRequestException>();
+        _ = await sutMethod.ShouldThrowAsync<HttpRequestException>();
     }
 
     [Fact(Skip = "Endpoint not implemented")]
@@ -123,7 +123,7 @@ public sealed class FilesApiClientShould
 
         Func<Task> sutMethod = async () => await sut.GetDuplicateFilesAsync(new());
 
-        await sutMethod.ShouldThrowAsync<HttpRequestException>();
+        _ = await sutMethod.ShouldThrowAsync<HttpRequestException>();
     }
 
     [Fact]
@@ -326,7 +326,7 @@ public sealed class FilesApiClientShould
 
         Func<Task> sutMethod = async () => await sut.GetFileAccessDetail(1);
 
-        await sutMethod.ShouldThrowAsync<HttpRequestException>();
+        _ = await sutMethod.ShouldThrowAsync<HttpRequestException>();
     }
 
     [Fact(Skip = "Doesn't work...")]
@@ -350,7 +350,7 @@ public sealed class FilesApiClientShould
 
         Func<Task> sutMethod = async () => await sut.GetFileDetail(1);
 
-        await sutMethod.ShouldThrowAsync<HttpRequestException>();
+        _ = await sutMethod.ShouldThrowAsync<HttpRequestException>();
     }
 
     [Fact]
@@ -372,7 +372,7 @@ public sealed class FilesApiClientShould
 
         Func<Task> sutMethod = async () => await sut.UpdateFileAsync(new());
 
-        await sutMethod.ShouldThrowAsync<HttpRequestException>();
+        _ = await sutMethod.ShouldThrowAsync<HttpRequestException>();
     }
 
     [Fact]
