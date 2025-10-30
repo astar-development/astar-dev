@@ -29,10 +29,26 @@ public static class WebApplicationBuilderExtensions
             .ValidateDataAnnotations()
             .ValidateOnStart();
 
+        // Existing raw scopes list
         var filesApiScopes = builder.Configuration
             .GetSection("apiConfiguration:filesApiConfiguration:Scopes")
             .Get<string[]>() ?? [];
 
+        // Derive read/write scopes for FilesApiOptions
+        _ = builder.Services.Configure<FilesApiOptions>(opts =>
+                                                        {
+                                                            opts.ReadScopes = filesApiScopes
+                                                                              .Where(s => s.EndsWith("/ToDoList.Read", StringComparison.OrdinalIgnoreCase))
+                                                                              .Distinct()
+                                                                              .ToArray();
+
+                                                            opts.WriteScopes = filesApiScopes
+                                                                               .Where(s => s.EndsWith("/ToDoList.Write", StringComparison.OrdinalIgnoreCase))
+                                                                               .Distinct()
+                                                                               .ToArray();
+                                                        });
+
+        // Typed client registration (existing pattern). The FilesApiClient now consumes FilesApiOptions via IOptions<T>.
         builder.Services.AddApiClient<FilesApiClient, FilesApiConfiguration>(filesApiScopes);
 
         _ = builder.AddServiceDefaults();
@@ -44,11 +60,10 @@ public static class WebApplicationBuilderExtensions
 
         _ = builder.Services.AddFluentUIComponents();
 
-        // Rely on AzureAd:Scopes instead of hardcoding initialScopes
         _ = builder.Services
             .AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
             .AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureAd"))
-            .EnableTokenAcquisitionToCallDownstreamApi()   // Will read AzureAd:Scopes
+            .EnableTokenAcquisitionToCallDownstreamApi()
             .AddInMemoryTokenCaches();
 
         _ = builder.Services.AddAuthorization(options => options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin")));

@@ -14,10 +14,7 @@ public static class KeywordRegexBuilder
     /// </summary>
     public static Regex BuildKeywordPattern(IReadOnlyList<FileNamePartsWithClassifications> keywords)
     {
-        if(keywords == null || keywords.Count == 0)
-        {
-            return new("()", RegexOptions.Compiled | RegexOptions.IgnoreCase);
-        }
+        if(keywords == null || keywords.Count == 0) return new("()", RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
         var parts = new string[keywords.Count];
 

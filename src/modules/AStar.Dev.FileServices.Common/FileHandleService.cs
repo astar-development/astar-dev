@@ -18,10 +18,7 @@ public class FileHandleService
     {
         var fileHandle = GenerateFileHandle(fileInfo.FileName.Value).Value.TruncateIfRequired(350);
 
-        if(fileHandlesAlreadyInTheContext.Any(h => h.Value == fileHandle))
-        {
-            fileHandle = $"{Guid.CreateVersion7()}-{fileHandle}".TruncateIfRequired(350);
-        }
+        if(fileHandlesAlreadyInTheContext.Any(h => h.Value == fileHandle)) fileHandle = $"{Guid.CreateVersion7()}-{fileHandle}".TruncateIfRequired(350);
 
         var newHandle = FileHandle.Create(fileHandle);
         fileHandlesAlreadyInTheContext.Add(newHandle);

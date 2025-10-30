@@ -46,10 +46,7 @@ public sealed class ConfigureSwaggerOptions(
     {
         var text = new StringBuilder(apiDescription);
 
-        if(description.IsDeprecated)
-        {
-            _ = text.Append(" **** This API version has been deprecated. **** ");
-        }
+        if(description.IsDeprecated) _ = text.Append(" **** This API version has been deprecated. **** ");
 
         if(description.SunsetPolicy is { } policy)
         {
@@ -68,10 +65,7 @@ public sealed class ConfigureSwaggerOptions(
 
                 foreach(LinkHeaderValue link in policy.Links)
                 {
-                    if(link.Type != "text/html")
-                    {
-                        continue;
-                    }
+                    if(link.Type != "text/html") continue;
 
                     if(!rendered)
                     {
@@ -91,10 +85,7 @@ public sealed class ConfigureSwaggerOptions(
                     _ = text.Append("</a></li>");
                 }
 
-                if(rendered)
-                {
-                    _ = text.Append("</ul>");
-                }
+                if(rendered) _ = text.Append("</ul>");
             }
         }
 

@@ -1,6 +1,4 @@
-using System;
 using System.Diagnostics.CodeAnalysis;
-using System.Threading.Tasks;
 
 namespace AStar.Dev.Functional.Extensions;
 
@@ -266,10 +264,7 @@ public static class ResultExtensions
     /// </returns>
     public static Result<TSuccess, TError> Tap<TSuccess, TError>(this Result<TSuccess, TError> result, Action<TSuccess> action)
     {
-        if(result is Result<TSuccess, TError>.Ok ok)
-        {
-            action(ok.Value);
-        }
+        if(result is Result<TSuccess, TError>.Ok ok) action(ok.Value);
 
         return result;
     }
@@ -287,10 +282,7 @@ public static class ResultExtensions
     /// </returns>
     public static Result<TSuccess, TError> TapError<TSuccess, TError>(this Result<TSuccess, TError> result, Action<TError> action)
     {
-        if(result is Result<TSuccess, TError>.Error err)
-        {
-            action(err.Reason);
-        }
+        if(result is Result<TSuccess, TError>.Error err) action(err.Reason);
 
         return result;
     }
@@ -308,10 +300,7 @@ public static class ResultExtensions
     /// </returns>
     public static async Task<Result<TSuccess, TError>> TapAsync<TSuccess, TError>(this Result<TSuccess, TError> result, Func<TSuccess, Task> actionAsync)
     {
-        if(result is Result<TSuccess, TError>.Ok ok)
-        {
-            await actionAsync(ok.Value);
-        }
+        if(result is Result<TSuccess, TError>.Ok ok) await actionAsync(ok.Value);
 
         return result;
     }
@@ -365,10 +354,7 @@ public static class ResultExtensions
     /// </returns>
     public static async Task<Result<TSuccess, TError>> TapErrorAsync<TSuccess, TError>(this Result<TSuccess, TError> result, Func<TError, Task> actionAsync)
     {
-        if(result is Result<TSuccess, TError>.Error err)
-        {
-            await actionAsync(err.Reason);
-        }
+        if(result is Result<TSuccess, TError>.Error err) await actionAsync(err.Reason);
 
         return result;
     }

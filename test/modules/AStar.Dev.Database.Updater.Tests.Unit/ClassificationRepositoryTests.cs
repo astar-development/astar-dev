@@ -85,7 +85,7 @@ public class ClassificationRepositoryTests
     }
 
     [Fact]
-    public async Task GetExistingClassificationsEmptyNamesReturnsEmpty()
+    public async Task GetExistingClassificationsEmptyNamesReturnsEmptyAsync()
     {
         await using var scope = await SqliteTestScope.CreateAsync();
         var             ctx   = scope.Context;
@@ -97,7 +97,7 @@ public class ClassificationRepositoryTests
     }
 
     [Fact]
-    public async Task GetExistingClassificationsReturnsTrackedEntitiesWhenContextIsSameScope()
+    public async Task GetExistingClassificationsReturnsTrackedEntitiesWhenContextIsSameScopeAsync()
     {
         await using var scope = await SqliteTestScope.CreateAsync();
         var             ctx   = scope.Context;

@@ -52,17 +52,12 @@ public sealed class EventType : IEquatable<EventType>
     /// <inheritdoc />
     public bool Equals(EventType? other)
     {
-        if(other is null)
-        {
-            return false;
-        }
+        if(other is null) return false;
 
 #pragma warning disable IDE0046
         if(ReferenceEquals(this, other))
 #pragma warning restore IDE0046
-        {
             return true;
-        }
 
         return Value == other.Value && Name == other.Name;
     }

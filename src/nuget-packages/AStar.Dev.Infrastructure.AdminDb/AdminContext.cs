@@ -91,10 +91,7 @@ public sealed class AdminContext : DbContext
     /// </param>
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        if(optionsBuilder.IsConfigured)
-        {
-            return;
-        }
+        if(optionsBuilder.IsConfigured) return;
 
         _ = optionsBuilder.UseSqlServer(_connectionString.Value);
 
@@ -117,10 +114,7 @@ public sealed class AdminContext : DbContext
             _ = optionsBuilder.UseLoggerFactory(CreateLoggerFactory())
                 .LogTo(Console.WriteLine);
 
-            if(_astarDbContextOptions.IncludeSensitiveData)
-            {
-                _ = optionsBuilder.EnableSensitiveDataLogging();
-            }
+            if(_astarDbContextOptions.IncludeSensitiveData) _ = optionsBuilder.EnableSensitiveDataLogging();
 
             return;
         }
