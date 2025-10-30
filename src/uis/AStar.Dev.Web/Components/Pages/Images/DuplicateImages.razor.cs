@@ -4,13 +4,16 @@ using Microsoft.AspNetCore.Components;
 namespace AStar.Dev.Web.Components.Pages.Images;
 
 [UsedImplicitly]
-public partial class DuplicateImages : ComponentBase
+public partial class DuplicateImages(ILogger<DuplicateImages> logger) : ComponentBase
 {
     private void HandleValidSubmit(SearchModel model)
     {
         var excludeDays = int.TryParse(model.ExcludeViewedWithinDays, out var days) ? days : 0;
         var searchType = Enum.TryParse<SearchType>(model.SearchType, out var type) ? type : SearchType.Duplicates;
 
+        logger.LogDebug(
+            "Form submitted! Directory: {StartingDirectory}, Type: {SearchType}, Exclude: {ExcludeDays} days",
+            model.StartingDirectory, searchType, excludeDays);
         Console.WriteLine($"Form submitted! Directory: {model.StartingDirectory}, Type: {searchType}, Exclude: {excludeDays} days");
     }
 }

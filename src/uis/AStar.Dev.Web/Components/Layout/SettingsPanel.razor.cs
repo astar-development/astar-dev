@@ -22,7 +22,7 @@ public partial class SettingsPanel : ComponentBase
 
     public required DesignThemeModes Mode { get; set; }
 
-    public OfficeColor OfficeColor
+    private OfficeColor OfficeColor
     {
         get => _officeColor;
         set
@@ -36,7 +36,7 @@ public partial class SettingsPanel : ComponentBase
         }
     }
 
-    protected override async Task OnInitializedAsync() => await LoadOfficeColorFromStorage();
+    protected override async Task OnAfterRenderAsync(bool firstRender) => await LoadOfficeColorFromStorage();
 
     private async Task LoadOfficeColorFromStorage()
     {
