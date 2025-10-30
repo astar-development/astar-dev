@@ -51,7 +51,7 @@ public static class WebApplicationBuilderExtensions
             .EnableTokenAcquisitionToCallDownstreamApi()   // Will read AzureAd:Scopes
             .AddInMemoryTokenCaches();
 
-        _ = builder.Services.AddAuthorization();
+        _ = builder.Services.AddAuthorization(options => options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin")));
         _ = builder.Services.AddHealthChecks();
 
         _ = builder.Services.AddControllersWithViews()

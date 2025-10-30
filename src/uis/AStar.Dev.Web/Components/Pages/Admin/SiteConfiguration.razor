@@ -1,4 +1,5 @@
 @page "/admin/site-configuration"
+@attribute [Authorize(Roles = "Admin")]
 
 <PageTitle>@App.PageTitle("Site Configuration")</PageTitle>
 
