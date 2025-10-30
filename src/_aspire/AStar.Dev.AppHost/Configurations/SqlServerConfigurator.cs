@@ -10,7 +10,7 @@ public static class SqlServerConfigurator
 
     public static IResourceBuilder<SqlServerServerResource> Configure(IDistributedApplicationBuilder builder, IResourceBuilder<ParameterResource> sqlPassword)
     {
-        var config = GetConfig();
+        SqlServerConfig config = GetConfig();
         return builder.AddSqlServer(config.ServerName, sqlPassword, config.Port)
             .WithLifetime(ContainerLifetime.Persistent)
             //.WithDataBindMount(sqlMountDirectory)

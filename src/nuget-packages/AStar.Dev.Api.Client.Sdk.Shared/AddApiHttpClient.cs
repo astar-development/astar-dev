@@ -1,5 +1,4 @@
 ﻿using System.Net;
-using System.Net.Http;
 using System.Net.Mime;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Http.Resilience;
@@ -23,7 +22,7 @@ public static class AddApiHttpClient
         where TApiClient : class
         where TApiConfiguration : class, IApiConfiguration
     {
-        var optionsScopes = string.Join(" ", scopes);
+        var optionsScopes = string.Join(" ", scopes); // MUST be non-empty
 
         _ = services.AddHttpClient<TApiClient>()
             .AddMicrosoftIdentityUserAuthenticationHandler(
@@ -31,22 +30,19 @@ public static class AddApiHttpClient
                 options => options.Scopes = optionsScopes)
             .ConfigureHttpClient((serviceProvider, client) =>
             {
-                client.BaseAddress = serviceProvider.GetRequiredService<IOptions<TApiConfiguration>>().Value
-                    .BaseUrl;
-
+                TApiConfiguration apiConfig = serviceProvider.GetRequiredService<IOptions<TApiConfiguration>>().Value;
+                client.BaseAddress = apiConfig.BaseUrl;
                 client.DefaultRequestHeaders.Accept.Add(new(MediaTypeNames.Application.Json));
             })
-            .AddResilienceHandler($"{nameof(TApiClient)}Handler",
-                b => b.AddFallback(new()
-                    {
-                        FallbackAction = _ => Outcome.FromResultAsValueTask(
-                            new
-                                HttpResponseMessage(HttpStatusCode
-                                    .ServiceUnavailable))
-                    })
-                    .AddConcurrencyLimiter(100)
-                    .AddRetry(new HttpRetryStrategyOptions())
-                    .AddCircuitBreaker(new HttpCircuitBreakerStrategyOptions())
-                    .AddTimeout(new HttpTimeoutStrategyOptions()));
+            .AddResilienceHandler($"{nameof(TApiClient)}Handler", b => b
+                .AddFallback(new()
+                {
+                    FallbackAction = _ => Outcome.FromResultAsValueTask(
+                        new HttpResponseMessage(HttpStatusCode.ServiceUnavailable))
+                })
+                .AddConcurrencyLimiter(100)
+                .AddRetry(new HttpRetryStrategyOptions())
+                .AddCircuitBreaker(new HttpCircuitBreakerStrategyOptions())
+                .AddTimeout(new HttpTimeoutStrategyOptions()));
     }
 }

@@ -25,7 +25,7 @@ public class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition tokenAcqu
 
         try
         {
-            var response = await httpClient.GetAsync("/health/ready", cancellationToken);
+            HttpResponseMessage response = await httpClient.GetAsync("/health/ready", cancellationToken);
 
             return response.IsSuccessStatusCode
                 ? await ReturnLoggedSuccess(response)
@@ -49,7 +49,7 @@ public class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition tokenAcqu
     /// <returns>The count of the matching files or -1 if an error occurred</returns>
     public async Task<int> GetFilesCountAsync(SearchParameters searchParameters)
     {
-        var response = await httpClient.GetAsync($"files/count?{searchParameters.ToQueryString()}&version=1");
+        HttpResponseMessage response = await httpClient.GetAsync($"files/count?{searchParameters.ToQueryString()}&version=1");
 
         logger.LogInformation("Getting the count of matching files.");
 
@@ -69,7 +69,7 @@ public class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition tokenAcqu
     /// <exception cref="InvalidOperationException"></exception>
     public async Task<IEnumerable<FileDetail>> GetFilesAsync(SearchParameters searchParameters)
     {
-        var response = await httpClient.GetAsync($"files/list?{searchParameters.ToQueryString()}&version=1");
+        HttpResponseMessage response = await httpClient.GetAsync($"files/list?{searchParameters.ToQueryString()}&version=1");
 
         logger.LogInformation("Getting the list of files matching the criteria.");
         var content = await response.Content.ReadAsStringAsync();
@@ -99,7 +99,7 @@ public class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition tokenAcqu
 
         httpClient.DefaultRequestHeaders.Authorization = new("Bearer", token);
 
-        var response = await httpClient.GetAsync($"duplicates?{queryString}&version=1");
+        HttpResponseMessage response = await httpClient.GetAsync($"duplicates?{queryString}&version=1");
         logger.LogDebug("Response.StatusCode: {Response_StatusCode}", response.StatusCode);
 
         return (await response.Content.ReadFromJsonAsync<IReadOnlyCollection<DuplicatesList>>())!;
@@ -114,7 +114,7 @@ public class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition tokenAcqu
     {
         logger.LogInformation("Getting the list of file classifications.");
 
-        var response = await httpClient.GetAsync("api/file-classifications?version=1");
+        HttpResponseMessage response = await httpClient.GetAsync("api/file-classifications?version=1");
         var content = await response.Content.ReadAsStringAsync();
 
         return response.IsSuccessStatusCode
@@ -132,11 +132,11 @@ public class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition tokenAcqu
     /// <returns>The count of the matching duplicate files or -1 if an error occurred</returns>
     public async Task<GetDuplicatesCountQueryResponse> GetDuplicateFilesCountAsync(SearchParameters searchParameters)
     {
-        var response = await httpClient.GetAsync($"/duplicates/count?{searchParameters.ToQueryString()}&version=1");
+        HttpResponseMessage response = await httpClient.GetAsync($"/duplicates/count?{searchParameters.ToQueryString()}&version=1");
 
         logger.LogInformation("Getting the count of matching duplicate files.");
 
-        var getDuplicatesCountQueryResponse = await response.Content.ReadFromJsonAsync<GetDuplicatesCountQueryResponse>();
+        GetDuplicatesCountQueryResponse? getDuplicatesCountQueryResponse = await response.Content.ReadFromJsonAsync<GetDuplicatesCountQueryResponse>();
 
         return (response.IsSuccessStatusCode
             ? getDuplicatesCountQueryResponse
@@ -151,7 +151,7 @@ public class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition tokenAcqu
     /// <exception cref="InvalidOperationException"></exception>
     public async Task<FileAccessDetail> GetFileAccessDetail(int fileId)
     {
-        var response = await httpClient.GetAsync($"files/access-detail?request={fileId}&version=1");
+        HttpResponseMessage response = await httpClient.GetAsync($"files/access-detail?request={fileId}&version=1");
 
         logger.LogInformation("Getting the access detail for the file with ClassificationId: {FileId}.", fileId);
         var content = await response.Content.ReadAsStringAsync();
@@ -172,7 +172,7 @@ public class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition tokenAcqu
     /// <exception cref="InvalidOperationException"></exception>
     public async Task<FileDetail> GetFileDetail(int fileId)
     {
-        var response = await httpClient.GetAsync($"files/detail?request={fileId}&version=1");
+        HttpResponseMessage response = await httpClient.GetAsync($"files/detail?request={fileId}&version=1");
 
         logger.LogInformation("Getting the file detail for the file with ClassificationId: {FileId}.", fileId);
         var content = await response.Content.ReadAsStringAsync();
@@ -196,7 +196,7 @@ public class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition tokenAcqu
             var content = new StringContent(JsonSerializer.Serialize(new { fileId }), Encoding.UTF8,
                 "application/json");
 
-            var response = await httpClient.PutAsync("soft-delete/mark?version=1", content);
+            HttpResponseMessage response = await httpClient.PutAsync("soft-delete/mark?version=1", content);
 
             logger.LogDebug("Marking the fileId: {FileId} for soft deletion returned: {ResponseStatus}.", fileId, response.StatusCode);
 
@@ -226,7 +226,7 @@ public class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition tokenAcqu
             var content = new StringContent(JsonSerializer.Serialize(new { fileId }), Encoding.UTF8,
                 "application/json");
 
-            var response = await httpClient.PutAsync("soft-delete/unmark?version=1", content);
+            HttpResponseMessage response = await httpClient.PutAsync("soft-delete/unmark?version=1", content);
 
             logger.LogDebug("Unmarking the fileId: {FileId} for soft deletion returned: {ResponseStatus}.", fileId, response.StatusCode);
 
@@ -256,7 +256,7 @@ public class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition tokenAcqu
             var content = new StringContent(JsonSerializer.Serialize(new { fileId }), Encoding.UTF8,
                 "application/json");
 
-            var response = await httpClient.PutAsync("hard-delete/mark?version=1", content);
+            HttpResponseMessage response = await httpClient.PutAsync("hard-delete/mark?version=1", content);
 
             logger.LogDebug("Marking the fileId: {FileId} for hard deletion returned: {ResponseStatus}.", fileId, response.StatusCode);
 
@@ -286,7 +286,7 @@ public class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition tokenAcqu
             var content = new StringContent(JsonSerializer.Serialize(new { fileId }), Encoding.UTF8,
                 "application/json");
 
-            var response = await httpClient.PutAsync("hard-delete/unmark?version=1", content);
+            HttpResponseMessage response = await httpClient.PutAsync("hard-delete/unmark?version=1", content);
 
             logger.LogDebug("Unmarking the fileId: {FileId} for hard deletion returned: {ResponseStatus}.", fileId, response.StatusCode);
 
@@ -316,7 +316,7 @@ public class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition tokenAcqu
             var content = new StringContent(JsonSerializer.Serialize(new { fileId }), Encoding.UTF8,
                 "application/json");
 
-            var response = await httpClient.PutAsync("move/mark?version=1", content);
+            HttpResponseMessage response = await httpClient.PutAsync("move/mark?version=1", content);
 
             logger.LogDebug("Marking the fileId: {FileId} for moving returned: {ResponseStatus}.", fileId, response.StatusCode);
 
@@ -346,7 +346,7 @@ public class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition tokenAcqu
             var content = new StringContent(JsonSerializer.Serialize(new { fileId }), Encoding.UTF8,
                 "application/json");
 
-            var response = await httpClient.PutAsync("move/unmark?version=1", content);
+            HttpResponseMessage response = await httpClient.PutAsync("move/unmark?version=1", content);
 
             logger.LogDebug("UnMarking the fileId: {FileId} for moving returned: {ResponseStatus}.", fileId, response.StatusCode);
 
@@ -401,7 +401,7 @@ public class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition tokenAcqu
     public async Task<string> UpdateFileAsync(DirectoryChangeRequest directoryChangeRequest)
     {
         var httpContent = new StringContent(directoryChangeRequest.ToString(), Encoding.UTF8, "application/json");
-        var response = await httpClient.PutAsync("files/update-directory?version=1", httpContent);
+        HttpResponseMessage response = await httpClient.PutAsync("files/update-directory?version=1", httpContent);
 
         _ = response.EnsureSuccessStatusCode();
 
@@ -429,7 +429,7 @@ public class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition tokenAcqu
         var token = string.Empty; // await tokenAcquisitionService.GetAccessTokenForUserAsync(["api://2ca26585-5929-4aae-86a7-a00c3fc2d061/ToDoList.Write",]);
         httpClient.DefaultRequestHeaders.Authorization = new("Bearer", token);
 
-        var response = await httpClient.GetAsync($"/directories/{rootDirectory}?version=1", cancellationToken);
+        HttpResponseMessage response = await httpClient.GetAsync($"/directories/{rootDirectory}?version=1", cancellationToken);
 
         _ = response.EnsureSuccessStatusCode();
 

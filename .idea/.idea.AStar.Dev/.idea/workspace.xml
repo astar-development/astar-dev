@@ -98,7 +98,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="" />
+    <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -124,6 +126,11 @@
   </component>
   <component name="Git.Settings">
     <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Jason Barden &lt;jason.barden1@outlook.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="main" />
@@ -156,7 +163,8 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$USER_HOME$/.microsoft/usersecrets/b8c500a1-90ed-4137-9946-9a465d25e1f1/secrets.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/.microsoft/usersecrets/d7e61e34-084f-4c2b-9be8-5925170dc3b7/secrets.json" root0="FORCE_HIGHLIGHTING" />
-    <setting file="mock:///home/jason/repos/astar-dev/src/_aspire/AStar.Dev.AppHost/AppHost.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason/repos/astar-dev/src/_aspire/AStar.Dev.AppHost/Configurations/SqlServerConfigurator.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///home/jason/repos/astar-dev/src/modules/astar-dev-database-updater/AStar.Dev.Database.Updater/appsettings.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Models/FileClassification.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Models/FileNamePart.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/LoginDisplay.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
@@ -168,6 +176,8 @@
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/Menu/ImagesMenuService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/Menu/MenuItemsService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/Menu/NuGetMenuService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/jason/repos/astar-dev/src/uis/AStar.Dev.Web/Components/Layout/NavMenu.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/jason/repos/astar-dev/src/uis/AStar.Dev.Web/Components/Layout/SettingsPanel.razor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/AddFilesToDatabase.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/AddFilesToDatabase.razor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Admin/ApiUsage.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
@@ -194,7 +204,9 @@
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Files/RenameFiles.razor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Home.razor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Images/DuplicateImages.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/jason/repos/astar-dev/src/uis/AStar.Dev.Web/Components/Pages/Images/DuplicateImages.razor" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Images/DuplicateImages.razor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/jason/repos/astar-dev/src/uis/AStar.Dev.Web/Components/Pages/Images/DuplicateImages.razor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Images/MoveImages.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Images/MoveImages.razor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Images/RandomImages.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
@@ -230,15 +242,17 @@
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Shared/Search.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Shared/Search.razor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Routes.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/jason/repos/astar-dev/src/uis/AStar.Dev.Web/Models/SearchModel.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Models/SortOrder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/WebApplicationBuilderExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/jason/repos/astar-dev/src/uis/AStar.Dev.Web/WebApplicationBuilderExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Infrastructure.FilesDb.Tests.Unit/Fixtures/FilesContextFixture.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Infrastructure.FilesDb.Tests.Unit/Fixtures/MockFilesContext.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
-}]]></component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="Toolset" />
@@ -300,7 +314,7 @@
     "e1fa419c-f915-45ea-a5b9-af0e54288449.executor": "Debug",
     "ead053aa-6f06-48a9-a614-f676b2fe4dd5.executor": "Debug",
     "fe711191-94fe-41bc-93a1-ff6c72b91e6f.executor": "Debug",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "features/continue-migration-to-modular-monolith",
     "junie.onboarding.icon.badge.shown": "true",
     "last_opened_file_path": "/home/jason/Repos/astar-dev-all-private-main/AStar.Dev.All.slnx",
     "list.type.of.created.stylesheet": "CSS",
@@ -309,7 +323,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "vcs.Git",
+    "settings.editor.selected.configurable": "ml.llm.LLMConfigurable",
     "to.speed.mode.migration.done": "true",
     "ts.external.directory.path": "/home/jason-barden/.local/share/JetBrains/Toolbox/apps/rider/plugins/javascript-plugin/jsLanguageServicesImpl/external",
     "vue.rearranger.settings.migration": "true"
@@ -326,12 +340,12 @@
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/src/_aspire/AStar.Dev.AppHost" />
       <option name="TRACK_ENVS" value="1" />
       <envs>
-        <env name="ASPNETCORE_ENVIRONMENT" value="Development" />
         <env name="DOTNET_ENVIRONMENT" value="Development" />
+        <env name="ASPNETCORE_ENVIRONMENT" value="Development" />
         <env name="ASPIRE_DASHBOARD_OTLP_ENDPOINT_URL" value="http://localhost:19088" />
+        <env name="ASPNETCORE_URLS" value="http://localhost:15275" />
         <env name="ASPIRE_RESOURCE_SERVICE_ENDPOINT_URL" value="http://localhost:20270" />
         <env name="DOTNET_LAUNCH_PROFILE" value="http" />
-        <env name="ASPNETCORE_URLS" value="http://localhost:15275" />
       </envs>
       <option name="USE_PODMAN_RUNTIME" value="0" />
       <option name="TRACK_URL" value="1" />
@@ -2011,23 +2025,9 @@
       <workItem from="1761572234005" duration="10653000" />
       <workItem from="1761764598802" duration="164000" />
       <workItem from="1761785747941" duration="819000" />
-      <workItem from="1761792894080" duration="1900000" />
-    </task>
-    <task id="LOCAL-00093" summary="Rename the favicon">
-      <option name="closed" value="true" />
-      <created>1758054025193</created>
-      <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL-00093" />
-      <option name="project" value="LOCAL" />
-      <updated>1758054025193</updated>
-    </task>
-    <task id="LOCAL-00094" summary="Partial updates">
-      <option name="closed" value="true" />
-      <created>1758062230069</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1758062230070</updated>
+      <workItem from="1761792894080" duration="1947000" />
+      <workItem from="1761823747809" duration="624000" />
+      <workItem from="1761824456630" duration="3442000" />
     </task>
     <task id="LOCAL-00095" summary="Cleanup required but working MarkdownView.razor">
       <option name="closed" value="true" />
@@ -2405,7 +2405,23 @@
       <option name="project" value="LOCAL" />
       <updated>1761794771059</updated>
     </task>
-    <option name="localTasksCounter" value="142" />
+    <task id="LOCAL-00142" summary="Small update in AppHost.cs">
+      <option name="closed" value="true" />
+      <created>1761794825941</created>
+      <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
+      <option name="project" value="LOCAL" />
+      <updated>1761794825941</updated>
+    </task>
+    <task id="LOCAL-00143" summary="Fix TokenAcquisition issue&#10;&#10;Fix JS timing issue">
+      <option name="closed" value="true" />
+      <created>1761827375530</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1761827375530</updated>
+    </task>
+    <option name="localTasksCounter" value="144" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -2456,7 +2472,6 @@
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Updating the new Search component&#10;&#10;Additional changes in the model and the DuplicateImages.razor.cs files" />
     <MESSAGE value="Complete the initial UI design" />
     <MESSAGE value="Unrelated but separate the Result tests" />
     <MESSAGE value="Bring most NuGet package projects back" />
@@ -2481,7 +2496,8 @@
     <MESSAGE value="Add ParentId to the FileClassification.cs" />
     <MESSAGE value="Add missed files" />
     <MESSAGE value="Small update in AppHost.cs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Small update in AppHost.cs" />
+    <MESSAGE value="Fix TokenAcquisition issue&#10;&#10;Fix JS timing issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix TokenAcquisition issue&#10;&#10;Fix JS timing issue" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -21,9 +21,9 @@ public partial class AuthenticationCheck : ComponentBase
     /// <returns></returns>
     private async Task GetClaimsPrincipalData()
     {
-        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        AuthenticationState authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
 
-        var user = authState.User;
+        ClaimsPrincipal user = authState.User;
 
         if(user.Identity is
            {

@@ -1,4 +1,5 @@
-﻿using AStar.Dev.Api.HealthChecks;
+﻿using Asp.Versioning.ApiExplorer;
+using AStar.Dev.Api.HealthChecks;
 using Microsoft.AspNetCore.Builder;
 using Swashbuckle.AspNetCore.SwaggerUI;
 
@@ -43,9 +44,9 @@ public static class PipelineExtensions
         bool enableSwaggerDarkMode = true)
         => options =>
         {
-            var descriptions = webApplication.DescribeApiVersions();
+            IReadOnlyList<ApiVersionDescription> descriptions = webApplication.DescribeApiVersions();
 
-            foreach(var description in descriptions)
+            foreach(ApiVersionDescription description in descriptions)
             {
                 var url = $"/swagger/{description.GroupName}/swagger.json";
                 var name = description.GroupName.ToUpperInvariant();

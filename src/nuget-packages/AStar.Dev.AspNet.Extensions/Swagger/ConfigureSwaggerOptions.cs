@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using Asp.Versioning;
 using Asp.Versioning.ApiExplorer;
 using AStar.Dev.Technical.Debt.Reporting;
 using Microsoft.Extensions.DependencyInjection;
@@ -33,7 +34,7 @@ public sealed class ConfigureSwaggerOptions(
     /// <inheritdoc />
     public void Configure(SwaggerGenOptions options)
     {
-        foreach(var description in provider.ApiVersionDescriptions)
+        foreach(ApiVersionDescription description in provider.ApiVersionDescriptions)
         {
             options.SwaggerDoc(description.GroupName,
                 CreateInfoForApiVersion(description, apiConfiguration.Value.OpenApiInfo.Title));
@@ -65,7 +66,7 @@ public sealed class ConfigureSwaggerOptions(
 
                 var rendered = false;
 
-                foreach(var link in policy.Links)
+                foreach(LinkHeaderValue link in policy.Links)
                 {
                     if(link.Type != "text/html")
                     {

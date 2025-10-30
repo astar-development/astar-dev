@@ -7,7 +7,7 @@ public class SearchModel
     /// <summary>
     /// </summary>
     [Required]
-    public string StartingDirectory { get; set; } = "/media/jason/ONEDRIVE/Pictures/_lookat";
+    public string StartingDirectory { get; set; } = "/home/jason/Documents/Pictures/_lookat";
 
     /// <summary>
     /// </summary>

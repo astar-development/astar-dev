@@ -22,7 +22,7 @@ public sealed class ImagesApiClient(HttpClient httpClient, /*ITokenAcquisition t
         {
             logger.LogInformation("Checking the {ApiName} Health Status", Constants.ApiName);
 
-            var response = await httpClient.GetAsync("/health/ready", cancellationToken);
+            HttpResponseMessage response = await httpClient.GetAsync("/health/ready", cancellationToken);
 
             return response.IsSuccessStatusCode
                 ? await ReturnLoggedSuccess(response)
@@ -71,7 +71,7 @@ public sealed class ImagesApiClient(HttpClient httpClient, /*ITokenAcquisition t
             logger.LogDebug("requestUri: {RequestUri}", requestUri);
             httpClient.DefaultRequestHeaders.Authorization = new("Bearer", token);
 
-            var response = await httpClient.GetAsync(requestUri);
+            HttpResponseMessage response = await httpClient.GetAsync(requestUri);
 
             return response.IsSuccessStatusCode
                 ? await response.Content.ReadAsStreamAsync()

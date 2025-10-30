@@ -26,7 +26,7 @@ public class FileKeywordProcessorBackgroundService(IServiceScopeFactory serviceS
     /// <inheritdoc />
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)
     {
-        var (databaseUpdaterConfiguration, fileScanner, fileListService) = GetRequiredServices();
+        (DatabaseUpdaterConfiguration? databaseUpdaterConfiguration, IFilesProcessor? fileScanner, IFileListService? fileListService) = GetRequiredServices();
 
         if(databaseUpdaterConfiguration.RunNewFilesService)
         {
@@ -44,10 +44,10 @@ public class FileKeywordProcessorBackgroundService(IServiceScopeFactory serviceS
 
     private (DatabaseUpdaterConfiguration config, IFilesProcessor fileScanner, IFileListService fileListService) GetRequiredServices()
     {
-        using var scope = serviceScopeFactory.CreateScope();
-        var config = scope.ServiceProvider.GetRequiredService<IOptions<DatabaseUpdaterConfiguration>>().Value;
-        var fileScanner = scope.ServiceProvider.GetRequiredService<IFilesProcessor>();
-        var fileListService = scope.ServiceProvider.GetRequiredService<IFileListService>();
+        using IServiceScope scope = serviceScopeFactory.CreateScope();
+        DatabaseUpdaterConfiguration config = scope.ServiceProvider.GetRequiredService<IOptions<DatabaseUpdaterConfiguration>>().Value;
+        IFilesProcessor fileScanner = scope.ServiceProvider.GetRequiredService<IFilesProcessor>();
+        IFileListService fileListService = scope.ServiceProvider.GetRequiredService<IFileListService>();
         _logger = scope.ServiceProvider.GetRequiredService<ILogger<FileKeywordProcessorBackgroundService>>();
 
         return (config, fileScanner, fileListService);

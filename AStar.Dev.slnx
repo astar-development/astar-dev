@@ -118,4 +118,7 @@
     <Project Path="test/_aspire/AStar.Dev.AppHost.Configurations.Tests.Unit/AStar.Dev.AppHost.Configurations.Tests.Unit.csproj" />
     <Project Path="test/_aspire/AStar.Dev.ServiceDefaults.Tests.Unit/AStar.Dev.ServiceDefaults.Tests.Unit.csproj" />
   </Folder>
+  <Folder Name="/_docs/">
+    <File Path="blazor auth notes.md" />
+  </Folder>
 </Solution>

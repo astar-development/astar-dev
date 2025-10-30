@@ -24,12 +24,12 @@ public class FileDetailsProcessorService(FileHandleService fileHandleService, IL
     public (int counter, int writeCount) ProcessFileDetailAsync(FileDetail fileDetail, List<FileClassification> classifications, List<FileHandle> fileHandlesAlreadyInTheContext,
         int counter, int writeCount, IReadOnlyList<FileNamePartsWithClassifications> keywords)
     {
-        var regex = KeywordRegexBuilder.BuildKeywordPattern(keywords);
+        Regex regex = KeywordRegexBuilder.BuildKeywordPattern(keywords);
 
         var nameToCheck = fileDetail.FullNameWithPath.SanitizeFilePath();
 
-        var matches = GetFilenameMatches(regex, nameToCheck).Where(m => m.Length > 0);
-        var unmatchedClassification = classifications.First(xx => xx.Name == "None");
+        IEnumerable<string> matches = GetFilenameMatches(regex, nameToCheck).Where(m => m.Length > 0);
+        FileClassification unmatchedClassification = classifications.First(xx => xx.Name == "None");
         counter = ProcessMatches(matches, counter, classifications, fileDetail, unmatchedClassification);
 
         fileDetail.FileHandle = fileHandleService.GenerateFileHandle(fileDetail, fileHandlesAlreadyInTheContext);
@@ -51,8 +51,8 @@ public class FileDetailsProcessorService(FileHandleService fileHandleService, IL
         {
             counter++;
 
-            var fileClassifications = GetFileClassifications(classifications, fileWithClassifications.FullNameWithPath);
-            foreach(var fileClassification in fileClassifications)
+            IEnumerable<FileClassification> fileClassifications = GetFileClassifications(classifications, fileWithClassifications.FullNameWithPath);
+            foreach(FileClassification fileClassification in fileClassifications)
             {
                 fileWithClassifications.FileClassifications.Add(fileClassification);
             }

@@ -32,18 +32,18 @@ public class FilesProcessor(
     public async Task<Result<bool, ErrorResponse>> ProcessAsync(IReadOnlyCollection<FileDetail> filesToProcess, CancellationToken cancellationToken)
     {
         var counter                        = 0;
-        var fileHandlesAlreadyInTheContext = await filesContext.Files.Select(f => f.FileHandle).ToListAsync(cancellationToken);
+        List<FileHandle> fileHandlesAlreadyInTheContext = await filesContext.Files.Select(f => f.FileHandle).ToListAsync(cancellationToken);
 
-        var classifications = await filesContext.FileClassifications
+        List<FileClassification> classifications = await filesContext.FileClassifications
                                                 .Include(fc => fc.FileNameParts)
                                                 .ToListAsync(cancellationToken);
 
-        var keywords = await keywordProvider.GetKeywordsAsync(cancellationToken);
+        IReadOnlyList<FileNamePartsWithClassifications> keywords = await keywordProvider.GetKeywordsAsync(cancellationToken);
 
         var              writeCount  = 0;
         List<FileDetail> fileDetails = [];
 
-        foreach(var fileDetail in filesToProcess)
+        foreach(FileDetail fileDetail in filesToProcess)
         {
             if(cancellationToken.IsCancellationRequested)
             {

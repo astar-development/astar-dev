@@ -25,8 +25,8 @@ public class FileListService(IFileSystem fileSystem, IServiceScopeFactory scopeF
     public async Task<Result<List<FileDetail>, ErrorResponse>> Get(string path, CancellationToken stoppingToken)
     {
         var enumerationOptions = new EnumerationOptions { IgnoreInaccessible = true, RecurseSubdirectories = true, ReturnSpecialDirectories = false };
-        var filesContext = scopeFactory.CreateScope().ServiceProvider.GetRequiredService<FilesContext>();
-        var filesAlreadyInTheContext = await filesContext.Files.AsNoTracking().Select(f => f.FullNameWithPath).ToListAsync(stoppingToken);
+        FilesContext filesContext = scopeFactory.CreateScope().ServiceProvider.GetRequiredService<FilesContext>();
+        List<string> filesAlreadyInTheContext = await filesContext.Files.AsNoTracking().Select(f => f.FullNameWithPath).ToListAsync(stoppingToken);
 
         return GetFileList(path, enumerationOptions)
                .Map(files => files.Except(filesAlreadyInTheContext).ToArray())

@@ -15,7 +15,7 @@ public static class MigrationsConfigurator
         IResourceBuilder<SqlServerServerResource>   sqlServer, IResourceBuilder<ParameterResource> sqlSaUserPassword, IResourceBuilder<ParameterResource> sqlAdminUserPassword, IResourceBuilder<ParameterResource> sqlFilesUserPassword,
         IResourceBuilder<ParameterResource>         sqlUsageUserPassword)
     {
-        var config = GetConfig();
+        MigrationsConfig config = GetConfig();
         return builder.AddProject<AStar_Dev_FilesDb_MigrationService>(config.ProjectName)
                       .WithReference(filesDb)
                       .WithEnvironment(AspireConstants.Sql.SqlSaUserPasswordParameter,    sqlSaUserPassword)

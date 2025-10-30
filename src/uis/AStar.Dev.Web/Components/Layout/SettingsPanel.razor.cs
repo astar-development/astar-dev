@@ -22,7 +22,7 @@ public partial class SettingsPanel : ComponentBase
 
     public required DesignThemeModes Mode { get; set; }
 
-    public OfficeColor OfficeColor
+    private OfficeColor OfficeColor
     {
         get => _officeColor;
         set
@@ -36,7 +36,7 @@ public partial class SettingsPanel : ComponentBase
         }
     }
 
-    protected override async Task OnInitializedAsync() => await LoadOfficeColorFromStorage();
+    protected override async Task OnAfterRenderAsync(bool firstRender) => await LoadOfficeColorFromStorage();
 
     private async Task LoadOfficeColorFromStorage()
     {
@@ -44,7 +44,7 @@ public partial class SettingsPanel : ComponentBase
         {
             var storedColor = await JsRuntime.InvokeAsync<string>("localStorage.getItem", "officeColor");
 
-            if(!string.IsNullOrEmpty(storedColor) && Enum.TryParse<OfficeColor>(storedColor, out var parsedColor))
+            if(!string.IsNullOrEmpty(storedColor) && Enum.TryParse<OfficeColor>(storedColor, out OfficeColor parsedColor))
             {
                 _officeColor = parsedColor;
                 StateHasChanged();
