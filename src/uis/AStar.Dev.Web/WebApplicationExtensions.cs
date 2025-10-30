@@ -57,7 +57,7 @@ public static class WebApplicationExtensions
 
         _ = app.UseHttpsRedirection();
 
-        var policyCollection = new HeaderPolicyCollection()
+        HeaderPolicyCollection policyCollection = new HeaderPolicyCollection()
                                .AddDefaultSecurityHeaders()
                                .AddPermissionsPolicyWithDefaultSecureDirectives();
 

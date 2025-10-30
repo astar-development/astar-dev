@@ -1,4 +1,5 @@
-﻿using AStar.Dev.Api.Usage.Sdk;
+﻿using System.Security.Claims;
+using AStar.Dev.Api.Usage.Sdk;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
@@ -43,7 +44,7 @@ public sealed class JwtEvents(ILogger<JwtEvents> logger)
 
     private static Task ValidateUserIdIsPopulates(TokenValidatedContext context)
     {
-        var claimsPrincipal = context.Principal;
+        ClaimsPrincipal? claimsPrincipal = context.Principal;
         var userId = claimsPrincipal?.FindFirst(t => t.Type == "name")?.Value;
 
         if(string.IsNullOrEmpty(userId))

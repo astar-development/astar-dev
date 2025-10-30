@@ -17,9 +17,9 @@ public class TimeDelay(TimeProvider timeProvider, ILogger<TimeDelay> logger)
     /// <returns>The <see cref="TimeSpan" /> reresenting the delay until the next scheduled run time</returns>
     public Result<TimeSpan, ErrorResponse> CalculateDelayToNextRun(TimeOnly targetTime, bool valueHonourFirstDelay)
     {
-        var currentTime = GetCurrentTime();
+        TimeOnly currentTime = GetCurrentTime();
 
-        var timeDelay = valueHonourFirstDelay ? TimeToNextOccurrence(targetTime, currentTime) : TimeSpan.Zero;
+        TimeSpan timeDelay = valueHonourFirstDelay ? TimeToNextOccurrence(targetTime, currentTime) : TimeSpan.Zero;
 
         logger.LogInformation("Next scheduled run at: {NextScheduledRunTime} - time delay: {TimeDelay}", targetTime, timeDelay);
 

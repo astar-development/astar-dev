@@ -19,7 +19,7 @@ public static class ServiceCollectionExtensions
     /// <returns></returns>
     public static IServiceCollection AddAdminApiClient(this IServiceCollection services, IConfiguration configuration, ILogger<AdminApiClient> logger)
     {
-        var configurationSection = configuration.GetSection(AdminApiConfiguration.SectionLocation);
+        IConfigurationSection configurationSection = configuration.GetSection(AdminApiConfiguration.SectionLocation);
 
         _ = services.AddOptions<AdminApiConfiguration>()
             .Bind(configurationSection)

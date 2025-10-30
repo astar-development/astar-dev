@@ -18,7 +18,7 @@ public class GetFileClassificationsHandler
         FilesContext filesContext,
         CancellationToken cancellationToken)
     {
-        var classifications = await filesContext.FileClassifications
+        List<GetFileClassificationsResponse> classifications = await filesContext.FileClassifications
             .OrderBy(fc => fc.Name)
             .Select(fc => new GetFileClassificationsResponse { Id = fc.Id, Name = fc.Name, IncludeInSearch = fc.IncludeInSearch, Celebrity = fc.Celebrity })
             .ToListAsync(cancellationToken);

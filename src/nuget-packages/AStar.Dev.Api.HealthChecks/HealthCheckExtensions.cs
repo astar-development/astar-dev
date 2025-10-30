@@ -56,7 +56,7 @@ public static class HealthCheckExtensions
     {
         httpContext.Response.ContentType = "application/json; charset=utf-8";
 
-        var dependencyHealthChecks = healthReport.Entries.Select(static entry => new HealthStatusResponse
+        IEnumerable<HealthStatusResponse> dependencyHealthChecks = healthReport.Entries.Select(static entry => new HealthStatusResponse
         {
             Name = entry.Key,
             Description = entry.Value.Description,

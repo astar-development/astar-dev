@@ -18,7 +18,7 @@ public class GetFileClassificationsEndpoint(IFileClassificationsService service)
     /// <inheritdoc/>
     public override async Task HandleAsync(CancellationToken ct)
     {
-        var classifications = await service.GetFileClassificationsAsync();
+        IEnumerable<string> classifications = await service.GetFileClassificationsAsync();
         _ = await Send.OkAsync(classifications, ct);
     }
 }

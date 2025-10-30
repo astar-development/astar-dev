@@ -49,11 +49,11 @@ public partial class Search : ComponentBase
     protected override async Task OnInitializedAsync()
     {
         FileClassifications = [new() { Id = Guid.Empty, Name = "-- Select --", IncludeInSearch = false, Celebrity = false }];
-        var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+        AuthenticationState authState = await AuthStateProvider.GetAuthenticationStateAsync();
         if(authState.User.Identity?.IsAuthenticated == true)
         {
             // safe to call FilesApiClient
-            var apiClassifications = await FilesApiClient.GetFileClassificationsAsync();
+            IReadOnlyCollection<FileClassification> apiClassifications = await FilesApiClient.GetFileClassificationsAsync();
 
             FileClassifications.AddRange(apiClassifications);
         }

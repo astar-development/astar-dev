@@ -10,7 +10,7 @@ public static class RabbitMqConfigurator
 
     public static IResourceBuilder<RabbitMQServerResource> Configure(IDistributedApplicationBuilder builder)
     {
-        var config = GetConfig();
+        RabbitMqConfig config = GetConfig();
         return builder.AddRabbitMQ(config.ServiceName)
             .WithLifetime(ContainerLifetime.Persistent)
             .WithManagementPlugin();

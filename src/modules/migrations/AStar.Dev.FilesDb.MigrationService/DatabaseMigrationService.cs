@@ -18,12 +18,12 @@ public class DatabaseMigrationService(IServiceProvider serviceProvider, IHostApp
         logger.LogInformation("Starting database migration service");
 
         // ReSharper disable once ExplicitCallerInfoArgument
-        using var activity = ActivitySource.StartActivity("Migrating database", ActivityKind.Client);
+        using Activity? activity = ActivitySource.StartActivity("Migrating database", ActivityKind.Client);
 
         try
         {
-            using var scope     = serviceProvider.CreateScope();
-            var       dbContext = scope.ServiceProvider.GetRequiredService<FilesContext>();
+            using IServiceScope scope     = serviceProvider.CreateScope();
+            FilesContext dbContext = scope.ServiceProvider.GetRequiredService<FilesContext>();
 
             await EnsureDatabaseExistsAsync(dbContext, stoppingToken);
             await RunMigrationAsync(dbContext, stoppingToken);
@@ -41,10 +41,10 @@ public class DatabaseMigrationService(IServiceProvider serviceProvider, IHostApp
 
     private async Task EnsureDatabaseExistsAsync(FilesContext dbContext, CancellationToken stoppingToken)
     {
-        var dbCreator = dbContext.GetService<IRelationalDatabaseCreator>();
+        IRelationalDatabaseCreator dbCreator = dbContext.GetService<IRelationalDatabaseCreator>();
 
         logger.LogInformation("Ensuring database exists");
-        var strategy = dbContext.Database.CreateExecutionStrategy();
+        IExecutionStrategy strategy = dbContext.Database.CreateExecutionStrategy();
 
         await strategy.ExecuteAsync(async () =>
                                     {
@@ -57,13 +57,13 @@ public class DatabaseMigrationService(IServiceProvider serviceProvider, IHostApp
 
     private async Task RunMigrationAsync(FilesContext dbContext, CancellationToken stoppingToken)
     {
-        var strategy = dbContext.Database.CreateExecutionStrategy();
+        IExecutionStrategy strategy = dbContext.Database.CreateExecutionStrategy();
 
         logger.LogInformation("Running migrations");
 
         await strategy.ExecuteAsync(async () =>
                                     {
-                                        await using var transaction = await dbContext.Database.BeginTransactionAsync(stoppingToken);
+                                        await using IDbContextTransaction transaction = await dbContext.Database.BeginTransactionAsync(stoppingToken);
                                         await dbContext.Database.MigrateAsync(stoppingToken);
                                         await transaction.CommitAsync(stoppingToken);
                                     });
@@ -71,7 +71,7 @@ public class DatabaseMigrationService(IServiceProvider serviceProvider, IHostApp
 
     private async Task SeedDataAsync(FilesContext dbContext, CancellationToken stoppingToken)
     {
-        var strategy = dbContext.Database.CreateExecutionStrategy();
+        IExecutionStrategy strategy = dbContext.Database.CreateExecutionStrategy();
 
         logger.LogInformation("Seeding data");
 
@@ -99,7 +99,7 @@ public class DatabaseMigrationService(IServiceProvider serviceProvider, IHostApp
                                                 return;
                                             }
 
-                                            await using var transaction = await dbContext.Database.BeginTransactionAsync(stoppingToken);
+                                            await using IDbContextTransaction transaction = await dbContext.Database.BeginTransactionAsync(stoppingToken);
 
                                             _ = await dbContext.Files.AddAsync(fileDetail, stoppingToken);
                                             _ = await dbContext.SaveChangesAsync(stoppingToken);

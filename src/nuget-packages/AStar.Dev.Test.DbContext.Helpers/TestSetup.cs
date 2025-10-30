@@ -12,7 +12,7 @@ public static class TestSetup
     {
         var serviceCollection = new ServiceCollection();
 
-        var configuration = new ConfigurationBuilder()
+        IConfigurationRoot configuration = new ConfigurationBuilder()
             .SetBasePath(Directory.GetCurrentDirectory())
             .AddJsonFile(
                 "appsettings.json",

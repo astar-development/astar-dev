@@ -18,12 +18,12 @@ public class ClassificationProcessor(ClassificationRepository repository, Classi
     /// <returns>True if processing completes successfully.</returns>
     public async Task<bool> ProcessAsync(IEnumerable<ClassificationMapping> mappings, CancellationToken stoppingToken)
     {
-        var textInfo = new CultureInfo("en-GB").TextInfo;
+        TextInfo textInfo = new CultureInfo("en-GB").TextInfo;
         var mappingsList  = mappings.ToList();
         var distinctNames = mappingsList.Select(m => textInfo.ToTitleCase(m.DatabaseMapping)).ToHashSet();
-        var existing      = repository.GetExistingClassifications(distinctNames);
+        Dictionary<string, FileClassification> existing      = repository.GetExistingClassifications(distinctNames);
 
-        var newClassifications = CreateMissingClassifications(mappingsList, distinctNames, existing, textInfo);
+        List<FileClassification> newClassifications = CreateMissingClassifications(mappingsList, distinctNames, existing, textInfo);
 
         if(newClassifications.Count > 0)
         {
@@ -49,14 +49,14 @@ public class ClassificationProcessor(ClassificationRepository repository, Classi
                 continue;
             }
 
-            var source = mappings.FirstOrDefault(m => textInfo.ToTitleCase(m.DatabaseMapping) == name);
+            ClassificationMapping? source = mappings.FirstOrDefault(m => textInfo.ToTitleCase(m.DatabaseMapping) == name);
 
             if(source == null)
             {
                 continue;
             }
 
-            var classification = builder.CreateClassification(name, source);
+            FileClassification classification = builder.CreateClassification(name, source);
             newClassifications.Add(classification);
             existing[name] = classification;
         }
@@ -66,9 +66,9 @@ public class ClassificationProcessor(ClassificationRepository repository, Classi
 
     private void AddMissingParts(List<ClassificationMapping> mappings, Dictionary<string, FileClassification> existing, TextInfo textInfo)
     {
-        foreach(var group in mappings.GroupBy(m => m.DatabaseMapping))
+        foreach(IGrouping<string, ClassificationMapping> group in mappings.GroupBy(m => m.DatabaseMapping))
         {
-            if(!existing.TryGetValue(textInfo.ToTitleCase(group.Key), out var classification))
+            if(!existing.TryGetValue(textInfo.ToTitleCase(group.Key), out FileClassification? classification))
             {
                 continue;
             }
@@ -77,7 +77,7 @@ public class ClassificationProcessor(ClassificationRepository repository, Classi
                                               .Select(p => p.Text)
                                               .ToHashSet(StringComparer.OrdinalIgnoreCase);
 
-            var newParts = builder.CreateMissingParts(group, existingTexts);
+            List<FileNamePart> newParts = builder.CreateMissingParts(group, existingTexts);
 
             if(newParts.Count != 0)
             {

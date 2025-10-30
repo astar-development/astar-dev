@@ -43,7 +43,7 @@ public static class Class1
 
         try
         {
-            var builder = WebApplication.CreateBuilder();
+            WebApplicationBuilder builder = WebApplication.CreateBuilder();
             _ = builder.AddServiceDefaults();
 
             _ = builder
@@ -51,7 +51,7 @@ public static class Class1
                 .Services.AddApiConfiguration(builder.Configuration);
 
             Log.Information("Starting {AppName}", applicationName);
-            var services = builder.Services;
+            IServiceCollection services = builder.Services;
             _ = services.AddApplicationInsightsTelemetry(builder.Configuration);
 
             _ = builder.Logging.AddApplicationInsights();
@@ -64,9 +64,9 @@ public static class Class1
             _ = services.AddScoped<JwtEvents>();
 
             builder.AddRabbitMQClient(AspireConstants.Services.AstarMessaging);
-            var buildServiceProvider = services.BuildServiceProvider();
-            var send                 = buildServiceProvider.GetRequiredService<Send>();
-            var events               = buildServiceProvider.GetRequiredService<JwtEvents>();
+            ServiceProvider buildServiceProvider = services.BuildServiceProvider();
+            Send send                 = buildServiceProvider.GetRequiredService<Send>();
+            JwtEvents events               = buildServiceProvider.GetRequiredService<JwtEvents>();
 
             // To Do - get the settings from config
             _ = builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
@@ -110,7 +110,7 @@ public static class Class1
             _ = services.AddScoped<IGetFilesHandler, GetFilesHandler>();
             _ = services.AddScoped<GetFileClassificationsHandler>();
 
-            var app = builder.Build()
+            WebApplication app = builder.Build()
                      .UseApiServices();
 
             // Configure the HTTP request pipeline.
@@ -120,7 +120,7 @@ public static class Class1
                 _ = app.MapScalarApiReference();
             }
 
-            var policyCollection = new HeaderPolicyCollection()
+            HeaderPolicyCollection policyCollection = new HeaderPolicyCollection()
                            .AddDefaultSecurityHeaders()
                            .AddPermissionsPolicyWithDefaultSecureDirectives();
 

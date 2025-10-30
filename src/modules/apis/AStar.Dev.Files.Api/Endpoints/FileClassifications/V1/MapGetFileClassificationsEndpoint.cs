@@ -1,3 +1,4 @@
+using Asp.Versioning.Builder;
 using AStar.Dev.Infrastructure.FilesDb.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -17,9 +18,9 @@ public static class MapGetFileClassificationsEndpoint
     /// <param name="endpointRouteBuilder">The endpoint route builder</param>
     public static void MapFileClassificationsGetEndpoint(this IEndpointRouteBuilder endpointRouteBuilder)
     {
-        var versionedApi = endpointRouteBuilder.NewVersionedApi("FileClassifications");
+        IVersionedEndpointRouteBuilder versionedApi = endpointRouteBuilder.NewVersionedApi("FileClassifications");
 
-        var apiGroup = versionedApi
+        RouteGroupBuilder apiGroup = versionedApi
             .MapGroup("/api/file-classifications")
             .HasApiVersion(1.0);
 

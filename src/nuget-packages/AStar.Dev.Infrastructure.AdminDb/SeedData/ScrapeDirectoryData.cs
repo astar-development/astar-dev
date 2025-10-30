@@ -14,7 +14,7 @@ public static class ScrapeDirectoryData
     /// <param name="context">The <see cref="DbContext" /> to populate</param>
     public static void Seed(DbContext context)
     {
-        var scrapeDirectories = context.Set<ScrapeDirectory>();
+        DbSet<ScrapeDirectory> scrapeDirectories = context.Set<ScrapeDirectory>();
 
         if(scrapeDirectories.Any())
         {

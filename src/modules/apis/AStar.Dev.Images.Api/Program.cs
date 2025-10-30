@@ -21,7 +21,7 @@ public static class Class1
     /// <returns></returns>
     public static async Task DoStuff()
     {
-        var builder = WebApplication.CreateBuilder();
+        WebApplicationBuilder builder = WebApplication.CreateBuilder();
         _ = builder.AddServiceDefaults();
 
         _ = builder.Services.AddOpenApi();
@@ -32,9 +32,9 @@ public static class Class1
 
         _ = builder.Services.AddHealthChecks();
 
-        var app = builder.Build();
+        WebApplication app = builder.Build();
 
-        var policyCollection = new HeaderPolicyCollection()
+        HeaderPolicyCollection policyCollection = new HeaderPolicyCollection()
             .AddDefaultSecurityHeaders()
             .AddPermissionsPolicyWithDefaultSecureDirectives();
 
@@ -55,7 +55,7 @@ public static class Class1
 
         _ = app.MapGet("/weatherforecast", () =>
             {
-                var forecast = Enumerable.Range(1, 5).Select(index => new WeatherForecast
+                WeatherForecast[] forecast = Enumerable.Range(1, 5).Select(index => new WeatherForecast
                     (
                         DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
                         Random.Shared.Next(-20, 55),

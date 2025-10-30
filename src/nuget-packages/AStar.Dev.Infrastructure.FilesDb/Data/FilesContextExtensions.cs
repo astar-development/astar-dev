@@ -52,7 +52,7 @@ public static class FilesContextExtensions
                                                            CancellationToken      cancellationToken)
     {
         var x = files.Include(fileDetail => fileDetail.FileAccessDetail).AsNoTracking().ToList();
-        var filesToReturn = files.Include(fileDetail => fileDetail.FileAccessDetail).AsNoTracking().AsQueryable();
+        IQueryable<FileDetail> filesToReturn = files.Include(fileDetail => fileDetail.FileAccessDetail).AsNoTracking().AsQueryable();
 
         if(cancellationToken.IsCancellationRequested)
         {
@@ -62,7 +62,7 @@ public static class FilesContextExtensions
         filesToReturn = recursive
             ? filesToReturn.Where(file => file.DirectoryName.Value.StartsWith(startingFolder.Value))
             : filesToReturn.Where(file => file.DirectoryName.Value==startingFolder.Value);
-     var y =  recursive
+        List<FileDetail> y =  recursive
             ? filesToReturn.Where(file => file.DirectoryName.Value.StartsWith(startingFolder.Value)).ToList()
             : filesToReturn.Where(file => file.DirectoryName.Value ==startingFolder.Value).ToList();
 
@@ -71,7 +71,7 @@ public static class FilesContextExtensions
             return [];
         }
 
-        var z = includeSoftDeleted
+        List<FileDetail> z = includeSoftDeleted
             ? filesToReturn.ToList()
             : filesToReturn.Where(file => file.DeletionStatus != null && file.DeletionStatus.SoftDeleted == null).ToList();
         filesToReturn = includeSoftDeleted

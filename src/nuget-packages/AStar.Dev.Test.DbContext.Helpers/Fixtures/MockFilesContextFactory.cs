@@ -17,7 +17,7 @@ public static class MockFilesContextFactory
     public static async Task<FilesContext> CreateMockFilesContextAsync()
     {
         var optionsBuilder = new DbContextOptionsBuilder<FilesContext>();
-        var config = TestSetup.ServiceProvider.GetRequiredService<IConfiguration>();
+        IConfiguration config = TestSetup.ServiceProvider.GetRequiredService<IConfiguration>();
         var connectionString = config.GetConnectionString("SqlServer");
         _ = optionsBuilder.UseSqlServer(connectionString, contextOptionsBuilder => contextOptionsBuilder.EnableRetryOnFailure(3, TimeSpan.FromSeconds(10), null));
         var testFilesContext = new FilesContext(optionsBuilder.Options);
@@ -42,9 +42,9 @@ public static class MockFilesContextFactory
         var combine = Path.Combine(Directory.GetCurrentDirectory(), "../../../../../../src/nuget-packages/AStar.Dev.Test.DbContext.Helpers/TestData/files.json");
         var filesAsJson = File.ReadAllText(combine);
 
-        var listFromJson = JsonSerializer.Deserialize<IEnumerable<FileDetail>>(filesAsJson, JsonSerializerOptions.Web)!;
+        IEnumerable<FileDetail> listFromJson = JsonSerializer.Deserialize<IEnumerable<FileDetail>>(filesAsJson, JsonSerializerOptions.Web)!;
 
-        foreach(var item in listFromJson)
+        foreach(FileDetail item in listFromJson)
         {
             item.FileHandle = FileHandle.Create($"{item.DirectoryName}-{item.FileName}-{item.Id}");
             _ = mockFilesContext.Files.Add(item);

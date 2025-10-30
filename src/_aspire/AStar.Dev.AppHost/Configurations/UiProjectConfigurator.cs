@@ -15,7 +15,7 @@ public static class UiProjectConfigurator
         IDistributedApplicationBuilder builder,
         IResourceBuilder<RabbitMQServerResource> rabbitMq)
     {
-        var config = GetConfig();
+        UiProjectConfig config = GetConfig();
         _ = builder.AddProject<AStar_Dev_Web>(config.ProjectName)
             .WithExternalHttpEndpoints()
             .WithHttpHealthCheck(config.HealthEndpoint)

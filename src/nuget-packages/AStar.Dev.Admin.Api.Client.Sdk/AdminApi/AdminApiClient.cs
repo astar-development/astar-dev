@@ -22,7 +22,7 @@ public sealed class AdminApiClient(HttpClient httpClient, /*ITokenAcquisition to
         {
             logger.LogInformation("Checking the {ApiName} Health Status.", Constants.ApiName);
 
-            var response = await httpClient.GetAsync("/health/ready", cancellationToken);
+            HttpResponseMessage response = await httpClient.GetAsync("/health/ready", cancellationToken);
 
             return response.IsSuccessStatusCode
                 ? (await JsonSerializer.DeserializeAsync<HealthStatusResponse>(await response.Content.ReadAsStreamAsync(cancellationToken), JsonSerializerOptions, cancellationToken))!
@@ -46,7 +46,7 @@ public sealed class AdminApiClient(HttpClient httpClient, /*ITokenAcquisition to
 
         // logger.LogDebug("Token: {Token}", token);
         httpClient.DefaultRequestHeaders.Authorization = new("Bearer", token);
-        var response = await httpClient.GetAsync("site-configurations?version=1.0");
+        HttpResponseMessage response = await httpClient.GetAsync("site-configurations?version=1.0");
 
         return (await response.Content.ReadFromJsonAsync<IEnumerable<SiteConfiguration>>())!;
     }
