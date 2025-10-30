@@ -30,7 +30,7 @@ public static class AddApiHttpClient
                 options => options.Scopes = optionsScopes)
             .ConfigureHttpClient((serviceProvider, client) =>
             {
-                var apiConfig = serviceProvider.GetRequiredService<IOptions<TApiConfiguration>>().Value;
+                TApiConfiguration apiConfig = serviceProvider.GetRequiredService<IOptions<TApiConfiguration>>().Value;
                 client.BaseAddress = apiConfig.BaseUrl;
                 client.DefaultRequestHeaders.Accept.Add(new(MediaTypeNames.Application.Json));
             })

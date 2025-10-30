@@ -22,7 +22,7 @@ public static class ResultExtensions
     public static async Task<TResult> MatchAsync<TSuccess, TError, TResult>(this Task<Result<TSuccess, TError>> resultTask, Func<TSuccess, Task<TResult>> onSuccess,
         Func<TError, Task<TResult>> onFailure)
     {
-        var result = await resultTask;
+        Result<TSuccess, TError> result = await resultTask;
 
         return await result.Match(onSuccess, onFailure);
     }
@@ -38,7 +38,7 @@ public static class ResultExtensions
     /// <returns></returns>
     public static async Task<TResult> MatchAsync<TSuccess, TError, TResult>(this Task<Result<TSuccess, TError>> resultTask, Func<TSuccess, TResult> onSuccess, Func<TError, TResult> onFailure)
     {
-        var result = await resultTask;
+        Result<TSuccess, TError> result = await resultTask;
 
         return result.Match(onSuccess, onFailure);
     }
@@ -108,7 +108,7 @@ public static class ResultExtensions
     /// </returns>
     public static async Task<Result<TNew, TError>> MapAsync<TSuccess, TError, TNew>(this Task<Result<TSuccess, TError>> resultTask, Func<TSuccess, Task<TNew>> mapAsync)
     {
-        var result = await resultTask;
+        Result<TSuccess, TError> result = await resultTask;
 
         return await result.MapAsync(mapAsync);
     }
@@ -178,7 +178,7 @@ public static class ResultExtensions
     /// </returns>
     public static async Task<Result<TSuccess, TNewError>> MapFailureAsync<TSuccess, TError, TNewError>(this Task<Result<TSuccess, TError>> resultTask, Func<TError, Task<TNewError>> mapErrorAsync)
     {
-        var result = await resultTask;
+        Result<TSuccess, TError> result = await resultTask;
 
         return await result.MapFailureAsync(mapErrorAsync);
     }
@@ -248,7 +248,7 @@ public static class ResultExtensions
     /// </returns>
     public static async Task<Result<TNew, TError>> BindAsync<TSuccess, TError, TNew>(this Task<Result<TSuccess, TError>> resultTask, Func<TSuccess, Task<Result<TNew, TError>>> bindAsync)
     {
-        var result = await resultTask;
+        Result<TSuccess, TError> result = await resultTask;
 
         return await result.BindAsync(bindAsync);
     }
@@ -329,7 +329,7 @@ public static class ResultExtensions
     /// </returns>
     public static async Task<Result<TSuccess, TError>> TapAsync<TSuccess, TError>(this Task<Result<TSuccess, TError>> resultTask, Func<TSuccess, Task> actionAsync)
     {
-        var result = await resultTask;
+        Result<TSuccess, TError> result = await resultTask;
 
         return await result.TapAsync(actionAsync);
     }
@@ -347,7 +347,7 @@ public static class ResultExtensions
     /// </returns>
     public static async Task<Result<TSuccess, TError>> TapAsync<TSuccess, TError>(this Task<Result<TSuccess, TError>> resultTask, Action<TSuccess> action)
     {
-        var result = await resultTask;
+        Result<TSuccess, TError> result = await resultTask;
 
         return result.Tap(action);
     }
@@ -386,7 +386,7 @@ public static class ResultExtensions
     /// </returns>
     public static async Task<Result<TSuccess, TError>> TapErrorAsync<TSuccess, TError>(this Task<Result<TSuccess, TError>> resultTask, Action<TError> action)
     {
-        var result = await resultTask;
+        Result<TSuccess, TError> result = await resultTask;
 
         return result.TapError(action);
     }
@@ -404,7 +404,7 @@ public static class ResultExtensions
     /// </returns>
     public static async Task<Result<TSuccess, TError>> TapErrorAsync<TSuccess, TError>(this Task<Result<TSuccess, TError>> resultTask, Func<TError, Task> actionAsync)
     {
-        var result = await resultTask;
+        Result<TSuccess, TError> result = await resultTask;
 
         return await result.TapErrorAsync(actionAsync);
     }

@@ -14,7 +14,7 @@ public sealed class UsageMetricHandler(RequestDelegate next, Send send)
     /// <param name="context"></param>
     public async Task InvokeAsync(HttpContext context)
     {
-        var request = context.Request;
+        HttpRequest request = context.Request;
         var httpMethod = request.Method;
         string apiEndpoint = request.Path;
         var apiName = request.Host.Host;
@@ -26,7 +26,7 @@ public sealed class UsageMetricHandler(RequestDelegate next, Send send)
         await next(context);
 
         var endTimestamp = Stopwatch.GetTimestamp();
-        var diff = Stopwatch.GetElapsedTime(startTimestamp, endTimestamp);
+        TimeSpan diff = Stopwatch.GetElapsedTime(startTimestamp, endTimestamp);
 
         await send.SendUsageEventAsync(new(apiName, apiEndpoint, httpMethod, diff.TotalMilliseconds, context.Response.StatusCode), CancellationToken.None);
     }

@@ -16,7 +16,7 @@ public class TimeDelay
     /// <returns>The <see cref="TimeSpan" /> reresenting the delay until the next scheduled run time</returns>
     public Result<TimeSpan, ErrorResponse> CalculateDelayToNextRun(TimeOnly targetTime, bool honourFirstDelay)
     {
-        var duration = honourFirstDelay ? DateTime.Parse(targetTime.ToShortTimeString(), CultureInfo.CurrentCulture).Subtract(DateTime.Now) : TimeSpan.Zero;
+        TimeSpan duration = honourFirstDelay ? DateTime.Parse(targetTime.ToShortTimeString(), CultureInfo.CurrentCulture).Subtract(DateTime.Now) : TimeSpan.Zero;
 
         if(duration < TimeSpan.Zero)
         {

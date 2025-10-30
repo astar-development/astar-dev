@@ -15,7 +15,7 @@ public static class SiteConfigurationData
     public static void Seed(DbContext context)
     {
         _ = context.SaveChanges();
-        var siteConfiguration = context.Set<SiteConfiguration>();
+        DbSet<SiteConfiguration> siteConfiguration = context.Set<SiteConfiguration>();
 
         if(siteConfiguration.Any())
         {

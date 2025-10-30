@@ -3,16 +3,16 @@ using JetBrains.Annotations;
 using Serilog;
 using ILogger = Serilog.ILogger;
 
-var startTime = DateTime.Now;
+DateTime startTime = DateTime.Now;
 
 ILogger? logger = null;
 
 try
 {
-    var builder = Host.CreateApplicationBuilder(args);
+    HostApplicationBuilder builder = Host.CreateApplicationBuilder(args);
     _ = builder.ConfigureApplicationServices();
 
-    var app = builder.Build();
+    IHost app = builder.Build();
 
     Log.Logger = app.Services.GetRequiredService<ILogger>();
 

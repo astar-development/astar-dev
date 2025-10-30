@@ -14,7 +14,7 @@ public static class SearchCategoryData
     /// <param name="context">The <see cref="DbContext" /> to populate</param>
     public static void Seed(DbContext context)
     {
-        var searchCategories = context.Set<SearchCategory>();
+        DbSet<SearchCategory> searchCategories = context.Set<SearchCategory>();
 
         if(searchCategories.Any())
         {

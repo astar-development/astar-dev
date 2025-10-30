@@ -24,7 +24,7 @@ public sealed class UsageApiClient(HttpClient httpClient, /*ITokenAcquisition to
         {
             logger.LogInformation("Checking the {ApiName} Health Status.", Constants.ApiName);
 
-            var response = await httpClient.GetAsync("/health/live", cancellationToken);
+            HttpResponseMessage response = await httpClient.GetAsync("/health/live", cancellationToken);
 
             return response.IsSuccessStatusCode
                 ? await ReturnLoggedSuccess(response)
@@ -65,7 +65,7 @@ public sealed class UsageApiClient(HttpClient httpClient, /*ITokenAcquisition to
         // logger.LogDebug("Token: {Token}", token);
         httpClient.DefaultRequestHeaders.Authorization = new("Bearer", token);
 
-        var response = await httpClient.GetAsync(requestUri);
+        HttpResponseMessage response = await httpClient.GetAsync(requestUri);
 
         return (response.IsSuccessStatusCode
             ? await response.Content.ReadFromJsonAsync<Dictionary<string, List<ApiUsageEvent>>>()

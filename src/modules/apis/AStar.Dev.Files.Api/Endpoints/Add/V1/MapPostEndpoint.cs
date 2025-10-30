@@ -1,4 +1,5 @@
 using System.Security.Claims;
+using Asp.Versioning.Builder;
 using AStar.Dev.Infrastructure.FilesDb.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
@@ -18,9 +19,9 @@ public static class MapPostEndpoint
     /// <param name="endpointRouteBuilder"></param>
     public static void MapFilesPostEndpoint(this IEndpointRouteBuilder endpointRouteBuilder)
     {
-        var versionedApi = endpointRouteBuilder.NewVersionedApi(EndpointConstants.AddFilesGroupName);
+        IVersionedEndpointRouteBuilder versionedApi = endpointRouteBuilder.NewVersionedApi(EndpointConstants.AddFilesGroupName);
 
-        var apiGroup = versionedApi
+        RouteGroupBuilder apiGroup = versionedApi
                        .MapGroup(EndpointConstants.FilesEndpoint)
                        .HasApiVersion(1.0);
 

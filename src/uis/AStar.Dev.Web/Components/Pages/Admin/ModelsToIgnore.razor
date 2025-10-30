@@ -1,4 +1,5 @@
 @page "/admin/models-to-ignore"
+@attribute [Authorize(Policy = "AdminOnly")]
 
 <PageTitle>@App.PageTitle("NuGet Documentation")</PageTitle>
 <PageTitle>Models To Ignore</PageTitle>

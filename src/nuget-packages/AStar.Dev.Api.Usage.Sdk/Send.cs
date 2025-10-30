@@ -15,9 +15,9 @@ public sealed class Send(IConnection connection, IOptions<ApiUsageConfiguration>
     /// <param name="cancellationToken"></param>
     public async Task SendUsageEventAsync(ApiUsageEvent usageEvent, CancellationToken cancellationToken)
     {
-        var config = usageConfiguration.Value;
+        ApiUsageConfiguration config = usageConfiguration.Value;
 
-        await using var channel = await connection.CreateChannelAsync(cancellationToken: cancellationToken);
+        await using IChannel channel = await connection.CreateChannelAsync(cancellationToken: cancellationToken);
 
         _ = await channel.QueueDeclareAsync(config.QueueName, true, false, false, cancellationToken: cancellationToken);
 

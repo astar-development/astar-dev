@@ -1,7 +1,7 @@
 using AStar.Dev.AppHost.Configurations;
 using JetBrains.Annotations;
 
-var builder = DistributedApplication.CreateBuilder(args);
+IDistributedApplicationBuilder builder = DistributedApplication.CreateBuilder(args);
 
 builder.AddApplicationProjects();
 

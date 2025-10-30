@@ -23,9 +23,9 @@ public class FileClassificationsBackgroundService(IServiceScopeFactory serviceSc
     /// <param name="stoppingToken">A cancellation token to optionally cancel the operation</param>
     public async Task<Result<bool, ErrorResponse>> AddNewMappingsToTheDatabase(CancellationToken stoppingToken)
     {
-        using var scope                   = serviceScopeFactory.CreateScope();
-        var       classificationProcessor = scope.ServiceProvider.GetRequiredService<ClassificationProcessor>();
-        var       mapper                  = scope.ServiceProvider.GetRequiredService<ClassificationsMapper>();
+        using IServiceScope scope                   = serviceScopeFactory.CreateScope();
+        ClassificationProcessor classificationProcessor = scope.ServiceProvider.GetRequiredService<ClassificationProcessor>();
+        ClassificationsMapper mapper                  = scope.ServiceProvider.GetRequiredService<ClassificationsMapper>();
         _logger = scope.ServiceProvider.GetRequiredService<ILogger<FileClassificationsBackgroundService>>();
 
         _ = await mapper.LoadClassificationMappings()
