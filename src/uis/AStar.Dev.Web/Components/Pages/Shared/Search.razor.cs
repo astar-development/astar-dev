@@ -2,6 +2,7 @@ using AStar.Dev.Files.Api.Client.SDK.FilesApi;
 using AStar.Dev.Files.Api.Client.SDK.Models;
 using AStar.Dev.Web.Models;
 using Microsoft.AspNetCore.Components;
+using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Forms;
 using SearchType = AStar.Dev.Web.Models.SearchType;
 using SortOrder = AStar.Dev.Web.Models.SortOrder;
@@ -13,6 +14,8 @@ public partial class Search : ComponentBase
     [Inject] private FilesApiClient FilesApiClient { get; set; } = null!;
 
     private List<FileClassification> FileClassifications { get; set; } = [];
+
+    [Inject] private AuthenticationStateProvider AuthStateProvider { get; set; } = null!;
 
     [SupplyParameterFromForm(FormName = "search")]
     // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Local
@@ -45,12 +48,15 @@ public partial class Search : ComponentBase
 
     protected override async Task OnInitializedAsync()
     {
-        // Add a placeholder "no selection" option
-        FileClassifications = new() { new() { Id = Guid.Empty, Name = "-- Select --", IncludeInSearch = false, Celebrity = false } };
+        FileClassifications = [new() { Id = Guid.Empty, Name = "-- Select --", IncludeInSearch = false, Celebrity = false }];
+        var authState = await AuthStateProvider.GetAuthenticationStateAsync();
+        if(authState.User.Identity?.IsAuthenticated == true)
+        {
+            // safe to call FilesApiClient
+            var apiClassifications = await FilesApiClient.GetFileClassificationsAsync();
 
-        var apiClassifications = await FilesApiClient.GetFileClassificationsAsync();
-
-        FileClassifications.AddRange(apiClassifications);
+            FileClassifications.AddRange(apiClassifications);
+        }
     }
 
     private async Task HandleFormSubmit(EditContext context) => await OnValidSubmit.InvokeAsync(SearchModel);
