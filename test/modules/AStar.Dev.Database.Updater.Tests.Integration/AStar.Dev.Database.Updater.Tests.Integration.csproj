@@ -38,6 +38,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\..\src\modules\astar-dev-database-updater\AStar.Dev.Database.Updater.Core\AStar.Dev.Database.Updater.Core.csproj" />
         <ProjectReference Include="..\..\..\src\modules\AStar.Dev.FileServices.Common\AStar.Dev.FileServices.Common.csproj" />
         <ProjectReference Include="..\..\..\src\nuget-packages\AStar.Dev.Functional.Extensions\AStar.Dev.Functional.Extensions.csproj" />
         <ProjectReference Include="..\..\..\src\_aspire\AStar.Dev.AppHost\AStar.Dev.AppHost.csproj" />
