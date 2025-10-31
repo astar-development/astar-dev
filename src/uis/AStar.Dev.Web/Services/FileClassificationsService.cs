@@ -7,6 +7,6 @@ public class FileClassificationsService(AStar.Dev.Files.Classifications.Api.Serv
     /// <inheritdoc/>
     public async Task<IList<FileClassification>> GetFileClassificationsAsync()
         => (await fileClassificationsService.GetFileClassificationsAsync())
-        .Select(fc => new FileClassification { Id = fc.Id, Name = fc.Name, IncludeInSearch = fc.IncludeInSearch, Celebrity = fc.Celebrity, SearchLevel = fc.SearchLevel, ParentId = fc.ParentId })
+        .Select(fc => new FileClassification(fc))
         .ToList();
 }
