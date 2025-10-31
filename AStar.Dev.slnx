@@ -47,7 +47,6 @@
     <Project Path="src/nuget-packages/AStar.Dev.Minimal.Api.Extensions/AStar.Dev.Minimal.Api.Extensions.csproj" />
     <Project Path="src/nuget-packages/AStar.Dev.Technical.Debt.Reporting/AStar.Dev.Technical.Debt.Reporting.csproj" />
     <Project Path="src/nuget-packages/AStar.Dev.Test.DbContext.Helpers/AStar.Dev.Test.DbContext.Helpers.csproj" />
-    <Project Path="src/nuget-packages/AStar.Dev.Test.Helpers.EndToEnd/AStar.Dev.Test.Helpers.EndToEnd.csproj" />
     <Project Path="src/nuget-packages/AStar.Dev.Test.Helpers.Integration/AStar.Dev.Test.Helpers.Integration.csproj" />
     <Project Path="src/nuget-packages/AStar.Dev.Test.Helpers.Minimal.Api/AStar.Dev.Test.Helpers.Minimal.Api.csproj" />
     <Project Path="src/nuget-packages/AStar.Dev.Test.Helpers.Unit/AStar.Dev.Test.Helpers.Unit.csproj" />
@@ -99,7 +98,6 @@
     <Project Path="test/nuget-packages/AStar.Dev.Logging.Extensions.Tests.Unit/AStar.Dev.Logging.Extensions.Tests.Unit.csproj" />
     <Project Path="test/nuget-packages/AStar.Dev.Minimal.Api.Extensions.Tests.Unit/AStar.Dev.Minimal.Api.Extensions.Tests.Unit.csproj" />
     <Project Path="test/nuget-packages/AStar.Dev.Technical.Debt.Reporting.Tests.Unit/AStar.Dev.Technical.Debt.Reporting.Tests.Unit.csproj" />
-    <Project Path="test/nuget-packages/AStar.Dev.Test.Helpers.EndToEnd.Tests.Unit/AStar.Dev.Test.Helpers.EndToEnd.Tests.Unit.csproj" />
     <Project Path="test/nuget-packages/AStar.Dev.Test.Helpers.Integration.Tests.Unit/AStar.Dev.Test.Helpers.Integration.Tests.Unit.csproj" />
     <Project Path="test/nuget-packages/AStar.Dev.Test.Helpers.Minimal.Api.Tests.Unit/AStar.Dev.Test.Helpers.Minimal.Api.Tests.Unit.csproj" />
     <Project Path="test/nuget-packages/AStar.Dev.Test.Helpers.Tests.Unit.Unit/AStar.Dev.Test.Helpers.Tests.Unit.Unit.csproj" />
@@ -110,7 +108,6 @@
     <Project Path="test/test-helpers/AStar.Dev.TestHelpers/AStar.Dev.TestHelpers.csproj" />
   </Folder>
   <Folder Name="/test/uis/">
-    <Project Path="test/uis/AStar.Dev.Web.UI.Tests.EndToEnd/AStar.Dev.Web.UI.Tests.EndToEnd.csproj" Id="37284a97-ce25-497b-8b95-29b4f12a3cf9" />
     <Project Path="test/uis/AStar.Dev.Web.UI.Tests.Integration/AStar.Dev.Web.UI.Tests.Integration.csproj" />
     <Project Path="test/uis/AStar.Dev.Web.UI.Tests.Unit/AStar.Dev.Web.UI.Tests.Unit.csproj" />
   </Folder>

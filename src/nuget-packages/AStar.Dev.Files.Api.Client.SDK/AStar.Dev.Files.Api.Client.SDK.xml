@@ -217,12 +217,10 @@
         </member>
         <member name="P:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiConfiguration.ReadScopes">
             <summary>
-
             </summary>
         </member>
         <member name="P:AStar.Dev.Files.Api.Client.SDK.FilesApi.FilesApiConfiguration.WriteScopes">
             <summary>
-
             </summary>
         </member>
         <member name="T:AStar.Dev.Files.Api.Client.SDK.FilesApi.IFilesApiClient">

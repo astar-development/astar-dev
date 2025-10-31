@@ -35,18 +35,18 @@ public static class WebApplicationBuilderExtensions
             .Get<string[]>() ?? [];
 
         // Derive read/write scopes for FilesApiOptions
-        _ = builder.Services.Configure<FilesApiConfiguration>(opts =>
-                                                              {
-                                                                  opts.ReadScopes = filesApiScopes
-                                                                                    .Where(s => s.EndsWith("/ToDoList.Read", StringComparison.OrdinalIgnoreCase))
-                                                                                    .Distinct()
-                                                                                    .ToArray();
+        _ = builder.Services.Configure<FilesApiOptions>(opts =>
+                                                        {
+                                                            opts.ReadScopes = filesApiScopes
+                                                                              .Where(s => s.EndsWith("/ToDoList.Read", StringComparison.OrdinalIgnoreCase))
+                                                                              .Distinct()
+                                                                              .ToArray();
 
-                                                                  opts.WriteScopes = filesApiScopes
-                                                                                     .Where(s => s.EndsWith("/ToDoList.Write", StringComparison.OrdinalIgnoreCase))
-                                                                                     .Distinct()
-                                                                                     .ToArray();
-                                                              });
+                                                            opts.WriteScopes = filesApiScopes
+                                                                               .Where(s => s.EndsWith("/ToDoList.Write", StringComparison.OrdinalIgnoreCase))
+                                                                               .Distinct()
+                                                                               .ToArray();
+                                                        });
 
         // Typed client registration (existing pattern). The FilesApiClient now consumes FilesApiOptions via IOptions<T>.
         builder.Services.AddApiClient<FilesApiClient, FilesApiConfiguration>(filesApiScopes);

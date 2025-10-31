@@ -83,7 +83,7 @@ public class FileKeywordProcessorBackgroundServiceShould
 
         // Act - ExecuteAsync is protected; invoke via reflection
         var execute = svc.GetType().GetMethod("ExecuteAsync", BindingFlags.NonPublic | BindingFlags.Instance)!;
-        var task = (Task)execute.Invoke(svc, new object[] { TestContext.Current.CancellationToken })!;
+        var task    = (Task)execute.Invoke(svc, [TestContext.Current.CancellationToken])!;
         await task;
 
         // Assert: files processor was invoked with the list returned by the file list service
@@ -146,7 +146,7 @@ public class FileKeywordProcessorBackgroundServiceShould
 
         // Act - protected method: call via reflection
         var execute2 = svc2.GetType().GetMethod("ExecuteAsync", BindingFlags.NonPublic | BindingFlags.Instance)!;
-        var task2 = (Task)execute2.Invoke(svc2, new object[] { TestContext.Current.CancellationToken })!;
+        var task2    = (Task)execute2.Invoke(svc2, [TestContext.Current.CancellationToken])!;
         await task2;
 
         // Assert: files processor was not called because file list returned an error

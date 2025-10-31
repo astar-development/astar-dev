@@ -297,8 +297,10 @@ public static class OptionExtensions
     public static IEnumerable<T> Values<T>(this IEnumerable<Option<T>> options)
     {
         foreach(Option<T> option in options)
+        {
             if(option is Option<T>.Some some)
                 yield return some.Value;
+        }
     }
 
     /// <summary>
