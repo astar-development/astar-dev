@@ -16,14 +16,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Include="LICENSE" Pack="true" PackagePath=""/>
-        <None Include="Readme.md" Pack="true" PackagePath=""/>
+        <None Include="LICENSE" Pack="true" PackagePath="" />
+        <None Include="Readme.md" Pack="true" PackagePath="" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\AStar.Dev.Api.Client.Sdk.Shared\AStar.Dev.Api.Client.Sdk.Shared.csproj"/>
-        <ProjectReference Include="..\AStar.Dev.Api.HealthChecks\AStar.Dev.Api.HealthChecks.csproj"/>
-        <ProjectReference Include="..\AStar.Dev.AspNet.Extensions\AStar.Dev.AspNet.Extensions.csproj"/>
+        <ProjectReference Include="..\AStar.Dev.Api.HealthChecks\AStar.Dev.Api.HealthChecks.csproj" />
+        <ProjectReference Include="..\AStar.Dev.AspNet.Extensions\AStar.Dev.AspNet.Extensions.csproj" />
     </ItemGroup>
 
 </Project>

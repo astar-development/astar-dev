@@ -8,29 +8,23 @@ public sealed class UnitTest1
     [Fact]
     public void Test1()
     {
-        var types = Types.InAssembly(typeof(IAssemblyMarker).Assembly);
-        // Classes in the presentation should not directly reference repositories
-        _ = types
-            .That()
-            .ResideInNamespace("NetArchTest.SampleLibrary.Presentation")
-            .ShouldNot()
-            .HaveDependencyOn("NetArchTest.SampleLibrary.Data")
-            .GetResult()
-            .IsSuccessful;
+        var uiLayerAssembly = typeof(Program).Assembly;
+        var types = Types.InAssembly(uiLayerAssembly);
+        // Act - pointless as it doesn't work!!
+        var result = types
+        .ShouldNot().HaveDependencyOnAll("AStar.Dev.Files.Api.Client.SDK", "Contracts", "Persistence", "Services", "Services.Abstractions")
+        .GetResult();
+        // Assert
+        result.IsSuccessful.ShouldBeTrue();
 
-        // Classes in the "data" namespace should implement IRepository
-        _ = types
-            .That().HaveDependencyOn("System.Data")
-            .And().ResideInNamespace("ArchTest")
-            .Should().ResideInNamespace("NetArchTest.SampleLibrary.Data")
-            .GetResult()
-            .IsSuccessful;
+        _ = Types.InAssembly(typeof(IAssemblyMarker).Assembly);
 
         // All the service classes should be sealed
-        _ = types
+        var results = types
             //.That().ImplementInterface(typeof(IWidgetService))
             .Should().BeSealed()
-            .GetResult()
-            .IsSuccessful;
+            .GetResult();
+        results
+            .IsSuccessful.ShouldBeTrue();
     }
 }

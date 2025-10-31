@@ -1,9 +1,11 @@
-namespace AStar.Dev.Files.Classifications.Api.Services;
+﻿using AStar.Dev.Web.Models;
+
+namespace AStar.Dev.Web.Services;
 
 /// <summary>
 /// Service interface for fetching file classifications.
 /// </summary>
-public interface IFileClassificationsService2
+public interface IFileClassificationsService
 {
     /// <summary>
     /// Retrieves a list of distinct file classifications.

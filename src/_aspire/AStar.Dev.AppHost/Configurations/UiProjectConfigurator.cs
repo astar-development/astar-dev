@@ -13,6 +13,7 @@ public static class UiProjectConfigurator
 
     public static void Configure(
         IDistributedApplicationBuilder builder,
+        IResourceBuilder<SqlServerDatabaseResource> astarDb,
         IResourceBuilder<RabbitMQServerResource> rabbitMq)
     {
         UiProjectConfig config = GetConfig();
@@ -20,6 +21,8 @@ public static class UiProjectConfigurator
             .WithExternalHttpEndpoints()
             .WithHttpHealthCheck(config.HealthEndpoint)
             .WithReference(rabbitMq)
-            .WaitFor(rabbitMq);
+            .WaitFor(rabbitMq)
+            .WithReference(astarDb)
+            .WaitFor(astarDb);
     }
 }

@@ -5,7 +5,7 @@ IDistributedApplicationBuilder builder = DistributedApplication.CreateBuilder(ar
 
 builder.AddApplicationProjects();
 
-builder.Build().Run();
+await builder.Build().RunAsync();
 
 namespace AStar.Dev.AppHost
 {

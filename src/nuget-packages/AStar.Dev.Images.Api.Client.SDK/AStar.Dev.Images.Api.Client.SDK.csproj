@@ -16,22 +16,21 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Include="LICENSE" Pack="true" PackagePath=""/>
-        <None Include="Readme.md" Pack="true" PackagePath=""/>
+        <None Include="LICENSE" Pack="true" PackagePath="" />
+        <None Include="Readme.md" Pack="true" PackagePath="" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.23.0"/>
-        <PackageReference Include="Microsoft.Identity.Web" Version="4.0.1"/>
-        <PackageReference Include="Microsoft.Identity.Web.DownstreamApi" Version="4.0.1"/>
-        <PackageReference Include="Microsoft.Identity.Web.UI" Version="4.0.1"/>
+        <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.23.0" />
+        <PackageReference Include="Microsoft.Identity.Web" Version="4.0.1" />
+        <PackageReference Include="Microsoft.Identity.Web.DownstreamApi" Version="4.0.1" />
+        <PackageReference Include="Microsoft.Identity.Web.UI" Version="4.0.1" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\AStar.Dev.Api.Client.Sdk.Shared\AStar.Dev.Api.Client.Sdk.Shared.csproj"/>
-        <ProjectReference Include="..\AStar.Dev.Api.HealthChecks\AStar.Dev.Api.HealthChecks.csproj"/>
-        <ProjectReference Include="..\AStar.Dev.AspNet.Extensions\AStar.Dev.AspNet.Extensions.csproj"/>
-        <ProjectReference Include="..\AStar.Dev.Functional.Extensions\AStar.Dev.Functional.Extensions.csproj"/>
+        <ProjectReference Include="..\AStar.Dev.Api.HealthChecks\AStar.Dev.Api.HealthChecks.csproj" />
+        <ProjectReference Include="..\AStar.Dev.AspNet.Extensions\AStar.Dev.AspNet.Extensions.csproj" />
+        <ProjectReference Include="..\AStar.Dev.Functional.Extensions\AStar.Dev.Functional.Extensions.csproj" />
     </ItemGroup>
 
 </Project>

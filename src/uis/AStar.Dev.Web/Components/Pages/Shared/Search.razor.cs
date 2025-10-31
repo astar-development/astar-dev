@@ -1,6 +1,5 @@
-using AStar.Dev.Files.Api.Client.SDK.FilesApi;
-using AStar.Dev.Files.Api.Client.SDK.Models;
 using AStar.Dev.Web.Models;
+using AStar.Dev.Web.Services;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Forms;
@@ -11,9 +10,9 @@ namespace AStar.Dev.Web.Components.Pages.Shared;
 
 public partial class Search : ComponentBase
 {
-    [Inject] private FilesApiClient FilesApiClient { get; set; } = null!;
-
     private List<FileClassification> FileClassifications { get; set; } = [];
+
+    [Inject] private IFileClassificationsService FileClassificationsService { get; set; } = null!;
 
     [Inject] private AuthenticationStateProvider AuthStateProvider { get; set; } = null!;
 
@@ -26,6 +25,7 @@ public partial class Search : ComponentBase
     private static string GetDaysText(int days) => days == 0 ? "Include all" : $"{days} days";
 
     private static IEnumerable<SearchType> SearchTypeOptions => Enum.GetValues<SearchType>();
+
     private static IEnumerable<SortOrder> SortOrderOptions => Enum.GetValues<SortOrder>();
 
     private static string GetSearchTypeText(SearchType searchType) => searchType switch
@@ -48,15 +48,10 @@ public partial class Search : ComponentBase
 
     protected override async Task OnInitializedAsync()
     {
-        FileClassifications = [new() { Id = Guid.Empty, Name = "-- Select --", IncludeInSearch = false, Celebrity = false }];
-        AuthenticationState authState = await AuthStateProvider.GetAuthenticationStateAsync();
-        if(authState.User.Identity?.IsAuthenticated == true)
-        {
-            // safe to call FilesApiClient
-            IReadOnlyCollection<FileClassification> apiClassifications = await FilesApiClient.GetFileClassificationsAsync();
+        FileClassifications = [new() { Id = Guid.Empty, Name = "-- Select (Optional) --", IncludeInSearch = false, Celebrity = false }];
 
-            FileClassifications.AddRange(apiClassifications);
-        }
+        IEnumerable<FileClassification> classifications = await FileClassificationsService.GetFileClassificationsAsync();
+        FileClassifications.AddRange(classifications);
     }
 
     private async Task HandleFormSubmit(EditContext context) => await OnValidSubmit.InvokeAsync(SearchModel);
