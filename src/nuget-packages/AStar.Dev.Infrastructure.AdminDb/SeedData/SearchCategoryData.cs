@@ -16,13 +16,10 @@ public static class SearchCategoryData
     {
         DbSet<SearchCategory> searchCategories = context.Set<SearchCategory>();
 
-        if(searchCategories.Any())
-        {
-            return;
-        }
+        if(searchCategories.Any()) return;
 
         _ = context.Set<SearchCategory>()
-            .Add(new() { Id = 2401, Name = "Initial Category" });
+                   .Add(new() { Id = 2401, Name = "Initial Category" });
 
         _ = context.SaveChanges();
     }

@@ -20,10 +20,7 @@ public static class PostedFilesHandler // move to non-static and IoC?
     /// <returns></returns>
     public static async Task<IResult> HandleAsync(AddFilesRequest files, FilesContext filesContext, TimeProvider time, string username, CancellationToken cancellationToken)
     {
-        if(files.FilesToAdd.Count > MaxFilesToAdd)
-        {
-            return Results.BadRequest($"Too many files supplied. Please try again with {MaxFilesToAdd} files or less.");
-        }
+        if(files.FilesToAdd.Count > MaxFilesToAdd) return Results.BadRequest($"Too many files supplied. Please try again with {MaxFilesToAdd} files or less.");
 
         IReadOnlyCollection<FileDetail> fileDetailList = files.FilesToAdd.ToFileDetailsList(time, username);
 

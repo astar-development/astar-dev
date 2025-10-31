@@ -16,28 +16,25 @@ public static class SearchConfigurationData
     {
         DbSet<SearchConfiguration> searchCategories = context.Set<SearchConfiguration>();
 
-        if(searchCategories.Any())
-        {
-            return;
-        }
+        if(searchCategories.Any()) return;
 
         _ = context.Set<SearchConfiguration>()
-            .Add(new()
-            {
-                SearchString = @"/search?q=id:872\u0026categories=001\u0026purity=111\u0026sorting=date_added\u0026order=desc\u0026ai_art_filter=0\u0026page=",
-                TopWallpapers = @"/search?categories=001\u0026purity=111\u0026topRange=1M\u0026sorting=toplist\u0026order=desc\u0026ai_art_filter=0\u0026page=",
-                SearchStringPrefix = "/search?q=id:",
-                SearchStringSuffix = @"\u0026categories=001\u0026purity=111\u0026sorting=date_added\u0026order=desc\u0026ai_art_filter=0\u0026page=""",
-                Subscriptions = "subscription?page=",
-                ImagePauseInSeconds = 5,
-                SlowMotionDelayInMilliseconds = 500,
-                TotalPages = 0,
-                SubscriptionsTotalPages = 0,
-                SubscriptionsStartingPageNumber = 0,
-                StartingPageNumber = 1,
-                TopWallpapersTotalPages = 0,
-                TopWallpapersStartingPageNumber = 1,
-                UseHeadless = false
-            });
+                   .Add(new()
+                        {
+                            SearchString                    = @"/search?q=id:872\u0026categories=001\u0026purity=111\u0026sorting=date_added\u0026order=desc\u0026ai_art_filter=0\u0026page=",
+                            TopWallpapers                   = @"/search?categories=001\u0026purity=111\u0026topRange=1M\u0026sorting=toplist\u0026order=desc\u0026ai_art_filter=0\u0026page=",
+                            SearchStringPrefix              = "/search?q=id:",
+                            SearchStringSuffix              = @"\u0026categories=001\u0026purity=111\u0026sorting=date_added\u0026order=desc\u0026ai_art_filter=0\u0026page=""",
+                            Subscriptions                   = "subscription?page=",
+                            ImagePauseInSeconds             = 5,
+                            SlowMotionDelayInMilliseconds   = 500,
+                            TotalPages                      = 0,
+                            SubscriptionsTotalPages         = 0,
+                            SubscriptionsStartingPageNumber = 0,
+                            StartingPageNumber              = 1,
+                            TopWallpapersTotalPages         = 0,
+                            TopWallpapersStartingPageNumber = 1,
+                            UseHeadless                     = false
+                        });
     }
 }

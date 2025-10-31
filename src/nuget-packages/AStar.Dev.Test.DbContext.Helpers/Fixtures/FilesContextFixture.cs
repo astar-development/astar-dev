@@ -35,15 +35,9 @@ public class FilesContextFixture : IDisposable
     /// <param name="disposing"></param>
     protected virtual void Dispose(bool disposing)
     {
-        if(_disposedValue)
-        {
-            return;
-        }
+        if(_disposedValue) return;
 
-        if(disposing)
-        {
-            Sut.Dispose();
-        }
+        if(disposing) Sut.Dispose();
 
         _disposedValue = true;
     }

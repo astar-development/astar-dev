@@ -45,10 +45,7 @@ public class FilesProcessor(
 
         foreach(FileDetail fileDetail in filesToProcess)
         {
-            if(cancellationToken.IsCancellationRequested)
-            {
-                break;
-            }
+            if(cancellationToken.IsCancellationRequested) break;
 
             try
             {
@@ -57,10 +54,7 @@ public class FilesProcessor(
                 fileDetails.Add(fileDetail);
                 writeCount++;
 
-                if(writeCount % 100 != 0)
-                {
-                    continue;
-                }
+                if(writeCount % 100 != 0) continue;
 
                 _ = await SaveFileDetailsAsync(writeCount, fileDetails, cancellationToken);
                 fileDetails.Clear();

@@ -27,10 +27,7 @@ public static class PipelineExtensions
         _ = app.UseExceptionHandler();
         _ = app.ConfigureHealthCheckEndpoints().UseSwagger();
 
-        if(enableSwaggerDarkMode)
-        {
-            _ = app.UseStaticFiles();
-        }
+        if(enableSwaggerDarkMode) _ = app.UseStaticFiles();
 
         _ = app.UseSwaggerUI(SetupAction(app, enableSwaggerDarkMode));
 
@@ -52,10 +49,7 @@ public static class PipelineExtensions
                 var name = description.GroupName.ToUpperInvariant();
                 options.SwaggerEndpoint(url, name);
 
-                if(enableSwaggerDarkMode)
-                {
-                    options.InjectStylesheet("/swagger-ui/SwaggerDark.css");
-                }
+                if(enableSwaggerDarkMode) options.InjectStylesheet("/swagger-ui/SwaggerDark.css");
             }
         };
 }

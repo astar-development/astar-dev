@@ -423,10 +423,10 @@ public class FilesApiClient(HttpClient httpClient, /*ITokenAcquisition tokenAcqu
     {
         rootDirectory = UrlEncoder.Default.Encode(rootDirectory);
 
-        logger.LogInformation("Starting GetDirectoriesAsync for rootDirectory: {rootDirectory} with baseUrl: {BaseUrl}", $"/directories/{rootDirectory}?version=1",
-            httpClient.BaseAddress);
+        logger.LogInformation("Starting GetDirectoriesAsync for rootDirectory: {RootDirectory} with baseUrl: {BaseUrl}", $"/directories/{rootDirectory}?version=1",
+                              httpClient.BaseAddress);
 
-        var token = string.Empty; // await tokenAcquisitionService.GetAccessTokenForUserAsync(["api://2ca26585-5929-4aae-86a7-a00c3fc2d061/ToDoList.Write",]);
+        var token = string.Empty;
         httpClient.DefaultRequestHeaders.Authorization = new("Bearer", token);
 
         HttpResponseMessage response = await httpClient.GetAsync($"/directories/{rootDirectory}?version=1", cancellationToken);
