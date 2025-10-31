@@ -17,6 +17,6 @@ public static class DistributedApplicationBuilderExtensions
 
         DatabaseUpdaterApiProjectConfigurator.Configure(builder, astarDb, migrations, sqlServer, rabbitMq);
 
-        UiProjectConfigurator.Configure(builder, rabbitMq);
+        UiProjectConfigurator.Configure(builder, astarDb, rabbitMq);
     }
 }

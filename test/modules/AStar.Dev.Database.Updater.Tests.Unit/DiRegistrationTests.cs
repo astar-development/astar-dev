@@ -1,6 +1,5 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-
 namespace AStar.Dev.Database.Updater.Tests.Unit;
 
 public class DiRegistrationTests
@@ -8,7 +7,7 @@ public class DiRegistrationTests
     [Fact]
     public async Task AllServicesCanBeResolvedAsync()
     {
-        var hostBuilder = Host.CreateApplicationBuilder();
+        var hostBuilder = Host.CreateApplicationBuilder().ConfigureApplicationServices();
 
         await using var provider = hostBuilder.Services.BuildServiceProvider(true);
 
