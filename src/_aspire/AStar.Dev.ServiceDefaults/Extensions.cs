@@ -63,17 +63,14 @@ public static class Extensions
                             });
 
         _ = builder.AddOpenTelemetryExporters();
-        
+
         return builder;
     }
 
     private static TBuilder AddOpenTelemetryExporters<TBuilder>(this TBuilder builder) where TBuilder : IHostApplicationBuilder
     {
-        string otlpEndpoint = builder.Configuration["OTEL_EXPORTER_OTLP_ENDPOINT"]!;
-        if(ServiceDefaultsLogic.ShouldUseOtlpExporter(otlpEndpoint))
-        {
-            _ = builder.Services.AddOpenTelemetry().UseOtlpExporter();
-        }
+        var otlpEndpoint                                               = builder.Configuration["OTEL_EXPORTER_OTLP_ENDPOINT"]!;
+        if(ServiceDefaultsLogic.ShouldUseOtlpExporter(otlpEndpoint)) _ = builder.Services.AddOpenTelemetry().UseOtlpExporter();
 
         return builder;
     }
@@ -96,10 +93,7 @@ public static class Extensions
 
     public static WebApplication MapDefaultEndpoints(this WebApplication app)
     {
-        if(!app.Environment.IsDevelopment())
-        {
-            return app;
-        }
+        if(!app.Environment.IsDevelopment()) return app;
 
         _ = app.MapHealthChecks(HealthEndpointPath);
 

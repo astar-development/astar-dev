@@ -48,10 +48,7 @@ public class DatabaseMigrationService(IServiceProvider serviceProvider, IHostApp
 
         await strategy.ExecuteAsync(async () =>
                                     {
-                                        if(!await dbCreator.ExistsAsync(stoppingToken))
-                                        {
-                                            await dbCreator.CreateAsync(stoppingToken);
-                                        }
+                                        if(!await dbCreator.ExistsAsync(stoppingToken)) await dbCreator.CreateAsync(stoppingToken);
                                     });
     }
 

@@ -54,34 +54,25 @@ public static class FilesContextExtensions
         var x = files.Include(fileDetail => fileDetail.FileAccessDetail).AsNoTracking().ToList();
         IQueryable<FileDetail> filesToReturn = files.Include(fileDetail => fileDetail.FileAccessDetail).AsNoTracking().AsQueryable();
 
-        if(cancellationToken.IsCancellationRequested)
-        {
-            return [];
-        }
+        if(cancellationToken.IsCancellationRequested) return [];
 
         filesToReturn = recursive
-            ? filesToReturn.Where(file => file.DirectoryName.Value.StartsWith(startingFolder.Value))
-            : filesToReturn.Where(file => file.DirectoryName.Value==startingFolder.Value);
+                            ? filesToReturn.Where(file => file.DirectoryName.Value.StartsWith(startingFolder.Value))
+                            : filesToReturn.Where(file => file.DirectoryName.Value == startingFolder.Value);
         List<FileDetail> y =  recursive
             ? filesToReturn.Where(file => file.DirectoryName.Value.StartsWith(startingFolder.Value)).ToList()
             : filesToReturn.Where(file => file.DirectoryName.Value ==startingFolder.Value).ToList();
 
-        if(cancellationToken.IsCancellationRequested)
-        {
-            return [];
-        }
+        if(cancellationToken.IsCancellationRequested) return [];
 
         List<FileDetail> z = includeSoftDeleted
-            ? filesToReturn.ToList()
-            : filesToReturn.Where(file => file.DeletionStatus != null && file.DeletionStatus.SoftDeleted == null).ToList();
+                                 ? filesToReturn.ToList()
+                                 : filesToReturn.Where(file => file.DeletionStatus != null && file.DeletionStatus.SoftDeleted == null).ToList();
         filesToReturn = includeSoftDeleted
             ? filesToReturn
             : filesToReturn.Where(file => file.DeletionStatus != null && file.DeletionStatus.SoftDeleted == null);
 
-        if(cancellationToken.IsCancellationRequested)
-        {
-            return [];
-        }
+        if(cancellationToken.IsCancellationRequested) return [];
 
         if(!includeMarkedForDeletion)
         {
@@ -89,10 +80,7 @@ public static class FilesContextExtensions
             filesToReturn = filesToReturn.Where(file => file.DeletionStatus != null && file.DeletionStatus.SoftDeletePending != null && file.DeletionStatus.HardDeletePending != null);
         }
 
-        if(cancellationToken.IsCancellationRequested)
-        {
-            return [];
-        }
+        if(cancellationToken.IsCancellationRequested) return [];
 
         if(searchType == "Images")
         {
@@ -112,10 +100,7 @@ public static class FilesContextExtensions
                                                         || file.FileName.Value.EndsWith("gif"));
         }
 
-        if(cancellationToken.IsCancellationRequested)
-        {
-            return [];
-        }
+        if(cancellationToken.IsCancellationRequested) return [];
 
         if(excludeViewed)
         {

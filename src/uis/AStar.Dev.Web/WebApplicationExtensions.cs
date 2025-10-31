@@ -50,10 +50,7 @@ public static class WebApplicationExtensions
         _ = app.MapHealthChecks("/health").ShortCircuit();
         _ = app.UseExceptionHandler("/Error", true);
 
-        if(!app.Environment.IsDevelopment())
-        {
-            _ = app.UseHsts();
-        }
+        if(!app.Environment.IsDevelopment()) _ = app.UseHsts();
 
         _ = app.UseHttpsRedirection();
 

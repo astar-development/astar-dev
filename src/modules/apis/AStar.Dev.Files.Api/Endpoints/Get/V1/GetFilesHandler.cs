@@ -11,10 +11,7 @@ public class GetFilesHandler : IGetFilesHandler
     /// <inheritdoc />
     public async Task<IResult> HandleAsync(GetFilesRequest files, FilesContext filesContext, TimeProvider time, string username, CancellationToken cancellationToken)
     {
-        if(files.SearchType is SearchType.DuplicateImages or SearchType.Duplicates)
-        {
-            return Results.BadRequest();
-        }
+        if(files.SearchType is SearchType.DuplicateImages or SearchType.Duplicates) return Results.BadRequest();
 
         IList<GetFilesResponse> fileDetails = await filesContext.Files
                                                                 .WhereDirectoryNameMatches(files.SearchFolder, files.Recursive)

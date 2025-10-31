@@ -33,10 +33,7 @@ public sealed class UsageMetricHandler(RequestDelegate next, Send send)
 
     private static string UpdateApiNameIfRequired(string apiName)
     {
-        if(apiName == "host.docker.internal")
-        {
-            apiName = "astar.dev.images.api";
-        }
+        if(apiName == "host.docker.internal") apiName = "astar.dev.images.api";
 
         return apiName;
     }

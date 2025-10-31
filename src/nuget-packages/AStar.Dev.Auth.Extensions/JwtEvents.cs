@@ -47,10 +47,7 @@ public sealed class JwtEvents(ILogger<JwtEvents> logger)
         ClaimsPrincipal? claimsPrincipal = context.Principal;
         var userId = claimsPrincipal?.FindFirst(t => t.Type == "name")?.Value;
 
-        if(string.IsNullOrEmpty(userId))
-        {
-            context.Fail("User ID could not be found.");
-        }
+        if(string.IsNullOrEmpty(userId)) context.Fail("User ID could not be found.");
 
         return Task.CompletedTask;
     }

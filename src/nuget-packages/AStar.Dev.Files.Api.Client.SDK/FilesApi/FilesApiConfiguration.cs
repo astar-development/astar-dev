@@ -20,4 +20,12 @@ public sealed class FilesApiConfiguration : IApiConfiguration
     /// <inheritdoc />
     [Required]
     public required string[] Scopes { get; set; }
+
+    /// <summary>
+    /// </summary>
+    public string[] ReadScopes { get; set; } = [];
+
+    /// <summary>
+    /// </summary>
+    public string[] WriteScopes { get; set; } = [];
 }

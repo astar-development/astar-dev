@@ -5,109 +5,106 @@ public class TryTests
     [Fact]
     public void RunShouldReturnOkResultWhenFunctionSucceeds()
     {
-        var expectedValue = 42;
+        const int expectedValue = 42;
 
-        int successFunc()
-        {
-            return expectedValue;
-        }
-
-        var result = Try.Run(successFunc);
+        var result = Try.Run(SuccessFunc);
 
         _ = result.ShouldBeOfType<Result<int, Exception>.Ok>();
         Pattern.IsOk(result).ShouldBeTrue();
         Pattern.IsError(result).ShouldBeFalse();
         ((Result<int, Exception>.Ok)result).Value.ShouldBe(expectedValue);
+
+        return;
+
+        int SuccessFunc() => expectedValue;
     }
 
     [Fact]
     public void RunShouldReturnErrorResultWhenFunctionThrows()
     {
-        var exceptionMessage = "Test exception";
-        Exception expectedException = new InvalidOperationException(exceptionMessage);
+        const string exceptionMessage  = "Test exception";
+        Exception    expectedException = new InvalidOperationException(exceptionMessage);
 
-        int failingFunc()
-        {
-            throw expectedException;
-        }
-
-        var result = Try.Run(failingFunc);
+        var result = Try.Run(FailingFunc);
 
         _ = result.ShouldBeOfType<Result<int, Exception>.Error>();
         Pattern.IsOk(result).ShouldBeFalse();
         Pattern.IsError(result).ShouldBeTrue();
         ((Result<int, Exception>.Error)result).Reason.ShouldBe(expectedException);
         ((Result<int, Exception>.Error)result).Reason.Message.ShouldBe(exceptionMessage);
+
+        return;
+
+        int FailingFunc() => throw expectedException;
     }
 
     [Fact]
     public void RunShouldCaptureSpecificExceptionTypes()
     {
-        static int argNullFunc()
-        {
-            throw new ArgumentNullException("testParam");
-        }
-
-        var result = Try.Run(argNullFunc);
+        var result = Try.Run(ArgNullFunc);
 
         var error = ((Result<int, Exception>.Error)result).Reason;
         _ = error.ShouldBeOfType<ArgumentNullException>();
         (error as ArgumentNullException)?.ParamName.ShouldBe("testParam");
+
+        return;
+
+        static int ArgNullFunc() => throw new ArgumentNullException("testParam");
     }
 
     [Fact]
     public async Task RunAsyncShouldReturnOkResultWhenAsyncFunctionSucceedsAsync()
     {
-        var expectedValue = "async result";
+        const string expectedValue = "async result";
 
-        Task<string> successFunc()
-        {
-            return Task.FromResult(expectedValue);
-        }
-
-        var result = await Try.RunAsync(successFunc);
+        var result = await Try.RunAsync(SuccessFunc);
 
         _ = result.ShouldBeOfType<Result<string, Exception>.Ok>();
         Pattern.IsOk(result).ShouldBeTrue();
         Pattern.IsError(result).ShouldBeFalse();
         ((Result<string, Exception>.Ok)result).Value.ShouldBe(expectedValue);
+
+        return;
+
+        Task<string> SuccessFunc() => Task.FromResult(expectedValue);
     }
 
     [Fact]
     public async Task RunAsyncShouldReturnErrorResultWhenAsyncFunctionThrowsAsync()
     {
-        var exceptionMessage = "Async test exception";
-        Exception expectedException = new InvalidOperationException(exceptionMessage);
+        const string exceptionMessage  = "Async test exception";
+        Exception    expectedException = new InvalidOperationException(exceptionMessage);
 
-        Task<string> failingFunc()
-        {
-            return Task.FromException<string>(expectedException);
-        }
-
-        var result = await Try.RunAsync(failingFunc);
+        var result = await Try.RunAsync(FailingFunc);
 
         _ = result.ShouldBeOfType<Result<string, Exception>.Error>();
         Pattern.IsOk(result).ShouldBeFalse();
         Pattern.IsError(result).ShouldBeTrue();
         ((Result<string, Exception>.Error)result).Reason.ShouldBe(expectedException);
         ((Result<string, Exception>.Error)result).Reason.Message.ShouldBe(exceptionMessage);
+
+        return;
+
+        Task<string> FailingFunc() => Task.FromException<string>(expectedException);
     }
 
     [Fact]
     public async Task RunAsyncShouldCaptureExceptionFromAsyncAwaitOperationAsync()
     {
-        static async Task<int> failingAsyncFunc()
+        var result = await Try.RunAsync(FailingAsyncFunc);
+
+        Pattern.IsError(result).ShouldBeTrue();
+        _ = ((Result<int, Exception>.Error)result).Reason.ShouldBeOfType<TimeoutException>();
+        ((Result<int, Exception>.Error)result).Reason.Message.ShouldBe("Operation timed out");
+
+        return;
+
+        static async Task<int> FailingAsyncFunc()
         {
             await Task.Delay(1);
 
             throw new TimeoutException("Operation timed out");
         }
-
-        var result = await Try.RunAsync(failingAsyncFunc);
-
-        Pattern.IsError(result).ShouldBeTrue();
-        _ = ((Result<int, Exception>.Error)result).Reason.ShouldBeOfType<TimeoutException>();
-        ((Result<int, Exception>.Error)result).Reason.Message.ShouldBe("Operation timed out");
     }
 
     [Fact]

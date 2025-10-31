@@ -18,10 +18,7 @@ public class TimeDelay
     {
         TimeSpan duration = honourFirstDelay ? DateTime.Parse(targetTime.ToShortTimeString(), CultureInfo.CurrentCulture).Subtract(DateTime.Now) : TimeSpan.Zero;
 
-        if(duration < TimeSpan.Zero)
-        {
-            duration = duration.Add(TimeSpan.FromHours(24));
-        }
+        if(duration < TimeSpan.Zero) duration = duration.Add(TimeSpan.FromHours(24));
 
         return new Result<TimeSpan, ErrorResponse>.Ok(duration);
     }

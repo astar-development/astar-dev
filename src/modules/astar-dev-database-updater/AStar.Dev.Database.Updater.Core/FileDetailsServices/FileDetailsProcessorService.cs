@@ -34,10 +34,7 @@ public class FileDetailsProcessorService(FileHandleService fileHandleService, IL
 
         fileDetail.FileHandle = fileHandleService.GenerateFileHandle(fileDetail, fileHandlesAlreadyInTheContext);
 
-        if(fileDetail.FileName.Value.IsImage())
-        {
-            _ = UpdateFileDetailsForImage(fileDetail).TapError(exception => TemporaryLogFileScanningError(exception, fileDetail.FullNameWithPath));
-        }
+        if(fileDetail.FileName.Value.IsImage()) _ = UpdateFileDetailsForImage(fileDetail).TapError(exception => TemporaryLogFileScanningError(exception, fileDetail.FullNameWithPath));
 
         return (counter, writeCount);
     }
@@ -52,21 +49,12 @@ public class FileDetailsProcessorService(FileHandleService fileHandleService, IL
             counter++;
 
             IEnumerable<FileClassification> fileClassifications = GetFileClassifications(classifications, fileWithClassifications.FullNameWithPath);
-            foreach(FileClassification fileClassification in fileClassifications)
-            {
-                fileWithClassifications.FileClassifications.Add(fileClassification);
-            }
+            foreach(FileClassification fileClassification in fileClassifications) fileWithClassifications.FileClassifications.Add(fileClassification);
 
-            if(counter % 100 == 0)
-            {
-                logger.LogInformation("Found keyword: {Keyword} in file: {FileName}", keyword, fileWithClassifications.FullNameWithPath);
-            }
+            if(counter % 100 == 0) logger.LogInformation("Found keyword: {Keyword} in file: {FileName}", keyword, fileWithClassifications.FullNameWithPath);
         }
 
-        if(fileWithClassifications.FileClassifications.Count == 0)
-        {
-            fileWithClassifications.FileClassifications.Add(unmatchedClassification);
-        }
+        if(fileWithClassifications.FileClassifications.Count == 0) fileWithClassifications.FileClassifications.Add(unmatchedClassification);
 
         return counter;
     }
@@ -89,10 +77,7 @@ public class FileDetailsProcessorService(FileHandleService fileHandleService, IL
                        fileDetail.IsImage = true;
                        var image = SKImage.FromEncodedData(fileDetail.FullNameWithPath);
 
-                       if(image is null)
-                       {
-                           return fileDetail;
-                       }
+                       if(image is null) return fileDetail;
 
                        fileDetail.ImageDetail = new(image.Width, image.Height);
 

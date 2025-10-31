@@ -7,7 +7,7 @@ namespace AStar.Dev.Database.Updater.Tests.Integration;
 public class ClassificationRepositoryDiIntegrationTests
 {
     [Fact]
-    public async Task ClassificationRepositoryResolvesInScopedDIAndTracksEntitiesPerScopeAsync()
+    public async Task ClassificationRepositoryResolvesInScopedDiAndTracksEntitiesPerScopeAsync()
     {
         // Arrange: create an in-memory sqlite scope with schema
         await using var global = await SqliteTestScope.CreateAsync();

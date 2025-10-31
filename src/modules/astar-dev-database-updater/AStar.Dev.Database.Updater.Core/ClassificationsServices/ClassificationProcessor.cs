@@ -44,17 +44,11 @@ public class ClassificationProcessor(ClassificationRepository repository, Classi
 
         foreach(var name in names)
         {
-            if(existing.ContainsKey(name))
-            {
-                continue;
-            }
+            if(existing.ContainsKey(name)) continue;
 
             ClassificationMapping? source = mappings.FirstOrDefault(m => textInfo.ToTitleCase(m.DatabaseMapping) == name);
 
-            if(source == null)
-            {
-                continue;
-            }
+            if(source == null) continue;
 
             FileClassification classification = builder.CreateClassification(name, source);
             newClassifications.Add(classification);
@@ -68,10 +62,7 @@ public class ClassificationProcessor(ClassificationRepository repository, Classi
     {
         foreach(IGrouping<string, ClassificationMapping> group in mappings.GroupBy(m => m.DatabaseMapping))
         {
-            if(!existing.TryGetValue(textInfo.ToTitleCase(group.Key), out FileClassification? classification))
-            {
-                continue;
-            }
+            if(!existing.TryGetValue(textInfo.ToTitleCase(group.Key), out FileClassification? classification)) continue;
 
             var existingTexts = classification.FileNameParts
                                               .Select(p => p.Text)
@@ -79,10 +70,7 @@ public class ClassificationProcessor(ClassificationRepository repository, Classi
 
             List<FileNamePart> newParts = builder.CreateMissingParts(group, existingTexts);
 
-            if(newParts.Count != 0)
-            {
-                classification.FileNameParts.AddRange(newParts);
-            }
+            if(newParts.Count != 0) classification.FileNameParts.AddRange(newParts);
         }
     }
 }
