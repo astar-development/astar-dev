@@ -25,4 +25,16 @@ public class WebApplicationBuilderExtensionsTests
         services.Any(d => d.ServiceType == typeof(GetFileClassificationsHandler))
             .ShouldBeTrue();
     }
+
+    [Fact]
+    public void Should_Not_Register_Services_By_Default()
+    {
+        var builder = WebApplication.CreateBuilder();
+
+        var services = builder.Services;
+
+        services.Any(d => d.ServiceType == typeof(FilesContext)).ShouldBeFalse();
+        services.Any(d => d.ServiceType == typeof(IFileClassificationsService2)).ShouldBeFalse();
+        services.Any(d => d.ServiceType == typeof(GetFileClassificationsHandler)).ShouldBeFalse();
+    }
 }

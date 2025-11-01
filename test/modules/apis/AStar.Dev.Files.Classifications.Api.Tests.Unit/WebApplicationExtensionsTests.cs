@@ -42,13 +42,13 @@ public class WebApplicationExtensionsTests
 
             endpoint.ShouldNotBeNull();
 
-            var methodMetadata = endpoint!.Metadata.GetMetadata<HttpMethodMetadata>();
+            var methodMetadata = endpoint.Metadata.GetMetadata<HttpMethodMetadata>();
             methodMetadata.ShouldNotBeNull();
-            methodMetadata!.HttpMethods.ShouldContain("GET");
+            methodMetadata.HttpMethods.ShouldContain("GET");
 
             var tags = endpoint.Metadata.GetMetadata<ITagsMetadata>();
             tags.ShouldNotBeNull();
-            tags!.Tags.ShouldContain(EndpointConstants.FileClassificationsTag);
+            tags.Tags.ShouldContain(EndpointConstants.FileClassificationsTag);
 
             var produces = endpoint.Metadata.GetOrderedMetadata<IProducesResponseTypeMetadata>().Select(m => m.StatusCode).ToArray();
             produces.ShouldContain(401);
@@ -58,5 +58,25 @@ public class WebApplicationExtensionsTests
         {
             await app.StopAsync(TestContext.Current.CancellationToken);
         }
+    }
+
+    [Fact]
+    public void UseFilesClassificationsApplicationServices_Without_ApiVersioning_Should_Not_Map_Endpoint()
+    {
+        var builder = WebApplication.CreateBuilder();
+
+        builder.WebHost.UseTestServer();
+
+        using var app = builder.Build();
+
+        app.UseFilesClassificationsApplicationServices();
+
+        var dataSource = app.Services.GetRequiredService<EndpointDataSource>();
+        var endpoint = dataSource.Endpoints
+            .OfType<RouteEndpoint>()
+            .FirstOrDefault(e =>
+                e.RoutePattern.RawText?.Contains(EndpointConstants.FileClassificationsEndpoint, StringComparison.Ordinal) == true);
+
+        endpoint.ShouldBeNull();
     }
 }
