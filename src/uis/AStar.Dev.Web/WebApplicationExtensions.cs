@@ -1,4 +1,9 @@
+using AStar.Dev.Files.Api.Endpoints.Add.V1;
+using AStar.Dev.Files.Api.Endpoints.FileClassifications.V1;
+using AStar.Dev.Files.Api.Endpoints.Get.V1;
+using AStar.Dev.ServiceDefaults;
 using AStar.Dev.Web.Components;
+using Scalar.AspNetCore;
 
 namespace AStar.Dev.Web;
 
@@ -71,7 +76,18 @@ public static class WebApplicationExtensions
 
         _ = app.MapRazorComponents<App>()
            .AddInteractiveServerRenderMode();
+        _ = app.MapOpenApi();
+        _ = app.MapScalarApiReference();
 
+        _ = app.MapDefaultEndpoints();
+
+        app.MapFilesPostEndpoint();
+        app.MapFilesGetEndpoint();
+        app.MapFileClassificationsGetEndpoint();
+        _ = app.UseExceptionHandler();
+
+        _ = app.MapShortCircuit(404, "robots.txt", "favicon.ico", "404.html", "sitemap.xml");
+        
         return app;
     }
 }

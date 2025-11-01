@@ -48,6 +48,8 @@
     <Project Path="src/nuget-packages/AStar.Dev.Test.Helpers.Unit/AStar.Dev.Test.Helpers.Unit.csproj" />
     <Project Path="src/nuget-packages/AStar.Dev.Test.Helpers/AStar.Dev.Test.Helpers.csproj" />
     <Project Path="src/nuget-packages/AStar.Dev.Utilities/AStar.Dev.Utilities.csproj" />
+      <Project Path="src\nuget-packages\AStar.Dev.Usage.Api.Client.SDK\AStar.Dev.Usage.Api.Client.SDK.csproj"
+               Type="Classic C#"/>
   </Folder>
   <Folder Name="/src/uis/">
     <Project Path="src/uis/AStar.Dev.Web/AStar.Dev.Web.csproj" />

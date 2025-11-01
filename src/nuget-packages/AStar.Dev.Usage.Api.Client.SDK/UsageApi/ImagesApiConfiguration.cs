@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using AStar.Dev.Api.Client.Sdk.Shared;
 
 namespace AStar.Dev.Usage.Api.Client.SDK.UsageApi;
 
@@ -20,4 +19,8 @@ public sealed class UsageApiConfiguration : IApiConfiguration
     /// <inheritdoc />
     [Required]
     public required string[] Scopes { get; set; }
+}
+
+public interface IApiConfiguration
+{
 }

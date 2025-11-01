@@ -15,6 +15,9 @@
             <node kind="database" qname="@">
               <node kind="schema" qname="@" />
             </node>
+            <node kind="database" qname="astar-db">
+              <node kind="schema" qname="files" />
+            </node>
             <node kind="database" qname="filesDb">
               <node kind="schema" negative="1" />
             </node>
@@ -22,22 +25,7 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
-    <data-source name="sql1" uuid="e0bb7884-4043-4722-a7de-63884f468d87">
-      <database-info product="Microsoft SQL Server" version="16.00.4215" jdbc-version="4.2" driver-name="JetBrains JDBC Driver for SQL Server" driver-version="1.0" dbms="MSSQL" exact-version="16.0.4215" exact-driver-version="1.0">
-        <extra-name-characters>$#@</extra-name-characters>
-        <identifier-quote-string>&quot;</identifier-quote-string>
-      </database-info>
-      <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed" />
-      <secret-storage>master_key</secret-storage>
-      <schema-mapping>
-        <introspection-scope>
-          <node kind="database" qname="@">
-            <node kind="schema" qname="@" />
-          </node>
-        </introspection-scope>
-      </schema-mapping>
-    </data-source>
-    <data-source name="sql1" uuid="4659cb65-b583-4efe-b990-b7ec0fb753c5">
+    <data-source name="sql1" uuid="ef693850-4625-486e-b8d6-38140f26f6e6">
       <database-info product="Microsoft SQL Server" version="16.00.4215" jdbc-version="4.2" driver-name="JetBrains JDBC Driver for SQL Server" driver-version="1.0" dbms="MSSQL" exact-version="16.0.4215" exact-driver-version="1.0">
         <extra-name-characters>$#@</extra-name-characters>
         <identifier-quote-string>&quot;</identifier-quote-string>

@@ -1,5 +1,8 @@
+using Asp.Versioning;
+using AStar.Dev.AspNet.Extensions.Handlers;
 using AStar.Dev.Files.Classifications.Api;
 using AStar.Dev.ServiceDefaults;
+using AStar.Dev.Web.Services;
 using Azure.Monitor.OpenTelemetry.AspNetCore;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.FluentUI.AspNetCore.Components;
@@ -31,6 +34,17 @@ public static class WebApplicationBuilderExtensions
             .AddAuthenticationStateSerialization(o => o.SerializeAllClaims = true);
 
         _ = builder.Services.AddFluentUIComponents();
+        _ = builder.Services.AddApiVersioning(options =>
+            {
+                options.DefaultApiVersion = new ApiVersion(1, 0);
+                options.AssumeDefaultVersionWhenUnspecified = true;
+                options.ReportApiVersions = true;
+            })
+            .AddApiExplorer(options =>
+            {
+                options.GroupNameFormat = "'v'VVV";
+                options.SubstituteApiVersionInUrl = true;
+            });
 
         _ = builder.Services
             .AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
@@ -40,11 +54,16 @@ public static class WebApplicationBuilderExtensions
 
         _ = builder.Services.AddAuthorization(options => options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin")));
         _ = builder.Services.AddHealthChecks();
+        _ = builder.Services.AddOpenApi();
 
         _ = builder.Services.AddControllersWithViews()
                             .AddMicrosoftIdentityUI();
-        _ = builder.Services.AddScoped<Services.IFileClassificationsService, Services.FileClassificationsService>();
+        _ = builder.Services.AddScoped<IFileClassificationsService, FileClassificationsService>();
         _ = builder.Services.AddFileClassificationsApiServices(builder);
+        _ = builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+        _ = builder.Services.AddProblemDetails(options =>
+            options.CustomizeProblemDetails =
+                ctx => ctx.ProblemDetails.Extensions.Add("nodeId", Environment.MachineName));
 
         return builder;
     }

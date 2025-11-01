@@ -45,7 +45,7 @@ public class SearchShould : TestContext
     }
 
     [Fact(Skip = "UI is different now")]
-    public async Task LoadFileClassificationsOnInitializationAsync()
+    public Task LoadFileClassificationsOnInitializationAsync()
     {
         // Arrange
 
@@ -56,6 +56,7 @@ public class SearchShould : TestContext
         cut.Markup.ShouldContain("Documents");
         cut.Markup.ShouldContain("Images");
         cut.Markup.ShouldContain("Videos");
+        return Task.CompletedTask;
     }
 
     [Fact(Skip = "UI is different now")]
