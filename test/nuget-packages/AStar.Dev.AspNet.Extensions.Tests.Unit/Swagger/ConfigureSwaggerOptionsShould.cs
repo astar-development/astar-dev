@@ -1,5 +1,4 @@
 ﻿using AStar.Dev.AspNet.Extensions.Swagger;
-using JetBrains.Annotations;
 
 namespace AStar.Dev.AspNet.Extensions.Tests.Unit.Swagger;
 

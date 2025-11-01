@@ -20,5 +20,6 @@ public class FileClassificationsService2 : IFileClassificationsService2
     /// Retrieves a list of distinct file classifications.
     /// </summary>
     /// <returns>A collection of file classification names.</returns>
-    public async Task<IList<FileClassification>> GetFileClassificationsAsync() => await _context.FileClassifications.Select(fc => new FileClassification { Id = fc.Id, Name = fc.Name, IncludeInSearch = fc.IncludeInSearch, Celebrity = fc.Celebrity, SearchLevel = fc.SearchLevel, ParentId = fc.ParentId }).ToListAsync();
+    public async Task<IList<FileClassification>> GetFileClassificationsAsync()
+        => await _context.FileClassifications.Select(fc => new FileClassification(fc.Id, fc.SearchLevel, fc.ParentId, fc.Name, fc.Celebrity, fc.IncludeInSearch)).ToListAsync();
 }

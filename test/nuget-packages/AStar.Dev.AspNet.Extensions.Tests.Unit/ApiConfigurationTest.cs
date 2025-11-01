@@ -1,5 +1,4 @@
-﻿using JetBrains.Annotations;
-using Microsoft.OpenApi.Models;
+﻿using Microsoft.OpenApi.Models;
 
 namespace AStar.Dev.AspNet.Extensions.Tests.Unit;
 

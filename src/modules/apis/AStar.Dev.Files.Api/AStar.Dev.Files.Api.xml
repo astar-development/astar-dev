@@ -221,27 +221,6 @@
             <summary>
             </summary>
         </member>
-        <member name="T:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesHandler">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesHandler.HandleAsync(AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest,AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,System.TimeProvider,System.String,System.Threading.CancellationToken)">
-            <inheritdoc />
-        </member>
-        <member name="T:AStar.Dev.Files.Api.Endpoints.Get.V1.IGetFilesHandler">
-            <summary>
-            </summary>
-        </member>
-        <member name="M:AStar.Dev.Files.Api.Endpoints.Get.V1.IGetFilesHandler.HandleAsync(AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest,AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,System.TimeProvider,System.String,System.Threading.CancellationToken)">
-            <summary>
-            </summary>
-            <param name="files"></param>
-            <param name="filesContext"></param>
-            <param name="time"></param>
-            <param name="username"></param>
-            <param name="cancellationToken"></param>
-            <returns></returns>
-        </member>
         <member name="T:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest">
             <summary>
                 The <see cref="T:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest" /> contains the search parameters for the Get
@@ -288,6 +267,13 @@
             <inheritdoc />
         </member>
         <member name="P:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest.HttpMethod">
+            <inheritdoc/>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesHandler">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesHandler.HandleAsync(AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest,AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,System.TimeProvider,System.String,System.Threading.CancellationToken)">
             <inheritdoc />
         </member>
         <member name="T:AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesResponse">
@@ -316,6 +302,20 @@
             <param name="detail"></param>
             <returns></returns>
             <exception cref="T:System.NotImplementedException"></exception>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.Endpoints.Get.V1.IGetFilesHandler">
+            <summary>
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.Endpoints.Get.V1.IGetFilesHandler.HandleAsync(AStar.Dev.Files.Api.Endpoints.Get.V1.GetFilesRequest,AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,System.TimeProvider,System.String,System.Threading.CancellationToken)">
+            <summary>
+            </summary>
+            <param name="fileClassifications"></param>
+            <param name="filesContext"></param>
+            <param name="time"></param>
+            <param name="username"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
         </member>
         <member name="T:AStar.Dev.Files.Api.Endpoints.Get.V1.MapGetEndpoint">
             <summary>
@@ -386,24 +386,20 @@
         </member>
         <member name="T:AStar.Dev.Files.Api.WebApplicationBuilderExtensions">
             <summary>
-
             </summary>
         </member>
         <member name="M:AStar.Dev.Files.Api.WebApplicationBuilderExtensions.AddFilesApiApplicationServices(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
             <summary>
-
             </summary>
             <param name="builder"></param>
             <returns></returns>
         </member>
         <member name="T:AStar.Dev.Files.Api.WebApplicationExtensions">
             <summary>
-
             </summary>
         </member>
         <member name="M:AStar.Dev.Files.Api.WebApplicationExtensions.UseApplicationServices(Microsoft.AspNetCore.Builder.WebApplication)">
             <summary>
-
             </summary>
             <param name="app"></param>
             <returns></returns>

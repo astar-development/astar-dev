@@ -16908,9 +16908,9 @@
 149575571|||0|select|G
 1787153412|||0|select|G
 1803153469|||0|select|G</Grants>
-      <IntrospectionTimestamp>2025-11-01.20:53:41</IntrospectionTimestamp>
+      <IntrospectionTimestamp>2025-11-01.21:38:24</IntrospectionTimestamp>
       <LastIntrospectionLevel>3</LastIntrospectionLevel>
-      <LastIntrospectionLocalTimestamp>2025-11-01.20:53:44</LastIntrospectionLocalTimestamp>
+      <LastIntrospectionLocalTimestamp>2025-11-01.21:38:42</LastIntrospectionLocalTimestamp>
       <ObjectId>1</ObjectId>
       <PermissionsCheckSum>7026290343</PermissionsCheckSum>
     </schema>
