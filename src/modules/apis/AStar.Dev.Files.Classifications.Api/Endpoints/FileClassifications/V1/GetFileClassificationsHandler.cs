@@ -1,7 +1,8 @@
+using AStar.Dev.Files.Api.Endpoints.FileClassifications.V1;
 using AStar.Dev.Infrastructure.FilesDb.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace AStar.Dev.Files.Api.Endpoints.FileClassifications.V1;
+namespace AStar.Dev.Files.Classifications.Api.Endpoints.FileClassifications.V1;
 
 /// <summary>
 ///     Handler for retrieving file classifications

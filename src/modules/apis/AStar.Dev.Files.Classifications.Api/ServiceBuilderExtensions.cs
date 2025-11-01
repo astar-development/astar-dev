@@ -1,4 +1,6 @@
 ﻿using AStar.Dev.Aspire.Common;
+using AStar.Dev.Files.Classifications.Api.Endpoints.FileClassifications.V1;
+using AStar.Dev.Files.Classifications.Api.Services;
 using AStar.Dev.Infrastructure.FilesDb.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,7 +29,8 @@ public static class ServiceBuilderExtensions
             settings.CommandTimeout = 120;
             settings.DisableRetry = false;
         });
-        _ = services.AddScoped<Services.IFileClassificationsService2, Services.FileClassificationsService2>();
+        _ = services.AddScoped<IFileClassificationsService2, FileClassificationsService2>();
+        _ = services.AddScoped<GetFileClassificationsHandler>();
         return services;
     }
 }
