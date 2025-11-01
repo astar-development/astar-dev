@@ -1,4 +1,4 @@
-namespace AStar.Dev.Files.Api.Endpoints.FileClassifications.V1;
+namespace AStar.Dev.Files.Classifications.Api.Endpoints.FileClassifications.V1;
 
 /// <summary>
 ///     Response model for file classification data

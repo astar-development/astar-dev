@@ -384,5 +384,29 @@
                 <para>No functionality is (nor should any be) defined by this marker interface</para>
             </summary>
         </member>
+        <member name="T:AStar.Dev.Files.Api.WebApplicationBuilderExtensions">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.WebApplicationBuilderExtensions.AddFilesApiApplicationServices(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
+            <summary>
+
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="T:AStar.Dev.Files.Api.WebApplicationExtensions">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Files.Api.WebApplicationExtensions.UseApplicationServices(Microsoft.AspNetCore.Builder.WebApplication)">
+            <summary>
+
+            </summary>
+            <param name="app"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

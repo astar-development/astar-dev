@@ -59,7 +59,7 @@ public static class WebApplicationBuilderExtensions
         _ = builder.Services.AddControllersWithViews()
                             .AddMicrosoftIdentityUI();
         _ = builder.Services.AddScoped<IFileClassificationsService, FileClassificationsService>();
-        _ = builder.Services.AddFileClassificationsApiServices(builder);
+        _ = builder.AddFileClassificationsApplicationServices();
         _ = builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
         _ = builder.Services.AddProblemDetails(options =>
             options.CustomizeProblemDetails =

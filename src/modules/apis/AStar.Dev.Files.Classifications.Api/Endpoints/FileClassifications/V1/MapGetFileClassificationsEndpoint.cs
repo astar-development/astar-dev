@@ -1,12 +1,11 @@
 using Asp.Versioning.Builder;
-using AStar.Dev.Files.Classifications.Api.Endpoints.FileClassifications.V1;
 using AStar.Dev.Infrastructure.FilesDb.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 
-namespace AStar.Dev.Files.Api.Endpoints.FileClassifications.V1;
+namespace AStar.Dev.Files.Classifications.Api.Endpoints.FileClassifications.V1;
 
 /// <summary>
 ///     Maps the file classifications GET endpoint
