@@ -48,7 +48,16 @@ public partial class Search : ComponentBase
 
     protected override async Task OnInitializedAsync()
     {
-        FileClassifications = [new() { Id = Guid.Empty, Name = "-- Select (Optional) --", IncludeInSearch = false, Celebrity = false }];
+        FileClassifications =
+        [
+            new (new Dev.Files.Classifications.Api.FileClassification
+            {
+                Id = Guid.Empty,
+                Name = "-- Select (Optional) --",
+                IncludeInSearch = false,
+                Celebrity = false
+            })
+        ];
 
         IEnumerable<FileClassification> classifications = await FileClassificationsService.GetFileClassificationsAsync();
         FileClassifications.AddRange(classifications);

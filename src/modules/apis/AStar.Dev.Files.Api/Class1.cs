@@ -58,8 +58,6 @@ public static class Class1
 
             builder.AddSqlServerDbContext<FilesContext>(AspireConstants.Sql.AStarDb);
 
-            _ = services.AddUsageServices(builder.Configuration, typeof(IAssemblyMarker).Assembly);
-
             _ = services.AddScoped<IFileSystem, FileSystem>();
             _ = services.AddScoped<JwtEvents>();
 
