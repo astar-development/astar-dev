@@ -21,6 +21,43 @@ public sealed class UsageApiConfiguration : IApiConfiguration
     public required string[] Scopes { get; set; }
 }
 
+/// <summary>
+/// </summary>
 public interface IApiConfiguration
 {
+    /// <summary>
+    ///     Gets or sets the base URL for the API from which requests will be sent.
+    ///     This URL should point to the root endpoint of the API.
+    /// </summary>
+    /// <example>
+    ///     Example usage:
+    ///     <code>
+    /// var config = new UsageApiConfiguration
+    /// {
+    /// BaseUrl = new Uri("https://api.example.com")
+    /// };
+    /// Uri apiBase = config.BaseUrl;
+    /// Console.WriteLine($"API Base URL: {apiBase}");
+    /// </code>
+    /// </example>
+    Uri BaseUrl { get; set; }
+
+    /// <summary>
+    ///     Gets or sets the scopes required for authentication and API access.
+    /// </summary>
+    /// <example>
+    ///     Example usage:
+    ///     <code>
+    /// var usageApiConfig = new UsageApiConfiguration
+    /// {
+    /// BaseUrl = new Uri("https://api.example.com"),
+    /// Scopes = new[] { "scope.read", "scope.write" }
+    /// };
+    /// foreach (var scope in usageApiConfig.Scopes)
+    /// {
+    /// Console.WriteLine(scope);
+    /// }
+    /// </code>
+    /// </example>
+    string[] Scopes { get; set; }
 }

@@ -30,6 +30,47 @@
         <member name="P:AStar.Dev.Usage.Api.Client.SDK.UsageApi.UsageApiConfiguration.Scopes">
             <inheritdoc />
         </member>
+        <member name="T:AStar.Dev.Usage.Api.Client.SDK.UsageApi.IApiConfiguration">
+            <summary>
+
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Usage.Api.Client.SDK.UsageApi.IApiConfiguration.BaseUrl">
+            <summary>
+                Gets or sets the base URL for the API from which requests will be sent.
+                This URL should point to the root endpoint of the API.
+            </summary>
+            <example>
+                Example usage:
+                <code>
+                    var config = new UsageApiConfiguration
+                    {
+                    BaseUrl = new Uri("https://api.example.com")
+                    };
+                    Uri apiBase = config.BaseUrl;
+                    Console.WriteLine($"API Base URL: {apiBase}");
+                </code>
+            </example>
+        </member>
+        <member name="P:AStar.Dev.Usage.Api.Client.SDK.UsageApi.IApiConfiguration.Scopes">
+            <summary>
+                Gets or sets the scopes required for authentication and API access.
+            </summary>
+            <example>
+                Example usage:
+                <code>
+                    var usageApiConfig = new UsageApiConfiguration
+                    {
+                    BaseUrl = new Uri("https://api.example.com"),
+                    Scopes = new[] { "scope.read", "scope.write" }
+                    };
+                    foreach (var scope in usageApiConfig.Scopes)
+                    {
+                    Console.WriteLine(scope);
+                    }
+                </code>
+            </example>
+        </member>
         <member name="T:AStar.Dev.Usage.Api.Client.SDK.UsageApi.UsageApiClient">
             <summary>
                 The <see href="Images.ApiClient"></see> class

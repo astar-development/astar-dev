@@ -15,21 +15,37 @@
   </Folder>
   <Folder Name="/src/" />
   <Folder Name="/src/modules/">
-    <Project Path="src/modules/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.csproj" />
-    <Project Path="src/modules/astar-dev-database-updater/AStar.Dev.Database.Updater/AStar.Dev.Database.Updater.csproj" />
     <Project Path="src/modules/AStar.Dev.FileServices.Common/AStar.Dev.FileServices.Common.csproj" />
     <Project Path="src/modules/migrations/AStar.Dev.FilesDb.MigrationService/AStar.Dev.FilesDb.MigrationService.csproj" />
   </Folder>
-  <Folder Name="/src/modules/apis/">
+    <Folder Name="/src/modules/admin module/">
     <Project Path="src/modules/apis/AStar.Dev.Admin.Api/AStar.Dev.Admin.Api.csproj" />
-    <Project Path="src/modules/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.csproj" />
+    </Folder>
+    <Folder Name="/src/modules/db updater module/">
+        <Project
+                Path="src/modules/astar-dev-database-updater/AStar.Dev.Database.Updater.Core/AStar.Dev.Database.Updater.Core.csproj"/>
+        <Project
+                Path="src/modules/astar-dev-database-updater/AStar.Dev.Database.Updater/AStar.Dev.Database.Updater.csproj"/>
+    </Folder>
+    <Folder Name="/src/modules/file classifications module/">
     <Project Path="src/modules/apis/AStar.Dev.Files.Classifications.Api/AStar.Dev.Files.Classifications.Api.csproj" />
+    </Folder>
+    <Folder Name="/src/modules/files module/">
+        <Project Path="src/modules/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.csproj"/>
+    </Folder>
+    <Folder Name="/src/modules/images module/">
     <Project Path="src/modules/apis/AStar.Dev.Images.Api/AStar.Dev.Images.Api.csproj" />
+    </Folder>
+    <Folder Name="/src/modules/todo module/">
     <Project Path="src/modules/apis/AStar.Dev.ToDo.Api/AStar.Dev.ToDo.Api.csproj" />
   </Folder>
+    <Folder Name="/src/modules/usage module/">
+        <Project Path="src/nuget-packages/AStar.Dev.Api.Usage.Sdk/AStar.Dev.Api.Usage.Sdk.csproj"/>
+        <Project Path="src\nuget-packages\AStar.Dev.Usage.Api.Client.SDK\AStar.Dev.Usage.Api.Client.SDK.csproj"
+                 Type="Classic C#"/>
+    </Folder>
   <Folder Name="/src/nuget-packages/">
     <Project Path="src/nuget-packages/AStar.Dev.Api.HealthChecks/AStar.Dev.Api.HealthChecks.csproj" />
-    <Project Path="src/nuget-packages/AStar.Dev.Api.Usage.Sdk/AStar.Dev.Api.Usage.Sdk.csproj" />
     <Project Path="src/nuget-packages/AStar.Dev.AspNet.Extensions/AStar.Dev.AspNet.Extensions.csproj" />
     <Project Path="src/nuget-packages/AStar.Dev.Auth.Extensions/AStar.Dev.Auth.Extensions.csproj" />
     <Project Path="src/nuget-packages/AStar.Dev.Fluent.Assignments/AStar.Dev.Fluent.Assignments.csproj" />
@@ -48,8 +64,6 @@
     <Project Path="src/nuget-packages/AStar.Dev.Test.Helpers.Unit/AStar.Dev.Test.Helpers.Unit.csproj" />
     <Project Path="src/nuget-packages/AStar.Dev.Test.Helpers/AStar.Dev.Test.Helpers.csproj" />
     <Project Path="src/nuget-packages/AStar.Dev.Utilities/AStar.Dev.Utilities.csproj" />
-      <Project Path="src\nuget-packages\AStar.Dev.Usage.Api.Client.SDK\AStar.Dev.Usage.Api.Client.SDK.csproj"
-               Type="Classic C#"/>
   </Folder>
   <Folder Name="/src/uis/">
     <Project Path="src/uis/AStar.Dev.Web/AStar.Dev.Web.csproj" />
