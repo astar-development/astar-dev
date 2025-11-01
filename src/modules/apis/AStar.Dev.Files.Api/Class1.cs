@@ -11,7 +11,6 @@ using AStar.Dev.AspNet.Extensions.ServiceCollectionExtensions;
 using AStar.Dev.AspNet.Extensions.WebApplicationBuilderExtensions;
 using AStar.Dev.Auth.Extensions;
 using AStar.Dev.Files.Api.Endpoints.Add.V1;
-using AStar.Dev.Files.Api.Endpoints.FileClassifications.V1;
 using AStar.Dev.Files.Api.Endpoints.Get.V1;
 using AStar.Dev.Infrastructure.FilesDb.Data;
 using AStar.Dev.ServiceDefaults;
@@ -106,7 +105,6 @@ public static class Class1
 
             _ = services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             _ = services.AddScoped<IGetFilesHandler, GetFilesHandler>();
-            _ = services.AddScoped<GetFileClassificationsHandler>();
 
             WebApplication app = builder.Build()
                      .UseApiServices();
@@ -131,7 +129,6 @@ public static class Class1
 
             app.MapFilesPostEndpoint();
             app.MapFilesGetEndpoint();
-            app.MapFileClassificationsGetEndpoint();
             _ = app.UseExceptionHandler();
 
             _ = app.MapShortCircuit(404, "robots.txt", "favicon.ico", "404.html", "sitemap.xml");

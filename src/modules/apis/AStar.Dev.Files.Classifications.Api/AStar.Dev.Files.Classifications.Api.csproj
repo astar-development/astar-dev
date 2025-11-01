@@ -40,6 +40,10 @@
         <ProjectReference Include="..\..\..\_aspire\AStar.Dev.Aspire.Common\AStar.Dev.Aspire.Common.csproj"/>
     </ItemGroup>
 
+    <ItemGroup>
+        <Folder Include="Endpoints\"/>
+    </ItemGroup>
+
     <PropertyGroup>
         <Company>AStar Development</Company>
         <Copyright>AStar Development, 2025</Copyright>
