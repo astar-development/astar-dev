@@ -1,6 +1,4 @@
-﻿using JetBrains.Annotations;
-
-namespace AStar.Dev.AspNet.Extensions.Tests.Unit.WebApplicationBuilderExtensions;
+﻿namespace AStar.Dev.AspNet.Extensions.Tests.Unit.WebApplicationBuilderExtensions;
 
 [TestSubject(typeof(Extensions.WebApplicationBuilderExtensions.WebApplicationBuilderExtensions))]
 public sealed class WebApplicationBuilderExtensionsShould

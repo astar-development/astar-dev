@@ -1,5 +1,4 @@
 using AStar.Dev.AspNet.Extensions.Handlers;
-using AStar.Dev.Images.Api;
 using AStar.Dev.ServiceDefaults;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;

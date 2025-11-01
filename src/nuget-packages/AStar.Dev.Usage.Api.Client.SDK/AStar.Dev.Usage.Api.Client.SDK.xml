@@ -32,7 +32,6 @@
         </member>
         <member name="T:AStar.Dev.Usage.Api.Client.SDK.UsageApi.IApiConfiguration">
             <summary>
-
             </summary>
         </member>
         <member name="P:AStar.Dev.Usage.Api.Client.SDK.UsageApi.IApiConfiguration.BaseUrl">

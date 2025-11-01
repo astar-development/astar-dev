@@ -1,6 +1,4 @@
-﻿using JetBrains.Annotations;
-
-namespace AStar.Dev.AspNet.Extensions.Tests.Unit.ServiceCollectionExtensions;
+﻿namespace AStar.Dev.AspNet.Extensions.Tests.Unit.ServiceCollectionExtensions;
 
 [TestSubject(typeof(Extensions.ServiceCollectionExtensions.ServiceCollectionExtensions))]
 public sealed class ServiceCollectionExtensionsShould

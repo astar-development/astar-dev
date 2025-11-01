@@ -1,5 +1,4 @@
 ﻿using AStar.Dev.AspNet.Extensions.Handlers;
-using JetBrains.Annotations;
 
 namespace AStar.Dev.AspNet.Extensions.Tests.Unit.Handlers;
 

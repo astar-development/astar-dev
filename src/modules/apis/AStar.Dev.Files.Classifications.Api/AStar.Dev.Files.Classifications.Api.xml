@@ -4,15 +4,168 @@
         <name>AStar.Dev.Files.Classifications.Api</name>
     </assembly>
     <members>
+        <member name="T:AStar.Dev.Files.Classifications.Api.EndpointConstants">
+            <summary>
+                Provides constant values related to API endpoints
+                for file classifications in the application.
+            </summary>
+            <remarks>
+                This class contains static string constants that are used
+                across the application for defining and interacting with
+                the file classifications API. These constants include endpoint
+                names, group names, and tags.
+            </remarks>
+            <example>
+                The following demonstrates the usage of
+                <see cref="T:AStar.Dev.Files.Classifications.Api.EndpointConstants"/>
+                in
+                an endpoint registration and handler:
+                <code>
+                    endpointRouteBuilder.NewVersionedApi(EndpointConstants.GetFileClassificationsGroupName)
+                    .MapGroup(EndpointConstants.FileClassificationsEndpoint)
+                    .WithTags(EndpointConstants.FileClassificationsTag)
+                    .WithName(EndpointConstants.GetFileClassificationsName);
+                </code>
+                Example for creating a request:
+                <code>
+                    var request = new GetFileClassificationRequest
+                    {
+                    Name = EndpointConstants.GetFileClassificationsGroupName
+                    };
+                </code>
+            </example>
+        </member>
+        <member name="P:AStar.Dev.Files.Classifications.Api.EndpointConstants.GetFileClassificationsName">
+            <summary>
+                Gets the name identifier for the "Get File Classifications" operation,
+                formatted as a single string with spaces removed to ensure uniqueness.
+                This is primarily used to reference the operation in code, routing, or documentation.
+            </summary>
+            <value>
+                A string value "GetFileClassifications", derived from the
+                <c>GetFileClassificationsGroupName</c>
+                by removing all spaces.
+            </value>
+            <example>
+                Below is an example of how to access and use <c>GetFileClassificationsName</c>:
+                <code>
+                    string endpointName = EndpointConstants.GetFileClassificationsName;
+                    Console.WriteLine(endpointName); // Output: "GetFileClassifications"
+                </code>
+                This can also be used as part of an endpoint definition:
+                <code>
+                    endPointBuilder
+                    .MapGet("/", handler)
+                    .WithName(EndpointConstants.GetFileClassificationsName);
+                </code>
+            </example>
+        </member>
+        <member name="P:AStar.Dev.Files.Classifications.Api.EndpointConstants.GetFileClassificationsGroupName">
+            <summary>
+                Gets the group name identifier for the "Get File Classifications" operation.
+                This name is primarily used to define endpoint groups, versioning, and documentation for the API.
+            </summary>
+            <value>
+                A string value "Get File Classifications", representing a human-readable description of the operation
+                group.
+            </value>
+            <example>
+                Below is an example of how to access and use <c>GetFileClassificationsGroupName</c>:
+                <code>
+                    string groupName = EndpointConstants.GetFileClassificationsGroupName;
+                    Console.WriteLine(groupName); // Output: "Get File Classifications"
+                </code>
+                This can also be used as part of the API version group definition:
+                <code>
+                    IVersionedEndpointRouteBuilder versionedApi =
+                    endpointRouteBuilder.NewVersionedApi(EndpointConstants.GetFileClassificationsGroupName);
+                </code>
+            </example>
+        </member>
+        <member name="P:AStar.Dev.Files.Classifications.Api.EndpointConstants.FileClassificationsTag">
+            <summary>
+                Represents a tag identifier for the "File Classifications" API endpoints.
+                This tag is used to categorize and group all related endpoints under the
+                "File Classifications" category in documentation or middleware handling.
+            </summary>
+            <value>
+                A string value "File Classifications" that serves as the descriptive tag
+                for endpoints associated with handling file classifications.
+            </value>
+            <example>
+                Below is an example of how to use <c>FileClassificationsTag</c> when setting up endpoint routing:
+                <code>
+                    _ = apiGroup.MapGet("/", async ([FromServices] FilesContext filesContext,
+                    [FromServices] GetFileClassificationsHandler handler,
+                    CancellationToken cancellationToken)
+                    => await handler.HandleAsync(filesContext, cancellationToken))
+                    .Produces&lt;IReadOnlyCollection&lt;GetFileClassificationsResponse&gt;&gt;()
+                    .Produces(401)
+                    .Produces(403)
+                    .WithName(EndpointConstants.GetFileClassificationsName)
+                    .WithTags(EndpointConstants.FileClassificationsTag);
+                </code>
+                This tag will categorize the endpoint for API documentation or Swagger UI, ensuring clear
+                grouping under the "File Classifications" category.
+            </example>
+        </member>
+        <member name="P:AStar.Dev.Files.Classifications.Api.EndpointConstants.FileClassificationsEndpoint">
+            <summary>
+                Represents the endpoint path for handling file classifications API requests.
+                This value is used to define the base route when mapping the endpoint within the application.
+            </summary>
+            <value>
+                A string value representing the base path of the file classifications endpoint,
+                currently set to "/api/file-classifications".
+            </value>
+            <example>
+                Example usage of the <c>FileClassificationsEndpoint</c>:
+                <code>
+                    var endpointPath = EndpointConstants.FileClassificationsEndpoint;
+                    Console.WriteLine(endpointPath); // Output: "/api/file-classifications"
+                </code>
+                This value is typically used as part of an endpoint route definition:
+                <code>
+                    endpointRouteBuilder
+                    .MapGroup(EndpointConstants.FileClassificationsEndpoint)
+                    .MapGet("/", handler)
+                    .WithTags(EndpointConstants.FileClassificationsTag);
+                </code>
+                You can also access it dynamically to construct full endpoint routes:
+                <code>
+                    string fullUrl = $"{baseApiUrl}{EndpointConstants.FileClassificationsEndpoint}";
+                    Console.WriteLine(fullUrl); // Output: "https://example.com/api/file-classifications"
+                </code>
+            </example>
+        </member>
+        <member name="T:AStar.Dev.Files.Classifications.Api.Endpoints.FileClassifications.V1.GetFileClassificationRequest">
+            <summary>
+                Represents a request to retrieve file classifications based on pagination parameters.
+                The object supports HTTP GET operation to access the required endpoint.
+            </summary>
+        </member>
+        <member name="M:AStar.Dev.Files.Classifications.Api.Endpoints.FileClassifications.V1.GetFileClassificationRequest.#ctor(System.Int32,System.Int32)">
+            <summary>
+                Represents a request to retrieve file classifications based on pagination parameters.
+                The object supports HTTP GET operation to access the required endpoint.
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Files.Classifications.Api.Endpoints.FileClassifications.V1.GetFileClassificationRequest.Name">
+            <inheritdoc/>
+        </member>
+        <member name="P:AStar.Dev.Files.Classifications.Api.Endpoints.FileClassifications.V1.GetFileClassificationRequest.HttpMethod">
+            <inheritdoc/>
+        </member>
         <member name="T:AStar.Dev.Files.Classifications.Api.Endpoints.FileClassifications.V1.GetFileClassificationsHandler">
             <summary>
                 Handler for retrieving file classifications
             </summary>
         </member>
-        <member name="M:AStar.Dev.Files.Classifications.Api.Endpoints.FileClassifications.V1.GetFileClassificationsHandler.HandleAsync(AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,System.Threading.CancellationToken)">
+        <member name="M:AStar.Dev.Files.Classifications.Api.Endpoints.FileClassifications.V1.GetFileClassificationsHandler.HandleAsync(AStar.Dev.Files.Classifications.Api.Endpoints.FileClassifications.V1.GetFileClassificationRequest,AStar.Dev.Infrastructure.FilesDb.Data.FilesContext,System.Threading.CancellationToken)">
             <summary>
                 Handles the request to get all file classifications
             </summary>
+            <param name="fileClassifications"></param>
             <param name="filesContext">The database context</param>
             <param name="cancellationToken">Cancellation token</param>
             <returns>A collection of file classifications</returns>
@@ -22,74 +175,49 @@
                 Response model for file classification data
             </summary>
         </member>
-        <member name="P:AStar.Dev.Files.Classifications.Api.Endpoints.FileClassifications.V1.GetFileClassificationsResponse.Id">
+        <member name="M:AStar.Dev.Files.Classifications.Api.Endpoints.FileClassifications.V1.GetFileClassificationsResponse.#ctor(System.Guid,System.String,System.Boolean,System.Boolean)">
             <summary>
-                Gets or sets the unique identifier for the file classification
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Classifications.Api.Endpoints.FileClassifications.V1.GetFileClassificationsResponse.Name">
-            <summary>
-                Gets or sets the name of the file classification
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Classifications.Api.Endpoints.FileClassifications.V1.GetFileClassificationsResponse.IncludeInSearch">
-            <summary>
-                Gets or sets whether this classification should be included in search
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Classifications.Api.Endpoints.FileClassifications.V1.GetFileClassificationsResponse.Celebrity">
-            <summary>
-                Gets or sets whether this classification is marked as a celebrity
+                Response model for file classification data
             </summary>
         </member>
         <member name="T:AStar.Dev.Files.Classifications.Api.Endpoints.FileClassifications.V1.MapGetFileClassificationsEndpoint">
             <summary>
-                Maps the file classifications GET endpoint
+                Provides a method to map the `GET` API endpoint for retrieving file classifications.
+                This endpoint is designed to support versioning and applies standard response handling for retrieving
+                file classification data.
             </summary>
         </member>
         <member name="M:AStar.Dev.Files.Classifications.Api.Endpoints.FileClassifications.V1.MapGetFileClassificationsEndpoint.MapFileClassificationsGetEndpoint(Microsoft.AspNetCore.Routing.IEndpointRouteBuilder)">
             <summary>
-                Maps the file classifications GET endpoint to the route builder
+                Maps the file classifications GET API endpoint for the application.
+                This method sets up an API endpoint to retrieve file classifications with the specified configurations
+                including versioning, route grouping, and response handling.
             </summary>
-            <param name="endpointRouteBuilder">The endpoint route builder</param>
+            <param name="endpointRouteBuilder">
+                The
+                <see cref="T:Microsoft.AspNetCore.Routing.IEndpointRouteBuilder"/>
+                used to configure and add the route to the application.
+            </param>
+            <example>
+                To map the endpoint in your application, use the following example:
+                <code>
+                    var builder = WebApplication.CreateBuilder(args);
+                    var app = builder.Build();
+                    app.UseFilesClassificationsApplicationServices();
+                    app.Run();
+                </code>
+            </example>
         </member>
         <member name="T:AStar.Dev.Files.Classifications.Api.FileClassification">
             <summary>
-                Represents a classification of files, providing metadata about the type of files
-                and associated entities such as file details and file name parts.
+                Represents a classification of files, containing details about name, search level, parent
+                classification, and flags for celebrity status or search inclusion.
             </summary>
         </member>
-        <member name="P:AStar.Dev.Files.Classifications.Api.FileClassification.Id">
+        <member name="M:AStar.Dev.Files.Classifications.Api.FileClassification.#ctor(System.Guid,System.Int32,System.Nullable{System.Guid},System.String,System.Boolean,System.Boolean)">
             <summary>
-                Gets or sets the unique identifier for the file classification.
-                This property serves as the primary key for the <see cref="T:AStar.Dev.Files.Classifications.Api.FileClassification" /> entity.
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Classifications.Api.FileClassification.SearchLevel">
-            <summary>
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Classifications.Api.FileClassification.ParentId">
-            <summary>
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Classifications.Api.FileClassification.Name">
-            <summary>
-                Gets or sets the name of the file classification.
-                This property represents the descriptive label for a specific classification
-                and is often used to identify or categorize files within the database.
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Classifications.Api.FileClassification.Celebrity">
-            <summary>
-                Gets or sets a value indicating whether the file classification is considered a "Celebrity."
-                This property is used to mark specific classifications with special significance.
-            </summary>
-        </member>
-        <member name="P:AStar.Dev.Files.Classifications.Api.FileClassification.IncludeInSearch">
-            <summary>
-                Gets or sets a value indicating whether this classification should be included in search results.
-                This property determines if files associated with this classification are considered searchable.
+                Represents a classification of files, containing details about name, search level, parent
+                classification, and flags for celebrity status or search inclusion.
             </summary>
         </member>
         <member name="T:AStar.Dev.Files.Classifications.Api.Class1">
@@ -133,12 +261,10 @@
         </member>
         <member name="T:AStar.Dev.Files.Classifications.Api.WebApplicationBuilderExtensions">
             <summary>
-
             </summary>
         </member>
         <member name="M:AStar.Dev.Files.Classifications.Api.WebApplicationBuilderExtensions.AddFileClassificationsApplicationServices(Microsoft.AspNetCore.Builder.WebApplicationBuilder)">
             <summary>
-
             </summary>
             <param name="builder"></param>
             <returns></returns>
@@ -147,7 +273,8 @@
             <summary>
                 Provides extension methods for configuring a
                 <see cref="T:Microsoft.AspNetCore.Builder.WebApplication"/>
-                with file classification-related services and endpoints.
+                with file classification-related
+                services and endpoints.
             </summary>
         </member>
         <member name="M:AStar.Dev.Files.Classifications.Api.WebApplicationExtensions.UseFilesClassificationsApplicationServices(Microsoft.AspNetCore.Builder.WebApplication)">
