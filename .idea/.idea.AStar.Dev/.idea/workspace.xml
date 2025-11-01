@@ -99,52 +99,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="27592f57-ca84-42be-a5a6-0d4277fd2a9f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/modules/apis/AStar.Dev.Files.Api/Endpoints/Get/V1/IGetFilesHandler.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/apis/AStar.Dev.Files.Classifications.Api/EndpointConstants.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/modules/apis/AStar.Dev.Files.Classifications.Api/Endpoints/FileClassifications/V1/GetFileClassificationRequest.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/modules/apis/AStar.Dev.Files.Classifications.Api.Tests.Unit/Endpoints/FileClassifications/V1/GetFileClassificationRequestTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/modules/apis/AStar.Dev.Files.Classifications.Api.Tests.Unit/Endpoints/FileClassifications/V1/GetFileClassificationsHandlerTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/modules/apis/AStar.Dev.Files.Classifications.Api.Tests.Unit/Endpoints/FileClassifications/V1/GetFileClassificationsResponseTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/modules/apis/AStar.Dev.Files.Classifications.Api.Tests.Unit/Endpoints/FileClassifications/V1/MapGetFileClassificationsEndpointTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/modules/apis/AStar.Dev.Files.Classifications.Api.Tests.Unit/FileClassificationTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/modules/apis/AStar.Dev.Files.Classifications.Api.Tests.Unit/Services/FileClassificationsService2Tests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/modules/apis/AStar.Dev.Files.Classifications.Api.Tests.Unit/WebApplicationBuilderExtensionsTests.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/modules/apis/AStar.Dev.Files.Classifications.Api.Tests.Unit/WebApplicationExtensionsTests.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/dataSources/2949bcbd-dff1-41d6-8da6-4c7c732247c5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AStar.Dev/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AStar.Dev.sln.DotSettings" beforeDir="false" afterPath="$PROJECT_DIR$/AStar.Dev.sln.DotSettings" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AStar.Dev.slnx" beforeDir="false" afterPath="$PROJECT_DIR$/AStar.Dev.slnx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/apis/AStar.Dev.Admin.Api/AStar.Dev.Admin.Api.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/apis/AStar.Dev.Admin.Api/AStar.Dev.Admin.Api.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/apis/AStar.Dev.Files.Api/Endpoints/Get/V1/GetFilesHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/apis/AStar.Dev.Files.Api/Endpoints/Get/V1/GetFilesHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/apis/AStar.Dev.Files.Api/Endpoints/Get/V1/GetFilesRequest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/apis/AStar.Dev.Files.Api/Endpoints/Get/V1/GetFileClassificationsRequest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/apis/AStar.Dev.Files.Api/Endpoints/Get/V1/MapGetEndpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/apis/AStar.Dev.Files.Api/Endpoints/Get/V1/MapGetEndpoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/apis/AStar.Dev.Files.Classifications.Api/AStar.Dev.Files.Classifications.Api.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/apis/AStar.Dev.Files.Classifications.Api/AStar.Dev.Files.Classifications.Api.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/apis/AStar.Dev.Files.Classifications.Api/AStar.Dev.Files.Classifications.Api.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/apis/AStar.Dev.Files.Classifications.Api/AStar.Dev.Files.Classifications.Api.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/apis/AStar.Dev.Files.Classifications.Api/Endpoints/FileClassifications/V1/GetFileClassificationsHandler.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/apis/AStar.Dev.Files.Classifications.Api/Endpoints/FileClassifications/V1/GetFileClassificationsHandler.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/apis/AStar.Dev.Files.Classifications.Api/Endpoints/FileClassifications/V1/GetFileClassificationsResponse.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/apis/AStar.Dev.Files.Classifications.Api/Endpoints/FileClassifications/V1/GetFileClassificationsResponse.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/apis/AStar.Dev.Files.Classifications.Api/Endpoints/FileClassifications/V1/MapGetFileClassificationsEndpoint.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/apis/AStar.Dev.Files.Classifications.Api/Endpoints/FileClassifications/V1/MapGetFileClassificationsEndpoint.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/apis/AStar.Dev.Files.Classifications.Api/FileClassification.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/apis/AStar.Dev.Files.Classifications.Api/FileClassification.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/apis/AStar.Dev.Files.Classifications.Api/Services/FileClassificationsService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/apis/AStar.Dev.Files.Classifications.Api/Services/FileClassificationsService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/apis/AStar.Dev.Images.Api/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/apis/AStar.Dev.Images.Api/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Fluent.Assignments/FluentAssignmentsExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Fluent.Assignments/FluentAssignmentsExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/EnumerableExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/EnumerableExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/OptionLinqExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/OptionLinqExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/Pattern.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/Pattern.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/Result.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/Result.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/Try.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/Try.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/TryExtensions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/TryExtensions.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/UnreachableException.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Functional.Extensions/UnreachableException.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Usage.Api.Client.SDK/AStar.Dev.Usage.Api.Client.SDK.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Usage.Api.Client.SDK/AStar.Dev.Usage.Api.Client.SDK.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Routes.razor" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Routes.razor" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/modules/apis/AStar.Dev.Files.Classifications.Api.Tests.Unit/AStar.Dev.Files.Classifications.Api.Tests.Unit.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/test/modules/apis/AStar.Dev.Files.Classifications.Api.Tests.Unit/AStar.Dev.Files.Classifications.Api.Tests.Unit.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.AspNet.Extensions.Tests.Unit/ApiConfigurationTest.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.AspNet.Extensions.Tests.Unit/ApiConfigurationTest.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.AspNet.Extensions.Tests.Unit/ConfigurationManagerExtensions/ConfigurationManagerExtensionsShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.AspNet.Extensions.Tests.Unit/ConfigurationManagerExtensions/ConfigurationManagerExtensionsShould.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.AspNet.Extensions.Tests.Unit/Handlers/GlobalExceptionHandlerShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.AspNet.Extensions.Tests.Unit/Handlers/GlobalExceptionHandlerShould.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.AspNet.Extensions.Tests.Unit/PipelineExtensions/PipelineExtensionsShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.AspNet.Extensions.Tests.Unit/PipelineExtensions/PipelineExtensionsShould.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.AspNet.Extensions.Tests.Unit/ServiceCollectionExtensions/ServiceCollectionExtensionsShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.AspNet.Extensions.Tests.Unit/ServiceCollectionExtensions/ServiceCollectionExtensionsShould.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.AspNet.Extensions.Tests.Unit/Swagger/ConfigureSwaggerOptionsShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.AspNet.Extensions.Tests.Unit/Swagger/ConfigureSwaggerOptionsShould.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.AspNet.Extensions.Tests.Unit/WebApplicationBuilderExtensions/WebApplicationBuilderExtensionsShould.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/nuget-packages/AStar.Dev.AspNet.Extensions.Tests.Unit/WebApplicationBuilderExtensions/WebApplicationBuilderExtensionsShould.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Shared/Search.razor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Pages/Shared/Search.razor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/modules/apis/AStar.Dev.Files.Classifications.Api.Tests.Unit/Endpoints/FileClassifications/V1/MapGetFileClassificationsEndpointTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/modules/apis/AStar.Dev.Files.Classifications.Api.Tests.Unit/Endpoints/FileClassifications/V1/MapGetFileClassificationsEndpointTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/modules/apis/AStar.Dev.Files.Classifications.Api.Tests.Unit/WebApplicationBuilderExtensionsTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/modules/apis/AStar.Dev.Files.Classifications.Api.Tests.Unit/WebApplicationBuilderExtensionsTests.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/modules/apis/AStar.Dev.Files.Classifications.Api.Tests.Unit/WebApplicationExtensionsTests.cs" beforeDir="false" afterPath="$PROJECT_DIR$/test/modules/apis/AStar.Dev.Files.Classifications.Api.Tests.Unit/WebApplicationExtensionsTests.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +138,7 @@
     </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="features/file-classifications-paging" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -211,6 +171,8 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ce37be1a06b16c6faa02038d2cc477dd3bca5b217ceeb41c5f2ad45c1bf9/ServiceProvider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/.microsoft/usersecrets/b8c500a1-90ed-4137-9946-9a465d25e1f1/secrets.json" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/.microsoft/usersecrets/d7e61e34-084f-4c2b-9be8-5925170dc3b7/secrets.json" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/modules/apis/AStar.Dev.Files.Classifications.Api/WebApplicationBuilderExtensions.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/modules/apis/AStar.Dev.Files.Classifications.Api/WebApplicationExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Models/FileClassification.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/nuget-packages/AStar.Dev.Infrastructure.FilesDb/Models/FileNamePart.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/uis/AStar.Dev.Web/Components/Layout/LoginDisplay.razor" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
@@ -293,7 +255,9 @@
     <setting file="file://$PROJECT_DIR$/test/modules/apis/AStar.Dev.Files.Classifications.Api.Tests.Unit/FileClassificationTests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/test/modules/apis/AStar.Dev.Files.Classifications.Api.Tests.Unit/Services/FileClassificationsService2Tests.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/test/modules/apis/AStar.Dev.Files.Classifications.Api.Tests.Unit/WebApplicationBuilderExtensionsTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/jason/repos/astar-dev/test/modules/apis/AStar.Dev.Files.Classifications.Api.Tests.Unit/WebApplicationBuilderExtensionsTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/test/modules/apis/AStar.Dev.Files.Classifications.Api.Tests.Unit/WebApplicationExtensionsTests.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///home/jason/repos/astar-dev/test/modules/apis/AStar.Dev.Files.Classifications.Api.Tests.Unit/WebApplicationExtensionsTests.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Infrastructure.FilesDb.Tests.Unit/Fixtures/FilesContextFixture.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/test/nuget-packages/AStar.Dev.Infrastructure.FilesDb.Tests.Unit/Fixtures/MockFilesContext.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
@@ -362,7 +326,7 @@
     "e1fa419c-f915-45ea-a5b9-af0e54288449.executor": "Debug",
     "ead053aa-6f06-48a9-a614-f676b2fe4dd5.executor": "Debug",
     "fe711191-94fe-41bc-93a1-ff6c72b91e6f.executor": "Debug",
-    "git-widget-placeholder": "features/file-classifications-paging",
+    "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
     "last_opened_file_path": "/home/jason/repos/astar-dev/src/nuget-packages/AStar.Dev.Usage.Api.Client.SDK/AStar.Dev.Usage.Api.Client.SDK.csproj",
     "list.type.of.created.stylesheet": "CSS",
@@ -3819,7 +3783,6 @@
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_NEW_TODO" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
-    <MESSAGE value="Unrelated but separate the Result tests" />
     <MESSAGE value="Bring most NuGet package projects back" />
     <MESSAGE value="Move the FileHandle creation code into a new service&#10;&#10;This commit includes adding some additional projects back from separate NuGet packages" />
     <MESSAGE value="Remove AStar NuGet package links and use local" />
@@ -3844,7 +3807,8 @@
     <MESSAGE value="Small update in AppHost.cs" />
     <MESSAGE value="Fix TokenAcquisition issue&#10;&#10;Fix JS timing issue" />
     <MESSAGE value="Adding FileClassifications endpoint&#10;&#10;NOT complete" />
-    <option name="LAST_COMMIT_MESSAGE" value="Adding FileClassifications endpoint&#10;&#10;NOT complete" />
+    <MESSAGE value="add updates to File Classifications endpoint&#10;&#10;such as paging&#10;add tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="add updates to File Classifications endpoint&#10;&#10;such as paging&#10;add tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

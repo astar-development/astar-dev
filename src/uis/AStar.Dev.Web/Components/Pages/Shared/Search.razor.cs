@@ -50,13 +50,8 @@ public partial class Search : ComponentBase
     {
         FileClassifications =
         [
-            new (new Dev.Files.Classifications.Api.FileClassification
-            {
-                Id = Guid.Empty,
-                Name = "-- Select (Optional) --",
-                IncludeInSearch = false,
-                Celebrity = false
-            })
+            new FileClassification(new Dev.Files.Classifications.Api.FileClassification(Guid.Empty, 1, null, "-- Select (Optional) --", false, false)
+            )
         ];
 
         IEnumerable<FileClassification> classifications = await FileClassificationsService.GetFileClassificationsAsync();
