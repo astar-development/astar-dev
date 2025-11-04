@@ -1,0 +1,8 @@
+﻿{
+  "slug": "doesn\u0027t matter",
+  "user": {
+    "claims": [],
+    "identities": [],
+    "identity": null
+  }
+}

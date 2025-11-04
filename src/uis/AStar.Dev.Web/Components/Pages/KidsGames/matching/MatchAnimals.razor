@@ -1,0 +1,91 @@
+@page "/kids-games/match-animals"
+@using Microsoft.FluentUI.AspNetCore.Components.Icons.Regular
+@attribute [AllowAnonymous]
+
+<link href="./games/match/css/match.css" rel="stylesheet" type="text/css">
+<link href="./games/css/grid.css" rel="stylesheet" type="text/css">
+<link href="./games/css/menu.css" rel="stylesheet" type="text/css">
+
+<PageTitle>@App.PageTitle("Match Animals")</PageTitle>
+
+<FluentBreadcrumb>
+    <FluentBreadcrumbItem Href="#">
+        Home
+        <FluentIcon Value="@(new Size16.Home())" Color="@Color.Neutral" Slot="start"/>
+    </FluentBreadcrumbItem>
+    <FluentBreadcrumbItem Href="#">
+        Kids Games
+        <FluentIcon Value="@(new Size16.Games())" Color="@Color.Neutral" Slot="start"/>
+    </FluentBreadcrumbItem>
+    <FluentBreadcrumbItem>
+        Breadcrumb item 3
+        <FluentIcon Value="@(new Size16.Money())" Color="@Color.Neutral" Slot="start"/>
+    </FluentBreadcrumbItem>
+</FluentBreadcrumb>
+
+<h1>Match Animals</h1>
+
+<h2>Drag each animal to the correct box</h2>
+
+<div class="grid">
+    <div class="child">
+        <span>
+            <img alt="Cat" id="cat" src="./games/match/images/kittens.jpg" style="position: absolute;"/>
+        </span>
+    </div>
+    <div class="child">
+        <span>
+            <img alt="dog" id="dog" src="./games/match/images/puppy.jpg" style="position: absolute;"/>
+        </span>
+    </div>
+    <div class="child">
+        <span>
+            <img alt="mouse" id="mouse" src="./games/match/images/mouse.jpg" style="position: absolute;"/>
+        </span>
+    </div>
+    <div class="child">
+        <span>
+            <img alt="fish" id="fish" src="./games/match/images/fish.jpg" style="position: absolute;"/>
+        </span>
+    </div>
+</div>
+
+<div id="dropZone">
+    <div id="dropBoxFish"
+         style="position: absolute; top: 100px; left: 1100px; height: 400px; width: 400px; border-color: purple; border-width: 5px; border-style: solid;">
+        <h2 style="text-align: center; padding-top: 100px">Fish</h2>
+    </div>
+    <div id="dropBoxMouse"
+         style="position: absolute; top: 100px; left: 1600px; height: 400px; width: 400px; border-color: purple; border-width: 5px;border-style: solid;">
+        <h2 style="text-align: center; padding-top: 100px">Mouse</h2>
+    </div>
+    <div id="dropBoxCat"
+         style="position: absolute; top: 600px; left: 1100px; height: 400px; width: 400px; border-color: purple; border-width: 5px;border-style: solid;">
+        <h2 style="text-align: center; padding-top: 100px">Kittens</h2>
+    </div>
+    <div id="dropBoxDog"
+         style="position: absolute; top: 600px; left: 1600px; height: 400px; width: 400px; border-color: purple; border-width: 5px; border-style: solid;">
+        <h2 style="text-align: center; padding-top: 100px">Dog</h2>
+    </div>
+</div>
+
+<div class="menu">
+    <div class="item">
+        <span>
+            <button class="btn btn-success btn-lg" id="check" onclick="checkResults()">Check your results</button>
+        </span>
+    </div>
+    <div class="item">
+        <span>
+            <button class="btn btn-primary btn-lg" id="reload" onclick="location.reload()">Try again</button>
+        </span>
+    </div>
+    <span id="result" style="font-size: 25px; font-weight: bold; padding-left: 200px;"></span>
+</div>
+
+<div>
+    <strong>Please Note:</strong> This game works on touch screen devices only. You can select using your mouse, but
+    you will not be able to position correctly. Sorry for the inconvenience.
+</div>
+
+<script src="./games/match/js/match-animals.js"></script>

@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+    <PropertyGroup>
+        
+        
+        
+        <Deterministic>true</Deterministic>
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+        <UserSecretsId>2a3f29b3-71a8-493e-99a6-a68565bcd46b</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.10"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer" Version="9.5.2"/>
+        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Infrastructure.FilesDb\AStar.Dev.Infrastructure.FilesDb.csproj"/>
+        <ProjectReference Include="..\..\..\_aspire\AStar.Dev.Aspire.Common\AStar.Dev.Aspire.Common.csproj"/>
+        <ProjectReference Include="..\..\..\_aspire\AStar.Dev.ServiceDefaults\AStar.Dev.ServiceDefaults.csproj"/>
+    </ItemGroup>
+</Project>

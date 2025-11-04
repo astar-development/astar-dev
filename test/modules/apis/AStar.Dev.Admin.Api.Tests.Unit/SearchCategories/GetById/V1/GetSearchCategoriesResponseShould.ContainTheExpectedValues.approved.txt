@@ -1,0 +1,10 @@
+﻿{
+  "updatedOn": "2001-01-01T00:00:00",
+  "name": "Name",
+  "updatedBy": "UpdatedBy",
+  "order": 5,
+  "totalPages": 1,
+  "lastPageVisited": 3,
+  "lastKnownImageCount": 4,
+  "searchCategoryId": "00000000-0000-0000-0000-000000000000"
+}

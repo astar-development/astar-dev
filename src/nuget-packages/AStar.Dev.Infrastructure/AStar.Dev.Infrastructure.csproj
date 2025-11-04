@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <AnalysisLevel>latest-recommended</AnalysisLevel>
+        <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Authors>AStar Development, Jason Barden</Authors>
+        <Company>AStar Development</Company>
+        <Copyright>AStar Development, 2025</Copyright>
+        <Description>AStar.Dev.Infrastructure contains the common classes used by the FilesDb etc. packages.</Description>
+        <DocumentationFile>$(AssemblyName).xml</DocumentationFile>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <IncludeSymbols>true</IncludeSymbols>
+        <IsPackable>true</IsPackable>
+        <PackageIcon>astar.png</PackageIcon>
+        <PackageId>$(AssemblyName)</PackageId>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/astar-development/astar-dev-infrastructure</PackageProjectUrl>
+        <PackageReadmeFile>Readme.md</PackageReadmeFile>
+        <PackageReleaseNotes>Initial creation.</PackageReleaseNotes>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/astar-development/astar-dev-infrastructure.git</RepositoryUrl>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <Title>AStar.Dev.Infrastructure</Title>
+        <Version>0.1.2</Version>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="LICENSE" Pack="true" PackagePath=""/>
+        <None Include="Readme.md" Pack="true" PackagePath=""/>
+        <None Include="astar.png" Pack="true" PackagePath=""/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.10"/>
+    </ItemGroup>
+
+</Project>

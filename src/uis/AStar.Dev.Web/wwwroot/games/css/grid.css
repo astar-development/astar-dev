@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+}
+
+.grid {
+    padding: 5px;
+    width: 750px;
+}
+
+.child {
+    padding: 25px;
+    display: inline-block;
+    width: 33%;
+}
+
+.child span {
+    padding: 20px;
+    display: block;
+}

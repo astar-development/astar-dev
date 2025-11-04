@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <Sdk Name="Aspire.AppHost.Sdk" Version="9.5.0" />
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        
+        
+        <Deterministic>true</Deterministic>
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+        
+        <UserSecretsId>b8c500a1-90ed-4137-9946-9a465d25e1f1</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Aspire.Hosting.AppHost" Version="9.5.2" />
+        <PackageReference Include="Aspire.Hosting.RabbitMQ" Version="9.5.2" />
+        <PackageReference Include="AspNetCore.HealthChecks.RabbitMQ" Version="9.0.0" />
+        <PackageReference Include="Aspire.Hosting.SqlServer" Version="9.5.2" />
+        <PackageReference Include="JetBrains.Annotations" Version="2025.2.2"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\modules\astar-dev-database-updater\AStar.Dev.Database.Updater\AStar.Dev.Database.Updater.csproj" />
+        <ProjectReference Include="..\..\modules\AStar.Dev.Usage.Logger\AStar.Dev.Usage.Logger.csproj" />
+        <ProjectReference Include="..\..\modules\migrations\AStar.Dev.FilesDb.MigrationService\AStar.Dev.FilesDb.MigrationService.csproj" />
+        <ProjectReference Include="..\..\uis\AStar.Dev.Web\AStar.Dev.Web.csproj" />
+        <ProjectReference Include="..\AStar.Dev.Aspire.Common\AStar.Dev.Aspire.Common.csproj" IsAspireProjectResource="false" />
+    </ItemGroup>
+
+</Project>

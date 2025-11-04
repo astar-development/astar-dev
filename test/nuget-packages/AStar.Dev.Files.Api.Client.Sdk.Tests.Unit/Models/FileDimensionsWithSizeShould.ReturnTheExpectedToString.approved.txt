@@ -1,0 +1,6 @@
+{
+  "fileLength": 0,
+  "height": 0,
+  "width": 0,
+  "fileSizeForDisplay": "0.00 Kb"
+}

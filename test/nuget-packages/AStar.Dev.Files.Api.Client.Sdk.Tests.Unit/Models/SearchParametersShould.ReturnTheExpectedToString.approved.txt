@@ -1,0 +1,17 @@
+﻿{
+  "searchFolder": "",
+  "searchType": 0,
+  "recursive": true,
+  "includeSoftDeleted": false,
+  "includeMarkedForDeletion": false,
+  "currentPage": 1,
+  "itemsPerPage": 10,
+  "maximumSizeOfThumbnail": 850,
+  "maximumSizeOfImage": 1500,
+  "sortOrder": 0,
+  "searchText": null,
+  "excludedViewSettings": {
+    "excludeViewedPeriodInDays": 7,
+    "excludeViewed": true
+  }
+}

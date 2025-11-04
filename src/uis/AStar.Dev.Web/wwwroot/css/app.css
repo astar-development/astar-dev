@@ -1,0 +1,11 @@
+
+footer {
+    min-height: 20px;
+    text-align: center;
+    bottom: 20px;
+    position: fixed;
+}
+
+.menuIcon {
+    font-size: 20px;
+}

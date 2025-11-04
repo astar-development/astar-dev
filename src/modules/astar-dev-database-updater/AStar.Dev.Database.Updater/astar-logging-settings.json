@@ -1,0 +1,65 @@
+{
+  "Serilog": {
+    "Enrich": [
+      "FromLogContext",
+      "WithMachineName",
+      "WithSpan",
+      "WithExceptionDetails"
+    ],
+    "WriteTo": [
+      {
+        "Name": "Seq",
+        "Args": {
+          "serverUrl": "http://seq:5341"
+        }
+      },
+      {
+        "Name": "Console",
+        "Args": {
+          "theme": "Serilog.Sinks.SystemConsole.Themes.AnsiConsoleTheme::Code, Serilog.Sinks.Console",
+          "outputTemplate": "[{Timestamp:HH:mm:ss} {Level:u4}] {Message:lj} <s:{SourceContext}>{NewLine}{Exception}"
+        }
+      },
+      {
+        "Name": "ApplicationInsights",
+        "Args": {
+          "telemetryConverter": "Serilog.Sinks.ApplicationInsights.TelemetryConverters.TraceTelemetryConverter, Serilog.Sinks.ApplicationInsights"
+        }
+      }
+    ],
+    "Properties": {
+      "ApplicationName": "AStar.Dev.Database.Updater"
+    },
+    "MinimumLevel": {
+      "Default": "Information",
+      "Override": {
+        "Microsoft.AspNetCore": "Warning",
+        "Microsoft.Identity.Web": "Warning",
+        "Microsoft.IdentityModel": "Warning",
+        "System.Net.Http": "Information",
+        "AStar": "Debug"
+      }
+    }
+  },
+  "Logging": {
+    "Console": {
+      "FormatterName": "json",
+      "FormatterOptions": {
+        "SingleLine": true,
+        "IncludeScopes": true,
+        "TimestampFormat": "HH:mm:ss ",
+        "UseUtcTimestamp": true,
+        "JsonWriterOptions": {
+          "Indented": true
+        }
+      }
+    },
+    "ApplicationInsights": {
+      "LogLevel": {
+        "Default": "Information",
+        "Microsoft.AspNetCore": "Warning",
+        "AStar": "Debug"
+      }
+    }
+  }
+}

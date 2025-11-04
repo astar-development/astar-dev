@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <ApplicationIcon>astar.ico</ApplicationIcon>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Authors>AStar Development, Jason Barden</Authors>
+        <Copyright>AStar Development, 2025</Copyright>
+        <PackageProjectUrl>https://github.com/astar-development/</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/astar-development/</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <IncludeSymbols>True</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <PackageReadmeFile>Readme.md</PackageReadmeFile>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <PackageLicenseFile>LICENSE</PackageLicenseFile>
+        <DocumentationFile>$(AssemblyName).xml</DocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="LICENSE" Pack="true" PackagePath=""/>
+        <None Include="Readme.md" Pack="true" PackagePath=""/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.23.0"/>
+        <PackageReference Include="Serilog.AspNetCore" Version="9.0.0"/>
+        <PackageReference Include="Serilog.Enrichers.Span" Version="3.1.0"/>
+        <PackageReference Include="Serilog.Enrichers.Environment" Version="3.0.1"/>
+        <PackageReference Include="Serilog.Expressions" Version="5.0.0"/>
+        <PackageReference Include="Serilog.Sinks.Console" Version="6.1.1" />
+        <PackageReference Include="Serilog.Sinks.Seq" Version="9.0.0"/>
+        <PackageReference Include="Serilog.Exceptions" Version="8.4.0"/>
+        <PackageReference Include="Serilog.Sinks.ApplicationInsights" Version="4.0.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\AStar.Dev.Utilities\AStar.Dev.Utilities.csproj"/>
+    </ItemGroup>
+
+</Project>
