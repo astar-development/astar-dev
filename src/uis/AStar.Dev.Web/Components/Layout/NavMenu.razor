@@ -9,47 +9,47 @@
     <nav class="siteNavigation" aria-labelledby="main-menu">
         <FluentNavMenu Id="main-menu" Collapsible="true" Width="250" Title="Navigation menu" @bind-Expanded="_expanded" CustomToggle="true">
             <FluentNavLink Href="/" Match="NavLinkMatch.All" Icon="@(new Size20.Home())" IconColor="Color.Accent">Home</FluentNavLink>
-            <FluentNavLink Href="counter" Icon="@(new Size20.NumberSymbolSquare())" IconColor="Color.Accent">Counter</FluentNavLink>
-            <FluentNavLink Href="weather" Icon="@(new Size20.WeatherPartlyCloudyDay())" IconColor="Color.Accent">Weather</FluentNavLink>
-            <FluentNavLink Href="nuget-documentation" Icon="@(new Size20.Document())" IconColor="Color.Accent">NuGet Documentation</FluentNavLink>
-            <FluentNavLink Href="kids-games" Icon="@(new Size20.Games())" IconColor="Color.Accent">Kids Games</FluentNavLink>
+            <FluentNavLink Href="counter" Icon="@(new Size20.NumberSymbolSquare())" IconColor="Color.Accent" Tooltip="The OOTB Counter page">Counter</FluentNavLink>
+            <FluentNavLink Href="weather" Icon="@(new Size20.WeatherPartlyCloudyDay())" IconColor="Color.Accent" Tooltip="The OOTB Weather page">Weather</FluentNavLink>
+            <FluentNavLink Href="nuget-documentation" Icon="@(new Size20.Document())" IconColor="Color.Accent" Tooltip="Access the NuGet documentation root document">NuGet Documentation</FluentNavLink>
+            <FluentNavLink Href="kids-games" Icon="@(new Size20.Games())" IconColor="Color.Accent" Tooltip="Play some games (not operational)">Kids Games</FluentNavLink>
 
             @if (!_isAuthenticated)
             {
-                <FluentNavLink Href="MicrosoftIdentity/Account/SignIn" Icon="@(new Size20.SignOut())" IconColor="Color.Accent">Sign in</FluentNavLink>
+                <FluentNavLink Href="MicrosoftIdentity/Account/SignIn" Icon="@(new Size20.SignOut())" IconColor="Color.Accent" Tooltip="Sign in to access restricted areas">Sign in</FluentNavLink>
             }
             else
             {
-                <FluentNavGroup Title="Admin" Icon="@(new Size20.EarthLeaf())">
+                <FluentNavGroup Title="Admin" Icon="@(new Size20.EarthLeaf())" Tooltip="Access the Admin Menu" IconColor="Color.Accent">
                     <ChildContent>
                         <FluentNavLink Href="/admin/add-files-to-database" Icon="@(new Size20.People())" Tooltip="Add any new Files to the AStar Database"
                                        IconColor="Color.Accent">Add Files To Database
                         </FluentNavLink>
-                        <FluentNavLink Href="/admin/api-usage" Icon="@(new Size20.People())" IconColor="Color.Accent">
+                        <FluentNavLink Href="/admin/api-usage" Icon="@(new Size20.People())" IconColor="Color.Accent" Tooltip="View API Usage">
                             Api Usage
                         </FluentNavLink>
-                        <FluentNavLink Href="/admin/authentication-check" Icon="@(new Size20.People())"
+                        <FluentNavLink Href="/admin/authentication-check" Icon="@(new Size20.People())" Tooltip="Check your Authentication details"
                                        IconColor="Color.Accent">Authentication Check
                         </FluentNavLink>
-                        <FluentNavLink Href="/admin/file-classifications" Icon="@(new Size20.People())"
+                        <FluentNavLink Href="/admin/file-classifications" Icon="@(new Size20.People())" Tooltip="Update / add File Classifications"
                                        IconColor="Color.Accent">File Classifications
                         </FluentNavLink>
-                        <FluentNavLink Href="/admin/models-to-ignore" Icon="@(new Size20.People())"
+                        <FluentNavLink Href="/admin/models-to-ignore" Icon="@(new Size20.People())" Tooltip="Update / add Models to Ignore"
                                        IconColor="Color.Accent">Models To Ignore
                         </FluentNavLink>
-                        <FluentNavLink Href="/admin/scrape-directories" Icon="@(new Size20.People())"
+                        <FluentNavLink Href="/admin/scrape-directories" Icon="@(new Size20.People())" Tooltip="Run the Scrape Directories process"
                                        IconColor="Color.Accent">Scrape Directories
                         </FluentNavLink>
-                        <FluentNavLink Href="/admin/site-configuration" Icon="@(new Size20.People())"
+                        <FluentNavLink Href="/admin/site-configuration" Icon="@(new Size20.People())" Tooltip="Update / add Site Configuration"
                                        IconColor="Color.Accent">Site Configuration
                         </FluentNavLink>
-                        <FluentNavLink Href="/admin/tags-to-ignore" Icon="@(new Size20.People())"
+                        <FluentNavLink Href="/admin/tags-to-ignore" Icon="@(new Size20.People())" Tooltip="Update / add Tags to Ignore"
                                        IconColor="Color.Accent">Tags To Ignore
                         </FluentNavLink>
                     </ChildContent>
                 </FluentNavGroup>
-                <FluentNavLink Href="/images/duplicate-images" Icon="@(new Size20.People())" IconColor="Color.Accent">Duplicate Images</FluentNavLink>
-                <FluentNavLink Href="MicrosoftIdentity/Account/SignOut" Icon="@(new Size20.SignOut())" IconColor="Color.Accent">Sign out, @_firstName</FluentNavLink>
+                <FluentNavLink Href="/images/duplicate-images" Icon="@(new Size20.People())" IconColor="Color.Accent" Tooltip="View Duplicate Images based on configurable parameteres" >Duplicate Images</FluentNavLink>
+                <FluentNavLink Href="MicrosoftIdentity/Account/SignOut" Icon="@(new Size20.SignOut())" IconColor="Color.Accent" Tooltip="Sign out of the site">Sign out, @_firstName</FluentNavLink>
             }
         </FluentNavMenu>
     </nav>
