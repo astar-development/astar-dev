@@ -1,0 +1,91 @@
+@page "/kids-games/match-houses"
+@using Microsoft.FluentUI.AspNetCore.Components.Icons.Regular
+@attribute [AllowAnonymous]
+
+<link href="./games/match/css/match.css" rel="stylesheet" type="text/css">
+<link href="./games/css/grid.css" rel="stylesheet" type="text/css">
+<link href="./games/css/menu.css" rel="stylesheet" type="text/css">
+
+<PageTitle>@App.PageTitle("Match Houses")</PageTitle>
+
+<FluentBreadcrumb>
+    <FluentBreadcrumbItem Href="#">
+        Home
+        <FluentIcon Value="@(new Size16.Home())" Color="@Color.Neutral" Slot="start"/>
+    </FluentBreadcrumbItem>
+    <FluentBreadcrumbItem Href="#">
+        Kids Games
+        <FluentIcon Value="@(new Size16.Games())" Color="@Color.Neutral" Slot="start"/>
+    </FluentBreadcrumbItem>
+    <FluentBreadcrumbItem>
+        Breadcrumb item 3
+        <FluentIcon Value="@(new Size16.Money())" Color="@Color.Neutral" Slot="start"/>
+    </FluentBreadcrumbItem>
+</FluentBreadcrumb>
+
+<h1>Match Houses</h1>
+
+<h2>Drag each house to the correct box</h2>
+
+<div class="grid">
+    <div class="child">
+        <span>
+            <img alt="cottage" id="cottage" src="./games/match/images/cottage.jpg" style="position: absolute;"/>
+        </span>
+    </div>
+    <div class="child">
+        <span>
+            <img alt="detached-house" id="detached-house" src="./games/match/images/detached-house.jpg"
+                 style="position: absolute;"/>
+        </span>
+    </div>
+    <div class="child">
+        <span>
+            <img alt="semi-detached" id="semi-detached" src="./games/match/images/semi-detached.jpg" style="position: absolute;"/>
+        </span>
+    </div>
+    <div class="child">
+        <span>
+            <img alt="terraced-house" id="terraced-house" src="./games/match/images/terraced-house.jpg"
+                 style="position: absolute;"/>
+        </span>
+    </div>
+</div>
+
+<div id="dropZone">
+    <div id="dropBoxCottage"
+         style="position: absolute; top: 100px; left: 1100px; height: 400px; width: 400px; border-color: purple; border-width: 5px; border-style: solid;">
+        <h2 style="text-align: center; padding-top: 100px">Cottage</h2>
+    </div>
+    <div id="dropBoxDetachedHouse"
+         style="position: absolute; top: 100px; left: 1600px; height: 400px; width: 400px; border-color: purple; border-width: 5px;border-style: solid;">
+        <h2 style="text-align: center; padding-top: 100px">Detached House</h2>
+    </div>
+    <div id="dropBoxSemiDetached"
+         style="position: absolute; top: 600px; left: 1100px; height: 400px; width: 400px; border-color: purple; border-width: 5px;border-style: solid;">
+        <h2 style="text-align: center; padding-top: 100px">Semi-detached House</h2></div>
+    <div id="dropBoxTerracedHouse"
+         style="position: absolute; top: 600px; left: 1600px; height: 400px; width: 400px; border-color: purple; border-width: 5px; border-style: solid;">
+        <h2 style="text-align: center; padding-top: 100px">Terraced house</h2></div>
+</div>
+
+<div class="menu">
+    <div class="item">
+        <span>
+            <button class="btn btn-success btn-lg" id="check" onclick="checkResults()">Check your results</button>
+        </span>
+    </div>
+    <div class="item">
+        <span>
+            <button class="btn btn-primary btn-lg" id="reload" onclick="location.reload()">Try again</button>
+        </span>
+    </div>
+    <span id="result" style="font-size: 25px; font-weight: bold; padding-left: 200px;"></span>
+</div>
+
+<div>
+    <strong>Please Note:</strong> This game works on touch screen devices only. You can select using your mouse, but
+    you will not be able to position correctly. Sorry for the inconvenience.
+</div>
+
+<script src="./games/match/js/match-houses.js"></script>

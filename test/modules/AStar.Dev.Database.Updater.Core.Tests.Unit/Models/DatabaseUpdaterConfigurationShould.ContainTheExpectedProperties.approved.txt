@@ -1,0 +1,7 @@
+﻿{
+  "rootDirectory": "",
+  "mappingsFilePath": "",
+  "softDeleteScheduledTime": "00:00:00",
+  "hardDeleteScheduledTime": "00:00:00",
+  "newFilesScheduledTime": "00:00:00"
+}

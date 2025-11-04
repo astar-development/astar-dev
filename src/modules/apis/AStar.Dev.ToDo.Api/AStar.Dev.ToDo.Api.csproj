@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <Deterministic>true</Deterministic>
+        <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+        <UserSecretsId>375b56f5-d537-49ec-bfe3-a002d0619604</UserSecretsId>
+    </PropertyGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.0"/>
+        <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0"/>
+        <PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders" Version="1.2.0"/>
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.10"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Abstractions" Version="9.0.10"/>
+        <PackageReference Include="Microsoft.Identity.Web" Version="4.0.1"/>
+        <PackageReference Include="Aspire.RabbitMQ.Client.v7" Version="9.5.2"/>
+        <PackageReference Include="Scalar.AspNetCore" Version="2.10.0" />
+        <PackageReference Include="Serilog" Version="4.3.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.AspNet.Extensions\AStar.Dev.AspNet.Extensions.csproj"/>
+        <ProjectReference Include="..\..\..\_aspire\AStar.Dev.ServiceDefaults\AStar.Dev.ServiceDefaults.csproj"/>
+    </ItemGroup>
+
+</Project>

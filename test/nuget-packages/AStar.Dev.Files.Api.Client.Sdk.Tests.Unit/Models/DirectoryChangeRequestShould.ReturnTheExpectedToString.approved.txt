@@ -1,0 +1,5 @@
+﻿{
+  "oldDirectoryName": "",
+  "newDirectoryName": "",
+  "fileName": ""
+}

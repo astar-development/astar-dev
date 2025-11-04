@@ -1,0 +1,807 @@
+[
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "155fb0e6-b59b-e81a-4839-0e04696d04e1"
+    },
+    "fileAccessDetail": {
+      "id": -247753787,
+      "detailsLastUpdated": "2025-01-02T00:47:08.8950339",
+      "lastViewed": "2025-01-01T23:22:36.8470041",
+      "moveRequired": false,
+      "updatedBy": "Test",
+      "updatedOn": "2025-01-01T05:24:43.600179+00:00"
+    },
+    "fileName": {
+      "value": "copy.jpeg"
+    },
+    "directoryName": {
+      "value": "/var/spool"
+    },
+    "fullNameWithPath": "/var/spool/copy.jpeg",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 237367,
+    "createdDate": "2024-12-31T11:32:52.7774595+00:00",
+    "updatedDate": "2024-12-30T02:20:00.860086+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/var/spool-copy.jpeg-FileId { Value = 155fb0e6-b59b-e81a-4839-0e04696d04e1 }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2025-01-01T03:40:29.449106+00:00"
+  },
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "18b7cb9a-e9a2-df29-2267-50c739ebe4a8"
+    },
+    "fileAccessDetail": {
+      "id": -201829489,
+      "detailsLastUpdated": "2025-01-02T02:31:46.98187",
+      "lastViewed": "2025-01-01T07:08:17.3228654",
+      "moveRequired": false,
+      "updatedBy": "Test",
+      "updatedOn": "2025-01-01T07:17:58.7873038+00:00"
+    },
+    "fileName": {
+      "value": "norwegian_krone_olive.png"
+    },
+    "directoryName": {
+      "value": "/usr/src"
+    },
+    "fullNameWithPath": "/usr/src/norwegian_krone_olive.png",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 177290,
+    "createdDate": "2024-12-23T07:19:41.0411447+00:00",
+    "updatedDate": "2024-12-29T04:52:15.0130004+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/usr/src-norwegian_krone_olive.png-FileId { Value = 18b7cb9a-e9a2-df29-2267-50c739ebe4a8 }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2024-12-31T09:23:34.1358136+00:00"
+  },
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "1e27ee41-89e9-fda6-9971-e0dcef63602e"
+    },
+    "fileAccessDetail": {
+      "id": -529313045,
+      "detailsLastUpdated": "2025-01-02T02:27:46.8386381",
+      "lastViewed": "2025-01-01T22:29:36.0578582",
+      "moveRequired": true,
+      "updatedBy": "Test",
+      "updatedOn": "2024-12-31T15:45:45.9942208+00:00"
+    },
+    "fileName": {
+      "value": "e_services_embrace.jpeg"
+    },
+    "directoryName": {
+      "value": "/mnt"
+    },
+    "fullNameWithPath": "/mnt/e_services_embrace.jpeg",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 290435,
+    "createdDate": "2024-12-30T09:22:05.4885776+00:00",
+    "updatedDate": "2024-12-30T22:02:46.2613588+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/mnt-e_services_embrace.jpeg-FileId { Value = 1e27ee41-89e9-fda6-9971-e0dcef63602e }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2024-12-31T10:23:14.3190918+00:00"
+  },
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "320a9af8-f5c9-17cf-7437-3b9b4daff6ed"
+    },
+    "fileAccessDetail": {
+      "id": -1515910777,
+      "detailsLastUpdated": "2025-01-02T01:01:10.3312867",
+      "lastViewed": "2025-01-01T19:42:53.6985885",
+      "moveRequired": false,
+      "updatedBy": "Test",
+      "updatedOn": "2025-01-01T09:04:14.7779896+00:00"
+    },
+    "fileName": {
+      "value": "portals.png"
+    },
+    "directoryName": {
+      "value": "/private"
+    },
+    "fullNameWithPath": "/private/portals.png",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 281059,
+    "createdDate": "2024-12-28T04:22:46.724341+00:00",
+    "updatedDate": "2024-12-29T19:18:32.9380942+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/private-portals.png-FileId { Value = 320a9af8-f5c9-17cf-7437-3b9b4daff6ed }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2025-01-01T01:26:06.6963756+00:00"
+  },
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "493c2449-d07a-faf6-85d8-72ce000bd8d9"
+    },
+    "fileAccessDetail": {
+      "id": -254438896,
+      "detailsLastUpdated": "2025-01-02T00:26:04.3277807",
+      "lastViewed": "2025-01-01T16:24:56.6477764",
+      "moveRequired": true,
+      "updatedBy": "Test",
+      "updatedOn": "2025-01-01T06:04:25.5606258+00:00"
+    },
+    "fileName": {
+      "value": "meadows_payment_checking_account.jpg"
+    },
+    "directoryName": {
+      "value": "/opt/share"
+    },
+    "fullNameWithPath": "/opt/share/meadows_payment_checking_account.jpg",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 283095,
+    "createdDate": "2024-12-27T23:16:22.7198439+00:00",
+    "updatedDate": "2024-12-28T06:37:42.9011107+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/opt/share-meadows_payment_checking_account.jpg-FileId { Value = 493c2449-d07a-faf6-85d8-72ce000bd8d9 }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2025-01-01T08:58:34.0844441+00:00"
+  },
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "4bc41919-c22f-c738-ec2b-ea09ee346da9"
+    },
+    "fileAccessDetail": {
+      "id": -1034640066,
+      "detailsLastUpdated": "2025-01-02T02:23:59.9976889",
+      "lastViewed": "2025-01-01T16:01:15.4187113",
+      "moveRequired": true,
+      "updatedBy": "Test",
+      "updatedOn": "2025-01-01T18:00:38.5440537+00:00"
+    },
+    "fileName": {
+      "value": "investment_account_turn_key.jpeg"
+    },
+    "directoryName": {
+      "value": "/sys"
+    },
+    "fullNameWithPath": "/sys/investment_account_turn_key.jpeg",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 119905,
+    "createdDate": "2024-12-25T13:11:13.1647703+00:00",
+    "updatedDate": "2024-12-31T01:25:56.2107354+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/sys-investment_account_turn_key.jpeg-FileId { Value = 4bc41919-c22f-c738-ec2b-ea09ee346da9 }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2024-12-31T11:33:13.2406758+00:00"
+  },
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "4bcf71f1-2f1f-d2c2-82e2-40f575c3c4fe"
+    },
+    "fileAccessDetail": {
+      "id": 1756632730,
+      "detailsLastUpdated": "2025-01-02T01:45:35.2526272",
+      "lastViewed": "2025-01-01T15:52:37.7055264",
+      "moveRequired": false,
+      "updatedBy": "Test",
+      "updatedOn": "2025-01-01T00:03:27.3530054+00:00"
+    },
+    "fileName": {
+      "value": "platforms_money_market_account.jpg"
+    },
+    "directoryName": {
+      "value": "/proc"
+    },
+    "fullNameWithPath": "/proc/platforms_money_market_account.jpg",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 255564,
+    "createdDate": "2024-12-23T07:19:03.6066264+00:00",
+    "updatedDate": "2024-12-31T19:03:20.8630168+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/proc-platforms_money_market_account.jpg-FileId { Value = 4bcf71f1-2f1f-d2c2-82e2-40f575c3c4fe }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2025-01-01T00:16:35.4037706+00:00"
+  },
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "4cd63f5f-3587-3a49-5241-0a180ef24c0d"
+    },
+    "fileAccessDetail": {
+      "id": 1333221913,
+      "detailsLastUpdated": "2025-01-02T00:27:30.8584516",
+      "lastViewed": "2025-01-01T08:17:08.0849318",
+      "moveRequired": true,
+      "updatedBy": "Test",
+      "updatedOn": "2024-12-31T17:16:08.3133942+00:00"
+    },
+    "fileName": {
+      "value": "customer_marketing_markets.jpg"
+    },
+    "directoryName": {
+      "value": "/etc/periodic"
+    },
+    "fullNameWithPath": "/etc/periodic/customer_marketing_markets.jpg",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 392004,
+    "createdDate": "2024-12-25T10:02:42.6089344+00:00",
+    "updatedDate": "2024-12-28T22:40:12.0167909+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/etc/periodic-customer_marketing_markets.jpg-FileId { Value = 4cd63f5f-3587-3a49-5241-0a180ef24c0d }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2024-12-31T07:23:18.0515952+00:00"
+  },
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "5e7031c4-deb4-b3b6-7ddf-8021b64a9e4d"
+    },
+    "fileAccessDetail": {
+      "id": -1526145569,
+      "detailsLastUpdated": "2025-01-02T00:02:47.4960749",
+      "lastViewed": "2025-01-01T07:46:01.9383038",
+      "moveRequired": true,
+      "updatedBy": "Test",
+      "updatedOn": "2024-12-31T20:38:26.8974086+00:00"
+    },
+    "fileName": {
+      "value": "shoes_\u0026_beauty_web_readiness_bandwidth.bmp"
+    },
+    "directoryName": {
+      "value": "/etc/defaults"
+    },
+    "fullNameWithPath": "/etc/defaults/shoes_\u0026_beauty_web_readiness_bandwidth.bmp",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 376048,
+    "createdDate": "2024-12-29T03:35:48.931255+00:00",
+    "updatedDate": "2025-01-01T22:13:57.084355+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/etc/defaults-shoes_\u0026_beauty_web_readiness_bandwidth.bmp-FileId { Value = 5e7031c4-deb4-b3b6-7ddf-8021b64a9e4d }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2025-01-01T09:30:45.4231546+00:00"
+  },
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "6865857c-e27b-cfb6-30fd-08e2db3adf9e"
+    },
+    "fileAccessDetail": {
+      "id": 476869540,
+      "detailsLastUpdated": "2025-01-02T00:45:42.247838",
+      "lastViewed": "2025-01-01T21:22:20.8175832",
+      "moveRequired": false,
+      "updatedBy": "Test",
+      "updatedOn": "2024-12-31T08:56:08.8280603+00:00"
+    },
+    "fileName": {
+      "value": "rubber.png"
+    },
+    "directoryName": {
+      "value": "/var"
+    },
+    "fullNameWithPath": "/var/rubber.png",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 199156,
+    "createdDate": "2024-12-31T09:16:26.4601609+00:00",
+    "updatedDate": "2024-12-28T19:39:43.6707718+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/var-rubber.png-FileId { Value = 6865857c-e27b-cfb6-30fd-08e2db3adf9e }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2025-01-01T06:19:44.7842864+00:00"
+  },
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "7b96406e-07fe-3a4a-70ff-1bc944a35057"
+    },
+    "fileAccessDetail": {
+      "id": 1834293793,
+      "detailsLastUpdated": "2025-01-02T01:21:24.8447029",
+      "lastViewed": "2025-01-02T00:54:44.9792829",
+      "moveRequired": true,
+      "updatedBy": "Test",
+      "updatedOn": "2024-12-31T16:13:41.3220888+00:00"
+    },
+    "fileName": {
+      "value": "fuchsia_grey_malta.jpeg"
+    },
+    "directoryName": {
+      "value": "/tmp"
+    },
+    "fullNameWithPath": "/tmp/fuchsia_grey_malta.jpeg",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 366332,
+    "createdDate": "2024-12-28T22:06:38.9080149+00:00",
+    "updatedDate": "2024-12-31T06:34:10.2689507+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/tmp-fuchsia_grey_malta.jpeg-FileId { Value = 7b96406e-07fe-3a4a-70ff-1bc944a35057 }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2024-12-31T14:23:05.3312843+00:00"
+  },
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "7dd96504-ffe5-9d0a-7c1f-65f9cea4f97a"
+    },
+    "fileAccessDetail": {
+      "id": -734090378,
+      "detailsLastUpdated": "2025-01-02T00:52:36.5820344",
+      "lastViewed": "2025-01-01T23:07:46.4080596",
+      "moveRequired": false,
+      "updatedBy": "Test",
+      "updatedOn": "2025-01-01T07:05:43.2432746+00:00"
+    },
+    "fileName": {
+      "value": "concrete_israel.jpg"
+    },
+    "directoryName": {
+      "value": "/Network"
+    },
+    "fullNameWithPath": "/Network/concrete_israel.jpg",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 322539,
+    "createdDate": "2024-12-30T18:45:00.6186119+00:00",
+    "updatedDate": "2024-12-29T15:07:50.3606566+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/Network-concrete_israel.jpg-FileId { Value = 7dd96504-ffe5-9d0a-7c1f-65f9cea4f97a }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2025-01-01T16:20:26.0564457+00:00"
+  },
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "7e85d13c-0de6-2acb-f404-3f9fc2c6ac1e"
+    },
+    "fileAccessDetail": {
+      "id": -465168411,
+      "detailsLastUpdated": "2025-01-02T01:58:11.4519936",
+      "lastViewed": "2025-01-01T14:41:10.6133081",
+      "moveRequired": true,
+      "updatedBy": "Test",
+      "updatedOn": "2025-01-01T18:08:15.7853477+00:00"
+    },
+    "fileName": {
+      "value": "time_frame.png"
+    },
+    "directoryName": {
+      "value": "/rescue"
+    },
+    "fullNameWithPath": "/rescue/time_frame.png",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 225864,
+    "createdDate": "2024-12-29T15:17:04.8422601+00:00",
+    "updatedDate": "2024-12-30T22:19:41.7145116+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/rescue-time_frame.png-FileId { Value = 7e85d13c-0de6-2acb-f404-3f9fc2c6ac1e }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2025-01-01T15:11:05.7473258+00:00"
+  },
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "8f184876-95d4-503d-510c-9bd4bee57768"
+    },
+    "fileAccessDetail": {
+      "id": -1415286822,
+      "detailsLastUpdated": "2025-01-02T00:16:08.9620276",
+      "lastViewed": "2025-01-01T16:35:29.9579606",
+      "moveRequired": true,
+      "updatedBy": "Test",
+      "updatedOn": "2025-01-01T15:43:32.0769829+00:00"
+    },
+    "fileName": {
+      "value": "functionality.bmp"
+    },
+    "directoryName": {
+      "value": "/etc/mail"
+    },
+    "fullNameWithPath": "/etc/mail/functionality.bmp",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 146802,
+    "createdDate": "2024-12-24T19:28:50.5875305+00:00",
+    "updatedDate": "2024-12-30T14:25:56.4476365+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/etc/mail-functionality.bmp-FileId { Value = 8f184876-95d4-503d-510c-9bd4bee57768 }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2025-01-01T01:57:05.180281+00:00"
+  },
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "9127e2f3-d83e-512c-025d-3cc7943f4162"
+    },
+    "fileAccessDetail": {
+      "id": 1329137558,
+      "detailsLastUpdated": "2025-01-02T01:00:14.8447033",
+      "lastViewed": "2025-01-01T10:49:53.0221491",
+      "moveRequired": true,
+      "updatedBy": "Test",
+      "updatedOn": "2025-01-01T17:04:19.5765822+00:00"
+    },
+    "fileName": {
+      "value": "rustic_cotton_pants_turkey_quantifying.jpg"
+    },
+    "directoryName": {
+      "value": "/var/tmp"
+    },
+    "fullNameWithPath": "/var/tmp/rustic_cotton_pants_turkey_quantifying.jpg",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 188717,
+    "createdDate": "2024-12-29T15:42:57.2224948+00:00",
+    "updatedDate": "2024-12-29T20:37:58.286218+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/var/tmp-rustic_cotton_pants_turkey_quantifying.jpg-FileId { Value = 9127e2f3-d83e-512c-025d-3cc7943f4162 }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2024-12-31T04:52:50.5033732+00:00"
+  },
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "a7252c77-d2ea-8927-eadb-fb52818b3460"
+    },
+    "fileAccessDetail": {
+      "id": 287032112,
+      "detailsLastUpdated": "2025-01-02T00:21:20.3069634",
+      "lastViewed": "2025-01-01T22:08:07.8605399",
+      "moveRequired": true,
+      "updatedBy": "Test",
+      "updatedOn": "2025-01-01T13:59:21.2872274+00:00"
+    },
+    "fileName": {
+      "value": "graphical_user_interface_home_loan_account.jpeg"
+    },
+    "directoryName": {
+      "value": "/usr/include"
+    },
+    "fullNameWithPath": "/usr/include/graphical_user_interface_home_loan_account.jpeg",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 492881,
+    "createdDate": "2024-12-28T10:58:37.8431611+00:00",
+    "updatedDate": "2024-12-30T07:05:08.8916202+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/usr/include-graphical_user_interface_home_loan_account.jpeg-FileId { Value = a7252c77-d2ea-8927-eadb-fb52818b3460 }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2024-12-31T06:19:53.1019641+00:00"
+  },
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "b5c17b04-aeb7-481a-4777-da6ca84b020e"
+    },
+    "fileAccessDetail": {
+      "id": 1075028008,
+      "detailsLastUpdated": "2025-01-02T01:20:50.7664601",
+      "lastViewed": "2025-01-01T22:09:39.4826139",
+      "moveRequired": false,
+      "updatedBy": "Test",
+      "updatedOn": "2024-12-31T05:05:17.9160969+00:00"
+    },
+    "fileName": {
+      "value": "flexibility.png"
+    },
+    "directoryName": {
+      "value": "/srv"
+    },
+    "fullNameWithPath": "/srv/flexibility.png",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 166697,
+    "createdDate": "2024-12-27T14:12:48.6002096+00:00",
+    "updatedDate": "2025-01-01T09:22:03.8257824+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/srv-flexibility.png-FileId { Value = b5c17b04-aeb7-481a-4777-da6ca84b020e }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2025-01-01T09:55:18.5146623+00:00"
+  },
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "b7078757-b082-979f-584c-7b6a7dc9f3c0"
+    },
+    "fileAccessDetail": {
+      "id": 1688235793,
+      "detailsLastUpdated": "2025-01-02T03:01:59.3912764",
+      "lastViewed": "2025-01-01T10:25:45.3229399",
+      "moveRequired": true,
+      "updatedBy": "Test",
+      "updatedOn": "2025-01-01T21:25:09.5649279+00:00"
+    },
+    "fileName": {
+      "value": "sql_auto_loan_account.jpg"
+    },
+    "directoryName": {
+      "value": "/var/spool"
+    },
+    "fullNameWithPath": "/var/spool/sql_auto_loan_account.jpg",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 395689,
+    "createdDate": "2024-12-28T20:34:34.0061752+00:00",
+    "updatedDate": "2024-12-30T09:21:00.9803779+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/var/spool-sql_auto_loan_account.jpg-FileId { Value = b7078757-b082-979f-584c-7b6a7dc9f3c0 }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2025-01-01T12:18:56.3065872+00:00"
+  },
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "b7a4ec4c-2863-af8a-dc29-81cce8a949a2"
+    },
+    "fileAccessDetail": {
+      "id": 1845839889,
+      "detailsLastUpdated": "2025-01-02T01:32:17.4291452",
+      "lastViewed": "2025-01-01T13:29:04.6820729",
+      "moveRequired": false,
+      "updatedBy": "Test",
+      "updatedOn": "2024-12-31T05:26:06.2960492+00:00"
+    },
+    "fileName": {
+      "value": "24_365_panel_lane.jpg"
+    },
+    "directoryName": {
+      "value": "/lib"
+    },
+    "fullNameWithPath": "/lib/24_365_panel_lane.jpg",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 412332,
+    "createdDate": "2024-12-30T12:57:30.9863688+00:00",
+    "updatedDate": "2024-12-31T11:41:42.9077567+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/lib-24_365_panel_lane.jpg-FileId { Value = b7a4ec4c-2863-af8a-dc29-81cce8a949a2 }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2025-01-01T05:13:21.4261279+00:00"
+  },
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "b9f5aea5-e982-81c3-f547-f26d11cf620c"
+    },
+    "fileAccessDetail": {
+      "id": -441878624,
+      "detailsLastUpdated": "2025-01-02T01:43:10.629664",
+      "lastViewed": "2025-01-02T00:55:21.9949743",
+      "moveRequired": false,
+      "updatedBy": "Test",
+      "updatedOn": "2024-12-31T16:53:02.7863281+00:00"
+    },
+    "fileName": {
+      "value": "monetize.jpeg"
+    },
+    "directoryName": {
+      "value": "/dev"
+    },
+    "fullNameWithPath": "/dev/monetize.jpeg",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 173008,
+    "createdDate": "2024-12-25T18:35:40.4452268+00:00",
+    "updatedDate": "2024-12-28T13:30:18.8734629+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/dev-monetize.jpeg-FileId { Value = b9f5aea5-e982-81c3-f547-f26d11cf620c }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2025-01-01T13:18:58.0533775+00:00"
+  },
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "cc069417-ae18-7c16-9fba-f79841097706"
+    },
+    "fileAccessDetail": {
+      "id": -182149795,
+      "detailsLastUpdated": "2025-01-02T01:06:23.6640342",
+      "lastViewed": "2025-01-01T08:33:35.3543308",
+      "moveRequired": true,
+      "updatedBy": "Test",
+      "updatedOn": "2025-01-01T09:43:34.6375705+00:00"
+    },
+    "fileName": {
+      "value": "tactics.png"
+    },
+    "directoryName": {
+      "value": "/srv"
+    },
+    "fullNameWithPath": "/srv/tactics.png",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 221141,
+    "createdDate": "2024-12-24T00:51:06.8490638+00:00",
+    "updatedDate": "2025-01-01T11:52:12.110862+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/srv-tactics.png-FileId { Value = cc069417-ae18-7c16-9fba-f79841097706 }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2024-12-31T09:51:06.1184854+00:00"
+  },
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "d10f97bf-59f3-d153-dea5-f994de38efc4"
+    },
+    "fileAccessDetail": {
+      "id": -1087191700,
+      "detailsLastUpdated": "2025-01-02T01:45:02.8088254",
+      "lastViewed": "2025-01-01T21:09:27.7477064",
+      "moveRequired": false,
+      "updatedBy": "Test",
+      "updatedOn": "2024-12-31T18:50:07.9523303+00:00"
+    },
+    "fileName": {
+      "value": "calculating_gorgeous_plastic_chair.bmp"
+    },
+    "directoryName": {
+      "value": "/var/yp"
+    },
+    "fullNameWithPath": "/var/yp/calculating_gorgeous_plastic_chair.bmp",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 279557,
+    "createdDate": "2024-12-28T17:57:06.0059186+00:00",
+    "updatedDate": "2024-12-30T16:52:08.9669459+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/var/yp-calculating_gorgeous_plastic_chair.bmp-FileId { Value = d10f97bf-59f3-d153-dea5-f994de38efc4 }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2025-01-01T16:09:12.5889255+00:00"
+  },
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "f299ef05-b68a-a06b-57d9-06001e878cae"
+    },
+    "fileAccessDetail": {
+      "id": -1240434187,
+      "detailsLastUpdated": "2025-01-02T01:27:20.2005469",
+      "lastViewed": "2025-01-01T05:07:00.4367237",
+      "moveRequired": false,
+      "updatedBy": "Test",
+      "updatedOn": "2024-12-31T19:09:40.1110102+00:00"
+    },
+    "fileName": {
+      "value": "sdd_1080p_small.bmp"
+    },
+    "directoryName": {
+      "value": "/boot/defaults"
+    },
+    "fullNameWithPath": "/boot/defaults/sdd_1080p_small.bmp",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 461322,
+    "createdDate": "2024-12-24T04:42:30.0097359+00:00",
+    "updatedDate": "2025-01-01T10:32:15.0632522+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/boot/defaults-sdd_1080p_small.bmp-FileId { Value = f299ef05-b68a-a06b-57d9-06001e878cae }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2025-01-01T01:17:13.5248557+00:00"
+  }
+]

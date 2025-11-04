@@ -1,0 +1,25 @@
+#dropZone,
+#animals {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#dropBoxFish,
+#dropBoxMouse,
+#dropBoxCat,
+#dropBoxDog {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    width: 250px;
+    border: 1px solid #aaaaaa;
+    padding: 1rem;
+}
+
+img {
+    object-fit: cover;
+}

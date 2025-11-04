@@ -1,0 +1,93 @@
+<EditForm Model="@SearchModel" OnValidSubmit="@HandleFormSubmit" FormName="search">
+    <DataAnnotationsValidator/>
+    <FluentValidationSummary/>
+
+    <FluentGrid Spacing="3" AdaptiveRendering="true" Justify="JustifyContent.FlexStart" Style="background-color: var(--neutral-layer-3); padding: 4px; ">
+        <FluentGridItem xs="12" sm="6">
+            <div class="card">
+                <FluentTextField Name="startingDirectory" @bind-Value="SearchModel.StartingDirectory" Label="StartingDirectory" Required style="width: 100%;"/>
+                <FluentValidationMessage For="@(() => SearchModel.StartingDirectory)"/>
+            </div>
+        </FluentGridItem>
+        <FluentGridItem xs="6" sm="3">
+            <div class="card">
+                <FluentTextField Name="searchText" @bind-Value="SearchModel.SearchText" Label="SearchText" style="width: 100%;"/>
+                <FluentValidationMessage For="@(() => SearchModel.SearchText)"/>
+            </div>
+        </FluentGridItem>
+        <FluentGridItem xs="6" sm="3">
+            <div class="card">
+                <FluentSwitch @bind-Value="SearchModel.Recursive" Label="Recursive" style="margin-top: 24px;"/>
+            </div>
+        </FluentGridItem>
+        <FluentGridItem xs="6" sm="4">
+            <div class="card">
+                <FluentSelect Label="File Classification 1"
+                              @bind-Value="SearchModel.FileClassification1"
+                              Items="@FileClassifications"
+                              OptionValue="@(x => x.Id.ToString())"
+                              OptionText="@(x => x.Name)"
+                              style="width: 100%;"/>
+            </div>
+        </FluentGridItem>
+        <FluentGridItem xs="6" sm="2">
+            <div class="card">
+                <FluentSwitch @bind-Value="SearchModel.UseAndOperator"
+                              Label="@(SearchModel.UseAndOperator ? "AND" : "OR")"
+                              style="margin-top: 24px;"/>
+            </div>
+        </FluentGridItem>
+        <FluentGridItem xs="6" sm="4">
+            <div class="card">
+                <FluentSelect Label="File Classification 2"
+                              @bind-Value="SearchModel.FileClassification2"
+                              Items="@FileClassifications"
+                              OptionValue="@(x => x.Id.ToString())"
+                              OptionText="@(x => x.Name)"
+                              style="width: 100%;"/>
+            </div>
+        </FluentGridItem>
+        <FluentGridItem xs="6" sm="3">
+            <div class="card">
+                <FluentSelect Label="Exclude Viewed Within Days"
+                              @bind-Value="SearchModel.ExcludeViewedWithinDays"
+                              Items="@SearchModel.ExcludeViewedWithinDaysOptions"
+                              OptionValue="@(x => x.ToString())"
+                              OptionText="@(x => GetDaysText(x))"
+                              style="width: 100%;"/>
+            </div>
+        </FluentGridItem>
+        <FluentGridItem xs="6" sm="3">
+            <div class="card">
+                <FluentSwitch @bind-Value="SearchModel.IncludeMarkedForDeletion" Label="Include marked for deletion" style="margin-top: 24px;"/>
+            </div>
+        </FluentGridItem>
+        <FluentGridItem xs="6" sm="3">
+            <div class="card">
+                <FluentSelect Label="Search Type"
+                              @bind-Value="SearchModel.SearchType"
+                              Items="@SearchTypeOptions"
+                              OptionValue="@(x => x.ToString())"
+                              OptionText="@(x => GetSearchTypeText(x))"
+                              style="width: 100%;"/>
+            </div>
+        </FluentGridItem>
+        <FluentGridItem xs="6" sm="3">
+            <div class="card">
+                <FluentSelect Label="Sort Order"
+                              @bind-Value="SearchModel.SortOrder"
+                              Items="@SortOrderOptions"
+                              OptionValue="@(x => x.ToString())"
+                              OptionText="@(x => GetSearchOrderText(x))"
+                              style="width: 100%;"/>
+            </div>
+        </FluentGridItem>
+        <FluentGridItem xs="12">
+            <div class="card">
+                <FluentButton Type="ButtonType.Submit" Appearance="Appearance.Accent" style="width: 100%;">Start
+                    Search
+                </FluentButton>
+            </div>
+        </FluentGridItem>
+    </FluentGrid>
+</EditForm>

@@ -1,0 +1,317 @@
+[
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "29ce80b1-1a08-e93d-72e1-1b7bafb8b82b"
+    },
+    "fileAccessDetail": {
+      "id": 1122258056,
+      "detailsLastUpdated": "2025-01-02T00:07:20.8814919",
+      "lastViewed": "2025-01-02T01:25:16.0706191",
+      "moveRequired": false,
+      "updatedBy": "Test",
+      "updatedOn": "2024-12-31T22:50:27.5091276+00:00"
+    },
+    "fileName": {
+      "value": "utilize_platforms_pink.jpeg"
+    },
+    "directoryName": {
+      "value": "/usr/local/bin"
+    },
+    "fullNameWithPath": "/usr/local/bin/utilize_platforms_pink.jpeg",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 259265,
+    "createdDate": "2024-12-23T05:44:48.8696429+00:00",
+    "updatedDate": "2024-12-31T11:07:05.327192+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/usr/local/bin-utilize_platforms_pink.jpeg-FileId { Value = 29ce80b1-1a08-e93d-72e1-1b7bafb8b82b }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2024-12-31T06:47:51.8061969+00:00"
+  },
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "41f5d347-6202-a801-b99d-7b580085b268"
+    },
+    "fileAccessDetail": {
+      "id": -1139731137,
+      "detailsLastUpdated": "2025-01-02T00:17:18.6843898",
+      "lastViewed": "2025-01-01T13:01:02.7465159",
+      "moveRequired": true,
+      "updatedBy": "Test",
+      "updatedOn": "2025-01-01T18:56:11.9179685+00:00"
+    },
+    "fileName": {
+      "value": "fantastic_steel_shoes.png"
+    },
+    "directoryName": {
+      "value": "/usr/ports"
+    },
+    "fullNameWithPath": "/usr/ports/fantastic_steel_shoes.png",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 318633,
+    "createdDate": "2024-12-30T16:11:07.3244932+00:00",
+    "updatedDate": "2024-12-29T02:12:58.5697592+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/usr/ports-fantastic_steel_shoes.png-FileId { Value = 41f5d347-6202-a801-b99d-7b580085b268 }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2024-12-31T15:01:32.0735512+00:00"
+  },
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "51dd70ab-7620-c89d-9117-c3c10eedaa9d"
+    },
+    "fileAccessDetail": {
+      "id": -1993792465,
+      "detailsLastUpdated": "2025-01-02T00:32:06.6960213",
+      "lastViewed": "2025-01-01T04:24:21.3336046",
+      "moveRequired": true,
+      "updatedBy": "Test",
+      "updatedOn": "2024-12-31T17:55:17.6511251+00:00"
+    },
+    "fileName": {
+      "value": "bedfordshire_bypassing.png"
+    },
+    "directoryName": {
+      "value": "/bin"
+    },
+    "fullNameWithPath": "/bin/bedfordshire_bypassing.png",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 341986,
+    "createdDate": "2024-12-25T16:37:43.9581592+00:00",
+    "updatedDate": "2024-12-28T16:05:01.7090551+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/bin-bedfordshire_bypassing.png-FileId { Value = 51dd70ab-7620-c89d-9117-c3c10eedaa9d }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2025-01-01T02:01:55.7202462+00:00"
+  },
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "90d8d00d-7b1e-7d9a-0801-b28668901db9"
+    },
+    "fileAccessDetail": {
+      "id": 1407502355,
+      "detailsLastUpdated": "2025-01-02T00:22:03.9078894",
+      "lastViewed": "2025-01-01T17:56:12.8996285",
+      "moveRequired": false,
+      "updatedBy": "Test",
+      "updatedOn": "2024-12-31T12:18:39.0140235+00:00"
+    },
+    "fileName": {
+      "value": "landing_south_dakota_indiana.jpg"
+    },
+    "directoryName": {
+      "value": "/var/mail"
+    },
+    "fullNameWithPath": "/var/mail/landing_south_dakota_indiana.jpg",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 175833,
+    "createdDate": "2024-12-29T03:22:07.6965218+00:00",
+    "updatedDate": "2024-12-28T19:18:58.1695808+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/var/mail-landing_south_dakota_indiana.jpg-FileId { Value = 90d8d00d-7b1e-7d9a-0801-b28668901db9 }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2024-12-31T03:11:19.2841061+00:00"
+  },
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "94e03efb-8242-cf49-ba9b-4c8e1fefd7fa"
+    },
+    "fileAccessDetail": {
+      "id": 1046622568,
+      "detailsLastUpdated": "2025-01-02T01:17:36.1561464",
+      "lastViewed": "2025-01-01T03:12:14.0034231",
+      "moveRequired": true,
+      "updatedBy": "Test",
+      "updatedOn": "2025-01-01T18:21:31.4879724+00:00"
+    },
+    "fileName": {
+      "value": "hacking_firewall_tools_\u0026_home.jpeg"
+    },
+    "directoryName": {
+      "value": "/media"
+    },
+    "fullNameWithPath": "/media/hacking_firewall_tools_\u0026_home.jpeg",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 190789,
+    "createdDate": "2024-12-24T17:32:24.7123231+00:00",
+    "updatedDate": "2024-12-29T12:14:47.3479696+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/media-hacking_firewall_tools_\u0026_home.jpeg-FileId { Value = 94e03efb-8242-cf49-ba9b-4c8e1fefd7fa }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2024-12-31T04:31:13.8215304+00:00"
+  },
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "b9481826-df03-00a7-86f5-796915224dac"
+    },
+    "fileAccessDetail": {
+      "id": -969444975,
+      "detailsLastUpdated": "2025-01-02T00:42:53.1730182",
+      "lastViewed": "2025-01-01T04:12:05.0019715",
+      "moveRequired": true,
+      "updatedBy": "Test",
+      "updatedOn": "2025-01-01T05:25:42.5508148+00:00"
+    },
+    "fileName": {
+      "value": "parsing_practical_steel_shirt_deliverables.bmp"
+    },
+    "directoryName": {
+      "value": "/sbin"
+    },
+    "fullNameWithPath": "/sbin/parsing_practical_steel_shirt_deliverables.bmp",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 426005,
+    "createdDate": "2024-12-28T07:58:13.9215799+00:00",
+    "updatedDate": "2024-12-31T17:23:17.0339818+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/sbin-parsing_practical_steel_shirt_deliverables.bmp-FileId { Value = b9481826-df03-00a7-86f5-796915224dac }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2025-01-01T21:57:42.5939653+00:00"
+  },
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "c9e6477b-4a2e-2c34-7295-7ba152bff2fd"
+    },
+    "fileAccessDetail": {
+      "id": 797110308,
+      "detailsLastUpdated": "2025-01-02T02:59:52.5588912",
+      "lastViewed": "2025-01-01T19:00:49.0611445",
+      "moveRequired": true,
+      "updatedBy": "Test",
+      "updatedOn": "2024-12-31T05:09:06.491723+00:00"
+    },
+    "fileName": {
+      "value": "burg_producer_sports_\u0026_movies.jpeg"
+    },
+    "directoryName": {
+      "value": "/home/user"
+    },
+    "fullNameWithPath": "/home/user/burg_producer_sports_\u0026_movies.jpeg",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 159896,
+    "createdDate": "2024-12-23T07:25:05.7531233+00:00",
+    "updatedDate": "2025-01-01T15:56:52.9891951+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/home/user-burg_producer_sports_\u0026_movies.jpeg-FileId { Value = c9e6477b-4a2e-2c34-7295-7ba152bff2fd }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2024-12-31T17:01:29.089597+00:00"
+  },
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "cd0b842a-737e-8d8f-9da3-58f30ead467e"
+    },
+    "fileAccessDetail": {
+      "id": -1122231127,
+      "detailsLastUpdated": "2025-01-02T00:00:38.0485995",
+      "lastViewed": "2025-01-01T13:02:30.8966714",
+      "moveRequired": false,
+      "updatedBy": "Test",
+      "updatedOn": "2025-01-02T01:22:11.6176666+00:00"
+    },
+    "fileName": {
+      "value": "cultivate_moderator_harness.bmp"
+    },
+    "directoryName": {
+      "value": "/opt"
+    },
+    "fullNameWithPath": "/opt/cultivate_moderator_harness.bmp",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 271540,
+    "createdDate": "2024-12-24T01:24:03.6538725+00:00",
+    "updatedDate": "2025-01-01T23:42:49.4024474+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/opt-cultivate_moderator_harness.bmp-FileId { Value = cd0b842a-737e-8d8f-9da3-58f30ead467e }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2025-01-01T11:29:30.2884753+00:00"
+  },
+  {
+    "fileClassifications": [],
+    "id": {
+      "value": "e1c81b59-819a-9483-4e53-04daa07ad7d0"
+    },
+    "fileAccessDetail": {
+      "id": -640745961,
+      "detailsLastUpdated": "2025-01-02T02:29:08.2983372",
+      "lastViewed": "2025-01-01T18:40:21.7703154",
+      "moveRequired": true,
+      "updatedBy": "Test",
+      "updatedOn": "2024-12-31T13:06:18.4408809+00:00"
+    },
+    "fileName": {
+      "value": "sports__jewelery_\u0026_games.bmp"
+    },
+    "directoryName": {
+      "value": "/etc/defaults"
+    },
+    "fullNameWithPath": "/etc/defaults/sports__jewelery_\u0026_games.bmp",
+    "imageDetail": {
+      "width": null,
+      "height": null
+    },
+    "fileSize": 431798,
+    "createdDate": "2024-12-30T05:03:36.4968521+00:00",
+    "updatedDate": "2024-12-30T23:13:19.5487995+00:00",
+    "isImage": false,
+    "fileHandle": {
+      "value": "/etc/defaults-sports__jewelery_\u0026_games.bmp-FileId { Value = e1c81b59-819a-9483-4e53-04daa07ad7d0 }"
+    },
+    "deletionStatus": null,
+    "updatedBy": "Jay Barden",
+    "updatedOn": "2024-12-31T15:54:14.516669+00:00"
+  }
+]

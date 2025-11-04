@@ -1,0 +1,26 @@
+﻿@using AStar.Dev.Web.Components.Layout
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.FluentUI.AspNetCore.Components.Icons.Regular
+
+<Router AppAssembly="@typeof(Program).Assembly">
+    <Found Context="routeData">
+        <AuthorizeRouteView RouteData="routeData" DefaultLayout="typeof(MainLayout)">
+            <NotAuthorized Context="authState">
+                @if (authState.User.Identity?.IsAuthenticated == true)
+                {
+                    <p>You are signed in but lack required permissions.</p>
+                }
+                else
+                {
+                    <FluentNavLink Href="MicrosoftIdentity/Account/SignIn" Icon="@(new Size20.SignOut())" IconColor="Color.Accent">
+                        Sign in
+                    </FluentNavLink>
+                }
+            </NotAuthorized>
+        </AuthorizeRouteView>
+    </Found>
+    <NotFound>
+        <p>Sorry, there’s nothing at this address.</p>
+    </NotFound>
+</Router>
+

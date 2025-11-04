@@ -1,0 +1,46 @@
+@page "/admin/authentication-check"
+@using Microsoft.AspNetCore.Components.Authorization
+@attribute [Authorize(Policy = "AdminOnly")]
+
+<PageTitle>@App.PageTitle("Authentication Check")</PageTitle>
+
+<h1>Authentication Check</h1>
+
+<AuthorizeView>
+    <Authorized>
+        <h4>
+            @_claims.First(c => c.Type == "name").Value has successfully signed-in
+        </h4>
+        <p>&nbsp;</p>
+        <p>@_authMessage</p>
+        <p>&nbsp;</p>
+        <p>Claims from the ID token:</p>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Claim Type</th>
+                <th>Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var claim in _claims)
+            {
+                <tr>
+                    <th>@claim.Type</th>
+                    <td>
+                        @if (claim.Value.Length > 75)
+                        {
+                            var s = $"{claim.Value[..75]}...";
+                            @s
+                        }
+                        else
+                        {
+                            @claim.Value
+                        }
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </Authorized>
+</AuthorizeView>

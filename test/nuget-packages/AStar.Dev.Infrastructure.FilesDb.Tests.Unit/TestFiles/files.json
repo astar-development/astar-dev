@@ -1,0 +1,2016 @@
+[
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8686b",
+    "FileAccessDetail": {
+      "Id": 1,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "CodeMaid.config",
+    "DirectoryName": "c:\\temp",
+    "FullNameWithPath": "c:\\temp\\CodeMaid.config",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 3927,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8686a",
+    "FileAccessDetail": {
+      "Id": 2,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "ef-core-6-encapsulating-usage.zip",
+    "DirectoryName": "c:\\temp",
+    "FullNameWithPath": "c:\\temp\\ef-core-6-encapsulating-usage.zip",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 10087499,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8685f",
+    "FileAccessDetail": {
+      "Id": 3,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "FileAccessDetails.csv",
+    "DirectoryName": "c:\\temp",
+    "FullNameWithPath": "c:\\temp\\FileAccessDetails.csv",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 29398328,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8685e",
+    "FileAccessDetail": {
+      "Id": 4,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "Files.csv",
+    "DirectoryName": "c:\\temp",
+    "FullNameWithPath": "c:\\temp\\Files.csv",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 69341787,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8685d",
+    "FileAccessDetail": {
+      "Id": 5,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "Files.db",
+    "DirectoryName": "c:\\temp",
+    "FullNameWithPath": "c:\\temp\\Files.db",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 102400,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8685c",
+    "FileAccessDetail": {
+      "Id": 6,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "wallhaven-8568w2.png",
+    "DirectoryName": "c:\\temp",
+    "FullNameWithPath": "c:\\temp\\wallhaven-8568w2.png",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 2448120,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8685b",
+    "FileAccessDetail": {
+      "Id": 7,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "wallhaven-85819j.jpg",
+    "DirectoryName": "c:\\temp",
+    "FullNameWithPath": "c:\\temp\\wallhaven-85819j.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 946171,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8685a",
+    "FileAccessDetail": {
+      "Id": 8,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "wallhaven-eo3198.jpg",
+    "DirectoryName": "c:\\temp",
+    "FullNameWithPath": "c:\\temp\\wallhaven-eo3198.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 929888,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8672f",
+    "FileAccessDetail": {
+      "Id": 9,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "wallhaven-ex221l.jpg",
+    "DirectoryName": "c:\\temp",
+    "FullNameWithPath": "c:\\temp\\wallhaven-ex221l.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 2004996,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8684e",
+    "FileAccessDetail": {
+      "Id": 10,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "wallhaven-expvqk.jpg",
+    "DirectoryName": "c:\\temp",
+    "FullNameWithPath": "c:\\temp\\wallhaven-expvqk.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 796946,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8684d",
+    "FileAccessDetail": {
+      "Id": 11,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "wallhaven-exrqrr.jpg",
+    "DirectoryName": "c:\\temp",
+    "FullNameWithPath": "c:\\temp\\wallhaven-exrqrr.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 2649255,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8684c",
+    "FileAccessDetail": {
+      "Id": 12,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "wallhaven-kxvj57.jpg",
+    "DirectoryName": "c:\\temp",
+    "FullNameWithPath": "c:\\temp\\wallhaven-kxvj57.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 869917,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8684b",
+    "FileAccessDetail": {
+      "Id": 13,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "wallhaven-l8g7yl.jpg",
+    "DirectoryName": "c:\\temp",
+    "FullNameWithPath": "c:\\temp\\wallhaven-l8g7yl.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 6193170,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8684a",
+    "FileAccessDetail": {
+      "Id": 14,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "wallhaven-l8r85q.jpg",
+    "DirectoryName": "c:\\temp",
+    "FullNameWithPath": "c:\\temp\\wallhaven-l8r85q.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 1973207,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8683f",
+    "FileAccessDetail": {
+      "Id": 15,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "wallhaven-l8v112.jpg",
+    "DirectoryName": "c:\\temp",
+    "FullNameWithPath": "c:\\temp\\wallhaven-l8v112.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 791713,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8683e",
+    "FileAccessDetail": {
+      "Id": 16,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "wallhaven-l8vgvr.jpg",
+    "DirectoryName": "c:\\temp",
+    "FullNameWithPath": "c:\\temp\\wallhaven-l8vgvr.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 2631479,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8683d",
+    "FileAccessDetail": {
+      "Id": 17,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "wallhaven-vq2rpl.jpg",
+    "DirectoryName": "c:\\temp",
+    "FullNameWithPath": "c:\\temp\\wallhaven-vq2rpl.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 1540381,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8683c",
+    "FileAccessDetail": {
+      "Id": 18,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "wallhaven-zy3v6g.jpg",
+    "DirectoryName": "c:\\temp",
+    "FullNameWithPath": "c:\\temp\\wallhaven-zy3v6g.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 699033,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8683b",
+    "FileAccessDetail": {
+      "Id": 19,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "wallhaven-zyvrdv.jpg",
+    "DirectoryName": "c:\\temp",
+    "FullNameWithPath": "c:\\temp\\wallhaven-zyvrdv.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 6970497,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8683a",
+    "FileAccessDetail": {
+      "Id": 20,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "100000102_hd_638509609800324210_hd.jpg",
+    "DirectoryName": "c:\\temp\\AI",
+    "FullNameWithPath": "c:\\temp\\AI\\100000102_hd_638509609800324210_hd.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 7321172,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8682f",
+    "FileAccessDetail": {
+      "Id": 21,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "100000110_hd_638511176661199240_hd.jpg",
+    "DirectoryName": "c:\\temp\\AI",
+    "FullNameWithPath": "c:\\temp\\AI\\100000110_hd_638511176661199240_hd.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 8204752,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8682e",
+    "FileAccessDetail": {
+      "Id": 22,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "100000145_638523103212069150.jpg",
+    "DirectoryName": "c:\\temp\\AI",
+    "FullNameWithPath": "c:\\temp\\AI\\100000145_638523103212069150.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 815142,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8682d",
+    "FileAccessDetail": {
+      "Id": 23,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "100000146_638523184773955790.jpg",
+    "DirectoryName": "c:\\temp\\AI",
+    "FullNameWithPath": "c:\\temp\\AI\\100000146_638523184773955790.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 743367,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8682c",
+    "FileAccessDetail": {
+      "Id": 24,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "100000150_638524300326765720.jpg",
+    "DirectoryName": "c:\\temp\\AI",
+    "FullNameWithPath": "c:\\temp\\AI\\100000150_638524300326765720.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 843031,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8682b",
+    "FileAccessDetail": {
+      "Id": 25,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "100000205_638509236020965080.jpg",
+    "DirectoryName": "c:\\temp\\AI",
+    "FullNameWithPath": "c:\\temp\\AI\\100000205_638509236020965080.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 837731,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8682a",
+    "FileAccessDetail": {
+      "Id": 26,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "100000212_638509618854517090.jpg",
+    "DirectoryName": "c:\\temp\\AI",
+    "FullNameWithPath": "c:\\temp\\AI\\100000212_638509618854517090.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 809024,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8681f",
+    "FileAccessDetail": {
+      "Id": 27,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "100000213_638509620054640660.jpg",
+    "DirectoryName": "c:\\temp\\AI",
+    "FullNameWithPath": "c:\\temp\\AI\\100000213_638509620054640660.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 687518,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8681e",
+    "FileAccessDetail": {
+      "Id": 28,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "100000378_638523099978008470.jpg",
+    "DirectoryName": "c:\\temp\\AI",
+    "FullNameWithPath": "c:\\temp\\AI\\100000378_638523099978008470.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 718263,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8681d",
+    "FileAccessDetail": {
+      "Id": 29,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "100000381_638523108344006410.jpg",
+    "DirectoryName": "c:\\temp\\AI",
+    "FullNameWithPath": "c:\\temp\\AI\\100000381_638523108344006410.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 653393,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8681c",
+    "FileAccessDetail": {
+      "Id": 30,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "100000383_638523178079943390.jpg",
+    "DirectoryName": "c:\\temp\\AI",
+    "FullNameWithPath": "c:\\temp\\AI\\100000383_638523178079943390.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 910120,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8681b",
+    "FileAccessDetail": {
+      "Id": 31,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "100000384_638523239000544620.jpg",
+    "DirectoryName": "c:\\temp\\AI",
+    "FullNameWithPath": "c:\\temp\\AI\\100000384_638523239000544620.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 910873,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8681a",
+    "FileAccessDetail": {
+      "Id": 32,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "100000386_638523244486106450.jpg",
+    "DirectoryName": "c:\\temp\\AI",
+    "FullNameWithPath": "c:\\temp\\AI\\100000386_638523244486106450.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 756590,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8680f",
+    "FileAccessDetail": {
+      "Id": 33,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "100000396_638523351409444560.jpg",
+    "DirectoryName": "c:\\temp\\AI",
+    "FullNameWithPath": "c:\\temp\\AI\\100000396_638523351409444560.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 873340,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8680e",
+    "FileAccessDetail": {
+      "Id": 34,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "_data_user_0_com.onet.connect.puzzle.match.game.wh_files_0cabdd0e-c709-4914-ac66-d91c90cf1e45.jp.jpg",
+    "DirectoryName": "c:\\temp\\AI",
+    "FullNameWithPath": "c:\\temp\\AI\\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_0cabdd0e-c709-4914-ac66-d91c90cf1e45.jp.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 270787,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8680d",
+    "FileAccessDetail": {
+      "Id": 35,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "_data_user_0_com.onet.connect.puzzle.match.game.wh_files_17ffc39c-57ec-4ebf-ad7f-069a42aece0d.jp.jpg",
+    "DirectoryName": "c:\\temp\\AI",
+    "FullNameWithPath": "c:\\temp\\AI\\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_17ffc39c-57ec-4ebf-ad7f-069a42aece0d.jp.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 191687,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8680c",
+    "FileAccessDetail": {
+      "Id": 36,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "_data_user_0_com.onet.connect.puzzle.match.game.wh_files_2354c904-2a34-48b5-9d32-8d493bab63d2.jp.jpg",
+    "DirectoryName": "c:\\temp\\AI",
+    "FullNameWithPath": "c:\\temp\\AI\\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_2354c904-2a34-48b5-9d32-8d493bab63d2.jp.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 279911,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8680b",
+    "FileAccessDetail": {
+      "Id": 37,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "_data_user_0_com.onet.connect.puzzle.match.game.wh_files_29efb32a-eafd-4f5e-a70b-05253ce9179c.jp.jpg",
+    "DirectoryName": "c:\\temp\\AI",
+    "FullNameWithPath": "c:\\temp\\AI\\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_29efb32a-eafd-4f5e-a70b-05253ce9179c.jp.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 261851,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8680a",
+    "FileAccessDetail": {
+      "Id": 38,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "_data_user_0_com.onet.connect.puzzle.match.game.wh_files_2de744e4-aa31-4545-81de-7463493b9a8d.jp.jpg",
+    "DirectoryName": "c:\\temp\\AI",
+    "FullNameWithPath": "c:\\temp\\AI\\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_2de744e4-aa31-4545-81de-7463493b9a8d.jp.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 173279,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8679f",
+    "FileAccessDetail": {
+      "Id": 39,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "_data_user_0_com.onet.connect.puzzle.match.game.wh_files_3b675081-3ec5-4353-bc55-2841d8ab18c1.jp.jpg",
+    "DirectoryName": "c:\\temp\\AI",
+    "FullNameWithPath": "c:\\temp\\AI\\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_3b675081-3ec5-4353-bc55-2841d8ab18c1.jp.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 231008,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8686c",
+    "FileAccessDetail": {
+      "Id": 40,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "_data_user_0_com.onet.connect.puzzle.match.game.wh_files_e62a63c5-d42c-4d2e-82d2-daad6d1a274b.jp.jpg",
+    "DirectoryName": "c:\\temp\\AI",
+    "FullNameWithPath": "c:\\temp\\AI\\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_e62a63c5-d42c-4d2e-82d2-daad6d1a274b.jp.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 297112,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8686d",
+    "FileAccessDetail": {
+      "Id": 41,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "Counter.razor",
+    "DirectoryName": "c:\\temp\\Pages",
+    "FullNameWithPath": "c:\\temp\\Pages\\Counter.razor",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 332,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8686e",
+    "FileAccessDetail": {
+      "Id": 42,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "Error.cshtml",
+    "DirectoryName": "c:\\temp\\Pages",
+    "FullNameWithPath": "c:\\temp\\Pages\\Error.cshtml",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 1567,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8686f",
+    "FileAccessDetail": {
+      "Id": 43,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "Error.cshtml.cs",
+    "DirectoryName": "c:\\temp\\Pages",
+    "FullNameWithPath": "c:\\temp\\Pages\\Error.cshtml.cs",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 670,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8687a",
+    "FileAccessDetail": {
+      "Id": 44,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "FetchData.razor",
+    "DirectoryName": "c:\\temp\\Pages",
+    "FullNameWithPath": "c:\\temp\\Pages\\FetchData.razor",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 1167,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8687b",
+    "FileAccessDetail": {
+      "Id": 45,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "Index.razor",
+    "DirectoryName": "c:\\temp\\Pages",
+    "FullNameWithPath": "c:\\temp\\Pages\\Index.razor",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 221,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8687c",
+    "FileAccessDetail": {
+      "Id": 46,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "wallhaven-eo3198.jpg",
+    "DirectoryName": "c:\\temp\\Pages",
+    "FullNameWithPath": "c:\\temp\\Pages\\wallhaven-eo3198.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 929888,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8687d",
+    "FileAccessDetail": {
+      "Id": 47,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "_Host.cshtml",
+    "DirectoryName": "c:\\temp\\Pages",
+    "FullNameWithPath": "c:\\temp\\Pages\\_Host.cshtml",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 1326,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8687e",
+    "FileAccessDetail": {
+      "Id": 48,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "site.css",
+    "DirectoryName": "c:\\temp\\wwwroot\\css",
+    "FullNameWithPath": "c:\\temp\\wwwroot\\css\\site.css",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 2978,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8687f",
+    "FileAccessDetail": {
+      "Id": 49,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "100000102_hd_638509609800324210_hd.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\AI",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\AI\\100000102_hd_638509609800324210_hd.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 7321172,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8679e",
+    "FileAccessDetail": {
+      "Id": 50,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "100000145_638523103212069150.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\AI",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\AI\\100000145_638523103212069150.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 815142,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8679d",
+    "FileAccessDetail": {
+      "Id": 51,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "100000150_638524300326765720.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\AI",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\AI\\100000150_638524300326765720.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 843031,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8679c",
+    "FileAccessDetail": {
+      "Id": 52,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "100000205_638509236020965080.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\AI",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\AI\\100000205_638509236020965080.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 837731,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8679b",
+    "FileAccessDetail": {
+      "Id": 53,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "100000212_638509618854517090.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\AI",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\AI\\100000212_638509618854517090.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 809024,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8679a",
+    "FileAccessDetail": {
+      "Id": 54,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "100000213_638509620054640660.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\AI",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\AI\\100000213_638509620054640660.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 687518,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8678f",
+    "FileAccessDetail": {
+      "Id": 55,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "100000378_638523099978008470.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\AI",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\AI\\100000378_638523099978008470.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 718263,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8678e",
+    "FileAccessDetail": {
+      "Id": 56,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "100000383_638523178079943390.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\AI",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\AI\\100000383_638523178079943390.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 910120,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8678d",
+    "FileAccessDetail": {
+      "Id": 57,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "100000384_638523239000544620.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\AI",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\AI\\100000384_638523239000544620.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 910873,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8678c",
+    "FileAccessDetail": {
+      "Id": 58,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "100000386_638523244486106450.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\AI",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\AI\\100000386_638523244486106450.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 756590,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8678b",
+    "FileAccessDetail": {
+      "Id": 59,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "100000396_638523351409444560.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\AI",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\AI\\100000396_638523351409444560.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 873340,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8678a",
+    "FileAccessDetail": {
+      "Id": 60,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "_data_user_0_com.onet.connect.puzzle.match.game.wh_files_0cabdd0e-c709-4914-ac66-d91c90cf1e45.jp.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\AI",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\AI\\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_0cabdd0e-c709-4914-ac66-d91c90cf1e45.jp.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 270787,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8677f",
+    "FileAccessDetail": {
+      "Id": 61,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "_data_user_0_com.onet.connect.puzzle.match.game.wh_files_17ffc39c-57ec-4ebf-ad7f-069a42aece0d.jp.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\AI",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\AI\\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_17ffc39c-57ec-4ebf-ad7f-069a42aece0d.jp.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 191687,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8677e",
+    "FileAccessDetail": {
+      "Id": 62,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "_data_user_0_com.onet.connect.puzzle.match.game.wh_files_2354c904-2a34-48b5-9d32-8d493bab63d2.jp.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\AI",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\AI\\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_2354c904-2a34-48b5-9d32-8d493bab63d2.jp.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 279911,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8677d",
+    "FileAccessDetail": {
+      "Id": 63,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "_data_user_0_com.onet.connect.puzzle.match.game.wh_files_29efb32a-eafd-4f5e-a70b-05253ce9179c.jp.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\AI",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\AI\\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_29efb32a-eafd-4f5e-a70b-05253ce9179c.jp.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 261851,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8677c",
+    "FileAccessDetail": {
+      "Id": 64,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "_data_user_0_com.onet.connect.puzzle.match.game.wh_files_2de744e4-aa31-4545-81de-7463493b9a8d.jp.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\AI",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\AI\\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_2de744e4-aa31-4545-81de-7463493b9a8d.jp.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 173279,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8677b",
+    "FileAccessDetail": {
+      "Id": 65,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "_data_user_0_com.onet.connect.puzzle.match.game.wh_files_e62a63c5-d42c-4d2e-82d2-daad6d1a274b.jp.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\AI",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\AI\\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_e62a63c5-d42c-4d2e-82d2-daad6d1a274b.jp.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 297112,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8677a",
+    "FileAccessDetail": {
+      "Id": 66,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "site.css",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\css",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\css\\site.css",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 2978,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8676f",
+    "FileAccessDetail": {
+      "Id": 67,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "bootstrap.min.css",
+    "DirectoryName": "c:\\temp\\wwwroot\\css\\bootstrap",
+    "FullNameWithPath": "c:\\temp\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 162720,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8676e",
+    "FileAccessDetail": {
+      "Id": 68,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "bootstrap.min.css.map",
+    "DirectoryName": "c:\\temp\\wwwroot\\css\\bootstrap",
+    "FullNameWithPath": "c:\\temp\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 449111,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8676d",
+    "FileAccessDetail": {
+      "Id": 69,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "FONT-LICENSE",
+    "DirectoryName": "c:\\temp\\wwwroot\\css\\open-iconic",
+    "FullNameWithPath": "c:\\temp\\wwwroot\\css\\open-iconic\\FONT-LICENSE",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 4103,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8676c",
+    "FileAccessDetail": {
+      "Id": 70,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "ICON-LICENSE",
+    "DirectoryName": "c:\\temp\\wwwroot\\css\\open-iconic",
+    "FullNameWithPath": "c:\\temp\\wwwroot\\css\\open-iconic\\ICON-LICENSE",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 1093,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8676b",
+    "FileAccessDetail": {
+      "Id": 71,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "README.md",
+    "DirectoryName": "c:\\temp\\wwwroot\\css\\open-iconic",
+    "FullNameWithPath": "c:\\temp\\wwwroot\\css\\open-iconic\\README.md",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 3655,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8676a",
+    "FileAccessDetail": {
+      "Id": 72,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": true,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "100000212_638509618854517090.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\AI\\New folder",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\AI\\New folder\\100000212_638509618854517090.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 809024,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8675f",
+    "FileAccessDetail": {
+      "Id": 73,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": true
+    },
+    "FileName": "100000213_638509620054640660.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\AI\\New folder",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\AI\\New folder\\100000213_638509620054640660.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 687518,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8675e",
+    "FileAccessDetail": {
+      "Id": 74,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "100000378_638523099978008470.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\AI\\New folder",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\AI\\New folder\\100000378_638523099978008470.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 718263,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8675d",
+    "FileAccessDetail": {
+      "Id": 75,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": true,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "100000383_638523178079943390.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\AI\\New folder",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\AI\\New folder\\100000383_638523178079943390.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 910120,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8675c",
+    "FileAccessDetail": {
+      "Id": 76,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "100000384_638523239000544620.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\AI\\New folder",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\AI\\New folder\\100000384_638523239000544620.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 910873,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8675b",
+    "FileAccessDetail": {
+      "Id": 77,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": true,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "100000386_638523244486106450.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\AI\\New folder",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\AI\\New folder\\100000386_638523244486106450.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 756590,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8675a",
+    "FileAccessDetail": {
+      "Id": 78,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": true
+    },
+    "FileName": "100000396_638523351409444560.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\AI\\New folder",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\AI\\New folder\\100000396_638523351409444560.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 873340,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8674f",
+    "FileAccessDetail": {
+      "Id": 79,
+      "DetailsLastUpdated": null,
+      "LastViewed": "2024-06-05T10:11:12+00:00",
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "_data_user_0_com.onet.connect.puzzle.match.game.wh_files_0cabdd0e-c709-4914-ac66-d91c90cf1e45.jp.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\AI\\New folder",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\AI\\New folder\\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_0cabdd0e-c709-4914-ac66-d91c90cf1e45.jp.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 270787,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8674e",
+    "FileAccessDetail": {
+      "Id": 80,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "_data_user_0_com.onet.connect.puzzle.match.game.wh_files_17ffc39c-57ec-4ebf-ad7f-069a42aece0d.jp.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\AI\\New folder",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\AI\\New folder\\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_17ffc39c-57ec-4ebf-ad7f-069a42aece0d.jp.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 191687,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8674d",
+    "FileAccessDetail": {
+      "Id": 81,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "_data_user_0_com.onet.connect.puzzle.match.game.wh_files_2354c904-2a34-48b5-9d32-8d493bab63d2.jp.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\AI\\New folder",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\AI\\New folder\\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_2354c904-2a34-48b5-9d32-8d493bab63d2.jp.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 279911,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8674c",
+    "FileAccessDetail": {
+      "Id": 82,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "_data_user_0_com.onet.connect.puzzle.match.game.wh_files_29efb32a-eafd-4f5e-a70b-05253ce9179c.jp.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\AI\\New folder",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\AI\\New folder\\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_29efb32a-eafd-4f5e-a70b-05253ce9179c.jp.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 261851,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8674b",
+    "FileAccessDetail": {
+      "Id": 83,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "_data_user_0_com.onet.connect.puzzle.match.game.wh_files_2de744e4-aa31-4545-81de-7463493b9a8d.jp.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\AI\\New folder",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\AI\\New folder\\_data_user_0_com.onet.connect.puzzle.match.game.wh_files_2de744e4-aa31-4545-81de-7463493b9a8d.jp.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 173279,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8674a",
+    "FileAccessDetail": {
+      "Id": 84,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "bootstrap.min.css",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\css\\bootstrap",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\css\\bootstrap\\bootstrap.min.css",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 162720,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8673f",
+    "FileAccessDetail": {
+      "Id": 85,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "bootstrap.min.css.map",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\css\\bootstrap",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\css\\bootstrap\\bootstrap.min.css.map",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 449111,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8673e",
+    "FileAccessDetail": {
+      "Id": 86,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "FONT-LICENSE",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\css\\open-iconic",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\css\\open-iconic\\FONT-LICENSE",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 4103,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8673d",
+    "FileAccessDetail": {
+      "Id": 87,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "ICON-LICENSE",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\css\\open-iconic",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\css\\open-iconic\\ICON-LICENSE",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 1093,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8673c",
+    "FileAccessDetail": {
+      "Id": 88,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "README.md",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\css\\open-iconic",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\css\\open-iconic\\README.md",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 3655,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8673b",
+    "FileAccessDetail": {
+      "Id": 89,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "wallhaven-vq2v65.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\css\\open-iconic",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\css\\open-iconic\\wallhaven-vq2v65.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 3472385,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8673a",
+    "FileAccessDetail": {
+      "Id": 90,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "wallhaven-vq313m.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\css\\open-iconic",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\css\\open-iconic\\wallhaven-vq313m.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 557495,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8672e",
+    "FileAccessDetail": {
+      "Id": 91,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "wallhaven-vqvwx5.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\css\\open-iconic",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\css\\open-iconic\\wallhaven-vqvwx5.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 1935012,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8672d",
+    "FileAccessDetail": {
+      "Id": 92,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "wallhaven-we3pxr.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\css\\open-iconic",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\css\\open-iconic\\wallhaven-we3pxr.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 1102360,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8672c",
+    "FileAccessDetail": {
+      "Id": 93,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "wallhaven-yx9wdk.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\css\\open-iconic",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\css\\open-iconic\\wallhaven-yx9wdk.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 657977,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8672b",
+    "FileAccessDetail": {
+      "Id": 94,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "wallhaven-zy2gyg.jpg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\css\\open-iconic",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\css\\open-iconic\\wallhaven-zy2gyg.jpg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 1727518,
+    "IsImage": true
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8672a",
+    "FileAccessDetail": {
+      "Id": 95,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "open-iconic-bootstrap.min.css",
+    "DirectoryName": "c:\\temp\\wwwroot\\css\\open-iconic\\font\\css",
+    "FullNameWithPath": "c:\\temp\\wwwroot\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 9395,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8671f",
+    "FileAccessDetail": {
+      "Id": 96,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "open-iconic.eot",
+    "DirectoryName": "c:\\temp\\wwwroot\\css\\open-iconic\\font\\fonts",
+    "FullNameWithPath": "c:\\temp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 28196,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8671e",
+    "FileAccessDetail": {
+      "Id": 97,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "open-iconic.otf",
+    "DirectoryName": "c:\\temp\\wwwroot\\css\\open-iconic\\font\\fonts",
+    "FullNameWithPath": "c:\\temp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 20996,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8671d",
+    "FileAccessDetail": {
+      "Id": 98,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "open-iconic.svg",
+    "DirectoryName": "c:\\temp\\wwwroot\\css\\open-iconic\\font\\fonts",
+    "FullNameWithPath": "c:\\temp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 55332,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8671c",
+    "FileAccessDetail": {
+      "Id": 99,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "open-iconic.ttf",
+    "DirectoryName": "c:\\temp\\wwwroot\\css\\open-iconic\\font\\fonts",
+    "FullNameWithPath": "c:\\temp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 28028,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8671b",
+    "FileAccessDetail": {
+      "Id": 100,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "open-iconic.woff",
+    "DirectoryName": "c:\\temp\\wwwroot\\css\\open-iconic\\font\\fonts",
+    "FullNameWithPath": "c:\\temp\\wwwroot\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 14984,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8671a",
+    "FileAccessDetail": {
+      "Id": 101,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "open-iconic-bootstrap.min.css",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\css\\open-iconic\\font\\css",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\css\\open-iconic\\font\\css\\open-iconic-bootstrap.min.css",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 9395,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8672e",
+    "FileAccessDetail": {
+      "Id": 102,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "open-iconic.eot",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\css\\open-iconic\\font\\fonts",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\css\\open-iconic\\font\\fonts\\open-iconic.eot",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 28196,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8672c",
+    "FileAccessDetail": {
+      "Id": 103,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "open-iconic.otf",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\css\\open-iconic\\font\\fonts",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\css\\open-iconic\\font\\fonts\\open-iconic.otf",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 20996,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8672b",
+    "FileAccessDetail": {
+      "Id": 104,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "open-iconic.svg",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\css\\open-iconic\\font\\fonts",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\css\\open-iconic\\font\\fonts\\open-iconic.svg",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 55332,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8672a",
+    "FileAccessDetail": {
+      "Id": 105,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "open-iconic.ttf",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\css\\open-iconic\\font\\fonts",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\css\\open-iconic\\font\\fonts\\open-iconic.ttf",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 28028,
+    "IsImage": false
+  },
+  {
+    "Id":  "2e330893-8546-47b5-ad1b-959abad8672d",
+    "FileAccessDetail": {
+      "Id": 106,
+      "DetailsLastUpdated": null,
+      "LastViewed": null,
+      "SoftDeleted": false,
+      "SoftDeletePending": false,
+      "MoveRequired": false,
+      "HardDeletePending": false
+    },
+    "FileName": "open-iconic.woff",
+    "DirectoryName": "c:\\temp\\wwwroot - Copy\\css\\open-iconic\\font\\fonts",
+    "FullNameWithPath": "c:\\temp\\wwwroot - Copy\\css\\open-iconic\\font\\fonts\\open-iconic.woff",
+    "Height": 0,
+    "Width": 0,
+    "FileSize": 14984,
+    "IsImage": false
+  }
+]
