@@ -19,35 +19,34 @@ public class GetFileClassificationsHandler
         GetFileClassificationRequest fileClassifications, FilesContext filesContext,
         CancellationToken cancellationToken)
     {
-        // Normalize paging: ensure [1..50] page size and page index >= 1
         var pageSize = fileClassifications.ItemsPerPage <= 0
             ? 10
             : (fileClassifications.ItemsPerPage > 50 ? 50 : fileClassifications.ItemsPerPage);
         var pageIndex = fileClassifications.CurrentPage <= 0 ? 1 : fileClassifications.CurrentPage;
         var skip = (pageIndex - 1) * pageSize;
 
-        // Left join to parent (self-referential), null-safe; project directly to response
-        IQueryable<GetFileClassificationsResponse> query =
-            from fc in filesContext.FileClassifications.AsNoTracking()
-            join p in filesContext.FileClassifications.AsNoTracking()
-                on fc.ParentId equals p.Id into parentGroup
-            from p in parentGroup.DefaultIfEmpty()
-            orderby fc.Name, fc.Id
-            select new GetFileClassificationsResponse(
-                fc.Id,
-                fc.Name,
-                fc.IncludeInSearch,
-                fc.Celebrity,
-                fc.ParentId,
-                p != null ? p.Name : null,
-                fc.SearchLevel
-            );
-
-        List<GetFileClassificationsResponse> results = await query
+        return await filesContext.FileClassifications
+            .AsNoTracking()
+            .GroupJoin(
+                filesContext.FileClassifications.AsNoTracking(),
+                fc => fc.ParentId,
+                p => p.Id,
+                (fc, parents) => new { fc, parents }
+            )
+            .SelectMany(x => x.parents.DefaultIfEmpty(), (x, p) => new { x.fc, p })
+            .OrderBy(x => x.fc.Name)
+            .ThenBy(x => x.fc.Id)
+            .Select(x => new GetFileClassificationsResponse(
+                x.fc.Id,
+                x.fc.Name,
+                x.fc.IncludeInSearch,
+                x.fc.Celebrity,
+                x.fc.ParentId,
+                x.p != null ? x.p.Name : null,
+                x.fc.SearchLevel
+            ))
             .Skip(skip)
             .Take(pageSize)
             .ToListAsync(cancellationToken);
-
-        return results;
     }
 }
