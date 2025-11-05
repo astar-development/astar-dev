@@ -50,7 +50,7 @@ public partial class Search : ComponentBase
     {
         FileClassifications =
         [
-            new FileClassification(new Dev.Files.Classifications.Api.FileClassification(Guid.Empty, 1, null, "-- Select (Optional) --", false, false)
+            new FileClassification(new Dev.Files.Classifications.Api.FileClassification(Guid.Empty, 1, "-- Select (Optional) --", null,null, false, false)
             )
         ];
 

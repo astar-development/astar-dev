@@ -13,7 +13,7 @@ public static class SqlServerConfigurator
         SqlServerConfig config = GetConfig();
         return builder.AddSqlServer(config.ServerName, sqlPassword, config.Port)
             .WithLifetime(ContainerLifetime.Persistent)
-            //.WithDataBindMount(sqlMountDirectory)
+            .WithDataBindMount("/home/jason/databases")
             .WithExternalHttpEndpoints();
     }
 }

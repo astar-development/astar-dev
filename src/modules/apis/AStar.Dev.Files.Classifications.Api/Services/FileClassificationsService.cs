@@ -21,5 +21,7 @@ public class FileClassificationsService2 : IFileClassificationsService2
     /// </summary>
     /// <returns>A collection of file classification names.</returns>
     public async Task<IList<FileClassification>> GetFileClassificationsAsync()
-        => await _context.FileClassifications.Select(fc => new FileClassification(fc.Id, fc.SearchLevel, fc.ParentId, fc.Name, fc.Celebrity, fc.IncludeInSearch)).ToListAsync();
+        => await _context.FileClassifications
+            .Select(fc => new FileClassification(fc.Id, fc.SearchLevel, fc.Name, fc.ParentId, fc.ParentId.ToString(), fc.Celebrity, fc.IncludeInSearch))
+            .ToListAsync();
 }

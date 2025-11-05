@@ -3,6 +3,7 @@
     <PropertyGroup>
         <AnalysisLevel>latest-recommended</AnalysisLevel>
         <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+        <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
     </PropertyGroup>
 
     <PropertyGroup>
@@ -54,6 +55,8 @@
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\source-generators\AStar.Dev.Annotations\AStar.Dev.Annotations.csproj" />
+        <ProjectReference Include="..\..\source-generators\AStar.Dev.SourceGenerators\AStar.Dev.SourceGenerators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
         <ProjectReference Include="..\AStar.Dev.Infrastructure\AStar.Dev.Infrastructure.csproj"/>
         <ProjectReference Include="..\AStar.Dev.Technical.Debt.Reporting\AStar.Dev.Technical.Debt.Reporting.csproj"/>
         <ProjectReference Include="..\AStar.Dev.Utilities\AStar.Dev.Utilities.csproj"/>

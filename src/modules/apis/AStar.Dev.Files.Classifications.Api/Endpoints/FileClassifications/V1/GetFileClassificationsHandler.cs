@@ -19,14 +19,29 @@ public class GetFileClassificationsHandler
         GetFileClassificationRequest fileClassifications, FilesContext filesContext,
         CancellationToken cancellationToken)
     {
-        if(fileClassifications.ItemsPerPage > 50) fileClassifications = fileClassifications with { ItemsPerPage = 50 };
+        var pagingParams = PagingParams.CreateValid(fileClassifications);
         
-        List<GetFileClassificationsResponse> classifications = await filesContext.FileClassifications
-            .OrderBy(fc => fc.Name)
-            .Skip(fileClassifications.CurrentPage - 1).Take(fileClassifications.ItemsPerPage)
-            .Select(fc => new GetFileClassificationsResponse(fc.Id, fc.Name, fc.IncludeInSearch, fc.Celebrity))
+        return await filesContext.FileClassifications
+            .AsNoTracking()
+            .GroupJoin(
+                filesContext.FileClassifications.AsNoTracking(),
+                fc => fc.ParentId,
+                p => p.Id,
+                (fc, parents) => new { fc, parents }
+            )
+            .SelectMany(x => x.parents.DefaultIfEmpty(), (x, p) => new { x.fc, p })
+            .OrderBy(x => x.fc.Name)
+            .Skip(pagingParams.SkipValue)
+            .Take(pagingParams.PageSize)
+            .Select(x => new GetFileClassificationsResponse(
+                x.fc.Id,
+                x.fc.Name,
+                x.fc.IncludeInSearch,
+                x.fc.Celebrity,
+                x.fc.ParentId,
+                x.p != null ? x.p.Name : null,
+                x.fc.SearchLevel
+            ))
             .ToListAsync(cancellationToken);
-
-        return classifications;
     }
 }

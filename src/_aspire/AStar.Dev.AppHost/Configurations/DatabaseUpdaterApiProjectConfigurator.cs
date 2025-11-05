@@ -5,10 +5,6 @@ namespace AStar.Dev.AppHost.Configurations;
 
 public static class DatabaseUpdaterApiProjectConfigurator
 {
-    public record DatabaseUpdaterApiProjectConfig(string ProjectName);
-
-    public static DatabaseUpdaterApiProjectConfig GetConfig() => new(AspireConstants.Services.DatabaseUpdater);
-
     public static void Configure(
         IDistributedApplicationBuilder builder,
         IResourceBuilder<SqlServerDatabaseResource> filesDb,
@@ -16,8 +12,7 @@ public static class DatabaseUpdaterApiProjectConfigurator
         IResourceBuilder<SqlServerServerResource> sqlServer,
         IResourceBuilder<RabbitMQServerResource> rabbitMq)
     {
-        DatabaseUpdaterApiProjectConfig config = GetConfig();
-        _ = builder.AddProject<AStar_Dev_Database_Updater>(config.ProjectName)
+        _ = builder.AddProject<AStar_Dev_Database_Updater>(AspireConstants.Services.DatabaseUpdater)
             .WithReference(filesDb)
             .WaitFor(filesDb)
             .WithReference(migrations)
