@@ -19,25 +19,35 @@ public class GetFileClassificationsHandler
         GetFileClassificationRequest fileClassifications, FilesContext filesContext,
         CancellationToken cancellationToken)
     {
-        if(fileClassifications.ItemsPerPage > 50) fileClassifications = fileClassifications with { ItemsPerPage = 50 };
-        
-        var results = await filesContext.FileClassifications
-            .GroupJoin(filesContext.FileClassifications,
-                d => d.Id,
-                e => e.ParentId,
-                (dep, emps) => new { dep, emps })
-            .SelectMany(
-                g=> g.emps.DefaultIfEmpty(),
-                (a, e) => new 
-                {
-                    FileClassification = a.dep,
-                    Parent = e
-                }).ToListAsync(cancellationToken);
-        
-        var returnResults = results.Select(f=> new GetFileClassificationsResponse(f.FileClassification.Id, f.FileClassification.Name, f.FileClassification.IncludeInSearch, f.FileClassification.Celebrity, new FileClassification(f.Parent?.Id, f.Parent?.SearchLevel, f.Parent?.ParentId, f.Parent?.Name, f.FileClassification.Celebrity, f.FileClassification.IncludeInSearch), f.FileClassification.SearchLevel))
-            .Skip(fileClassifications.CurrentPage - 1)
-            .Take(fileClassifications.ItemsPerPage)
-            .ToList();
-        return returnResults;
+        // Normalize paging: ensure [1..50] page size and page index >= 1
+        var pageSize = fileClassifications.ItemsPerPage <= 0
+            ? 10
+            : (fileClassifications.ItemsPerPage > 50 ? 50 : fileClassifications.ItemsPerPage);
+        var pageIndex = fileClassifications.CurrentPage <= 0 ? 1 : fileClassifications.CurrentPage;
+        var skip = (pageIndex - 1) * pageSize;
+
+        // Left join to parent (self-referential), null-safe; project directly to response
+        IQueryable<GetFileClassificationsResponse> query =
+            from fc in filesContext.FileClassifications.AsNoTracking()
+            join p in filesContext.FileClassifications.AsNoTracking()
+                on fc.ParentId equals p.Id into parentGroup
+            from p in parentGroup.DefaultIfEmpty()
+            orderby fc.Name, fc.Id
+            select new GetFileClassificationsResponse(
+                fc.Id,
+                fc.Name,
+                fc.IncludeInSearch,
+                fc.Celebrity,
+                fc.ParentId,
+                p != null ? p.Name : null,
+                fc.SearchLevel
+            );
+
+        List<GetFileClassificationsResponse> results = await query
+            .Skip(skip)
+            .Take(pageSize)
+            .ToListAsync(cancellationToken);
+
+        return results;
     }
 }
