@@ -14,7 +14,7 @@ public static class DistributedApplicationBuilderExtensions
         IResourceBuilder<SqlServerDatabaseResource> astarDb              = sqlServer.AddDatabase(AspireConstants.Sql.AStarDb);
         IResourceBuilder<ProjectResource> migrations           = MigrationsConfigurator.Configure(builder, astarDb, sqlServer, sqlSaUserPassword, sqlAdminUserPassword, sqlFilesUserPassword, sqlUsageUserPassword);
         IResourceBuilder<RabbitMQServerResource> rabbitMq             = RabbitMqConfigurator.Configure(builder);
-        DatabaseUpdaterApiProjectConfigurator.Configure(builder, astarDb, migrations, sqlServer, rabbitMq);
+        //DatabaseUpdaterApiProjectConfigurator.Configure(builder, astarDb, migrations, sqlServer, rabbitMq);
 
         UiProjectConfigurator.Configure(builder, astarDb, rabbitMq);
     }

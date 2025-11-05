@@ -9,7 +9,7 @@ namespace AStar.Dev.Files.Classifications.Api.Endpoints.FileClassifications.V1;
 ///     The object supports HTTP GET operation to access the required endpoint.
 /// </summary>
 [UsedImplicitly]
-public record GetFileClassificationRequest(int CurrentPage = 1, int ItemsPerPage = 10) : IEndpointName
+public record GetFileClassificationRequest(int CurrentPage = 1, int ItemsPerPage = 10) : IEndpointName,IPagingParameters
 {
     /// <inheritdoc />
     public string Name => EndpointConstants.GetFileClassificationsGroupName;
