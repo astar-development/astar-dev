@@ -21,14 +21,16 @@ public class GetFileClassificationsResponseTests
     public void Deconstruction_Should_Work_As_Expected()
     {
         var id = Guid.CreateVersion7();
-        var dto = new GetFileClassificationsResponse(id, "Alpha", false, true);
+        var dto = new GetFileClassificationsResponse(id, "Alpha", true, true);
 
-        var (deId, deName, deInclude, deCeleb) = dto;
+        var (deId, deName, deInclude, deCeleb, deParentId, deSearchLevel) = dto;
 
         deId.ShouldBe(id);
         deName.ShouldBe("Alpha");
-        deInclude.ShouldBeFalse();
+        deInclude.ShouldBeTrue();
         deCeleb.ShouldBeTrue();
+        deParentId.ShouldBeNull();
+        deSearchLevel.ShouldBe(2);
     }
 
     [Fact]

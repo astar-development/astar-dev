@@ -21,12 +21,23 @@ public class GetFileClassificationsHandler
     {
         if(fileClassifications.ItemsPerPage > 50) fileClassifications = fileClassifications with { ItemsPerPage = 50 };
         
-        List<GetFileClassificationsResponse> classifications = await filesContext.FileClassifications
-            .OrderBy(fc => fc.Name)
-            .Skip(fileClassifications.CurrentPage - 1).Take(fileClassifications.ItemsPerPage)
-            .Select(fc => new GetFileClassificationsResponse(fc.Id, fc.Name, fc.IncludeInSearch, fc.Celebrity))
-            .ToListAsync(cancellationToken);
-
-        return classifications;
+        var results = await filesContext.FileClassifications
+            .GroupJoin(filesContext.FileClassifications,
+                d => d.Id,
+                e => e.ParentId,
+                (dep, emps) => new { dep, emps })
+            .SelectMany(
+                g=> g.emps.DefaultIfEmpty(),
+                (a, e) => new 
+                {
+                    FileClassification = a.dep,
+                    Parent = e
+                }).ToListAsync(cancellationToken);
+        
+        var returnResults = results.Select(f=> new GetFileClassificationsResponse(f.FileClassification.Id, f.FileClassification.Name, f.FileClassification.IncludeInSearch, f.FileClassification.Celebrity, new FileClassification(f.Parent?.Id, f.Parent?.SearchLevel, f.Parent?.ParentId, f.Parent?.Name, f.FileClassification.Celebrity, f.FileClassification.IncludeInSearch), f.FileClassification.SearchLevel))
+            .Skip(fileClassifications.CurrentPage - 1)
+            .Take(fileClassifications.ItemsPerPage)
+            .ToList();
+        return returnResults;
     }
 }

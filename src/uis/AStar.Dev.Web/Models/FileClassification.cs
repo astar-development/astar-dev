@@ -21,11 +21,11 @@ public class FileClassification
     ///     Gets or sets the unique identifier for the file classification.
     ///     This property serves as the primary key for the <see cref="FileClassification" /> entity.
     /// </summary>
-    public Guid Id { get; set; }
+    public Guid? Id { get; set; }
 
     /// <summary>
     /// </summary>
-    public int SearchLevel { get; set; }
+    public int? SearchLevel { get; set; }
 
     /// <summary>
     /// </summary>
@@ -36,18 +36,18 @@ public class FileClassification
     ///     This property represents the descriptive label for a specific classification
     ///     and is often used to identify or categorize files within the database.
     /// </summary>
-    public string Name { get; set; } = string.Empty;
+    public string? Name { get; set; }
 
     /// <summary>
     ///     Gets or sets a value indicating whether the file classification is considered a "Celebrity."
     ///     This property is used to mark specific classifications with special significance.
     /// </summary>
-    public bool Celebrity { get; set; }
+    public bool? Celebrity { get; set; }
 
     /// <summary>
     ///     Gets or sets a value indicating whether this classification should be included in search results.
     ///     This property determines if files associated with this classification are considered searchable.
     /// </summary>
-    public bool IncludeInSearch { get; set; }
+    public bool? IncludeInSearch { get; set; }
 }
 
