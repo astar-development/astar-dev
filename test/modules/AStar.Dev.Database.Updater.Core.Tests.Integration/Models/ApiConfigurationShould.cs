@@ -1,7 +1,7 @@
 using AStar.Dev.Database.Updater.Core.Models;
 using AStar.Dev.Utilities;
 
-namespace AStar.Dev.Database.Updater.Core.Tests.Unit.Models;
+namespace AStar.Dev.Database.Updater.Core.Tests.Integration.Models;
 
 [TestSubject(typeof(ApiConfiguration))]
 public class ApiConfigurationShould

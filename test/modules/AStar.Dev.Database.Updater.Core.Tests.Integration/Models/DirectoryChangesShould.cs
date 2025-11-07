@@ -1,6 +1,6 @@
 ﻿using AStar.Dev.Database.Updater.Core.Models;
 
-namespace AStar.Dev.Database.Updater.Core.Tests.Unit.Models;
+namespace AStar.Dev.Database.Updater.Core.Tests.Integration.Models;
 
 public sealed class DirectoryChangesShould
 {

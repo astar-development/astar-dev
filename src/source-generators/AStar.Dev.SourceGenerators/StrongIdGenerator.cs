@@ -1,17 +1,17 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Linq;
 using System.Text;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
- 
+
 namespace AStar.Dev.SourceGenerators;
 
 [Generator]
 public sealed class StrongIdGenerator : IIncrementalGenerator
 {
-    private const string AttrFqn = "Annotations.StrongIdAttribute";
+    private const string AttrFqn = "AStar.Dev.Annotations.StrongIdAttribute";
 
     public void Initialize(IncrementalGeneratorInitializationContext ctx)
     {
@@ -130,6 +130,9 @@ public sealed class StrongIdGenerator : IIncrementalGenerator
                    && x.Accessibility == y.Accessibility;
         }
 
-        public int GetHashCode(StrongIdModel obj) => (obj.Namespace, obj.Name, obj.UnderlyingTypeDisplay, obj.Accessibility).GetHashCode();
+        public int GetHashCode(StrongIdModel obj)
+        {
+            return (obj.Namespace, obj.Name, obj.UnderlyingTypeDisplay, obj.Accessibility).GetHashCode();
+        }
     }
 }

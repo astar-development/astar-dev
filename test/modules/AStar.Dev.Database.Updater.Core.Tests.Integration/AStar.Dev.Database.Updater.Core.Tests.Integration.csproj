@@ -9,6 +9,8 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="Aspire.Hosting.Testing" Version="9.5.2" />
+        <PackageReference Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer" Version="9.5.2" />
         <PackageReference Include="coverlet.collector" Version="6.0.4">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -41,6 +43,8 @@
         <ProjectReference Include="..\..\..\src\nuget-packages\AStar.Dev.Functional.Extensions\AStar.Dev.Functional.Extensions.csproj" />
         <ProjectReference Include="..\..\..\src\nuget-packages\AStar.Dev.Infrastructure.FilesDb\AStar.Dev.Infrastructure.FilesDb.csproj" />
         <ProjectReference Include="..\..\..\src\nuget-packages\AStar.Dev.Utilities\AStar.Dev.Utilities.csproj" />
+        <ProjectReference Include="..\..\..\src\_aspire\AStar.Dev.AppHost\AStar.Dev.AppHost.csproj" />
+        <ProjectReference Include="..\..\test-helpers\AStar.Dev.TestHelpers\AStar.Dev.TestHelpers.csproj" />
     </ItemGroup>
 
 </Project>

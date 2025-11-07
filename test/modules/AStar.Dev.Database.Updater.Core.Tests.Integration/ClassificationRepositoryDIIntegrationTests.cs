@@ -1,8 +1,9 @@
 using AStar.Dev.Database.Updater.Core.ClassificationsServices;
 using AStar.Dev.Infrastructure.FilesDb.Models;
 using AStar.Dev.TestHelpers;
+using Microsoft.Extensions.DependencyInjection;
 
-namespace AStar.Dev.Database.Updater.Tests.Integration;
+namespace AStar.Dev.Database.Updater.Core.Tests.Integration;
 
 public class ClassificationRepositoryDiIntegrationTests
 {
@@ -28,7 +29,7 @@ public class ClassificationRepositoryDiIntegrationTests
 
         var provider = services.BuildServiceProvider();
 
-        // Act: resolve repo from first scope and fetch classifications
+        // Act: resolve repo from the first scope and fetch classifications
         using(var scope1 = provider.CreateScope())
         {
             var repo1 = scope1.ServiceProvider.GetRequiredService<ClassificationRepository>();

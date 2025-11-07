@@ -1,6 +1,6 @@
 using AStar.Dev.Infrastructure.FilesDb.Models;
 
-namespace AStar.Dev.Database.Updater.Core.Tests.Unit.Models;
+namespace AStar.Dev.Database.Updater.Core.Tests.Integration.Models;
 
 [TestSubject(typeof(EventType))]
 public class EventTypeShould

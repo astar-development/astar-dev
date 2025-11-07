@@ -1,5 +1,5 @@
 // using AStar.Dev.Web.Shared;
-// using JetBrains.Annotations;
+// using JetBrains.AStar.Dev.Annotations;
 // using Microsoft.AspNetCore.Components;
 //
 // namespace AStar.Dev.Web.UI.Shared;

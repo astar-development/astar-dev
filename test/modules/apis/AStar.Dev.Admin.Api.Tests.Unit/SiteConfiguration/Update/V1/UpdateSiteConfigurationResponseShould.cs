@@ -1,6 +1,6 @@
 ﻿// using AStar.Dev.Admin.Api.SiteConfigurations.Update.V1;
 // using AStar.Dev.Utilities;
-// using JetBrains.Annotations;
+// using JetBrains.AStar.Dev.Annotations;
 //
 // namespace AStar.Dev.Admin.Api.SiteConfiguration.Update.V1;
 //

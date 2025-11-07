@@ -1,4 +1,4 @@
-// using JetBrains.Annotations;
+// using JetBrains.AStar.Dev.Annotations;
 // using Microsoft.Extensions.Logging.Abstractions;
 // using NSubstitute;
 //

@@ -3,7 +3,7 @@ using AStar.Dev.Infrastructure.Data;
 using AStar.Dev.Infrastructure.FilesDb.Data;
 using AStar.Dev.Infrastructure.FilesDb.Models;
 
-namespace AStar.Dev.Database.Updater.Core.Tests.Unit.Fixtures;
+namespace AStar.Dev.Database.Updater.Core.Tests.Integration.Fixtures;
 
 public class MockFilesContext : IDisposable
 {

@@ -1,4 +1,4 @@
-// using JetBrains.Annotations;
+// using JetBrains.AStar.Dev.Annotations;
 //
 // namespace AStar.Dev.Admin.Api;
 //

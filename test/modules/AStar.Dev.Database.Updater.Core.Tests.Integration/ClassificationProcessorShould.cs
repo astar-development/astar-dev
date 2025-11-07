@@ -1,11 +1,14 @@
+using Aspire.Hosting.ApplicationModel;
+using Aspire.Hosting.Testing;
 using AStar.Dev.Aspire.Common;
 using AStar.Dev.Database.Updater.Core.ClassificationsServices;
 using AStar.Dev.Database.Updater.Core.Models;
 using AStar.Dev.Infrastructure.FilesDb.Data;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
-namespace AStar.Dev.Database.Updater.Tests.Integration;
+namespace AStar.Dev.Database.Updater.Core.Tests.Integration;
 
 public sealed class ClassificationProcessorShould : IDisposable
 {

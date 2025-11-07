@@ -1,6 +1,6 @@
 ﻿// using AStar.Dev.Api.Usage.Sdk.Metrics;
 // using AStar.Dev.Utilities;
-// using JetBrains.Annotations;
+// using JetBrains.AStar.Dev.Annotations;
 //
 // namespace AStar.Dev.Admin.Api.SearchConfiguration.GetAll.V1;
 //

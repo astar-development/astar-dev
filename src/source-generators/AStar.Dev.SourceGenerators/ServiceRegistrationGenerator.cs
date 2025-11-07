@@ -1,0 +1,183 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Linq;
+using System.Text;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+
+namespace AStar.Dev.SourceGenerators;
+
+[Generator]
+public sealed class ServiceRegistrationGenerator : IIncrementalGenerator
+{
+    private const string AttrFqn = "AStar.Dev.Annotations.ServiceAttribute";
+
+    public void Initialize(IncrementalGeneratorInitializationContext ctx)
+    {
+        // 1) Find candidate class declarations that have attributes (syntax-only, fast)
+        IncrementalValuesProvider<INamedTypeSymbol?> classSyntax = ctx.SyntaxProvider.CreateSyntaxProvider(
+                static (node, _) =>
+                    node is ClassDeclarationSyntax { AttributeLists.Count: > 0, TypeParameterList: null }, // skip generics for simplicity
+                static (syntaxCtx, _) =>
+                {
+                    var classDecl = (ClassDeclarationSyntax)syntaxCtx.Node;
+                    INamedTypeSymbol? symbol = syntaxCtx.SemanticModel.GetDeclaredSymbol(classDecl);
+                    return symbol;
+                })
+            .Where(static s => s is not null)!;
+
+        // 2) Keep only classes actually annotated with [AStar.Dev.Annotations.ServiceAttribute]
+        IncrementalValuesProvider<(INamedTypeSymbol sym, AttributeData? attr)> services = classSyntax
+            .Select(static (sym, _) =>
+            {
+                AttributeData? attr = sym!.GetAttributes()
+                    .FirstOrDefault(a => a.AttributeClass?.ToDisplayString() == AttrFqn);
+                return (sym, attr);
+            })
+            .Where(static t => t.attr is not null);
+
+        // 3) Build a compact model per service
+        IncrementalValuesProvider<ServiceModel?> serviceModels = services.Select(static (t, _) =>
+        {
+            (INamedTypeSymbol? impl, AttributeData? attr) = t;
+
+            // Lifetime (positional arg 0)
+            Lifetime lifetime = Lifetime.Scoped;
+            if (attr!.ConstructorArguments.Length == 1 &&
+                attr.ConstructorArguments[0].Value is int li)
+                lifetime = (Lifetime)li;
+
+            // Named arg: As (Type?)
+            INamedTypeSymbol? asType = null;
+            foreach (KeyValuePair<string, TypedConstant> na in attr.NamedArguments)
+            {
+                if (na is { Key: "As", Value.Value: INamedTypeSymbol ts })
+                {
+                    asType = ts;
+                    break;
+                }
+            }
+
+            // Named arg: AsSelf (bool)
+            var asSelf = false;
+            foreach (KeyValuePair<string, TypedConstant> na in attr.NamedArguments)
+            {
+                if (na is { Key: "AsSelf", Value.Value: bool b })
+                {
+                    asSelf = b;
+                    break;
+                }
+            }
+
+            // Skip abstract/ open-generic/ non-public impls
+            if (impl!.IsAbstract || impl.Arity != 0 || impl.DeclaredAccessibility != Accessibility.Public)
+                return null;
+
+            // If As not specified, infer: pick a single public interface (excluding IDisposable) if there is exactly one
+            INamedTypeSymbol? inferred = null;
+            if (asType is null)
+            {
+                INamedTypeSymbol[] candidates = impl.AllInterfaces
+                    .Where(i => i.DeclaredAccessibility == Accessibility.Public
+                                && i is { TypeKind: TypeKind.Interface, Arity: 0 }
+                                && i.ToDisplayString() != "System.IDisposable")
+                    .ToArray();
+                if (candidates.Length == 1) inferred = candidates[0];
+            }
+
+            INamedTypeSymbol? service = asType ?? inferred;
+
+            return new ServiceModel(
+                lifetime,
+                impl.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat),
+                service?.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat),
+                asSelf
+            );
+        }).Where(static m => m is not null)!;
+
+        // 4) Combine with Compilation and collect to one batch
+        IncrementalValueProvider<(Compilation Left, ImmutableArray<ServiceModel?> Right)> combined = ctx.CompilationProvider.Combine(serviceModels.Collect());
+
+        // 5) Emit single extension file
+        ctx.RegisterSourceOutput(combined, static (spc, pair) =>
+        {
+            (_, ImmutableArray<ServiceModel?> batch) = pair;
+            var code = Emit(batch);
+            spc.AddSource("GeneratedServiceCollectionExtensions.g.cs", code);
+        });
+    }
+
+    private static string Emit(IReadOnlyList<ServiceModel> items)
+    {
+        // Deduplicate lines (in case of multi-targeted projects / partial classes, etc.)
+        var seen = new HashSet<string>(StringComparer.Ordinal);
+        var sb = new StringBuilder();
+        sb.AppendLine("// <auto-generated/>");
+        sb.AppendLine("using Microsoft.Extensions.DependencyInjection;");
+        sb.AppendLine();
+        sb.AppendLine("public static class GeneratedServiceCollectionExtensions");
+        sb.AppendLine("{");
+        sb.AppendLine("    public static IServiceCollection AddGeneratedServices(this IServiceCollection s)");
+        sb.AppendLine("    {");
+
+        foreach (ServiceModel? m in items)
+        {
+            var method = m.Lifetime switch
+            {
+                Lifetime.Singleton => "AddSingleton",
+                Lifetime.Scoped => "AddScoped",
+                Lifetime.Transient => "AddTransient",
+                _ => "AddScoped"
+            };
+
+            // Register against interface if present; else self
+            if (!string.IsNullOrEmpty(m.ServiceFqn))
+            {
+                var line = $"        s.{method}<{m.ServiceFqn}, {m.ImplFqn}>();";
+                if (seen.Add(line)) sb.AppendLine(line);
+                if (m.AlsoAsSelf)
+                {
+                    var self = $"        s.{method}<{m.ImplFqn}>();";
+                    if (seen.Add(self)) sb.AppendLine(self);
+                }
+            }
+            else
+            {
+                var self = $"        s.{method}<{m.ImplFqn}>();";
+                if (seen.Add(self)) sb.AppendLine(self);
+            }
+        }
+
+        sb.AppendLine("        return s;");
+        sb.AppendLine("    }");
+        sb.AppendLine("}");
+
+        return sb.ToString();
+    }
+
+    private sealed class ServiceModel
+    {
+        public ServiceModel(Lifetime Lifetime, string ImplFqn, string? ServiceFqn, bool AlsoAsSelf)
+        {
+            this.Lifetime = Lifetime;
+            this.ImplFqn = ImplFqn;
+            this.ServiceFqn = ServiceFqn;
+            this.AlsoAsSelf = AlsoAsSelf;
+        }
+
+        public Lifetime Lifetime { get; }
+        public string ImplFqn { get; }
+        public string? ServiceFqn { get; }
+        public bool AlsoAsSelf { get; }
+    }
+
+    // Mirror the annotations enum here so we can parse constructor args without referencing the annotations assembly at runtime.
+    private enum Lifetime
+    {
+        Singleton = 0,
+        Scoped = 1,
+        Transient = 2
+    }
+}

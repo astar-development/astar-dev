@@ -1,7 +1,7 @@
 using AStar.Dev.Functional.Extensions;
 using AStar.Dev.Utilities;
 
-namespace AStar.Dev.Database.Updater.Core.Tests.Unit;
+namespace AStar.Dev.Database.Updater.Core.Tests.Integration;
 
 [TestSubject(typeof(ErrorResponse))]
 public class ErrorResponseShould

@@ -9,7 +9,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using NSubstitute;
 
-namespace AStar.Dev.Database.Updater.Core.Tests.Unit.FileDetailsServices;
+namespace AStar.Dev.Database.Updater.Core.Tests.Integration.FileDetailsServices;
 
 #pragma warning disable xUnit1051
 
