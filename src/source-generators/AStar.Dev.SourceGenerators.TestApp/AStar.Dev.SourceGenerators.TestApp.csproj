@@ -7,14 +7,18 @@
         <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
         <!-- <CompilerGeneratedFilesOutputPath>.\GeneratedFiles</CompilerGeneratedFilesOutputPath> -->
     </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    </PropertyGroup>
 
     <ItemGroup>
         <!-- Source generator wired in as an analyzer -->
         <ProjectReference Include="..\AStar.Dev.Annotations\AStar.Dev.Annotations.csproj" />
-        <ProjectReference Include="..\AStar.Dev.SourceGenerators\AStar.Dev.SourceGenerators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+        <ProjectReference Include="..\AStar.Dev.Source.Generators\AStar.Dev.Source.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="JetBrains.Annotations" Version="2025.2.2" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.10"/>
         <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.10"/>
         <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="9.0.10"/>

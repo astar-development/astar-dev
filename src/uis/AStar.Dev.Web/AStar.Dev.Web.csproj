@@ -5,6 +5,8 @@
         <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
         <UserSecretsId>d7e61e34-084f-4c2b-9be8-5925170dc3b7</UserSecretsId>
         <ApplicationIcon>astar.ico</ApplicationIcon>
+        <EmitCompilerGeneratedFiles>true</EmitCompilerGeneratedFiles>
+        <CompilerGeneratedFilesOutputPath>Generated\$(TargetFramework)</CompilerGeneratedFilesOutputPath>
     </PropertyGroup>
 
     <ItemGroup>
@@ -36,11 +38,17 @@
         <ProjectReference Include="..\..\modules\apis\AStar.Dev.Admin.Api\AStar.Dev.Admin.Api.csproj" />
         <ProjectReference Include="..\..\modules\apis\AStar.Dev.Files.Api\AStar.Dev.Files.Api.csproj" />
         <ProjectReference Include="..\..\modules\apis\AStar.Dev.Files.Classifications.Api\AStar.Dev.Files.Classifications.Api.csproj" />
+        <ProjectReference Include="..\..\source-generators\AStar.Dev.Source.Generators\AStar.Dev.Source.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
         <ProjectReference Include="..\..\_aspire\AStar.Dev.ServiceDefaults\AStar.Dev.ServiceDefaults.csproj" />
     </ItemGroup>
 
     <ItemGroup>
         <Using Include="JetBrains.Annotations" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Remove="$(CompilerGeneratedFilesOutputPath)/**/*.cs"></Compile>
+        <Folder Include="Generated\**" />
     </ItemGroup>
 
 </Project>
