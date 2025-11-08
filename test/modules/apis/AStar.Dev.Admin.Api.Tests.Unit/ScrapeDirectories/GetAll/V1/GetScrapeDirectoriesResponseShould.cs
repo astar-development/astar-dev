@@ -1,6 +1,6 @@
 ﻿// using AStar.Dev.Infrastructure.AdminDb.Models;
 // using AStar.Dev.Utilities;
-// using JetBrains.Annotations;
+// using JetBrains.AStar.Dev.Annotations;
 //
 // namespace AStar.Dev.Admin.Api.ScrapeDirectories.GetAll.V1;
 //

@@ -2,7 +2,7 @@
 // using AStar.Dev.Files.Api.Client.SDK.FilesApi;
 // using AStar.Dev.Images.Api.Client.SDK.ImagesApi;
 // using AStar.Dev.Web.StartupConfiguration;
-// using JetBrains.Annotations;
+// using JetBrains.AStar.Dev.Annotations;
 // using Microsoft.Extensions.DependencyInjection;
 // using Microsoft.Identity.Web;
 // using NSubstitute;

@@ -11,8 +11,9 @@ public class FileClassificationTests
         var model = new FileClassification(
             id,
             3,
-            parentId,
             "Wallpapers",
+            parentId,
+            "Parent",
             true,
             false
         );

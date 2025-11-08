@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+
+        <IsPackable>false</IsPackable>
+        <IsTestProject>true</IsTestProject>
+        <RootNamespace>AStar.Dev.Source.Generators.Test.Unit</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="coverlet.collector" Version="6.0.4">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Shouldly" Version="4.3.0"/>
+        <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.14.0"/>
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.14.0"/>
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.0"/>
+        <PackageReference Include="xunit" Version="2.9.3"/>
+        <PackageReference Include="xunit.runner.visualstudio" Version="3.1.5">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+            <PrivateAssets>all</PrivateAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\..\src\source-generators\AStar.Dev.Annotations\AStar.Dev.Annotations.csproj"/>
+        <ProjectReference Include="..\..\..\src\source-generators\AStar.Dev.Source.Generators\AStar.Dev.Source.Generators.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Remove="ExampleService.cs"/>
+        <Compile Remove="ExampleFiles\DemoService.cs"/>
+        <EmbeddedResource Include="ExampleFiles\DemoService.cs"/>
+        <Compile Remove="ExampleFiles\DemoServiceWithInterface.cs"/>
+        <EmbeddedResource Include="ExampleFiles\DemoServiceWithInterface.cs"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Using Include="Shouldly"/>
+        <Using Include="Xunit"/>
+    </ItemGroup>
+
+</Project>

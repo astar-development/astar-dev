@@ -39,7 +39,7 @@
   </Folder>
   <Folder Name="/src/modules/usage module/">
     <Project Path="src/nuget-packages/AStar.Dev.Api.Usage.Sdk/AStar.Dev.Api.Usage.Sdk.csproj" />
-    <Project Path="src\nuget-packages\AStar.Dev.Usage.Api.Client.SDK\AStar.Dev.Usage.Api.Client.SDK.csproj" Type="C#" />
+    <Project Path="src/nuget-packages/AStar.Dev.Usage.Api.Client.SDK/AStar.Dev.Usage.Api.Client.SDK.csproj" Type="C#" />
   </Folder>
   <Folder Name="/src/nuget-packages/">
     <Project Path="src/nuget-packages/AStar.Dev.Api.HealthChecks/AStar.Dev.Api.HealthChecks.csproj" />
@@ -63,8 +63,9 @@
     <Project Path="src/nuget-packages/AStar.Dev.Utilities/AStar.Dev.Utilities.csproj" />
   </Folder>
   <Folder Name="/src/source-generators/">
-    <Project Path="src/source-generators/AStar.Dev.SourceGenerators/AStar.Dev.SourceGenerators.csproj" />
     <Project Path="src\source-generators\AStar.Dev.Annotations\AStar.Dev.Annotations.csproj" Type="Classic C#" />
+    <Project Path="src\source-generators\AStar.Dev.Source.Generators\AStar.Dev.Source.Generators.csproj" Type="Classic C#" />
+    <Project Path="src\source-generators\AStar.Dev.SourceGenerators.TestApp\AStar.Dev.SourceGenerators.TestApp.csproj" Type="Classic C#" />
   </Folder>
   <Folder Name="/src/uis/">
     <Project Path="src/uis/AStar.Dev.Web/AStar.Dev.Web.csproj" />
@@ -78,9 +79,9 @@
     <Project Path="test/AStar.Dev.Tests.Architecture/AStar.Dev.Tests.Architecture.csproj" />
   </Folder>
   <Folder Name="/test/modules/">
-    <Project Path="test/modules/AStar.Dev.Database.Updater.Core.Tests.Unit/AStar.Dev.Database.Updater.Core.Tests.Unit.csproj" />
     <Project Path="test/modules/AStar.Dev.Database.Updater.Tests.Integration/AStar.Dev.Database.Updater.Tests.Integration.csproj" />
     <Project Path="test/modules/AStar.Dev.Database.Updater.Tests.Unit/AStar.Dev.Database.Updater.Tests.Unit.csproj" />
+    <Project Path="test\modules\AStar.Dev.Database.Updater.Core.Tests.Integration\AStar.Dev.Database.Updater.Core.Tests.Integration.csproj" />
   </Folder>
   <Folder Name="/test/modules/apis/">
     <Project Path="test/modules/apis/AStar.Dev.Admin.Api.Tests.EndToEnd/AStar.Dev.Admin.Api.Tests.EndToEnd.csproj" />
@@ -112,6 +113,9 @@
     <Project Path="test/nuget-packages/AStar.Dev.Test.Helpers.Tests.Unit.Unit/AStar.Dev.Test.Helpers.Tests.Unit.Unit.csproj" />
     <Project Path="test/nuget-packages/AStar.Dev.Test.Helpers.Tests.Unit/AStar.Dev.Test.Helpers.Tests.Unit.csproj" />
     <Project Path="test/nuget-packages/AStar.Dev.Utilities.Tests.Unit/AStar.Dev.Utilities.Tests.Unit.csproj" />
+  </Folder>
+  <Folder Name="/test/source-generators/">
+    <Project Path="test\source-generators\AStar.Dev.Source.Generators.Tests.Unit\AStar.Dev.Source.Generators.Test.Unit.csproj" Type="Classic C#" />
   </Folder>
   <Folder Name="/test/test-helpers/">
     <Project Path="test/test-helpers/AStar.Dev.TestHelpers/AStar.Dev.TestHelpers.csproj" />

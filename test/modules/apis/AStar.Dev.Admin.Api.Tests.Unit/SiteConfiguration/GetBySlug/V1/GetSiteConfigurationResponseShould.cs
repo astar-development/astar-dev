@@ -1,5 +1,5 @@
 ﻿// using AStar.Dev.Admin.Api.SiteConfigurations.GetBySlug.V1;
-// using JetBrains.Annotations;
+// using JetBrains.AStar.Dev.Annotations;
 //
 // namespace AStar.Dev.Admin.Api.SiteConfiguration.GetBySlug.V1;
 //

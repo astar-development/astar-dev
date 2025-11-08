@@ -1,7 +1,7 @@
 ﻿// using AStar.Dev.Admin.Api.SearchCategories.GetById.V1;
 // using AStar.Dev.Infrastructure.AdminDb.Models;
 // using AStar.Dev.Utilities;
-// using JetBrains.Annotations;
+// using JetBrains.AStar.Dev.Annotations;
 //
 // namespace AStar.Dev.Admin.Api.SearchCategories.GetAll.V1;
 //

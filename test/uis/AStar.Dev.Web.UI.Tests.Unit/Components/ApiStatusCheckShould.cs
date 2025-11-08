@@ -1,5 +1,5 @@
 // using AStar.Dev.Web.Components;
-// using JetBrains.Annotations;
+// using JetBrains.AStar.Dev.Annotations;
 // using Microsoft.Identity.Web;
 // using NSubstitute;
 // using Constants = AStar.Dev.Web.Infrastructure.Constants;
