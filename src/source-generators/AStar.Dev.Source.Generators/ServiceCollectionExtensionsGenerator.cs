@@ -179,23 +179,14 @@ public sealed class ServiceCollectionExtensionsGenerator : IIncrementalGenerator
         return sb.ToString();
     }
 
-    private sealed class ServiceModel
+    private sealed class ServiceModel(Lifetime lifetime, string implFqn, string? serviceFqn, bool alsoAsSelf)
     {
-        public ServiceModel(Lifetime lifetime, string implFqn, string? serviceFqn, bool alsoAsSelf)
-        {
-            this.Lifetime = lifetime;
-            this.ImplFqn = implFqn;
-            this.ServiceFqn = serviceFqn;
-            this.AlsoAsSelf = alsoAsSelf;
-        }
-
-        public Lifetime Lifetime { get; }
-        public string ImplFqn { get; }
-        public string? ServiceFqn { get; }
-        public bool AlsoAsSelf { get; }
+        public Lifetime Lifetime { get; } = lifetime;
+        public string ImplFqn { get; } = implFqn;
+        public string? ServiceFqn { get; } = serviceFqn;
+        public bool AlsoAsSelf { get; } = alsoAsSelf;
     }
 
-    // Mirror the annotations enum here so we can parse constructor args without referencing the annotations assembly at runtime.
     private enum Lifetime
     {
         Singleton = 0,

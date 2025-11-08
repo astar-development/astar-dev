@@ -35,7 +35,11 @@
         <Compile Remove="ExampleFiles\DemoService.cs"/>
         <EmbeddedResource Include="ExampleFiles\DemoService.cs"/>
         <Compile Remove="ExampleFiles\DemoServiceWithInterface.cs"/>
+        <EmbeddedResource Include="ExampleFiles\DemoServiceSingleton.cs" />
+        <EmbeddedResource Include="ExampleFiles\DemoServiceTransient.cs" />
         <EmbeddedResource Include="ExampleFiles\DemoServiceWithInterface.cs"/>
+        <EmbeddedResource Include="ExampleFiles\DemoServiceWithInterfaceSingleton.cs" />
+        <EmbeddedResource Include="ExampleFiles\DemoServiceWithInterfaceTransient.cs" />
     </ItemGroup>
 
     <ItemGroup>

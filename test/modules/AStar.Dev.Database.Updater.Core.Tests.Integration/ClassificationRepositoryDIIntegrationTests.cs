@@ -23,7 +23,7 @@ public class ClassificationRepositoryDiIntegrationTests
         var services = new ServiceCollection();
 
         // Register the same DbContext factory pattern used in production: use the shared context
-        // as a singleton for this test so DI does not dispose it when scopes end.
+        // as a singleton for this test so DI does not dispose of it when scopes end.
         _ = services.AddSingleton(_ => global.Context);
         _ = services.AddScoped<ClassificationRepository>();
 

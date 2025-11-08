@@ -166,7 +166,7 @@
     FluentDataGrid<SampleGridData>? _grid;
     FluentSwitch? _clearToggle;
 
-    bool _clearItems = false;
+    bool _clearItems;
     public record SampleGridData(string Item1, string Item2, string Item3, string Item4);
 
     IQueryable<SampleGridData>? _items = Enumerable.Empty<SampleGridData>().AsQueryable();

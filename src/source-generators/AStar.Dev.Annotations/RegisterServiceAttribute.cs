@@ -47,5 +47,5 @@ public sealed class RegisterServiceAttribute(Lifetime lifetime = Lifetime.Scoped
     /// container so that it can be resolved directly. This is useful when the service
     /// needs to be resolved by its own type rather than an interface.
     /// </remarks>
-    public bool AsSelf { get; set; } = false;
+    public bool AsSelf { get; set; }
 }
