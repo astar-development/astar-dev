@@ -6,17 +6,55 @@
         <Nullable>enable</Nullable>
         <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
         <IsRoslynComponent>true</IsRoslynComponent>
+        <PackageId>WasMelGrubb.ToJsonGenerator.Demo</PackageId>
+        <Version>0.2.2-beta</Version>
+        <Title>ToJson Source Generator Demo</Title>
+        <Authors>Mel Grubb</Authors>
+        <Description>Generates simple ToJson methods</Description>
+        <Copyright>©2025 Mel Grubb</Copyright>
+        <PackageProjectUrl>https://github.com/WasMelGrubb/source-generators-2025-demo</PackageProjectUrl>
+        <PackageIcon>Assets/logo.png</PackageIcon>
+        <RepositoryUrl>https://github.com/WasMelGrubb/source-generators-2025-demo.git</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageTags>json generated</PackageTags>
+        <PackageReleaseNotes>Initial release</PackageReleaseNotes>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <IncludeBuildOutput>false</IncludeBuildOutput>
         <NoWarn>$(NoWarn);NU5128</NoWarn>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.11.0">
+        <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="4.14.0">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.11.0"/>
+        <PackageReference Include="Microsoft.CodeAnalysis.Common" Version="4.14.0" />
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.14.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Update="Assets\logo.png">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+        <None Include="README.md">
+            <Pack>True</Pack>
+            <PackagePath></PackagePath>
+        </None>
+        <None Include="$(OutputPath)/$(AssemblyName).dll">
+            <Pack>True</Pack>
+            <PackagePath>analyzers/dotnet/cs</PackagePath>
+            <Visible>false</Visible>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Remove="AttributeSources\Lifetime.cs"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\AStar.Dev.Annotations\AStar.Dev.Annotations.csproj"/>
     </ItemGroup>
 
 </Project>

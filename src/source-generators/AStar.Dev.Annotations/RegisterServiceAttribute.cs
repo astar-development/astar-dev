@@ -1,51 +1,40 @@
 ﻿namespace AStar.Dev.Annotations;
 
-public enum Lifetime
-{
-    Singleton,
-    Scoped,
-    Transient
-}
-
 /// <summary>
-/// An attribute used to register a class as a service within a dependency injection container.
-/// The attribute allows specifying the service's lifetime, the interface it should be registered against,
-/// and whether the concrete type should also be registered as itself.
+///     Represents an attribute to indicate a service registration configuration within a dependency injection container.
 /// </summary>
-/// <param name="lifetime">The required lifetime of the service being registered</param>
-[AttributeUsage(AttributeTargets.Class, Inherited = false)]
-public sealed class RegisterServiceAttribute(Lifetime lifetime = Lifetime.Scoped) : Attribute
+/// <remarks>
+///     This attribute is used to define the lifetime and interface type(s) for which the target class
+///     should be registered during dependency injection setup. By applying this attribute, the target
+///     class will be registered with the specified lifetime scope. There are additional options to
+///     specify the type/interface it should be resolved as or if it should be resolved as itself (in addition to the
+///     interface/base type if applicable)
+/// </remarks>
+[AttributeUsage(AttributeTargets.Class)]
+public sealed class RegisterServiceAttribute : Attribute
 {
-    /// <summary>
-    /// Specifies the lifetime of a service when registered in a dependency injection container.
-    /// </summary>
-    /// <remarks>
-    /// Lifetime defines how the service is instantiated and shared within the application:
-    /// - Singleton: A single instance is created and shared across the entire application.
-    /// - Scoped: A single instance is created and shared within the same scope, such as a single HTTP request in web applications.
-    /// - Transient: A new instance is created each time the service is requested.
-    /// </remarks>
-    public Lifetime Lifetime { get; } = lifetime;
+    // ReSharper disable once ConvertToPrimaryConstructor
+    public RegisterServiceAttribute(Lifetime lifetime = Lifetime.Scoped) => Lifetime = lifetime;
 
     /// <summary>
-    /// Specifies the interface or base type that the service should be registered against
-    /// within the dependency injection container.
+    ///     Specifies the lifetime of a service in dependency injection.
     /// </summary>
     /// <remarks>
-    /// This property allows for explicitly defining the type the service is associated with,
-    /// enabling more control over how the service is resolved at runtime. If not specified,
-    /// the default behavior may vary based on the DI container implementation.
+    ///     The Lifetime enumeration is used to define the lifespan of a service instance.
+    ///     It consists of the following options:
+    ///     - Singleton: A single instance of the service is created and shared throughout the application's lifecycle.
+    ///     - Scoped: A new instance of the service is created for each scope, typically per request in a web application.
+    ///     - Transient: A new instance of the service is created each time it is requested.
     /// </remarks>
-    public Type? As { get; set; }
+    public Lifetime Lifetime { get; }
 
     /// <summary>
-    /// Determines whether the concrete type of the service should be registered as itself
-    /// in addition to any specified service interface.
+    ///     Indicates whether the service should be registered as its own type in the dependency injection container.
     /// </summary>
     /// <remarks>
-    /// If set to <c>true</c>, the concrete type will be registered in the dependency injection
-    /// container so that it can be resolved directly. This is useful when the service
-    /// needs to be resolved by its own type rather than an interface.
+    ///     When set to true, the service will be registered such that it can be resolved by its own type.
+    ///     This is useful for scenarios where a class should be self-resolvable in addition to being
+    ///     registered to an interface or base type, if applicable.
     /// </remarks>
     public bool AsSelf { get; set; }
 }

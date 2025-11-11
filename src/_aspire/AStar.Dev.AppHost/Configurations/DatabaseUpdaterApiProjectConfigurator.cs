@@ -10,8 +10,7 @@ public static class DatabaseUpdaterApiProjectConfigurator
         IResourceBuilder<SqlServerDatabaseResource> filesDb,
         IResourceBuilder<ProjectResource> migrations,
         IResourceBuilder<SqlServerServerResource> sqlServer,
-        IResourceBuilder<RabbitMQServerResource> rabbitMq)
-    {
+        IResourceBuilder<RabbitMQServerResource> rabbitMq) =>
         _ = builder.AddProject<AStar_Dev_Database_Updater>(AspireConstants.Services.DatabaseUpdater)
             .WithReference(filesDb)
             .WaitFor(filesDb)
@@ -20,5 +19,4 @@ public static class DatabaseUpdaterApiProjectConfigurator
             .WithReference(rabbitMq)
             .WaitFor(rabbitMq)
             .WithParentRelationship(sqlServer);
-    }
 }

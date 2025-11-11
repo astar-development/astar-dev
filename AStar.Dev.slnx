@@ -64,8 +64,8 @@
   </Folder>
   <Folder Name="/src/source-generators/">
     <Project Path="src\source-generators\AStar.Dev.Annotations\AStar.Dev.Annotations.csproj" Type="Classic C#" />
+    <Project Path="src\source-generators\AStar.Dev.Source.Generators.Domain\AStar.Dev.Source.Generators.Domain.csproj" Type="Classic C#" />
     <Project Path="src\source-generators\AStar.Dev.Source.Generators\AStar.Dev.Source.Generators.csproj" Type="Classic C#" />
-    <Project Path="src\source-generators\AStar.Dev.SourceGenerators.TestApp\AStar.Dev.SourceGenerators.TestApp.csproj" Type="Classic C#" />
   </Folder>
   <Folder Name="/src/uis/">
     <Project Path="src/uis/AStar.Dev.Web/AStar.Dev.Web.csproj" />
@@ -115,7 +115,7 @@
     <Project Path="test/nuget-packages/AStar.Dev.Utilities.Tests.Unit/AStar.Dev.Utilities.Tests.Unit.csproj" />
   </Folder>
   <Folder Name="/test/source-generators/">
-    <Project Path="test\source-generators\AStar.Dev.Source.Generators.Tests.Unit\AStar.Dev.Source.Generators.Test.Unit.csproj" Type="Classic C#" />
+    <Project Path="test\source-generators\AStar.Dev.Source.Generators.Tests\AStar.Dev.Source.Generators.Tests.csproj" Type="Classic C#" />
   </Folder>
   <Folder Name="/test/test-helpers/">
     <Project Path="test/test-helpers/AStar.Dev.TestHelpers/AStar.Dev.TestHelpers.csproj" />
