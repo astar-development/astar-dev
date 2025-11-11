@@ -27,7 +27,7 @@
         <RepositoryUrl>https://github.com/astar-development/astar-dev-infrastructure.git</RepositoryUrl>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <Title>AStar.Dev.Infrastructure</Title>
-        <Version>0.1.2</Version>
+        <Version>0.2.0-alpha</Version>
     </PropertyGroup>
 
     <ItemGroup>
@@ -38,6 +38,10 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.10"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AStar.Dev.Code.Generators" Version="0.1.0-alpha" />
     </ItemGroup>
 
 </Project>

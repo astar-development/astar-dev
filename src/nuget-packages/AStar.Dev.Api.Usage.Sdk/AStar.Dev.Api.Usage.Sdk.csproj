@@ -8,6 +8,7 @@
         <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.10"/>
         <PackageReference Include="Microsoft.Extensions.Options" Version="9.0.10"/>
         <PackageReference Include="Aspire.RabbitMQ.Client.v7" Version="9.5.2"/>
+        <PackageReference Include="AStar.Dev.Code.Generators" Version="0.1.0-alpha" />
     </ItemGroup>
 
     <PropertyGroup>

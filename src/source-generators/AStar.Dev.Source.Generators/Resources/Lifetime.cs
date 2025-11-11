@@ -1,3 +1,4 @@
+// ReSharper disable once CheckNamespace
 namespace AStar.Dev.Annotations;
 
 /// <summary>
@@ -12,7 +13,18 @@ namespace AStar.Dev.Annotations;
 /// </remarks>
 public enum Lifetime
 {
+    /// <summary>
+    ///     Singleton: A single instance is shared across the entire application.
+    /// </summary>
     Singleton,
+
+    /// <summary>
+    ///     Scoped: A single instance is created per scope, such as per web request in web applications.
+    /// </summary>
     Scoped,
+
+    /// <summary>
+    ///     Transient: A new instance is created every time the service is requested.
+    /// </summary>
     Transient
 }

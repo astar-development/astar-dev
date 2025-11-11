@@ -36,6 +36,7 @@
         <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions" Version="9.0.10"/>
         <PackageReference Include="Microsoft.Extensions.Features" Version="9.0.10"/>
         <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.10"/>
+        <PackageReference Include="AStar.Dev.Code.Generators" Version="0.1.0-alpha" />
     </ItemGroup>
 
     <ItemGroup>

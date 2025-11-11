@@ -14,6 +14,13 @@
 public sealed class RegisterServiceAttribute : Attribute
 {
     // ReSharper disable once ConvertToPrimaryConstructor
+    /// <summary>
+    ///     Indicates the service registration configuration for a class within a dependency injection container.
+    /// </summary>
+    /// <remarks>
+    ///     This attribute specifies the lifetime scope of the service and determines how it should be registered.
+    ///     It can optionally allow the service to be resolved as itself.
+    /// </remarks>
     public RegisterServiceAttribute(Lifetime lifetime = Lifetime.Scoped) => Lifetime = lifetime;
 
     /// <summary>

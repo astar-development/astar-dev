@@ -44,4 +44,8 @@
         </None>
     </ItemGroup>
 
+    <ItemGroup>
+        <PackageReference Include="AStar.Dev.Code.Generators" Version="0.1.0-alpha" />
+    </ItemGroup>
+
 </Project>

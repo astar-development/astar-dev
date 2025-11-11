@@ -28,6 +28,7 @@
         <PackageReference Include="Testably.Abstractions.FileSystem.Interface" Version="9.0.0" />
         <PackageReference Include="Microsoft.Extensions.Http.Resilience" Version="9.10.0" />
         <PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders" Version="1.2.0" />
+        <PackageReference Include="AStar.Dev.Code.Generators" Version="0.1.0-alpha" />
     </ItemGroup>
 
     <ItemGroup>
@@ -38,7 +39,6 @@
         <ProjectReference Include="..\..\modules\apis\AStar.Dev.Admin.Api\AStar.Dev.Admin.Api.csproj" />
         <ProjectReference Include="..\..\modules\apis\AStar.Dev.Files.Api\AStar.Dev.Files.Api.csproj" />
         <ProjectReference Include="..\..\modules\apis\AStar.Dev.Files.Classifications.Api\AStar.Dev.Files.Classifications.Api.csproj" />
-        <ProjectReference Include="..\..\source-generators\AStar.Dev.Source.Generators\AStar.Dev.Source.Generators.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
         <ProjectReference Include="..\..\_aspire\AStar.Dev.ServiceDefaults\AStar.Dev.ServiceDefaults.csproj" />
     </ItemGroup>
 

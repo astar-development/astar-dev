@@ -1,14 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.Linq;
+﻿using System.Collections.Immutable;
+using System.Reflection;
 using System.Text;
+using AStar.Dev.Source.Generators.InternalAttributes;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.CodeAnalysis.Text;
 
 namespace AStar.Dev.Source.Generators;
 
+/// <summary>
+/// 
+/// </summary>
 [Generator]
 public sealed class ServiceCollectionExtensionsGenerator : IIncrementalGenerator
 {
@@ -25,8 +28,16 @@ public sealed class ServiceCollectionExtensionsGenerator : IIncrementalGenerator
 
     private static readonly SymbolDisplayFormat EmitFormat = SymbolDisplayFormat.FullyQualifiedFormat;
 
+    /// <inheritdoc />
     public void Initialize(IncrementalGeneratorInitializationContext incrementalContext)
     {
+        incrementalContext.RegisterPostInitializationOutput(ctx => ctx.AddSource(
+            "Lifetime.g.cs",
+            SourceText.From(GetResourceAsString("Lifetime.cs"), Encoding.UTF8)));
+        incrementalContext.RegisterPostInitializationOutput(ctx => ctx.AddSource(
+            "RegisterServiceAttribute.g.cs",
+            SourceText.From(GetResourceAsString("RegisterServiceAttribute.cs"), Encoding.UTF8)));
+        
         IncrementalValuesProvider<INamedTypeSymbol?> classSyntax = SelectClassesWithAttributes(incrementalContext);
         IncrementalValuesProvider<(INamedTypeSymbol namedTypeSymbol, AttributeData? attributeData)> services = FilterClassesToRegisterServiceAnnotated(classSyntax);
         IncrementalValuesProvider<ServiceModel> serviceModels = CreateServiceRegistrationsModel(services)
@@ -85,7 +96,7 @@ public sealed class ServiceCollectionExtensionsGenerator : IIncrementalGenerator
     {
         if (attribute is null || attribute.ConstructorArguments.Length == 0) return Lifetime.Scoped;
 
-        TypedConstant arg = attribute.ConstructorArguments[0];
+        TypedConstant arg = attribute.ConstructorArguments.First();
         if (arg is not { Kind: TypedConstantKind.Enum, Type.Name: nameof(Lifetime) }) return Lifetime.Scoped;
         switch (arg.Value)
         {
@@ -232,4 +243,17 @@ public sealed class ServiceCollectionExtensionsGenerator : IIncrementalGenerator
         public INamedTypeSymbol? ServiceType { get; }
         public bool AlsoAsSelf { get; }
     }
+    
+    
+    private string GetResourceAsString(string resourceName)  
+    {
+        Assembly assembly = typeof(ServiceCollectionExtensionsGenerator).Assembly;
+        var manifestResourceNames = assembly.GetManifestResourceNames();  
+        resourceName = manifestResourceNames.Single(x => x.Equals($"AStar.Dev.Source.Generators.Resources.{resourceName}", StringComparison.OrdinalIgnoreCase));  
+  
+        using Stream stream = assembly.GetManifestResourceStream(resourceName) ?? throw new InvalidOperationException($"Resource '{resourceName}' not found.");  
+        using var reader = new StreamReader(stream);  
+  
+        return reader.ReadToEnd();  
+    }  
 }

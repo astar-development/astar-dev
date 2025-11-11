@@ -20,5 +20,4 @@
         <None Include="LICENSE" Pack="true" PackagePath=""/>
         <None Include="Readme.md" Pack="true" PackagePath=""/>
     </ItemGroup>
-
 </Project>
