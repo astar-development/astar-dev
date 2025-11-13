@@ -1,4 +1,4 @@
-using AStar.Dev.Annotations;
+// using AStar.Dev.Annotations;
 
 namespace AStar.Dev.Infrastructure.FilesDb.Models;
 
@@ -14,5 +14,5 @@ public partial record struct FileId()
 /// <summary>
 /// 
 /// </summary>
-[RegisterService]
+// [RegisterService]
 public class Xxx{}

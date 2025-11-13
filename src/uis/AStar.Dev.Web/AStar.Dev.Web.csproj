@@ -28,7 +28,7 @@
         <PackageReference Include="Testably.Abstractions.FileSystem.Interface" Version="9.0.0" />
         <PackageReference Include="Microsoft.Extensions.Http.Resilience" Version="9.10.0" />
         <PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders" Version="1.2.0" />
-        <PackageReference Include="AStar.Dev.Code.Generators" Version="0.1.0-alpha" />
+        <PackageReference Include="AStar.Dev.Source.Generators" Version="0.2.6-alpha" />
     </ItemGroup>
 
     <ItemGroup>

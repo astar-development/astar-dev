@@ -16,7 +16,7 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="9.0.10"/>
-        <PackageReference Include="AStar.Dev.Code.Generators" Version="0.1.0-alpha" />
+        
     </ItemGroup>
 
     <ItemGroup>
@@ -24,6 +24,10 @@
         <Pack>True</Pack>
         <PackagePath></PackagePath>
       </None>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\AStar.Dev.Annotations\AStar.Dev.Annotations.csproj" />
     </ItemGroup>
 
 </Project>

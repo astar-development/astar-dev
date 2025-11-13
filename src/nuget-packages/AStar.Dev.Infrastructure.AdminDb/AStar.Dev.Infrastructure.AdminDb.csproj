@@ -3,7 +3,7 @@
     <PropertyGroup>
         <Title>AStar Dev Infrastructure AdminDb</Title>
         <ApplicationIcon>astar.ico</ApplicationIcon>
-        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <Authors>AStar Development, Jason Barden</Authors>
         <Company>AStar Development</Company>
         <Copyright>AStar Development, 2025</Copyright>
@@ -14,7 +14,7 @@
         <IncludeSymbols>True</IncludeSymbols>
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <PackageReadmeFile>Readme.md</PackageReadmeFile>
-        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <DocumentationFile>$(AssemblyName).xml</DocumentationFile>
         <Version>0.1.3</Version>
@@ -32,7 +32,6 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="AStar.Dev.Code.Generators" Version="0.1.0-alpha" />
     </ItemGroup>
 
     <ItemGroup>

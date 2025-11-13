@@ -35,7 +35,7 @@ namespace AStar.Dev.Source.Generators.Domain
         /// ○ Match the string "/ \n".<br/>
         /// </code>
         /// </remarks>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "9.0.12.47515")]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "9.0.13.1716")]
         private static partial global::System.Text.RegularExpressions.Regex PasswordRegex() => global::System.Text.RegularExpressions.Generated.PasswordRegex_0.Instance;
     }
 }
@@ -53,7 +53,7 @@ namespace System.Text.RegularExpressions.Generated
     using System.Threading;
 
     /// <summary>Custom <see cref="Regex"/>-derived type for the PasswordRegex method.</summary>
-    [GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "9.0.12.47515")]
+    [GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "9.0.13.1716")]
     file sealed class PasswordRegex_0 : Regex
     {
         /// <summary>Cached, thread-safe singleton instance.</summary>
@@ -531,7 +531,7 @@ namespace System.Text.RegularExpressions.Generated
     }
     
     /// <summary>Helper methods used by generated <see cref="Regex"/>-derived implementations.</summary>
-    [GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "9.0.12.47515")]
+    [GeneratedCodeAttribute("System.Text.RegularExpressions.Generator", "9.0.13.1716")]
     file static class Utilities
     {
         /// <summary>Default timeout value set in <see cref="AppContext"/>, or <see cref="Regex.InfiniteMatchTimeout"/> if none was set.</summary>

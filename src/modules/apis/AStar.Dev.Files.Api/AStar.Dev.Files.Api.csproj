@@ -28,7 +28,7 @@
         <PackageReference Include="TestableIO.System.IO.Abstractions" Version="22.0.16"/>
         <PackageReference Include="TestableIO.System.IO.Abstractions.Wrappers" Version="22.0.16"/>
         <PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders" Version="1.2.0"/>
-        <PackageReference Include="AStar.Dev.Code.Generators" Version="0.1.0-alpha" />
+        <PackageReference Include="AStar.Dev.Source.Generators" Version="0.2.6-alpha" />
     </ItemGroup>
 
     <ItemGroup>

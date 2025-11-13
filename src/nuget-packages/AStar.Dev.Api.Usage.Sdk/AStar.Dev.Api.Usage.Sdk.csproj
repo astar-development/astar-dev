@@ -8,11 +8,10 @@
         <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="9.0.10"/>
         <PackageReference Include="Microsoft.Extensions.Options" Version="9.0.10"/>
         <PackageReference Include="Aspire.RabbitMQ.Client.v7" Version="9.5.2"/>
-        <PackageReference Include="AStar.Dev.Code.Generators" Version="0.1.0-alpha" />
+        
     </ItemGroup>
 
     <PropertyGroup>
-        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
         <Title>AStar Dev Api Usage Sdk</Title>
         <Company>AStar Development</Company>
         <Copyright>AStar Development, 2025</Copyright>
@@ -29,8 +28,9 @@
         <Authors>AStar Development, Jason Barden</Authors>
         <DocumentationFile>$(AssemblyName).xml</DocumentationFile>
         <PackageIcon>astar.png</PackageIcon>
-        <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+        
         <PackageReleaseNotes>Version 0.1.0 - the initial version.</PackageReleaseNotes>
+        <IsPackable>false</IsPackable>
     </PropertyGroup>
 
     <ItemGroup>

@@ -8,11 +8,11 @@
         <PackageReference Include="Serilog" Version="4.3.0"/>
         <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.6"/>
         <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="9.0.6"/>
-        <PackageReference Include="AStar.Dev.Code.Generators" Version="0.1.0-alpha" />
+        
     </ItemGroup>
 
     <PropertyGroup>
-        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <Title>AStar Dev AspNet Extensions</Title>
         <Company>AStar Development</Company>
         <Copyright>AStar Development, 2025</Copyright>
@@ -29,7 +29,7 @@
         <Authors>AStar Development, Jason Barden</Authors>
         <DocumentationFile>$(AssemblyName).xml</DocumentationFile>
         <PackageIcon>astar.png</PackageIcon>
-        <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+        
         <PackageReleaseNotes>Version 0.7.30 - remove the sunset policies frpm AppSettings - currently, it is ignored.</PackageReleaseNotes>
     </PropertyGroup>
 

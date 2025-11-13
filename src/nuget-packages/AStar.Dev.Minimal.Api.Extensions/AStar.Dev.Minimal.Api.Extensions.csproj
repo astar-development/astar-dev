@@ -17,7 +17,7 @@
         <Authors>AStar Development, Jason Barden</Authors>
         <DocumentationFile>$(AssemblyName).xml</DocumentationFile>
         <PackageIcon>AStar.png</PackageIcon>
-        <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+        
         <PackageReleaseNotes>Version 0.1.0 - Initial version.</PackageReleaseNotes>
     </PropertyGroup>
 
@@ -45,7 +45,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="AStar.Dev.Code.Generators" Version="0.1.0-alpha" />
+        
     </ItemGroup>
 
 </Project>

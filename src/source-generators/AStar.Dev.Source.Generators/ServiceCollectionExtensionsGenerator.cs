@@ -1,7 +1,7 @@
 ﻿using System.Collections.Immutable;
 using System.Reflection;
 using System.Text;
-using AStar.Dev.Source.Generators.InternalAttributes;
+using AStar.Dev.Annotations;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -31,13 +31,6 @@ public sealed class ServiceCollectionExtensionsGenerator : IIncrementalGenerator
     /// <inheritdoc />
     public void Initialize(IncrementalGeneratorInitializationContext incrementalContext)
     {
-        incrementalContext.RegisterPostInitializationOutput(ctx => ctx.AddSource(
-            "Lifetime.g.cs",
-            SourceText.From(GetResourceAsString("Lifetime.cs"), Encoding.UTF8)));
-        incrementalContext.RegisterPostInitializationOutput(ctx => ctx.AddSource(
-            "RegisterServiceAttribute.g.cs",
-            SourceText.From(GetResourceAsString("RegisterServiceAttribute.cs"), Encoding.UTF8)));
-        
         IncrementalValuesProvider<INamedTypeSymbol?> classSyntax = SelectClassesWithAttributes(incrementalContext);
         IncrementalValuesProvider<(INamedTypeSymbol namedTypeSymbol, AttributeData? attributeData)> services = FilterClassesToRegisterServiceAnnotated(classSyntax);
         IncrementalValuesProvider<ServiceModel> serviceModels = CreateServiceRegistrationsModel(services)

@@ -12,7 +12,7 @@
 
     <ItemGroup>
         <PackageReference Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer" Version="9.5.2"/>
-        <PackageReference Include="AStar.Dev.Code.Generators" Version="0.1.0-alpha" />
+        <PackageReference Include="AStar.Dev.Source.Generators" Version="0.2.6-alpha" />
     </ItemGroup>
 
     <ItemGroup>

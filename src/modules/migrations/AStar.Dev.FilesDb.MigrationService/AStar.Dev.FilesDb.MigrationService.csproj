@@ -11,7 +11,7 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.10"/>
-        <PackageReference Include="AStar.Dev.Code.Generators" Version="0.1.0-alpha" />
+        <PackageReference Include="AStar.Dev.Source.Generators" Version="0.2.6-alpha" />
     </ItemGroup>
 
     <ItemGroup>

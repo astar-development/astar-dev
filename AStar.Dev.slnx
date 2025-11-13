@@ -63,6 +63,7 @@
     <Project Path="src/nuget-packages/AStar.Dev.Utilities/AStar.Dev.Utilities.csproj" />
   </Folder>
   <Folder Name="/src/source-generators/">
+    <Project Path="src\source-generators\AStar.Dev.Annotations\AStar.Dev.Annotations.csproj" Type="Classic C#" />
     <Project Path="src\source-generators\AStar.Dev.Source.Generators.Domain\AStar.Dev.Source.Generators.Domain.csproj" Type="Classic C#" />
     <Project Path="src\source-generators\AStar.Dev.Source.Generators\AStar.Dev.Source.Generators.csproj" Type="Classic C#" />
   </Folder>
