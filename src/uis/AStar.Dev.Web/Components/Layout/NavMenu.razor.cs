@@ -6,17 +6,16 @@ namespace AStar.Dev.Web.Components.Layout;
 
 public partial class NavMenu : ComponentBase
 {
-    private bool    _expanded = true;
+    private bool _expanded = true;
     private string? _firstName;
-    private bool    _isAuthenticated;
+    private bool _isAuthenticated;
 
-    [CascadingParameter]
-    private Task<AuthenticationState> AuthenticationStateTask { get; set; } = null!;
+    [CascadingParameter] private Task<AuthenticationState> AuthenticationStateTask { get; set; } = null!;
 
     protected override async Task OnParametersSetAsync()
     {
-        AuthenticationState authState = await AuthenticationStateTask;
-        ClaimsPrincipal user      = authState.User;
+        var authState = await AuthenticationStateTask;
+        var user = authState.User;
         _isAuthenticated = user.Identity?.IsAuthenticated ?? false;
         _firstName = _isAuthenticated ? ExtractFirstName(user) : null;
     }
@@ -35,8 +34,8 @@ public partial class NavMenu : ComponentBase
 
     private static string GetNameClaim(ClaimsPrincipal user, string[] claimTypes)
         => claimTypes
-           .Select(user.FindFirst)
-           .FirstOrDefault(c => !string.IsNullOrWhiteSpace(c?.Value))?.Value
+               .Select(user.FindFirst)
+               .FirstOrDefault(c => !string.IsNullOrWhiteSpace(c?.Value))?.Value
            ?? IdentityNameOrDefault(user);
 
     private static string IdentityNameOrDefault(ClaimsPrincipal user) => user.Identity?.Name ?? "User";

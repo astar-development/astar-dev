@@ -1,8 +1,0 @@
-﻿{
-  "siteConfigurationSlug": "SiteConfigurationSlug",
-  "searchString": "SearchString",
-  "subscriptions": "Subscriptions",
-  "searchStringPrefix": "SearchStringPrefix",
-  "topWallpapers": "TopWallpapers",
-  "totalPages": 2
-}

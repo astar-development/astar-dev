@@ -1,7 +1,0 @@
-﻿{
-  "rootDirectory": "",
-  "baseSaveDirectory": "",
-  "baseDirectory": "",
-  "baseDirectoryFamous": "",
-  "subDirectoryName": ""
-}

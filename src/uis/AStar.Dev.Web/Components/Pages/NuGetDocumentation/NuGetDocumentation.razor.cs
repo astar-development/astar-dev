@@ -5,8 +5,7 @@ namespace AStar.Dev.Web.Components.Pages.NuGetDocumentation;
 [UsedImplicitly]
 public partial class NuGetDocumentation : ComponentBase
 {
-    [Inject]
-    private ILogger<NuGetDocumentation> Logger { get; set; } = null!;
+    [Inject] private ILogger<NuGetDocumentation> Logger { get; set; } = null!;
 
     //private List<BreadcrumbItem> NavItems1 { get; set; } = null!;
 

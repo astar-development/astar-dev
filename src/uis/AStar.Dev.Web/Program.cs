@@ -1,10 +1,10 @@
 using AStar.Dev.Web;
 
-WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
+var builder = WebApplication.CreateBuilder(args);
 
 builder.AddApplicationServices();
 
-WebApplication app = builder.RemoveServerHeaderAndBuild();
+var app = builder.RemoveServerHeaderAndBuild();
 
 app.UseApplicationServices();
 

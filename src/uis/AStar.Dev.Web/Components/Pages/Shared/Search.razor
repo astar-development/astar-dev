@@ -2,7 +2,7 @@
     <DataAnnotationsValidator/>
     <FluentValidationSummary/>
 
-    <FluentGrid Spacing="3" AdaptiveRendering="true" Justify="JustifyContent.FlexStart" Style="background-color: var(--neutral-layer-3); padding: 4px; ">
+    <FluentGrid Spacing="3" AdaptiveRendering="true" Justify="JustifyContent.FlexStart" Style="@_gridClass">
         <FluentGridItem xs="12" sm="6">
             <div class="card">
                 <FluentTextField Name="startingDirectory" @bind-Value="SearchModel.StartingDirectory" Label="StartingDirectory" Required style="width: 100%;"/>

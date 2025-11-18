@@ -1,6 +1,0 @@
-﻿{
-  "id": 0,
-  "value": "",
-  "updatedBy": "Jay Barden",
-  "updatedOn": "2025-01-02T03:04:05+00:00"
-}

@@ -5,8 +5,7 @@ namespace AStar.Dev.Web.Components.Pages.KidsGames.halving;
 [UsedImplicitly]
 public partial class Halving4 : ComponentBase
 {
-    [Inject]
-    private ILogger<Halving4> Logger { get; set; } = null!;
+    [Inject] private ILogger<Halving4> Logger { get; set; } = null!;
 
     // private List<BreadcrumbItem> NavItems1 { get; set; } = null!;
 

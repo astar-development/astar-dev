@@ -7,15 +7,12 @@ public partial class MarkdownView : ComponentBase
 {
     protected string Html = string.Empty;
 
-    [Parameter]
-    public string? Content { get; set; }
+    [Parameter] public string? Content { get; set; }
 
     // When true, raw HTML inside Markdown is NOT rendered (sanitized in JS).
-    [Parameter]
-    public bool DisableHtml { get; set; } = true;
+    [Parameter] public bool DisableHtml { get; set; } = true;
 
-    [Inject]
-    protected IJSRuntime Js { get; set; } = default!;
+    [Inject] protected IJSRuntime Js { get; set; } = default!;
 
     protected override async Task OnParametersSetAsync()
     {
@@ -23,10 +20,10 @@ public partial class MarkdownView : ComponentBase
 
         // Render markdown via JS (marked + DOMPurify). If DisableHtml = true, we sanitize.
         var rendered = await Js.InvokeAsync<string>(
-                                                    "renderMarkdown",
-                                                    md,
-                                                    !DisableHtml // allowHtml
-                                                   );
+            "renderMarkdown",
+            md,
+            !DisableHtml // allowHtml
+        );
 
         Html = rendered;
     }
