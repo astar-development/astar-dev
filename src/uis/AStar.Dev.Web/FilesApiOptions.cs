@@ -2,6 +2,6 @@
 
 public class FilesApiOptions
 {
-    public string[] ReadScopes  { get; set; } = [];
+    public string[] ReadScopes { get; set; } = [];
     public string[] WriteScopes { get; set; } = [];
 }

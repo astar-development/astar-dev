@@ -1,9 +1,0 @@
-﻿{
-  "slug": "mock-slug",
-  "baseUrl": "",
-  "loginUrl": "",
-  "loginEmailAddress": "",
-  "username": "",
-  "password": "",
-  "updatedBy": "me"
-}

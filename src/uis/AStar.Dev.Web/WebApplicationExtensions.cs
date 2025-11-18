@@ -1,7 +1,8 @@
-using AStar.Dev.Files.Api.Endpoints.Add.V1;
-using AStar.Dev.Files.Api.Endpoints.Get.V1;
-using AStar.Dev.Files.Classifications.Api;
-using AStar.Dev.ServiceDefaults;
+// using AStar.Dev.Files.Api.Endpoints.Add.V1;
+// using AStar.Dev.Files.Api.Endpoints.Get.V1;
+// using AStar.Dev.Files.Classifications.Api;
+// using AStar.Dev.ServiceDefaults;
+
 using AStar.Dev.Web.Components;
 using Scalar.AspNetCore;
 
@@ -31,9 +32,9 @@ public static class WebApplicationExtensions
     ///     and proceeds to build the <see cref="WebApplication" /> instance.
     ///     This method encompasses both the header removal and the final application building for streamlined configuration.
     /// </summary>
-    /// <param name="app">The <see cref="WebApplicationBuilder" /> instance to configure and build.</param>
+    /// <param name="builder">The <see cref="WebApplicationBuilder" /> instance to configure.</param>
     /// <returns>A fully configured and built <see cref="WebApplication" /> instance.</returns>
-    public static WebApplication RemoveServerHeaderAndBuild(this WebApplicationBuilder app) => app.RemoveServerHeader().Build();
+    public static WebApplication RemoveServerHeaderAndBuild(this WebApplicationBuilder builder) => builder.RemoveServerHeader().Build();
 
     /// <summary>
     ///     Configures the web application to use various application services such as security headers, health checks,
@@ -54,14 +55,14 @@ public static class WebApplicationExtensions
     {
         _ = app.UseExceptionHandler("/Error", true);
 
-        if(!app.Environment.IsDevelopment())
+        if (!app.Environment.IsDevelopment())
             _ = app.UseHsts();
 
         _ = app.UseHttpsRedirection();
 
         HeaderPolicyCollection policyCollection = new HeaderPolicyCollection()
-                               .AddDefaultSecurityHeaders()
-                               .AddPermissionsPolicyWithDefaultSecureDirectives();
+            .AddDefaultSecurityHeaders()
+            .AddPermissionsPolicyWithDefaultSecureDirectives();
 
         _ = app.UseSecurityHeaders(policyCollection);
 
@@ -75,15 +76,15 @@ public static class WebApplicationExtensions
         _ = app.MapControllers();
 
         _ = app.MapRazorComponents<App>()
-           .AddInteractiveServerRenderMode();
+            .AddInteractiveServerRenderMode();
         _ = app.MapOpenApi();
         _ = app.MapScalarApiReference();
 
         _ = app.MapDefaultEndpoints();
-
-        app.MapFilesPostEndpoint();
-        app.MapFilesGetEndpoint();
-        _ = app.UseFilesClassificationsApplicationServices();
+        //
+        // app.MapFilesPostEndpoint();
+        // app.MapFilesGetEndpoint();
+        // _ = app.UseFilesClassificationsApplicationServices();
         _ = app.UseExceptionHandler();
 
         _ = app.MapShortCircuit(404, "robots.txt", "favicon.ico", "404.html", "sitemap.xml");

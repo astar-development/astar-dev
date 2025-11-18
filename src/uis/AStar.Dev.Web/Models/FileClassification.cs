@@ -1,5 +1,4 @@
-﻿
-namespace AStar.Dev.Web.Models;
+﻿namespace AStar.Dev.Web.Models;
 
 /// <summary>
 ///     Represents a classification of files, providing metadata about the type of files
@@ -7,15 +6,15 @@ namespace AStar.Dev.Web.Models;
 /// </summary>
 public class FileClassification
 {
-    public FileClassification(Files.Classifications.Api.FileClassification fc)
-    {
-        Id = fc.Id;
-        Name = fc.Name;
-        Celebrity = fc.Celebrity;
-        IncludeInSearch = fc.IncludeInSearch;
-        SearchLevel = fc.SearchLevel;
-        ParentId = fc.ParentId;
-    }
+    // public FileClassification(Files.Classifications.Api.FileClassification fc)
+    // {
+    //     Id = fc.Id;
+    //     Name = fc.Name;
+    //     Celebrity = fc.Celebrity;
+    //     IncludeInSearch = fc.IncludeInSearch;
+    //     SearchLevel = fc.SearchLevel;
+    //     ParentId = fc.ParentId;
+    // }
 
     /// <summary>
     ///     Gets or sets the unique identifier for the file classification.
@@ -50,4 +49,3 @@ public class FileClassification
     /// </summary>
     public bool? IncludeInSearch { get; set; }
 }
-

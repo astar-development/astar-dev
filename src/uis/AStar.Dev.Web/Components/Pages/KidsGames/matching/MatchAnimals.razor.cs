@@ -5,8 +5,7 @@ namespace AStar.Dev.Web.Components.Pages.KidsGames.matching;
 [UsedImplicitly]
 public partial class MatchAnimals : ComponentBase
 {
-    [Inject]
-    private ILogger<MatchAnimals> Logger { get; set; } = null!;
+    [Inject] private ILogger<MatchAnimals> Logger { get; set; } = null!;
 
     // private List<BreadcrumbItem> NavItems1 { get; set; } = null!;
 

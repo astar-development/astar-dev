@@ -1,0 +1,42 @@
+<Solution>
+    <Folder Name="/Solution Items/">
+        <File Path="Directory.Build.props" />
+    </Folder>
+    <Folder Name="/Solution Items/.github/">
+        <File Path=".github\codeql.yml" />
+        <File Path=".github\copilot-instructions.md" />
+        <File Path=".github\dependabot.yml" />
+    </Folder>
+    <Folder Name="/Solution Items/.github/instructions/">
+        <File Path=".github\instructions\blazor.instructions.md" />
+    </Folder>
+    <Folder Name="/Solution Items/.github/prompts/">
+        <File Path=".github\prompts\astar.prompt.md" />
+        <File Path=".github\prompts\xunit.prompt.md" />
+    </Folder>
+    <Folder Name="/Solution Items/.github/workflows/">
+        <File Path=".github\workflows\main_astar-dev.yml" />
+    </Folder>
+    <Folder Name="/src/" />
+    <Folder Name="/src/aspire/">
+        <Project Path="src/aspire/AStar.Dev.Aspire.Common/AStar.Dev.Aspire.Common.csproj" />
+        <Project Path="src/aspire/AStar.Web.AppHost/AStar.Web.AppHost.csproj" />
+        <Project Path="src/aspire/AStar.Web.ServiceDefaults/AStar.Web.ServiceDefaults.csproj" />
+    </Folder>
+    <Folder Name="/src/modules/" />
+    <Folder Name="/src/modules/apis/">
+        <Project Path="src/modules/apis/AStar.Web.ApiService/AStar.Web.ApiService.csproj" />
+    </Folder>
+    <Folder Name="/src/uis/">
+        <Project Path="src\uis\AStar.Dev.Web\AStar.Dev.Web.csproj" />
+    </Folder>
+    <Folder Name="/test/" />
+    <Folder Name="/test/aspire/" />
+    <Folder Name="/test/modules/" />
+    <Folder Name="/test/modules/apis/" />
+    <Folder Name="/test/nuget-packages/" />
+    <Folder Name="/test/uis/">
+        <Project Path="test/uis/AStar.Dev.Web.Tests.Unit/AStar.Dev.Web.Tests.Unit.csproj" />
+        <Project Path="test\uis\AStar.Dev.Web.Tests.Integration\AStar.Dev.Web.Tests.Integration.csproj" />
+    </Folder>
+</Solution>

@@ -1,6 +1,4 @@
-﻿@using Microsoft.AspNetCore.Authorization
-@using Microsoft.FluentUI.AspNetCore.Components.Icons.Regular
-@attribute [AllowAnonymous]
+﻿@using Microsoft.FluentUI.AspNetCore.Components.Icons.Regular
 <div class="navmenu">
     <input type="checkbox" title="Menu expand/collapse toggle" id="navmenu-toggle" class="navmenu-icon"/>
     <label for="navmenu-toggle" class="navmenu-icon">
@@ -11,7 +9,8 @@
             <FluentNavLink Href="/" Match="NavLinkMatch.All" Icon="@(new Size20.Home())" IconColor="Color.Accent">Home</FluentNavLink>
             <FluentNavLink Href="counter" Icon="@(new Size20.NumberSymbolSquare())" IconColor="Color.Accent" Tooltip="The OOTB Counter page">Counter</FluentNavLink>
             <FluentNavLink Href="weather" Icon="@(new Size20.WeatherPartlyCloudyDay())" IconColor="Color.Accent" Tooltip="The OOTB Weather page">Weather</FluentNavLink>
-            <FluentNavLink Href="nuget-documentation" Icon="@(new Size20.Document())" IconColor="Color.Accent" Tooltip="Access the NuGet documentation root document">NuGet Documentation</FluentNavLink>
+            <FluentNavLink Href="nuget-documentation" Icon="@(new Size20.Document())" IconColor="Color.Accent" Tooltip="Access the NuGet documentation root document">NuGet Documentation
+            </FluentNavLink>
             <FluentNavLink Href="kids-games" Icon="@(new Size20.Games())" IconColor="Color.Accent" Tooltip="Play some games (not operational)">Kids Games</FluentNavLink>
 
             @if (!_isAuthenticated)
@@ -48,7 +47,9 @@
                         </FluentNavLink>
                     </ChildContent>
                 </FluentNavGroup>
-                <FluentNavLink Href="/images/duplicate-images" Icon="@(new Size20.People())" IconColor="Color.Accent" Tooltip="View Duplicate Images based on configurable parameteres" >Duplicate Images</FluentNavLink>
+                <FluentNavLink Href="/images/duplicate-images" Icon="@(new Size20.People())" IconColor="Color.Accent" Tooltip="View Duplicate Images based on configurable parameteres">Duplicate
+                    Images
+                </FluentNavLink>
                 <FluentNavLink Href="MicrosoftIdentity/Account/SignOut" Icon="@(new Size20.SignOut())" IconColor="Color.Accent" Tooltip="Sign out of the site">Sign out, @_firstName</FluentNavLink>
             }
         </FluentNavMenu>

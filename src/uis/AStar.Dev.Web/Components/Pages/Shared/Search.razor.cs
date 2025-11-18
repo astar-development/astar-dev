@@ -10,6 +10,7 @@ namespace AStar.Dev.Web.Components.Pages.Shared;
 
 public partial class Search : ComponentBase
 {
+    private readonly string _gridClass = "background-color: var(--neutral-layer-3); padding: 4px; ";
     private List<FileClassification> FileClassifications { get; set; } = [];
 
     [Inject] private IFileClassificationsService FileClassificationsService { get; set; } = null!;
@@ -18,15 +19,15 @@ public partial class Search : ComponentBase
 
     [SupplyParameterFromForm(FormName = "search")]
     // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Local
-    private SearchModel SearchModel { get; set; } = new();
+    public required SearchModel SearchModel { get; set; }
 
     [Parameter] public EventCallback<SearchModel> OnValidSubmit { get; set; }
-
-    private static string GetDaysText(int days) => days == 0 ? "Include all" : $"{days} days";
 
     private static IEnumerable<SearchType> SearchTypeOptions => Enum.GetValues<SearchType>();
 
     private static IEnumerable<SortOrder> SortOrderOptions => Enum.GetValues<SortOrder>();
+
+    private static string GetDaysText(int days) => days == 0 ? "Include all" : $"{days} days";
 
     private static string GetSearchTypeText(SearchType searchType) => searchType switch
     {
@@ -50,8 +51,8 @@ public partial class Search : ComponentBase
     {
         FileClassifications =
         [
-            new FileClassification(new Dev.Files.Classifications.Api.FileClassification(Guid.Empty, 1, "-- Select (Optional) --", null,null, false, false)
-            )
+            // new FileClassification(new Dev.Files.Classifications.Api.FileClassification(Guid.Empty, 1, "-- Select (Optional) --", null,null, false, false)
+            // )
         ];
 
         IEnumerable<FileClassification> classifications = await FileClassificationsService.GetFileClassificationsAsync();

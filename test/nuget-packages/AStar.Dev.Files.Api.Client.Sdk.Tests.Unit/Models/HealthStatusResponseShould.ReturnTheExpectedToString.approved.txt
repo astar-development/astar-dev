@@ -1,1 +1,0 @@
-﻿AStar.Dev.Api.HealthChecks.HealthStatusResponse
