@@ -1,3 +1,4 @@
+using Aspire.Hosting;
 using Microsoft.Extensions.Logging;
 using Projects;
 
@@ -11,9 +12,9 @@ public class WebTests
     public async Task GetWebResourceRootReturnsOkStatusCode()
     {
         // Arrange
-        var cancellationToken = new CancellationTokenSource(DefaultTimeout).Token;
+        CancellationToken cancellationToken = new CancellationTokenSource(DefaultTimeout).Token;
 
-        var appHost =
+        IDistributedApplicationTestingBuilder appHost =
             await DistributedApplicationTestingBuilder.CreateAsync<AStar_Web_AppHost>(cancellationToken);
         appHost.Services.AddLogging(logging =>
         {
@@ -25,14 +26,14 @@ public class WebTests
         });
         appHost.Services.ConfigureHttpClientDefaults(clientBuilder => { clientBuilder.AddStandardResilienceHandler(); });
 
-        await using var app = await appHost.BuildAsync(cancellationToken).WaitAsync(DefaultTimeout, cancellationToken);
+        await using DistributedApplication app = await appHost.BuildAsync(cancellationToken).WaitAsync(DefaultTimeout, cancellationToken);
         await app.StartAsync(cancellationToken).WaitAsync(DefaultTimeout, cancellationToken);
 
         // Act
-        var httpClient = app.CreateHttpClient("webfrontend");
+        HttpClient httpClient = app.CreateHttpClient("webfrontend");
         await app.ResourceNotifications.WaitForResourceHealthyAsync("webfrontend", cancellationToken)
             .WaitAsync(DefaultTimeout, cancellationToken);
-        var response = await httpClient.GetAsync("/", cancellationToken);
+        HttpResponseMessage response = await httpClient.GetAsync("/", cancellationToken);
 
         // Assert
         Assert.Equal(HttpStatusCode.OK, response.StatusCode);

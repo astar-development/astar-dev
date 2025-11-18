@@ -1,3 +1,4 @@
+using AngleSharp.Dom;
 using AStar.Dev.Web.Components.Pages;
 using Bunit;
 using Microsoft.AspNetCore.Authorization;
@@ -16,18 +17,18 @@ public class HomeShould : TestContext
     [Fact]
     public void ContainTheWelcomeHeading()
     {
-        var cut = RenderComponent<Home>();
+        IRenderedComponent<Home> cut = RenderComponent<Home>();
 
-        var heading = cut.Find("h1");
+        IElement heading = cut.Find("h1");
         Assert.Equal("Welcome to the AStar Development website!", heading.TextContent);
     }
 
     [Fact]
     public void ContainTheFluentUiLink()
     {
-        var cut = RenderComponent<Home>();
+        IRenderedComponent<Home> cut = RenderComponent<Home>();
 
-        var link = cut.Find("a[href='https://www.fluentui-blazor.net']");
+        IElement link = cut.Find("a[href='https://www.fluentui-blazor.net']");
 
         Assert.Equal("_blank", link.GetAttribute("target"));
         Assert.Equal("Microsoft Fluent UI Blazor library", link.TextContent);

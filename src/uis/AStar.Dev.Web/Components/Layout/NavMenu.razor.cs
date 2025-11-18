@@ -14,8 +14,8 @@ public partial class NavMenu : ComponentBase
 
     protected override async Task OnParametersSetAsync()
     {
-        var authState = await AuthenticationStateTask;
-        var user = authState.User;
+        AuthenticationState authState = await AuthenticationStateTask;
+        ClaimsPrincipal user = authState.User;
         _isAuthenticated = user.Identity?.IsAuthenticated ?? false;
         _firstName = _isAuthenticated ? ExtractFirstName(user) : null;
     }

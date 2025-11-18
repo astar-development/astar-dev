@@ -12,7 +12,7 @@ env:
   AZURE_WEBAPP_NAME: astar-dev
   AZURE_WEBAPP_PACKAGE_PATH: src/uis/AStar.Dev.Web/published
   CONFIGURATION: Release
-  DOTNET_CORE_VERSION: 10.0.x
+  DOTNET_CORE_VERSION: 10.x.x
   WORKING_DIRECTORY: src/uis/AStar.Dev.Web
 jobs:
   build:
@@ -21,6 +21,11 @@ jobs:
       contents: read #This is required for actions/checkout
 
     steps:
+      - name: 🛠 Install .NET 10
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: ${{ env.DOTNET_CORE_VERSION }}
+
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:

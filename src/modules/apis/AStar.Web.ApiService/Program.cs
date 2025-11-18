@@ -1,6 +1,6 @@
 using Asp.Versioning;
 
-var builder = WebApplication.CreateBuilder(args);
+WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Add service defaults & Aspire client integrations.
 builder.AddServiceDefaults();
@@ -22,7 +22,7 @@ _ = builder.Services.AddApiVersioning(options =>
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
-var app = builder.Build();
+WebApplication app = builder.Build();
 
 // Configure the HTTP request pipeline.
 app.UseExceptionHandler();
@@ -36,7 +36,7 @@ app.MapGet("/", () => "API service is running. Navigate to /weatherforecast to s
 
 app.MapGet("/weatherforecast", () =>
     {
-        var forecast = Enumerable.Range(1, 5).Select(index => new WeatherForecast
+        WeatherForecast[] forecast = Enumerable.Range(1, 5).Select(index => new WeatherForecast
             (
                 DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
                 Random.Shared.Next(-20, 55),

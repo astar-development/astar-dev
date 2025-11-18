@@ -22,9 +22,9 @@ public partial class AuthenticationCheck : ComponentBase
     /// <returns></returns>
     private async Task GetClaimsPrincipalData()
     {
-        var authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
+        AuthenticationState authState = await AuthenticationStateProvider.GetAuthenticationStateAsync();
 
-        var user = authState.User;
+        ClaimsPrincipal user = authState.User;
 
         if (user.Identity is
             {
@@ -35,9 +35,6 @@ public partial class AuthenticationCheck : ComponentBase
 
             _claims = user.Claims; //.Where(x => printClaims.Contains(x.Type)); // The Where will, as you can guess, limit the results listed
         }
-        else
-        {
-            _authMessage = "The user is NOT authenticated.";
-        }
+        else _authMessage = "The user is NOT authenticated.";
     }
 }

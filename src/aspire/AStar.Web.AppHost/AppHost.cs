@@ -1,8 +1,8 @@
 using Projects;
 
-var builder = DistributedApplication.CreateBuilder(args);
+IDistributedApplicationBuilder builder = DistributedApplication.CreateBuilder(args);
 
-var apiService = builder.AddProject<AStar_Web_ApiService>("apiservice")
+IResourceBuilder<ProjectResource> apiService = builder.AddProject<AStar_Web_ApiService>("apiservice")
     .WithHttpHealthCheck("/health");
 
 builder.AddProject<AStar_Dev_Web>("webfrontend")
