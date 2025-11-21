@@ -1,4 +1,4 @@
-﻿namespace AStar.Dev.Aspire.Common;
+﻿namespace AStar.Dev.Web.Aspire.Common;
 
 public static class AspireConstants
 {

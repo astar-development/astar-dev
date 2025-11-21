@@ -1,0 +1,135 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.Immutable;
+using System.Linq;
+using System.Text;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+
+namespace AStar.Dev.Source.Generators;
+
+[Generator]
+public sealed class StrongIdGenerator : IIncrementalGenerator
+{
+    private const string AttrFqn = "AStar.Dev.Annotations.StrongIdAttribute";
+
+    public void Initialize(IncrementalGeneratorInitializationContext ctx)
+    {
+        // Discover partial structs annotated with [StrongId]
+        IncrementalValuesProvider<StrongIdModel> candidates = ctx.SyntaxProvider.ForAttributeWithMetadataName(
+            AttrFqn,
+            static (node, _) => node is StructDeclarationSyntax s && s.Modifiers.Any(m => m.Text == "partial"),
+            static (syntaxCtx, _) =>
+            {
+                var symbol = (INamedTypeSymbol)syntaxCtx.TargetSymbol;
+                AttributeData attr = syntaxCtx.Attributes[0];
+
+                var underlyingArg = attr.ConstructorArguments.Length == 1
+                    ? attr.ConstructorArguments[0].Value?.ToString() ?? "System.Guid"
+                    : "System.Guid";
+
+                return new StrongIdModel(
+                    symbol.ContainingNamespace.IsGlobalNamespace ? null : symbol.ContainingNamespace.ToDisplayString(),
+                    symbol.Name,
+                    symbol.DeclaredAccessibility,
+                    underlyingArg
+                );
+            });
+
+        // Use a custom comparer (no System.HashCode) so incremental semantics are stable
+        IncrementalValueProvider<ImmutableArray<StrongIdModel>> models = candidates.WithComparer(StrongIdModelEqualityComparer.Instance).Collect();
+
+        ctx.RegisterSourceOutput(models, static (spc, batch) =>
+        {
+            foreach (StrongIdModel? model in batch) spc.AddSource($"{model.Name}.StrongId.g.cs", Generate(model));
+        });
+    }
+
+    private static string Generate(StrongIdModel m)
+    {
+        var ns = m.Namespace is null ? null : $"namespace {m.Namespace};";
+        var acc = m.Accessibility.ToString().ToLowerInvariant();
+        var t = m.UnderlyingTypeDisplay;
+
+        // detect special-cases
+        var isGuid = string.Equals(t, "System.Guid", StringComparison.Ordinal) ||
+                     string.Equals(t, "Guid", StringComparison.Ordinal);
+        var isString = string.Equals(t, "System.String", StringComparison.Ordinal) ||
+                       string.Equals(t, "string", StringComparison.Ordinal);
+
+        var toStringBody = isString ? "_value ?? string.Empty" : "_value.ToString()";
+        var getHashBody = isString
+            ? "(_value == null ? 0 : _value.GetHashCode())"
+            : $"System.Collections.Generic.EqualityComparer<{t}>.Default.GetHashCode(_value)";
+
+        var sb = new StringBuilder();
+        sb.AppendLine(Constants.SourceGeneratorHeader);
+        sb.AppendLine("#nullable enable");
+        if (ns is not null) sb.AppendLine(ns).AppendLine();
+
+        sb.AppendLine(
+            $$"""
+              {{acc}} readonly partial struct {{m.Name}} : System.IEquatable<{{m.Name}}>
+              {
+                  private readonly {{t}} _value;
+                  public {{m.Name}}({{t}} value) => _value = value;
+
+                  public static implicit operator {{t}}({{m.Name}} id) => id._value;
+                  public static explicit operator {{m.Name}}({{t}} value) => new(value);
+
+                  public bool Equals({{m.Name}} other) => System.Collections.Generic.EqualityComparer<{{t}}>.Default.Equals(_value, other._value);
+                  public override bool Equals(object? obj) => obj is {{m.Name}} other && Equals(other);
+                  public override int GetHashCode() => {{getHashBody}};
+                  public override string ToString() => {{toStringBody}};
+              """);
+
+        if (isGuid)
+        {
+            sb.AppendLine(
+                $$"""
+                              
+                      public static {{m.Name}} New() => new(System.Guid.NewGuid());
+
+                      public static bool TryParse(string? s, out {{m.Name}} value)
+                      {
+                          var ok = System.Guid.TryParse(s, out var g);
+                          value = ok ? new(g) : default;
+                          return ok;
+                      }
+                  """);
+        }
+
+        sb.AppendLine("}");
+        return sb.ToString();
+    }
+
+    private sealed class StrongIdModel(
+        string? ns,
+        string name,
+        Accessibility accessibility,
+        string underlyingTypeDisplay)
+    {
+        public string? Namespace { get; } = ns;
+        public string Name { get; } = name;
+        public Accessibility Accessibility { get; } = accessibility;
+        public string UnderlyingTypeDisplay { get; } = underlyingTypeDisplay;
+    }
+
+    private sealed class StrongIdModelEqualityComparer : IEqualityComparer<StrongIdModel>
+    {
+        public static readonly StrongIdModelEqualityComparer Instance = new();
+
+        public bool Equals(StrongIdModel? x, StrongIdModel? y)
+        {
+            if (ReferenceEquals(x, y)) return true;
+            if (x is null || y is null) return false;
+
+            return string.Equals(x.Namespace, y.Namespace, StringComparison.Ordinal)
+                   && string.Equals(x.Name, y.Name, StringComparison.Ordinal)
+                   && string.Equals(x.UnderlyingTypeDisplay, y.UnderlyingTypeDisplay, StringComparison.Ordinal)
+                   && x.Accessibility == y.Accessibility;
+        }
+
+        public int GetHashCode(StrongIdModel obj) => (obj.Namespace, obj.Name, obj.UnderlyingTypeDisplay, obj.Accessibility).GetHashCode();
+    }
+}

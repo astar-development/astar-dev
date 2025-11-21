@@ -35,7 +35,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\src\aspire\AStar.Web.AppHost\AStar.Web.AppHost.csproj"/>
+        <ProjectReference Include="..\..\..\src\aspire\AStar.Dev.Web.AppHost\AStar.Dev.Web.AppHost.csproj" />
     </ItemGroup>
 
 </Project>

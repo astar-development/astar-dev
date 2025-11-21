@@ -36,8 +36,12 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\aspire\AStar.Web.ServiceDefaults\AStar.Web.ServiceDefaults.csproj"/>
+        <ProjectReference Include="..\..\aspire\AStar.Dev.Web.Aspire.Common\AStar.Dev.Web.Aspire.Common.csproj" />
+        <ProjectReference Include="..\..\aspire\AStar.Dev.Web.ServiceDefaults\AStar.Dev.Web.ServiceDefaults.csproj" />
+        <ProjectReference Include="..\..\modules\apis\AStar.Dev.Files.Classifications.Api\AStar.Dev.Files.Classifications.Api.csproj" />
         <ProjectReference Include="..\..\modules\apis\AStar.Web.ApiService\AStar.Web.ApiService.csproj"/>
+        <ProjectReference Include="..\..\source-generators\AStar.Dev.Annotations\AStar.Dev.Annotations.csproj" />
+        <ProjectReference Include="..\..\source-generators\AStar.Dev.Source.Generators\AStar.Dev.Source.Generators.csproj" />
     </ItemGroup>
 
 </Project>
