@@ -36,7 +36,6 @@
         <Project Path="src/source-generators/AStar.Dev.Source.Generators/AStar.Dev.Source.Generators.csproj" />
     </Folder>
     <Folder Name="/src/uis/">
-        <Project Path="src/uis/aspnet-core-changed-files-delta/AspnetCore-Changed-Files.csproj" />
         <Project Path="src\uis\AStar.Dev.Web\AStar.Dev.Web.csproj" />
     </Folder>
     <Folder Name="/test/" />
