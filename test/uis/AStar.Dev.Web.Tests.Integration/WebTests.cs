@@ -15,7 +15,7 @@ public class WebTests
         CancellationToken cancellationToken = new CancellationTokenSource(DefaultTimeout).Token;
 
         IDistributedApplicationTestingBuilder appHost =
-            await DistributedApplicationTestingBuilder.CreateAsync<AStar_Web_AppHost>(cancellationToken);
+            await DistributedApplicationTestingBuilder.CreateAsync<AStar_Dev_Web_AppHost>(cancellationToken);
         appHost.Services.AddLogging(logging =>
         {
             logging.SetMinimumLevel(LogLevel.Debug);

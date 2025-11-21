@@ -19,15 +19,24 @@
     </Folder>
     <Folder Name="/src/" />
     <Folder Name="/src/aspire/">
-        <Project Path="src/aspire/AStar.Dev.Aspire.Common/AStar.Dev.Aspire.Common.csproj" />
-        <Project Path="src/aspire/AStar.Web.AppHost/AStar.Web.AppHost.csproj" />
-        <Project Path="src/aspire/AStar.Web.ServiceDefaults/AStar.Web.ServiceDefaults.csproj" />
+        <Project Path="src\aspire\AStar.Dev.Web.AppHost\AStar.Dev.Web.AppHost.csproj" />
+        <Project Path="src\aspire\AStar.Dev.Web.Aspire.Common\AStar.Dev.Web.Aspire.Common.csproj" />
+        <Project Path="src\aspire\AStar.Dev.Web.ServiceDefaults\AStar.Dev.Web.ServiceDefaults.csproj" />
     </Folder>
     <Folder Name="/src/modules/" />
     <Folder Name="/src/modules/apis/">
+        <Project Path="src/modules/apis/AStar.Dev.Files.Classifications.Api/AStar.Dev.Files.Classifications.Api.csproj" />
         <Project Path="src/modules/apis/AStar.Web.ApiService/AStar.Web.ApiService.csproj" />
     </Folder>
+    <Folder Name="/src/services/">
+        <Project Path="src/services/AStar.Dev.OneDrive.Client/AStar.Dev.OneDrive.Client.csproj" />
+    </Folder>
+    <Folder Name="/src/source-generators/">
+        <Project Path="src/source-generators/AStar.Dev.Annotations/AStar.Dev.Annotations.csproj" />
+        <Project Path="src/source-generators/AStar.Dev.Source.Generators/AStar.Dev.Source.Generators.csproj" />
+    </Folder>
     <Folder Name="/src/uis/">
+        <Project Path="src/uis/aspnet-core-changed-files-delta/AspnetCore-Changed-Files.csproj" />
         <Project Path="src\uis\AStar.Dev.Web\AStar.Dev.Web.csproj" />
     </Folder>
     <Folder Name="/test/" />
@@ -35,6 +44,9 @@
     <Folder Name="/test/modules/" />
     <Folder Name="/test/modules/apis/" />
     <Folder Name="/test/nuget-packages/" />
+    <Folder Name="/test/source-generators/">
+        <Project Path="test/source-generators/AStar.Dev.Source.Generators.Tests.Unit/AStar.Dev.Source.Generators.Test.Unit.csproj" />
+    </Folder>
     <Folder Name="/test/uis/">
         <Project Path="test/uis/AStar.Dev.Web.Tests.Unit/AStar.Dev.Web.Tests.Unit.csproj" />
         <Project Path="test\uis\AStar.Dev.Web.Tests.Integration\AStar.Dev.Web.Tests.Integration.csproj" />
