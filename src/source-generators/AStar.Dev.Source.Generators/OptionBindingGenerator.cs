@@ -89,27 +89,28 @@ public sealed class OptionsBindingGenerator : IIncrementalGenerator
         var ns = m.Namespace is null ? null : $"namespace {m.Namespace};";
         var sb = new StringBuilder();
         if (ns is not null)
-            sb.AppendLine(Constants.SourceGeneratorHeader).AppendLine(ns).AppendLine();
-        else sb.AppendLine(Constants.SourceGeneratorHeader);
+            _ = sb.AppendLine(Constants.SourceGeneratorHeader).AppendLine(ns).AppendLine();
+        else
+            _ = sb.AppendLine(Constants.SourceGeneratorHeader);
 
         // Look up defaults/required for this section
-        schema.TryGetValue(m.SectionName, out Dictionary<string, SchemaEntry>? sectionMap);
+        _ = schema.TryGetValue(m.SectionName, out Dictionary<string, SchemaEntry>? sectionMap);
         sectionMap ??= new Dictionary<string, SchemaEntry>(StringComparer.Ordinal);
 
-        sb.AppendLine("using System;");
-        sb.AppendLine("using System.Collections.Generic;");
-        sb.AppendLine("using System.ComponentModel.DataAnnotations;");
-        sb.AppendLine("using Microsoft.Extensions.Configuration;");
-        sb.AppendLine("using Microsoft.Extensions.DependencyInjection;");
-        sb.AppendLine("using Microsoft.Extensions.Options;");
-        sb.AppendLine();
-        sb.AppendLine($"public static class {m.TypeName}OptionsRegistration");
-        sb.AppendLine("{");
-        sb.AppendLine(
+        _ = sb.AppendLine("using System;");
+        _ = sb.AppendLine("using System.Collections.Generic;");
+        _ = sb.AppendLine("using System.ComponentModel.DataAnnotations;");
+        _ = sb.AppendLine("using Microsoft.Extensions.Configuration;");
+        _ = sb.AppendLine("using Microsoft.Extensions.DependencyInjection;");
+        _ = sb.AppendLine("using Microsoft.Extensions.Options;");
+        _ = sb.AppendLine();
+        _ = sb.AppendLine($"public static class {m.TypeName}OptionsRegistration");
+        _ = sb.AppendLine("{");
+        _ = sb.AppendLine(
             $"    public static IServiceCollection Add{m.TypeName}(this IServiceCollection s, IConfiguration cfg)");
-        sb.AppendLine("    {");
-        sb.AppendLine($"        var section = cfg.GetSection(\"{Escape(m.SectionName)}\");");
-        sb.AppendLine($"        var opts = section.Get<{m.TypeName}>() ?? new {m.TypeName}();");
+        _ = sb.AppendLine("    {");
+        _ = sb.AppendLine($"        var section = cfg.GetSection(\"{Escape(m.SectionName)}\");");
+        _ = sb.AppendLine($"        var opts = section.Get<{m.TypeName}>() ?? new {m.TypeName}();");
 
         // Apply defaults from schema (only simple types)
         foreach (PropModel p in m.Properties)
@@ -117,13 +118,14 @@ public sealed class OptionsBindingGenerator : IIncrementalGenerator
             if (sectionMap.TryGetValue(p.Name, out SchemaEntry? entry) && entry.DefaultValue is string dv)
             {
                 var assign = DefaultAssignment(p, dv);
-                if (assign is not null) sb.AppendLine(assign);
+                if (assign is not null)
+                    _ = sb.AppendLine(assign);
             }
         }
 
         // Validate with DataAnnotations
-        sb.AppendLine("        var results = new List<ValidationResult>();");
-        sb.AppendLine(
+        _ = sb.AppendLine("        var results = new List<ValidationResult>();");
+        _ = sb.AppendLine(
             "        var ok = Validator.TryValidateObject(opts, new ValidationContext(opts), results, validateAllProperties: true);");
 
 // Add extra 'required' checks from schema (lightweight)
@@ -134,36 +136,36 @@ public sealed class OptionsBindingGenerator : IIncrementalGenerator
                 switch (p.Kind)
                 {
                     case SimpleKind.String:
-                        sb.AppendLine(
+                        _ = sb.AppendLine(
                             "        if (string.IsNullOrWhiteSpace(opts." + p.Name +
                             ")) { ok = false; results.Add(new ValidationResult(\"" +
                             p.Name + " is required\", new[]{\"" + p.Name + "\"})); }");
                         break;
 
                     case SimpleKind.Int32:
-                        sb.AppendLine(
+                        _ = sb.AppendLine(
                             "        if (opts." + p.Name +
                             " == default(int)) { ok = false; results.Add(new ValidationResult(\"" +
                             p.Name + " must be non-zero\", new[]{\"" + p.Name + "\"})); }");
                         break;
 
                     case SimpleKind.Boolean:
-                        sb.AppendLine(
+                        _ = sb.AppendLine(
                             "        /* schema-required boolean: ensure it's explicitly set if that matters to you */");
                         break;
                 }
             }
         }
 
-        sb.AppendLine("        if (!ok)");
-        sb.AppendLine(
+        _ = sb.AppendLine("        if (!ok)");
+        _ = sb.AppendLine(
             $"            throw new OptionsValidationException(\"{m.TypeName}\", typeof({m.TypeName}), results.ConvertAll(r => r.ErrorMessage ?? \"Invalid\"));");
 
         // Register binding with DI so IOptions<T> works elsewhere
-        sb.AppendLine($"        s.Configure<{m.TypeName}>(section);");
-        sb.AppendLine("        return s;");
-        sb.AppendLine("    }");
-        sb.AppendLine("}");
+        _ = sb.AppendLine($"        s.Configure<{m.TypeName}>(section);");
+        _ = sb.AppendLine("        return s;");
+        _ = sb.AppendLine("    }");
+        _ = sb.AppendLine("}");
 
         return sb.ToString();
     }

@@ -63,11 +63,12 @@ public sealed class StrongIdGenerator : IIncrementalGenerator
             : $"System.Collections.Generic.EqualityComparer<{t}>.Default.GetHashCode(_value)";
 
         var sb = new StringBuilder();
-        sb.AppendLine(Constants.SourceGeneratorHeader);
-        sb.AppendLine("#nullable enable");
-        if (ns is not null) sb.AppendLine(ns).AppendLine();
+        _ = sb.AppendLine(Constants.SourceGeneratorHeader);
+        _ = sb.AppendLine("#nullable enable");
+        if (ns is not null)
+            _ = sb.AppendLine(ns).AppendLine();
 
-        sb.AppendLine(
+        _ = sb.AppendLine(
             $$"""
               {{acc}} readonly partial struct {{m.Name}} : System.IEquatable<{{m.Name}}>
               {
@@ -85,7 +86,7 @@ public sealed class StrongIdGenerator : IIncrementalGenerator
 
         if (isGuid)
         {
-            sb.AppendLine(
+            _ = sb.AppendLine(
                 $$"""
                               
                       public static {{m.Name}} New() => new(System.Guid.NewGuid());
@@ -99,7 +100,7 @@ public sealed class StrongIdGenerator : IIncrementalGenerator
                   """);
         }
 
-        sb.AppendLine("}");
+        _ = sb.AppendLine("}");
         return sb.ToString();
     }
 

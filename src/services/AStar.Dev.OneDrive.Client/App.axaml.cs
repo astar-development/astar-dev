@@ -3,16 +3,29 @@ using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Markup.Xaml;
 using Avalonia.Styling;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace AStar.Dev.OneDrive.Client;
 
 public class App : Application
 {
+    public static IServiceProvider? Services { get; set; }
+
     public override void Initialize() => AvaloniaXamlLoader.Load(this);
 
     public override void OnFrameworkInitializationCompleted()
     {
-        if(ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop) desktop.MainWindow = new MainWindow();
+        if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+        {
+            // Prefer resolving MainWindow from DI so dependencies can be injected.
+            if (Services is null)
+            {
+                throw new InvalidOperationException("DI Services not initialized. Ensure Program.ConfigureServices sets App.Services before starting.");
+            }
+
+            var window = Services.GetRequiredService<MainWindow>();
+            desktop.MainWindow = window;
+        }
 
         base.OnFrameworkInitializationCompleted();
     }
