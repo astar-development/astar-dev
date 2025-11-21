@@ -3,75 +3,74 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Text.Json;
 
-namespace AStar.Dev.OneDrive.Client.Services
+namespace AStar.Dev.OneDrive.Client.Services;
+
+public class UserSettings
 {
-    public class UserSettings
+    public string Theme { get; set; } = "Auto"; // Auto | Light | Dark
+    public double WindowWidth { get; set; } = 800;
+    public double WindowHeight { get; set; } = 600;
+    public int? WindowX { get; set; }
+    public int? WindowY { get; set; }
+    public string? LastAccount { get; set; }
+}
+
+public class UserSettingsService
+{
+    private readonly string _filePath;
+
+    public UserSettingsService()
     {
-        public string Theme { get; set; } = "Auto"; // Auto | Light | Dark
-        public double WindowWidth { get; set; } = 800;
-        public double WindowHeight { get; set; } = 600;
-        public int? WindowX { get; set; }
-        public int? WindowY { get; set; }
-        public string? LastAccount { get; set; }
+        var dir = GetSettingsDirectory();
+        try
+        {
+            _ = Directory.CreateDirectory(dir);
+        }
+        catch { }
+
+        _filePath = Path.Combine(dir, "AStar.OneDrive.Client.settings.json");
     }
 
-    public class UserSettingsService
+    private static string GetSettingsDirectory()
     {
-        private readonly string _filePath;
-
-        public UserSettingsService()
+        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
-            var dir = GetSettingsDirectory();
-            try
-            {
-                _ = Directory.CreateDirectory(dir);
-            }
-            catch { }
-
-            _filePath = Path.Combine(dir, "AStar.OneDrive.Client.settings.json");
+            return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "AStarDev");
         }
 
-        private static string GetSettingsDirectory()
+        var xdg = Environment.GetEnvironmentVariable("XDG_CONFIG_HOME");
+        if (!string.IsNullOrEmpty(xdg))
+            return Path.Combine(xdg, "astar-dev");
+
+        var home = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+        // macOS and Linux default to ~/.config/astar-dev
+        return Path.Combine(home, ".config", "astar-dev");
+    }
+
+    public UserSettings Load()
+    {
+        try
         {
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-            {
-                return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "AStarDev");
-            }
-
-            var xdg = Environment.GetEnvironmentVariable("XDG_CONFIG_HOME");
-            if (!string.IsNullOrEmpty(xdg))
-                return Path.Combine(xdg, "astar-dev");
-
-            var home = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-            // macOS and Linux default to ~/.config/astar-dev
-            return Path.Combine(home, ".config", "astar-dev");
-        }
-
-        public UserSettings Load()
-        {
-            try
-            {
-                if (!File.Exists(_filePath))
-                    return new UserSettings();
-
-                var json = File.ReadAllText(_filePath);
-                var s = JsonSerializer.Deserialize<UserSettings>(json);
-                return s ?? new UserSettings();
-            }
-            catch
-            {
+            if (!File.Exists(_filePath))
                 return new UserSettings();
-            }
-        }
 
-        public void Save(UserSettings settings)
-        {
-            try
-            {
-                var json = JsonSerializer.Serialize(settings, new JsonSerializerOptions { WriteIndented = true });
-                File.WriteAllText(_filePath, json);
-            }
-            catch { }
+            var json = File.ReadAllText(_filePath);
+            UserSettings? s = JsonSerializer.Deserialize<UserSettings>(json);
+            return s ?? new UserSettings();
         }
+        catch
+        {
+            return new UserSettings();
+        }
+    }
+
+    public void Save(UserSettings settings)
+    {
+        try
+        {
+            var json = JsonSerializer.Serialize(settings, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(_filePath, json);
+        }
+        catch { }
     }
 }

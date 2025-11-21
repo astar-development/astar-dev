@@ -23,7 +23,7 @@ public class App : Application
                 throw new InvalidOperationException("DI Services not initialized. Ensure Program.ConfigureServices sets App.Services before starting.");
             }
 
-            var window = Services.GetRequiredService<MainWindow>();
+            MainWindow window = Services.GetRequiredService<MainWindow>();
             desktop.MainWindow = window;
         }
 

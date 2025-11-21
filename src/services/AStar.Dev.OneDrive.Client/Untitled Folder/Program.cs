@@ -8,18 +8,17 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace AspnetCore_Changed_Files
+namespace AspnetCore_Changed_Files;
+
+public class Program
 {
-    public class Program
-    {
 #pragma warning disable ASPDEPR008
-        public static void Main(string[] args) => CreateWebHostBuilder(args).Build().Run();
+    public static void Main(string[] args) => CreateWebHostBuilder(args).Build().Run();
 #pragma warning restore ASPDEPR008
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+    public static IWebHostBuilder CreateWebHostBuilder(string[] args)
 #pragma warning disable ASPDEPR008
-            WebHost.CreateDefaultBuilder(args)
+        => WebHost.CreateDefaultBuilder(args)
 #pragma warning restore ASPDEPR008
-                .UseStartup<Startup>();
-    }
+            .UseStartup<Startup>();
 }

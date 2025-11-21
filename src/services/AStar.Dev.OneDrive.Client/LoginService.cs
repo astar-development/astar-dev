@@ -41,7 +41,7 @@ public class LoginService : ILoginService
             _client = new GraphServiceClient(_credential, scopes);
 
             // Verify sign-in
-            var me = await _client.Me.GetAsync();
+            Microsoft.Graph.Models.User? me = await _client.Me.GetAsync();
             _logger.LogInformation("Sign-in completed for {DisplayName} ({Id})", me?.DisplayName, me?.Id);
 
             return _client;
