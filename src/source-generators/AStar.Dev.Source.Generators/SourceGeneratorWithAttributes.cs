@@ -51,8 +51,8 @@ namespace {Namespace}
         incrementalContext.RegisterSourceOutput(incrementalContext.CompilationProvider.Combine(provider.Collect()),
             ((ctx, t) => GenerateCode(ctx, t.Left, t.Right)));
     }
-    private static IncrementalValuesProvider<INamedTypeSymbol?> SelectClassesWithAttributes(IncrementalGeneratorInitializationContext ctx) =>
-        ctx.SyntaxProvider.CreateSyntaxProvider(
+    private static IncrementalValuesProvider<INamedTypeSymbol?> SelectClassesWithAttributes(IncrementalGeneratorInitializationContext ctx)
+        => ctx.SyntaxProvider.CreateSyntaxProvider(
                 static (node, _) =>
                     node is ClassDeclarationSyntax { AttributeLists.Count: > 0, TypeParameterList: null },
                 static (syntaxCtx, _) =>

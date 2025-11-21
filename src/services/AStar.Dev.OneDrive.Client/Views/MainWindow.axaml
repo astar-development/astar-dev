@@ -5,8 +5,19 @@
         Title="Graph Login Example">
 
     <DockPanel>
-        <TextBlock Text="{Binding Status}" FontSize="18" />
-        <Button Content="Sign In" Command="{Binding SignInCommand}" />
+        <StackPanel Orientation="Vertical" Margin="10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Text="Theme:" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                <ComboBox Name="ThemeSelector" Width="120" SelectedIndex="0" SelectionChanged="ThemeSelector_SelectionChanged">
+                    <ComboBoxItem Content="Auto" />
+                    <ComboBoxItem Content="Light" />
+                    <ComboBoxItem Content="Dark" />
+                </ComboBox>
+            </StackPanel>
+
+            <TextBlock Text="{Binding Status}" FontSize="18" Margin="0,10,0,10"/>
+            <Button Content="Sign In" Command="{Binding SignInCommand}" Width="120"/>
+        </StackPanel>
     </DockPanel>
 
 </Window>

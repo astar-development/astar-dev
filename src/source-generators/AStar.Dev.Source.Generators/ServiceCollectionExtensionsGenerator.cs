@@ -34,8 +34,8 @@ public sealed class ServiceCollectionExtensionsGenerator : IIncrementalGenerator
         });
     }
 
-    private static IncrementalValuesProvider<ServiceModel?> CreateServiceRegistrationsModel(IncrementalValuesProvider<(INamedTypeSymbol namedTypeSymbol, AttributeData? attributeData)> services) =>
-        services.Select(static (tuple, _) =>
+    private static IncrementalValuesProvider<ServiceModel?> CreateServiceRegistrationsModel(IncrementalValuesProvider<(INamedTypeSymbol namedTypeSymbol, AttributeData? attributeData)> services)
+        => services.Select(static (tuple, _) =>
         {
             (INamedTypeSymbol? implementation, AttributeData? attribute) = tuple;
 
@@ -119,8 +119,8 @@ public sealed class ServiceCollectionExtensionsGenerator : IIncrementalGenerator
         return (sym, attr);
     }
 
-    private static IncrementalValuesProvider<INamedTypeSymbol?> SelectClassesWithAttributes(IncrementalGeneratorInitializationContext ctx) =>
-        ctx.SyntaxProvider.CreateSyntaxProvider(
+    private static IncrementalValuesProvider<INamedTypeSymbol?> SelectClassesWithAttributes(IncrementalGeneratorInitializationContext ctx)
+        => ctx.SyntaxProvider.CreateSyntaxProvider(
                 static (node, _) =>
                     node is ClassDeclarationSyntax { AttributeLists.Count: > 0, TypeParameterList: null },
                 static (syntaxCtx, _) =>
@@ -135,15 +135,15 @@ public sealed class ServiceCollectionExtensionsGenerator : IIncrementalGenerator
     {
         var seen = new HashSet<string>(StringComparer.Ordinal);
         var sb = new StringBuilder();
-        sb.AppendLine(Constants.SourceGeneratorHeader);
-        sb.AppendLine("using Microsoft.Extensions.DependencyInjection;");
-        sb.AppendLine();
-        sb.AppendLine(Constants.GeneratedSourceXmlClassHeader);
-        sb.AppendLine("public static class ServiceCollectionExtensions");
-        sb.AppendLine("{");
-        sb.AppendLine($"    {Constants.GeneratedSourceXmlHeader}");
-        sb.AppendLine("    public static IServiceCollection AddGeneratedServices(this IServiceCollection services)");
-        sb.AppendLine("    {");
+        _ = sb.AppendLine(Constants.SourceGeneratorHeader);
+        _ = sb.AppendLine("using Microsoft.Extensions.DependencyInjection;");
+        _ = sb.AppendLine();
+        _ = sb.AppendLine(Constants.GeneratedSourceXmlClassHeader);
+        _ = sb.AppendLine("public static class ServiceCollectionExtensions");
+        _ = sb.AppendLine("{");
+        _ = sb.AppendLine($"    {Constants.GeneratedSourceXmlHeader}");
+        _ = sb.AppendLine("    public static IServiceCollection AddGeneratedServices(this IServiceCollection services)");
+        _ = sb.AppendLine("    {");
 
         foreach (ServiceModel? serviceModel in serviceModels)
         {
@@ -159,22 +159,25 @@ public sealed class ServiceCollectionExtensionsGenerator : IIncrementalGenerator
             if (!string.IsNullOrEmpty(serviceModel.ServiceFqn))
             {
                 var line = $"        services.{method}<{serviceModel.ServiceFqn}, {serviceModel.ImplFqn}>();";
-                if (seen.Add(line)) sb.AppendLine(line);
+                if (seen.Add(line))
+                    _ = sb.AppendLine(line);
                 if(!serviceModel.AlsoAsSelf) continue;
                 
                 var self = $"        services.{method}<{serviceModel.ImplFqn}>();";
-                if (seen.Add(self)) sb.AppendLine(self);
+                if (seen.Add(self))
+                    _ = sb.AppendLine(self);
             }
             else
             {
                 var self = $"        services.{method}<{serviceModel.ImplFqn}>();";
-                if (seen.Add(self)) sb.AppendLine(self);
+                if (seen.Add(self))
+                    _ = sb.AppendLine(self);
             }
         }
 
-        sb.AppendLine("        return services;");
-        sb.AppendLine("    }");
-        sb.AppendLine("}");
+        _ = sb.AppendLine("        return services;");
+        _ = sb.AppendLine("    }");
+        _ = sb.AppendLine("}");
 
         return sb.ToString();
     }
