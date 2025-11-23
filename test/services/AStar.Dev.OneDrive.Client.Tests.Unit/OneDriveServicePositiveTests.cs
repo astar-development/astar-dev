@@ -43,11 +43,8 @@ namespace AStar.Dev.OneDrive.Client.Tests.Unit
                 return Task.FromResult<object?>(null);
             }
 
-            var adapter = new FakeRequestAdapter(Responder);
-
-            var graphClient = new GraphServiceClient(adapter);
-
-            var login = new FakeLoginService(graphClient);
+            var graphClient = TestUtilities.CreateGraphClient(Responder);
+            var login = new Fakes.FakeLoginService(graphClient);
             var svc = new OneDriveService(login, NullLogger<OneDriveService>.Instance);
 
             // Act
@@ -59,6 +56,98 @@ namespace AStar.Dev.OneDrive.Client.Tests.Unit
             ok.Value.Should().HaveCount(2);
             ok.Value[0].Name.Should().Be("file1.txt");
             ok.Value[1].Name.Should().Be("file2.txt");
+        }
+
+        [Fact]
+        public async Task DownloadFileAsync_Returns_Stream_When_FileExists()
+        {
+            // Arrange
+            var expectedContent = "hello world";
+            var drive = new Drive { Id = "drive-id" };
+
+            Task<object?> Responder(RequestInformation req, Type responseType, CancellationToken ct)
+            {
+                if (responseType == typeof(Drive) )
+                    return Task.FromResult<object?>(drive);
+                if (responseType == typeof(System.IO.Stream))
+                    return Task.FromResult<object?>(TestUtilities.StreamFromString(expectedContent));
+                return Task.FromResult<object?>(null);
+            }
+
+            var graphClient = TestUtilities.CreateGraphClient(Responder);
+            var login = new Fakes.FakeLoginService(graphClient);
+            var svc = new OneDriveService(login, NullLogger<OneDriveService>.Instance);
+
+            // Act
+            var result = await svc.DownloadFileAsync("/some/path/file.txt");
+
+            // Assert
+            result.Should().BeOfType<Result<System.IO.Stream, Exception>.Ok>();
+            var ok = (Result<System.IO.Stream, Exception>.Ok)result;
+            using var sr = new System.IO.StreamReader(ok.Value);
+            var text = await sr.ReadToEndAsync();
+            text.Should().Be(expectedContent);
+        }
+
+        [Fact]
+        public async Task UploadFileAsync_Returns_DriveItem_OnSuccess()
+        {
+            // Arrange
+            var drive = new Drive { Id = "drive-id" };
+            var uploaded = new DriveItem { Id = "new-id", Name = "uploaded.txt" };
+
+            Task<object?> Responder(RequestInformation req, Type responseType, CancellationToken ct)
+            {
+                if (responseType == typeof(Drive))
+                    return Task.FromResult<object?>(drive);
+                if (responseType == typeof(DriveItem))
+                    return Task.FromResult<object?>(uploaded);
+                return Task.FromResult<object?>(null);
+            }
+
+            var graphClient = TestUtilities.CreateGraphClient(Responder);
+            var login = new Fakes.FakeLoginService(graphClient);
+            var svc = new OneDriveService(login, NullLogger<OneDriveService>.Instance);
+
+            // Act
+            using var ms = TestUtilities.StreamFromString("content");
+            var result = await svc.UploadFileAsync("/some/path/uploaded.txt", ms);
+
+            // Assert
+            result.Should().BeOfType<Result<DriveItem, Exception>.Ok>();
+            var ok = (Result<DriveItem, Exception>.Ok)result;
+            ok.Value.Id.Should().Be("new-id");
+            ok.Value.Name.Should().Be("uploaded.txt");
+        }
+
+        [Fact]
+        public async Task CreateFolderAsync_Returns_CreatedDriveItem()
+        {
+            // Arrange
+            var drive = new Drive { Id = "drive-id" };
+            var created = new DriveItem { Id = "folder-id", Name = "NewFolder" };
+
+            Task<object?> Responder(RequestInformation req, Type responseType, CancellationToken ct)
+            {
+                if (responseType == typeof(Drive))
+                    return Task.FromResult<object?>(drive);
+                if (responseType == typeof(DriveItem))
+                    return Task.FromResult<object?>(created);
+                return Task.FromResult<object?>(null);
+            }
+
+            var graphClient = TestUtilities.CreateGraphClient(Responder);
+            var login = new Fakes.FakeLoginService(graphClient);
+            var svc = new OneDriveService(login, NullLogger<OneDriveService>.Instance);
+
+            // Act
+            var result = await svc.CreateFolderAsync("", "NewFolder");
+
+            // Assert
+            result.Should().BeOfType<Result<DriveItem, Exception>.Ok>();
+            var ok = (Result<DriveItem, Exception>.Ok)result;
+            ok.Value.Id.Should().Be("folder-id");
+            ok.Value.Name.Should().Be("NewFolder");
         }
     }
 }
