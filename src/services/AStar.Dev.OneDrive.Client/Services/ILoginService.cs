@@ -1,6 +1,6 @@
 using Microsoft.Graph;
 
-namespace AStar.Dev.OneDrive.Client;
+namespace AStar.Dev.OneDrive.Client.Services;
 
 public interface ILoginService
 {

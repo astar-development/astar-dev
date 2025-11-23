@@ -3,7 +3,7 @@ using Azure.Identity;
 using Microsoft.Graph;
 using Microsoft.Extensions.Logging;
 
-namespace AStar.Dev.OneDrive.Client;
+namespace AStar.Dev.OneDrive.Client.Services;
 
 public class LoginService : ILoginService
 {
