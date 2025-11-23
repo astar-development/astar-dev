@@ -21,6 +21,9 @@
                 <Button Content="Load Root" Command="{Binding LoadRootCommand}" Width="120"/>
             </StackPanel>
 
+            <!-- Error message area -->
+            <TextBlock Text="{Binding ErrorMessage}" Foreground="Red" FontWeight="Bold" Margin="0,8,0,0"/>
+
             <ListBox ItemsSource="{Binding RootItems}" Height="200" Margin="0,10,0,0">
                 <ListBox.ItemTemplate>
                     <DataTemplate>

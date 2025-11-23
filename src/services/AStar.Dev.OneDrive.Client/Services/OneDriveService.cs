@@ -1,4 +1,7 @@
 using Microsoft.Graph;
+using Microsoft.Kiota.Abstractions;
+using Microsoft.Kiota.Abstractions.Serialization;
+using Microsoft.Graph.Models.ODataErrors;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +21,18 @@ public class OneDriveService
         _logger = logger;
     }
 
+    // Custom exception type for higher-level error surface
+    public class OneDriveServiceException : Exception
+    {
+        public int? StatusCode { get; }
+
+        public OneDriveServiceException(string message, int? statusCode = null, Exception? inner = null)
+            : base(message, inner)
+        {
+            StatusCode = statusCode;
+        }
+    }
+
     /// <summary>
     /// Lists items in the user's OneDrive root folder.
     /// </summary>
@@ -25,17 +40,28 @@ public class OneDriveService
     {
         _logger.LogInformation("Listing root items from OneDrive");
         GraphServiceClient client = await _loginService.SignInAsync();
-        // Request the Drive resource and expand the root's children so the
-        // Root.Children navigation property is populated in the returned Drive.
-        var drive = await client.Me.Drive.GetAsync(requestConfig =>
-        {
-            requestConfig.QueryParameters.Expand = new[] { "root($expand=children)" };
-        });
 
-        List<DriveItem>? rootChildren = drive?.Root?.Children;
-        List<DriveItem> results = rootChildren?.ToList() ?? new List<DriveItem>();
-        _logger.LogInformation("Found {Count} root items", results.Count);
-        return results;
+        try
+        {
+            // Request the Drive resource and expand the root's children so
+            // the Root.Children navigation property is populated in the returned Drive.
+            Drive? drive = await client.Me.Drive.GetAsync(rc => rc.QueryParameters.Expand = new[] { "root($expand=children)" });
+
+            List<DriveItem>? rootChildren = drive?.Root?.Children;
+            List<DriveItem> results = rootChildren?.ToList() ?? new List<DriveItem>();
+            _logger.LogInformation("Found {Count} root items", results.Count);
+            return results;
+        }
+        catch (Microsoft.Kiota.Abstractions.ApiException apiEx)
+        {
+            _logger.LogError(apiEx, "Graph API error listing root items: {Status}", apiEx.ResponseStatusCode);
+            throw new OneDriveServiceException("Failed to list root items", (int?)apiEx.ResponseStatusCode, apiEx);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Unexpected error listing root items");
+            throw new OneDriveServiceException("Unexpected error listing root items", null, ex);
+        }
     }
 
     /// <summary>
@@ -51,14 +77,13 @@ public class OneDriveService
 
         try
         {
-            var drive = await client.Me.Drive.GetAsync();
+            Drive? drive = await client.Me.Drive.GetAsync();
             if (drive?.Id is null)
             {
                 _logger.LogWarning("Unable to determine user's Drive id");
                 return null;
             }
-
-            var driveItem = await client.Drives[drive.Id].Root.ItemWithPath(normalized).GetAsync();
+            DriveItem? driveItem = await client.Drives[drive.Id].Root.ItemWithPath(normalized).GetAsync();
             return driveItem;
         }
         catch (Microsoft.Kiota.Abstractions.ApiException ex) when (ex.ResponseStatusCode == 404)
@@ -78,14 +103,13 @@ public class OneDriveService
         var normalized = path?.TrimStart('/') ?? string.Empty;
 
         // Request the content stream from the item at the provided path
-        var drive = await client.Me.Drive.GetAsync();
+        Drive? drive = await client.Me.Drive.GetAsync();
         if (drive?.Id is null)
         {
             _logger.LogWarning("Unable to determine user's Drive id");
             return System.IO.Stream.Null;
         }
-
-        var stream = await client.Drives[drive.Id].Root.ItemWithPath(normalized).Content.GetAsync();
+        System.IO.Stream? stream = await client.Drives[drive.Id].Root.ItemWithPath(normalized).Content.GetAsync();
         return stream!;
     }
 
@@ -98,15 +122,15 @@ public class OneDriveService
         var normalized = path?.TrimStart('/') ?? string.Empty;
 
         // Upload (PUT) the provided stream to the given path. This will create or replace.
-        var drive = await (await _loginService.SignInAsync()).Me.Drive.GetAsync();
+        GraphServiceClient client = await _loginService.SignInAsync();
+        Drive? drive = await client.Me.Drive.GetAsync();
         if (drive?.Id is null)
         {
             _logger.LogWarning("Unable to determine user's Drive id");
             throw new InvalidOperationException("Drive id not available");
         }
-
-        var uploaded = await (await _loginService.SignInAsync()).Drives[drive.Id].Root.ItemWithPath(normalized).Content.PutAsync(content);
-        return uploaded;
+        DriveItem? uploaded = await client.Drives[drive.Id].Root.ItemWithPath(normalized).Content.PutAsync(content);
+        return uploaded!;
     }
 
     /// <summary>
@@ -130,15 +154,52 @@ public class OneDriveService
         // If folderPath is null/empty or "/", create under root
         var normalizedParent = folderPath?.TrimStart('/') ?? string.Empty;
 
+        Drive? drive = await client.Me.Drive.GetAsync();
+        if (drive?.Id is null)
+        {
+            _logger.LogWarning("Unable to determine user's Drive id");
+            throw new InvalidOperationException("Drive id not available");
+        }
+
         if (string.IsNullOrEmpty(normalizedParent))
         {
-            var created = await client.Drives[client.Me.Drive.GetAsync().Result.Id].Root.Children.PostAsync(folderToCreate);
-            return created;
+            var request = new RequestInformation
+            {
+                HttpMethod = Method.POST,
+                UrlTemplate = "https://graph.microsoft.com/v1.0/drives/{driveId}/root/children",
+                PathParameters = new Dictionary<string, object> { { "driveId", drive.Id } }
+            };
+
+            request.SetContentFromParsable(client.RequestAdapter, "application/json", folderToCreate);
+
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "4XX", ODataError.CreateFromDiscriminatorValue },
+                { "5XX", ODataError.CreateFromDiscriminatorValue }
+            };
+
+            DriveItem? created = await client.RequestAdapter.SendAsync<DriveItem>(request, DriveItem.CreateFromDiscriminatorValue, errorMapping);
+            return created!;
         }
         else
         {
-            var created = await client.Drives[client.Me.Drive.GetAsync().Result.Id].Root.ItemWithPath(normalizedParent).Children.PostAsync(folderToCreate);
-            return created;
+            var request = new RequestInformation
+            {
+                HttpMethod = Method.POST,
+                UrlTemplate = "https://graph.microsoft.com/v1.0/drives/{driveId}/root:/{parent}:/children",
+                PathParameters = new Dictionary<string, object> { { "driveId", drive.Id }, { "parent", normalizedParent } }
+            };
+
+            request.SetContentFromParsable(client.RequestAdapter, "application/json", folderToCreate);
+
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "4XX", ODataError.CreateFromDiscriminatorValue },
+                { "5XX", ODataError.CreateFromDiscriminatorValue }
+            };
+
+            DriveItem? created = await client.RequestAdapter.SendAsync<DriveItem>(request, DriveItem.CreateFromDiscriminatorValue, errorMapping);
+            return created!;
         }
     }
 }

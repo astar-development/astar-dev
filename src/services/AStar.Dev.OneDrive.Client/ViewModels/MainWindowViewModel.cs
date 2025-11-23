@@ -13,6 +13,7 @@ public partial class MainWindowViewModel : ObservableObject
     private readonly ILogger<MainWindowViewModel> _logger;
 
     [ObservableProperty] private string _status = "Not signed in";
+    [ObservableProperty] private string _errorMessage = string.Empty;
 
     public MainWindowViewModel(ILoginService loginService, OneDriveService oneDriveService, ILogger<MainWindowViewModel> logger)
     {
@@ -33,6 +34,7 @@ public partial class MainWindowViewModel : ObservableObject
         try
         {
             _logger?.LogInformation("Sign-in started");
+            ErrorMessage = string.Empty;
             GraphServiceClient client = await _loginService.SignInAsync();
 
             User? me = await client.Me.GetAsync();
@@ -43,10 +45,12 @@ public partial class MainWindowViewModel : ObservableObject
             List<DriveItem> x = await _oneDriveService.GetRootItemsAsync();
             
             foreach (DriveItem item in x) Console.WriteLine(item.Name);
+            ErrorMessage = string.Empty;
         }
         catch(Exception ex)
         {
             Status = $"Login failed: {ex.Message}";
+            ErrorMessage = ex.Message;
             _logger?.LogError(ex, "Sign-in failed");
         }
     }
@@ -56,6 +60,7 @@ public partial class MainWindowViewModel : ObservableObject
         try
         {
             _logger?.LogInformation("Loading OneDrive root items");
+            ErrorMessage = string.Empty;
             List<DriveItem> items = await _oneDriveService.GetRootItemsAsync();
             RootItems = new ObservableCollection<DriveItem>(items);
             Status = $"Loaded {RootItems.Count} item(s)";
@@ -63,6 +68,7 @@ public partial class MainWindowViewModel : ObservableObject
         catch (Exception ex)
         {
             Status = $"Load failed: {ex.Message}";
+            ErrorMessage = ex is OneDriveService.OneDriveServiceException odse ? $"OneDrive error ({odse.StatusCode}): {odse.Message}" : ex.Message;
             _logger?.LogError(ex, "Failed to load root items");
         }
     }
