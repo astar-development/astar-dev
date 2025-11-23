@@ -5,6 +5,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Graph;
 using Microsoft.Graph.Models;
 using System.Collections.ObjectModel;
+using AStar.Dev.Functional.Extensions;
 
 public partial class MainWindowViewModel : ObservableObject
 {
@@ -36,16 +37,23 @@ public partial class MainWindowViewModel : ObservableObject
             _logger?.LogInformation("Sign-in started");
             ErrorMessage = string.Empty;
             GraphServiceClient client = await _loginService.SignInAsync();
-
             User? me = await client.Me.GetAsync();
             var driveType = client.Me.Drive.GetType().FullName;
 
             Status = $"Signed in as {me?.DisplayName} - {driveType}";
             _logger?.LogInformation("Sign-in succeeded for {Account}", me?.UserPrincipalName ?? me?.DisplayName ?? "unknown");
-            List<DriveItem> x = await _oneDriveService.GetRootItemsAsync();
-            
-            foreach (DriveItem item in x) Console.WriteLine(item.Name);
-            ErrorMessage = string.Empty;
+
+            var rootResult = await _oneDriveService.GetRootItemsAsync();
+            if (rootResult is Result<List<DriveItem>, Exception>.Ok ok)
+            {
+                foreach (DriveItem item in ok.Value) Console.WriteLine(item.Name);
+                ErrorMessage = string.Empty;
+            }
+            else if (rootResult is Result<List<DriveItem>, Exception>.Error err)
+            {
+                ErrorMessage = err.Reason.Message;
+                _logger?.LogError(err.Reason, "Failed to list root items after sign-in");
+            }
         }
         catch(Exception ex)
         {
@@ -61,9 +69,18 @@ public partial class MainWindowViewModel : ObservableObject
         {
             _logger?.LogInformation("Loading OneDrive root items");
             ErrorMessage = string.Empty;
-            List<DriveItem> items = await _oneDriveService.GetRootItemsAsync();
-            RootItems = new ObservableCollection<DriveItem>(items);
-            Status = $"Loaded {RootItems.Count} item(s)";
+            var result = await _oneDriveService.GetRootItemsAsync();
+            if (result is Result<List<DriveItem>, Exception>.Ok ok2)
+            {
+                RootItems = new ObservableCollection<DriveItem>(ok2.Value);
+                Status = $"Loaded {RootItems.Count} item(s)";
+            }
+            else if (result is Result<List<DriveItem>, Exception>.Error err2)
+            {
+                Status = $"Load failed: {err2.Reason.Message}";
+                ErrorMessage = err2.Reason.Message;
+                _logger?.LogError(err2.Reason, "Failed to load root items");
+            }
         }
         catch (Exception ex)
         {

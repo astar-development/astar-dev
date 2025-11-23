@@ -2,6 +2,7 @@ using Microsoft.Graph;
 using Microsoft.Kiota.Abstractions;
 using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Graph.Models.ODataErrors;
+using AStar.Dev.Functional.Extensions;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,14 +36,16 @@ public class OneDriveService
 
     /// <summary>
     /// Lists items in the user's OneDrive root folder.
+    /// Returns a Result containing the list or the captured exception.
     /// </summary>
-    public async Task<List<DriveItem>> GetRootItemsAsync()
+    public async Task<Result<List<DriveItem>, Exception>> GetRootItemsAsync()
     {
         _logger.LogInformation("Listing root items from OneDrive");
-        GraphServiceClient client = await _loginService.SignInAsync();
 
-        try
+        return await Try.RunAsync(async () =>
         {
+            GraphServiceClient client = await _loginService.SignInAsync();
+
             // Request the Drive resource and expand the root's children so
             // the Root.Children navigation property is populated in the returned Drive.
             Drive? drive = await client.Me.Drive.GetAsync(rc => rc.QueryParameters.Expand = new[] { "root($expand=children)" });
@@ -51,92 +54,91 @@ public class OneDriveService
             List<DriveItem> results = rootChildren?.ToList() ?? new List<DriveItem>();
             _logger.LogInformation("Found {Count} root items", results.Count);
             return results;
-        }
-        catch (Microsoft.Kiota.Abstractions.ApiException apiEx)
-        {
-            _logger.LogError(apiEx, "Graph API error listing root items: {Status}", apiEx.ResponseStatusCode);
-            throw new OneDriveServiceException("Failed to list root items", (int?)apiEx.ResponseStatusCode, apiEx);
-        }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Unexpected error listing root items");
-            throw new OneDriveServiceException("Unexpected error listing root items", null, ex);
-        }
+        });
     }
 
     /// <summary>
     /// Get a DriveItem by its path relative to root.
     /// Example path: "/Documents/MyFile.txt"
     /// </summary>
-    public async Task<DriveItem?> GetItemByPathAsync(string path)
+    public async Task<Result<DriveItem?, Exception>> GetItemByPathAsync(string path)
     {
         _logger.LogDebug("Getting item by path: {Path}", path);
-        GraphServiceClient client = await _loginService.SignInAsync();
-        // Normalize path (remove leading slash if provided)
         var normalized = path?.TrimStart('/') ?? string.Empty;
 
-        try
+        return await Try.RunAsync(async () =>
         {
-            Drive? drive = await client.Me.Drive.GetAsync();
-            if (drive?.Id is null)
+            GraphServiceClient client = await _loginService.SignInAsync();
+            try
             {
-                _logger.LogWarning("Unable to determine user's Drive id");
-                return null;
+                Drive? drive = await client.Me.Drive.GetAsync();
+                if (drive?.Id is null)
+                {
+                    _logger.LogWarning("Unable to determine user's Drive id");
+                    return (DriveItem?)null;
+                }
+
+                DriveItem? driveItem = await client.Drives[drive.Id].Root.ItemWithPath(normalized).GetAsync();
+                return driveItem;
             }
-            DriveItem? driveItem = await client.Drives[drive.Id].Root.ItemWithPath(normalized).GetAsync();
-            return driveItem;
-        }
-        catch (Microsoft.Kiota.Abstractions.ApiException ex) when (ex.ResponseStatusCode == 404)
-        {
-            _logger.LogDebug("Item not found at path: {Path}", path);
-            return null;
-        }
+            catch (Microsoft.Kiota.Abstractions.ApiException ex) when (ex.ResponseStatusCode == 404)
+            {
+                _logger.LogDebug("Item not found at path: {Path}", path);
+                return (DriveItem?)null;
+            }
+        });
     }
 
     /// <summary>
     /// Download the content of a file at a given path
     /// </summary>
-    public async Task<System.IO.Stream> DownloadFileAsync(string path)
+    public async Task<Result<System.IO.Stream, Exception>> DownloadFileAsync(string path)
     {
         _logger.LogInformation("Downloading file at path: {Path}", path);
-        GraphServiceClient client = await _loginService.SignInAsync();
         var normalized = path?.TrimStart('/') ?? string.Empty;
 
-        // Request the content stream from the item at the provided path
-        Drive? drive = await client.Me.Drive.GetAsync();
-        if (drive?.Id is null)
+        return await Try.RunAsync(async () =>
         {
-            _logger.LogWarning("Unable to determine user's Drive id");
-            return System.IO.Stream.Null;
-        }
-        System.IO.Stream? stream = await client.Drives[drive.Id].Root.ItemWithPath(normalized).Content.GetAsync();
-        return stream!;
+            GraphServiceClient client = await _loginService.SignInAsync();
+            Drive? drive = await client.Me.Drive.GetAsync();
+            if (drive?.Id is null)
+            {
+                _logger.LogWarning("Unable to determine user's Drive id");
+                return System.IO.Stream.Null;
+            }
+
+            System.IO.Stream? stream = await client.Drives[drive.Id].Root.ItemWithPath(normalized).Content.GetAsync();
+            return stream!;
+        });
     }
 
     /// <summary>
     /// Uploads a file to a specific path (overwrites if exists)
     /// </summary>
-    public async Task<DriveItem> UploadFileAsync(string path, System.IO.Stream content)
+    public async Task<Result<DriveItem, Exception>> UploadFileAsync(string path, System.IO.Stream content)
     {
         _logger.LogInformation("Uploading file to path: {Path}", path);
         var normalized = path?.TrimStart('/') ?? string.Empty;
 
-        // Upload (PUT) the provided stream to the given path. This will create or replace.
-        GraphServiceClient client = await _loginService.SignInAsync();
-        Drive? drive = await client.Me.Drive.GetAsync();
-        if (drive?.Id is null)
+        return await Try.RunAsync(async () =>
         {
-            _logger.LogWarning("Unable to determine user's Drive id");
-            throw new InvalidOperationException("Drive id not available");
-        }
-        DriveItem? uploaded = await client.Drives[drive.Id].Root.ItemWithPath(normalized).Content.PutAsync(content);
-        return uploaded!;
+            GraphServiceClient client = await _loginService.SignInAsync();
+            Drive? drive = await client.Me.Drive.GetAsync();
+            if (drive?.Id is null)
+            {
+                _logger.LogWarning("Unable to determine user's Drive id");
+                throw new InvalidOperationException("Drive id not available");
+            }
+
+            DriveItem? uploaded = await client.Drives[drive.Id].Root.ItemWithPath(normalized).Content.PutAsync(content);
+            return uploaded!;
+        });
     }
 
     /// <summary>
     /// Creates a folder at a given path under root
     /// </summary>
-    public async Task<DriveItem> CreateFolderAsync(string folderPath, string folderName)
+    public async Task<Result<DriveItem, Exception>> CreateFolderAsync(string folderPath, string folderName)
     {
         // Prepare folder payload
         var folderToCreate = new DriveItem
@@ -149,57 +151,60 @@ public class OneDriveService
             }
         };
 
-        GraphServiceClient client = await _loginService.SignInAsync();
-
-        // If folderPath is null/empty or "/", create under root
-        var normalizedParent = folderPath?.TrimStart('/') ?? string.Empty;
-
-        Drive? drive = await client.Me.Drive.GetAsync();
-        if (drive?.Id is null)
+        return await Try.RunAsync(async () =>
         {
-            _logger.LogWarning("Unable to determine user's Drive id");
-            throw new InvalidOperationException("Drive id not available");
-        }
+            GraphServiceClient client = await _loginService.SignInAsync();
 
-        if (string.IsNullOrEmpty(normalizedParent))
-        {
-            var request = new RequestInformation
+            // If folderPath is null/empty or "/", create under root
+            var normalizedParent = folderPath?.TrimStart('/') ?? string.Empty;
+
+            Drive? drive = await client.Me.Drive.GetAsync();
+            if (drive?.Id is null)
             {
-                HttpMethod = Method.POST,
-                UrlTemplate = "https://graph.microsoft.com/v1.0/drives/{driveId}/root/children",
-                PathParameters = new Dictionary<string, object> { { "driveId", drive.Id } }
-            };
+                _logger.LogWarning("Unable to determine user's Drive id");
+                throw new InvalidOperationException("Drive id not available");
+            }
 
-            request.SetContentFromParsable(client.RequestAdapter, "application/json", folderToCreate);
-
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            if (string.IsNullOrEmpty(normalizedParent))
             {
-                { "4XX", ODataError.CreateFromDiscriminatorValue },
-                { "5XX", ODataError.CreateFromDiscriminatorValue }
-            };
+                var request = new RequestInformation
+                {
+                    HttpMethod = Method.POST,
+                    UrlTemplate = "https://graph.microsoft.com/v1.0/drives/{driveId}/root/children",
+                    PathParameters = new Dictionary<string, object> { { "driveId", drive.Id } }
+                };
 
-            DriveItem? created = await client.RequestAdapter.SendAsync<DriveItem>(request, DriveItem.CreateFromDiscriminatorValue, errorMapping);
-            return created!;
-        }
-        else
-        {
-            var request = new RequestInformation
+                request.SetContentFromParsable(client.RequestAdapter, "application/json", folderToCreate);
+
+                var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+                {
+                    { "4XX", ODataError.CreateFromDiscriminatorValue },
+                    { "5XX", ODataError.CreateFromDiscriminatorValue }
+                };
+
+                DriveItem? created = await client.RequestAdapter.SendAsync<DriveItem>(request, DriveItem.CreateFromDiscriminatorValue, errorMapping);
+                return created!;
+            }
+            else
             {
-                HttpMethod = Method.POST,
-                UrlTemplate = "https://graph.microsoft.com/v1.0/drives/{driveId}/root:/{parent}:/children",
-                PathParameters = new Dictionary<string, object> { { "driveId", drive.Id }, { "parent", normalizedParent } }
-            };
+                var request = new RequestInformation
+                {
+                    HttpMethod = Method.POST,
+                    UrlTemplate = "https://graph.microsoft.com/v1.0/drives/{driveId}/root:/{parent}:/children",
+                    PathParameters = new Dictionary<string, object> { { "driveId", drive.Id }, { "parent", normalizedParent } }
+                };
 
-            request.SetContentFromParsable(client.RequestAdapter, "application/json", folderToCreate);
+                request.SetContentFromParsable(client.RequestAdapter, "application/json", folderToCreate);
 
-            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-            {
-                { "4XX", ODataError.CreateFromDiscriminatorValue },
-                { "5XX", ODataError.CreateFromDiscriminatorValue }
-            };
+                var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+                {
+                    { "4XX", ODataError.CreateFromDiscriminatorValue },
+                    { "5XX", ODataError.CreateFromDiscriminatorValue }
+                };
 
-            DriveItem? created = await client.RequestAdapter.SendAsync<DriveItem>(request, DriveItem.CreateFromDiscriminatorValue, errorMapping);
-            return created!;
-        }
+                DriveItem? created = await client.RequestAdapter.SendAsync<DriveItem>(request, DriveItem.CreateFromDiscriminatorValue, errorMapping);
+                return created!;
+            }
+        });
     }
 }
