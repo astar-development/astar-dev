@@ -186,10 +186,10 @@ public sealed class ServiceCollectionExtensionsGenerator : IIncrementalGenerator
     {
         public ServiceModel(Lifetime lifetime, string implFqn, string? serviceFqn, bool alsoAsSelf)
         {
-            this.Lifetime = lifetime;
-            this.ImplFqn = implFqn;
-            this.ServiceFqn = serviceFqn;
-            this.AlsoAsSelf = alsoAsSelf;
+            Lifetime = lifetime;
+            ImplFqn = implFqn;
+            ServiceFqn = serviceFqn;
+            AlsoAsSelf = alsoAsSelf;
         }
 
         public Lifetime Lifetime { get; }

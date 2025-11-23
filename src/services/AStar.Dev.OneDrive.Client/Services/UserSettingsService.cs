@@ -31,6 +31,9 @@ public class UserSettingsService
         _filePath = Path.Combine(dir, "AStar.OneDrive.Client.settings.json");
     }
 
+    // Testable constructor: allow specifying custom file path (useful in unit tests)
+    public UserSettingsService(string filePath) => _filePath = filePath;
+
     private static string GetSettingsDirectory()
     {
         if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
@@ -64,6 +67,9 @@ public class UserSettingsService
         }
     }
 
+    // Functional result-based loader
+    public async Task<AStar.Dev.Functional.Extensions.Result<UserSettings, Exception>> LoadResultAsync() => await AStar.Dev.Functional.Extensions.Try.RunAsync(async () => Load());
+
     public void Save(UserSettings settings)
     {
         try
@@ -73,4 +79,11 @@ public class UserSettingsService
         }
         catch { }
     }
+
+    // Functional result-based saver (returns the saved settings on success)
+    public async Task<AStar.Dev.Functional.Extensions.Result<UserSettings, Exception>> SaveResultAsync(UserSettings settings) => await AStar.Dev.Functional.Extensions.Try.RunAsync(async () =>
+                                                                                                                                      {
+                                                                                                                                          Save(settings);
+                                                                                                                                          return settings;
+                                                                                                                                      });
 }

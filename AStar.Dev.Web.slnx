@@ -28,6 +28,9 @@
         <Project Path="src/modules/apis/AStar.Dev.Files.Classifications.Api/AStar.Dev.Files.Classifications.Api.csproj" />
         <Project Path="src/modules/apis/AStar.Web.ApiService/AStar.Web.ApiService.csproj" />
     </Folder>
+    <Folder Name="/src/nuget-packages/">
+        <Project Path="src/nuget-packages/AStar.Dev.Functional.Extensions/AStar.Dev.Functional.Extensions.csproj" />
+    </Folder>
     <Folder Name="/src/services/">
         <Project Path="src/services/AStar.Dev.OneDrive.Client/AStar.Dev.OneDrive.Client.csproj" />
     </Folder>
@@ -42,7 +45,9 @@
     <Folder Name="/test/aspire/" />
     <Folder Name="/test/modules/" />
     <Folder Name="/test/modules/apis/" />
-    <Folder Name="/test/nuget-packages/" />
+    <Folder Name="/test/nuget-packages/">
+        <Project Path="test/nuget-packages/AStar.Dev.Functional.Extensions.Tests.Unit/AStar.Dev.Functional.Extensions.Tests.Unit.csproj" />
+    </Folder>
     <Folder Name="/test/source-generators/">
         <Project Path="test/source-generators/AStar.Dev.Source.Generators.Tests.Unit/AStar.Dev.Source.Generators.Test.Unit.csproj" />
     </Folder>

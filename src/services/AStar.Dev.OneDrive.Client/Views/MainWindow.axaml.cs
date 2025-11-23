@@ -13,10 +13,7 @@ public partial class MainWindow : Window
     private readonly UserSettingsService? _userSettingsService;
 
     // Parameterless constructor used by XAML runtime loader (keeps designer/build-time happy)
-    public MainWindow()
-    {
-        AvaloniaXamlLoader.Load(this);
-    }
+    public MainWindow() => AvaloniaXamlLoader.Load(this);
 
     // MainWindow is constructed by DI; inject the ViewModel and settings service
     public MainWindow(MainWindowViewModel vm, UserSettingsService userSettingsService)
@@ -87,7 +84,7 @@ public partial class MainWindow : Window
         catch { }
 
         // Persist window bounds on close
-        this.Closing += (_, __) =>
+        Closing += (_, __) =>
         {
             try
             {
@@ -118,41 +115,5 @@ public partial class MainWindow : Window
             }
             catch { }
         };
-    }
-
-    private void ThemeSelector_SelectionChanged(object? sender, SelectionChangedEventArgs e)
-    {
-        if (sender is ComboBox cb && Application.Current is App app)
-        {
-            switch (cb.SelectedIndex)
-            {
-                case 1:
-                    app.SetTheme(ThemeVariant.Light);
-                    break;
-                case 2:
-                    app.SetTheme(ThemeVariant.Dark);
-                    break;
-                default:
-                    app.SetTheme(ThemeVariant.Default);
-                    break;
-            }
-
-            // Persist choice to user settings
-            try
-            {
-                if (_userSettingsService is not null)
-                {
-                    UserSettings s = _userSettingsService.Load();
-                    s.Theme = cb.SelectedIndex switch
-                    {
-                        1 => "Light",
-                        2 => "Dark",
-                        _ => "Auto",
-                    };
-                    _userSettingsService.Save(s);
-                }
-            }
-            catch { }
-        }
     }
 }

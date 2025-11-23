@@ -9,8 +9,18 @@
             "type": "coreclr",
             "request": "launch",
             "program": "${workspaceFolder}/src/aspire/AStar.Dev.Web.AppHost/bin/Debug/net10.0/AStar.Dev.Web.AppHost.dll",
-            "preLaunchTask": "build",
+            "args": ["--", "--urls", "http://localhost:5000"],
+            "preLaunchTask": "aspire-build",
             "cwd": "${workspaceFolder}/src/aspire/AStar.Dev.Web.AppHost",
+            "stopAtEntry": false
+        },
+        {
+            "name": "C#: AStar Dev OneDrive Client",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/services/AStar.Dev.OneDrive.Client/bin/Debug/net10.0/AStar.Dev.OneDrive.Client.dll",
+            "preLaunchTask": "onedrive-build",
+            "cwd": "${workspaceFolder}/src/services/AStar.Dev.OneDrive.Client",
             "stopAtEntry": false
         }
     ]
