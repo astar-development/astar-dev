@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.Logging;
 using Microsoft.Graph;
 using Microsoft.Graph.Models;
+using System.Collections.ObjectModel;
 
 public partial class MainWindowViewModel : ObservableObject
 {
@@ -19,9 +20,13 @@ public partial class MainWindowViewModel : ObservableObject
         _oneDriveService = oneDriveService;
         _logger = logger;
         SignInCommand = new AsyncRelayCommand(SignInAsync);
+        LoadRootCommand = new AsyncRelayCommand(LoadRootItemsAsync);
     }
 
     public IAsyncRelayCommand SignInCommand { get; }
+    public IAsyncRelayCommand LoadRootCommand { get; }
+
+    [ObservableProperty] private ObservableCollection<DriveItem> _rootItems = new();
 
     private async Task SignInAsync()
     {
@@ -43,6 +48,22 @@ public partial class MainWindowViewModel : ObservableObject
         {
             Status = $"Login failed: {ex.Message}";
             _logger?.LogError(ex, "Sign-in failed");
+        }
+    }
+
+    private async Task LoadRootItemsAsync()
+    {
+        try
+        {
+            _logger?.LogInformation("Loading OneDrive root items");
+            List<DriveItem> items = await _oneDriveService.GetRootItemsAsync();
+            RootItems = new ObservableCollection<DriveItem>(items);
+            Status = $"Loaded {RootItems.Count} item(s)";
+        }
+        catch (Exception ex)
+        {
+            Status = $"Load failed: {ex.Message}";
+            _logger?.LogError(ex, "Failed to load root items");
         }
     }
 }
