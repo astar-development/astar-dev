@@ -53,6 +53,18 @@ public class LoginService : ILoginService
         }
     }
 
+    // Functional wrapper that captures exceptions into a Result
+    public Task<AStar.Dev.Functional.Extensions.Result<GraphServiceClient, Exception>> TrySignInAsync()
+        => AStar.Dev.Functional.Extensions.Try.RunAsync(async () => await SignInAsync());
+
+    // Functional wrapper for SignOut
+    public Task<AStar.Dev.Functional.Extensions.Result<bool, Exception>> TrySignOutAsync()
+        => AStar.Dev.Functional.Extensions.Try.RunAsync(async () =>
+        {
+            await SignOutAsync();
+            return true;
+        });
+
     public Task SignOutAsync()
     {
         _logger.LogInformation("Signing out user and clearing local credentials");
