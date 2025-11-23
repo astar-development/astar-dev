@@ -13,10 +13,7 @@ public partial class MainWindow : Window
     private readonly UserSettingsService? _userSettingsService;
 
     // Parameterless constructor used by XAML runtime loader (keeps designer/build-time happy)
-    public MainWindow()
-    {
-        AvaloniaXamlLoader.Load(this);
-    }
+    public MainWindow() => AvaloniaXamlLoader.Load(this);
 
     // MainWindow is constructed by DI; inject the ViewModel and settings service
     public MainWindow(MainWindowViewModel vm, UserSettingsService userSettingsService)
@@ -87,7 +84,7 @@ public partial class MainWindow : Window
         catch { }
 
         // Persist window bounds on close
-        this.Closing += (_, __) =>
+        Closing += (_, __) =>
         {
             try
             {

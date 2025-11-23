@@ -1,8 +1,8 @@
 <Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:Class="AStar.Dev.OneDrive.Client.Views.MainWindow"
-        Width="400" Height="450" Background="DarkSeaGreen" Foreground="White"
-        Title="Graph Login Example">
+        Width="400" Height="450"
+        Title="AStar Development - OneDrive Sync App">
 
     <DockPanel>
         <StackPanel Orientation="Vertical" Margin="10">
