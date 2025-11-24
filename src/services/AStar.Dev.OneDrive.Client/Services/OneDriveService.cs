@@ -190,46 +190,29 @@ public class OneDriveService
                 throw new InvalidOperationException("Drive id not available");
             }
 
-            if (string.IsNullOrEmpty(normalizedParent))
+            // Build RequestInformation for creating the child folder. Use explicit RequestInformation
+            // so tests can intercept the outgoing request regardless of generated SDK shape.
+            var request = new RequestInformation
             {
-                var request = new RequestInformation
-                {
-                    HttpMethod = Method.POST,
-                    UrlTemplate = "https://graph.microsoft.com/v1.0/drives/{driveId}/root/children",
-                    PathParameters = new Dictionary<string, object> { { "driveId", drive.Id } }
-                };
+                HttpMethod = Method.POST,
+                UrlTemplate = string.IsNullOrEmpty(normalizedParent)
+                    ? "https://graph.microsoft.com/v1.0/drives/{driveId}/root/children"
+                    : "https://graph.microsoft.com/v1.0/drives/{driveId}/root:/{parent}:/children",
+                PathParameters = string.IsNullOrEmpty(normalizedParent)
+                    ? new Dictionary<string, object> { { "driveId", drive.Id } }
+                    : new Dictionary<string, object> { { "driveId", drive.Id }, { "parent", normalizedParent } }
+            };
 
-                request.SetContentFromParsable(client.RequestAdapter, "application/json", folderToCreate);
+            request.SetContentFromParsable(client.RequestAdapter, "application/json", folderToCreate);
 
-                var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-                {
-                    { "4XX", ODataError.CreateFromDiscriminatorValue },
-                    { "5XX", ODataError.CreateFromDiscriminatorValue }
-                };
-
-                DriveItem? created = await client.RequestAdapter.SendAsync<DriveItem>(request, DriveItem.CreateFromDiscriminatorValue, errorMapping);
-                return created!;
-            }
-            else
+            var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
             {
-                var request = new RequestInformation
-                {
-                    HttpMethod = Method.POST,
-                    UrlTemplate = "https://graph.microsoft.com/v1.0/drives/{driveId}/root:/{parent}:/children",
-                    PathParameters = new Dictionary<string, object> { { "driveId", drive.Id }, { "parent", normalizedParent } }
-                };
+                { "4XX", ODataError.CreateFromDiscriminatorValue },
+                { "5XX", ODataError.CreateFromDiscriminatorValue }
+            };
 
-                request.SetContentFromParsable(client.RequestAdapter, "application/json", folderToCreate);
-
-                var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
-                {
-                    { "4XX", ODataError.CreateFromDiscriminatorValue },
-                    { "5XX", ODataError.CreateFromDiscriminatorValue }
-                };
-
-                DriveItem? created = await client.RequestAdapter.SendAsync<DriveItem>(request, DriveItem.CreateFromDiscriminatorValue, errorMapping);
-                return created!;
-            }
+            DriveItem? created = await client.RequestAdapter.SendAsync<DriveItem>(request, DriveItem.CreateFromDiscriminatorValue, errorMapping);
+            return created!;
         });
     }
 }

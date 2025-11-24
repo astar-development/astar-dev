@@ -10,7 +10,7 @@ using Xunit;
 using AStar.Dev.OneDrive.Client.Services;
 using AStar.Dev.OneDrive.Client.Tests.Unit.Fakes;
 using AStar.Dev.Functional.Extensions;
-using AStar.Dev.OneDrive.Client.Tests.Unit.Utilities;
+// using AStar.Dev.OneDrive.Client.Tests.Unit.Utilities;
 
 namespace AStar.Dev.OneDrive.Client.Tests.Unit
 {
@@ -24,7 +24,7 @@ namespace AStar.Dev.OneDrive.Client.Tests.Unit
 
             Task<object?> Responder(RequestInformation req, Type responseType, CancellationToken ct)
             {
-                if (responseType == typeof(Drive))
+                    if (responseType == typeof(Microsoft.Graph.Models.Drive))
                     return Task.FromResult<object?>(drive);
                 // Simulate an API failure
                 throw new InvalidOperationException("simulated api failure");
@@ -50,7 +50,7 @@ namespace AStar.Dev.OneDrive.Client.Tests.Unit
 
             Task<object?> Responder(RequestInformation req, Type responseType, CancellationToken ct)
             {
-                if (responseType == typeof(Drive))
+                    if (responseType == typeof(Microsoft.Graph.Models.Drive))
                     return Task.FromResult<object?>(drive);
                 throw new Exception("upload error");
             }
@@ -74,7 +74,7 @@ namespace AStar.Dev.OneDrive.Client.Tests.Unit
 
             Task<object?> Responder(RequestInformation req, Type responseType, CancellationToken ct)
             {
-                if (responseType == typeof(Drive))
+                    if (responseType == typeof(Microsoft.Graph.Models.Drive))
                     return Task.FromResult<object?>(drive);
                 throw new Exception("create folder failed");
             }

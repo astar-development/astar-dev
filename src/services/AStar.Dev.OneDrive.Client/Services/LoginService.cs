@@ -10,13 +10,15 @@ public class LoginService : ILoginService
 {
     private readonly AppSettings _settings;
     private readonly ILogger<LoginService> _logger;
+    private readonly Func<GraphServiceClient>? _graphClientFactory;
     private GraphServiceClient? _client;
     private InteractiveBrowserCredential? _credential;
 
-    public LoginService(AppSettings settings, ILogger<LoginService> logger)
+    public LoginService(AppSettings settings, ILogger<LoginService> logger, Func<GraphServiceClient>? graphClientFactory = null)
     {
         _settings = settings;
         _logger = logger;
+        _graphClientFactory = graphClientFactory;
     }
 
     public bool IsSignedIn => _client != null;
@@ -33,13 +35,20 @@ public class LoginService : ILoginService
 
         return AStar.Dev.Functional.Extensions.Try.RunAsync(async () =>
         {
-            var options = new InteractiveBrowserCredentialOptions { ClientId = _settings.ClientId, TenantId = _settings.TenantId, RedirectUri = new Uri("http://localhost") };
+            if (_graphClientFactory != null)
+            {
+                _client = _graphClientFactory();
+            }
+            else
+            {
+                var options = new InteractiveBrowserCredentialOptions { ClientId = _settings.ClientId, TenantId = _settings.TenantId, RedirectUri = new Uri("http://localhost") };
 
-            _credential = new InteractiveBrowserCredential(options);
+                _credential = new InteractiveBrowserCredential(options);
 
-            string[] scopes = { "User.Read", "Files.ReadWrite.All", "offline_access" };
+                string[] scopes = { "User.Read", "Files.ReadWrite.All", "offline_access" };
 
-            _client = new GraphServiceClient(_credential, scopes);
+                _client = new GraphServiceClient(_credential, scopes);
+            }
 
             // Verify sign-in
             Microsoft.Graph.Models.User? me = await _client.Me.GetAsync();

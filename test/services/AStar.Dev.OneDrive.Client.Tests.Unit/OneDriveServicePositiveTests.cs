@@ -36,7 +36,7 @@ namespace AStar.Dev.OneDrive.Client.Tests.Unit
             // responder returns the Drive when a Drive is requested
             Task<object?> Responder(RequestInformation req, Type responseType, CancellationToken ct)
             {
-                if (responseType == typeof(Drive) || responseType == typeof(Microsoft.Graph.Drive))
+                if (responseType == typeof(Microsoft.Graph.Models.Drive))
                 {
                     return Task.FromResult<object?>(drive);
                 }
@@ -67,7 +67,7 @@ namespace AStar.Dev.OneDrive.Client.Tests.Unit
 
             Task<object?> Responder(RequestInformation req, Type responseType, CancellationToken ct)
             {
-                if (responseType == typeof(Drive) )
+                if (responseType == typeof(Microsoft.Graph.Models.Drive) )
                     return Task.FromResult<object?>(drive);
                 if (responseType == typeof(System.IO.Stream))
                     return Task.FromResult<object?>(TestUtilities.StreamFromString(expectedContent));
@@ -98,9 +98,9 @@ namespace AStar.Dev.OneDrive.Client.Tests.Unit
 
             Task<object?> Responder(RequestInformation req, Type responseType, CancellationToken ct)
             {
-                if (responseType == typeof(Drive))
+                if (responseType == typeof(Microsoft.Graph.Models.Drive))
                     return Task.FromResult<object?>(drive);
-                if (responseType == typeof(DriveItem))
+                if (responseType == typeof(Microsoft.Graph.Models.DriveItem))
                     return Task.FromResult<object?>(uploaded);
                 return Task.FromResult<object?>(null);
             }
@@ -129,9 +129,9 @@ namespace AStar.Dev.OneDrive.Client.Tests.Unit
 
             Task<object?> Responder(RequestInformation req, Type responseType, CancellationToken ct)
             {
-                if (responseType == typeof(Drive))
+                if (responseType == typeof(Microsoft.Graph.Models.Drive))
                     return Task.FromResult<object?>(drive);
-                if (responseType == typeof(DriveItem))
+                if (responseType == typeof(Microsoft.Graph.Models.DriveItem))
                     return Task.FromResult<object?>(created);
                 return Task.FromResult<object?>(null);
             }
