@@ -16,7 +16,7 @@
         <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="10.0.0" />
         <PackageReference Include="Microsoft.Graph" Version="5.97.0" />
         <PackageReference Include="Azure.Identity" Version="1.17.0" />
-        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
         <PackageReference Include="Avalonia" Version="11.0.10" />
         <PackageReference Include="Avalonia.Desktop" Version="11.0.10" />
         <!--        <PackageReference Include="Avalonia.Xaml.Behaviors" Version="11.0.10" />-->
