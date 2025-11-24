@@ -36,7 +36,7 @@ public partial class MainWindowViewModel : ObservableObject
         {
             _logger?.LogInformation("Sign-in started");
             ErrorMessage = string.Empty;
-            var loginResult = await _loginService.SignInAsync();
+            Result<GraphServiceClient, Exception> loginResult = await _loginService.SignInAsync();
             if (loginResult is Result<GraphServiceClient, Exception>.Error lerr)
             {
                 ErrorMessage = lerr.Reason.Message;
@@ -45,24 +45,12 @@ public partial class MainWindowViewModel : ObservableObject
                 return;
             }
 
-            var client = ((Result<GraphServiceClient, Exception>.Ok)loginResult).Value;
+            GraphServiceClient client = ((Result<GraphServiceClient, Exception>.Ok)loginResult).Value;
             User? me = await client.Me.GetAsync();
             var driveType = client.Me.Drive.GetType().FullName;
 
             Status = $"Signed in as {me?.DisplayName} - {driveType}";
             _logger?.LogInformation("Sign-in succeeded for {Account}", me?.UserPrincipalName ?? me?.DisplayName ?? "unknown");
-
-            await _oneDriveService.GetRootItemsAsync().ApplyAsync(
-                items =>
-                {
-                    foreach (DriveItem item in items) Console.WriteLine(item.Name);
-                    ErrorMessage = string.Empty;
-                },
-                ex =>
-                {
-                    ErrorMessage = ex.Message;
-                    _logger?.LogError(ex, "Failed to list root items after sign-in");
-                });
         }
         catch(Exception ex)
         {

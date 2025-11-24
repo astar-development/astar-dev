@@ -4,6 +4,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 using Microsoft.Graph.Models.ODataErrors;
 using AStar.Dev.Functional.Extensions;
 using Microsoft.Extensions.Logging;
+using Azure.Identity;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -28,10 +29,7 @@ public class OneDriveService
         public int? StatusCode { get; }
 
         public OneDriveServiceException(string message, int? statusCode = null, Exception? inner = null)
-            : base(message, inner)
-        {
-            StatusCode = statusCode;
-        }
+            : base(message, inner) => StatusCode = statusCode;
     }
 
     /// <summary>
@@ -44,19 +42,20 @@ public class OneDriveService
 
         return await Try.RunAsync(async () =>
         {
-            var loginResult = await _loginService.SignInAsync();
+            Result<GraphServiceClient, Exception> loginResult = await _loginService.SignInAsync();
             if (loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
             {
                 throw loginErr.Reason;
             }
-            var client = ((Result<GraphServiceClient, Exception>.Ok)loginResult).Value;
 
-            // Request the Drive resource and expand the root's children so
-            // the Root.Children navigation property is populated in the returned Drive.
-            Drive? drive = await client.Me.Drive.GetAsync(rc => rc.QueryParameters.Expand = new[] { "root($expand=children)" });
+            GraphServiceClient client = ((Result<GraphServiceClient, Exception>.Ok)loginResult).Value;
 
-            List<DriveItem>? rootChildren = drive?.Root?.Children;
-            List<DriveItem> results = rootChildren?.ToList() ?? new List<DriveItem>();
+            // Get the drive (current user)
+            Drive? drive = await RetryHelper.ExecuteWithBackoffAsync(() => client.Me.Drive.GetAsync());
+
+            DriveItemCollectionResponse? rootChildren = await client.Drives[drive!.Id!].Items["root"].Children.GetAsync();
+
+            List<DriveItem> results = rootChildren?.Value ?? new List<DriveItem>();
             _logger.LogInformation("Found {Count} root items", results.Count);
             return results;
         });
@@ -73,11 +72,12 @@ public class OneDriveService
 
         return await Try.RunAsync(async () =>
         {
-            var loginResult = await _loginService.SignInAsync();
+            Result<GraphServiceClient, Exception> loginResult = await _loginService.SignInAsync();
             if (loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
             {
                 throw loginErr.Reason;
             }
+
             GraphServiceClient client = ((Result<GraphServiceClient, Exception>.Ok)loginResult).Value;
             try
             {
@@ -109,11 +109,12 @@ public class OneDriveService
 
         return await Try.RunAsync(async () =>
         {
-            var loginResult = await _loginService.SignInAsync();
+            Result<GraphServiceClient, Exception> loginResult = await _loginService.SignInAsync();
             if (loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
             {
                 throw loginErr.Reason;
             }
+
             GraphServiceClient client = ((Result<GraphServiceClient, Exception>.Ok)loginResult).Value;
             Drive? drive = await client.Me.Drive.GetAsync();
             if (drive?.Id is null)
@@ -137,11 +138,12 @@ public class OneDriveService
 
         return await Try.RunAsync(async () =>
         {
-            var loginResult = await _loginService.SignInAsync();
+            Result<GraphServiceClient, Exception> loginResult = await _loginService.SignInAsync();
             if (loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
             {
                 throw loginErr.Reason;
             }
+
             GraphServiceClient client = ((Result<GraphServiceClient, Exception>.Ok)loginResult).Value;
             Drive? drive = await client.Me.Drive.GetAsync();
             if (drive?.Id is null)
@@ -173,11 +175,12 @@ public class OneDriveService
 
         return await Try.RunAsync(async () =>
         {
-            var loginResult = await _loginService.SignInAsync();
+            Result<GraphServiceClient, Exception> loginResult = await _loginService.SignInAsync();
             if (loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
             {
                 throw loginErr.Reason;
             }
+
             GraphServiceClient client = ((Result<GraphServiceClient, Exception>.Ok)loginResult).Value;
 
             // If folderPath is null/empty or "/", create under root

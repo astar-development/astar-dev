@@ -59,33 +59,31 @@ public class LoginService : ILoginService
     }
 
     // Sign out and return Result<bool, Exception>
-    public Task<Result<bool, Exception>> SignOutAsync()
-    {
-        return AStar.Dev.Functional.Extensions.Try.RunAsync(async () =>
-        {
-            _logger.LogInformation("Signing out user and clearing local credentials");
-
-            // 1) Open browser logout to clear the browser session
-            var logoutUri = $"https://login.microsoftonline.com/common/oauth2/v2.0/logout?post_logout_redirect_uri={Uri.EscapeDataString("http://localhost")}";
-            try
+    public Task<Result<bool, Exception>> SignOutAsync() 
+        => AStar.Dev.Functional.Extensions.Try.RunAsync(async () =>
             {
-                // cross-platform process start
-                var psi = new ProcessStartInfo { FileName = logoutUri, UseShellExecute = true };
-                _ = Process.Start(psi);
-                _logger.LogDebug("Opened browser logout URL");
-            }
-            catch (Exception ex)
-            {
-                _logger.LogWarning(ex, "Failed to open browser logout URL (best-effort)");
-            }
+                _logger.LogInformation("Signing out user and clearing local credentials");
 
-            // 2) Clear local references so the next operation forces a fresh login
-            _credential = null;
-            _client = null;
+                // 1) Open browser logout to clear the browser session
+                var logoutUri = $"https://login.microsoftonline.com/common/oauth2/v2.0/logout?post_logout_redirect_uri={Uri.EscapeDataString("http://localhost")}";
+                try
+                {
+                    // cross-platform process start
+                    var psi = new ProcessStartInfo { FileName = logoutUri, UseShellExecute = true };
+                    _ = Process.Start(psi);
+                    _logger.LogDebug("Opened browser logout URL");
+                }
+                catch(Exception ex)
+                {
+                    _logger.LogWarning(ex, "Failed to open browser logout URL (best-effort)");
+                }
 
-            _logger.LogDebug("Local credential references cleared");
+                // 2) Clear local references so the next operation forces a fresh login
+                _credential = null;
+                _client = null;
 
-            return true;
-        });
-    }
+                _logger.LogDebug("Local credential references cleared");
+
+                return true;
+            });
 }
