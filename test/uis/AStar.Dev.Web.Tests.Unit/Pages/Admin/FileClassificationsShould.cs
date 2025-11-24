@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace AStar.Dev.Web.Tests.Unit.Pages.Admin;
 
-public class FileClassificationsShould
+public sealed class FileClassificationsShould
 {
     [Fact]
     public void HaveTheAuthorizeAttribute()

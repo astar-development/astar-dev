@@ -6,7 +6,7 @@ using TestContext = Bunit.TestContext;
 
 namespace AStar.Dev.Web.Tests.Unit.Pages;
 
-public class HomeShould : TestContext
+public sealed class HomeShould : TestContext
 {
     [Fact]
     public void HaveTheAllowAnonymousAttribute()

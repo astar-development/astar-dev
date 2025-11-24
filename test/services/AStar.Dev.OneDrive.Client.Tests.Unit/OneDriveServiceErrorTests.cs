@@ -14,7 +14,7 @@ using AStar.Dev.Functional.Extensions;
 
 namespace AStar.Dev.OneDrive.Client.Tests.Unit
 {
-    public class OneDriveServiceErrorTests
+    public sealed class OneDriveServiceErrorTests
     {
         [Fact]
         public async Task DownloadFileAsync_Returns_Error_When_AdapterThrows()

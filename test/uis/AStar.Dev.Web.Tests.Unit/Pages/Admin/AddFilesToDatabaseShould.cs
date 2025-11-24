@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace AStar.Dev.Web.Tests.Unit.Pages.Admin;
 
-public class AddFilesToDatabaseShould
+public sealed class AddFilesToDatabaseShould
 {
     [Fact]
     public void HaveTheAuthorizeAttribute()

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace AStar.Dev.Web.Tests.Unit.Pages.Admin;
 
-public class AuthenticationCheckShould
+public sealed class AuthenticationCheckShould
 {
     [Fact]
     public void HaveTheAuthorizeAttribute()

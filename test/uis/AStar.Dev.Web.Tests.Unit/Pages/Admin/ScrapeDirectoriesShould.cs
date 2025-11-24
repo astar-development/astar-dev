@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace AStar.Dev.Web.Tests.Unit.Pages.Admin;
 
-public class ScrapeDirectoriesShould
+public sealed class ScrapeDirectoriesShould
 {
     [Fact]
     public void HaveTheAuthorizeAttribute()

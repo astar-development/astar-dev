@@ -5,7 +5,7 @@ namespace AStar.Dev.Web.Models;
 ///     Represents a classification of files, providing metadata about the type of files
 ///     and associated entities such as file details and file name parts.
 /// </summary>
-public class FileClassification
+public sealed class FileClassification
 {
     public FileClassification(FileClassification fc)
     {

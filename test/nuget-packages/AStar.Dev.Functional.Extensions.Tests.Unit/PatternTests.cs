@@ -1,6 +1,6 @@
 namespace AStar.Dev.Functional.Extensions.Tests.Unit;
 
-public class PatternTests
+public sealed class PatternTests
 {
     [Fact]
     public void IsSomeAndIsNoneWorkCorrectly()
@@ -31,8 +31,8 @@ public class PatternTests
     [Fact]
     public void IsSuccessAndIsFailureWorkCorrectly()
     {
-        var success = Try.Run(() => 1);
-        var failure = Try.Run<int>(() => throw new ArgumentNullException("fail"));
+        Result<int, Exception> success = Try.Run(() => 1);
+        Result<int, Exception> failure = Try.Run<int>(() => throw new ArgumentNullException("fail"));
 
         Assert.True(Pattern.IsSuccess(success));
         Assert.False(Pattern.IsFailure(success));

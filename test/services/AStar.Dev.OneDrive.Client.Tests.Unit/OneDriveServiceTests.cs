@@ -11,9 +11,9 @@ using Microsoft.Graph.Models;
 
 namespace AStar.Dev.OneDrive.Client.Tests.Unit
 {
-    public class OneDriveServiceTests
+    public sealed class OneDriveServiceTests
     {
-        private class FailingLoginService : ILoginService
+        private sealed class FailingLoginService : ILoginService
         {
             private readonly Exception _ex;
             public FailingLoginService(Exception ex) => _ex = ex;

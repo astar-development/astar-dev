@@ -13,7 +13,7 @@ await app.RunAsync();
 #pragma warning disable S2094 // Classes should not be empty
 namespace AStar.Dev.Web
 {
-    public class Program
+    public sealed class Program
     {
     }
 }

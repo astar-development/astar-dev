@@ -3,7 +3,7 @@ using AStar.Dev.Annotations;
 namespace AStar.Dev.SourceGenerators.TestApp.Services;
 
 [RegisterService(Lifetime.Scoped, AsSelf = false)]
-public class ExampleService
+public sealed class ExampleService
 {
     /// <summary>
     /// Dummy service method

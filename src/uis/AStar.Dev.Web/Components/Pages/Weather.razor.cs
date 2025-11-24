@@ -20,7 +20,7 @@ public partial class Weather : ComponentBase
         }).AsQueryable();
     }
 
-    private class WeatherForecast
+    private sealed class WeatherForecast
     {
         public DateOnly Date { get; set; }
         public int TemperatureC { get; set; }

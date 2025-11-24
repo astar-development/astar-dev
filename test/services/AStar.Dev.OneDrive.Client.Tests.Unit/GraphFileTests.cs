@@ -5,7 +5,7 @@ using AStar.Dev.OneDrive.Client.Models;
 
 namespace AStar.Dev.OneDrive.Client.Tests.Unit
 {
-    public class GraphFileTests
+    public sealed class GraphFileTests
     {
         [Fact]
         public void SizeText_Shows_Bytes_When_SizeSet()

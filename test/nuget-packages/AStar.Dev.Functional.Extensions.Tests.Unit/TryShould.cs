@@ -1,13 +1,13 @@
 namespace AStar.Dev.Functional.Extensions.Tests.Unit;
 
-public class TryTests
+public sealed class TryTests
 {
     [Fact]
     public void RunShouldReturnOkResultWhenFunctionSucceeds()
     {
         const int expectedValue = 42;
 
-        var result = Try.Run(SuccessFunc);
+        Result<int, Exception> result = Try.Run(SuccessFunc);
 
         _ = result.ShouldBeOfType<Result<int, Exception>.Ok>();
         Pattern.IsOk(result).ShouldBeTrue();
@@ -25,7 +25,7 @@ public class TryTests
         const string exceptionMessage  = "Test exception";
         Exception    expectedException = new InvalidOperationException(exceptionMessage);
 
-        var result = Try.Run(FailingFunc);
+        Result<int, Exception> result = Try.Run(FailingFunc);
 
         _ = result.ShouldBeOfType<Result<int, Exception>.Error>();
         Pattern.IsOk(result).ShouldBeFalse();
@@ -41,9 +41,9 @@ public class TryTests
     [Fact]
     public void RunShouldCaptureSpecificExceptionTypes()
     {
-        var result = Try.Run(ArgNullFunc);
+        Result<int, Exception> result = Try.Run(ArgNullFunc);
 
-        var error = ((Result<int, Exception>.Error)result).Reason;
+        Exception error = ((Result<int, Exception>.Error)result).Reason;
         _ = error.ShouldBeOfType<ArgumentNullException>();
         (error as ArgumentNullException)?.ParamName.ShouldBe("testParam");
 
@@ -57,7 +57,7 @@ public class TryTests
     {
         const string expectedValue = "async result";
 
-        var result = await Try.RunAsync(SuccessFunc);
+        Result<string, Exception> result = await Try.RunAsync(SuccessFunc);
 
         _ = result.ShouldBeOfType<Result<string, Exception>.Ok>();
         Pattern.IsOk(result).ShouldBeTrue();
@@ -75,7 +75,7 @@ public class TryTests
         const string exceptionMessage  = "Async test exception";
         Exception    expectedException = new InvalidOperationException(exceptionMessage);
 
-        var result = await Try.RunAsync(FailingFunc);
+        Result<string, Exception> result = await Try.RunAsync(FailingFunc);
 
         _ = result.ShouldBeOfType<Result<string, Exception>.Error>();
         Pattern.IsOk(result).ShouldBeFalse();
@@ -91,7 +91,7 @@ public class TryTests
     [Fact]
     public async Task RunAsyncShouldCaptureExceptionFromAsyncAwaitOperationAsync()
     {
-        var result = await Try.RunAsync(FailingAsyncFunc);
+        Result<int, Exception> result = await Try.RunAsync(FailingAsyncFunc);
 
         Pattern.IsError(result).ShouldBeTrue();
         _ = ((Result<int, Exception>.Error)result).Reason.ShouldBeOfType<TimeoutException>();
@@ -110,7 +110,7 @@ public class TryTests
     [Fact]
     public void RunShouldWorkWithLambdaExpressions()
     {
-        var result = Try.Run(() => 5 + 5);
+        Result<int, Exception> result = Try.Run(() => 5 + 5);
 
         Pattern.IsOk(result).ShouldBeTrue();
         ((Result<int, Exception>.Ok)result).Value.ShouldBe(10);
@@ -119,7 +119,7 @@ public class TryTests
     [Fact]
     public async Task RunAsyncShouldWorkWithAsyncLambdaExpressionsAsync()
     {
-        var result = await Try.RunAsync(async () =>
+        Result<string, Exception> result = await Try.RunAsync(async () =>
         {
             await Task.Delay(1);
 
@@ -135,9 +135,9 @@ public class TryTests
     {
         var customException = new CustomTestException("Custom exception test");
 
-        var result = Try.Run<int>(() => throw customException);
+        Result<int, Exception> result = Try.Run<int>(() => throw customException);
 
-        var error = ((Result<int, Exception>.Error)result).Reason;
+        Exception error = ((Result<int, Exception>.Error)result).Reason;
         _ = error.ShouldBeOfType<CustomTestException>();
         error.ShouldBeSameAs(customException);
     }
@@ -147,14 +147,14 @@ public class TryTests
     {
         var customException = new CustomTestException("Async custom exception test");
 
-        var result = await Try.RunAsync<string>(async () =>
+        Result<string, Exception> result = await Try.RunAsync<string>(async () =>
         {
             await Task.Delay(1);
 
             throw customException;
         });
 
-        var error = ((Result<string, Exception>.Error)result).Reason;
+        Exception error = ((Result<string, Exception>.Error)result).Reason;
         _ = error.ShouldBeOfType<CustomTestException>();
         error.ShouldBeSameAs(customException);
     }
@@ -162,7 +162,7 @@ public class TryTests
     [Fact]
     public void TryRunCapturesSuccess()
     {
-        var result = Try.Run(() => 42);
+        Result<int, Exception> result = Try.Run(() => 42);
 
         var output = result.Match(
             ok => ok,
@@ -174,7 +174,7 @@ public class TryTests
     [Fact]
     public void TryRunCapturesException()
     {
-        var result = Try.Run<int>(() => throw new InvalidOperationException("fail"));
+        Result<int, Exception> result = Try.Run<int>(() => throw new InvalidOperationException("fail"));
 
         var output = result.Match(
             ok => ok,
@@ -186,8 +186,8 @@ public class TryTests
     [Fact]
     public void TryMatchReturnsCorrectBranch()
     {
-        var success = Try.Run(() => "done");
-        var failure = Try.Run<string>(() => throw new InvalidOperationException("fail"));
+        Result<string, Exception> success = Try.Run(() => "done");
+        Result<string, Exception> failure = Try.Run<string>(() => throw new InvalidOperationException("fail"));
 
         var a = success.Match(x => $"OK: {x}", ex => $"ERR: {ex.Message}");
         var b = failure.Match(x => $"OK: {x}", ex => $"ERR: {ex.Message}");

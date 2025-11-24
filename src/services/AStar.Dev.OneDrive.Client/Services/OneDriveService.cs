@@ -1,18 +1,14 @@
-using Microsoft.Graph;
-using Microsoft.Kiota.Abstractions;
-using Microsoft.Kiota.Abstractions.Serialization;
-using Microsoft.Graph.Models.ODataErrors;
 using AStar.Dev.Functional.Extensions;
 using Microsoft.Extensions.Logging;
-using Azure.Identity;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.Graph;
 using Microsoft.Graph.Models;
+using Microsoft.Graph.Models.ODataErrors;
+using Microsoft.Kiota.Abstractions;
+using Microsoft.Kiota.Abstractions.Serialization;
 
 namespace AStar.Dev.OneDrive.Client.Services;
 
-public class OneDriveService
+public sealed class OneDriveService
 {
     private readonly ILoginService _loginService;
     private readonly ILogger<OneDriveService> _logger;
@@ -24,7 +20,7 @@ public class OneDriveService
     }
 
     // Custom exception type for higher-level error surface
-    public class OneDriveServiceException : Exception
+    public sealed class OneDriveServiceException : Exception
     {
         public int? StatusCode { get; }
 
@@ -36,29 +32,27 @@ public class OneDriveService
     /// Lists items in the user's OneDrive root folder.
     /// Returns a Result containing the list or the captured exception.
     /// </summary>
-    public async Task<Result<List<DriveItem>, Exception>> GetRootItemsAsync()
+    public async Task GetRootItemsAsync()
     {
         _logger.LogInformation("Listing root items from OneDrive");
 
-        return await Try.RunAsync(async () =>
-        {
-            Result<GraphServiceClient, Exception> loginResult = await _loginService.SignInAsync();
-            if (loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
+        Result<GraphServiceClient, Exception> loginResult = await _loginService.SignInAsync();
+            if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
             {
                 throw loginErr.Reason;
             }
 
             GraphServiceClient client = ((Result<GraphServiceClient, Exception>.Ok)loginResult).Value;
+            // Resolve the user's home directory in a cross-platform way
+            var appDataPath = AppPathHelper.GetAppDataPath("onedrive-sync");
+            _ = Directory.CreateDirectory(appDataPath);
 
-            // Get the drive (current user)
-            Drive? drive = await RetryHelper.ExecuteWithBackoffAsync(() => client.Me.Drive.GetAsync());
+            var dbPath = Path.Combine(appDataPath, "onedrive_sync.db");
+            var store = new DeltaStore(dbPath);
 
-            DriveItemCollectionResponse? rootChildren = await client.Drives[drive!.Id!].Items["root"].Children.GetAsync();
+            var syncManager = new SyncManager(client, store);
 
-            List<DriveItem> results = rootChildren?.Value ?? new List<DriveItem>();
-            _logger.LogInformation("Found {Count} root items", results.Count);
-            return results;
-        });
+            await syncManager.RunSyncAsync();
     }
 
     /// <summary>
@@ -73,7 +67,7 @@ public class OneDriveService
         return await Try.RunAsync(async () =>
         {
             Result<GraphServiceClient, Exception> loginResult = await _loginService.SignInAsync();
-            if (loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
+            if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
             {
                 throw loginErr.Reason;
             }
@@ -82,7 +76,7 @@ public class OneDriveService
             try
             {
                 Drive? drive = await client.Me.Drive.GetAsync();
-                if (drive?.Id is null)
+                if(drive?.Id is null)
                 {
                     _logger.LogWarning("Unable to determine user's Drive id");
                     return (DriveItem?)null;
@@ -91,7 +85,7 @@ public class OneDriveService
                 DriveItem? driveItem = await client.Drives[drive.Id].Root.ItemWithPath(normalized).GetAsync();
                 return driveItem;
             }
-            catch (Microsoft.Kiota.Abstractions.ApiException ex) when (ex.ResponseStatusCode == 404)
+            catch(Microsoft.Kiota.Abstractions.ApiException ex) when(ex.ResponseStatusCode == 404)
             {
                 _logger.LogDebug("Item not found at path: {Path}", path);
                 return (DriveItem?)null;
@@ -110,17 +104,17 @@ public class OneDriveService
         return await Try.RunAsync(async () =>
         {
             Result<GraphServiceClient, Exception> loginResult = await _loginService.SignInAsync();
-            if (loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
+            if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
             {
                 throw loginErr.Reason;
             }
 
             GraphServiceClient client = ((Result<GraphServiceClient, Exception>.Ok)loginResult).Value;
             Drive? drive = await client.Me.Drive.GetAsync();
-            if (drive?.Id is null)
+            if(drive?.Id is null)
             {
                 _logger.LogWarning("Unable to determine user's Drive id");
-                return System.IO.Stream.Null;
+                return Stream.Null;
             }
 
             System.IO.Stream? stream = await client.Drives[drive.Id].Root.ItemWithPath(normalized).Content.GetAsync();
@@ -139,14 +133,14 @@ public class OneDriveService
         return await Try.RunAsync(async () =>
         {
             Result<GraphServiceClient, Exception> loginResult = await _loginService.SignInAsync();
-            if (loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
+            if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
             {
                 throw loginErr.Reason;
             }
 
             GraphServiceClient client = ((Result<GraphServiceClient, Exception>.Ok)loginResult).Value;
             Drive? drive = await client.Me.Drive.GetAsync();
-            if (drive?.Id is null)
+            if(drive?.Id is null)
             {
                 _logger.LogWarning("Unable to determine user's Drive id");
                 throw new InvalidOperationException("Drive id not available");
@@ -176,7 +170,7 @@ public class OneDriveService
         return await Try.RunAsync(async () =>
         {
             Result<GraphServiceClient, Exception> loginResult = await _loginService.SignInAsync();
-            if (loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
+            if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
             {
                 throw loginErr.Reason;
             }
@@ -187,7 +181,7 @@ public class OneDriveService
             var normalizedParent = folderPath?.TrimStart('/') ?? string.Empty;
 
             Drive? drive = await client.Me.Drive.GetAsync();
-            if (drive?.Id is null)
+            if(drive?.Id is null)
             {
                 _logger.LogWarning("Unable to determine user's Drive id");
                 throw new InvalidOperationException("Drive id not available");

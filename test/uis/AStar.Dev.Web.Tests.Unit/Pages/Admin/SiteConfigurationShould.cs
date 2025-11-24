@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace AStar.Dev.Web.Tests.Unit.Pages.Admin;
 
-public class SiteConfigurationShould
+public sealed class SiteConfigurationShould
 {
     [Fact]
     public void HaveTheAuthorizeAttribute()

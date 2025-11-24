@@ -1,19 +1,10 @@
+using System.Net;
 using Microsoft.Graph;
 using Microsoft.Kiota.Abstractions.Authentication;
-using Microsoft.Kiota.Http.HttpClientLibrary;
-using Microsoft.Kiota.Serialization;
-using Microsoft.Kiota.Serialization.Json;
-using Microsoft.Kiota.Serialization.Text;
-using Microsoft.Kiota.Serialization.Multipart;
-using Microsoft.Kiota.Serialization.Form;
-using Polly;
-using System;
-using System.Net;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
-using Polly.Retry;
 using Microsoft.Kiota.Abstractions.Serialization;
+using Microsoft.Kiota.Http.HttpClientLibrary;
+using Polly;
+using Polly.Retry;
 namespace AStar.Dev.OneDrive.Client;
 
 public static class GraphClientFactory
@@ -64,7 +55,7 @@ public static class GraphClientFactory
         return new GraphServiceClient(adapter);
     }
 
-    private class PolicyHandler : DelegatingHandler
+    private sealed class PolicyHandler : DelegatingHandler
     {
         private readonly IAsyncPolicy<HttpResponseMessage> _policy;
         private readonly Action<string>? _logAction;

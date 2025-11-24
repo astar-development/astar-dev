@@ -1,6 +1,6 @@
 namespace AStar.Dev.Functional.Extensions.Tests.Unit;
 
-public class OptionToResultTests
+public sealed class OptionToResultTests
 {
     [Fact]
     public void ToResultFromSomeReturnsOk()

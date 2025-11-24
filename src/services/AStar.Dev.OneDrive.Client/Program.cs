@@ -1,10 +1,9 @@
-using System;
+using AStar.Dev.OneDrive.Client.Services;
+using AStar.Dev.OneDrive.Client.Views;
 using Avalonia;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using AStar.Dev.OneDrive.Client.Services;
-using AStar.Dev.OneDrive.Client.Views;
 using Serilog;
 using Serilog.Events;
 
@@ -65,7 +64,7 @@ public static class Program
                 {
                     string baseDir;
 
-                    if (OperatingSystem.IsWindows())
+                    if(OperatingSystem.IsWindows())
                     {
                         baseDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
                     }

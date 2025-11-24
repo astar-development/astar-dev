@@ -40,9 +40,9 @@
 //     }
 // }
 //
-// internal class NavMenuForTests : NavMenu;
+// internal sealed class NavMenuForTests : NavMenu;
 //
-// internal class TestNav : NavigationManager
+// internal sealed class TestNav : NavigationManager
 // {
 //     public TestNav() =>
 //         Initialize("https://unit-test.example/", "https://unit-test.example/");

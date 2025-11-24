@@ -1,6 +1,6 @@
 namespace AStar.Dev.Web;
 
-public class WeatherApiClient(HttpClient httpClient)
+public sealed class WeatherApiClient(HttpClient httpClient)
 {
     public async Task<WeatherForecast[]> GetWeatherAsync(int maxItems = 10,
         CancellationToken cancellationToken = default)

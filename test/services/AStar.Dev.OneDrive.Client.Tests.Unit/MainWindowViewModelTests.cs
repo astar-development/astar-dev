@@ -11,7 +11,7 @@ using AStar.Dev.OneDrive.Client.Tests.Unit.Fakes;
 
 namespace AStar.Dev.OneDrive.Client.Tests.Unit
 {
-    public class MainWindowViewModelTests
+    public sealed class MainWindowViewModelTests
     {
         [Fact]
         public async Task LoadRootItemsAsync_Populates_RootItems_OnSuccess()

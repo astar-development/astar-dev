@@ -8,9 +8,9 @@ using Microsoft.Graph;
 
 namespace AStar.Dev.OneDrive.Client.Tests.Unit
 {
-    public class OneDriveServiceNegativeTests
+    public sealed class OneDriveServiceNegativeTests
     {
-        private class FailingLoginService : ILoginService
+        private sealed class FailingLoginService : ILoginService
         {
             private readonly Exception _ex;
             public FailingLoginService(Exception ex) => _ex = ex;

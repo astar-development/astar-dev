@@ -4,7 +4,7 @@ namespace AStar.Dev.Web.Models;
 
 /// <summary>
 /// </summary>
-public class SearchModel
+public sealed class SearchModel
 {
     /// <summary>
     ///     Gets or sets the starting directory for the search.

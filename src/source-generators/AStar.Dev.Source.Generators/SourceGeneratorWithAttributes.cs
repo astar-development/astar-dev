@@ -14,7 +14,7 @@ namespace AStar.Dev.Source.Generators;
 /// When using the source code as a baseline, an incremental source generator is preferable because it reduces the performance overhead.
 /// </summary>
 [Generator]
-public class SourceGeneratorWithAttributes : IIncrementalGenerator
+public sealed class SourceGeneratorWithAttributes : IIncrementalGenerator
 {
     private const string Namespace = "AStar.Dev.Source.Generators";
     private const string AttributeName = "ReportAttribute";
@@ -26,7 +26,7 @@ namespace {Namespace}
     /// <summary>
     /// </summary>
     [System.AttributeUsage(System.AttributeTargets.Class)]
-    public class {AttributeName} : System.Attribute
+    public sealed class {AttributeName} : System.Attribute
     {{
     }}
 }}";

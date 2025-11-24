@@ -6,7 +6,7 @@ using Microsoft.Graph;
 
 namespace AStar.Dev.OneDrive.Client.Tests.Unit.Fakes
 {
-    internal class FailingLoginService : ILoginService
+    internal sealed class FailingLoginService : ILoginService
     {
         private readonly Exception _reason;
 

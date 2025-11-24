@@ -4,7 +4,7 @@ using Projects;
 
 namespace AStar.Dev.Web.Tests.Integration;
 
-public class WebTests
+public sealed class WebTests
 {
     private static readonly TimeSpan DefaultTimeout = TimeSpan.FromSeconds(30);
 

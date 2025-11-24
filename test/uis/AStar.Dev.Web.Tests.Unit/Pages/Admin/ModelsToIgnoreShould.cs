@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace AStar.Dev.Web.Tests.Unit.Pages.Admin;
 
-public class ModelsToIgnoreShould
+public sealed class ModelsToIgnoreShould
 {
     [Fact]
     public void HaveTheAuthorizeAttribute()

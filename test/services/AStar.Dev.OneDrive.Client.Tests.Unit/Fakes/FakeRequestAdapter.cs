@@ -11,7 +11,7 @@ using Microsoft.Kiota.Serialization.Json;
 namespace AStar.Dev.OneDrive.Client.Tests.Unit.Fakes
 {
     // Minimal test-only IRequestAdapter implementation that returns canned responses
-    internal class FakeRequestAdapter : IRequestAdapter
+    internal sealed class FakeRequestAdapter : IRequestAdapter
     {
         private readonly Func<RequestInformation, Type, CancellationToken, Task<object?>> _fallbackResponder;
         private readonly List<(Func<RequestInformation, bool> Matcher, Func<RequestInformation, Type, CancellationToken, Task<object?>> Responder)> _responders = new();

@@ -1,6 +1,6 @@
 // namespace AStar.Dev.Functional.Extensions.Tests.Unit;
 //
-// public class ResultLinqExtensionsTests
+// public sealed class ResultLinqExtensionsTests
 // {
 //     private static Result<int, string>.Ok Ok(int value) => new(value);
 //

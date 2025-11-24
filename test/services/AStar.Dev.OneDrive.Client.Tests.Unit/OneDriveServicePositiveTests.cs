@@ -14,7 +14,7 @@ using AStar.Dev.Functional.Extensions;
 
 namespace AStar.Dev.OneDrive.Client.Tests.Unit
 {
-    public class OneDriveServicePositiveTests
+    public sealed class OneDriveServicePositiveTests
     {
         [Fact]
         public async Task GetRootItemsAsync_Returns_Items_When_DriveHasChildren()

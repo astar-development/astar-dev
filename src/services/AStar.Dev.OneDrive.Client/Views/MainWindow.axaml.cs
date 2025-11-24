@@ -3,7 +3,6 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Avalonia.Styling;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace AStar.Dev.OneDrive.Client.Views;
 
@@ -28,13 +27,14 @@ public partial class MainWindow : Window
     private void PostInitialize()
     {
         // Ensure injected services are present (this method is DI-only)
-        if (_userSettingsService is null || _vm is null) return;
+        if(_userSettingsService is null || _vm is null)
+            return;
 
         // Apply persisted theme
         UserSettings userSettings = _userSettingsService.Load();
-        if (Application.Current is App app)
+        if(Application.Current is App app)
         {
-            switch (userSettings.Theme)
+            switch(userSettings.Theme)
             {
                 case "Light":
                     app.SetTheme(ThemeVariant.Light);
@@ -55,7 +55,7 @@ public partial class MainWindow : Window
         try
         {
             ComboBox? combo = this.FindControl<ComboBox>("ThemeSelector");
-            if (combo is not null && userSettings is not null)
+            if(combo is not null && userSettings is not null)
             {
                 combo.SelectedIndex = userSettings.Theme switch
                 {
@@ -70,13 +70,13 @@ public partial class MainWindow : Window
         // Restore window position/size if available
         try
         {
-            if (userSettings is not null && userSettings.WindowWidth > 0 && userSettings.WindowHeight > 0)
+            if(userSettings is not null && userSettings.WindowWidth > 0 && userSettings.WindowHeight > 0)
             {
                 Width = userSettings.WindowWidth;
                 Height = userSettings.WindowHeight;
             }
 
-            if (userSettings is not null && userSettings.WindowX.HasValue && userSettings.WindowY.HasValue)
+            if(userSettings is not null && userSettings.WindowX.HasValue && userSettings.WindowY.HasValue)
             {
                 Position = new PixelPoint(userSettings.WindowX.Value, userSettings.WindowY.Value);
             }
@@ -88,7 +88,7 @@ public partial class MainWindow : Window
         {
             try
             {
-                if (_userSettingsService is not null)
+                if(_userSettingsService is not null)
                 {
                     UserSettings s = _userSettingsService.Load();
                     s.WindowWidth = Width;
@@ -106,7 +106,7 @@ public partial class MainWindow : Window
         {
             try
             {
-                if (e.PropertyName == nameof(MainWindowViewModel.Status) && _userSettingsService is not null && _vm is not null)
+                if(e.PropertyName == nameof(MainWindowViewModel.Status) && _userSettingsService is not null && _vm is not null)
                 {
                     UserSettings s = _userSettingsService.Load();
                     s.LastAccount = _vm.Status;

@@ -7,7 +7,7 @@ using AStar.Dev.OneDrive.Client.Services;
 
 namespace AStar.Dev.OneDrive.Client.Tests.Unit;
 
-public class UserSettingsServiceTests : IDisposable
+public sealed class UserSettingsServiceTests : IDisposable
 {
     private readonly string _tempFile;
 

@@ -1,24 +1,23 @@
 using System.Diagnostics;
-using Azure.Identity;
 using AStar.Dev.Functional.Extensions;
-using Microsoft.Graph;
+using Azure.Identity;
 using Microsoft.Extensions.Logging;
+using Microsoft.Graph;
+using Microsoft.Graph.Authentication;
 
 namespace AStar.Dev.OneDrive.Client.Services;
 
-public class LoginService : ILoginService
+public sealed class LoginService : ILoginService
 {
     private readonly AppSettings _settings;
     private readonly ILogger<LoginService> _logger;
-    private readonly Func<GraphServiceClient>? _graphClientFactory;
     private GraphServiceClient? _client;
     private InteractiveBrowserCredential? _credential;
 
-    public LoginService(AppSettings settings, ILogger<LoginService> logger, Func<GraphServiceClient>? graphClientFactory = null)
+    public LoginService(AppSettings settings, ILogger<LoginService> logger)
     {
         _settings = settings;
         _logger = logger;
-        _graphClientFactory = graphClientFactory;
     }
 
     public bool IsSignedIn => _client != null;
@@ -26,41 +25,31 @@ public class LoginService : ILoginService
     public Task<Result<GraphServiceClient, Exception>> SignInAsync()
     {
         _logger.LogInformation("Starting interactive sign-in for ClientId={ClientId}", _settings.ClientId);
-
-        if (_client != null)
+        if(_client != null)
         {
             _logger.LogDebug("Already signed in; returning existing Graph client");
             return Task.FromResult<Result<GraphServiceClient, Exception>>(new Result<GraphServiceClient, Exception>.Ok(_client));
         }
 
-        return AStar.Dev.Functional.Extensions.Try.RunAsync(async () =>
+        return Try.RunAsync(async () =>
         {
-            if (_graphClientFactory != null)
-            {
-                _client = _graphClientFactory();
-            }
-            else
-            {
-                var options = new InteractiveBrowserCredentialOptions { ClientId = _settings.ClientId, TenantId = _settings.TenantId, RedirectUri = new Uri("http://localhost") };
+            var options = new InteractiveBrowserCredentialOptions { ClientId = _settings.ClientId, TenantId = _settings.TenantId, RedirectUri = new Uri("http://localhost") };
 
-                _credential = new InteractiveBrowserCredential(options);
+            var allowedHosts = new[] { "graph.microsoft.com" };
+            var graphScopes = new[] { "User.Read", "Files.ReadWrite.All", "offline_access"  };
+            _credential = new InteractiveBrowserCredential(options);
 
-                string[] scopes = { "User.Read", "Files.ReadWrite.All", "offline_access" };
+            var authProvider = new AzureIdentityAuthenticationProvider(_credential, allowedHosts, null, true, scopes: graphScopes);
 
-                _client = new GraphServiceClient(_credential, scopes);
-            }
-
-            // Verify sign-in
-            Microsoft.Graph.Models.User? me = await _client.Me.GetAsync();
-            _logger.LogInformation("Sign-in completed for {DisplayName} ({Id})", me?.DisplayName, me?.Id);
+            _client = GraphClientFactory.CreateGraphClient(authProvider);
 
             return _client;
         });
     }
 
     // Sign out and return Result<bool, Exception>
-    public Task<Result<bool, Exception>> SignOutAsync() 
-        => AStar.Dev.Functional.Extensions.Try.RunAsync(async () =>
+    public Task<Result<bool, Exception>> SignOutAsync()
+        => Try.RunAsync(async () =>
             {
                 _logger.LogInformation("Signing out user and clearing local credentials");
 

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace AStar.Dev.Web.Tests.Unit.Pages.Admin;
 
-public class TagsToIgnoreShould
+public sealed class TagsToIgnoreShould
 {
     [Fact]
     public void HaveTheAuthorizeAttribute()

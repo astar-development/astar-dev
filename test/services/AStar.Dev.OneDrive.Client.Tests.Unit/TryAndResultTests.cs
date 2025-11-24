@@ -6,7 +6,7 @@ using AStar.Dev.Functional.Extensions;
 
 namespace AStar.Dev.OneDrive.Client.Tests.Unit
 {
-    public class TryAndResultTests
+    public sealed class TryAndResultTests
     {
         [Fact]
         public void Try_Run_Returns_Ok_OnSuccess()

@@ -1,6 +1,6 @@
 namespace AStar.Dev.Functional.Extensions.Tests.Unit;
 
-public class ResultExtensionTapShould
+public sealed class ResultExtensionTapShould
 {
     [Fact]
     public void ExecuteSideEffectAndReturnOriginalResultWhenTappingSuccessResult()
@@ -8,7 +8,7 @@ public class ResultExtensionTapShould
         var result          = new Result<int, string>.Ok(42);
         var sideEffectValue = 0;
 
-        var tapped = result.Tap(value => sideEffectValue = value);
+        Result<int, string> tapped = result.Tap(value => sideEffectValue = value);
 
         sideEffectValue.ShouldBe(42);
         tapped.ShouldBeSameAs(result);
@@ -20,7 +20,7 @@ public class ResultExtensionTapShould
         var result          = new Result<int, string>.Error("error");
         var sideEffectValue = 0;
 
-        var tapped = result.Tap(value => sideEffectValue = value);
+        Result<int, string> tapped = result.Tap(value => sideEffectValue = value);
 
         sideEffectValue.ShouldBe(0);
         tapped.ShouldBeSameAs(result);
@@ -32,7 +32,7 @@ public class ResultExtensionTapShould
         var result          = new Result<string, int>.Error(42);
         var sideEffectValue = 0;
 
-        var tapped = result.TapError(value => sideEffectValue = value);
+        Result<string, int> tapped = result.TapError(value => sideEffectValue = value);
 
         sideEffectValue.ShouldBe(42);
         tapped.ShouldBeSameAs(result);
@@ -44,7 +44,7 @@ public class ResultExtensionTapShould
         var result          = new Result<string, int>.Ok("success");
         var sideEffectValue = 0;
 
-        var tapped = result.TapError(value => sideEffectValue = value);
+        Result<string, int> tapped = result.TapError(value => sideEffectValue = value);
 
         sideEffectValue.ShouldBe(0);
         tapped.ShouldBeSameAs(result);
@@ -56,7 +56,7 @@ public class ResultExtensionTapShould
         var result          = new Result<int, string>.Ok(42);
         var sideEffectValue = 0;
 
-        var tapped = await result.TapAsync(value =>
+        Result<int, string> tapped = await result.TapAsync(value =>
                                            {
                                                sideEffectValue = value;
 
@@ -73,7 +73,7 @@ public class ResultExtensionTapShould
         var result          = new Result<int, string>.Error("error");
         var sideEffectValue = 0;
 
-        var tapped = await result.TapAsync(value =>
+        Result<int, string> tapped = await result.TapAsync(value =>
                                            {
                                                sideEffectValue = value;
 
@@ -90,7 +90,7 @@ public class ResultExtensionTapShould
         var result          = new Result<string, int>.Error(42);
         var sideEffectValue = 0;
 
-        var tapped = await result.TapErrorAsync(value =>
+        Result<string, int> tapped = await result.TapErrorAsync(value =>
                                                 {
                                                     sideEffectValue = value;
 
@@ -107,7 +107,7 @@ public class ResultExtensionTapShould
         var result          = new Result<string, int>.Ok("success");
         var sideEffectValue = 0;
 
-        var tapped = await result.TapErrorAsync(value =>
+        Result<string, int> tapped = await result.TapErrorAsync(value =>
                                                 {
                                                     sideEffectValue = value;
 
@@ -121,10 +121,10 @@ public class ResultExtensionTapShould
     [Fact]
     public async Task ExecuteSideEffectAndReturnOriginalResultWhenTappingSuccessTaskResultAsync()
     {
-        var resultTask      = Task.FromResult<Result<int, string>>(new Result<int, string>.Ok(42));
+        Task<Result<int, string>> resultTask      = Task.FromResult<Result<int, string>>(new Result<int, string>.Ok(42));
         var sideEffectValue = 0;
 
-        var tapped = await resultTask.TapAsync(value => sideEffectValue = value);
+        Result<int, string> tapped = await resultTask.TapAsync(value => sideEffectValue = value);
 
         sideEffectValue.ShouldBe(42);
         tapped.ShouldBe(await resultTask);
@@ -133,10 +133,10 @@ public class ResultExtensionTapShould
     [Fact]
     public async Task NotExecuteSideEffectAndReturnOriginalResultWhenTappingErrorTaskResultAsync()
     {
-        var resultTask      = Task.FromResult<Result<int, string>>(new Result<int, string>.Error("error"));
+        Task<Result<int, string>> resultTask      = Task.FromResult<Result<int, string>>(new Result<int, string>.Error("error"));
         var sideEffectValue = 0;
 
-        var tapped = await resultTask.TapAsync(value => sideEffectValue = value);
+        Result<int, string> tapped = await resultTask.TapAsync(value => sideEffectValue = value);
 
         sideEffectValue.ShouldBe(0);
         tapped.ShouldBe(await resultTask);
@@ -145,10 +145,10 @@ public class ResultExtensionTapShould
     [Fact]
     public async Task ExecuteSideEffectAndReturnOriginalResultWhenTappingErrorOnErrorTaskResult()
     {
-        var resultTask      = Task.FromResult<Result<string, int>>(new Result<string, int>.Error(42));
+        Task<Result<string, int>> resultTask      = Task.FromResult<Result<string, int>>(new Result<string, int>.Error(42));
         var sideEffectValue = 0;
 
-        var tapped = await resultTask.TapErrorAsync(value => sideEffectValue = value);
+        Result<string, int> tapped = await resultTask.TapErrorAsync(value => sideEffectValue = value);
 
         sideEffectValue.ShouldBe(42);
         tapped.ShouldBe(await resultTask);
@@ -157,10 +157,10 @@ public class ResultExtensionTapShould
     [Fact]
     public async Task NotExecuteSideEffectAndReturnOriginalResultWhenTappingErrorOnSuccessTaskResult()
     {
-        var resultTask      = Task.FromResult<Result<string, int>>(new Result<string, int>.Ok("success"));
+        Task<Result<string, int>> resultTask      = Task.FromResult<Result<string, int>>(new Result<string, int>.Ok("success"));
         var sideEffectValue = 0;
 
-        var tapped = await resultTask.TapErrorAsync(value => sideEffectValue = value);
+        Result<string, int> tapped = await resultTask.TapErrorAsync(value => sideEffectValue = value);
 
         sideEffectValue.ShouldBe(0);
         tapped.ShouldBe(await resultTask);
@@ -169,10 +169,10 @@ public class ResultExtensionTapShould
     [Fact]
     public async Task ExecuteAsyncSideEffectAndReturnOriginalResultWhenTappingSuccessTaskResultAsync()
     {
-        var resultTask      = Task.FromResult<Result<int, string>>(new Result<int, string>.Ok(42));
+        Task<Result<int, string>> resultTask      = Task.FromResult<Result<int, string>>(new Result<int, string>.Ok(42));
         var sideEffectValue = 0;
 
-        var tapped = await resultTask.TapAsync(value =>
+        Result<int, string> tapped = await resultTask.TapAsync(value =>
                                                {
                                                    sideEffectValue = value;
 
@@ -186,10 +186,10 @@ public class ResultExtensionTapShould
     [Fact]
     public async Task NotExecuteAsyncSideEffectAndReturnOriginalResultWhenTappingErrorTaskResultAsync()
     {
-        var resultTask      = Task.FromResult<Result<int, string>>(new Result<int, string>.Error("error"));
+        Task<Result<int, string>> resultTask      = Task.FromResult<Result<int, string>>(new Result<int, string>.Error("error"));
         var sideEffectValue = 0;
 
-        var tapped = await resultTask.TapAsync(value =>
+        Result<int, string> tapped = await resultTask.TapAsync(value =>
                                                {
                                                    sideEffectValue = value;
 
@@ -203,10 +203,10 @@ public class ResultExtensionTapShould
     [Fact]
     public async Task ExecuteAsyncSideEffectAndReturnOriginalResultWhenTappingErrorOnErrorTaskResult()
     {
-        var resultTask      = Task.FromResult<Result<string, int>>(new Result<string, int>.Error(42));
+        Task<Result<string, int>> resultTask      = Task.FromResult<Result<string, int>>(new Result<string, int>.Error(42));
         var sideEffectValue = 0;
 
-        var tapped = await resultTask.TapErrorAsync(value =>
+        Result<string, int> tapped = await resultTask.TapErrorAsync(value =>
                                                     {
                                                         sideEffectValue = value;
 
@@ -220,10 +220,10 @@ public class ResultExtensionTapShould
     [Fact]
     public async Task NotExecuteAsyncSideEffectAndReturnOriginalResultWhenTappingErrorOnSuccessTaskResult()
     {
-        var resultTask      = Task.FromResult<Result<string, int>>(new Result<string, int>.Ok("success"));
+        Task<Result<string, int>> resultTask      = Task.FromResult<Result<string, int>>(new Result<string, int>.Ok("success"));
         var sideEffectValue = 0;
 
-        var tapped = await resultTask.TapErrorAsync(value =>
+        Result<string, int> tapped = await resultTask.TapErrorAsync(value =>
                                                     {
                                                         sideEffectValue = value;
 

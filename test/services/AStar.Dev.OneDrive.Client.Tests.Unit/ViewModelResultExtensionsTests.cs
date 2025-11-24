@@ -6,7 +6,7 @@ using AStar.Dev.Functional.Extensions;
 
 namespace AStar.Dev.OneDrive.Client.Tests.Unit
 {
-    public class ViewModelResultExtensionsTests
+    public sealed class ViewModelResultExtensionsTests
     {
         [Fact]
         public void Apply_Executes_OnSuccess()

@@ -1,11 +1,11 @@
+using System.Collections.ObjectModel;
+using AStar.Dev.Functional.Extensions;
 using AStar.Dev.OneDrive.Client.Services;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.Logging;
 using Microsoft.Graph;
 using Microsoft.Graph.Models;
-using System.Collections.ObjectModel;
-using AStar.Dev.Functional.Extensions;
 
 public partial class MainWindowViewModel : ObservableObject
 {
@@ -22,13 +22,15 @@ public partial class MainWindowViewModel : ObservableObject
         _oneDriveService = oneDriveService;
         _logger = logger;
         SignInCommand = new AsyncRelayCommand(SignInAsync);
+        SignOutCommand = new AsyncRelayCommand(SignOutAsync);
         LoadRootCommand = new AsyncRelayCommand(LoadRootItemsAsync);
     }
 
     public IAsyncRelayCommand SignInCommand { get; }
+    public IAsyncRelayCommand SignOutCommand { get; }
     public IAsyncRelayCommand LoadRootCommand { get; }
 
-    [ObservableProperty] private ObservableCollection<DriveItem> _rootItems = new();
+    [ObservableProperty] private ObservableCollection<DriveItem> _rootItems = [];
 
     private async Task SignInAsync()
     {
@@ -37,11 +39,12 @@ public partial class MainWindowViewModel : ObservableObject
             _logger?.LogInformation("Sign-in started");
             ErrorMessage = string.Empty;
             Result<GraphServiceClient, Exception> loginResult = await _loginService.SignInAsync();
-            if (loginResult is Result<GraphServiceClient, Exception>.Error lerr)
+            // Use Match to handle Result
+            if(loginResult is Result<GraphServiceClient, Exception>.Error error)
             {
-                ErrorMessage = lerr.Reason.Message;
+                ErrorMessage = error.Reason.Message;
                 Status = $"Login failed";
-                _logger?.LogError(lerr.Reason, "Sign-in failed");
+                _logger?.LogError(error.Reason, "Sign-in failed");
                 return;
             }
 
@@ -59,6 +62,32 @@ public partial class MainWindowViewModel : ObservableObject
             _logger?.LogError(ex, "Sign-in failed");
         }
     }
+    private async Task SignOutAsync()
+    {
+        try
+        {
+            _logger?.LogInformation("Sign-in started");
+            ErrorMessage = string.Empty;
+            Result<bool, Exception> loginResult = await _loginService.SignOutAsync();
+            // Use Match to handle Result
+            if(loginResult is Result<bool, Exception>.Error error)
+            {
+                ErrorMessage = error.Reason.Message;
+                Status = $"Login failed";
+                _logger?.LogError(error.Reason, "Sign-in failed");
+                return;
+            }
+
+            Status = $"Signed out";
+            _logger?.LogInformation("Sign-out succeeded");
+        }
+        catch(Exception ex)
+        {
+            Status = $"Login failed: {ex.Message}";
+            ErrorMessage = ex.Message;
+            _logger?.LogError(ex, "Sign-in failed");
+        }
+    }
 
     private async Task LoadRootItemsAsync()
     {
@@ -66,24 +95,13 @@ public partial class MainWindowViewModel : ObservableObject
         {
             _logger?.LogInformation("Loading OneDrive root items");
             ErrorMessage = string.Empty;
-            await _oneDriveService.GetRootItemsAsync().ApplyAsync(
-                items =>
-                {
-                    RootItems = new ObservableCollection<DriveItem>(items);
-                    Status = $"Loaded {RootItems.Count} item(s)";
-                },
-                ex =>
-                {
-                    Status = $"Load failed: {ex.Message}";
-                    ErrorMessage = ex.Message;
-                    _logger?.LogError(ex, "Failed to load root items");
-                });
+            await _oneDriveService.GetRootItemsAsync();
         }
-        catch (Exception ex)
+        catch(Exception ex)
         {
             Status = $"Load failed: {ex.Message}";
-            ErrorMessage = ex is OneDriveService.OneDriveServiceException odse ? $"OneDrive error ({odse.StatusCode}): {odse.Message}" : ex.Message;
-            _logger?.LogError(ex, "Failed to load root items");
+            ErrorMessage = ex is OneDriveService.OneDriveServiceException oneDriveServiceException ? $"OneDrive error ({oneDriveServiceException.StatusCode}): {oneDriveServiceException.Message}" : ex.Message;
+            _logger?.LogError(ex, "Failed to load root items {exception}", ex);
         }
     }
 }

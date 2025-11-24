@@ -1,6 +1,6 @@
 namespace AStar.Dev.OneDrive.Client.Models;
 
-public class GraphFile
+public sealed class GraphFile
 {
     public string Id { get; set; } = string.Empty;
     public string Name { get; set; } = string.Empty;

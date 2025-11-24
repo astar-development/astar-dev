@@ -3,7 +3,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace AStar.Dev.SourceGenerators.Test.Unit.Utils;
 
-public class TestAdditionalFile : AdditionalText
+public sealed class TestAdditionalFile : AdditionalText
 {
     private readonly SourceText _text;
 

@@ -5,7 +5,7 @@ using TestContext = Bunit.TestContext;
 
 namespace AStar.Dev.Web.UI.Tests.Unit.Components.Pages.Shared;
 
-public class SearchShould : TestContext
+public sealed class SearchShould : TestContext
 {
 
     [Fact(Skip = "UI is different now")]

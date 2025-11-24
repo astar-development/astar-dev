@@ -6,7 +6,7 @@ using AStar.Dev.OneDrive.Client.Services;
 
 namespace AStar.Dev.OneDrive.Client.Tests.Unit.Fakes
 {
-    internal class FakeLoginService : ILoginService
+    internal sealed class FakeLoginService : ILoginService
     {
         private readonly GraphServiceClient _client;
 

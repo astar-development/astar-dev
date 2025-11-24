@@ -4,7 +4,7 @@ using Microsoft.CodeAnalysis.CSharp;
 
 namespace AStar.Dev.Source.Generators.Test.Unit;
 
-public class ServiceCollectionExtensionsTests
+public sealed class ServiceCollectionExtensionsTests
 {
     [Fact]
     public void CreateTheServiceCollectionExtensions()

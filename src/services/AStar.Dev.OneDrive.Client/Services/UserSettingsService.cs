@@ -1,11 +1,9 @@
-using System;
-using System.IO;
 using System.Runtime.InteropServices;
 using System.Text.Json;
 
 namespace AStar.Dev.OneDrive.Client.Services;
 
-public class UserSettings
+public sealed class UserSettings
 {
     public string Theme { get; set; } = "Auto"; // Auto | Light | Dark
     public double WindowWidth { get; set; } = 800;
@@ -15,7 +13,7 @@ public class UserSettings
     public string? LastAccount { get; set; }
 }
 
-public class UserSettingsService
+public sealed class UserSettingsService
 {
     private readonly string _filePath;
 
@@ -36,13 +34,13 @@ public class UserSettingsService
 
     private static string GetSettingsDirectory()
     {
-        if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+        if(RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
         {
             return Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "AStarDev");
         }
 
         var xdg = Environment.GetEnvironmentVariable("XDG_CONFIG_HOME");
-        if (!string.IsNullOrEmpty(xdg))
+        if(!string.IsNullOrEmpty(xdg))
             return Path.Combine(xdg, "astar-dev");
 
         var home = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
@@ -54,7 +52,7 @@ public class UserSettingsService
     {
         try
         {
-            if (!File.Exists(_filePath))
+            if(!File.Exists(_filePath))
                 return new UserSettings();
 
             var json = File.ReadAllText(_filePath);
@@ -68,7 +66,7 @@ public class UserSettingsService
     }
 
     // Functional result-based loader
-    public async Task<AStar.Dev.Functional.Extensions.Result<UserSettings, Exception>> LoadResultAsync() => await AStar.Dev.Functional.Extensions.Try.RunAsync(async () => Load());
+    public async Task<AStar.Dev.Functional.Extensions.Result<UserSettings, Exception>> LoadResultAsync() => await Functional.Extensions.Try.RunAsync(async () => Load());
 
     public void Save(UserSettings settings)
     {
@@ -81,7 +79,7 @@ public class UserSettingsService
     }
 
     // Functional result-based saver (returns the saved settings on success)
-    public async Task<AStar.Dev.Functional.Extensions.Result<UserSettings, Exception>> SaveResultAsync(UserSettings settings) => await AStar.Dev.Functional.Extensions.Try.RunAsync(async () =>
+    public async Task<AStar.Dev.Functional.Extensions.Result<UserSettings, Exception>> SaveResultAsync(UserSettings settings) => await Functional.Extensions.Try.RunAsync(async () =>
                                                                                                                                       {
                                                                                                                                           Save(settings);
                                                                                                                                           return settings;
