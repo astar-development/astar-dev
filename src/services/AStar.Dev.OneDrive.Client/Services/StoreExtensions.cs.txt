@@ -25,3 +25,22 @@ var reports = await store.SearchItemsByNameAsync("/drive/root:/Reports", "report
 
 // Get all files modified in the last 24 hours
 var changedFiles = await store.GetFilesModifiedSinceAsync(DateTime.UtcNow.AddDays(-1));
+var logs = await _store.GetRecentSyncLogsAsync(5);
+
+foreach (var log in logs)
+{
+    _logger.LogInformation(
+        "DriveId={DriveId}, Inserted={Inserted}, Updated={Updated}, Deleted={Deleted}, Token={Token}, LastSyncedUtc={LastSyncedUtc}",
+        log.DeltaToken, log.Inserted, log.Updated, log.Deleted, log.DeltaToken, log.LastSyncedUtc);
+}
+var weeklyStats = await _store.GetSyncAggregateAsync(TimeSpan.FromDays(7));
+
+_logger.LogInformation(
+    "📊 Weekly sync stats: Runs={RunCount}, TotalInserted={Inserted}, TotalUpdated={Updated}, TotalDeleted={Deleted}, AvgInserted={AvgInserted:F1}, AvgUpdated={AvgUpdated:F1}, AvgDeleted={AvgDeleted:F1}",
+    weeklyStats.RunCount,
+    weeklyStats.TotalInserted,
+    weeklyStats.TotalUpdated,
+    weeklyStats.TotalDeleted,
+    weeklyStats.AvgInserted,
+    weeklyStats.AvgUpdated,
+    weeklyStats.AvgDeleted);

@@ -1,17 +1,20 @@
 using System;
 using System.Threading.Tasks;
 using Microsoft.Data.Sqlite;
+using Microsoft.Extensions.Logging;
 
 namespace AStar.Dev.OneDrive.Client.Services;
 
 public partial class DeltaStore
 {
     private readonly string _connectionString;
+    private readonly ILogger<OneDriveService> _logger;
 
-    public DeltaStore(string dbPath = "onedrive_sync.db")
+    public DeltaStore(ILogger<OneDriveService> logger, string dbPath = "onedrive_sync.db")
     {
         _connectionString = $"Data Source={dbPath}";
         Initialize();
+        _logger = logger;
     }
 
     private void Initialize()
@@ -44,7 +47,67 @@ public partial class DeltaStore
         _ = cmd.ExecuteNonQuery();
 
     }
+    public async Task<List<SyncResult>> GetRecentSyncLogsAsync(int count = 10)
+    {
+        var results = new List<SyncResult>();
 
+        using var conn = new SqliteConnection(_connectionString);
+        await conn.OpenAsync();
+
+        SqliteCommand cmd = conn.CreateCommand();
+        cmd.CommandText = @"
+        SELECT DriveId, Inserted, Updated, Deleted, DeltaToken, LastSyncedUtc
+        FROM SyncLog
+        ORDER BY LastSyncedUtc DESC
+        LIMIT $count;";
+        _ = cmd.Parameters.AddWithValue("$count", count);
+
+        using SqliteDataReader reader = await cmd.ExecuteReaderAsync();
+        while(await reader.ReadAsync())
+        {
+            results.Add(new SyncResult
+            {
+                DeltaToken = reader.GetString(reader.GetOrdinal("DeltaToken")),
+                LastSyncedUtc = DateTime.Parse(reader.GetString(reader.GetOrdinal("LastSyncedUtc"))),
+                Inserted = reader.GetInt32(reader.GetOrdinal("Inserted")),
+                Updated = reader.GetInt32(reader.GetOrdinal("Updated")),
+                Deleted = reader.GetInt32(reader.GetOrdinal("Deleted"))
+            });
+        }
+
+        _logger.LogInformation("Fetched {Count} recent sync logs", results.Count);
+
+        return results;
+    }
+    public async Task<SyncAggregate> GetSyncAggregateAsync(TimeSpan period)
+    {
+        using var conn = new SqliteConnection(_connectionString);
+        await conn.OpenAsync();
+
+        DateTime since = DateTime.UtcNow.Subtract(period);
+
+        SqliteCommand cmd = conn.CreateCommand();
+        cmd.CommandText = @"
+        SELECT 
+            SUM(Inserted) as TotalInserted,
+            SUM(Updated) as TotalUpdated,
+            SUM(Deleted) as TotalDeleted,
+            COUNT(*) as RunCount
+        FROM SyncLog
+        WHERE LastSyncedUtc >= $since;";
+        _ = cmd.Parameters.AddWithValue("$since", since.ToString("o"));
+
+        using SqliteDataReader reader = await cmd.ExecuteReaderAsync();
+        return await reader.ReadAsync()
+            ? new SyncAggregate
+            {
+                TotalInserted = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
+                TotalUpdated = reader.IsDBNull(1) ? 0 : reader.GetInt32(1),
+                TotalDeleted = reader.IsDBNull(2) ? 0 : reader.GetInt32(2),
+                RunCount = reader.IsDBNull(3) ? 0 : reader.GetInt32(3)
+            }
+            : new SyncAggregate();
+    }
     public async Task SaveDeltaTokenAsync(string driveId, string deltaToken)
     {
         using var conn = new SqliteConnection(_connectionString);
@@ -99,7 +162,111 @@ public partial class DeltaStore
         cmd.AddSmartParameter("$eTag", eTag);
 
         _ = await cmd.ExecuteNonQueryAsync();
+    }
 
+    public async Task<SyncResult> SaveBatchWithTokenAsync(
+    IEnumerable<LocalDriveItem> items,
+    IEnumerable<string> deletedIds,
+    string driveId,
+    string deltaToken,
+    DateTime lastSyncedUtc)
+    {
+        using var conn = new SqliteConnection(_connectionString);
+        await conn.OpenAsync();
+
+        using SqliteTransaction tx = conn.BeginTransaction();
+
+        var result = new SyncResult
+        {
+            DeltaToken = deltaToken,
+            LastSyncedUtc = lastSyncedUtc
+        };
+
+        try
+        {
+            // Upsert items
+            foreach(LocalDriveItem item in items)
+            {
+                SqliteCommand cmd = conn.CreateCommand();
+                cmd.Transaction = tx;
+                cmd.CommandText = @"
+                INSERT INTO DriveItems (Id, Name, IsFolder, LastModifiedUtc, ParentPath, ETag)
+                VALUES ($id, $name, $folder, $ts, $parentPath, $eTag)
+                ON CONFLICT(Id) DO UPDATE SET
+                    Name = excluded.Name,
+                    IsFolder = excluded.IsFolder,
+                    LastModifiedUtc = excluded.LastModifiedUtc,
+                    ParentPath = excluded.ParentPath,
+                    ETag = excluded.ETag;";
+
+                cmd.AddSmartParameter("$id", item.Id);
+                cmd.AddSmartParameter("$name", item.Name);
+                cmd.AddSmartParameter("$folder", item.IsFolder);
+                cmd.AddSmartParameter("$ts", item.LastModifiedUtc);
+                cmd.AddSmartParameter("$parentPath", item.ParentPath);
+                cmd.AddSmartParameter("$eTag", item.ETag);
+
+                _ = await cmd.ExecuteNonQueryAsync();
+                result.Inserted++; // Simplified: count all upserts as "inserted"
+            }
+
+            // Delete tombstoned items
+            foreach(var id in deletedIds)
+            {
+                SqliteCommand delCmd = conn.CreateCommand();
+                delCmd.Transaction = tx;
+                delCmd.CommandText = "DELETE FROM DriveItems WHERE Id = $id;";
+                delCmd.AddSmartParameter("$id", id);
+                var affected = await delCmd.ExecuteNonQueryAsync();
+                if(affected > 0)
+                    result.Deleted++;
+            }
+
+            // Update delta token atomically
+            SqliteCommand tokenCmd = conn.CreateCommand();
+            tokenCmd.Transaction = tx;
+            tokenCmd.CommandText = @"
+            INSERT INTO DeltaState (DriveId, DeltaToken, LastSyncedUtc)
+            VALUES ($driveId, $token, $ts)
+            ON CONFLICT(DriveId) DO UPDATE SET
+                DeltaToken = excluded.DeltaToken,
+                LastSyncedUtc = excluded.LastSyncedUtc;";
+            tokenCmd.AddSmartParameter("$driveId", driveId);
+            tokenCmd.AddSmartParameter("$token", deltaToken);
+            tokenCmd.AddSmartParameter("$ts", lastSyncedUtc.ToString("o"));
+
+            _ = await tokenCmd.ExecuteNonQueryAsync();
+
+            // Persist metrics into SyncLog
+            SqliteCommand logCmd = conn.CreateCommand();
+            logCmd.Transaction = tx;
+            logCmd.CommandText = @"
+            INSERT INTO SyncLog (DriveId, Inserted, Updated, Deleted, DeltaToken, LastSyncedUtc)
+            VALUES ($driveId, $inserted, $updated, $deleted, $token, $ts);";
+            logCmd.AddSmartParameter("$driveId", driveId);
+            logCmd.AddSmartParameter("$inserted", result.Inserted);
+            logCmd.AddSmartParameter("$updated", result.Updated);
+            logCmd.AddSmartParameter("$deleted", result.Deleted);
+            logCmd.AddSmartParameter("$token", deltaToken);
+            logCmd.AddSmartParameter("$ts", lastSyncedUtc.ToString("o"));
+
+            _ = await logCmd.ExecuteNonQueryAsync();
+
+            await tx.CommitAsync();
+
+            // 🔑 Runtime logging
+            _logger.LogInformation(
+                "Sync completed for DriveId={DriveId}. Inserted={Inserted}, Updated={Updated}, Deleted={Deleted}, Token={Token}, LastSyncedUtc={LastSyncedUtc}",
+                driveId, result.Inserted, result.Updated, result.Deleted, result.DeltaToken, result.LastSyncedUtc);
+
+            return result;
+        }
+        catch(Exception ex)
+        {
+            await tx.RollbackAsync();
+            _logger.LogError(ex, "Sync failed for DriveId={DriveId}", driveId);
+            throw;
+        }
     }
 }
 
@@ -129,7 +296,7 @@ public partial class DeltaStore
 
         var results = new List<LocalDriveItem>();
         using SqliteDataReader reader = await cmd.ExecuteReaderAsync();
-        while (await reader.ReadAsync())
+        while(await reader.ReadAsync())
         {
             results.Add(reader.ToLocalDriveItem());
         }
@@ -147,7 +314,7 @@ public partial class DeltaStore
 
         var results = new List<LocalDriveItem>();
         using SqliteDataReader reader = await cmd.ExecuteReaderAsync();
-        while (await reader.ReadAsync())
+        while(await reader.ReadAsync())
         {
             results.Add(reader.ToLocalDriveItem());
         }
@@ -177,7 +344,7 @@ public partial class DeltaStore
 
         var results = new List<LocalDriveItem>();
         using SqliteDataReader reader = await cmd.ExecuteReaderAsync();
-        while (await reader.ReadAsync())
+        while(await reader.ReadAsync())
         {
             results.Add(reader.ToLocalDriveItem());
         }
@@ -204,7 +371,7 @@ public partial class DeltaStore
 
         var results = new List<LocalDriveItem>();
         using SqliteDataReader reader = await cmd.ExecuteReaderAsync();
-        while (await reader.ReadAsync())
+        while(await reader.ReadAsync())
         {
             results.Add(reader.ToLocalDriveItem());
         }
@@ -229,7 +396,7 @@ public partial class DeltaStore
 
         var results = new List<LocalDriveItem>();
         using SqliteDataReader reader = await cmd.ExecuteReaderAsync();
-        while (await reader.ReadAsync())
+        while(await reader.ReadAsync())
         {
             results.Add(reader.ToLocalDriveItem());
         }

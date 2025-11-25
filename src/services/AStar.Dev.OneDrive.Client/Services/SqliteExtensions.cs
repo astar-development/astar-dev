@@ -10,7 +10,7 @@ public static class SqliteExtensions
     /// </summary>
     public static void AddSmartParameter(this SqliteCommand cmd, string name, object? value)
     {
-        if (value == null)
+        if(value == null)
         {
             _ = cmd.Parameters.AddWithValue(name, DBNull.Value);
             return;

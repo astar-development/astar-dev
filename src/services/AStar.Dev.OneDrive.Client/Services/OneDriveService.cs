@@ -37,22 +37,22 @@ public sealed class OneDriveService
         _logger.LogInformation("Listing root items from OneDrive");
 
         Result<GraphServiceClient, Exception> loginResult = await _loginService.SignInAsync();
-            if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
-            {
-                throw loginErr.Reason;
-            }
+        if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
+        {
+            throw loginErr.Reason;
+        }
 
-            GraphServiceClient client = ((Result<GraphServiceClient, Exception>.Ok)loginResult).Value;
-            // Resolve the user's home directory in a cross-platform way
-            var appDataPath = AppPathHelper.GetAppDataPath("onedrive-sync");
-            _ = Directory.CreateDirectory(appDataPath);
+        GraphServiceClient client = ((Result<GraphServiceClient, Exception>.Ok)loginResult).Value;
+        // Resolve the user's home directory in a cross-platform way
+        var appDataPath = AppPathHelper.GetAppDataPath("onedrive-sync");
+        _ = Directory.CreateDirectory(appDataPath);
 
-            var dbPath = Path.Combine(appDataPath, "onedrive_sync.db");
-            var store = new DeltaStore(dbPath);
+        var dbPath = Path.Combine(appDataPath, "onedrive_sync.db");
+        var store = new DeltaStore(_logger, dbPath);
 
-            var syncManager = new SyncManager(client, store);
+        var syncManager = new SyncManager(client, store);
 
-            await syncManager.RunSyncAsync();
+        await syncManager.RunSyncAsync();
     }
 
     /// <summary>
