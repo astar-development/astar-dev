@@ -1,0 +1,27 @@
+var item = await store.GetItemByIdAsync("12345");
+Console.WriteLine(item?.Name);
+
+var children = await store.GetItemsByParentPathAsync("/drive/root:/Projects");
+foreach (var child in children)
+{
+    Console.WriteLine($"{child.Name} ({(child.IsFolder ? "Folder" : "File")})");
+}
+
+var folders = await store.GetAllFoldersAsync();
+Console.WriteLine($"Total folders: {folders.Count}");
+
+// Get all items under /drive/root:/Projects modified in the last week
+var recent = await store.GetItemsByParentPathModifiedSinceAsync(
+    "/drive/root:/Projects",
+    DateTime.UtcNow.AddDays(-7));
+
+foreach (var item in recent)
+{
+    Console.WriteLine($"{item.Name} updated {item.LastModifiedUtc}");
+}
+
+// Search for files containing "report" under /drive/root:/Reports
+var reports = await store.SearchItemsByNameAsync("/drive/root:/Reports", "report");
+
+// Get all files modified in the last 24 hours
+var changedFiles = await store.GetFilesModifiedSinceAsync(DateTime.UtcNow.AddDays(-1));

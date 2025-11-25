@@ -168,15 +168,17 @@ public class SyncManager
                 id: item.Id!,
                 name: item.Name!,
                 isFolder: isFolder,
-                lastModified: item.LastModifiedDateTime
+                lastModified: item.LastModifiedDateTime,
+                parentPath: parentPath,
+                eTag: item.ETag
             );
         }
     }
 
     private static string? TryGetDeltaLink(DriveItemCollectionResponse? page)
     {
-        if(page?.AdditionalData == null)
-            return null;
-        return page.AdditionalData.TryGetValue("@odata.deltaLink", out var tokenObj) ? tokenObj as string ?? tokenObj?.ToString() : null;
+        return page?.AdditionalData == null
+            ? null
+            : page.AdditionalData.TryGetValue("@odata.deltaLink", out var tokenObj) ? tokenObj as string ?? tokenObj?.ToString() : null;
     }
 }
