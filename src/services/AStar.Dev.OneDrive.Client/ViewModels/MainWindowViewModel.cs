@@ -1,4 +1,5 @@
 using System.Collections.ObjectModel;
+using System.Windows.Input;
 using AStar.Dev.Functional.Extensions;
 using AStar.Dev.OneDrive.Client.Services;
 using Avalonia.Threading;
@@ -18,6 +19,16 @@ public partial class MainWindowViewModel : ObservableObject
     private readonly ILogger<MainWindowViewModel> _logger;
     [ObservableProperty] private string _errorMessage = string.Empty;
     public ObservableCollection<string> ProgressMessages { get; } = new();
+    public bool FollowLog
+{
+    get;
+    set => SetProperty(ref field, value);
+} = true;
+    public bool DownloadFilesAfterSync
+{
+    get;
+    set => SetProperty(ref field, value);
+}
 
     public MainWindowViewModel(ILoginService loginService, OneDriveService oneDriveService, ILogger<MainWindowViewModel> logger)
     {
@@ -40,6 +51,7 @@ public partial class MainWindowViewModel : ObservableObject
     public IAsyncRelayCommand SignOutCommand { get; }
     public IAsyncRelayCommand LoadRootCommand { get; }
     public IAsyncRelayCommand CancelSyncCommand => new AsyncRelayCommand(CancelSync);
+    public ICommand ToggleFollowLogCommand => new RelayCommand(() => FollowLog = !FollowLog);
 
     private async Task CancelSync()
     {

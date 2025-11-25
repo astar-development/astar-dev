@@ -2,46 +2,73 @@ using AStar.Dev.OneDrive.Client.Services;
 using AStar.Dev.OneDrive.Client.ViewModels;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Primitives;
 using Avalonia.Markup.Xaml;
 using Avalonia.Styling;
 using Avalonia.Threading;
+using Avalonia.VisualTree;
 
 namespace AStar.Dev.OneDrive.Client.Views;
 
 public partial class MainWindow : Window
-{private readonly MainWindowViewModel? _vm;
+{
+    private readonly MainWindowViewModel? _vm;
     private readonly UserSettingsService? _userSettingsService;
-
+    private bool _autoScrollEnabled = true;
     // Designer-friendly parameterless ctor
     public MainWindow() => InitializeComponent();
 
-    // DI ctor
-    public MainWindow(MainWindowViewModel vm, UserSettingsService userSettingsService)
+public MainWindow(MainWindowViewModel vm, UserSettingsService userSettingsService)
+{
+    InitializeComponent();
+    _vm = vm;
+    _userSettingsService = userSettingsService;
+    DataContext = _vm;
+
+    ProgressList.TemplateApplied += (_, __) =>
     {
-        InitializeComponent();              // Only this; do NOT call AvaloniaXamlLoader.Load(this)
-        _vm = vm;
-        _userSettingsService = userSettingsService;
-        DataContext = _vm;
+        ScrollViewer? scrollViewer = ProgressList.GetVisualDescendants()
+                                       .OfType<ScrollViewer>()
+                                       .FirstOrDefault();
+        if (scrollViewer == null)
+            return;
 
-        // Ensure we attach after the window is opened/visual tree ready
-        Opened += (_, __) => _vm!.ProgressMessages.CollectionChanged += (s, e) =>
+        // Track whether user is at bottom
+        scrollViewer.ScrollChanged += (_, e) =>
+        {
+            var offset = scrollViewer.GetValue(ScrollViewer.OffsetProperty).Y;
+            var extent = scrollViewer.GetValue(ScrollViewer.ExtentProperty).Height;
+            var viewport = scrollViewer.GetValue(ScrollViewer.ViewportProperty).Height;
+
+            // If content fits, always auto-scroll
+            if (extent <= viewport + 1)
             {
-                if(ProgressList.ItemsSource is not System.Collections.IList items || items.Count == 0)
-                    return;
+                _autoScrollEnabled = true;
+            }
+            else
+            {
+                _autoScrollEnabled = offset >= extent - viewport - 1;
+            }
+        };
 
-                var last = items[items.Count - 1];
-
-                // Defer until after the render pass when the item is realized
+        // Scroll when new items are added
+        _vm.ProgressMessages.CollectionChanged += (s, e) =>
+        {
+            if (_autoScrollEnabled && _vm.FollowLog && _vm.ProgressMessages.Count > 0)
+            {
                 _ = Dispatcher.UIThread.InvokeAsync(() =>
                 {
-                    // Select last (forces realization), then scroll that item
-                    ProgressList.SelectedItem = last;
-                    ProgressList.ScrollIntoView(last!);
+                    // Scroll to bottom by setting offset directly
+                    var extent = scrollViewer.GetValue(ScrollViewer.ExtentProperty).Height;
+                    var viewport = scrollViewer.GetValue(ScrollViewer.ViewportProperty).Height;
+                    scrollViewer.Offset = new Avalonia.Vector(0, extent - viewport);
                 }, DispatcherPriority.Render);
-            };
+            }
+        };
+    };
 
-        PostInitialize();
-    }
+    PostInitialize();
+}
 
     // Perform runtime-only initialization that requires injected services
     private void PostInitialize()

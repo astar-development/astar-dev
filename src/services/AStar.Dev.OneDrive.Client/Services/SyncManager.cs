@@ -39,24 +39,24 @@ public class SyncManager
         }
 
         var savedToken = await _store.GetDeltaTokenAsync(drive.Id, _token);
-
+var metrics = new SyncSessionMetrics();
         if(string.IsNullOrEmpty(savedToken))
         {
             _vm.ReportProgress("🔄 First full sync...", 10);
             Console.WriteLine("🔄 First full sync...");
-            await FullDeltaSyncAsync(drive.Id);
+            await FullDeltaSyncAsync(drive.Id, metrics);
         }
         else
         {
             _vm.ReportProgress("🔄 Resuming from saved delta token...", 10);
             Console.WriteLine("🔄 Resuming from saved delta token...");
-            await ResumeDeltaSyncAsync(drive.Id, savedToken);
+            await ResumeDeltaSyncAsync(drive.Id, savedToken, metrics);
         }
 
         _vm.ReportProgress("Sync complete.", 100, "Complete");
     }
 
-    private async Task FullDeltaSyncAsync(string driveId)
+    private async Task FullDeltaSyncAsync(string driveId, SyncSessionMetrics metrics)
     {
         DeltaGetResponse? head = await _client.Drives[driveId].Items["root"].Delta
         .GetAsDeltaGetResponseAsync(config =>
@@ -70,7 +70,7 @@ public class SyncManager
 
         var finalToken = head?.OdataDeltaLink ?? "";
 
-        await ProcessDeltaItemsAsync(head?.Value, driveId, finalToken);
+        await ProcessDeltaItemsAsync(head?.Value, driveId, finalToken,metrics);
 
         var nextLink = head?.OdataNextLink;
 
@@ -84,7 +84,7 @@ public class SyncManager
             },
             DriveItemCollectionResponse.CreateFromDiscriminatorValue);
 
-            await ProcessDeltaPageAsync(nextPage, driveId, finalToken);
+            await ProcessDeltaPageAsync(nextPage, driveId, finalToken, metrics);
 
             nextLink = nextPage?.OdataNextLink;
 
@@ -95,7 +95,7 @@ public class SyncManager
             }
         }
     }
-    private async Task ResumeDeltaSyncAsync(string driveId, string savedToken)
+    private async Task ResumeDeltaSyncAsync(string driveId, string savedToken, SyncSessionMetrics metrics)
     {
         DriveItemCollectionResponse? changes = await _client.RequestAdapter.SendAsync<DriveItemCollectionResponse>(
         new RequestInformation
@@ -107,7 +107,7 @@ public class SyncManager
 
         var finalToken = TryGetDeltaLink(changes) ?? savedToken;
 
-        await ProcessDeltaPageAsync(changes, driveId, finalToken);
+        await ProcessDeltaPageAsync(changes, driveId, finalToken, metrics);
 
         var nextLink = changes?.OdataNextLink;
 
@@ -121,7 +121,7 @@ public class SyncManager
             },
             DriveItemCollectionResponse.CreateFromDiscriminatorValue);
             _vm.ReportProgress($"📊 Process Delta Page: {nextPage?.OdataNextLink ?? "Unknown"}");
-            await ProcessDeltaPageAsync(nextPage, driveId, finalToken);
+            await ProcessDeltaPageAsync(nextPage, driveId, finalToken,metrics);
 
             nextLink = nextPage?.OdataNextLink;
 
@@ -136,17 +136,19 @@ public class SyncManager
     private async Task ProcessDeltaPageAsync(
     DriveItemCollectionResponse? page,
     string driveId,
-    string deltaToken)
+    string deltaToken,
+    SyncSessionMetrics metrics)
     {
         if(page?.Value == null)
             return;
-        await ProcessDeltaItemsAsync(page.Value, driveId, deltaToken);
+        await ProcessDeltaItemsAsync(page.Value, driveId, deltaToken, metrics);
     }
 
     private async Task ProcessDeltaItemsAsync(
      IList<DriveItem>? items,
      string driveId,
-     string deltaToken)
+     string deltaToken,
+     SyncSessionMetrics metrics)
     {
         if(items == null || items.Count == 0)
             return;
@@ -175,34 +177,12 @@ public class SyncManager
         }
 
         SyncResult result = await _store.SaveBatchWithTokenAsync(batch, deletes, driveId, deltaToken, DateTime.UtcNow, _token);
+       metrics.AddBatch(result.Inserted, result.Updated, result.Deleted);
 
-        Console.WriteLine($"📊 Sync metrics: {result.Inserted} inserted, {result.Updated} updated, {result.Deleted} deleted. Token={result.DeltaToken}");
-        _vm.ReportProgress($"📊 Sync metrics: {result.Inserted} inserted, {result.Updated} updated, {result.Deleted} deleted. Token={result.DeltaToken}");
-    }
-
-    private async Task HandleItemAsync(DriveItem item)
-    {
-        if(item.Deleted != null)
-        {
-            Console.WriteLine($"❌ Deleted: {item.Id}");
-            // TODO: remove from local index
-        }
-        else
-        {
-            var isFolder = item.Folder != null;
-            var parentPath = item.ParentReference?.Path;
-            Console.WriteLine($"✅ {item.Name} ({(isFolder ? "Folder" : "File")}) - {parentPath}");
-            _vm.ReportProgress($"✅ {item.Name} ({(isFolder ? "Folder" : "File")}) - {parentPath}");
-
-            await _store.SaveItemAsync(
-                id: item.Id!,
-                name: item.Name!,
-                isFolder: isFolder,
-                lastModified: item.LastModifiedDateTime,
-                parentPath: parentPath,
-                eTag: item.ETag
-            );
-        }
+    _vm.ReportProgress(
+        $"📊 Sync metrics: {result.Inserted} inserted, {result.Updated} updated, {result.Deleted} deleted. " +
+        $"Session totals: {metrics.InsertedTotal} inserted, {metrics.UpdatedTotal} updated, {metrics.DeletedTotal} deleted. " +
+        $"Total written={metrics.TotalWritten}. Token={result.DeltaToken}");
     }
 
     private static string? TryGetDeltaLink(DriveItemCollectionResponse? page) => page?.AdditionalData == null
