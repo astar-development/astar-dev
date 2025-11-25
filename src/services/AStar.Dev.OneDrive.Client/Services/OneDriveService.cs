@@ -1,4 +1,5 @@
 using AStar.Dev.Functional.Extensions;
+using AStar.Dev.OneDrive.Client.ViewModels;
 using Microsoft.Extensions.Logging;
 using Microsoft.Graph;
 using Microsoft.Graph.Models;
@@ -32,7 +33,7 @@ public sealed class OneDriveService
     /// Lists items in the user's OneDrive root folder.
     /// Returns a Result containing the list or the captured exception.
     /// </summary>
-    public async Task GetRootItemsAsync()
+    public async Task GetRootItemsAsync(MainWindowViewModel vm, CancellationToken token)
     {
         _logger.LogInformation("Listing root items from OneDrive");
 
@@ -50,7 +51,7 @@ public sealed class OneDriveService
         var dbPath = Path.Combine(appDataPath, "onedrive_sync.db");
         var store = new DeltaStore(_logger, dbPath);
 
-        var syncManager = new SyncManager(client, store);
+        var syncManager = new SyncManager(client, store, vm, token);
 
         await syncManager.RunSyncAsync();
     }

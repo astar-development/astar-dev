@@ -1,20 +1,23 @@
 using System.Collections.ObjectModel;
 using AStar.Dev.Functional.Extensions;
 using AStar.Dev.OneDrive.Client.Services;
+using Avalonia.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using Microsoft.Extensions.Logging;
 using Microsoft.Graph;
 using Microsoft.Graph.Models;
 
+namespace AStar.Dev.OneDrive.Client.ViewModels;
+
 public partial class MainWindowViewModel : ObservableObject
 {
+    private CancellationTokenSource? _cts = new();
     private readonly ILoginService _loginService;
     private readonly OneDriveService _oneDriveService;
     private readonly ILogger<MainWindowViewModel> _logger;
-
-    [ObservableProperty] private string _status = "Not signed in";
     [ObservableProperty] private string _errorMessage = string.Empty;
+    public ObservableCollection<string> ProgressMessages { get; } = new();
 
     public MainWindowViewModel(ILoginService loginService, OneDriveService oneDriveService, ILogger<MainWindowViewModel> logger)
     {
@@ -25,13 +28,35 @@ public partial class MainWindowViewModel : ObservableObject
         SignOutCommand = new AsyncRelayCommand(SignOutAsync);
         LoadRootCommand = new AsyncRelayCommand(LoadRootItemsAsync);
     }
-
+    public void ReportProgress(string message, double? progress = null, string? status = null) => Dispatcher.UIThread.Post(() =>
+                                                                                                       {
+                                                                                                           ProgressMessages.Add($"{DateTime.Now:T} - {message}");
+                                                                                                           if(progress.HasValue)
+                                                                                                               ProgressValue = progress.Value;
+                                                                                                           if(!string.IsNullOrEmpty(status))
+                                                                                                               Status = status;
+                                                                                                       });
     public IAsyncRelayCommand SignInCommand { get; }
     public IAsyncRelayCommand SignOutCommand { get; }
     public IAsyncRelayCommand LoadRootCommand { get; }
+    public IAsyncRelayCommand CancelSyncCommand => new AsyncRelayCommand(CancelSync);
+
+    private async Task CancelSync()
+    {
+        if(_cts != null && !_cts.IsCancellationRequested)
+        {
+            _cts.Cancel();
+            ReportProgress("Sync cancelled by user.", null, "Cancelled");
+        }
+    }
+
+    public string Status
+    {
+        get;
+        set => SetProperty(ref field, value);
+    } = "Idle";
 
     [ObservableProperty] private ObservableCollection<DriveItem> _rootItems = [];
-
     private async Task SignInAsync()
     {
         try
@@ -89,13 +114,20 @@ public partial class MainWindowViewModel : ObservableObject
         }
     }
 
+    public double ProgressValue
+    {
+        get;
+        set => SetProperty(ref field, value);
+    }
+
     private async Task LoadRootItemsAsync()
     {
         try
         {
+            _cts = new CancellationTokenSource();
             _logger?.LogInformation("Loading OneDrive root items");
             ErrorMessage = string.Empty;
-            await _oneDriveService.GetRootItemsAsync();
+            await _oneDriveService.GetRootItemsAsync(this, _cts.Token);
         }
         catch(Exception ex)
         {

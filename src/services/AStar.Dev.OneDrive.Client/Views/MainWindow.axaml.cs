@@ -1,25 +1,45 @@
 using AStar.Dev.OneDrive.Client.Services;
+using AStar.Dev.OneDrive.Client.ViewModels;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Avalonia.Styling;
+using Avalonia.Threading;
 
 namespace AStar.Dev.OneDrive.Client.Views;
 
 public partial class MainWindow : Window
-{
-    private readonly MainWindowViewModel? _vm;
+{private readonly MainWindowViewModel? _vm;
     private readonly UserSettingsService? _userSettingsService;
 
-    // Parameterless constructor used by XAML runtime loader (keeps designer/build-time happy)
-    public MainWindow() => AvaloniaXamlLoader.Load(this);
+    // Designer-friendly parameterless ctor
+    public MainWindow() => InitializeComponent();
 
-    // MainWindow is constructed by DI; inject the ViewModel and settings service
+    // DI ctor
     public MainWindow(MainWindowViewModel vm, UserSettingsService userSettingsService)
     {
+        InitializeComponent();              // Only this; do NOT call AvaloniaXamlLoader.Load(this)
         _vm = vm;
         _userSettingsService = userSettingsService;
-        AvaloniaXamlLoader.Load(this);
+        DataContext = _vm;
+
+        // Ensure we attach after the window is opened/visual tree ready
+        Opened += (_, __) => _vm!.ProgressMessages.CollectionChanged += (s, e) =>
+            {
+                if(ProgressList.ItemsSource is not System.Collections.IList items || items.Count == 0)
+                    return;
+
+                var last = items[items.Count - 1];
+
+                // Defer until after the render pass when the item is realized
+                _ = Dispatcher.UIThread.InvokeAsync(() =>
+                {
+                    // Select last (forces realization), then scroll that item
+                    ProgressList.SelectedItem = last;
+                    ProgressList.ScrollIntoView(last!);
+                }, DispatcherPriority.Render);
+            };
+
         PostInitialize();
     }
 

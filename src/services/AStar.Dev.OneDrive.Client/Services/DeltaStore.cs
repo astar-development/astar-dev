@@ -45,8 +45,21 @@ public partial class DeltaStore
             CREATE INDEX IF NOT EXISTS idx_driveitems_name ON DriveItems(Name);
         ";
         _ = cmd.ExecuteNonQuery();
-
+        cmd = conn.CreateCommand();
+        cmd.CommandText = @"
+    CREATE TABLE IF NOT EXISTS SyncLog (
+        Id INTEGER PRIMARY KEY AUTOINCREMENT,
+        DriveId TEXT NOT NULL,
+        Inserted INTEGER NOT NULL,
+        Updated INTEGER NOT NULL,
+        Deleted INTEGER NOT NULL,
+        DeltaToken TEXT NOT NULL,
+        LastSyncedUtc TEXT NOT NULL
+    );
+";
+        _ = cmd.ExecuteNonQuery();
     }
+
     public async Task<List<SyncResult>> GetRecentSyncLogsAsync(int count = 10)
     {
         var results = new List<SyncResult>();
@@ -126,22 +139,22 @@ public partial class DeltaStore
         _ = await cmd.ExecuteNonQueryAsync();
     }
 
-    public async Task<string?> GetDeltaTokenAsync(string driveId)
+    public async Task<string?> GetDeltaTokenAsync(string driveId, CancellationToken token)
     {
         using var conn = new SqliteConnection(_connectionString);
-        await conn.OpenAsync();
+        await conn.OpenAsync(token);
 
         SqliteCommand cmd = conn.CreateCommand();
         cmd.CommandText = "SELECT DeltaToken FROM DeltaState WHERE DriveId = $driveId;";
         _ = cmd.Parameters.AddWithValue("$driveId", driveId);
 
-        return (string?)await cmd.ExecuteScalarAsync();
+        return (string?)await cmd.ExecuteScalarAsync(token);
     }
 
-    public async Task SaveItemAsync(string id, string name, bool isFolder, DateTimeOffset? lastModified, string? parentPath = null, string? eTag = null)
+    public async Task SaveItemAsync(string id, string name, bool isFolder, DateTimeOffset? lastModified, string? parentPath = null, string? eTag = null, CancellationToken token = new())
     {
         using var conn = new SqliteConnection(_connectionString);
-        await conn.OpenAsync();
+        await conn.OpenAsync(token);
 
         SqliteCommand cmd = conn.CreateCommand();
         cmd.CommandText = @"
@@ -161,7 +174,7 @@ public partial class DeltaStore
         cmd.AddSmartParameter("$parentPath", parentPath); // null → DBNull
         cmd.AddSmartParameter("$eTag", eTag);
 
-        _ = await cmd.ExecuteNonQueryAsync();
+        _ = await cmd.ExecuteNonQueryAsync(token);
     }
 
     public async Task<SyncResult> SaveBatchWithTokenAsync(
@@ -169,10 +182,10 @@ public partial class DeltaStore
     IEnumerable<string> deletedIds,
     string driveId,
     string deltaToken,
-    DateTime lastSyncedUtc)
+    DateTime lastSyncedUtc, CancellationToken token)
     {
         using var conn = new SqliteConnection(_connectionString);
-        await conn.OpenAsync();
+        await conn.OpenAsync(token);
 
         using SqliteTransaction tx = conn.BeginTransaction();
 
@@ -206,7 +219,7 @@ public partial class DeltaStore
                 cmd.AddSmartParameter("$parentPath", item.ParentPath);
                 cmd.AddSmartParameter("$eTag", item.ETag);
 
-                _ = await cmd.ExecuteNonQueryAsync();
+                _ = await cmd.ExecuteNonQueryAsync(token);
                 result.Inserted++; // Simplified: count all upserts as "inserted"
             }
 
@@ -217,7 +230,7 @@ public partial class DeltaStore
                 delCmd.Transaction = tx;
                 delCmd.CommandText = "DELETE FROM DriveItems WHERE Id = $id;";
                 delCmd.AddSmartParameter("$id", id);
-                var affected = await delCmd.ExecuteNonQueryAsync();
+                var affected = await delCmd.ExecuteNonQueryAsync(token);
                 if(affected > 0)
                     result.Deleted++;
             }
@@ -235,7 +248,7 @@ public partial class DeltaStore
             tokenCmd.AddSmartParameter("$token", deltaToken);
             tokenCmd.AddSmartParameter("$ts", lastSyncedUtc.ToString("o"));
 
-            _ = await tokenCmd.ExecuteNonQueryAsync();
+            _ = await tokenCmd.ExecuteNonQueryAsync(token);
 
             // Persist metrics into SyncLog
             SqliteCommand logCmd = conn.CreateCommand();
@@ -250,9 +263,9 @@ public partial class DeltaStore
             logCmd.AddSmartParameter("$token", deltaToken);
             logCmd.AddSmartParameter("$ts", lastSyncedUtc.ToString("o"));
 
-            _ = await logCmd.ExecuteNonQueryAsync();
+            _ = await logCmd.ExecuteNonQueryAsync(token);
 
-            await tx.CommitAsync();
+            await tx.CommitAsync(token);
 
             // 🔑 Runtime logging
             _logger.LogInformation(
@@ -263,7 +276,7 @@ public partial class DeltaStore
         }
         catch(Exception ex)
         {
-            await tx.RollbackAsync();
+            await tx.RollbackAsync(token);
             _logger.LogError(ex, "Sync failed for DriveId={DriveId}", driveId);
             throw;
         }
@@ -272,31 +285,31 @@ public partial class DeltaStore
 
 public partial class DeltaStore
 {
-    public async Task<LocalDriveItem?> GetItemByIdAsync(string id)
+    public async Task<LocalDriveItem?> GetItemByIdAsync(string id, CancellationToken token)
     {
         using var conn = new SqliteConnection(_connectionString);
-        await conn.OpenAsync();
+        await conn.OpenAsync(token);
 
         SqliteCommand cmd = conn.CreateCommand();
         cmd.CommandText = "SELECT * FROM DriveItems WHERE Id = $id;";
         _ = cmd.Parameters.AddWithValue("$id", id);
 
-        using SqliteDataReader reader = await cmd.ExecuteReaderAsync();
-        return await reader.ReadAsync() ? reader.ToLocalDriveItem() : null;
+        using SqliteDataReader reader = await cmd.ExecuteReaderAsync(token);
+        return await reader.ReadAsync(token) ? reader.ToLocalDriveItem() : null;
     }
 
-    public async Task<List<LocalDriveItem>> GetItemsByParentPathAsync(string parentPath)
+    public async Task<List<LocalDriveItem>> GetItemsByParentPathAsync(string parentPath, CancellationToken token)
     {
         using var conn = new SqliteConnection(_connectionString);
-        await conn.OpenAsync();
+        await conn.OpenAsync(token);
 
         SqliteCommand cmd = conn.CreateCommand();
         cmd.CommandText = "SELECT * FROM DriveItems WHERE ParentPath = $parentPath;";
         _ = cmd.Parameters.AddWithValue("$parentPath", parentPath);
 
         var results = new List<LocalDriveItem>();
-        using SqliteDataReader reader = await cmd.ExecuteReaderAsync();
-        while(await reader.ReadAsync())
+        using SqliteDataReader reader = await cmd.ExecuteReaderAsync(token);
+        while(await reader.ReadAsync(token))
         {
             results.Add(reader.ToLocalDriveItem());
         }
@@ -304,17 +317,17 @@ public partial class DeltaStore
         return results;
     }
 
-    public async Task<List<LocalDriveItem>> GetAllFoldersAsync()
+    public async Task<List<LocalDriveItem>> GetAllFoldersAsync(CancellationToken token)
     {
         using var conn = new SqliteConnection(_connectionString);
-        await conn.OpenAsync();
+        await conn.OpenAsync(token);
 
         SqliteCommand cmd = conn.CreateCommand();
         cmd.CommandText = "SELECT * FROM DriveItems WHERE IsFolder = 1;";
 
         var results = new List<LocalDriveItem>();
-        using SqliteDataReader reader = await cmd.ExecuteReaderAsync();
-        while(await reader.ReadAsync())
+        using SqliteDataReader reader = await cmd.ExecuteReaderAsync(token);
+        while(await reader.ReadAsync(token))
         {
             results.Add(reader.ToLocalDriveItem());
         }
@@ -329,10 +342,10 @@ public partial class DeltaStore
     /// Get items under a parent path modified since a given UTC timestamp.
     /// </summary>
     public async Task<List<LocalDriveItem>> GetItemsByParentPathModifiedSinceAsync(
-        string parentPath, DateTime sinceUtc)
+        string parentPath, DateTime sinceUtc, CancellationToken token)
     {
         using var conn = new SqliteConnection(_connectionString);
-        await conn.OpenAsync();
+        await conn.OpenAsync(token);
 
         SqliteCommand cmd = conn.CreateCommand();
         cmd.CommandText = @"
@@ -343,8 +356,8 @@ public partial class DeltaStore
         _ = cmd.Parameters.AddWithValue("$sinceUtc", sinceUtc.ToString("o"));
 
         var results = new List<LocalDriveItem>();
-        using SqliteDataReader reader = await cmd.ExecuteReaderAsync();
-        while(await reader.ReadAsync())
+        using SqliteDataReader reader = await cmd.ExecuteReaderAsync(token);
+        while(await reader.ReadAsync(token))
         {
             results.Add(reader.ToLocalDriveItem());
         }
@@ -356,10 +369,10 @@ public partial class DeltaStore
     /// Search items by name within a parent path.
     /// </summary>
     public async Task<List<LocalDriveItem>> SearchItemsByNameAsync(
-        string parentPath, string nameLike)
+        string parentPath, string nameLike, CancellationToken token)
     {
         using var conn = new SqliteConnection(_connectionString);
-        await conn.OpenAsync();
+        await conn.OpenAsync(token);
 
         SqliteCommand cmd = conn.CreateCommand();
         cmd.CommandText = @"
@@ -370,8 +383,8 @@ public partial class DeltaStore
         _ = cmd.Parameters.AddWithValue("$pattern", $"%{nameLike}%");
 
         var results = new List<LocalDriveItem>();
-        using SqliteDataReader reader = await cmd.ExecuteReaderAsync();
-        while(await reader.ReadAsync())
+        using SqliteDataReader reader = await cmd.ExecuteReaderAsync(token);
+        while(await reader.ReadAsync(token))
         {
             results.Add(reader.ToLocalDriveItem());
         }
@@ -382,10 +395,10 @@ public partial class DeltaStore
     /// <summary>
     /// Get all files (not folders) modified since a given UTC timestamp.
     /// </summary>
-    public async Task<List<LocalDriveItem>> GetFilesModifiedSinceAsync(DateTime sinceUtc)
+    public async Task<List<LocalDriveItem>> GetFilesModifiedSinceAsync(DateTime sinceUtc, CancellationToken token)
     {
         using var conn = new SqliteConnection(_connectionString);
-        await conn.OpenAsync();
+        await conn.OpenAsync(token);
 
         SqliteCommand cmd = conn.CreateCommand();
         cmd.CommandText = @"
@@ -395,8 +408,8 @@ public partial class DeltaStore
         _ = cmd.Parameters.AddWithValue("$sinceUtc", sinceUtc.ToString("o"));
 
         var results = new List<LocalDriveItem>();
-        using SqliteDataReader reader = await cmd.ExecuteReaderAsync();
-        while(await reader.ReadAsync())
+        using SqliteDataReader reader = await cmd.ExecuteReaderAsync(token);
+        while(await reader.ReadAsync(token))
         {
             results.Add(reader.ToLocalDriveItem());
         }
