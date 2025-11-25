@@ -20,15 +20,15 @@ public partial class MainWindowViewModel : ObservableObject
     [ObservableProperty] private string _errorMessage = string.Empty;
     public ObservableCollection<string> ProgressMessages { get; } = new();
     public bool FollowLog
-{
-    get;
-    set => SetProperty(ref field, value);
-} = true;
+    {
+        get;
+        set => SetProperty(ref field, value);
+    } = true;
     public bool DownloadFilesAfterSync
-{
-    get;
-    set => SetProperty(ref field, value);
-}
+    {
+        get;
+        set => SetProperty(ref field, value);
+    }
 
     public MainWindowViewModel(ILoginService loginService, OneDriveService oneDriveService, ILogger<MainWindowViewModel> logger)
     {

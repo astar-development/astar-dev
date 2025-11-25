@@ -39,7 +39,7 @@ public class SyncManager
         }
 
         var savedToken = await _store.GetDeltaTokenAsync(drive.Id, _token);
-var metrics = new SyncSessionMetrics();
+        var metrics = new SyncSessionMetrics();
         if(string.IsNullOrEmpty(savedToken))
         {
             _vm.ReportProgress("🔄 First full sync...", 10);
@@ -70,7 +70,7 @@ var metrics = new SyncSessionMetrics();
 
         var finalToken = head?.OdataDeltaLink ?? "";
 
-        await ProcessDeltaItemsAsync(head?.Value, driveId, finalToken,metrics);
+        await ProcessDeltaItemsAsync(head?.Value, driveId, finalToken, metrics);
 
         var nextLink = head?.OdataNextLink;
 
@@ -121,7 +121,7 @@ var metrics = new SyncSessionMetrics();
             },
             DriveItemCollectionResponse.CreateFromDiscriminatorValue);
             _vm.ReportProgress($"📊 Process Delta Page: {nextPage?.OdataNextLink ?? "Unknown"}");
-            await ProcessDeltaPageAsync(nextPage, driveId, finalToken,metrics);
+            await ProcessDeltaPageAsync(nextPage, driveId, finalToken, metrics);
 
             nextLink = nextPage?.OdataNextLink;
 
@@ -177,12 +177,12 @@ var metrics = new SyncSessionMetrics();
         }
 
         SyncResult result = await _store.SaveBatchWithTokenAsync(batch, deletes, driveId, deltaToken, DateTime.UtcNow, _token);
-       metrics.AddBatch(result.Inserted, result.Updated, result.Deleted);
+        metrics.AddBatch(result.Inserted, result.Updated, result.Deleted);
 
-    _vm.ReportProgress(
-        $"📊 Sync metrics: {result.Inserted} inserted, {result.Updated} updated, {result.Deleted} deleted. " +
-        $"Session totals: {metrics.InsertedTotal} inserted, {metrics.UpdatedTotal} updated, {metrics.DeletedTotal} deleted. " +
-        $"Total written={metrics.TotalWritten}. Token={result.DeltaToken}");
+        _vm.ReportProgress(
+            $"📊 Sync metrics: {result.Inserted} inserted, {result.Updated} updated, {result.Deleted} deleted. " +
+            $"Session totals: {metrics.InsertedTotal} inserted, {metrics.UpdatedTotal} updated, {metrics.DeletedTotal} deleted. " +
+            $"Total written={metrics.TotalWritten}. Token={result.DeltaToken}");
     }
 
     private static string? TryGetDeltaLink(DriveItemCollectionResponse? page) => page?.AdditionalData == null

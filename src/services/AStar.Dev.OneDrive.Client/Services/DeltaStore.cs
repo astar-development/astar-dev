@@ -35,7 +35,8 @@ public partial class DeltaStore
                 IsFolder INTEGER,
                 LastModifiedUtc TEXT,
                 ParentPath TEXT NULL,
-                ETag TEXT NULL
+                ETag TEXT NULL,
+                DownloadedDate TEXT NULL
             );
 
             -- Indexes for fast lookups
@@ -43,6 +44,7 @@ public partial class DeltaStore
             CREATE INDEX IF NOT EXISTS idx_driveitems_lastmodified ON DriveItems(LastModifiedUtc);
             CREATE INDEX IF NOT EXISTS idx_driveitems_isfolder ON DriveItems(IsFolder);
             CREATE INDEX IF NOT EXISTS idx_driveitems_name ON DriveItems(Name);
+            CREATE INDEX IF NOT EXISTS idx_driveitems_downloadeddate ON DriveItems(DownloadedDate);
         ";
         _ = cmd.ExecuteNonQuery();
         cmd = conn.CreateCommand();
@@ -285,6 +287,41 @@ public partial class DeltaStore
 
 public partial class DeltaStore
 {
+    public async Task<IEnumerable<LocalDriveItem>> GetItemsToDownloadAsync(CancellationToken token)
+    {
+        var results = new List<LocalDriveItem>();
+
+        using var conn = new SqliteConnection(_connectionString);
+        await conn.OpenAsync(token);
+
+        SqliteCommand cmd = conn.CreateCommand();
+        cmd.CommandText = "SELECT * FROM DriveItems WHERE DownloadedDate IS NULL LIMIT 100;";
+
+        using SqliteDataReader reader = await cmd.ExecuteReaderAsync(token);
+        while(await reader.ReadAsync(token))
+        {
+            results.Add(reader.ToLocalDriveItem());
+        }
+
+        return results;
+    }
+
+    public async Task MarkItemAsDownloadedAsync(string id, CancellationToken token)
+    {
+        using var conn = new SqliteConnection(_connectionString);
+        await conn.OpenAsync(token);
+
+        SqliteCommand cmd = conn.CreateCommand();
+        cmd.CommandText = @"
+            UPDATE DriveItems
+            SET DownloadedDate = $downloadedDate
+            WHERE Id = $id;";
+        _ = cmd.Parameters.AddWithValue("$downloadedDate", DateTime.UtcNow.ToString("o"));
+        _ = cmd.Parameters.AddWithValue("$id", id);
+
+        _ = await cmd.ExecuteNonQueryAsync(token);
+    }
+
     public async Task<LocalDriveItem?> GetItemByIdAsync(string id, CancellationToken token)
     {
         using var conn = new SqliteConnection(_connectionString);

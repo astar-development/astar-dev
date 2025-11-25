@@ -13,6 +13,8 @@ public sealed class OneDriveService
 {
     private readonly ILoginService _loginService;
     private readonly ILogger<OneDriveService> _logger;
+    private DeltaStore _store = null!;
+    private GraphServiceClient _client = null!;
 
     public OneDriveService(ILoginService loginService, ILogger<OneDriveService> logger)
     {
@@ -43,17 +45,56 @@ public sealed class OneDriveService
             throw loginErr.Reason;
         }
 
-        GraphServiceClient client = ((Result<GraphServiceClient, Exception>.Ok)loginResult).Value;
+        _client = ((Result<GraphServiceClient, Exception>.Ok)loginResult).Value;
         // Resolve the user's home directory in a cross-platform way
         var appDataPath = AppPathHelper.GetAppDataPath("onedrive-sync");
         _ = Directory.CreateDirectory(appDataPath);
 
         var dbPath = Path.Combine(appDataPath, "onedrive_sync.db");
-        var store = new DeltaStore(_logger, dbPath);
+        _store = new DeltaStore(_logger, dbPath);
 
-        var syncManager = new SyncManager(client, store, vm, token);
+        var syncManager = new SyncManager(_client, _store, vm, token);
 
         await syncManager.RunSyncAsync();
+        if(vm.DownloadFilesAfterSync)
+        {
+            await DownloadFiles(vm, token);
+        }
+    }
+
+    public async Task DownloadFiles(MainWindowViewModel vm, CancellationToken token)
+    {
+        IEnumerable<LocalDriveItem> itemsToDownload = await _store.GetItemsToDownloadAsync(CancellationToken.None);
+
+        var downloadFolder = "/home/jason/Documents/OneDriveDownloads"; // Replace with desired download folder
+                                                                        // Get the primary drive (OneDrive) for the signed-in user
+        Drive? drive = await _client.Me.Drive.GetAsync(cancellationToken: token);
+        var driveId = drive!.Id;
+
+        foreach(LocalDriveItem item in itemsToDownload)
+        {
+            try
+            {
+                using Stream? stream = await _client.Drives[driveId].Items[item.Id].Content.GetAsync();
+                if(stream == null)
+                {
+                    vm.ReportProgress($"⚠️ Failed to download {item.Name}: Stream is null");
+                    continue;
+                }
+
+                var localPath = Path.Combine(downloadFolder, item.Name!);
+                using(FileStream fileStream = File.Create(localPath))
+                {
+                    await stream.CopyToAsync(fileStream);
+                }
+
+                vm.ReportProgress($"⬇️ Downloaded {item.Name}");
+            }
+            catch(Exception ex)
+            {
+                vm.ReportProgress($"⚠️ Failed to download {item.Name}: {ex.Message}");
+            }
+        }
     }
 
     /// <summary>

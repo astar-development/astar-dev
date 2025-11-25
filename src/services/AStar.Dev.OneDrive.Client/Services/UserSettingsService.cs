@@ -11,6 +11,9 @@ public sealed class UserSettings
     public int? WindowX { get; set; }
     public int? WindowY { get; set; }
     public string? LastAccount { get; set; }
+
+    // new property
+    public bool DownloadFilesAfterSync { get; set; } = false;
 }
 
 public sealed class UserSettingsService

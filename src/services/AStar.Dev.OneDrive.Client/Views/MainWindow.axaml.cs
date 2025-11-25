@@ -18,57 +18,50 @@ public partial class MainWindow : Window
     // Designer-friendly parameterless ctor
     public MainWindow() => InitializeComponent();
 
-public MainWindow(MainWindowViewModel vm, UserSettingsService userSettingsService)
-{
-    InitializeComponent();
-    _vm = vm;
-    _userSettingsService = userSettingsService;
-    DataContext = _vm;
-
-    ProgressList.TemplateApplied += (_, __) =>
+    public MainWindow(MainWindowViewModel vm, UserSettingsService userSettingsService)
     {
-        ScrollViewer? scrollViewer = ProgressList.GetVisualDescendants()
+        InitializeComponent();
+        _vm = vm;
+        _userSettingsService = userSettingsService;
+        DataContext = _vm;
+
+        ProgressList.TemplateApplied += (_, __) =>
+        {
+            ScrollViewer? scrollViewer = ProgressList.GetVisualDescendants()
                                        .OfType<ScrollViewer>()
                                        .FirstOrDefault();
-        if (scrollViewer == null)
-            return;
+            if(scrollViewer == null)
+                return;
 
-        // Track whether user is at bottom
-        scrollViewer.ScrollChanged += (_, e) =>
-        {
-            var offset = scrollViewer.GetValue(ScrollViewer.OffsetProperty).Y;
-            var extent = scrollViewer.GetValue(ScrollViewer.ExtentProperty).Height;
-            var viewport = scrollViewer.GetValue(ScrollViewer.ViewportProperty).Height;
+            // Track whether user is at bottom
+            scrollViewer.ScrollChanged += (_, e) =>
+            {
+                var offset = scrollViewer.GetValue(ScrollViewer.OffsetProperty).Y;
+                var extent = scrollViewer.GetValue(ScrollViewer.ExtentProperty).Height;
+                var viewport = scrollViewer.GetValue(ScrollViewer.ViewportProperty).Height;
 
-            // If content fits, always auto-scroll
-            if (extent <= viewport + 1)
-            {
-                _autoScrollEnabled = true;
-            }
-            else
-            {
-                _autoScrollEnabled = offset >= extent - viewport - 1;
-            }
-        };
+                // If content fits, always auto-scroll
+                _autoScrollEnabled = extent <= viewport + 1 || offset >= extent - viewport - 1;
+            };
 
-        // Scroll when new items are added
-        _vm.ProgressMessages.CollectionChanged += (s, e) =>
-        {
-            if (_autoScrollEnabled && _vm.FollowLog && _vm.ProgressMessages.Count > 0)
+            // Scroll when new items are added
+            _vm.ProgressMessages.CollectionChanged += (s, e) =>
             {
-                _ = Dispatcher.UIThread.InvokeAsync(() =>
+                if(_autoScrollEnabled && _vm.FollowLog && _vm.ProgressMessages.Count > 0)
                 {
-                    // Scroll to bottom by setting offset directly
-                    var extent = scrollViewer.GetValue(ScrollViewer.ExtentProperty).Height;
-                    var viewport = scrollViewer.GetValue(ScrollViewer.ViewportProperty).Height;
-                    scrollViewer.Offset = new Avalonia.Vector(0, extent - viewport);
-                }, DispatcherPriority.Render);
-            }
+                    _ = Dispatcher.UIThread.InvokeAsync(() =>
+                    {
+                        // Scroll to bottom by setting offset directly
+                        var extent = scrollViewer.GetValue(ScrollViewer.ExtentProperty).Height;
+                        var viewport = scrollViewer.GetValue(ScrollViewer.ViewportProperty).Height;
+                        scrollViewer.Offset = new Avalonia.Vector(0, extent - viewport);
+                    }, DispatcherPriority.Render);
+                }
+            };
         };
-    };
 
-    PostInitialize();
-}
+        PostInitialize();
+    }
 
     // Perform runtime-only initialization that requires injected services
     private void PostInitialize()
@@ -97,6 +90,7 @@ public MainWindow(MainWindowViewModel vm, UserSettingsService userSettingsServic
 
         // Set DataContext from injected ViewModel
         DataContext = _vm;
+        _vm.DownloadFilesAfterSync = userSettings.DownloadFilesAfterSync;
 
         // Initialize theme selector state
         try
@@ -142,6 +136,7 @@ public MainWindow(MainWindowViewModel vm, UserSettingsService userSettingsServic
                     s.WindowHeight = Height;
                     s.WindowX = Position.X;
                     s.WindowY = Position.Y;
+                    s.DownloadFilesAfterSync = _vm.DownloadFilesAfterSync;
                     _userSettingsService.Save(s);
                 }
             }
