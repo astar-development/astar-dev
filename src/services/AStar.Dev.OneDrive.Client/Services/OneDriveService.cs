@@ -84,6 +84,7 @@ public sealed class OneDriveService
             {
                 await _store.MarkItemsAsDownloadedAsync(downloadedIds, token);
                 downloadedIds.Clear();
+                vm.ReportProgress($"💾 Flushed 100 downloaded items to database.");
             }
         }
 
@@ -91,6 +92,7 @@ public sealed class OneDriveService
         if(downloadedIds.Count > 0)
         {
             await _store.MarkItemsAsDownloadedAsync(downloadedIds, token);
+                vm.ReportProgress($"💾 Flushed the final {downloadedIds.Count} downloaded items to database.");
         }
     }
 
