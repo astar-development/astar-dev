@@ -55,21 +55,12 @@ public static class GraphClientFactory
         return new GraphServiceClient(adapter);
     }
 
-    private sealed class PolicyHandler : DelegatingHandler
+    private sealed class PolicyHandler(IAsyncPolicy<HttpResponseMessage> policy, Action<string>? logAction = null) : DelegatingHandler
     {
-        private readonly IAsyncPolicy<HttpResponseMessage> _policy;
-        private readonly Action<string>? _logAction;
-
-        public PolicyHandler(IAsyncPolicy<HttpResponseMessage> policy, Action<string>? logAction = null)
-        {
-            _policy = policy;
-            _logAction = logAction;
-        }
-
         protected override Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
-            _logAction?.Invoke($"➡️ {request.Method} {request.RequestUri}");
-            return _policy.ExecuteAsync(ct => base.SendAsync(request, ct), cancellationToken);
+            logAction?.Invoke($"➡️ {request.Method} {request.RequestUri}");
+            return policy.ExecuteAsync(ct => base.SendAsync(request, ct), cancellationToken);
         }
     }
 }

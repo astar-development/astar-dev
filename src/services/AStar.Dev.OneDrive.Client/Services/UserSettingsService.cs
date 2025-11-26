@@ -1,5 +1,7 @@
 using System.Runtime.InteropServices;
 using System.Text.Json;
+using Azure.Identity;
+using Microsoft.Identity.Client;
 
 namespace AStar.Dev.OneDrive.Client.Services;
 
@@ -11,6 +13,16 @@ public sealed class UserSettings
     public int? WindowX { get; set; }
     public int? WindowY { get; set; }
     public string? LastAccount { get; set; }
+
+    // new property
+    public bool DownloadFilesAfterSync { get; set; } = false;
+    public bool RememberMe { get; set; } = true; // default to true
+
+    // New: configurable max parallel downloads
+    public int MaxParallelDownloads { get; set; } = 2;
+    // New: configurable batch size for DB updates
+    public int DownloadBatchSize { get; set; } = 100;
+    public int CacheTag { get; set; } = 1; // used to version the cache name
 }
 
 public sealed class UserSettingsService
@@ -56,8 +68,8 @@ public sealed class UserSettingsService
                 return new UserSettings();
 
             var json = File.ReadAllText(_filePath);
-            UserSettings? s = JsonSerializer.Deserialize<UserSettings>(json);
-            return s ?? new UserSettings();
+            UserSettings? userSettings = JsonSerializer.Deserialize<UserSettings>(json);
+            return userSettings ?? new UserSettings();
         }
         catch
         {
@@ -74,14 +86,22 @@ public sealed class UserSettingsService
         {
             var json = JsonSerializer.Serialize(settings, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(_filePath, json);
+
+            // No explicit cache clearing API in Azure.Identity.
+            // If RememberMe is false, next run will construct the credential without persistence,
+            // so tokens won't survive app exit.
         }
-        catch { }
+        catch
+        {
+            // swallow exceptions for now, but consider logging
+        }
     }
 
     // Functional result-based saver (returns the saved settings on success)
-    public async Task<AStar.Dev.Functional.Extensions.Result<UserSettings, Exception>> SaveResultAsync(UserSettings settings) => await Functional.Extensions.Try.RunAsync(async () =>
-                                                                                                                                      {
-                                                                                                                                          Save(settings);
-                                                                                                                                          return settings;
-                                                                                                                                      });
+    public async Task<AStar.Dev.Functional.Extensions.Result<UserSettings, Exception>> SaveResultAsync(UserSettings settings)
+        => await Functional.Extensions.Try.RunAsync(async () =>
+                                                            {
+                                                                Save(settings);
+                                                                return settings;
+                                                            });
 }

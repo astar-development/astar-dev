@@ -1,4 +1,6 @@
+using System.Collections.Concurrent;
 using AStar.Dev.Functional.Extensions;
+using AStar.Dev.OneDrive.Client.ViewModels;
 using Microsoft.Extensions.Logging;
 using Microsoft.Graph;
 using Microsoft.Graph.Models;
@@ -8,51 +10,221 @@ using Microsoft.Kiota.Abstractions.Serialization;
 
 namespace AStar.Dev.OneDrive.Client.Services;
 
-public sealed class OneDriveService
+public sealed class OneDriveService(ILoginService loginService, UserSettings userSettings, ILogger<OneDriveService> logger)
 {
-    private readonly ILoginService _loginService;
-    private readonly ILogger<OneDriveService> _logger;
-
-    public OneDriveService(ILoginService loginService, ILogger<OneDriveService> logger)
-    {
-        _loginService = loginService;
-        _logger = logger;
-    }
+    private DeltaStore _store = null!;
+    private GraphServiceClient _client = null!;
 
     // Custom exception type for higher-level error surface
-    public sealed class OneDriveServiceException : Exception
+    public sealed class OneDriveServiceException(string message, int? statusCode = null, Exception? inner = null) : Exception(message, inner)
     {
-        public int? StatusCode { get; }
-
-        public OneDriveServiceException(string message, int? statusCode = null, Exception? inner = null)
-            : base(message, inner) => StatusCode = statusCode;
+        public int? StatusCode { get; } = statusCode;
     }
 
     /// <summary>
     /// Lists items in the user's OneDrive root folder.
     /// Returns a Result containing the list or the captured exception.
     /// </summary>
-    public async Task GetRootItemsAsync()
+    public async Task GetRootItemsAsync(MainWindowViewModel vm, CancellationToken token)
     {
-        _logger.LogInformation("Listing root items from OneDrive");
+        logger.LogInformation("Listing root items from OneDrive");
 
-        Result<GraphServiceClient, Exception> loginResult = await _loginService.SignInAsync();
-            if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
+        Result<GraphServiceClient, Exception> loginResult = await loginService.SignInAsync();
+        if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
+        {
+            throw loginErr.Reason;
+        }
+
+        _client = ((Result<GraphServiceClient, Exception>.Ok)loginResult).Value;
+        // Resolve the user's home directory in a cross-platform way
+        var appDataPath = AppPathHelper.GetAppDataPath("astar-dev");
+        var fullAppDataPath = Path.Combine(appDataPath, "astar-dev-onedrive-client", "onedrive-sync");
+        _ = Directory.CreateDirectory(fullAppDataPath);
+
+        var dbPath = Path.Combine(fullAppDataPath, "onedrive_sync.db");
+        _store = new DeltaStore(logger, dbPath);
+
+        //var syncManager = new SyncManager(_client, _store, vm, token);
+
+        // await syncManager.RunSyncAsync();
+        // if(vm.DownloadFilesAfterSync)
+        // {
+        await DownloadFilesAsync(vm, userSettings, token);
+        // }
+    }
+    private async Task BootstrapDriveAsync(string driveId, MainWindowViewModel vm, CancellationToken token)
+    {
+        // Fetch root item from Graph
+        DriveItem? rootItem = await _client.Drives[driveId].Items["root"]
+        .GetAsync(cancellationToken: token);
+
+        if(rootItem == null)
+            return;
+
+        vm.ReportProgress($"ℹ️ Inserting Root ({rootItem.Folder}) into dB...");
+        await _store.InsertRootAsync(driveId, rootItem, token);
+
+        // Recursively insert children
+        await InsertChildrenRecursiveAsync(driveId, rootItem.Id!, $"/drives/{driveId}/root:", vm, token);
+    }
+
+    private async Task InsertChildrenRecursiveAsync(string driveId, string itemId, string parentPath, MainWindowViewModel vm, CancellationToken token)
+    {
+        vm.ReportProgress("ℹ️ Getting initial child folders...");
+        // Get children of this folder
+        DriveItemCollectionResponse? childrenResponse =        await _client.Drives[driveId].Items[itemId].Children            .GetAsync(cancellationToken: token);
+
+        if(childrenResponse?.Value == null || childrenResponse.Value.Count == 0)
+            return;
+
+        // Insert into DB
+        vm.ReportProgress($"ℹ️ Inserting initial child folders for parent folder: {childrenResponse.Value.First().Folder} into the dB...");
+        await _store.InsertChildrenAsync(parentPath, childrenResponse.Value, token);
+
+        // Recurse into subfolders
+        foreach(DriveItem child in childrenResponse.Value)
+        {
+            if(child.Folder != null && child.Id != null)
             {
-                throw loginErr.Reason;
+                vm.ReportProgress("ℹ️ Going a level deeper...");
+                var childPath = (child.ParentReference?.Path ?? parentPath) + "/" + child.Name;
+                await InsertChildrenRecursiveAsync(driveId, child.Id, childPath, vm, token);
             }
+        }
+    }
 
-            GraphServiceClient client = ((Result<GraphServiceClient, Exception>.Ok)loginResult).Value;
-            // Resolve the user's home directory in a cross-platform way
-            var appDataPath = AppPathHelper.GetAppDataPath("onedrive-sync");
-            _ = Directory.CreateDirectory(appDataPath);
+    public async Task DownloadFilesAsync(MainWindowViewModel vm, UserSettings userSettings, CancellationToken token)
+    {
+        var metrics = new AStar.Dev.OneDrive.Client.Services.MetricsCollector();// Count total files to download from DB
+        var totalFiles = await _store.CountTotalFilesAsync(token);
 
-            var dbPath = Path.Combine(appDataPath, "onedrive_sync.db");
-            var store = new DeltaStore(dbPath);
+        metrics.Start(totalFiles);
+        var reporter = new ProgressReporter(vm, metrics, fileInterval: 5, msInterval: 500);
 
-            var syncManager = new SyncManager(client, store);
+        var downloadRoot = "/home/jason/Documents/OneDriveDownloads";
 
-            await syncManager.RunSyncAsync();
+        Drive? drive = await _client.Me.Drive.GetAsync(cancellationToken: token);
+        var driveId = drive!.Id!;
+
+        // Try to get root item from DB
+        LocalDriveItem? rootItem = await _store.GetRootAsync(driveId, token);
+        if(rootItem == null)
+        {
+            vm.ReportProgress("ℹ️ Bootstrapping DB from Graph...");
+            await BootstrapDriveAsync(driveId, vm, token);
+            rootItem = await _store.GetRootAsync(driveId, token);
+            vm.ReportProgress("✅ DB fully populated from Graph");
+        }
+
+        var downloadedIds = new ConcurrentBag<string>();
+        using var semaphore = new SemaphoreSlim(userSettings.MaxParallelDownloads);
+
+        // Kick off traversal from root
+        await TraverseAndDownloadAsync(rootItem!, driveId, downloadRoot, vm, downloadedIds, semaphore, metrics, reporter, token);
+
+        // Batch update in chunks
+        var batch = new List<string>();
+        foreach(var id in downloadedIds)
+        {
+            batch.Add(id);
+            if(batch.Count >= userSettings.DownloadBatchSize)
+            {
+                await _store.MarkItemsAsDownloadedAsync(batch, token);
+                batch.Clear();
+            }
+        }
+
+        if(batch.Count > 0)
+        {
+            await _store.MarkItemsAsDownloadedAsync(batch, token);
+        }
+
+        reporter.Flush();
+        vm.ReportProgress(metrics.GetGlobalSummary());
+
+        foreach((var folder, var files, var mb) in metrics.GetFolderSummaries())
+        {
+            vm.ReportProgress($"📂 {folder}: {files} files, {mb:F2} MB");
+        }
+    }
+    private async Task TraverseAndDownloadAsync(
+        LocalDriveItem item,
+        string driveId,
+        string parentLocalPath,
+        MainWindowViewModel vm,
+        ConcurrentBag<string> downloadedIds,
+        SemaphoreSlim semaphore,
+        MetricsCollector metrics,
+        ProgressReporter reporter,
+        CancellationToken token)
+    {
+        var localPath = Path.Combine(parentLocalPath, item.Name ?? string.Empty);
+
+        if(item.IsFolder)
+        {
+            // Ensure folder exists locally
+            _ = Directory.CreateDirectory(localPath);
+            vm.ReportProgress($"📂 Created folder {localPath}");
+
+            // Get children from DB
+            IReadOnlyList<LocalDriveItem> children = await _store.GetChildrenAsync(item.Id, token);
+            foreach(LocalDriveItem child in children)
+            {
+                await TraverseAndDownloadAsync(child, driveId, localPath, vm, downloadedIds, semaphore, metrics, reporter, token);
+            }
+        }
+        else
+        {
+            await semaphore.WaitAsync(token);
+            _ = Task.Run(async () =>
+            {
+                try
+                {
+                    // Download file content from Graph
+                    Stream? stream;
+                    try
+                    {
+                        stream = await _client.Drives[driveId].Items[item.Id].Content.GetAsync(null, token);
+                    }
+                    catch(ODataError ex) when(ex.Error?.Code == "itemNotFound")
+                    {
+                        // Retry after short delay
+                        await Task.Delay(1000, token);
+                        stream = await _client.Drives[driveId].Items[item.Id].Content.GetAsync(null, token);
+                    }
+
+                    if(stream == null)
+                    {
+                        vm.ReportProgress($"⚠️ Failed to download {item.Name}: Stream is null");
+                        return;
+                    }
+
+                    // Ensure parent directory exists
+                    _ = Directory.CreateDirectory(Path.GetDirectoryName(localPath)!);
+
+                    // Write file to disk
+                    using FileStream fileStream = File.Create(localPath);
+                    await stream.CopyToAsync(fileStream, token);
+
+                    // Mark as downloaded
+                    vm.ReportProgress($"⬇️ Downloaded {localPath}");
+                    downloadedIds.Add(item.Id);
+
+                    // Record metrics + throttled progress update
+                    metrics.RecordFile(Path.GetDirectoryName(localPath)!, fileStream.Length);
+                    reporter.OnFileCompleted();
+                }
+                catch(Exception ex)
+                {
+                    vm.ReportProgress($"⚠️ Failed to download {item.Name}: {ex.Message}");
+                    metrics.RecordError();
+                }
+                finally
+                {
+                    _ = semaphore.Release();
+                }
+            }, token);
+        }
     }
 
     /// <summary>
@@ -61,12 +233,12 @@ public sealed class OneDriveService
     /// </summary>
     public async Task<Result<DriveItem?, Exception>> GetItemByPathAsync(string path)
     {
-        _logger.LogDebug("Getting item by path: {Path}", path);
+        logger.LogDebug("Getting item by path: {Path}", path);
         var normalized = path?.TrimStart('/') ?? string.Empty;
 
         return await Try.RunAsync(async () =>
         {
-            Result<GraphServiceClient, Exception> loginResult = await _loginService.SignInAsync();
+            Result<GraphServiceClient, Exception> loginResult = await loginService.SignInAsync();
             if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
             {
                 throw loginErr.Reason;
@@ -78,7 +250,7 @@ public sealed class OneDriveService
                 Drive? drive = await client.Me.Drive.GetAsync();
                 if(drive?.Id is null)
                 {
-                    _logger.LogWarning("Unable to determine user's Drive id");
+                    logger.LogWarning("Unable to determine user's Drive id");
                     return (DriveItem?)null;
                 }
 
@@ -87,7 +259,7 @@ public sealed class OneDriveService
             }
             catch(Microsoft.Kiota.Abstractions.ApiException ex) when(ex.ResponseStatusCode == 404)
             {
-                _logger.LogDebug("Item not found at path: {Path}", path);
+                logger.LogDebug("Item not found at path: {Path}", path);
                 return (DriveItem?)null;
             }
         });
@@ -98,12 +270,12 @@ public sealed class OneDriveService
     /// </summary>
     public async Task<Result<System.IO.Stream, Exception>> DownloadFileAsync(string path)
     {
-        _logger.LogInformation("Downloading file at path: {Path}", path);
+        logger.LogInformation("Downloading file at path: {Path}", path);
         var normalized = path?.TrimStart('/') ?? string.Empty;
 
         return await Try.RunAsync(async () =>
         {
-            Result<GraphServiceClient, Exception> loginResult = await _loginService.SignInAsync();
+            Result<GraphServiceClient, Exception> loginResult = await loginService.SignInAsync();
             if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
             {
                 throw loginErr.Reason;
@@ -113,7 +285,7 @@ public sealed class OneDriveService
             Drive? drive = await client.Me.Drive.GetAsync();
             if(drive?.Id is null)
             {
-                _logger.LogWarning("Unable to determine user's Drive id");
+                logger.LogWarning("Unable to determine user's Drive id");
                 return Stream.Null;
             }
 
@@ -127,12 +299,12 @@ public sealed class OneDriveService
     /// </summary>
     public async Task<Result<DriveItem, Exception>> UploadFileAsync(string path, System.IO.Stream content)
     {
-        _logger.LogInformation("Uploading file to path: {Path}", path);
+        logger.LogInformation("Uploading file to path: {Path}", path);
         var normalized = path?.TrimStart('/') ?? string.Empty;
 
         return await Try.RunAsync(async () =>
         {
-            Result<GraphServiceClient, Exception> loginResult = await _loginService.SignInAsync();
+            Result<GraphServiceClient, Exception> loginResult = await loginService.SignInAsync();
             if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
             {
                 throw loginErr.Reason;
@@ -142,7 +314,7 @@ public sealed class OneDriveService
             Drive? drive = await client.Me.Drive.GetAsync();
             if(drive?.Id is null)
             {
-                _logger.LogWarning("Unable to determine user's Drive id");
+                logger.LogWarning("Unable to determine user's Drive id");
                 throw new InvalidOperationException("Drive id not available");
             }
 
@@ -169,7 +341,7 @@ public sealed class OneDriveService
 
         return await Try.RunAsync(async () =>
         {
-            Result<GraphServiceClient, Exception> loginResult = await _loginService.SignInAsync();
+            Result<GraphServiceClient, Exception> loginResult = await loginService.SignInAsync();
             if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
             {
                 throw loginErr.Reason;
@@ -183,7 +355,7 @@ public sealed class OneDriveService
             Drive? drive = await client.Me.Drive.GetAsync();
             if(drive?.Id is null)
             {
-                _logger.LogWarning("Unable to determine user's Drive id");
+                logger.LogWarning("Unable to determine user's Drive id");
                 throw new InvalidOperationException("Drive id not available");
             }
 

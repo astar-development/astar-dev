@@ -1,8 +1,12 @@
 using AStar.Dev.OneDrive.Client.Services;
+using AStar.Dev.OneDrive.Client.ViewModels;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.Primitives;
 using Avalonia.Markup.Xaml;
 using Avalonia.Styling;
+using Avalonia.Threading;
+using Avalonia.VisualTree;
 
 namespace AStar.Dev.OneDrive.Client.Views;
 
@@ -10,16 +14,52 @@ public partial class MainWindow : Window
 {
     private readonly MainWindowViewModel? _vm;
     private readonly UserSettingsService? _userSettingsService;
+    private bool _autoScrollEnabled = true;
+    // Designer-friendly parameterless ctor
+    public MainWindow() => InitializeComponent();
 
-    // Parameterless constructor used by XAML runtime loader (keeps designer/build-time happy)
-    public MainWindow() => AvaloniaXamlLoader.Load(this);
-
-    // MainWindow is constructed by DI; inject the ViewModel and settings service
     public MainWindow(MainWindowViewModel vm, UserSettingsService userSettingsService)
     {
+        InitializeComponent();
         _vm = vm;
         _userSettingsService = userSettingsService;
-        AvaloniaXamlLoader.Load(this);
+        DataContext = _vm;
+
+        ProgressList.TemplateApplied += (_, __) =>
+        {
+            ScrollViewer? scrollViewer = ProgressList.GetVisualDescendants()
+                                       .OfType<ScrollViewer>()
+                                       .FirstOrDefault();
+            if(scrollViewer == null)
+                return;
+
+            // Track whether user is at bottom
+            scrollViewer.ScrollChanged += (_, e) =>
+            {
+                var offset = scrollViewer.GetValue(ScrollViewer.OffsetProperty).Y;
+                var extent = scrollViewer.GetValue(ScrollViewer.ExtentProperty).Height;
+                var viewport = scrollViewer.GetValue(ScrollViewer.ViewportProperty).Height;
+
+                // If content fits, always auto-scroll
+                _autoScrollEnabled = extent <= viewport + 1 || offset >= extent - viewport - 1;
+            };
+
+            // Scroll when new items are added
+            _vm.ProgressMessages.CollectionChanged += (s, e) =>
+            {
+                if(_autoScrollEnabled && _vm.FollowLog && _vm.ProgressMessages.Count > 0)
+                {
+                    _ = Dispatcher.UIThread.InvokeAsync(() =>
+                    {
+                        // Scroll to bottom by setting offset directly
+                        var extent = scrollViewer.GetValue(ScrollViewer.ExtentProperty).Height;
+                        var viewport = scrollViewer.GetValue(ScrollViewer.ViewportProperty).Height;
+                        scrollViewer.Offset = new Avalonia.Vector(0, extent - viewport);
+                    }, DispatcherPriority.Render);
+                }
+            };
+        };
+
         PostInitialize();
     }
 
@@ -50,6 +90,7 @@ public partial class MainWindow : Window
 
         // Set DataContext from injected ViewModel
         DataContext = _vm;
+        _vm.DownloadFilesAfterSync = userSettings.DownloadFilesAfterSync;
 
         // Initialize theme selector state
         try
@@ -95,6 +136,7 @@ public partial class MainWindow : Window
                     s.WindowHeight = Height;
                     s.WindowX = Position.X;
                     s.WindowY = Position.Y;
+                    s.DownloadFilesAfterSync = _vm.DownloadFilesAfterSync;
                     _userSettingsService.Save(s);
                 }
             }

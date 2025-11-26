@@ -1,4 +1,5 @@
 using AStar.Dev.OneDrive.Client.Services;
+using AStar.Dev.OneDrive.Client.ViewModels;
 using AStar.Dev.OneDrive.Client.Views;
 using Avalonia;
 using Microsoft.Extensions.Configuration;
@@ -76,9 +77,9 @@ public static class Program
                                   ?? Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".config");
                     }
 
-                    var logDir = Path.Combine(baseDir, "AStar.Dev", "AStar.OneDrive.Client", "logs");
+                    var logDir = Path.Combine(baseDir, "astar-dev", "astar-dev-onedrive-client", "logs");
                     _ = Directory.CreateDirectory(logDir);
-                    var logPath = Path.Combine(logDir, "AStar.OneDrive.Client-.log");
+                    var logPath = Path.Combine(logDir, "astar-dev-onedrive-client-.log");
 
                     _ = loggerConfig.WriteTo.File(logPath, rollingInterval: RollingInterval.Day, restrictedToMinimumLevel: LogEventLevel.Debug);
                 }
@@ -95,6 +96,7 @@ public static class Program
                 _ = services.AddSingleton(appSettings);
                 _ = services.AddSingleton<ILoginService, LoginService>();
                 _ = services.AddTransient<MainWindowViewModel>();
+                _ = services.AddTransient<UserSettings>();
                 _ = services.AddTransient<OneDriveService>();
                 _ = services.AddSingleton<UserSettingsService>();
                 _ = services.AddTransient<MainWindow>();
