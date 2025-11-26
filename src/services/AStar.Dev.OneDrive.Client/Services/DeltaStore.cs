@@ -32,6 +32,7 @@ public partial class DeltaStore
             );
             CREATE TABLE IF NOT EXISTS DriveItems (
                 Id TEXT PRIMARY KEY,
+                PathId TEXT,
                 Name TEXT,
                 IsFolder INTEGER,
                 LastModifiedUtc TEXT,
@@ -45,6 +46,7 @@ public partial class DeltaStore
             CREATE INDEX IF NOT EXISTS idx_driveitems_lastmodified ON DriveItems(LastModifiedUtc);
             CREATE INDEX IF NOT EXISTS idx_driveitems_isfolder ON DriveItems(IsFolder);
             CREATE INDEX IF NOT EXISTS idx_driveitems_name ON DriveItems(Name);
+            CREATE INDEX IF NOT EXISTS idx_driveitems_PathId ON DriveItems(PathId);
             CREATE INDEX IF NOT EXISTS idx_driveitems_downloadeddate ON DriveItems(DownloadedDate);
         ";
         _ = cmd.ExecuteNonQuery();
@@ -206,16 +208,18 @@ public partial class DeltaStore
                 SqliteCommand cmd = conn.CreateCommand();
                 cmd.Transaction = tx;
                 cmd.CommandText = @"
-                INSERT INTO DriveItems (Id, Name, IsFolder, LastModifiedUtc, ParentPath, ETag)
-                VALUES ($id, $name, $folder, $ts, $parentPath, $eTag)
+                INSERT INTO DriveItems (Id, PathId, Name, IsFolder, LastModifiedUtc, ParentPath, ETag)
+                VALUES ($id, $pathId, $name, $folder, $ts, $parentPath, $eTag)
                 ON CONFLICT(Id) DO UPDATE SET
                     Name = excluded.Name,
+                    PathId = excluded.PathId,
                     IsFolder = excluded.IsFolder,
                     LastModifiedUtc = excluded.LastModifiedUtc,
                     ParentPath = excluded.ParentPath,
                     ETag = excluded.ETag;";
 
                 cmd.AddSmartParameter("$id", item.Id);
+                cmd.AddSmartParameter("$pathId", item.PathId);
                 cmd.AddSmartParameter("$name", item.Name);
                 cmd.AddSmartParameter("$folder", item.IsFolder);
                 cmd.AddSmartParameter("$ts", item.LastModifiedUtc);
@@ -368,7 +372,48 @@ public partial class DeltaStore
         _ = cmd.Parameters.AddWithValue("$parentPath", DBNull.Value);
 
         _ = await cmd.ExecuteNonQueryAsync(token);
+
     }
+    public async Task<int> CountFilesToDownloadAsync(CancellationToken token)
+    {
+        using var conn = new SqliteConnection(_connectionString);
+        await conn.OpenAsync(token);
+
+        using SqliteCommand cmd = conn.CreateCommand();
+        cmd.CommandText = @"
+        SELECT COUNT(*)
+        FROM DriveItems
+        WHERE IsFolder = 0 AND (IsDownloaded = 0 OR IsDownloaded IS NULL);";
+
+        var result = await cmd.ExecuteScalarAsync(token);
+        return Convert.ToInt32(result);
+    }
+    public async Task<int> CountTotalFilesAsync(CancellationToken token)
+    {
+        using var conn = new SqliteConnection(_connectionString);
+        await conn.OpenAsync(token);
+
+        using SqliteCommand cmd = conn.CreateCommand();
+        cmd.CommandText = @"
+        SELECT COUNT(*)
+        FROM DriveItems
+        WHERE IsFolder = 0;";
+
+        var result = await cmd.ExecuteScalarAsync(token);
+        return Convert.ToInt32(result);
+    }
+
+    public async Task<int> EstimateTotalFilesAsync(CancellationToken token)
+    {
+        using var conn = new SqliteConnection(_connectionString);
+        await conn.OpenAsync(token);
+
+        using SqliteCommand cmd = conn.CreateCommand();
+        cmd.CommandText = @"SELECT COUNT(*) FROM DriveItems WHERE IsFolder = 0;";
+        var result = await cmd.ExecuteScalarAsync(token);
+        return Convert.ToInt32(result);
+    }
+
     public async Task InsertChildrenAsync(string parentPath, IEnumerable<DriveItem> children, CancellationToken token)
     {
         using var conn = new SqliteConnection(_connectionString);

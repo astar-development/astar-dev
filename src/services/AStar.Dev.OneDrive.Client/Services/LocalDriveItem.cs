@@ -5,7 +5,8 @@ namespace AStar.Dev.OneDrive.Client.Services;
 /// </summary>
 public class LocalDriveItem
 {
-    public string Id { get; set; } = "";
+    public string Id { get; set; } = "";          // Graph GUID (stable, unique)
+    public string PathId { get; set; } = "";      // Path-based ID for mirroring
     public string? Name { get; set; }
     public bool IsFolder { get; set; }
     public string? LastModifiedUtc { get; set; }

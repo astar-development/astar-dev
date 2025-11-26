@@ -77,9 +77,9 @@ public static class Program
                                   ?? Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".config");
                     }
 
-                    var logDir = Path.Combine(baseDir, "AStar.Dev", "AStar.OneDrive.Client", "logs");
+                    var logDir = Path.Combine(baseDir, "astar-dev", "astar-dev-onedrive-client", "logs");
                     _ = Directory.CreateDirectory(logDir);
-                    var logPath = Path.Combine(logDir, "AStar.OneDrive.Client-.log");
+                    var logPath = Path.Combine(logDir, "astar-dev-onedrive-client-.log");
 
                     _ = loggerConfig.WriteTo.File(logPath, rollingInterval: RollingInterval.Day, restrictedToMinimumLevel: LogEventLevel.Debug);
                 }

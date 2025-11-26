@@ -8,31 +8,21 @@ using Microsoft.Graph.Authentication;
 
 namespace AStar.Dev.OneDrive.Client.Services;
 
-public sealed class LoginService : ILoginService
+public sealed class LoginService(AppSettings settings, UserSettings userSettings, ILogger<LoginService> logger) : ILoginService
 {
-    private readonly AppSettings _settings;
-    private readonly UserSettings _userSettings;
-    private readonly ILogger<LoginService> _logger;
     private GraphServiceClient? _client;
     private InteractiveBrowserCredential? _credential;
-
-    public LoginService(AppSettings settings, UserSettings userSettings, ILogger<LoginService> logger)
-    {
-        _settings = settings;
-        _userSettings = userSettings;
-        _logger = logger;
-    }
 
     public bool IsSignedIn => _client != null;
 
     public Task<Result<GraphServiceClient, Exception>> SignInAsync()
     {
-        _logger.LogInformation("Starting sign-in for ClientId={ClientId}, RememberMe={RememberMe}, CacheTag={CacheTag}",
-            _settings.ClientId, _userSettings.RememberMe, _userSettings.CacheTag);
+        logger.LogInformation("Starting sign-in for ClientId={ClientId}, RememberMe={RememberMe}, CacheTag={CacheTag}",
+            settings.ClientId, userSettings.RememberMe, userSettings.CacheTag);
 
         if(_client != null)
         {
-            _logger.LogDebug("Already signed in; returning existing Graph client");
+            logger.LogDebug("Already signed in; returning existing Graph client");
             return Task.FromResult<Result<GraphServiceClient, Exception>>(new Result<GraphServiceClient, Exception>.Ok(_client));
         }
 
@@ -60,8 +50,8 @@ public sealed class LoginService : ILoginService
     public Task<Result<bool, Exception>> SignOutAsync(bool hard = false)
         => Try.RunAsync<bool>(() =>
         {
-            _logger.LogInformation("Signing out user (RememberMe={RememberMe}, CacheTag={CacheTag})",
-                _userSettings.RememberMe, _userSettings.CacheTag);
+            logger.LogInformation("Signing out user (RememberMe={RememberMe}, CacheTag={CacheTag})",
+                userSettings.RememberMe, userSettings.CacheTag);
 
             // 1) Browser logout
             var logoutUri =
@@ -73,7 +63,7 @@ public sealed class LoginService : ILoginService
             }
             catch(Exception ex)
             {
-                _logger.LogWarning(ex, "Failed to open browser logout URL");
+                logger.LogWarning(ex, "Failed to open browser logout URL");
             }
 
             // 2) Clear local references
@@ -81,10 +71,10 @@ public sealed class LoginService : ILoginService
             _client = null;
 
             // 3) Hard sign-out: rotate cache name
-            if(hard && _userSettings.RememberMe)
+            if(hard && userSettings.RememberMe)
             {
-                _userSettings.CacheTag++;
-                _logger.LogInformation("Rotated cache tag to {CacheTag}", _userSettings.CacheTag);
+                userSettings.CacheTag++;
+                logger.LogInformation("Rotated cache tag to {CacheTag}", userSettings.CacheTag);
             }
 
             return Task.FromResult(true);
@@ -94,16 +84,16 @@ public sealed class LoginService : ILoginService
     {
         var options = new InteractiveBrowserCredentialOptions
         {
-            ClientId = _settings.ClientId,
-            TenantId = _settings.TenantId,
+            ClientId = settings.ClientId,
+            TenantId = settings.TenantId,
             RedirectUri = new Uri("http://localhost"),
         };
 
-        if(_userSettings.RememberMe)
+        if(userSettings.RememberMe)
         {
             options.TokenCachePersistenceOptions = new TokenCachePersistenceOptions
             {
-                Name = $"MyAppTokenCache_v{_userSettings.CacheTag}",
+                Name = $"MyAppTokenCache_v{userSettings.CacheTag}",
                 UnsafeAllowUnencryptedStorage = false
             };
         }
