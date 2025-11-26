@@ -96,6 +96,7 @@ public static class Program
                 _ = services.AddSingleton(appSettings);
                 _ = services.AddSingleton<ILoginService, LoginService>();
                 _ = services.AddTransient<MainWindowViewModel>();
+                _ = services.AddTransient<UserSettings>();
                 _ = services.AddTransient<OneDriveService>();
                 _ = services.AddSingleton<UserSettingsService>();
                 _ = services.AddTransient<MainWindow>();

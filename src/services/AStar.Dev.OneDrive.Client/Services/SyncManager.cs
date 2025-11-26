@@ -94,6 +94,8 @@ public class SyncManager
                 finalToken = pageToken;
             }
         }
+
+        await _store.SaveDeltaTokenAsync(driveId, finalToken);
     }
     private async Task ResumeDeltaSyncAsync(string driveId, string savedToken, SyncSessionMetrics metrics)
     {
@@ -131,6 +133,8 @@ public class SyncManager
                 finalToken = pageToken;
             }
         }
+
+        await _store.SaveDeltaTokenAsync(driveId, finalToken);
     }
 
     private async Task ProcessDeltaPageAsync(

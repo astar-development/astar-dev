@@ -29,6 +29,11 @@ public partial class MainWindowViewModel : ObservableObject
         get;
         set => SetProperty(ref field, value);
     }
+    public bool IsSyncing
+    {
+        get;
+        set => SetProperty(ref field, value);
+    }
 
     public MainWindowViewModel(ILoginService loginService, OneDriveService oneDriveService, ILogger<MainWindowViewModel> logger)
     {
@@ -38,6 +43,9 @@ public partial class MainWindowViewModel : ObservableObject
         SignInCommand = new AsyncRelayCommand(SignInAsync);
         SignOutCommand = new AsyncRelayCommand(SignOutAsync);
         LoadRootCommand = new AsyncRelayCommand(LoadRootItemsAsync);
+        LoadRootCommand = new AsyncRelayCommand(
+        LoadRootItemsAsync,
+        () => !IsSyncing);
     }
     public void ReportProgress(string message, double? progress = null, string? status = null) => Dispatcher.UIThread.Post(() =>
                                                                                                        {
@@ -52,6 +60,12 @@ public partial class MainWindowViewModel : ObservableObject
     public IAsyncRelayCommand LoadRootCommand { get; }
     public IAsyncRelayCommand CancelSyncCommand => new AsyncRelayCommand(CancelSync);
     public ICommand ToggleFollowLogCommand => new RelayCommand(() => FollowLog = !FollowLog);
+
+    public bool RememberMe
+{
+    get;
+    set => SetProperty(ref field, value);
+}
 
     private async Task CancelSync()
     {
@@ -136,6 +150,7 @@ public partial class MainWindowViewModel : ObservableObject
     {
         try
         {
+            IsSyncing = true;
             _cts = new CancellationTokenSource();
             _logger?.LogInformation("Loading OneDrive root items");
             ErrorMessage = string.Empty;
@@ -146,6 +161,10 @@ public partial class MainWindowViewModel : ObservableObject
             Status = $"Load failed: {ex.Message}";
             ErrorMessage = ex is OneDriveService.OneDriveServiceException oneDriveServiceException ? $"OneDrive error ({oneDriveServiceException.StatusCode}): {oneDriveServiceException.Message}" : ex.Message;
             _logger?.LogError(ex, "Failed to load root items {exception}", ex);
+        }
+        finally
+        {
+            IsSyncing = false;
         }
     }
 }

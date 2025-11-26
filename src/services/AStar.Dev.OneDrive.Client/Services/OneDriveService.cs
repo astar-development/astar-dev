@@ -58,11 +58,11 @@ public sealed class OneDriveService
         await syncManager.RunSyncAsync();
         if(vm.DownloadFilesAfterSync)
         {
-            await DownloadFiles(vm, token);
+            await DownloadFilesAsync(vm, token);
         }
     }
 
-    public async Task DownloadFiles(MainWindowViewModel vm, CancellationToken token)
+    public async Task DownloadFilesAsync(MainWindowViewModel vm, CancellationToken token)
     {
         IEnumerable<LocalDriveItem> itemsToDownload = await _store.GetItemsToDownloadAsync(CancellationToken.None);
 
@@ -71,7 +71,7 @@ public sealed class OneDriveService
         Drive? drive = await _client.Me.Drive.GetAsync(cancellationToken: token);
         var driveId = drive!.Id;
 
-        foreach(LocalDriveItem item in itemsToDownload)
+        foreach(LocalDriveItem item in itemsToDownload.Where(i => !i.IsFolder))
         {
             try
             {

@@ -26,7 +26,8 @@
                 <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                     <ToggleSwitch Content="Download Files After Sync?" IsChecked="{Binding DownloadFilesAfterSync}" />
                     <ToggleButton Content="Follow Log" IsChecked="{Binding FollowLog}" Width="120"/>
-                </StackPanel>
+                </StackPanel><CheckBox Content="Remember Me?"
+          IsChecked="{Binding RememberMe}" />
 
             </StackPanel>
 
