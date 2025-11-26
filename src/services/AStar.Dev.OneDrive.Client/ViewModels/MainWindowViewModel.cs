@@ -62,10 +62,10 @@ public partial class MainWindowViewModel : ObservableObject
     public ICommand ToggleFollowLogCommand => new RelayCommand(() => FollowLog = !FollowLog);
 
     public bool RememberMe
-{
-    get;
-    set => SetProperty(ref field, value);
-}
+    {
+        get;
+        set => SetProperty(ref field, value);
+    }
 
     private async Task CancelSync()
     {

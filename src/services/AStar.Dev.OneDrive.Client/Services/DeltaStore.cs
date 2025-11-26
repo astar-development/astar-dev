@@ -305,6 +305,28 @@ public partial class DeltaStore
 
         return results;
     }
+    public async Task MarkItemsAsDownloadedAsync(IEnumerable<string> ids, CancellationToken token)
+    {
+        using var conn = new SqliteConnection(_connectionString);
+        await conn.OpenAsync(token);
+
+        using SqliteTransaction tx = conn.BeginTransaction();
+
+        foreach(var id in ids)
+        {
+            using SqliteCommand cmd = conn.CreateCommand();
+            cmd.CommandText = @"
+            UPDATE DriveItems
+            SET DownloadedDate = $downloadedDate
+            WHERE Id = $id;";
+            _ = cmd.Parameters.AddWithValue("$downloadedDate", DateTime.UtcNow.ToString("o"));
+            _ = cmd.Parameters.AddWithValue("$id", id);
+
+            _ = await cmd.ExecuteNonQueryAsync(token);
+        }
+
+        tx.Commit();
+    }
 
     public async Task MarkItemAsDownloadedAsync(string id, CancellationToken token)
     {

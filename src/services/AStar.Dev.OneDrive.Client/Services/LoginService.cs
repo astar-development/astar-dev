@@ -30,7 +30,7 @@ public sealed class LoginService : ILoginService
         _logger.LogInformation("Starting sign-in for ClientId={ClientId}, RememberMe={RememberMe}, CacheTag={CacheTag}",
             _settings.ClientId, _userSettings.RememberMe, _userSettings.CacheTag);
 
-        if (_client != null)
+        if(_client != null)
         {
             _logger.LogDebug("Already signed in; returning existing Graph client");
             return Task.FromResult<Result<GraphServiceClient, Exception>>(new Result<GraphServiceClient, Exception>.Ok(_client));
@@ -71,7 +71,7 @@ public sealed class LoginService : ILoginService
                 var psi = new ProcessStartInfo { FileName = logoutUri, UseShellExecute = true };
                 _ = Process.Start(psi);
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
                 _logger.LogWarning(ex, "Failed to open browser logout URL");
             }
@@ -81,7 +81,7 @@ public sealed class LoginService : ILoginService
             _client = null;
 
             // 3) Hard sign-out: rotate cache name
-            if (hard && _userSettings.RememberMe)
+            if(hard && _userSettings.RememberMe)
             {
                 _userSettings.CacheTag++;
                 _logger.LogInformation("Rotated cache tag to {CacheTag}", _userSettings.CacheTag);
@@ -99,7 +99,7 @@ public sealed class LoginService : ILoginService
             RedirectUri = new Uri("http://localhost"),
         };
 
-        if (_userSettings.RememberMe)
+        if(_userSettings.RememberMe)
         {
             options.TokenCachePersistenceOptions = new TokenCachePersistenceOptions
             {

@@ -12,13 +12,15 @@ namespace AStar.Dev.OneDrive.Client.Services;
 public sealed class OneDriveService
 {
     private readonly ILoginService _loginService;
+    private readonly UserSettings _userSettings;
     private readonly ILogger<OneDriveService> _logger;
     private DeltaStore _store = null!;
     private GraphServiceClient _client = null!;
 
-    public OneDriveService(ILoginService loginService, ILogger<OneDriveService> logger)
+    public OneDriveService(ILoginService loginService, UserSettings userSettings, ILogger<OneDriveService> logger)
     {
         _loginService = loginService;
+        _userSettings = userSettings;
         _logger = logger;
     }
 
@@ -58,37 +60,77 @@ public sealed class OneDriveService
         await syncManager.RunSyncAsync();
         if(vm.DownloadFilesAfterSync)
         {
-            await DownloadFilesAsync(vm, token);
+            await DownloadFilesAsync(vm, _userSettings, token);
+        }
+    }
+    public async Task DownloadFilesAsync(MainWindowViewModel vm, UserSettings userSettings, CancellationToken token)
+    {
+        IEnumerable<LocalDriveItem> itemsToDownload = await _store.GetItemsToDownloadAsync(token);
+
+        var downloadRoot = "/home/jason/Documents/OneDriveDownloads";
+
+        Drive? drive = await _client.Me.Drive.GetAsync(cancellationToken: token);
+        var driveId = drive!.Id!;
+
+        var downloadedIds = new List<string>();
+        var batchSize = userSettings.DownloadBatchSize;
+
+        foreach(LocalDriveItem item in itemsToDownload)
+        {
+            await TraverseAndDownloadAsync(item, driveId, downloadRoot, vm, downloadedIds, token);
+
+            // Progressive flush based on configurable batch size
+            if(downloadedIds.Count >= batchSize)
+            {
+                await _store.MarkItemsAsDownloadedAsync(downloadedIds, token);
+                downloadedIds.Clear();
+            }
+        }
+
+        // Final flush
+        if(downloadedIds.Count > 0)
+        {
+            await _store.MarkItemsAsDownloadedAsync(downloadedIds, token);
         }
     }
 
-    public async Task DownloadFilesAsync(MainWindowViewModel vm, CancellationToken token)
+    private async Task TraverseAndDownloadAsync(
+        LocalDriveItem item,
+        string driveId,
+        string localRoot,
+        MainWindowViewModel vm,
+        List<string> downloadedIds,
+        CancellationToken token)
     {
-        IEnumerable<LocalDriveItem> itemsToDownload = await _store.GetItemsToDownloadAsync(CancellationToken.None);
+        var relativePath = item.Id
+        .Replace($"/drives/{driveId}/root:", string.Empty)
+        .TrimStart('/');
 
-        var downloadFolder = "/home/jason/Documents/OneDriveDownloads"; // Replace with desired download folder
-                                                                        // Get the primary drive (OneDrive) for the signed-in user
-        Drive? drive = await _client.Me.Drive.GetAsync(cancellationToken: token);
-        var driveId = drive!.Id;
+        var localPath = Path.Combine(localRoot, relativePath);
 
-        foreach(LocalDriveItem item in itemsToDownload.Where(i => !i.IsFolder))
+        if(item.IsFolder)
+        {
+            _ = Directory.CreateDirectory(localPath);
+            vm.ReportProgress($"📂 Created folder {relativePath}");
+        }
+        else
         {
             try
             {
-                using Stream? stream = await _client.Drives[driveId].Items[item.Id].Content.GetAsync();
+                using Stream? stream = await _client.Drives[driveId].Items[item.Id].Content.GetAsync(cancellationToken: token);
                 if(stream == null)
                 {
                     vm.ReportProgress($"⚠️ Failed to download {item.Name}: Stream is null");
-                    continue;
+                    return;
                 }
 
-                var localPath = Path.Combine(downloadFolder, item.Name!);
-                using(FileStream fileStream = File.Create(localPath))
-                {
-                    await stream.CopyToAsync(fileStream);
-                }
+                _ = Directory.CreateDirectory(Path.GetDirectoryName(localPath)!);
 
-                vm.ReportProgress($"⬇️ Downloaded {item.Name}");
+                using FileStream fileStream = File.Create(localPath);
+                await stream.CopyToAsync(fileStream, token);
+
+                vm.ReportProgress($"⬇️ Downloaded {relativePath}");
+                downloadedIds.Add(item.Id);
             }
             catch(Exception ex)
             {

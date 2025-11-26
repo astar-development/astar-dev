@@ -18,6 +18,8 @@ public sealed class UserSettings
     public bool DownloadFilesAfterSync { get; set; } = false;
     public bool RememberMe { get; set; } = true; // default to true
 
+    // New: configurable batch size for DB updates
+    public int DownloadBatchSize { get; set; } = 100;
     public int CacheTag { get; set; } = 1; // used to version the cache name
 }
 
@@ -76,25 +78,25 @@ public sealed class UserSettingsService
     // Functional result-based loader
     public async Task<AStar.Dev.Functional.Extensions.Result<UserSettings, Exception>> LoadResultAsync() => await Functional.Extensions.Try.RunAsync(async () => Load());
 
-   public void Save(UserSettings settings)
-{
-    try
+    public void Save(UserSettings settings)
     {
-        var json = JsonSerializer.Serialize(settings, new JsonSerializerOptions { WriteIndented = true });
-        File.WriteAllText(_filePath, json);
+        try
+        {
+            var json = JsonSerializer.Serialize(settings, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(_filePath, json);
 
-        // No explicit cache clearing API in Azure.Identity.
-        // If RememberMe is false, next run will construct the credential without persistence,
-        // so tokens won't survive app exit.
+            // No explicit cache clearing API in Azure.Identity.
+            // If RememberMe is false, next run will construct the credential without persistence,
+            // so tokens won't survive app exit.
+        }
+        catch
+        {
+            // swallow exceptions for now, but consider logging
+        }
     }
-    catch
-    {
-        // swallow exceptions for now, but consider logging
-    }
-}
 
     // Functional result-based saver (returns the saved settings on success)
-    public async Task<AStar.Dev.Functional.Extensions.Result<UserSettings, Exception>> SaveResultAsync(UserSettings settings) 
+    public async Task<AStar.Dev.Functional.Extensions.Result<UserSettings, Exception>> SaveResultAsync(UserSettings settings)
         => await Functional.Extensions.Try.RunAsync(async () =>
                                                             {
                                                                 Save(settings);
