@@ -1,3 +1,4 @@
+using System.Collections.Concurrent;
 using AStar.Dev.Functional.Extensions;
 using AStar.Dev.OneDrive.Client.ViewModels;
 using Microsoft.Extensions.Logging;
@@ -63,81 +64,117 @@ public sealed class OneDriveService
             await DownloadFilesAsync(vm, _userSettings, token);
         }
     }
-    public async Task DownloadFilesAsync(MainWindowViewModel vm, UserSettings userSettings, CancellationToken token)
+public async Task DownloadFilesAsync(MainWindowViewModel vm, UserSettings userSettings, CancellationToken token)
+{
+    var downloadRoot = "/home/jason/Documents/OneDriveDownloads";
+
+    Drive? drive = await _client.Me.Drive.GetAsync(cancellationToken: token);
+    var driveId = drive!.Id!;
+
+        // Try to get root item from DB
+        LocalDriveItem? rootItem = await _store.GetRootAsync(driveId, token);
+    if (rootItem == null)
     {
-        IEnumerable<LocalDriveItem> itemsToDownload = await _store.GetItemsToDownloadAsync(token);
+        vm.ReportProgress("ℹ️ Root not found in DB, fetching from Graph...");
 
-        var downloadRoot = "/home/jason/Documents/OneDriveDownloads";
-
-        Drive? drive = await _client.Me.Drive.GetAsync(cancellationToken: token);
-        var driveId = drive!.Id!;
-
-        var downloadedIds = new List<string>();
-        var batchSize = userSettings.DownloadBatchSize;
-
-        foreach(LocalDriveItem item in itemsToDownload)
+        DriveItem? graphRoot = await _client.Drives[driveId].Root.GetAsync(cancellationToken: token);
+        if (graphRoot == null)
         {
-            await TraverseAndDownloadAsync(item, driveId, downloadRoot, vm, downloadedIds, token);
-
-            // Progressive flush based on configurable batch size
-            if(downloadedIds.Count >= batchSize)
-            {
-                await _store.MarkItemsAsDownloadedAsync(downloadedIds, token);
-                downloadedIds.Clear();
-                vm.ReportProgress($"💾 Flushed 100 downloaded items to database.");
-            }
+            vm.ReportProgress("⚠️ Failed to fetch root from Graph");
+            return;
         }
 
-        // Final flush
-        if(downloadedIds.Count > 0)
+        await _store.InsertRootAsync(driveId, graphRoot, token);
+
+            // Fetch immediate children of root
+            DriveItemCollectionResponse? childrenResponse = await _client.Drives[driveId].Items["root"].Children.GetAsync(cancellationToken: token);
+        if (childrenResponse?.Value != null)
         {
-            await _store.MarkItemsAsDownloadedAsync(downloadedIds, token);
-                vm.ReportProgress($"💾 Flushed the final {downloadedIds.Count} downloaded items to database.");
+            await _store.InsertChildrenAsync($"/drives/{driveId}/root:", childrenResponse.Value, token);
+            vm.ReportProgress($"✅ Inserted {childrenResponse.Value.Count} root children into DB");
+        }
+
+        rootItem = await _store.GetRootAsync(driveId, token);
+    }
+
+    var downloadedIds = new ConcurrentBag<string>();
+    using var semaphore = new SemaphoreSlim(userSettings.MaxParallelDownloads);
+
+    // Kick off traversal from root
+    await TraverseAndDownloadAsync(rootItem!, driveId, downloadRoot, vm, downloadedIds, semaphore, token);
+
+    // Batch update in chunks
+    var batch = new List<string>();
+    foreach (var id in downloadedIds)
+    {
+        batch.Add(id);
+        if (batch.Count >= userSettings.DownloadBatchSize)
+        {
+            await _store.MarkItemsAsDownloadedAsync(batch, token);
+            batch.Clear();
         }
     }
+
+    if (batch.Count > 0)
+    {
+        await _store.MarkItemsAsDownloadedAsync(batch, token);
+    }
+}
 
     private async Task TraverseAndDownloadAsync(
         LocalDriveItem item,
         string driveId,
-        string localRoot,
+        string parentLocalPath,
         MainWindowViewModel vm,
-        List<string> downloadedIds,
+        ConcurrentBag<string> downloadedIds,
+        SemaphoreSlim semaphore,
         CancellationToken token)
     {
-        var relativePath = item.Id
-        .Replace($"/drives/{driveId}/root:", string.Empty)
-        .TrimStart('/');
-
-        var localPath = Path.Combine(localRoot, relativePath);
+        var localPath = Path.Combine(parentLocalPath, item.Name ?? string.Empty);
 
         if(item.IsFolder)
         {
             _ = Directory.CreateDirectory(localPath);
-            vm.ReportProgress($"📂 Created folder {relativePath}");
+            vm.ReportProgress($"📂 Created folder {localPath}");
+
+            // Query DB for children by ParentPath
+            IReadOnlyList<LocalDriveItem> children = await _store.GetChildrenAsync(item.Id, token);
+            foreach(LocalDriveItem child in children)
+            {
+                await TraverseAndDownloadAsync(child, driveId, localPath, vm, downloadedIds, semaphore, token);
+            }
         }
         else
         {
-            try
+            await semaphore.WaitAsync(token);
+            _ = Task.Run(async () =>
             {
-                using Stream? stream = await _client.Drives[driveId].Items[item.Id].Content.GetAsync(cancellationToken: token);
-                if(stream == null)
+                try
                 {
-                    vm.ReportProgress($"⚠️ Failed to download {item.Name}: Stream is null");
-                    return;
+                    using Stream? stream = await _client.Drives[driveId].Items[item.Id].Content.GetAsync(cancellationToken: token);
+                    if(stream == null)
+                    {
+                        vm.ReportProgress($"⚠️ Failed to download {item.Name}: Stream is null");
+                        return;
+                    }
+
+                    _ = Directory.CreateDirectory(Path.GetDirectoryName(localPath)!);
+
+                    using FileStream fileStream = File.Create(localPath);
+                    await stream.CopyToAsync(fileStream, token);
+
+                    vm.ReportProgress($"⬇️ Downloaded {localPath}");
+                    downloadedIds.Add(item.Id);
                 }
-
-                _ = Directory.CreateDirectory(Path.GetDirectoryName(localPath)!);
-
-                using FileStream fileStream = File.Create(localPath);
-                await stream.CopyToAsync(fileStream, token);
-
-                vm.ReportProgress($"⬇️ Downloaded {relativePath}");
-                downloadedIds.Add(item.Id);
-            }
-            catch(Exception ex)
-            {
-                vm.ReportProgress($"⚠️ Failed to download {item.Name}: {ex.Message}");
-            }
+                catch(Exception ex)
+                {
+                    vm.ReportProgress($"⚠️ Failed to download {item.Name}: {ex.Message}");
+                }
+                finally
+                {
+                    _ = semaphore.Release();
+                }
+            }, token);
         }
     }
 

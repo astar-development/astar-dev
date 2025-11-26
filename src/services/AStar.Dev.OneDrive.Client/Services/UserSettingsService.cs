@@ -18,6 +18,8 @@ public sealed class UserSettings
     public bool DownloadFilesAfterSync { get; set; } = false;
     public bool RememberMe { get; set; } = true; // default to true
 
+    // New: configurable max parallel downloads
+    public int MaxParallelDownloads { get; set; } = 4;
     // New: configurable batch size for DB updates
     public int DownloadBatchSize { get; set; } = 100;
     public int CacheTag { get; set; } = 1; // used to version the cache name

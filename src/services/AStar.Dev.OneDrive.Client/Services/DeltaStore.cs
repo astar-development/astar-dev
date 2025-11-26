@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.Logging;
+using Microsoft.Graph.Models;
 
 namespace AStar.Dev.OneDrive.Client.Services;
 
@@ -326,6 +327,102 @@ public partial class DeltaStore
         }
 
         tx.Commit();
+    }
+    public async Task<LocalDriveItem?> GetRootAsync(string driveId, CancellationToken token)
+    {
+        using var conn = new SqliteConnection(_connectionString);
+        await conn.OpenAsync(token);
+
+        using SqliteCommand cmd = conn.CreateCommand();
+        cmd.CommandText = @"
+        SELECT Id, Name, IsFolder, ParentPath
+        FROM DriveItems
+        WHERE Id = $rootId;";
+        _ = cmd.Parameters.AddWithValue("$rootId", $"/drives/{driveId}/root:");
+
+        using SqliteDataReader reader = await cmd.ExecuteReaderAsync(token);
+        return await reader.ReadAsync(token)
+        ? new LocalDriveItem
+        {
+            Id = reader.GetString(0),
+            Name = reader.GetString(1),
+            IsFolder = reader.GetBoolean(2),
+            ParentPath = reader.IsDBNull(3) ? null : reader.GetString(3)
+        }
+        : null;
+    }
+
+    public async Task InsertRootAsync(string driveId, DriveItem root, CancellationToken token)
+    {
+        using var conn = new SqliteConnection(_connectionString);
+        await conn.OpenAsync(token);
+
+        using SqliteCommand cmd = conn.CreateCommand();
+        cmd.CommandText = @"
+        INSERT INTO DriveItems (Id, Name, IsFolder, ParentPath)
+        VALUES ($id, $name, $isFolder, $parentPath);";
+
+        _ = cmd.Parameters.AddWithValue("$id", $"/drives/{driveId}/root:");
+        _ = cmd.Parameters.AddWithValue("$name", root.Name ?? "root");
+        _ = cmd.Parameters.AddWithValue("$isFolder", true);
+        _ = cmd.Parameters.AddWithValue("$parentPath", DBNull.Value);
+
+        _ = await cmd.ExecuteNonQueryAsync(token);
+    }
+public async Task InsertChildrenAsync(string parentPath, IEnumerable<DriveItem> children, CancellationToken token)
+{
+    using var conn = new SqliteConnection(_connectionString);
+    await conn.OpenAsync(token);
+
+    using SqliteTransaction tx = conn.BeginTransaction();
+
+    foreach (DriveItem child in children)
+    {
+        using SqliteCommand cmd = conn.CreateCommand();
+        cmd.CommandText = @"
+            INSERT INTO DriveItems (Id, Name, IsFolder, ParentPath)
+            VALUES ($id, $name, $isFolder, $parentPath);";
+
+        // Path-based ID: /drives/{driveId}/root:/Folder/File.ext
+        var id = child.ParentReference?.Path + "/" + child.Name;
+
+            _ = cmd.Parameters.AddWithValue("$id", id);
+            _ = cmd.Parameters.AddWithValue("$name", child.Name ?? string.Empty);
+            _ = cmd.Parameters.AddWithValue("$isFolder", child.Folder != null);
+            _ = cmd.Parameters.AddWithValue("$parentPath", parentPath);
+
+            _ = await cmd.ExecuteNonQueryAsync(token);
+    }
+
+    tx.Commit();
+}
+    public async Task<IReadOnlyList<LocalDriveItem>> GetChildrenAsync(string parentPath, CancellationToken token)
+    {
+        var results = new List<LocalDriveItem>();
+
+        using var conn = new SqliteConnection(_connectionString);
+        await conn.OpenAsync(token);
+
+        using SqliteCommand cmd = conn.CreateCommand();
+        cmd.CommandText = @"
+        SELECT Id, Name, IsFolder, ParentPath
+        FROM DriveItems
+        WHERE ParentPath = $parentPath;";
+        _ = cmd.Parameters.AddWithValue("$parentPath", parentPath);
+
+        using SqliteDataReader reader = await cmd.ExecuteReaderAsync(token);
+        while(await reader.ReadAsync(token))
+        {
+            results.Add(new LocalDriveItem
+            {
+                Id = reader.GetString(0),
+                Name = reader.GetString(1),
+                IsFolder = reader.GetBoolean(2),
+                ParentPath = reader.IsDBNull(3) ? null : reader.GetString(3)
+            });
+        }
+
+        return results;
     }
 
     public async Task MarkItemAsDownloadedAsync(string id, CancellationToken token)
