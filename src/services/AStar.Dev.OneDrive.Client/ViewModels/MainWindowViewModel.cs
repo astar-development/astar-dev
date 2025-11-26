@@ -154,7 +154,7 @@ public partial class MainWindowViewModel : ObservableObject
             _cts = new CancellationTokenSource();
             _logger?.LogInformation("Loading OneDrive root items");
             ErrorMessage = string.Empty;
-            await _oneDriveService.GetRootItemsAsync(this, _cts.Token);
+            await _oneDriveService.RunFullSyncAsync(this, _cts.Token);
         }
         catch(Exception ex)
         {

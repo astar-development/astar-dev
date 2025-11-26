@@ -16,7 +16,7 @@ public sealed class TryTests
 
         return;
 
-        int SuccessFunc() => expectedValue;
+        static int SuccessFunc() => expectedValue;
     }
 
     [Fact]
@@ -66,7 +66,7 @@ public sealed class TryTests
 
         return;
 
-        Task<string> SuccessFunc() => Task.FromResult(expectedValue);
+        static Task<string> SuccessFunc() => Task.FromResult(expectedValue);
     }
 
     [Fact]

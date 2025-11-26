@@ -24,7 +24,7 @@ public sealed class WebTests
             _ = logging.AddFilter("Aspire.", LogLevel.Debug);
             // To output logs to the xUnit.net ITestOutputHelper, consider adding a package from https://www.nuget.org/packages?q=xunit+logging
         });
-        _ = appHost.Services.ConfigureHttpClientDefaults(clientBuilder => { _ = clientBuilder.AddStandardResilienceHandler(); });
+        _ = appHost.Services.ConfigureHttpClientDefaults(clientBuilder => _ = clientBuilder.AddStandardResilienceHandler());
 
         await using DistributedApplication app = await appHost.BuildAsync(cancellationToken).WaitAsync(DefaultTimeout, cancellationToken);
         await app.StartAsync(cancellationToken).WaitAsync(DefaultTimeout, cancellationToken);

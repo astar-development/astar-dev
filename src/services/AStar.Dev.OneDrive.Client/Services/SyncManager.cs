@@ -1,10 +1,4 @@
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using AStar.Dev.OneDrive.Client.ViewModels;
-using Microsoft.Data.Sqlite;
 using Microsoft.Graph;
 using Microsoft.Graph.Drives.Item.Items.Item.Delta;
 using Microsoft.Graph.Models;

@@ -16,7 +16,9 @@ public partial class Weather : ComponentBase
 
         _forecasts = Enumerable.Range(1, 5).Select(index => new WeatherForecast
         {
-            Date = startDate.AddDays(index), TemperatureC = Random.Shared.Next(-20, 55), Summary = summaries[Random.Shared.Next(summaries.Length)]
+            Date = startDate.AddDays(index),
+            TemperatureC = Random.Shared.Next(-20, 55),
+            Summary = summaries[Random.Shared.Next(summaries.Length)]
         }).AsQueryable();
     }
 

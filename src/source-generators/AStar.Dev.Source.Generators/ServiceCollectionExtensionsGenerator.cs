@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.Linq;
+﻿using System.Collections.Immutable;
 using System.Text;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
@@ -40,13 +37,14 @@ public sealed class ServiceCollectionExtensionsGenerator : IIncrementalGenerator
             (INamedTypeSymbol? implementation, AttributeData? attribute) = tuple;
 
             Lifetime lifetime = Lifetime.Scoped;
-            if (attribute!.ConstructorArguments.Length == 1 && attribute.ConstructorArguments[0].Value is int requestedLifetime) lifetime = (Lifetime)requestedLifetime;
+            if(attribute!.ConstructorArguments.Length == 1 && attribute.ConstructorArguments[0].Value is int requestedLifetime)
+                lifetime = (Lifetime)requestedLifetime;
 
             INamedTypeSymbol? asType = CheckForNamedTypeSymbol(attribute);
 
             var asSelf = CheckWhetherToRegisterAsSelf(attribute);
 
-            if (ConstructorTypesToIgnore(implementation))
+            if(ConstructorTypesToIgnore(implementation))
                 return null;
 
             INamedTypeSymbol? inferred = CheckWhetherToRegisterAs(asType, implementation);
@@ -64,14 +62,16 @@ public sealed class ServiceCollectionExtensionsGenerator : IIncrementalGenerator
     private static INamedTypeSymbol? CheckWhetherToRegisterAs(INamedTypeSymbol? asType, INamedTypeSymbol implementation)
     {
         INamedTypeSymbol? inferred = null;
-        if(asType is not null) return inferred;
-        
+        if(asType is not null)
+            return inferred;
+
         INamedTypeSymbol[] candidates = implementation.AllInterfaces
             .Where(i => i.DeclaredAccessibility == Accessibility.Public
                         && i is { TypeKind: TypeKind.Interface, Arity: 0 }
                         && i.ToDisplayString() != "System.IDisposable")
             .ToArray();
-        if (candidates.Length == 1) inferred = candidates[0];
+        if(candidates.Length == 1)
+            inferred = candidates[0];
 
         return inferred;
     }
@@ -81,9 +81,10 @@ public sealed class ServiceCollectionExtensionsGenerator : IIncrementalGenerator
     private static bool CheckWhetherToRegisterAsSelf(AttributeData attr)
     {
         var asSelf = false;
-        foreach (KeyValuePair<string, TypedConstant> na in attr.NamedArguments)
+        foreach(KeyValuePair<string, TypedConstant> na in attr.NamedArguments)
         {
-            if(na is not { Key: "AsSelf", Value.Value: bool b }) continue;
+            if(na is not { Key: "AsSelf", Value.Value: bool b })
+                continue;
             asSelf = b;
             break;
         }
@@ -94,9 +95,10 @@ public sealed class ServiceCollectionExtensionsGenerator : IIncrementalGenerator
     private static INamedTypeSymbol? CheckForNamedTypeSymbol(AttributeData attributeData)
     {
         INamedTypeSymbol? asType = null;
-        foreach (KeyValuePair<string, TypedConstant> namedArgument in attributeData.NamedArguments)
+        foreach(KeyValuePair<string, TypedConstant> namedArgument in attributeData.NamedArguments)
         {
-            if(namedArgument is not { Key: "As", Value.Value: INamedTypeSymbol ts }) continue;
+            if(namedArgument is not { Key: "As", Value.Value: INamedTypeSymbol ts })
+                continue;
             asType = ts;
             break;
         }
@@ -114,8 +116,8 @@ public sealed class ServiceCollectionExtensionsGenerator : IIncrementalGenerator
         ImmutableArray<AttributeData> attributeDatas = sym!.GetAttributes();
         AttributeData? attr = attributeDatas
             .FirstOrDefault(a =>
-                a.AttributeClass?.ToDisplayString() == AttributeFqn ||
-                a.AttributeClass?.ToDisplayString() == AttributeFqnSecondaryNaming);
+                a.AttributeClass?.ToDisplayString() is AttributeFqn or
+                AttributeFqnSecondaryNaming);
         return (sym, attr);
     }
 
@@ -145,7 +147,7 @@ public sealed class ServiceCollectionExtensionsGenerator : IIncrementalGenerator
         _ = sb.AppendLine("    public static IServiceCollection AddGeneratedServices(this IServiceCollection services)");
         _ = sb.AppendLine("    {");
 
-        foreach (ServiceModel? serviceModel in serviceModels)
+        foreach(ServiceModel? serviceModel in serviceModels)
         {
             var method = serviceModel.Lifetime switch
             {
@@ -156,21 +158,22 @@ public sealed class ServiceCollectionExtensionsGenerator : IIncrementalGenerator
             };
 
             // Register against interface if present; else self
-            if (!string.IsNullOrEmpty(serviceModel.ServiceFqn))
+            if(!string.IsNullOrEmpty(serviceModel.ServiceFqn))
             {
                 var line = $"        services.{method}<{serviceModel.ServiceFqn}, {serviceModel.ImplFqn}>();";
-                if (seen.Add(line))
+                if(seen.Add(line))
                     _ = sb.AppendLine(line);
-                if(!serviceModel.AlsoAsSelf) continue;
-                
+                if(!serviceModel.AlsoAsSelf)
+                    continue;
+
                 var self = $"        services.{method}<{serviceModel.ImplFqn}>();";
-                if (seen.Add(self))
+                if(seen.Add(self))
                     _ = sb.AppendLine(self);
             }
             else
             {
                 var self = $"        services.{method}<{serviceModel.ImplFqn}>();";
-                if (seen.Add(self))
+                if(seen.Add(self))
                     _ = sb.AppendLine(self);
             }
         }

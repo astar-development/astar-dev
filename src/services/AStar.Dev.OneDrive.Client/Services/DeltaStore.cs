@@ -1,12 +1,10 @@
-using System;
-using System.Threading.Tasks;
 using Microsoft.Data.Sqlite;
 using Microsoft.Extensions.Logging;
 using Microsoft.Graph.Models;
 
 namespace AStar.Dev.OneDrive.Client.Services;
 
-public partial class DeltaStore
+public class DeltaStore
 {
     private readonly string _connectionString;
     private readonly ILogger<OneDriveService> _logger;
@@ -65,67 +63,6 @@ public partial class DeltaStore
         _ = cmd.ExecuteNonQuery();
     }
 
-    public async Task<List<SyncResult>> GetRecentSyncLogsAsync(int count = 10)
-    {
-        var results = new List<SyncResult>();
-
-        using var conn = new SqliteConnection(_connectionString);
-        await conn.OpenAsync();
-
-        SqliteCommand cmd = conn.CreateCommand();
-        cmd.CommandText = @"
-        SELECT DriveId, Inserted, Updated, Deleted, DeltaToken, LastSyncedUtc
-        FROM SyncLog
-        ORDER BY LastSyncedUtc DESC
-        LIMIT $count;";
-        _ = cmd.Parameters.AddWithValue("$count", count);
-
-        using SqliteDataReader reader = await cmd.ExecuteReaderAsync();
-        while(await reader.ReadAsync())
-        {
-            results.Add(new SyncResult
-            {
-                DeltaToken = reader.GetString(reader.GetOrdinal("DeltaToken")),
-                LastSyncedUtc = DateTime.Parse(reader.GetString(reader.GetOrdinal("LastSyncedUtc"))),
-                Inserted = reader.GetInt32(reader.GetOrdinal("Inserted")),
-                Updated = reader.GetInt32(reader.GetOrdinal("Updated")),
-                Deleted = reader.GetInt32(reader.GetOrdinal("Deleted"))
-            });
-        }
-
-        _logger.LogInformation("Fetched {Count} recent sync logs", results.Count);
-
-        return results;
-    }
-    public async Task<SyncAggregate> GetSyncAggregateAsync(TimeSpan period)
-    {
-        using var conn = new SqliteConnection(_connectionString);
-        await conn.OpenAsync();
-
-        DateTime since = DateTime.UtcNow.Subtract(period);
-
-        SqliteCommand cmd = conn.CreateCommand();
-        cmd.CommandText = @"
-        SELECT 
-            SUM(Inserted) as TotalInserted,
-            SUM(Updated) as TotalUpdated,
-            SUM(Deleted) as TotalDeleted,
-            COUNT(*) as RunCount
-        FROM SyncLog
-        WHERE LastSyncedUtc >= $since;";
-        _ = cmd.Parameters.AddWithValue("$since", since.ToString("o"));
-
-        using SqliteDataReader reader = await cmd.ExecuteReaderAsync();
-        return await reader.ReadAsync()
-            ? new SyncAggregate
-            {
-                TotalInserted = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
-                TotalUpdated = reader.IsDBNull(1) ? 0 : reader.GetInt32(1),
-                TotalDeleted = reader.IsDBNull(2) ? 0 : reader.GetInt32(2),
-                RunCount = reader.IsDBNull(3) ? 0 : reader.GetInt32(3)
-            }
-            : new SyncAggregate();
-    }
     public async Task SaveDeltaTokenAsync(string driveId, string deltaToken)
     {
         using var conn = new SqliteConnection(_connectionString);
@@ -154,32 +91,6 @@ public partial class DeltaStore
         _ = cmd.Parameters.AddWithValue("$driveId", driveId);
 
         return (string?)await cmd.ExecuteScalarAsync(token);
-    }
-
-    public async Task SaveItemAsync(string id, string name, bool isFolder, DateTimeOffset? lastModified, string? parentPath = null, string? eTag = null, CancellationToken token = new())
-    {
-        using var conn = new SqliteConnection(_connectionString);
-        await conn.OpenAsync(token);
-
-        SqliteCommand cmd = conn.CreateCommand();
-        cmd.CommandText = @"
-            INSERT INTO DriveItems (Id, Name, IsFolder, LastModifiedUtc, ParentPath, ETag)
-            VALUES ($id, $name, $folder, $ts, $parentPath, $eTag)
-            ON CONFLICT(Id) DO UPDATE SET
-                Name = excluded.Name,
-                IsFolder = excluded.IsFolder,
-                LastModifiedUtc = excluded.LastModifiedUtc,
-                ParentPath = excluded.ParentPath,
-                ETag = excluded.ETag;";
-
-        cmd.AddSmartParameter("$id", id);
-        cmd.AddSmartParameter("$name", name);
-        cmd.AddSmartParameter("$folder", isFolder); // bool → INTEGER
-        cmd.AddSmartParameter("$ts", lastModified); // DateTimeOffset → ISO string
-        cmd.AddSmartParameter("$parentPath", parentPath); // null → DBNull
-        cmd.AddSmartParameter("$eTag", eTag);
-
-        _ = await cmd.ExecuteNonQueryAsync(token);
     }
 
     public async Task<SyncResult> SaveBatchWithTokenAsync(
@@ -288,28 +199,7 @@ public partial class DeltaStore
             throw;
         }
     }
-}
 
-public partial class DeltaStore
-{
-    public async Task<IEnumerable<LocalDriveItem>> GetItemsToDownloadAsync(CancellationToken token)
-    {
-        var results = new List<LocalDriveItem>();
-
-        using var conn = new SqliteConnection(_connectionString);
-        await conn.OpenAsync(token);
-
-        SqliteCommand cmd = conn.CreateCommand();
-        cmd.CommandText = "SELECT * FROM DriveItems WHERE DownloadedDate IS NULL LIMIT 100;";
-
-        using SqliteDataReader reader = await cmd.ExecuteReaderAsync(token);
-        while(await reader.ReadAsync(token))
-        {
-            results.Add(reader.ToLocalDriveItem());
-        }
-
-        return results;
-    }
     public async Task MarkItemsAsDownloadedAsync(IEnumerable<string> ids, CancellationToken token)
     {
         using var conn = new SqliteConnection(_connectionString);
@@ -332,6 +222,7 @@ public partial class DeltaStore
 
         tx.Commit();
     }
+
     public async Task<LocalDriveItem?> GetRootAsync(string driveId, CancellationToken token)
     {
         using var conn = new SqliteConnection(_connectionString);
@@ -363,31 +254,67 @@ public partial class DeltaStore
 
         using SqliteCommand cmd = conn.CreateCommand();
         cmd.CommandText = @"
-        INSERT INTO DriveItems (Id, Name, IsFolder, ParentPath)
-        VALUES ($id, $name, $isFolder, $parentPath);";
+        INSERT INTO DriveItems (Id, PathId, Name, IsFolder, LastModifiedUtc, ParentPath, ETag)
+        VALUES ($id, $pathId, $name, $folder, $ts, $parentPath, $eTag)
+        ON CONFLICT(Id) DO UPDATE SET
+            Name = excluded.Name,
+            PathId = excluded.PathId,
+            IsFolder = excluded.IsFolder,
+            LastModifiedUtc = excluded.LastModifiedUtc,
+            ParentPath = excluded.ParentPath,
+            ETag = excluded.ETag;";
 
-        _ = cmd.Parameters.AddWithValue("$id", $"/drives/{driveId}/root:");
-        _ = cmd.Parameters.AddWithValue("$name", root.Name ?? "root");
-        _ = cmd.Parameters.AddWithValue("$isFolder", true);
-        _ = cmd.Parameters.AddWithValue("$parentPath", DBNull.Value);
+        // Id: path-based id for root; PathId: GUID
+        cmd.AddSmartParameter("$id", $"/drives/{driveId}/root:");
+        cmd.AddSmartParameter("$pathId", root.Id);
+        cmd.AddSmartParameter("$name", root.Name ?? "root");
+        cmd.AddSmartParameter("$folder", root.Folder != null); // bool, not root.Folder.IsFolder
+        cmd.AddSmartParameter("$ts", root.LastModifiedDateTime?.UtcDateTime.ToString("o") ?? (object)DBNull.Value);
+        cmd.AddSmartParameter("$parentPath", DBNull.Value); // root has no parent
+        cmd.AddSmartParameter("$eTag", root.ETag ?? (object)DBNull.Value);
 
         _ = await cmd.ExecuteNonQueryAsync(token);
-
     }
-    public async Task<int> CountFilesToDownloadAsync(CancellationToken token)
+
+    public async Task InsertChildrenAsync(string parentPath, IEnumerable<DriveItem> children, CancellationToken token)
     {
-        using var conn = new SqliteConnection(_connectionString);
+        await using var conn = new SqliteConnection(_connectionString);
         await conn.OpenAsync(token);
 
-        using SqliteCommand cmd = conn.CreateCommand();
-        cmd.CommandText = @"
-        SELECT COUNT(*)
-        FROM DriveItems
-        WHERE IsFolder = 0 AND (IsDownloaded = 0 OR IsDownloaded IS NULL);";
+        using SqliteTransaction tx = conn.BeginTransaction();
 
-        var result = await cmd.ExecuteScalarAsync(token);
-        return Convert.ToInt32(result);
+        foreach(DriveItem child in children)
+        {
+            await using SqliteCommand cmd = conn.CreateCommand();
+            cmd.Transaction = tx;
+            cmd.CommandText = @"
+            INSERT INTO DriveItems (Id, PathId, Name, IsFolder, LastModifiedUtc, ParentPath, ETag)
+            VALUES ($id, $pathId, $name, $folder, $ts, $parentPath, $eTag)
+            ON CONFLICT(Id) DO UPDATE SET
+                Name = excluded.Name,
+                PathId = excluded.PathId,
+                IsFolder = excluded.IsFolder,
+                LastModifiedUtc = excluded.LastModifiedUtc,
+                ParentPath = excluded.ParentPath,
+                ETag = excluded.ETag;";
+
+            var effectiveParentPath = child.ParentReference?.Path ?? parentPath;
+            var pathIdForRow = $"{effectiveParentPath}/{child.Name}".Replace("//", "/");
+
+            cmd.AddSmartParameter("$id", pathIdForRow);
+            cmd.AddSmartParameter("$pathId", child.Id);
+            cmd.AddSmartParameter("$name", child.Name ?? string.Empty);
+            cmd.AddSmartParameter("$folder", child.Folder != null ? 1 : 0); // store as int
+            cmd.AddSmartParameter("$ts", child.LastModifiedDateTime?.UtcDateTime.ToString("o") ?? (object)DBNull.Value);
+            cmd.AddSmartParameter("$parentPath", effectiveParentPath);
+            cmd.AddSmartParameter("$eTag", child.ETag ?? (object)DBNull.Value);
+
+            _ = await cmd.ExecuteNonQueryAsync(token);
+        }
+
+        await tx.CommitAsync(token);
     }
+
     public async Task<int> CountTotalFilesAsync(CancellationToken token)
     {
         using var conn = new SqliteConnection(_connectionString);
@@ -403,44 +330,6 @@ public partial class DeltaStore
         return Convert.ToInt32(result);
     }
 
-    public async Task<int> EstimateTotalFilesAsync(CancellationToken token)
-    {
-        using var conn = new SqliteConnection(_connectionString);
-        await conn.OpenAsync(token);
-
-        using SqliteCommand cmd = conn.CreateCommand();
-        cmd.CommandText = @"SELECT COUNT(*) FROM DriveItems WHERE IsFolder = 0;";
-        var result = await cmd.ExecuteScalarAsync(token);
-        return Convert.ToInt32(result);
-    }
-
-    public async Task InsertChildrenAsync(string parentPath, IEnumerable<DriveItem> children, CancellationToken token)
-    {
-        using var conn = new SqliteConnection(_connectionString);
-        await conn.OpenAsync(token);
-
-        using SqliteTransaction tx = conn.BeginTransaction();
-
-        foreach(DriveItem child in children)
-        {
-            using SqliteCommand cmd = conn.CreateCommand();
-            cmd.CommandText = @"
-            INSERT INTO DriveItems (Id, Name, IsFolder, ParentPath)
-            VALUES ($id, $name, $isFolder, $parentPath);";
-
-            // Path-based ID: /drives/{driveId}/root:/Folder/File.ext
-            var id = child.ParentReference?.Path + "/" + child.Name;
-
-            _ = cmd.Parameters.AddWithValue("$id", id);
-            _ = cmd.Parameters.AddWithValue("$name", child.Name ?? string.Empty);
-            _ = cmd.Parameters.AddWithValue("$isFolder", child.Folder != null);
-            _ = cmd.Parameters.AddWithValue("$parentPath", parentPath);
-
-            _ = await cmd.ExecuteNonQueryAsync(token);
-        }
-
-        tx.Commit();
-    }
     public async Task<IReadOnlyList<LocalDriveItem>> GetChildrenAsync(string parentPath, CancellationToken token)
     {
         var results = new List<LocalDriveItem>();
@@ -465,154 +354,6 @@ public partial class DeltaStore
                 IsFolder = reader.GetBoolean(2),
                 ParentPath = reader.IsDBNull(3) ? null : reader.GetString(3)
             });
-        }
-
-        return results;
-    }
-
-    public async Task MarkItemAsDownloadedAsync(string id, CancellationToken token)
-    {
-        using var conn = new SqliteConnection(_connectionString);
-        await conn.OpenAsync(token);
-
-        SqliteCommand cmd = conn.CreateCommand();
-        cmd.CommandText = @"
-            UPDATE DriveItems
-            SET DownloadedDate = $downloadedDate
-            WHERE Id = $id;";
-        _ = cmd.Parameters.AddWithValue("$downloadedDate", DateTime.UtcNow.ToString("o"));
-        _ = cmd.Parameters.AddWithValue("$id", id);
-
-        _ = await cmd.ExecuteNonQueryAsync(token);
-    }
-
-    public async Task<LocalDriveItem?> GetItemByIdAsync(string id, CancellationToken token)
-    {
-        using var conn = new SqliteConnection(_connectionString);
-        await conn.OpenAsync(token);
-
-        SqliteCommand cmd = conn.CreateCommand();
-        cmd.CommandText = "SELECT * FROM DriveItems WHERE Id = $id;";
-        _ = cmd.Parameters.AddWithValue("$id", id);
-
-        using SqliteDataReader reader = await cmd.ExecuteReaderAsync(token);
-        return await reader.ReadAsync(token) ? reader.ToLocalDriveItem() : null;
-    }
-
-    public async Task<List<LocalDriveItem>> GetItemsByParentPathAsync(string parentPath, CancellationToken token)
-    {
-        using var conn = new SqliteConnection(_connectionString);
-        await conn.OpenAsync(token);
-
-        SqliteCommand cmd = conn.CreateCommand();
-        cmd.CommandText = "SELECT * FROM DriveItems WHERE ParentPath = $parentPath;";
-        _ = cmd.Parameters.AddWithValue("$parentPath", parentPath);
-
-        var results = new List<LocalDriveItem>();
-        using SqliteDataReader reader = await cmd.ExecuteReaderAsync(token);
-        while(await reader.ReadAsync(token))
-        {
-            results.Add(reader.ToLocalDriveItem());
-        }
-
-        return results;
-    }
-
-    public async Task<List<LocalDriveItem>> GetAllFoldersAsync(CancellationToken token)
-    {
-        using var conn = new SqliteConnection(_connectionString);
-        await conn.OpenAsync(token);
-
-        SqliteCommand cmd = conn.CreateCommand();
-        cmd.CommandText = "SELECT * FROM DriveItems WHERE IsFolder = 1;";
-
-        var results = new List<LocalDriveItem>();
-        using SqliteDataReader reader = await cmd.ExecuteReaderAsync(token);
-        while(await reader.ReadAsync(token))
-        {
-            results.Add(reader.ToLocalDriveItem());
-        }
-
-        return results;
-    }
-}
-
-public partial class DeltaStore
-{
-    /// <summary>
-    /// Get items under a parent path modified since a given UTC timestamp.
-    /// </summary>
-    public async Task<List<LocalDriveItem>> GetItemsByParentPathModifiedSinceAsync(
-        string parentPath, DateTime sinceUtc, CancellationToken token)
-    {
-        using var conn = new SqliteConnection(_connectionString);
-        await conn.OpenAsync(token);
-
-        SqliteCommand cmd = conn.CreateCommand();
-        cmd.CommandText = @"
-            SELECT * FROM DriveItems
-            WHERE ParentPath = $parentPath
-              AND LastModifiedUtc > $sinceUtc;";
-        _ = cmd.Parameters.AddWithValue("$parentPath", parentPath);
-        _ = cmd.Parameters.AddWithValue("$sinceUtc", sinceUtc.ToString("o"));
-
-        var results = new List<LocalDriveItem>();
-        using SqliteDataReader reader = await cmd.ExecuteReaderAsync(token);
-        while(await reader.ReadAsync(token))
-        {
-            results.Add(reader.ToLocalDriveItem());
-        }
-
-        return results;
-    }
-
-    /// <summary>
-    /// Search items by name within a parent path.
-    /// </summary>
-    public async Task<List<LocalDriveItem>> SearchItemsByNameAsync(
-        string parentPath, string nameLike, CancellationToken token)
-    {
-        using var conn = new SqliteConnection(_connectionString);
-        await conn.OpenAsync(token);
-
-        SqliteCommand cmd = conn.CreateCommand();
-        cmd.CommandText = @"
-            SELECT * FROM DriveItems
-            WHERE ParentPath = $parentPath
-              AND Name LIKE $pattern;";
-        _ = cmd.Parameters.AddWithValue("$parentPath", parentPath);
-        _ = cmd.Parameters.AddWithValue("$pattern", $"%{nameLike}%");
-
-        var results = new List<LocalDriveItem>();
-        using SqliteDataReader reader = await cmd.ExecuteReaderAsync(token);
-        while(await reader.ReadAsync(token))
-        {
-            results.Add(reader.ToLocalDriveItem());
-        }
-
-        return results;
-    }
-
-    /// <summary>
-    /// Get all files (not folders) modified since a given UTC timestamp.
-    /// </summary>
-    public async Task<List<LocalDriveItem>> GetFilesModifiedSinceAsync(DateTime sinceUtc, CancellationToken token)
-    {
-        using var conn = new SqliteConnection(_connectionString);
-        await conn.OpenAsync(token);
-
-        SqliteCommand cmd = conn.CreateCommand();
-        cmd.CommandText = @"
-            SELECT * FROM DriveItems
-            WHERE IsFolder = 0
-              AND LastModifiedUtc > $sinceUtc;";
-        _ = cmd.Parameters.AddWithValue("$sinceUtc", sinceUtc.ToString("o"));
-
-        var results = new List<LocalDriveItem>();
-        using SqliteDataReader reader = await cmd.ExecuteReaderAsync(token);
-        while(await reader.ReadAsync(token))
-        {
-            results.Add(reader.ToLocalDriveItem());
         }
 
         return results;

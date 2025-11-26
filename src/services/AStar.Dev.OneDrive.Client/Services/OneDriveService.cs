@@ -20,23 +20,16 @@ public sealed class OneDriveService(ILoginService loginService, UserSettings use
     {
         public int? StatusCode { get; } = statusCode;
     }
-
-    /// <summary>
-    /// Lists items in the user's OneDrive root folder.
-    /// Returns a Result containing the list or the captured exception.
-    /// </summary>
-    public async Task GetRootItemsAsync(MainWindowViewModel vm, CancellationToken token)
+    public async Task RunFullSyncAsync(MainWindowViewModel vm, CancellationToken token)
     {
-        logger.LogInformation("Listing root items from OneDrive");
-
+        // 1. Sign in
         Result<GraphServiceClient, Exception> loginResult = await loginService.SignInAsync();
         if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
-        {
             throw loginErr.Reason;
-        }
 
         _client = ((Result<GraphServiceClient, Exception>.Ok)loginResult).Value;
-        // Resolve the user's home directory in a cross-platform way
+
+        // 2. Init DB
         var appDataPath = AppPathHelper.GetAppDataPath("astar-dev");
         var fullAppDataPath = Path.Combine(appDataPath, "astar-dev-onedrive-client", "onedrive-sync");
         _ = Directory.CreateDirectory(fullAppDataPath);
@@ -44,49 +37,67 @@ public sealed class OneDriveService(ILoginService loginService, UserSettings use
         var dbPath = Path.Combine(fullAppDataPath, "onedrive_sync.db");
         _store = new DeltaStore(logger, dbPath);
 
-        //var syncManager = new SyncManager(_client, _store, vm, token);
+        // 3. Bootstrap hierarchy if DB is empty
+        Drive? drive = await _client.Me.Drive.GetAsync(cancellationToken: token);
+        var driveId = drive!.Id!;
+        LocalDriveItem? rootItem = await _store.GetRootAsync(driveId, token);
+        if(rootItem == null)
+        {
+            vm.ReportProgress("ℹ️ Bootstrapping DB from Graph...");
+            await BootstrapDriveAsync(driveId, vm, token);
+            vm.ReportProgress("✅ DB fully populated from Graph");
+        }
 
-        // await syncManager.RunSyncAsync();
-        // if(vm.DownloadFilesAfterSync)
-        // {
+        // 4. Download files
         await DownloadFilesAsync(vm, userSettings, token);
-        // }
     }
+
     private async Task BootstrapDriveAsync(string driveId, MainWindowViewModel vm, CancellationToken token)
     {
-        // Fetch root item from Graph
+        // Fetch root item from Graph (v5 Kiota)
         DriveItem? rootItem = await _client.Drives[driveId].Items["root"]
         .GetAsync(cancellationToken: token);
 
-        if(rootItem == null)
+        if(rootItem is null)
+        {
+            vm.ReportProgress("⚠️ Unable to load root item.");
             return;
+        }
 
-        vm.ReportProgress($"ℹ️ Inserting Root ({rootItem.Folder}) into dB...");
+        vm.ReportProgress($"ℹ️ Inserting Root ({rootItem.Name}) into dB...");
+        // Keep signature: DeltaStore maps DriveItem -> LocalDriveItem and persists metadata
         await _store.InsertRootAsync(driveId, rootItem, token);
 
         // Recursively insert children
         await InsertChildrenRecursiveAsync(driveId, rootItem.Id!, $"/drives/{driveId}/root:", vm, token);
     }
 
-    private async Task InsertChildrenRecursiveAsync(string driveId, string itemId, string parentPath, MainWindowViewModel vm, CancellationToken token)
+    private async Task InsertChildrenRecursiveAsync(
+        string driveId,
+        string itemId,
+        string parentPath,
+        MainWindowViewModel vm,
+        CancellationToken token)
     {
-        vm.ReportProgress("ℹ️ Getting initial child folders...");
-        // Get children of this folder
-        DriveItemCollectionResponse? childrenResponse =        await _client.Drives[driveId].Items[itemId].Children            .GetAsync(cancellationToken: token);
+        vm.ReportProgress($"ℹ️ Getting children for {parentPath}...");
 
-        if(childrenResponse?.Value == null || childrenResponse.Value.Count == 0)
+        DriveItemCollectionResponse? childrenResponse =
+        await _client.Drives[driveId].Items[itemId].Children
+            .GetAsync(cancellationToken: token);
+
+        List<DriveItem>? children = childrenResponse?.Value;
+        if(children is null || children.Count == 0)
             return;
 
-        // Insert into DB
-        vm.ReportProgress($"ℹ️ Inserting initial child folders for parent folder: {childrenResponse.Value.First().Folder} into the dB...");
-        await _store.InsertChildrenAsync(parentPath, childrenResponse.Value, token);
+        vm.ReportProgress($"ℹ️ Inserting {children.Count} children for {parentPath} into dB...");
+        // Keep signature: pass raw DriveItem list; DeltaStore performs the mapping and metadata persistence
+        await _store.InsertChildrenAsync(parentPath, children, token);
 
         // Recurse into subfolders
-        foreach(DriveItem child in childrenResponse.Value)
+        foreach(DriveItem child in children)
         {
-            if(child.Folder != null && child.Id != null)
+            if(child.Folder is not null && child.Id is not null)
             {
-                vm.ReportProgress("ℹ️ Going a level deeper...");
                 var childPath = (child.ParentReference?.Path ?? parentPath) + "/" + child.Name;
                 await InsertChildrenRecursiveAsync(driveId, child.Id, childPath, vm, token);
             }
@@ -95,20 +106,15 @@ public sealed class OneDriveService(ILoginService loginService, UserSettings use
 
     public async Task DownloadFilesAsync(MainWindowViewModel vm, UserSettings userSettings, CancellationToken token)
     {
-        var metrics = new AStar.Dev.OneDrive.Client.Services.MetricsCollector();// Count total files to download from DB
-        var totalFiles = await _store.CountTotalFilesAsync(token);
-
-        metrics.Start(totalFiles);
-        var reporter = new ProgressReporter(vm, metrics, fileInterval: 5, msInterval: 500);
-
+        var metrics = new MetricsCollector();
         var downloadRoot = "/home/jason/Documents/OneDriveDownloads";
 
         Drive? drive = await _client.Me.Drive.GetAsync(cancellationToken: token);
         var driveId = drive!.Id!;
 
-        // Try to get root item from DB
+        // Ensure DB is bootstrapped BEFORE we count files
         LocalDriveItem? rootItem = await _store.GetRootAsync(driveId, token);
-        if(rootItem == null)
+        if(rootItem is null)
         {
             vm.ReportProgress("ℹ️ Bootstrapping DB from Graph...");
             await BootstrapDriveAsync(driveId, vm, token);
@@ -116,13 +122,17 @@ public sealed class OneDriveService(ILoginService loginService, UserSettings use
             vm.ReportProgress("✅ DB fully populated from Graph");
         }
 
+        // Now count
+        var totalFiles = await _store.CountTotalFilesAsync(token);
+        metrics.Start(totalFiles);
+        var reporter = new ProgressReporter(vm, metrics, fileInterval: 5, msInterval: 500);
+
         var downloadedIds = new ConcurrentBag<string>();
         using var semaphore = new SemaphoreSlim(userSettings.MaxParallelDownloads);
 
-        // Kick off traversal from root
         await TraverseAndDownloadAsync(rootItem!, driveId, downloadRoot, vm, downloadedIds, semaphore, metrics, reporter, token);
 
-        // Batch update in chunks
+        // Batch update
         var batch = new List<string>();
         foreach(var id in downloadedIds)
         {
@@ -135,18 +145,14 @@ public sealed class OneDriveService(ILoginService loginService, UserSettings use
         }
 
         if(batch.Count > 0)
-        {
             await _store.MarkItemsAsDownloadedAsync(batch, token);
-        }
 
         reporter.Flush();
         vm.ReportProgress(metrics.GetGlobalSummary());
-
         foreach((var folder, var files, var mb) in metrics.GetFolderSummaries())
-        {
             vm.ReportProgress($"📂 {folder}: {files} files, {mb:F2} MB");
-        }
     }
+
     private async Task TraverseAndDownloadAsync(
         LocalDriveItem item,
         string driveId,
