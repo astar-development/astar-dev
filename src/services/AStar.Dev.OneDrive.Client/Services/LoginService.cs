@@ -1,6 +1,5 @@
 using System.Diagnostics;
 using AStar.Dev.Functional.Extensions;
-using AStar.Dev.OneDrive.Client;
 using Azure.Identity;
 using Microsoft.Extensions.Logging;
 using Microsoft.Graph;

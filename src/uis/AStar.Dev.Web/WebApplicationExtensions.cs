@@ -55,7 +55,7 @@ public static class WebApplicationExtensions
     {
         _ = app.UseExceptionHandler("/Error", true);
 
-        if (!app.Environment.IsDevelopment())
+        if(!app.Environment.IsDevelopment())
             _ = app.UseHsts();
 
         _ = app.UseHttpsRedirection();

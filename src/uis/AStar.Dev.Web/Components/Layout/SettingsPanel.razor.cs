@@ -23,7 +23,7 @@ public partial class SettingsPanel : ComponentBase
         get => _officeColor;
         set
         {
-            if (_officeColor != value)
+            if(_officeColor != value)
             {
                 _officeColor = value;
                 _ = SaveOfficeColorToStorage();
@@ -40,13 +40,13 @@ public partial class SettingsPanel : ComponentBase
         {
             var storedColor = await JsRuntime.InvokeAsync<string>("localStorage.getItem", "officeColor");
 
-            if (!string.IsNullOrEmpty(storedColor) && Enum.TryParse(storedColor, out OfficeColor parsedColor))
+            if(!string.IsNullOrEmpty(storedColor) && Enum.TryParse(storedColor, out OfficeColor parsedColor))
             {
                 _officeColor = parsedColor;
                 StateHasChanged();
             }
         }
-        catch (Exception ex)
+        catch(Exception ex)
         {
             Logger.LogError(ex, "Error loading OfficeColor from storage");
         }
@@ -58,7 +58,7 @@ public partial class SettingsPanel : ComponentBase
         {
             await JsRuntime.InvokeVoidAsync("localStorage.setItem", "officeColor", OfficeColor.ToString());
         }
-        catch (Exception ex)
+        catch(Exception ex)
         {
             Logger.LogError(ex, "Error saving OfficeColor to storage");
         }

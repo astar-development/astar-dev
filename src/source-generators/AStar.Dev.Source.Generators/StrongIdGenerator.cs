@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.Linq;
+﻿using System.Collections.Immutable;
 using System.Text;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -41,7 +38,8 @@ public sealed class StrongIdGenerator : IIncrementalGenerator
 
         ctx.RegisterSourceOutput(models, static (spc, batch) =>
         {
-            foreach (StrongIdModel? model in batch) spc.AddSource($"{model.Name}.StrongId.g.cs", Generate(model));
+            foreach(StrongIdModel? model in batch)
+                spc.AddSource($"{model.Name}.StrongId.g.cs", Generate(model));
         });
     }
 
@@ -65,7 +63,7 @@ public sealed class StrongIdGenerator : IIncrementalGenerator
         var sb = new StringBuilder();
         _ = sb.AppendLine(Constants.SourceGeneratorHeader);
         _ = sb.AppendLine("#nullable enable");
-        if (ns is not null)
+        if(ns is not null)
             _ = sb.AppendLine(ns).AppendLine();
 
         _ = sb.AppendLine(
@@ -84,7 +82,7 @@ public sealed class StrongIdGenerator : IIncrementalGenerator
                   public override string ToString() => {{toStringBody}};
               """);
 
-        if (isGuid)
+        if(isGuid)
         {
             _ = sb.AppendLine(
                 $$"""
@@ -122,10 +120,11 @@ public sealed class StrongIdGenerator : IIncrementalGenerator
 
         public bool Equals(StrongIdModel? x, StrongIdModel? y)
         {
-            if (ReferenceEquals(x, y)) return true;
-            if (x is null || y is null) return false;
-
-            return string.Equals(x.Namespace, y.Namespace, StringComparison.Ordinal)
+            if(ReferenceEquals(x, y))
+                return true;
+            return x is null || y is null
+                ? false
+                : string.Equals(x.Namespace, y.Namespace, StringComparison.Ordinal)
                    && string.Equals(x.Name, y.Name, StringComparison.Ordinal)
                    && string.Equals(x.UnderlyingTypeDisplay, y.UnderlyingTypeDisplay, StringComparison.Ordinal)
                    && x.Accessibility == y.Accessibility;

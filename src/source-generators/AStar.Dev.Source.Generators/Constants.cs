@@ -22,14 +22,14 @@ public static class Constants
                                                  // </auto-generated>
                                                  //----------------------
                                                  """;
-    
+
     public const string GeneratedSourceXmlClassHeader = """
                                                    /// <summary>
                                                    /// Generated class header to quiet the compiler when XML Documentation is generated.
                                                    /// This class contains the registration for services tagged with the RegisterService attribute.
                                                    /// </summary>
                                                    """;
-    
+
     public const string GeneratedSourceXmlHeader = """
                                                    /// <summary>
                                                        /// Generated method summary to quiet the compiler when XML Documentation is generated.

@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace AStar.Dev.Functional.Extensions;
 
@@ -19,14 +15,14 @@ public static class CollectionAndStatusExtensions
     public static async Task ApplyToCollectionAsync<T>(this Task<Result<IEnumerable<T>, Exception>> resultTask, ObservableCollection<T> target, Action<Exception>? onError = null)
     {
         Result<IEnumerable<T>, Exception> result = await resultTask.ConfigureAwait(false);
-        if (result is Result<IEnumerable<T>, Exception>.Ok ok)
+        if(result is Result<IEnumerable<T>, Exception>.Ok ok)
         {
             // Replace items while preserving collection instance
             target.Clear();
-            foreach (T item in ok.Value ?? Enumerable.Empty<T>())
+            foreach(T item in ok.Value ?? Enumerable.Empty<T>())
                 target.Add(item);
         }
-        else if (result is Result<IEnumerable<T>, Exception>.Error err)
+        else if(result is Result<IEnumerable<T>, Exception>.Error err)
         {
             onError?.Invoke(err.Reason);
         }

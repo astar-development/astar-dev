@@ -1,6 +1,4 @@
-using System.Collections.Generic;
 using System.Collections.Immutable;
-using System.Linq;
 using System.Text;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
@@ -73,17 +71,19 @@ namespace {Namespace}
         var classDeclarationSyntax = (ClassDeclarationSyntax)context.Node;
 
         // Go through all attributes of the class.
-        foreach (AttributeListSyntax attributeListSyntax in classDeclarationSyntax.AttributeLists)
-        foreach (AttributeSyntax attributeSyntax in attributeListSyntax.Attributes)
+        foreach(AttributeListSyntax attributeListSyntax in classDeclarationSyntax.AttributeLists)
         {
-            if (context.SemanticModel.GetSymbolInfo(attributeSyntax).Symbol is not IMethodSymbol attributeSymbol)
-                continue; // if we can't get the symbol, ignore it
+            foreach(AttributeSyntax attributeSyntax in attributeListSyntax.Attributes)
+            {
+                if(context.SemanticModel.GetSymbolInfo(attributeSyntax).Symbol is not IMethodSymbol attributeSymbol)
+                    continue; // if we can't get the symbol, ignore it
 
-            var attributeName = attributeSymbol.ContainingType.ToDisplayString();
+                var attributeName = attributeSymbol.ContainingType.ToDisplayString();
 
-            // Check the full name of the [Report] attribute.
-            if (attributeName == $"{Namespace}.{AttributeName}")
-                return (classDeclarationSyntax, true);
+                // Check the full name of the [Report] attribute.
+                if(attributeName == $"{Namespace}.{AttributeName}")
+                    return (classDeclarationSyntax, true);
+            }
         }
 
         return (classDeclarationSyntax, false);
@@ -100,13 +100,13 @@ namespace {Namespace}
         ImmutableArray<ClassDeclarationSyntax> classDeclarations)
     {
         // Go through all filtered class declarations.
-        foreach (ClassDeclarationSyntax? classDeclarationSyntax in classDeclarations)
+        foreach(ClassDeclarationSyntax? classDeclarationSyntax in classDeclarations)
         {
             // We need to get semantic model of the class to retrieve metadata.
             SemanticModel semanticModel = compilation.GetSemanticModel(classDeclarationSyntax.SyntaxTree);
 
             // Symbols allow us to get the compile-time information.
-            if (semanticModel.GetDeclaredSymbol(classDeclarationSyntax) is not INamedTypeSymbol classSymbol)
+            if(semanticModel.GetDeclaredSymbol(classDeclarationSyntax) is not INamedTypeSymbol classSymbol)
                 continue;
 
             var namespaceName = classSymbol.ContainingNamespace.ToDisplayString();

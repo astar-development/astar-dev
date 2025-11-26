@@ -1,6 +1,3 @@
-using System;
-using System.Threading.Tasks;
-
 namespace AStar.Dev.Functional.Extensions;
 
 /// <summary>
@@ -13,13 +10,13 @@ public static class ViewModelResultExtensions
     /// </summary>
     public static void Apply<T>(this Result<T, Exception> result, Action<T> onSuccess, Action<Exception>? onError = null)
     {
-        if (result is Result<T, Exception>.Ok ok)
+        if(result is Result<T, Exception>.Ok ok)
         {
             onSuccess(ok.Value);
             return;
         }
 
-        if (result is Result<T, Exception>.Error err)
+        if(result is Result<T, Exception>.Error err)
         {
             onError?.Invoke(err.Reason);
         }
@@ -40,13 +37,13 @@ public static class ViewModelResultExtensions
     public static async Task ApplyAsync<T>(this Task<Result<T, Exception>> resultTask, Func<T, Task> onSuccessAsync, Func<Exception, Task>? onErrorAsync = null)
     {
         Result<T, Exception> result = await resultTask.ConfigureAwait(false);
-        if (result is Result<T, Exception>.Ok ok)
+        if(result is Result<T, Exception>.Ok ok)
         {
             await onSuccessAsync(ok.Value).ConfigureAwait(false);
             return;
         }
 
-        if (result is Result<T, Exception>.Error err && onErrorAsync is not null)
+        if(result is Result<T, Exception>.Error err && onErrorAsync is not null)
         {
             await onErrorAsync(err.Reason).ConfigureAwait(false);
         }

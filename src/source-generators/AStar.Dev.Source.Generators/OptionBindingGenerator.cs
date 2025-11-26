@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.Immutable;
-using System.Linq;
+﻿using System.Collections.Immutable;
 using System.Text;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -29,7 +26,9 @@ public sealed class OptionsBindingGenerator : IIncrementalGenerator
                     // Skip non-public/abstract/generic types
                     if (type.DeclaredAccessibility != Accessibility.Public ||
                         type.IsAbstract || type.Arity != 0)
+                    {
                         return null;
+                    }
 
                     AttributeData attr = syntaxCtx.Attributes[0];
 
@@ -37,7 +36,9 @@ public sealed class OptionsBindingGenerator : IIncrementalGenerator
                     var section = "Options";
                     if (attr.ConstructorArguments.Length == 1 &&
                         attr.ConstructorArguments[0].Value is string s && !string.IsNullOrWhiteSpace(s))
+                    {
                         section = s;
+                    }
 
                     // Collect simple property info so we can emit defaults
                     PropModel[] props = type.GetMembers()
@@ -88,10 +89,9 @@ public sealed class OptionsBindingGenerator : IIncrementalGenerator
     {
         var ns = m.Namespace is null ? null : $"namespace {m.Namespace};";
         var sb = new StringBuilder();
-        if (ns is not null)
-            _ = sb.AppendLine(Constants.SourceGeneratorHeader).AppendLine(ns).AppendLine();
-        else
-            _ = sb.AppendLine(Constants.SourceGeneratorHeader);
+        _ = ns is not null
+            ? sb.AppendLine(Constants.SourceGeneratorHeader).AppendLine(ns).AppendLine()
+            : sb.AppendLine(Constants.SourceGeneratorHeader);
 
         // Look up defaults/required for this section
         _ = schema.TryGetValue(m.SectionName, out Dictionary<string, SchemaEntry>? sectionMap);
@@ -113,12 +113,12 @@ public sealed class OptionsBindingGenerator : IIncrementalGenerator
         _ = sb.AppendLine($"        var opts = section.Get<{m.TypeName}>() ?? new {m.TypeName}();");
 
         // Apply defaults from schema (only simple types)
-        foreach (PropModel p in m.Properties)
+        foreach(PropModel p in m.Properties)
         {
-            if (sectionMap.TryGetValue(p.Name, out SchemaEntry? entry) && entry.DefaultValue is string dv)
+            if(sectionMap.TryGetValue(p.Name, out SchemaEntry? entry) && entry.DefaultValue is string dv)
             {
                 var assign = DefaultAssignment(p, dv);
-                if (assign is not null)
+                if(assign is not null)
                     _ = sb.AppendLine(assign);
             }
         }
@@ -128,12 +128,12 @@ public sealed class OptionsBindingGenerator : IIncrementalGenerator
         _ = sb.AppendLine(
             "        var ok = Validator.TryValidateObject(opts, new ValidationContext(opts), results, validateAllProperties: true);");
 
-// Add extra 'required' checks from schema (lightweight)
-        foreach (PropModel p in m.Properties)
+        // Add extra 'required' checks from schema (lightweight)
+        foreach(PropModel p in m.Properties)
         {
-            if (sectionMap.TryGetValue(p.Name, out SchemaEntry? entry) && entry.IsRequired)
+            if(sectionMap.TryGetValue(p.Name, out SchemaEntry? entry) && entry.IsRequired)
             {
-                switch (p.Kind)
+                switch(p.Kind)
                 {
                     case SimpleKind.String:
                         _ = sb.AppendLine(
@@ -173,17 +173,17 @@ public sealed class OptionsBindingGenerator : IIncrementalGenerator
     private static string? DefaultAssignment(PropModel p, string defaultLiteral)
     {
         // Our schema format uses simple literals: strings, ints, bools
-        switch (p.Kind)
+        switch(p.Kind)
         {
             case SimpleKind.String:
                 return
                     $"        if (string.IsNullOrWhiteSpace(opts.{p.Name})) opts.{p.Name} = {ToCSharpString(defaultLiteral)};";
             case SimpleKind.Int32:
-                if (int.TryParse(defaultLiteral, out _))
+                if(int.TryParse(defaultLiteral, out _))
                     return $"        if (opts.{p.Name} == default(int)) opts.{p.Name} = {defaultLiteral};";
                 return null;
             case SimpleKind.Boolean:
-                if (bool.TryParse(defaultLiteral, out _))
+                if(bool.TryParse(defaultLiteral, out _))
                 {
                     return
                         $"        /* boolean default from schema */ if (opts.{p.Name} == default(bool)) opts.{p.Name} = {defaultLiteral.ToLowerInvariant()};";
@@ -203,16 +203,18 @@ public sealed class OptionsBindingGenerator : IIncrementalGenerator
         ImmutableArray<SchemaFile> files)
     {
         var map = new Dictionary<string, Dictionary<string, SchemaEntry>>(StringComparer.Ordinal);
-        foreach (SchemaFile? f in files)
-        foreach (SchemaEntry? e in f.Entries)
+        foreach(SchemaFile? f in files)
         {
-            if (!map.TryGetValue(e.Section, out Dictionary<string, SchemaEntry>? props))
+            foreach(SchemaEntry? e in f.Entries)
             {
-                props = new Dictionary<string, SchemaEntry>(StringComparer.Ordinal);
-                map[e.Section] = props;
-            }
+                if(!map.TryGetValue(e.Section, out Dictionary<string, SchemaEntry>? props))
+                {
+                    props = new Dictionary<string, SchemaEntry>(StringComparer.Ordinal);
+                    map[e.Section] = props;
+                }
 
-            props[e.Property] = e; // last write wins
+                props[e.Property] = e; // last write wins
+            }
         }
 
         return map;
@@ -228,30 +230,33 @@ public sealed class OptionsBindingGenerator : IIncrementalGenerator
         var entries = new List<SchemaEntry>();
         var content = text.GetText()?.ToString() ?? "";
         var lines = content.Split(["\r\n", "\n"], StringSplitOptions.None);
-        foreach (var raw in lines)
+        foreach(var raw in lines)
         {
             var line = raw.Trim();
-            if (line.Length == 0 || line.StartsWith("#", StringComparison.Ordinal)) continue;
+            if(line.Length == 0 || line.StartsWith("#", StringComparison.Ordinal))
+                continue;
             var parts = line.Split(['='], 2);
-            if (parts.Length != 2) continue;
+            if(parts.Length != 2)
+                continue;
 
             var left = parts[0].Trim(); // Section:Property
             var right = parts[1].Trim(); // required | default:VALUE
 
             var sp = left.Split([':'], 2);
-            if (sp.Length != 2) continue;
+            if(sp.Length != 2)
+                continue;
 
             var section = sp[0].Trim();
             var prop = sp[1].Trim();
             var isReq = false;
             string? def = null;
 
-            if (right.Equals("required", StringComparison.OrdinalIgnoreCase))
+            if(right.Equals("required", StringComparison.OrdinalIgnoreCase))
                 isReq = true;
-            else if (right.StartsWith("default:", StringComparison.OrdinalIgnoreCase))
+            else if(right.StartsWith("default:", StringComparison.OrdinalIgnoreCase))
                 def = right.Substring("default:".Length).Trim();
 
-            if (!string.IsNullOrEmpty(section) && !string.IsNullOrEmpty(prop))
+            if(!string.IsNullOrEmpty(section) && !string.IsNullOrEmpty(prop))
                 entries.Add(new SchemaEntry(section, prop, isReq, def));
         }
 
@@ -262,13 +267,13 @@ public sealed class OptionsBindingGenerator : IIncrementalGenerator
 
     private static SimpleKind GetSimpleKind(ITypeSymbol t)
     {
-        switch (t)
+        return t switch
         {
-            case { SpecialType: SpecialType.System_String }: return SimpleKind.String;
-            case { SpecialType: SpecialType.System_Int32 }: return SimpleKind.Int32;
-            case { SpecialType: SpecialType.System_Boolean }: return SimpleKind.Boolean;
-            default: return SimpleKind.Other;
-        }
+            { SpecialType: SpecialType.System_String } => SimpleKind.String,
+            { SpecialType: SpecialType.System_Int32 } => SimpleKind.Int32,
+            { SpecialType: SpecialType.System_Boolean } => SimpleKind.Boolean,
+            _ => SimpleKind.Other,
+        };
     }
 
     private enum SimpleKind

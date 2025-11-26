@@ -1,6 +1,5 @@
 using System.Collections.Concurrent;
 using System.Diagnostics;
-using System.Threading;
 
 namespace AStar.Dev.OneDrive.Client.Services;
 

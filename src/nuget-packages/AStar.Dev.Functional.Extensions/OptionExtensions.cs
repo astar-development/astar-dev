@@ -109,7 +109,7 @@ public static class OptionExtensions
     public static void Deconstruct<T>(this Option<T> option, out bool isSome, out T? value)
     {
         isSome = option is Option<T>.Some;
-        value  = isSome ? ((Option<T>.Some)option).Value : default;
+        value = isSome ? ((Option<T>.Some)option).Value : default;
     }
 
     /// <summary>
@@ -119,8 +119,8 @@ public static class OptionExtensions
         => option switch
         {
             Option<T>.Some some => new Option<TResult>.Some(await mapAsync(some.Value)),
-            Option<T>.None      => Option.None<TResult>(),
-            _                   => throw new InvalidOperationException(UnreachableMessage)
+            Option<T>.None => Option.None<TResult>(),
+            _ => throw new InvalidOperationException(UnreachableMessage)
         };
 
     /// <summary>
@@ -146,8 +146,8 @@ public static class OptionExtensions
         => option switch
         {
             Option<T>.Some some => await bindAsync(some.Value),
-            Option<T>.None      => Option.None<TResult>(),
-            _                   => throw new InvalidOperationException(UnreachableMessage)
+            Option<T>.None => Option.None<TResult>(),
+            _ => throw new InvalidOperationException(UnreachableMessage)
         };
 
     /// <summary>
@@ -195,7 +195,8 @@ public static class OptionExtensions
     /// </summary>
     public static Option<T> Tap<T>(this Option<T> option, Action<T> action)
     {
-        if(option is Option<T>.Some some) action(some.Value);
+        if(option is Option<T>.Some some)
+            action(some.Value);
 
         return option;
     }
@@ -205,7 +206,8 @@ public static class OptionExtensions
     /// </summary>
     public static async Task<Option<T>> TapAsync<T>(this Option<T> option, Func<T, Task> actionAsync)
     {
-        if(option is Option<T>.Some some) await actionAsync(some.Value);
+        if(option is Option<T>.Some some)
+            await actionAsync(some.Value);
 
         return option;
     }
@@ -239,8 +241,8 @@ public static class OptionExtensions
         => option switch
         {
             Option<T>.Some some => await onSomeAsync(some.Value),
-            Option<T>.None      => onNone(),
-            _                   => throw new InvalidOperationException(UnreachableMessage)
+            Option<T>.None => onNone(),
+            _ => throw new InvalidOperationException(UnreachableMessage)
         };
 
     /// <summary>
@@ -250,8 +252,8 @@ public static class OptionExtensions
         => option switch
         {
             Option<T>.Some some => onSome(some.Value),
-            Option<T>.None      => await onNoneAsync(),
-            _                   => throw new InvalidOperationException(UnreachableMessage)
+            Option<T>.None => await onNoneAsync(),
+            _ => throw new InvalidOperationException(UnreachableMessage)
         };
 
     /// <summary>
@@ -261,8 +263,8 @@ public static class OptionExtensions
         => option switch
         {
             Option<T>.Some some => await onSomeAsync(some.Value),
-            Option<T>.None      => await onNoneAsync(),
-            _                   => throw new InvalidOperationException(UnreachableMessage)
+            Option<T>.None => await onNoneAsync(),
+            _ => throw new InvalidOperationException(UnreachableMessage)
         };
 
     /// <summary>
@@ -320,7 +322,8 @@ public static class OptionExtensions
         {
             Option<TResult> option = chooser(item);
 
-            if(option is Option<TResult>.Some some) yield return some.Value;
+            if(option is Option<TResult>.Some some)
+                yield return some.Value;
         }
     }
 

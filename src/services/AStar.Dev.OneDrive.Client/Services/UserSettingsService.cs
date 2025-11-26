@@ -1,7 +1,5 @@
 using System.Runtime.InteropServices;
 using System.Text.Json;
-using Azure.Identity;
-using Microsoft.Identity.Client;
 
 namespace AStar.Dev.OneDrive.Client.Services;
 
