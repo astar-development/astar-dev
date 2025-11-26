@@ -105,6 +105,9 @@ public sealed class OneDriveService
 
     public async Task DownloadFilesAsync(MainWindowViewModel vm, UserSettings userSettings, CancellationToken token)
     {
+        var globalMetrics = new AStar.Dev.OneDrive.Client.Services.MetricsCollector();
+        globalMetrics.Start();
+        var folderMetrics = new AStar.Dev.OneDrive.Client.Services.FolderMetricsCollector();
         var downloadRoot = "/home/jason/Documents/OneDriveDownloads";
 
         Drive? drive = await _client.Me.Drive.GetAsync(cancellationToken: token);
@@ -124,7 +127,7 @@ public sealed class OneDriveService
         using var semaphore = new SemaphoreSlim(userSettings.MaxParallelDownloads);
 
         // Kick off traversal from root
-        await TraverseAndDownloadAsync(rootItem!, driveId, downloadRoot, vm, downloadedIds, semaphore, token);
+        await TraverseAndDownloadAsync(rootItem!, driveId, downloadRoot, vm, downloadedIds, semaphore, globalMetrics, folderMetrics, token);
 
         // Batch update in chunks
         var batch = new List<string>();
@@ -142,8 +145,14 @@ public sealed class OneDriveService
         {
             await _store.MarkItemsAsDownloadedAsync(batch, token);
         }
-    }
 
+        vm.ReportProgress(globalMetrics.GetSummary());
+
+        foreach((var folder, var files, var mb) in folderMetrics.GetSummary())
+        {
+            vm.ReportProgress($"📂 {folder}: {files} files, {mb:F2} MB");
+        }
+    }
     private async Task TraverseAndDownloadAsync(
         LocalDriveItem item,
         string driveId,
@@ -151,6 +160,8 @@ public sealed class OneDriveService
         MainWindowViewModel vm,
         ConcurrentBag<string> downloadedIds,
         SemaphoreSlim semaphore,
+        MetricsCollector globalMetrics,
+        FolderMetricsCollector folderMetrics,
         CancellationToken token)
     {
         var localPath = Path.Combine(parentLocalPath, item.Name ?? string.Empty);
@@ -160,11 +171,10 @@ public sealed class OneDriveService
             _ = Directory.CreateDirectory(localPath);
             vm.ReportProgress($"📂 Created folder {localPath}");
 
-            // Query DB for children by ParentPath
             IReadOnlyList<LocalDriveItem> children = await _store.GetChildrenAsync(item.Id, token);
             foreach(LocalDriveItem child in children)
             {
-                await TraverseAndDownloadAsync(child, driveId, localPath, vm, downloadedIds, semaphore, token);
+                await TraverseAndDownloadAsync(child, driveId, localPath, vm, downloadedIds, semaphore, globalMetrics, folderMetrics, token);
             }
         }
         else
@@ -188,6 +198,12 @@ public sealed class OneDriveService
 
                     vm.ReportProgress($"⬇️ Downloaded {localPath}");
                     downloadedIds.Add(item.Id);
+
+                    // Record metrics
+                    globalMetrics.RecordFile(fileStream.Length);
+                    folderMetrics.RecordFile(Path.GetDirectoryName(localPath)!, fileStream.Length);
+
+                    vm.ReportProgress(globalMetrics.GetSummary());
                 }
                 catch(Exception ex)
                 {
