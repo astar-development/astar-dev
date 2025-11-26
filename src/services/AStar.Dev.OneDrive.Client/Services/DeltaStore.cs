@@ -369,22 +369,22 @@ public partial class DeltaStore
 
         _ = await cmd.ExecuteNonQueryAsync(token);
     }
-public async Task InsertChildrenAsync(string parentPath, IEnumerable<DriveItem> children, CancellationToken token)
-{
-    using var conn = new SqliteConnection(_connectionString);
-    await conn.OpenAsync(token);
-
-    using SqliteTransaction tx = conn.BeginTransaction();
-
-    foreach (DriveItem child in children)
+    public async Task InsertChildrenAsync(string parentPath, IEnumerable<DriveItem> children, CancellationToken token)
     {
-        using SqliteCommand cmd = conn.CreateCommand();
-        cmd.CommandText = @"
+        using var conn = new SqliteConnection(_connectionString);
+        await conn.OpenAsync(token);
+
+        using SqliteTransaction tx = conn.BeginTransaction();
+
+        foreach(DriveItem child in children)
+        {
+            using SqliteCommand cmd = conn.CreateCommand();
+            cmd.CommandText = @"
             INSERT INTO DriveItems (Id, Name, IsFolder, ParentPath)
             VALUES ($id, $name, $isFolder, $parentPath);";
 
-        // Path-based ID: /drives/{driveId}/root:/Folder/File.ext
-        var id = child.ParentReference?.Path + "/" + child.Name;
+            // Path-based ID: /drives/{driveId}/root:/Folder/File.ext
+            var id = child.ParentReference?.Path + "/" + child.Name;
 
             _ = cmd.Parameters.AddWithValue("$id", id);
             _ = cmd.Parameters.AddWithValue("$name", child.Name ?? string.Empty);
@@ -392,10 +392,10 @@ public async Task InsertChildrenAsync(string parentPath, IEnumerable<DriveItem> 
             _ = cmd.Parameters.AddWithValue("$parentPath", parentPath);
 
             _ = await cmd.ExecuteNonQueryAsync(token);
-    }
+        }
 
-    tx.Commit();
-}
+        tx.Commit();
+    }
     public async Task<IReadOnlyList<LocalDriveItem>> GetChildrenAsync(string parentPath, CancellationToken token)
     {
         var results = new List<LocalDriveItem>();

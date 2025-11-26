@@ -64,62 +64,85 @@ public sealed class OneDriveService
             await DownloadFilesAsync(vm, _userSettings, token);
         }
     }
-public async Task DownloadFilesAsync(MainWindowViewModel vm, UserSettings userSettings, CancellationToken token)
-{
-    var downloadRoot = "/home/jason/Documents/OneDriveDownloads";
+    public async Task BootstrapDriveAsync(string driveId, CancellationToken token)
+    {
+        // Fetch root item from Graph
+        DriveItem? rootItem = await _client.Drives[driveId].Items["root"]
+        .GetAsync(cancellationToken: token);
 
-    Drive? drive = await _client.Me.Drive.GetAsync(cancellationToken: token);
-    var driveId = drive!.Id!;
+        if(rootItem == null)
+            return;
+
+        await _store.InsertRootAsync(driveId, rootItem, token);
+
+        // Recursively insert children
+        await InsertChildrenRecursiveAsync(driveId, rootItem.Id!, $"/drives/{driveId}/root:", token);
+    }
+
+    private async Task InsertChildrenRecursiveAsync(string driveId, string itemId, string parentPath, CancellationToken token)
+    {
+        // Get children of this folder
+        DriveItemCollectionResponse? childrenResponse =
+        await _client.Drives[driveId].Items[itemId].Children
+            .GetAsync(cancellationToken: token);
+
+        if(childrenResponse?.Value == null)
+            return;
+
+        // Insert into DB
+        await _store.InsertChildrenAsync(parentPath, childrenResponse.Value, token);
+
+        // Recurse into subfolders
+        foreach(DriveItem child in childrenResponse.Value)
+        {
+            if(child.Folder != null && child.Id != null)
+            {
+                var childPath = (child.ParentReference?.Path ?? parentPath) + "/" + child.Name;
+                await InsertChildrenRecursiveAsync(driveId, child.Id, childPath, token);
+            }
+        }
+    }
+
+    public async Task DownloadFilesAsync(MainWindowViewModel vm, UserSettings userSettings, CancellationToken token)
+    {
+        var downloadRoot = "/home/jason/Documents/OneDriveDownloads";
+
+        Drive? drive = await _client.Me.Drive.GetAsync(cancellationToken: token);
+        var driveId = drive!.Id!;
 
         // Try to get root item from DB
         LocalDriveItem? rootItem = await _store.GetRootAsync(driveId, token);
-    if (rootItem == null)
-    {
-        vm.ReportProgress("ℹ️ Root not found in DB, fetching from Graph...");
-
-        DriveItem? graphRoot = await _client.Drives[driveId].Root.GetAsync(cancellationToken: token);
-        if (graphRoot == null)
+        if(rootItem == null)
         {
-            vm.ReportProgress("⚠️ Failed to fetch root from Graph");
-            return;
+            vm.ReportProgress("ℹ️ Bootstrapping DB from Graph...");
+            await BootstrapDriveAsync(driveId, token);
+            rootItem = await _store.GetRootAsync(driveId, token);
+            vm.ReportProgress("✅ DB fully populated from Graph");
         }
 
-        await _store.InsertRootAsync(driveId, graphRoot, token);
+        var downloadedIds = new ConcurrentBag<string>();
+        using var semaphore = new SemaphoreSlim(userSettings.MaxParallelDownloads);
 
-            // Fetch immediate children of root
-            DriveItemCollectionResponse? childrenResponse = await _client.Drives[driveId].Items["root"].Children.GetAsync(cancellationToken: token);
-        if (childrenResponse?.Value != null)
+        // Kick off traversal from root
+        await TraverseAndDownloadAsync(rootItem!, driveId, downloadRoot, vm, downloadedIds, semaphore, token);
+
+        // Batch update in chunks
+        var batch = new List<string>();
+        foreach(var id in downloadedIds)
         {
-            await _store.InsertChildrenAsync($"/drives/{driveId}/root:", childrenResponse.Value, token);
-            vm.ReportProgress($"✅ Inserted {childrenResponse.Value.Count} root children into DB");
+            batch.Add(id);
+            if(batch.Count >= userSettings.DownloadBatchSize)
+            {
+                await _store.MarkItemsAsDownloadedAsync(batch, token);
+                batch.Clear();
+            }
         }
 
-        rootItem = await _store.GetRootAsync(driveId, token);
-    }
-
-    var downloadedIds = new ConcurrentBag<string>();
-    using var semaphore = new SemaphoreSlim(userSettings.MaxParallelDownloads);
-
-    // Kick off traversal from root
-    await TraverseAndDownloadAsync(rootItem!, driveId, downloadRoot, vm, downloadedIds, semaphore, token);
-
-    // Batch update in chunks
-    var batch = new List<string>();
-    foreach (var id in downloadedIds)
-    {
-        batch.Add(id);
-        if (batch.Count >= userSettings.DownloadBatchSize)
+        if(batch.Count > 0)
         {
             await _store.MarkItemsAsDownloadedAsync(batch, token);
-            batch.Clear();
         }
     }
-
-    if (batch.Count > 0)
-    {
-        await _store.MarkItemsAsDownloadedAsync(batch, token);
-    }
-}
 
     private async Task TraverseAndDownloadAsync(
         LocalDriveItem item,
