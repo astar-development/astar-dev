@@ -15,14 +15,14 @@
         <ProjectReference Include="..\..\nuget-packages\AStar.Dev.Functional.Extensions\AStar.Dev.Functional.Extensions.csproj" />
         <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="10.0.0" />
         <PackageReference Include="Microsoft.Graph" Version="5.97.0" />
-        <PackageReference Include="Azure.Identity" Version="1.17.0" />
-        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.0" />
-        <PackageReference Include="Avalonia" Version="11.0.10" />
-        <PackageReference Include="Avalonia.Desktop" Version="11.0.10" />
+        <PackageReference Include="Azure.Identity" Version="1.17.1" />
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+        <PackageReference Include="Avalonia" Version="11.3.9" />
+        <PackageReference Include="Avalonia.Desktop" Version="11.3.9" />
         <!--        <PackageReference Include="Avalonia.Xaml.Behaviors" Version="11.0.10" />-->
-        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.10" />
+        <PackageReference Include="Avalonia.Themes.Fluent" Version="11.3.9" />
         <!--        <PackageReference Include="Avalonia.ReactiveUI" Version="11.0.10" />-->
-        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.0.10" />
+        <PackageReference Include="Avalonia.Fonts.Inter" Version="11.3.9" />
         <PackageReference Include="Serilog.AspNetCore" Version="7.0.0" />
         <PackageReference Include="Serilog.Settings.Configuration" Version="7.0.0" />
         <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0" />
