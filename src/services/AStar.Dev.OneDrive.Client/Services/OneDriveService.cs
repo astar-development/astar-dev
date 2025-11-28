@@ -23,7 +23,7 @@ public sealed class OneDriveService(ILoginService loginService, UserSettings use
     public async Task RunFullSyncAsync(MainWindowViewModel vm, CancellationToken token)
     {
         // 1. Sign in
-        Result<GraphServiceClient, Exception> loginResult = await loginService.SignInAsync();
+        Result<GraphServiceClient, Exception> loginResult = await loginService.CreateGraphServiceClientAsync();
         if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
             throw loginErr.Reason;
 
@@ -236,7 +236,7 @@ var SyncManager = new SyncManager(_client, _store, vm, token);
 
         return await Try.RunAsync(async () =>
         {
-            Result<GraphServiceClient, Exception> loginResult = await loginService.SignInAsync();
+            Result<GraphServiceClient, Exception> loginResult = await loginService.CreateGraphServiceClientAsync();
             if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
             {
                 throw loginErr.Reason;
@@ -273,7 +273,7 @@ var SyncManager = new SyncManager(_client, _store, vm, token);
 
         return await Try.RunAsync(async () =>
         {
-            Result<GraphServiceClient, Exception> loginResult = await loginService.SignInAsync();
+            Result<GraphServiceClient, Exception> loginResult = await loginService.CreateGraphServiceClientAsync();
             if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
             {
                 throw loginErr.Reason;
@@ -302,7 +302,7 @@ var SyncManager = new SyncManager(_client, _store, vm, token);
 
         return await Try.RunAsync(async () =>
         {
-            Result<GraphServiceClient, Exception> loginResult = await loginService.SignInAsync();
+            Result<GraphServiceClient, Exception> loginResult = await loginService.CreateGraphServiceClientAsync();
             if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
             {
                 throw loginErr.Reason;
@@ -339,7 +339,7 @@ var SyncManager = new SyncManager(_client, _store, vm, token);
 
         return await Try.RunAsync(async () =>
         {
-            Result<GraphServiceClient, Exception> loginResult = await loginService.SignInAsync();
+            Result<GraphServiceClient, Exception> loginResult = await loginService.CreateGraphServiceClientAsync();
             if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
             {
                 throw loginErr.Reason;

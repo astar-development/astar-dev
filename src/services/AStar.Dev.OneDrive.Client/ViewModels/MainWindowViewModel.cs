@@ -89,7 +89,7 @@ public partial class MainWindowViewModel : ObservableObject
         {
             _logger?.LogInformation("Sign-in started");
             ErrorMessage = string.Empty;
-            Result<GraphServiceClient, Exception> loginResult = await _loginService.SignInAsync();
+            Result<GraphServiceClient, Exception> loginResult = await _loginService.CreateGraphServiceClientAsync();
             // Use Match to handle Result
             if(loginResult is Result<GraphServiceClient, Exception>.Error error)
             {

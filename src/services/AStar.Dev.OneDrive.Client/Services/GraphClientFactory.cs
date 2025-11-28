@@ -31,8 +31,8 @@ public static class GraphClientFactory
         };
 
         // Use default Kiota factories
-        var parseNodeFactory = ParseNodeFactoryRegistry.DefaultInstance;
-        var serializationWriterFactory = SerializationWriterFactoryRegistry.DefaultInstance;
+        ParseNodeFactoryRegistry parseNodeFactory = ParseNodeFactoryRegistry.DefaultInstance;
+        SerializationWriterFactoryRegistry serializationWriterFactory = SerializationWriterFactoryRegistry.DefaultInstance;
 
         // Construct adapter with auth + factories + custom HttpClient
         var adapter = new HttpClientRequestAdapter(
@@ -59,7 +59,7 @@ public static class GraphClientFactory
         {
             _logAction?.Invoke($"➡️ {request.Method} {request.RequestUri}");
 
-            var response = await base.SendAsync(request, cancellationToken);
+            HttpResponseMessage response = await base.SendAsync(request, cancellationToken);
 
             _logAction?.Invoke($"⬅️ {(int)response.StatusCode} {response.ReasonPhrase}");
 

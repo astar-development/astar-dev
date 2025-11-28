@@ -3,48 +3,74 @@ using AStar.Dev.Functional.Extensions;
 using Azure.Identity;
 using Microsoft.Extensions.Logging;
 using Microsoft.Graph;
-using Microsoft.Graph.Authentication;
+using Microsoft.Identity.Client;
 
 namespace AStar.Dev.OneDrive.Client.Services;
 
 public sealed class LoginService(AppSettings settings, UserSettings userSettings, ILogger<LoginService> logger) : ILoginService
 {
     private GraphServiceClient? _client;
-    private InteractiveBrowserCredential? _credential;
+    private IPublicClientApplication _pca = null!;
+    private readonly string[] _scopes = new[] { "User.Read", "Files.ReadWrite.All", "offline_access" };
 
-    public bool IsSignedIn => _client != null;
+public async Task<Result<GraphServiceClient, Exception>> CreateGraphServiceClientAsync()
+{
+    logger.LogInformation("Starting sign-in for ClientId={ClientId}, RememberMe={RememberMe}, CacheTag={CacheTag}",
+        settings.ClientId, userSettings.RememberMe, userSettings.CacheTag);
 
-    public Task<Result<GraphServiceClient, Exception>> SignInAsync()
+    if (_client != null)
     {
-        logger.LogInformation("Starting sign-in for ClientId={ClientId}, RememberMe={RememberMe}, CacheTag={CacheTag}",
-            settings.ClientId, userSettings.RememberMe, userSettings.CacheTag);
+        logger.LogDebug("Already signed in; returning existing Graph client");
+        return new Result<GraphServiceClient, Exception>.Ok(_client);
+    }
 
-        if(_client != null)
+    return Try.Run(() =>
+    {
+        _pca = PublicClientApplicationBuilder.Create(settings.ClientId)
+            .WithTenantId(settings.TenantId)
+            .WithRedirectUri("http://localhost")
+            .Build();
+
+        var cacheFile = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
+            $"AStarOneDriveTokenCache_v{userSettings.CacheTag}.bin");
+
+        TokenCacheHelper.EnableSerialization(_pca.UserTokenCache, cacheFile);
+
+        IEnumerable<IAccount> accounts = _pca.GetAccountsAsync().GetAwaiter().GetResult();
+        IAccount? account = accounts.FirstOrDefault();
+
+        AuthenticationResult result;
+        if (account != null)
         {
-            logger.LogDebug("Already signed in; returning existing Graph client");
-            return Task.FromResult<Result<GraphServiceClient, Exception>>(new Result<GraphServiceClient, Exception>.Ok(_client));
+            try
+            {
+                result = _pca.AcquireTokenSilent(_scopes, account)
+                             .ExecuteAsync().GetAwaiter().GetResult();
+                logger.LogInformation("Silent token acquisition succeeded, expires {ExpiresOn}", result.ExpiresOn);
+            }
+            catch (MsalUiRequiredException)
+            {
+                result = _pca.AcquireTokenInteractive(_scopes)
+                             .WithPrompt(Prompt.SelectAccount)
+                             .ExecuteAsync().GetAwaiter().GetResult();
+                logger.LogInformation("Interactive token acquisition succeeded, expires {ExpiresOn}", result.ExpiresOn);
+            }
+        }
+        else
+        {
+            result = _pca.AcquireTokenInteractive(_scopes)
+                         .WithPrompt(Prompt.SelectAccount)
+                         .ExecuteAsync().GetAwaiter().GetResult();
+            logger.LogInformation("Interactive token acquisition succeeded, expires {ExpiresOn}", result.ExpiresOn);
         }
 
-        return Try.RunAsync(async () =>
-        {
-            InteractiveBrowserCredentialOptions options = BuildCredentialOptions();
+        var provider = new MsalAuthenticationProvider(_pca, _scopes);
+        _client = new GraphServiceClient(provider);
 
-            var allowedHosts = new[] { "graph.microsoft.com" };
-            var graphScopes = new[] { "User.Read", "Files.ReadWrite.All", "offline_access" };
-
-            _credential = new InteractiveBrowserCredential(options);
-
-            var authProvider = new AzureIdentityAuthenticationProvider(
-                _credential,
-                allowedHosts,
-                null,
-                true,
-                scopes: graphScopes);
-
-            _client = GraphClientFactory.CreateGraphClient(authProvider);
-            return _client;
-        });
-    }
+        return _client;
+    });
+}
 
     public Task<Result<bool, Exception>> SignOutAsync(bool hard = false)
         => Try.RunAsync<bool>(() =>
@@ -52,7 +78,6 @@ public sealed class LoginService(AppSettings settings, UserSettings userSettings
             logger.LogInformation("Signing out user (RememberMe={RememberMe}, CacheTag={CacheTag})",
                 userSettings.RememberMe, userSettings.CacheTag);
 
-            // 1) Browser logout
             var logoutUri =
                 $"https://login.microsoftonline.com/common/oauth2/v2.0/logout?post_logout_redirect_uri={Uri.EscapeDataString("http://localhost")}";
             try
@@ -65,11 +90,8 @@ public sealed class LoginService(AppSettings settings, UserSettings userSettings
                 logger.LogWarning(ex, "Failed to open browser logout URL");
             }
 
-            // 2) Clear local references
-            _credential = null;
             _client = null;
 
-            // 3) Hard sign-out: rotate cache name
             if(hard && userSettings.RememberMe)
             {
                 userSettings.CacheTag++;
@@ -78,25 +100,4 @@ public sealed class LoginService(AppSettings settings, UserSettings userSettings
 
             return Task.FromResult(true);
         });
-
-    private InteractiveBrowserCredentialOptions BuildCredentialOptions()
-    {
-        var options = new InteractiveBrowserCredentialOptions
-        {
-            ClientId = settings.ClientId,
-            TenantId = settings.TenantId,
-            RedirectUri = new Uri("http://localhost"),
-        };
-
-        if(userSettings.RememberMe)
-        {
-            options.TokenCachePersistenceOptions = new TokenCachePersistenceOptions
-            {
-                Name = $"MyAppTokenCache_v{userSettings.CacheTag}",
-                UnsafeAllowUnencryptedStorage = false
-            };
-        }
-
-        return options;
-    }
 }

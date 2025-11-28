@@ -5,8 +5,6 @@ namespace AStar.Dev.OneDrive.Client.Services;
 
 public interface ILoginService
 {
-    bool IsSignedIn { get; }
-
-    Task<Result<GraphServiceClient, Exception>> SignInAsync();
+    Task<Result<GraphServiceClient, Exception>> CreateGraphServiceClientAsync();
     Task<Result<bool, Exception>> SignOutAsync(bool hard = false);
 }

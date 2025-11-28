@@ -16010,8 +16010,8 @@ public sealed class MsalAuthenticationProvider : IAuthenticationProvider
         Dictionary<string, object>? additionalAuthenticationContext = null,
         CancellationToken cancellationToken = default)
     {
-        var accounts = await _pca.GetAccountsAsync().ConfigureAwait(false);
-        var account = accounts.FirstOrDefault();
+        IEnumerable<IAccount> accounts = await _pca.GetAccountsAsync().ConfigureAwait(false);
+        IAccount? account = accounts.FirstOrDefault();
 
         AuthenticationResult result;
         try
