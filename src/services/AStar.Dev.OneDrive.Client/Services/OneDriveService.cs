@@ -37,19 +37,11 @@ public sealed class OneDriveService(ILoginService loginService, UserSettings use
         var dbPath = Path.Combine(fullAppDataPath, "onedrive_sync.db");
         _store = new DeltaStore(logger, dbPath);
 
-        // 3. Bootstrap hierarchy if DB is empty
-        Drive? drive = await _client.Me.Drive.GetAsync(cancellationToken: token);
-        var driveId = drive!.Id!;
-        LocalDriveItem? rootItem = await _store.GetRootAsync(driveId, token);
-        if(rootItem == null)
-        {
-            vm.ReportProgress("ℹ️ Bootstrapping DB from Graph...");
-            await BootstrapDriveAsync(driveId, vm, token);
-            vm.ReportProgress("✅ DB fully populated from Graph");
-        }
+var SyncManager = new SyncManager(_client, _store, vm, token);
+        await SyncManager.RunSyncAsync();
 
-        // 4. Download files
-        await DownloadFilesAsync(vm, userSettings, token);
+        if(userSettings.DownloadFilesAfterSync)
+            await DownloadFilesAsync(vm, userSettings, token);
     }
 
     private async Task BootstrapDriveAsync(string driveId, MainWindowViewModel vm, CancellationToken token)
