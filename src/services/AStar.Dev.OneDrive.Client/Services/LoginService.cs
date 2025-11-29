@@ -7,7 +7,7 @@ using Microsoft.Identity.Client;
 
 namespace AStar.Dev.OneDrive.Client.Services;
 
-public sealed class LoginService(AppSettings settings, UserSettings userSettings, ILogger<LoginService> logger) : ILoginService
+public sealed class LoginService(AppSettings settings, UserSettings.UserPreferences userPreferences, ILogger<LoginService> logger) : ILoginService
 {
     private GraphServiceClient? _client;
     private IPublicClientApplication _pca = null!;
@@ -16,7 +16,7 @@ public sealed class LoginService(AppSettings settings, UserSettings userSettings
 public async Task<Result<GraphServiceClient, Exception>> CreateGraphServiceClientAsync()
 {
     logger.LogInformation("Starting sign-in for ClientId={ClientId}, RememberMe={RememberMe}, CacheTag={CacheTag}",
-        settings.ClientId, userSettings.RememberMe, userSettings.CacheTag);
+        settings.ClientId, userPreferences.RememberMe, userPreferences.CacheTag);
 
     if (_client != null)
     {
@@ -33,7 +33,7 @@ public async Task<Result<GraphServiceClient, Exception>> CreateGraphServiceClien
 
         var cacheFile = Path.Combine(
             Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-            $"AStarOneDriveTokenCache_v{userSettings.CacheTag}.bin");
+            $"AStarOneDriveTokenCache_v{userPreferences.CacheTag}.bin");
 
         TokenCacheHelper.EnableSerialization(_pca.UserTokenCache, cacheFile);
 
@@ -76,7 +76,7 @@ public async Task<Result<GraphServiceClient, Exception>> CreateGraphServiceClien
         => Try.RunAsync<bool>(() =>
         {
             logger.LogInformation("Signing out user (RememberMe={RememberMe}, CacheTag={CacheTag})",
-                userSettings.RememberMe, userSettings.CacheTag);
+                userPreferences.RememberMe, userPreferences.CacheTag);
 
             var logoutUri =
                 $"https://login.microsoftonline.com/common/oauth2/v2.0/logout?post_logout_redirect_uri={Uri.EscapeDataString("http://localhost")}";
@@ -92,10 +92,10 @@ public async Task<Result<GraphServiceClient, Exception>> CreateGraphServiceClien
 
             _client = null;
 
-            if(hard && userSettings.RememberMe)
+            if(hard && userPreferences.RememberMe)
             {
-                userSettings.CacheTag++;
-                logger.LogInformation("Rotated cache tag to {CacheTag}", userSettings.CacheTag);
+                userPreferences.CacheTag++;
+                logger.LogInformation("Rotated cache tag to {CacheTag}", userPreferences.CacheTag);
             }
 
             return Task.FromResult(true);

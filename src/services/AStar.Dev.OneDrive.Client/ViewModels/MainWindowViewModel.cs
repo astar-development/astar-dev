@@ -35,16 +35,7 @@ public partial class MainWindowViewModel : ObservableObject
     }
 
     public ObservableCollection<string> ProgressMessages { get; } = new();
-    public bool FollowLog
-    {
-        get;
-        set => SetProperty(ref field, value);
-    } = true;
-    public bool DownloadFilesAfterSync
-    {
-        get;
-        set => SetProperty(ref field, value);
-    }
+
     public bool IsSyncing
     {
         get;
@@ -56,17 +47,12 @@ public partial class MainWindowViewModel : ObservableObject
         get;
         set => SetProperty(ref field, value);
     }
-    public string Theme
-    {
-        get;
-        set => SetProperty(ref field, value);
-    } = "Auto";
 
-    public bool RememberMe
+    public UserSettings.UserPreferences UserPreferences
     {
         get;
         set => SetProperty(ref field, value);
-    }
+    } = new();
 
     public string Status
     {
@@ -88,7 +74,7 @@ public partial class MainWindowViewModel : ObservableObject
     public IAsyncRelayCommand SignOutCommand { get; }
     public IAsyncRelayCommand LoadRootCommand { get; }
     public IAsyncRelayCommand CancelSyncCommand => new AsyncRelayCommand(CancelSync);
-    public ICommand ToggleFollowLogCommand => new RelayCommand(() => FollowLog = !FollowLog);
+    public ICommand ToggleFollowLogCommand => new RelayCommand(() => UserPreferences.FollowLog = !UserPreferences.FollowLog);
 
     private async Task CancelSync()
     {

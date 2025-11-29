@@ -1,4 +1,5 @@
 using AStar.Dev.OneDrive.Client.Services;
+using AStar.Dev.OneDrive.Client.UserSettings;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Styling;
@@ -7,7 +8,7 @@ namespace AStar.Dev.OneDrive.Client.Theme;
 
 public sealed class ThemeService
 {
-    public void PersistNewTheme(ComboBox cb, App app, UserSettingsService userSettingsService)
+    public void PersistNewTheme(ComboBox cb, App app, UserPreferencesService userPreferencesService)
     {
         switch(cb.SelectedIndex)
         {
@@ -24,7 +25,7 @@ public sealed class ThemeService
 
         try
         {
-            UserSettings s = userSettingsService.Load();
+            UserSettings.UserPreferences s = userPreferencesService.Load();
             s.Theme = cb.SelectedIndex switch
             {
                 1 => "Light",
@@ -32,7 +33,7 @@ public sealed class ThemeService
                 _ => "Auto"
             };
 
-            userSettingsService.Save(s);
+            userPreferencesService.Save(s); // Pretty sure this is not required but it comes from a "working" version so not removing... yet
         }
         catch
         {
@@ -40,11 +41,11 @@ public sealed class ThemeService
         }
     }
 
-    public void ApplyThemePreference(UserSettings userSettings)
+    public void ApplyThemePreference(UserSettings.UserPreferences userPreferences)
     {
         if(Application.Current is not App app) return;
 
-        switch(userSettings.Theme)
+        switch(userPreferences.Theme)
         {
             case "Light":
                 app.SetTheme(ThemeVariant.Light);

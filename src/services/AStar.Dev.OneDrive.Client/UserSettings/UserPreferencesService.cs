@@ -1,13 +1,14 @@
 using System.Runtime.InteropServices;
 using System.Text.Json;
+using AStar.Dev.Functional.Extensions;
 
-namespace AStar.Dev.OneDrive.Client.Services;
+namespace AStar.Dev.OneDrive.Client.UserSettings;
 
-public sealed class UserSettingsService
+public sealed class UserPreferencesService
 {
     private readonly string _filePath;
 
-    public UserSettingsService()
+    public UserPreferencesService()
     {
         var dir = GetSettingsDirectory();
         try
@@ -19,8 +20,8 @@ public sealed class UserSettingsService
         _filePath = Path.Combine(dir, "AStar.OneDrive.Client.settings.json");
     }
 
-    // Testable constructor: allow specifying custom file path (useful in unit tests)
-    public UserSettingsService(string filePath) => _filePath = filePath;
+    // Testable constructor: allows specifying the custom file path (useful in unit tests)
+    public UserPreferencesService(string filePath) => _filePath = filePath;
 
     private static string GetSettingsDirectory()
     {
@@ -35,36 +36,36 @@ public sealed class UserSettingsService
         return Path.Combine(home, ".config", "astar-dev");
     }
 
-    public UserSettings Load()
+    public UserPreferences Load()
     {
         try
         {
             if(!File.Exists(_filePath))
-                return new UserSettings();
+                return new UserPreferences();
 
             var json = File.ReadAllText(_filePath);
-            UserSettings? userSettings = JsonSerializer.Deserialize<UserSettings>(json);
-            return userSettings ?? new UserSettings();
+            UserPreferences? userSettings = JsonSerializer.Deserialize<UserPreferences>(json);
+            return userSettings ?? new UserPreferences();
         }
         catch
         {
-            return new UserSettings();
+            return new UserPreferences();
         }
     }
 
     // Functional result-based loader
-    public async Task<AStar.Dev.Functional.Extensions.Result<UserSettings, Exception>> LoadResultAsync() => await Functional.Extensions.Try.RunAsync(async () => Load());
+    public Result<UserPreferences, Exception> LoadResult() => Try.Run(Load);
 
-    public void Save(UserSettings settings)
+    public void Save(UserPreferences preferences)
     {
         try
         {
-            var json = JsonSerializer.Serialize(settings, new JsonSerializerOptions { WriteIndented = true });
+            var json = JsonSerializer.Serialize(preferences, new JsonSerializerOptions { WriteIndented = true });
             File.WriteAllText(_filePath, json);
 
             // No explicit cache clearing API in Azure.Identity.
-            // If RememberMe is false, next run will construct the credential without persistence,
-            // so tokens won't survive app exit.
+            // If RememberMe is false, the next run will construct the credential without persistence,
+            // so tokens won't survive app exit. Well, that is what ChatGPT5 coded. I am not convinced...
         }
         catch
         {
@@ -73,10 +74,10 @@ public sealed class UserSettingsService
     }
 
     // Functional result-based saver (returns the saved settings on success)
-    public async Task<AStar.Dev.Functional.Extensions.Result<UserSettings, Exception>> SaveResultAsync(UserSettings settings)
+    public async Task<AStar.Dev.Functional.Extensions.Result<UserPreferences, Exception>> SaveResultAsync(UserPreferences preferences)
         => await Functional.Extensions.Try.RunAsync(async () =>
                                                             {
-                                                                Save(settings);
-                                                                return settings;
+                                                                Save(preferences);
+                                                                return preferences;
                                                             });
 }

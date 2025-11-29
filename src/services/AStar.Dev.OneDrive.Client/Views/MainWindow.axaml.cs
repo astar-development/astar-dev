@@ -1,173 +1,179 @@
-using System.Collections;
+using System.ComponentModel;
 using AStar.Dev.OneDrive.Client.Services;
 using AStar.Dev.OneDrive.Client.Theme;
+using AStar.Dev.OneDrive.Client.UserSettings;
 using AStar.Dev.OneDrive.Client.ViewModels;
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Styling;
 using Avalonia.Threading;
 using Avalonia.VisualTree;
-using System.Linq;
 
 namespace AStar.Dev.OneDrive.Client.Views;
 
 public partial class MainWindow : Window
 {
+    private readonly ThemeService _themeService = new();
+    private readonly UserPreferencesService? _userPreferencesService;
     private readonly MainWindowViewModel? _vm;
-    private readonly UserSettingsService? _userSettingsService;
-    private readonly ThemeService? _themeService;
 
     private bool _autoScrollEnabled = true;
 
-    // Designer-friendly parameterless ctor
-
+    /// <summary>
+    ///     Designer-friendly parameterless ctor
+    /// </summary>
     public MainWindow() => InitializeComponent();
 
-    public MainWindow(MainWindowViewModel vm, UserSettingsService userSettingsService, ThemeService themeService)
+    public MainWindow(MainWindowViewModel vm, UserPreferencesService userPreferencesService, ThemeService themeService)
     {
         InitializeComponent();
         _vm = vm;
-        _userSettingsService = userSettingsService;
+        _userPreferencesService = userPreferencesService;
         _themeService = themeService;
-
         DataContext = _vm;
 
-        ProgressList.TemplateApplied += (_, __) =>
-        {
-            ScrollViewer? scrollViewer = ProgressList.GetVisualDescendants()
-                                       .OfType<ScrollViewer>()
-                                       .FirstOrDefault();
-            if(scrollViewer == null)
-                return;
-
-            // Track whether user is at bottom
-            scrollViewer.ScrollChanged += (_, e) =>
-            {
-                var offset = scrollViewer.GetValue(ScrollViewer.OffsetProperty).Y;
-                var extent = scrollViewer.GetValue(ScrollViewer.ExtentProperty).Height;
-                var viewport = scrollViewer.GetValue(ScrollViewer.ViewportProperty).Height;
-
-                // If content fits, always auto-scroll
-                _autoScrollEnabled = extent <= viewport + 1 || offset >= extent - viewport - 1;
-            };
-
-            // Scroll when new items are added
-            _vm.ProgressMessages.CollectionChanged += (s, e) =>
-            {
-                if(_autoScrollEnabled && _vm.FollowLog && _vm.ProgressMessages.Count > 0)
-                {
-                    _ = Dispatcher.UIThread.InvokeAsync(() =>
-                    {
-                        // Scroll to bottom by setting offset directly
-                        var extent = scrollViewer.GetValue(ScrollViewer.ExtentProperty).Height;
-                        var viewport = scrollViewer.GetValue(ScrollViewer.ViewportProperty).Height;
-                        scrollViewer.Offset = new Avalonia.Vector(0, extent - viewport);
-                    }, DispatcherPriority.Render);
-                }
-            };
-        };
+        ProgressList.TemplateApplied += (_, __) => UpdateProgressList();
 
         PostInitialize();
     }
 
-    // Perform runtime-only initialization that requires injected services
-    private void PostInitialize()
+    private void UpdateProgressList()
     {
-        // Ensure injected services are present (this method is DI-only)
-        if(_userSettingsService is null || _vm is null || _themeService is null)
+        ScrollViewer? scrollViewer = ProgressList.GetVisualDescendants()
+            .OfType<ScrollViewer>()
+            .FirstOrDefault();
+        if(scrollViewer == null)
             return;
 
-        // Apply persisted theme
-        UserSettings userSettings = _userSettingsService.Load();
-        if(Application.Current is App app)
+        scrollViewer.ScrollChanged += (_, e) =>
         {
-            switch(userSettings.Theme)
+            var offset = scrollViewer.GetValue(ScrollViewer.OffsetProperty).Y;
+            var extent = scrollViewer.GetValue(ScrollViewer.ExtentProperty).Height;
+            var viewport = scrollViewer.GetValue(ScrollViewer.ViewportProperty).Height;
+
+            _autoScrollEnabled = extent <= viewport + 1 || offset >= extent - viewport - 1;
+        };
+
+        _vm?.ProgressMessages.CollectionChanged += (s, e) => ScrollMessageDisplay(scrollViewer);
+    }
+
+    private void ScrollMessageDisplay(ScrollViewer? scrollViewer)
+    {
+        if(_autoScrollEnabled && _vm!.UserPreferences.FollowLog && _vm.ProgressMessages.Count > 0)
+        {
+            _ = Dispatcher.UIThread.InvokeAsync(() =>
             {
-                case "Light":
-                    app.SetTheme(ThemeVariant.Light);
-                    break;
-                case "Dark":
-                    app.SetTheme(ThemeVariant.Dark);
-                    break;
-                default:
-                    app.SetTheme(ThemeVariant.Default);
-                    break;
-            }
+                var extent = scrollViewer?.GetValue(ScrollViewer.ExtentProperty).Height;
+                var viewport = scrollViewer?.GetValue(ScrollViewer.ViewportProperty).Height;
+                _ = (scrollViewer?.Offset = new Vector(0, (extent - viewport) ?? 0));
+            }, DispatcherPriority.Render);
         }
+    }
 
-        // Set DataContext from injected ViewModel
+    private void PostInitialize()
+    {
+        if(_userPreferencesService is null || _vm is null)
+            return;
+
+        UserSettings.UserPreferences userPreferences = _userPreferencesService.Load();
+        _themeService.ApplyThemePreference(userPreferences);
+
         DataContext = _vm;
-        _vm.DownloadFilesAfterSync = userSettings.DownloadFilesAfterSync;
-        _vm.RememberMe = userSettings.RememberMe;
-        _vm.FollowLog = userSettings.FollowLog;
-        _vm.Status = userSettings.LastAction ?? "Not signed in";
-        _vm.Theme = userSettings.Theme;
+        _vm.UserPreferences = userPreferences;
+        _vm.Status = userPreferences.LastAction ?? "Not signed in";
 
-        // Initialize theme selector state
+        SetThemeBasedOnUserSettings(userPreferences);
+
+        UpdateWindowDimensionsAndPosition(userPreferences);
+
+        Closing += (_, __) => PersistUserPreferences();
+
+        _vm.PropertyChanged += (_, e) => UpdateTheLastAction(e);
+    }
+
+    private void SetThemeBasedOnUserSettings(UserSettings.UserPreferences userPreferences)
+    {
         try
         {
             ComboBox? combo = this.FindControl<ComboBox>("ThemeSelector");
-            if(combo is not null && userSettings is not null)
+            _ = (combo?.SelectedIndex = userPreferences.Theme switch
             {
-                combo.SelectedIndex = userSettings.Theme switch
-                {
-                    "Light" => 1,
-                    "Dark" => 2,
-                    _ => 0,
-                };
-            }
+                "Light" => 1,
+                "Dark" => 2,
+                _ => 0
+            });
         }
-        catch { }
+        catch
+        {
+            // ignored
+        }
+    }
 
-        // Restore window position/size if available
+    private void UpdateTheLastAction(PropertyChangedEventArgs e)
+    {
         try
         {
-            if(userSettings is not null && userSettings.WindowWidth > 0 && userSettings.WindowHeight > 0)
-            {
-                Width = userSettings.WindowWidth;
-                Height = userSettings.WindowHeight;
-            }
-
-            if(userSettings is not null && userSettings.WindowX.HasValue && userSettings.WindowY.HasValue) Position = new PixelPoint(userSettings.WindowX.Value, userSettings.WindowY.Value);
+            if(e.PropertyName != nameof(MainWindowViewModel.Status) || _userPreferencesService is null || _vm is null) return;
+            UserSettings.UserPreferences s = _userPreferencesService.Load();
+            s.LastAction = _vm.Status;
+            _userPreferencesService.Save(s);
         }
-        catch { }
-
-        // Persist window bounds on close
-        Closing += (_, __) =>
+        catch
         {
-            try
-            {
-                if(_userSettingsService is null) return;
-                UserSettings s = _userSettingsService.Load();
-                s.WindowWidth = Width;
-                s.WindowHeight = Height;
-                s.WindowX = Position.X;
-                s.WindowY = Position.Y;
-                s.DownloadFilesAfterSync = _vm.DownloadFilesAfterSync;
-                s.RememberMe = _vm.RememberMe;
-                s.FollowLog = _vm.FollowLog;
-                s.Theme = _vm.Theme;
-                _userSettingsService.Save(s);
-            }
-            catch { }
-        };
+            // ignored
+        }
+    }
 
-        // Update last account when ViewModel status changes (simple approach)
-        _vm.PropertyChanged += (_, e) =>
+    private void UpdateWindowDimensionsAndPosition(UserSettings.UserPreferences userPreferences)
+    {
+        try
         {
-            try
+            if(userPreferences is { WindowWidth: > 0, WindowHeight: > 0 })
             {
-                if(e.PropertyName != nameof(MainWindowViewModel.Status) || _userSettingsService is null || _vm is null) return;
-                UserSettings s = _userSettingsService.Load();
-                s.LastAction = _vm.Status;
-                _userSettingsService.Save(s);
+                Width = userPreferences.WindowWidth;
+                Height = userPreferences.WindowHeight;
             }
-            catch { }
-        };
+
+            if(userPreferences is { WindowX: not null, WindowY: not null })
+                Position = new PixelPoint(userPreferences.WindowX.Value, userPreferences.WindowY.Value);
+        }
+        catch
+        {
+            // ignored
+        }
+    }
+
+    private void PersistUserPreferences()
+    {
+        try
+        {
+            if(_userPreferencesService is null) return;
+            UserSettings.UserPreferences s = _userPreferencesService.Load();
+            s.WindowWidth = Width;
+            s.WindowHeight = Height;
+            s.WindowX = Position.X;
+            s.WindowY = Position.Y;
+            s.RememberMe = _vm?.UserPreferences.RememberMe ?? false;
+            s.FollowLog = _vm?.UserPreferences.FollowLog ?? false;
+            s.Theme = _vm?.UserPreferences.Theme ?? "Auto";
+            s.DownloadFilesAfterSync = _vm?.UserPreferences.DownloadFilesAfterSync ?? false;
+            _userPreferencesService.Save(s);
+        }
+        catch
+        {
+            // ignored
+        }
     }
 
     private void ThemeSelector_SelectionChanged(object? sender, SelectionChangedEventArgs e)
     {
-        if(sender is ComboBox cb && Application.Current is App app) _themeService?.PersistNewTheme(cb, app, _userSettingsService ?? new UserSettingsService());
+        if(sender is ComboBox cb) 
+        {
+            _vm?.UserPreferences.Theme = cb.SelectedIndex switch
+            {
+                1 => "Light",
+                2 => "Dark",
+                _ => "Auto"
+            };
+        }
     }
 }

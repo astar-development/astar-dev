@@ -95,10 +95,10 @@ public static class Program
                 _ = services.AddSingleton(appSettings);
                 _ = services.AddSingleton<ILoginService, LoginService>();
                 _ = services.AddSingleton<MainWindowViewModel>();
-                _ = services.AddSingleton<UserSettings>();
+                _ = services.AddSingleton<UserSettings.UserPreferences>();
                 _ = services.AddSingleton<OneDriveService>();
                 _ = services.AddSingleton<ThemeService>();
-                _ = services.AddSingleton<UserSettingsService>();
+                _ = services.AddSingleton<UserSettings. UserPreferencesService>();
                 _ = services.AddSingleton<MainWindow>();
             });
 

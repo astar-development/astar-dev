@@ -10,7 +10,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 
 namespace AStar.Dev.OneDrive.Client.Services;
 
-public sealed class OneDriveService(ILoginService loginService, UserSettings userSettings, ILogger<OneDriveService> logger)
+public sealed class OneDriveService(ILoginService loginService, UserSettings.UserPreferences userPreferences, ILogger<OneDriveService> logger)
 {
     private DeltaStore _store = null!;
     private GraphServiceClient _client = null!;
@@ -40,8 +40,8 @@ public sealed class OneDriveService(ILoginService loginService, UserSettings use
 var SyncManager = new SyncManager(_client, _store, vm, token);
         await SyncManager.RunSyncAsync();
 
-        if(userSettings.DownloadFilesAfterSync)
-            await DownloadFilesAsync(vm, userSettings, token);
+        if(userPreferences.DownloadFilesAfterSync)
+            await DownloadFilesAsync(vm, userPreferences, token);
     }
 
     private async Task BootstrapDriveAsync(string driveId, MainWindowViewModel vm, CancellationToken token)
@@ -96,7 +96,7 @@ var SyncManager = new SyncManager(_client, _store, vm, token);
         }
     }
 
-    public async Task DownloadFilesAsync(MainWindowViewModel vm, UserSettings userSettings, CancellationToken token)
+    public async Task DownloadFilesAsync(MainWindowViewModel vm, UserSettings.UserPreferences userPreferences, CancellationToken token)
     {
         var metrics = new MetricsCollector();
         var downloadRoot = "/home/jason/Documents/OneDriveDownloads";
@@ -120,7 +120,7 @@ var SyncManager = new SyncManager(_client, _store, vm, token);
         var reporter = new ProgressReporter(vm, metrics, fileInterval: 5, msInterval: 500);
 
         var downloadedIds = new ConcurrentBag<string>();
-        using var semaphore = new SemaphoreSlim(userSettings.MaxParallelDownloads);
+        using var semaphore = new SemaphoreSlim(userPreferences.MaxParallelDownloads);
 
         await TraverseAndDownloadAsync(rootItem!, driveId, downloadRoot, vm, downloadedIds, semaphore, metrics, reporter, token);
 
@@ -129,7 +129,7 @@ var SyncManager = new SyncManager(_client, _store, vm, token);
         foreach(var id in downloadedIds)
         {
             batch.Add(id);
-            if(batch.Count >= userSettings.DownloadBatchSize)
+            if(batch.Count >= userPreferences.DownloadBatchSize)
             {
                 await _store.MarkItemsAsDownloadedAsync(batch, token);
                 batch.Clear();
