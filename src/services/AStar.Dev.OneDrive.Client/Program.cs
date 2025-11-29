@@ -1,4 +1,5 @@
 using AStar.Dev.OneDrive.Client.Services;
+using AStar.Dev.OneDrive.Client.Theme;
 using AStar.Dev.OneDrive.Client.ViewModels;
 using AStar.Dev.OneDrive.Client.Views;
 using Avalonia;
@@ -66,9 +67,7 @@ public static class Program
                     string baseDir;
 
                     if(OperatingSystem.IsWindows())
-                    {
                         baseDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-                    }
                     else
                     {
                         // Prefer XDG_STATE_HOME, then XDG_CONFIG_HOME, then ~/.config
@@ -95,11 +94,12 @@ public static class Program
 
                 _ = services.AddSingleton(appSettings);
                 _ = services.AddSingleton<ILoginService, LoginService>();
-                _ = services.AddTransient<MainWindowViewModel>();
-                _ = services.AddTransient<UserSettings>();
-                _ = services.AddTransient<OneDriveService>();
+                _ = services.AddSingleton<MainWindowViewModel>();
+                _ = services.AddSingleton<UserSettings>();
+                _ = services.AddSingleton<OneDriveService>();
+                _ = services.AddSingleton<ThemeService>();
                 _ = services.AddSingleton<UserSettingsService>();
-                _ = services.AddTransient<MainWindow>();
+                _ = services.AddSingleton<MainWindow>();
             });
 
     public static AppBuilder BuildAvaloniaApp()

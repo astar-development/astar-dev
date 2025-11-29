@@ -63,10 +63,7 @@ public static class GraphClientFactory
 
             _logAction?.Invoke($"⬅️ {(int)response.StatusCode} {response.ReasonPhrase}");
 
-            if (response.Headers.RetryAfter != null)
-            {
-                _logAction?.Invoke($"⏳ Retry-After: {response.Headers.RetryAfter.Delta?.TotalSeconds}s");
-            }
+            if (response.Headers.RetryAfter != null) _logAction?.Invoke($"⏳ Retry-After: {response.Headers.RetryAfter.Delta?.TotalSeconds}s");
 
             return response;
         }

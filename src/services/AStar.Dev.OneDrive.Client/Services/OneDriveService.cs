@@ -31,7 +31,7 @@ public sealed class OneDriveService(ILoginService loginService, UserSettings use
 
         // 2. Init DB
         var appDataPath = AppPathHelper.GetAppDataPath("astar-dev");
-        var fullAppDataPath = Path.Combine(appDataPath, "astar-dev-onedrive-client", "onedrive-sync");
+        var fullAppDataPath = Path.Combine(appDataPath, "astar-dev-onedrive-client", "database");
         _ = Directory.CreateDirectory(fullAppDataPath);
 
         var dbPath = Path.Combine(fullAppDataPath, "onedrive_sync.db");
@@ -166,10 +166,7 @@ var SyncManager = new SyncManager(_client, _store, vm, token);
 
             // Get children from DB
             IReadOnlyList<LocalDriveItem> children = await _store.GetChildrenAsync(item.Id, token);
-            foreach(LocalDriveItem child in children)
-            {
-                await TraverseAndDownloadAsync(child, driveId, localPath, vm, downloadedIds, semaphore, metrics, reporter, token);
-            }
+            foreach(LocalDriveItem child in children) await TraverseAndDownloadAsync(child, driveId, localPath, vm, downloadedIds, semaphore, metrics, reporter, token);
         }
         else
         {
@@ -237,10 +234,7 @@ var SyncManager = new SyncManager(_client, _store, vm, token);
         return await Try.RunAsync(async () =>
         {
             Result<GraphServiceClient, Exception> loginResult = await loginService.CreateGraphServiceClientAsync();
-            if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
-            {
-                throw loginErr.Reason;
-            }
+            if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr) throw loginErr.Reason;
 
             GraphServiceClient client = ((Result<GraphServiceClient, Exception>.Ok)loginResult).Value;
             try
@@ -274,10 +268,7 @@ var SyncManager = new SyncManager(_client, _store, vm, token);
         return await Try.RunAsync(async () =>
         {
             Result<GraphServiceClient, Exception> loginResult = await loginService.CreateGraphServiceClientAsync();
-            if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
-            {
-                throw loginErr.Reason;
-            }
+            if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr) throw loginErr.Reason;
 
             GraphServiceClient client = ((Result<GraphServiceClient, Exception>.Ok)loginResult).Value;
             Drive? drive = await client.Me.Drive.GetAsync();
@@ -303,10 +294,7 @@ var SyncManager = new SyncManager(_client, _store, vm, token);
         return await Try.RunAsync(async () =>
         {
             Result<GraphServiceClient, Exception> loginResult = await loginService.CreateGraphServiceClientAsync();
-            if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
-            {
-                throw loginErr.Reason;
-            }
+            if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr) throw loginErr.Reason;
 
             GraphServiceClient client = ((Result<GraphServiceClient, Exception>.Ok)loginResult).Value;
             Drive? drive = await client.Me.Drive.GetAsync();
@@ -340,10 +328,7 @@ var SyncManager = new SyncManager(_client, _store, vm, token);
         return await Try.RunAsync(async () =>
         {
             Result<GraphServiceClient, Exception> loginResult = await loginService.CreateGraphServiceClientAsync();
-            if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
-            {
-                throw loginErr.Reason;
-            }
+            if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr) throw loginErr.Reason;
 
             GraphServiceClient client = ((Result<GraphServiceClient, Exception>.Ok)loginResult).Value;
 

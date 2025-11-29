@@ -8,18 +8,12 @@ public static class TokenCacheHelper
     {
         tokenCache.SetBeforeAccess(args =>
         {
-            if (File.Exists(cacheFilePath))
-            {
-                args.TokenCache.DeserializeMsalV3(File.ReadAllBytes(cacheFilePath));
-            }
+            if (File.Exists(cacheFilePath)) args.TokenCache.DeserializeMsalV3(File.ReadAllBytes(cacheFilePath));
         });
 
         tokenCache.SetAfterAccess(args =>
         {
-            if (args.HasStateChanged)
-            {
-                File.WriteAllBytes(cacheFilePath, args.TokenCache.SerializeMsalV3());
-            }
+            if (args.HasStateChanged) File.WriteAllBytes(cacheFilePath, args.TokenCache.SerializeMsalV3());
         });
     }
 }

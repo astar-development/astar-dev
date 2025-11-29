@@ -18,6 +18,22 @@ public partial class MainWindowViewModel : ObservableObject
     private readonly OneDriveService _oneDriveService;
     private readonly ILogger<MainWindowViewModel> _logger;
     [ObservableProperty] private string _errorMessage = string.Empty;
+
+    [ObservableProperty] private ObservableCollection<DriveItem> _rootItems = [];
+
+    public MainWindowViewModel(ILoginService loginService, OneDriveService oneDriveService, ILogger<MainWindowViewModel> logger)
+    {
+        _loginService = loginService;
+        _oneDriveService = oneDriveService;
+        _logger = logger;
+        SignInCommand = new AsyncRelayCommand(SignInAsync);
+        SignOutCommand = new AsyncRelayCommand(SignOutAsync);
+        LoadRootCommand = new AsyncRelayCommand(LoadRootItemsAsync);
+        LoadRootCommand = new AsyncRelayCommand(
+        LoadRootItemsAsync,
+        () => !IsSyncing);
+    }
+
     public ObservableCollection<string> ProgressMessages { get; } = new();
     public bool FollowLog
     {
@@ -35,37 +51,44 @@ public partial class MainWindowViewModel : ObservableObject
         set => SetProperty(ref field, value);
     }
 
-    public MainWindowViewModel(ILoginService loginService, OneDriveService oneDriveService, ILogger<MainWindowViewModel> logger)
+    public double ProgressValue
     {
-        _loginService = loginService;
-        _oneDriveService = oneDriveService;
-        _logger = logger;
-        SignInCommand = new AsyncRelayCommand(SignInAsync);
-        SignOutCommand = new AsyncRelayCommand(SignOutAsync);
-        LoadRootCommand = new AsyncRelayCommand(LoadRootItemsAsync);
-        LoadRootCommand = new AsyncRelayCommand(
-        LoadRootItemsAsync,
-        () => !IsSyncing);
+        get;
+        set => SetProperty(ref field, value);
     }
-    public void ReportProgress(string message, double? progress = null, string? status = null) => Dispatcher.UIThread.Post(() =>
-                                                                                                       {
-                                                                                                           ProgressMessages.Add($"{DateTime.Now:T} - {message}");
-                                                                                                           if(progress.HasValue)
-                                                                                                               ProgressValue = progress.Value;
-                                                                                                           if(!string.IsNullOrEmpty(status))
-                                                                                                               Status = status;
-                                                                                                       });
-    public IAsyncRelayCommand SignInCommand { get; }
-    public IAsyncRelayCommand SignOutCommand { get; }
-    public IAsyncRelayCommand LoadRootCommand { get; }
-    public IAsyncRelayCommand CancelSyncCommand => new AsyncRelayCommand(CancelSync);
-    public ICommand ToggleFollowLogCommand => new RelayCommand(() => FollowLog = !FollowLog);
+    public string Theme
+    {
+        get;
+        set => SetProperty(ref field, value);
+    } = "Auto";
 
     public bool RememberMe
     {
         get;
         set => SetProperty(ref field, value);
     }
+
+    public string Status
+    {
+        get;
+        set => SetProperty(ref field, value);
+    } = "Idle";
+
+    public void ReportProgress(string message, double? progress = null, string? status = null)
+        => Dispatcher.UIThread.Post(() =>
+                                        {
+                                            ProgressMessages.Add($"{DateTime.Now:T} - {message}");
+                                            if(progress.HasValue)
+                                                ProgressValue = progress.Value;
+                                            if(!string.IsNullOrEmpty(status))
+                                                Status = status;
+                                        });
+
+    public IAsyncRelayCommand SignInCommand { get; }
+    public IAsyncRelayCommand SignOutCommand { get; }
+    public IAsyncRelayCommand LoadRootCommand { get; }
+    public IAsyncRelayCommand CancelSyncCommand => new AsyncRelayCommand(CancelSync);
+    public ICommand ToggleFollowLogCommand => new RelayCommand(() => FollowLog = !FollowLog);
 
     private async Task CancelSync()
     {
@@ -75,14 +98,6 @@ public partial class MainWindowViewModel : ObservableObject
             ReportProgress("Sync cancelled by user.", null, "Cancelled");
         }
     }
-
-    public string Status
-    {
-        get;
-        set => SetProperty(ref field, value);
-    } = "Idle";
-
-    [ObservableProperty] private ObservableCollection<DriveItem> _rootItems = [];
     private async Task SignInAsync()
     {
         try
@@ -138,12 +153,6 @@ public partial class MainWindowViewModel : ObservableObject
             ErrorMessage = ex.Message;
             _logger?.LogError(ex, "Sign-in failed");
         }
-    }
-
-    public double ProgressValue
-    {
-        get;
-        set => SetProperty(ref field, value);
     }
 
     private async Task LoadRootItemsAsync()

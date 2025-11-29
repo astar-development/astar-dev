@@ -1,10 +1,13 @@
+using System.Collections;
 using AStar.Dev.OneDrive.Client.Services;
+using AStar.Dev.OneDrive.Client.Theme;
 using AStar.Dev.OneDrive.Client.ViewModels;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Styling;
 using Avalonia.Threading;
 using Avalonia.VisualTree;
+using System.Linq;
 
 namespace AStar.Dev.OneDrive.Client.Views;
 
@@ -12,15 +15,21 @@ public partial class MainWindow : Window
 {
     private readonly MainWindowViewModel? _vm;
     private readonly UserSettingsService? _userSettingsService;
+    private readonly ThemeService? _themeService;
+
     private bool _autoScrollEnabled = true;
+
     // Designer-friendly parameterless ctor
+
     public MainWindow() => InitializeComponent();
 
-    public MainWindow(MainWindowViewModel vm, UserSettingsService userSettingsService)
+    public MainWindow(MainWindowViewModel vm, UserSettingsService userSettingsService, ThemeService themeService)
     {
         InitializeComponent();
         _vm = vm;
         _userSettingsService = userSettingsService;
+        _themeService = themeService;
+
         DataContext = _vm;
 
         ProgressList.TemplateApplied += (_, __) =>
@@ -65,7 +74,7 @@ public partial class MainWindow : Window
     private void PostInitialize()
     {
         // Ensure injected services are present (this method is DI-only)
-        if(_userSettingsService is null || _vm is null)
+        if(_userSettingsService is null || _vm is null || _themeService is null)
             return;
 
         // Apply persisted theme
@@ -89,6 +98,10 @@ public partial class MainWindow : Window
         // Set DataContext from injected ViewModel
         DataContext = _vm;
         _vm.DownloadFilesAfterSync = userSettings.DownloadFilesAfterSync;
+        _vm.RememberMe = userSettings.RememberMe;
+        _vm.FollowLog = userSettings.FollowLog;
+        _vm.Status = userSettings.LastAction ?? "Not signed in";
+        _vm.Theme = userSettings.Theme;
 
         // Initialize theme selector state
         try
@@ -115,10 +128,7 @@ public partial class MainWindow : Window
                 Height = userSettings.WindowHeight;
             }
 
-            if(userSettings is not null && userSettings.WindowX.HasValue && userSettings.WindowY.HasValue)
-            {
-                Position = new PixelPoint(userSettings.WindowX.Value, userSettings.WindowY.Value);
-            }
+            if(userSettings is not null && userSettings.WindowX.HasValue && userSettings.WindowY.HasValue) Position = new PixelPoint(userSettings.WindowX.Value, userSettings.WindowY.Value);
         }
         catch { }
 
@@ -127,16 +137,17 @@ public partial class MainWindow : Window
         {
             try
             {
-                if(_userSettingsService is not null)
-                {
-                    UserSettings s = _userSettingsService.Load();
-                    s.WindowWidth = Width;
-                    s.WindowHeight = Height;
-                    s.WindowX = Position.X;
-                    s.WindowY = Position.Y;
-                    s.DownloadFilesAfterSync = _vm.DownloadFilesAfterSync;
-                    _userSettingsService.Save(s);
-                }
+                if(_userSettingsService is null) return;
+                UserSettings s = _userSettingsService.Load();
+                s.WindowWidth = Width;
+                s.WindowHeight = Height;
+                s.WindowX = Position.X;
+                s.WindowY = Position.Y;
+                s.DownloadFilesAfterSync = _vm.DownloadFilesAfterSync;
+                s.RememberMe = _vm.RememberMe;
+                s.FollowLog = _vm.FollowLog;
+                s.Theme = _vm.Theme;
+                _userSettingsService.Save(s);
             }
             catch { }
         };
@@ -146,14 +157,17 @@ public partial class MainWindow : Window
         {
             try
             {
-                if(e.PropertyName == nameof(MainWindowViewModel.Status) && _userSettingsService is not null && _vm is not null)
-                {
-                    UserSettings s = _userSettingsService.Load();
-                    s.LastAccount = _vm.Status;
-                    _userSettingsService.Save(s);
-                }
+                if(e.PropertyName != nameof(MainWindowViewModel.Status) || _userSettingsService is null || _vm is null) return;
+                UserSettings s = _userSettingsService.Load();
+                s.LastAction = _vm.Status;
+                _userSettingsService.Save(s);
             }
             catch { }
         };
+    }
+
+    private void ThemeSelector_SelectionChanged(object? sender, SelectionChangedEventArgs e)
+    {
+        if(sender is ComboBox cb && Application.Current is App app) _themeService?.PersistNewTheme(cb, app, _userSettingsService ?? new UserSettingsService());
     }
 }

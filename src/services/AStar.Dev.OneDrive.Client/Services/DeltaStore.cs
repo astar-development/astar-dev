@@ -196,6 +196,7 @@ public class DeltaStore
         {
             await tx.RollbackAsync(token);
             _logger.LogWarning("Sync canceled for DriveId={DriveId}", driveId);
+            return result;
         }
         catch(Exception ex)
         {
