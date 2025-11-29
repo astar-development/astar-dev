@@ -46,7 +46,7 @@ namespace AStar.Dev.OneDrive.Client.Tests.Unit.Fakes
         public Task<object?> SendAsync(RequestInformation requestInfo, Type responseType, CancellationToken cancellationToken = default)
         {
             // Try endpoint-specific responders first
-            foreach (var (matcher, responder) in _responders)
+            foreach ((Func<RequestInformation, bool> matcher, Func<RequestInformation, Type, CancellationToken, Task<object?>> responder) in _responders)
             {
                 try
                 {
@@ -109,13 +109,8 @@ namespace AStar.Dev.OneDrive.Client.Tests.Unit.Fakes
         private Task<object?> InvokeResponder(RequestInformation requestInfo, Type responseType, CancellationToken cancellationToken)
         {
             // Try endpoint-specific responders first
-            foreach (var (matcher, responder) in _responders)
-            {
-                if (matcher(requestInfo))
-                {
-                    return responder(requestInfo, responseType, cancellationToken);
-                }
-            }
+            foreach ((Func<RequestInformation, bool> matcher, Func<RequestInformation, Type, CancellationToken, Task<object?>> responder) in _responders)
+                if (matcher(requestInfo)) return responder(requestInfo, responseType, cancellationToken);
 
             return _fallbackResponder(requestInfo, responseType, cancellationToken);
         }

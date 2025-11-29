@@ -16,10 +16,7 @@ public static class ViewModelResultExtensions
             return;
         }
 
-        if(result is Result<T, Exception>.Error err)
-        {
-            onError?.Invoke(err.Reason);
-        }
+        if(result is Result<T, Exception>.Error err) onError?.Invoke(err.Reason);
     }
 
     /// <summary>
@@ -43,9 +40,6 @@ public static class ViewModelResultExtensions
             return;
         }
 
-        if(result is Result<T, Exception>.Error err && onErrorAsync is not null)
-        {
-            await onErrorAsync(err.Reason).ConfigureAwait(false);
-        }
+        if(result is Result<T, Exception>.Error err && onErrorAsync is not null) await onErrorAsync(err.Reason).ConfigureAwait(false);
     }
 }

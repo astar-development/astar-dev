@@ -26,9 +26,7 @@ public sealed class OptionsBindingGenerator : IIncrementalGenerator
                     // Skip non-public/abstract/generic types
                     if (type.DeclaredAccessibility != Accessibility.Public ||
                         type.IsAbstract || type.Arity != 0)
-                    {
                         return null;
-                    }
 
                     AttributeData attr = syntaxCtx.Attributes[0];
 
@@ -36,9 +34,7 @@ public sealed class OptionsBindingGenerator : IIncrementalGenerator
                     var section = "Options";
                     if (attr.ConstructorArguments.Length == 1 &&
                         attr.ConstructorArguments[0].Value is string s && !string.IsNullOrWhiteSpace(s))
-                    {
                         section = s;
-                    }
 
                     // Collect simple property info so we can emit defaults
                     PropModel[] props = type.GetMembers()

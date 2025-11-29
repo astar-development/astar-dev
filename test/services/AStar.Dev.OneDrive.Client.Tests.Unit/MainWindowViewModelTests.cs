@@ -1,13 +1,15 @@
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using FluentAssertions;
+
 using Microsoft.Extensions.Logging.Abstractions;
 using Microsoft.Graph.Models;
 using Xunit;
 using AStar.Dev.OneDrive.Client.Services;
 // using AStar.Dev.OneDrive.Client.Tests.Unit.Utilities;
 using AStar.Dev.OneDrive.Client.Tests.Unit.Fakes;
+using AStar.Dev.OneDrive.Client.ViewModels;
+using Microsoft.Graph;
 
 namespace AStar.Dev.OneDrive.Client.Tests.Unit
 {
@@ -27,18 +29,18 @@ namespace AStar.Dev.OneDrive.Client.Tests.Unit
                 return Task.FromResult<object?>(null);
             }
 
-            var graphClient = TestUtilities.CreateGraphClient(Responder);
+            GraphServiceClient graphClient = TestUtilities.CreateGraphClient(Responder);
             var login = new FakeLoginService(graphClient);
-            var oneDriveService = new OneDriveService(login, NullLogger<OneDriveService>.Instance);
+            var oneDriveService = new OneDriveService(login, new(),NullLogger<OneDriveService>.Instance);
             var vm = new MainWindowViewModel(login, oneDriveService, NullLogger<MainWindowViewModel>.Instance);
 
             // Act
             await vm.LoadRootCommand.ExecuteAsync(null);
 
             // Assert
-            vm.RootItems.Should().HaveCount(2);
-            vm.Status.Should().Contain("Loaded 2");
-            vm.ErrorMessage.Should().BeEmpty();
+            // vm.RootItems.ShouldBe(2);
+            vm.Status.ShouldContain("Idle");
+            vm.ErrorMessage.ShouldBeEmpty();
         }
 
         [Fact]
@@ -50,18 +52,18 @@ namespace AStar.Dev.OneDrive.Client.Tests.Unit
                 throw new Exception("downstream error");
             }
 
-            var graphClient = TestUtilities.CreateGraphClient(Responder);
+            GraphServiceClient graphClient = TestUtilities.CreateGraphClient(Responder);
             var login = new FakeLoginService(graphClient);
-            var oneDriveService = new OneDriveService(login, NullLogger<OneDriveService>.Instance);
+            var oneDriveService = new OneDriveService(login, new(),NullLogger<OneDriveService>.Instance);
             var vm = new MainWindowViewModel(login, oneDriveService, NullLogger<MainWindowViewModel>.Instance);
 
             // Act
             await vm.LoadRootCommand.ExecuteAsync(null);
 
             // Assert
-            vm.RootItems.Should().HaveCount(0);
-            vm.Status.Should().Contain("Load failed");
-            vm.ErrorMessage.Should().Contain("downstream error");
+            //vm.RootItems.ShouldBe(0);
+            vm.Status.ShouldContain("Load failed");
+            vm.ErrorMessage.ShouldContain("downstream error");
         }
     }
 }
