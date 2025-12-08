@@ -15,7 +15,7 @@
         <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.23.0"/>
         <PackageReference Include="Microsoft.Extensions.Logging.ApplicationInsights" Version="2.23.0"/>
         <PackageReference Include="Microsoft.AspNetCore.Authentication.OpenIdConnect" Version="10.0.0"/>
-        <PackageReference Include="Microsoft.FluentUI.AspNetCore.Components" Version="4.13.1"/>
+        <PackageReference Include="Microsoft.FluentUI.AspNetCore.Components" Version="4.13.2"/>
         <PackageReference Include="Microsoft.FluentUI.AspNetCore.Components.Icons" Version="4.13.1"/>
         <PackageReference Include="Microsoft.Identity.Web" Version="4.0.1"/>
         <PackageReference Include="Microsoft.Identity.Web.UI" Version="4.0.1"/>
