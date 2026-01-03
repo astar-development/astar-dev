@@ -26,9 +26,7 @@ public sealed class OptionsBindingGenerator : IIncrementalGenerator
                     // Skip non-public/abstract/generic types
                     if (type.DeclaredAccessibility != Accessibility.Public ||
                         type.IsAbstract || type.Arity != 0)
-                    {
                         return null;
-                    }
 
                     AttributeData attr = syntaxCtx.Attributes[0];
 
@@ -36,9 +34,7 @@ public sealed class OptionsBindingGenerator : IIncrementalGenerator
                     var section = "Options";
                     if (attr.ConstructorArguments.Length == 1 &&
                         attr.ConstructorArguments[0].Value is string s && !string.IsNullOrWhiteSpace(s))
-                    {
                         section = s;
-                    }
 
                     // Collect simple property info so we can emit defaults
                     PropModel[] props = type.GetMembers()
@@ -265,16 +261,13 @@ public sealed class OptionsBindingGenerator : IIncrementalGenerator
 
     // ---- small models -------------------------------------------------------
 
-    private static SimpleKind GetSimpleKind(ITypeSymbol t)
+    private static SimpleKind GetSimpleKind(ITypeSymbol t) => t switch
     {
-        return t switch
-        {
-            { SpecialType: SpecialType.System_String } => SimpleKind.String,
-            { SpecialType: SpecialType.System_Int32 } => SimpleKind.Int32,
-            { SpecialType: SpecialType.System_Boolean } => SimpleKind.Boolean,
-            _ => SimpleKind.Other,
-        };
-    }
+        { SpecialType: SpecialType.System_String } => SimpleKind.String,
+        { SpecialType: SpecialType.System_Int32 } => SimpleKind.Int32,
+        { SpecialType: SpecialType.System_Boolean } => SimpleKind.Boolean,
+        _ => SimpleKind.Other,
+    };
 
     private enum SimpleKind
     {

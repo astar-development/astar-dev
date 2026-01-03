@@ -23,9 +23,6 @@ namespace AStar.Dev.OneDrive.Client.Tests.Unit
             return new GraphServiceClient(adapter);
         }
 
-        public static MemoryStream StreamFromString(string content)
-        {
-            return new MemoryStream(Encoding.UTF8.GetBytes(content ?? string.Empty));
-        }
+        public static MemoryStream StreamFromString(string content) => new(Encoding.UTF8.GetBytes(content ?? string.Empty));
     }
 }

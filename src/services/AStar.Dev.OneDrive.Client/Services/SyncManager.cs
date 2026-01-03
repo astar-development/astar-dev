@@ -70,10 +70,7 @@ public class SyncManager(GraphServiceClient client, DeltaStore store, MainWindow
             nextLink = nextPage?.OdataNextLink;
 
             var pageToken = TryGetDeltaLink(nextPage);
-            if(!string.IsNullOrEmpty(pageToken))
-            {
-                finalToken = pageToken;
-            }
+            if(!string.IsNullOrEmpty(pageToken)) finalToken = pageToken;
         }
 
         await store.SaveDeltaTokenAsync(driveId, finalToken);
@@ -109,10 +106,7 @@ public class SyncManager(GraphServiceClient client, DeltaStore store, MainWindow
             nextLink = nextPage?.OdataNextLink;
 
             var pageToken = TryGetDeltaLink(nextPage);
-            if(!string.IsNullOrEmpty(pageToken))
-            {
-                finalToken = pageToken;
-            }
+            if(!string.IsNullOrEmpty(pageToken)) finalToken = pageToken;
         }
 
         await store.SaveDeltaTokenAsync(driveId, finalToken);
@@ -144,9 +138,7 @@ public class SyncManager(GraphServiceClient client, DeltaStore store, MainWindow
         foreach(DriveItem graphItem in items)
         {
             if(graphItem.Deleted != null)
-            {
                 deletes.Add(graphItem.Id!);
-            }
             else
             {
                 batch.Add(new LocalDriveItem

@@ -30,6 +30,7 @@
     </Folder>
     <Folder Name="/src/nuget-packages/">
         <Project Path="src/nuget-packages/AStar.Dev.Functional.Extensions/AStar.Dev.Functional.Extensions.csproj" />
+        <Project Path="src/nuget-packages/AStar.Dev.Utilities/AStar.Dev.Utilities.csproj" />
     </Folder>
     <Folder Name="/src/services/">
         <Project Path="src/services/AStar.Dev.OneDrive.Client/AStar.Dev.OneDrive.Client.csproj" />
@@ -47,6 +48,10 @@
     <Folder Name="/test/modules/apis/" />
     <Folder Name="/test/nuget-packages/">
         <Project Path="test/nuget-packages/AStar.Dev.Functional.Extensions.Tests.Unit/AStar.Dev.Functional.Extensions.Tests.Unit.csproj" />
+        <Project Path="test/nuget-packages/AStar.Dev.Utilities.Tests.Unit/AStar.Dev.Utilities.Tests.Unit.csproj" />
+    </Folder>
+    <Folder Name="/test/services/">
+        <Project Path="test/services/AStar.Dev.OneDrive.Client.Tests.Unit/AStar.Dev.OneDrive.Client.Tests.Unit.csproj" />
     </Folder>
     <Folder Name="/test/source-generators/">
         <Project Path="test/source-generators/AStar.Dev.Source.Generators.Tests.Unit/AStar.Dev.Source.Generators.Test.Unit.csproj" />

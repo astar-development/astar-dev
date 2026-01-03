@@ -18,7 +18,7 @@ public static class Try
         {
             return new Result<T, Exception>.Ok(func());
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             return new Result<T, Exception>.Error(ex);
         }
@@ -35,7 +35,7 @@ public static class Try
         {
             return new Result<T, Exception>.Ok(await func());
         }
-        catch(Exception ex)
+        catch (Exception ex)
         {
             return new Result<T, Exception>.Error(ex);
         }

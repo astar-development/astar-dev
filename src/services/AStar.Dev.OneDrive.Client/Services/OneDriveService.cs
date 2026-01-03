@@ -10,7 +10,7 @@ using Microsoft.Kiota.Abstractions.Serialization;
 
 namespace AStar.Dev.OneDrive.Client.Services;
 
-public sealed class OneDriveService(ILoginService loginService, UserSettings userSettings, ILogger<OneDriveService> logger)
+public sealed class OneDriveService(ILoginService loginService, UserSettings.UserPreferences userPreferences, ILogger<OneDriveService> logger)
 {
     private DeltaStore _store = null!;
     private GraphServiceClient _client = null!;
@@ -23,7 +23,7 @@ public sealed class OneDriveService(ILoginService loginService, UserSettings use
     public async Task RunFullSyncAsync(MainWindowViewModel vm, CancellationToken token)
     {
         // 1. Sign in
-        Result<GraphServiceClient, Exception> loginResult = await loginService.SignInAsync();
+        Result<GraphServiceClient, Exception> loginResult = await loginService.CreateGraphServiceClientAsync();
         if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
             throw loginErr.Reason;
 
@@ -31,25 +31,17 @@ public sealed class OneDriveService(ILoginService loginService, UserSettings use
 
         // 2. Init DB
         var appDataPath = AppPathHelper.GetAppDataPath("astar-dev");
-        var fullAppDataPath = Path.Combine(appDataPath, "astar-dev-onedrive-client", "onedrive-sync");
+        var fullAppDataPath = Path.Combine(appDataPath, "astar-dev-onedrive-client", "database");
         _ = Directory.CreateDirectory(fullAppDataPath);
 
         var dbPath = Path.Combine(fullAppDataPath, "onedrive_sync.db");
         _store = new DeltaStore(logger, dbPath);
 
-        // 3. Bootstrap hierarchy if DB is empty
-        Drive? drive = await _client.Me.Drive.GetAsync(cancellationToken: token);
-        var driveId = drive!.Id!;
-        LocalDriveItem? rootItem = await _store.GetRootAsync(driveId, token);
-        if(rootItem == null)
-        {
-            vm.ReportProgress("ℹ️ Bootstrapping DB from Graph...");
-            await BootstrapDriveAsync(driveId, vm, token);
-            vm.ReportProgress("✅ DB fully populated from Graph");
-        }
+var SyncManager = new SyncManager(_client, _store, vm, token);
+        await SyncManager.RunSyncAsync();
 
-        // 4. Download files
-        await DownloadFilesAsync(vm, userSettings, token);
+        if(userPreferences.DownloadFilesAfterSync)
+            await DownloadFilesAsync(vm, userPreferences, token);
     }
 
     private async Task BootstrapDriveAsync(string driveId, MainWindowViewModel vm, CancellationToken token)
@@ -104,7 +96,7 @@ public sealed class OneDriveService(ILoginService loginService, UserSettings use
         }
     }
 
-    public async Task DownloadFilesAsync(MainWindowViewModel vm, UserSettings userSettings, CancellationToken token)
+    public async Task DownloadFilesAsync(MainWindowViewModel vm, UserSettings.UserPreferences userPreferences, CancellationToken token)
     {
         var metrics = new MetricsCollector();
         var downloadRoot = "/home/jason/Documents/OneDriveDownloads";
@@ -128,7 +120,7 @@ public sealed class OneDriveService(ILoginService loginService, UserSettings use
         var reporter = new ProgressReporter(vm, metrics, fileInterval: 5, msInterval: 500);
 
         var downloadedIds = new ConcurrentBag<string>();
-        using var semaphore = new SemaphoreSlim(userSettings.MaxParallelDownloads);
+        using var semaphore = new SemaphoreSlim(userPreferences.MaxParallelDownloads);
 
         await TraverseAndDownloadAsync(rootItem!, driveId, downloadRoot, vm, downloadedIds, semaphore, metrics, reporter, token);
 
@@ -137,7 +129,7 @@ public sealed class OneDriveService(ILoginService loginService, UserSettings use
         foreach(var id in downloadedIds)
         {
             batch.Add(id);
-            if(batch.Count >= userSettings.DownloadBatchSize)
+            if(batch.Count >= userPreferences.DownloadBatchSize)
             {
                 await _store.MarkItemsAsDownloadedAsync(batch, token);
                 batch.Clear();
@@ -174,10 +166,7 @@ public sealed class OneDriveService(ILoginService loginService, UserSettings use
 
             // Get children from DB
             IReadOnlyList<LocalDriveItem> children = await _store.GetChildrenAsync(item.Id, token);
-            foreach(LocalDriveItem child in children)
-            {
-                await TraverseAndDownloadAsync(child, driveId, localPath, vm, downloadedIds, semaphore, metrics, reporter, token);
-            }
+            foreach(LocalDriveItem child in children) await TraverseAndDownloadAsync(child, driveId, localPath, vm, downloadedIds, semaphore, metrics, reporter, token);
         }
         else
         {
@@ -244,11 +233,8 @@ public sealed class OneDriveService(ILoginService loginService, UserSettings use
 
         return await Try.RunAsync(async () =>
         {
-            Result<GraphServiceClient, Exception> loginResult = await loginService.SignInAsync();
-            if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
-            {
-                throw loginErr.Reason;
-            }
+            Result<GraphServiceClient, Exception> loginResult = await loginService.CreateGraphServiceClientAsync();
+            if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr) throw loginErr.Reason;
 
             GraphServiceClient client = ((Result<GraphServiceClient, Exception>.Ok)loginResult).Value;
             try
@@ -281,11 +267,8 @@ public sealed class OneDriveService(ILoginService loginService, UserSettings use
 
         return await Try.RunAsync(async () =>
         {
-            Result<GraphServiceClient, Exception> loginResult = await loginService.SignInAsync();
-            if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
-            {
-                throw loginErr.Reason;
-            }
+            Result<GraphServiceClient, Exception> loginResult = await loginService.CreateGraphServiceClientAsync();
+            if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr) throw loginErr.Reason;
 
             GraphServiceClient client = ((Result<GraphServiceClient, Exception>.Ok)loginResult).Value;
             Drive? drive = await client.Me.Drive.GetAsync();
@@ -310,11 +293,8 @@ public sealed class OneDriveService(ILoginService loginService, UserSettings use
 
         return await Try.RunAsync(async () =>
         {
-            Result<GraphServiceClient, Exception> loginResult = await loginService.SignInAsync();
-            if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
-            {
-                throw loginErr.Reason;
-            }
+            Result<GraphServiceClient, Exception> loginResult = await loginService.CreateGraphServiceClientAsync();
+            if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr) throw loginErr.Reason;
 
             GraphServiceClient client = ((Result<GraphServiceClient, Exception>.Ok)loginResult).Value;
             Drive? drive = await client.Me.Drive.GetAsync();
@@ -347,11 +327,8 @@ public sealed class OneDriveService(ILoginService loginService, UserSettings use
 
         return await Try.RunAsync(async () =>
         {
-            Result<GraphServiceClient, Exception> loginResult = await loginService.SignInAsync();
-            if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr)
-            {
-                throw loginErr.Reason;
-            }
+            Result<GraphServiceClient, Exception> loginResult = await loginService.CreateGraphServiceClientAsync();
+            if(loginResult is Result<GraphServiceClient, Exception>.Error loginErr) throw loginErr.Reason;
 
             GraphServiceClient client = ((Result<GraphServiceClient, Exception>.Ok)loginResult).Value;
 

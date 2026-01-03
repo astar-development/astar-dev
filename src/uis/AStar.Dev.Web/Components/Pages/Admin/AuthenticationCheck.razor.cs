@@ -36,8 +36,6 @@ public partial class AuthenticationCheck : ComponentBase
             _claims = user.Claims; //.Where(x => printClaims.Contains(x.Type)); // The Where will, as you can guess, limit the results listed
         }
         else
-        {
             _authMessage = "The user is NOT authenticated.";
-        }
     }
 }

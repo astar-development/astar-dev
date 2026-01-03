@@ -14,7 +14,7 @@ public static class EnumerableExtensions
     /// <returns>The option, containing the item or a suitable instance of <see cref="Option{T}.None" />.</returns>
     public static Option<T> FirstOrNone<T>(this IEnumerable<T> sequence, Func<T, bool> predicate)
         => sequence.Where(predicate)
-                   .Select<T, Option<T>>(x => x)
-                   .DefaultIfEmpty(Option.None<T>())
-                   .First();
+            .Select<T, Option<T>>(x => x)
+            .DefaultIfEmpty(Option.None<T>())
+            .First();
 }

@@ -18,8 +18,8 @@ public abstract class Option<T>
     /// <param name="value">The value to wrap. Null becomes <see cref="None" />.</param>
     public static implicit operator Option<T>(T value)
         => value != null
-               ? new Some(value)
-               : None.Instance;
+            ? new Some(value)
+            : None.Instance;
 
     /// <summary>
     ///     Pattern matches on the option.
@@ -98,8 +98,7 @@ public abstract class Option<T>
         /// <exception cref="ArgumentNullException" />
         public Some(T value)
         {
-            if(value is null)
-                throw new ArgumentNullException(nameof(value));
+            if (value is null) throw new ArgumentNullException(nameof(value));
 
             Value = value;
         }

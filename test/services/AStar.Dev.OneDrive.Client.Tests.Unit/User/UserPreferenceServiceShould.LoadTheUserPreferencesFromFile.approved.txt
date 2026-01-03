@@ -1,0 +1,15 @@
+﻿{
+  "windowSettings": {
+    "windowWidth": 5678,
+    "windowHeight": 1234,
+    "windowX": 100,
+    "windowY": 200
+  },
+  "uiSettings": {
+    "downloadFilesAfterSync": true,
+    "rememberMe": true,
+    "followLog": true,
+    "theme": "Dark",
+    "lastAction": "Mock Action Set"
+  }
+}

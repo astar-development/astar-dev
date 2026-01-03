@@ -1,6 +1,6 @@
 namespace AStar.Dev.Functional.Extensions.Tests.Unit;
 
-public sealed class EnumerableExtensionsShould
+public class EnumerableExtensionsShould
 {
     [Fact]
     public void FirstOrNoneShouldReturnSomeWhenPredicateMatches()

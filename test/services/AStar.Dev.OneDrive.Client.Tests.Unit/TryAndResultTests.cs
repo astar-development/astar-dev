@@ -1,6 +1,6 @@
 using System;
 using System.Threading.Tasks;
-using FluentAssertions;
+
 using Xunit;
 using AStar.Dev.Functional.Extensions;
 
@@ -11,35 +11,35 @@ namespace AStar.Dev.OneDrive.Client.Tests.Unit
         [Fact]
         public void Try_Run_Returns_Ok_OnSuccess()
         {
-            var r = Try.Run(() => 5 + 2);
-            r.Should().BeOfType<Result<int, Exception>.Ok>();
-            ((Result<int, Exception>.Ok)r).Value.Should().Be(7);
+            Result<int, Exception> r = Try.Run(() => 5 + 2);
+            r.ShouldBeOfType<Result<int, Exception>.Ok>();
+            ((Result<int, Exception>.Ok)r).Value.ShouldBe(7);
         }
 
         [Fact]
         public void Try_Run_Returns_Error_OnException()
         {
             var ex = new InvalidOperationException("boom");
-            var r = Try.Run<int>(() => throw ex);
-            r.Should().BeOfType<Result<int, Exception>.Error>();
-            ((Result<int, Exception>.Error)r).Reason.Should().Be(ex);
+            Result<int, Exception> r = Try.Run<int>(() => throw ex);
+            r.ShouldBeOfType<Result<int, Exception>.Error>();
+            ((Result<int, Exception>.Error)r).Reason.ShouldBe(ex);
         }
 
         [Fact]
         public async Task Try_RunAsync_Returns_Ok_OnSuccess()
         {
-            var r = await Try.RunAsync(async () => { await Task.Delay(1); return "ok"; });
-            r.Should().BeOfType<Result<string, Exception>.Ok>();
-            ((Result<string, Exception>.Ok)r).Value.Should().Be("ok");
+            Result<string, Exception> r = await Try.RunAsync(async () => { await Task.Delay(1); return "ok"; });
+            r.ShouldBeOfType<Result<string, Exception>.Ok>();
+            ((Result<string, Exception>.Ok)r).Value.ShouldBe("ok");
         }
 
         [Fact]
         public async Task Try_RunAsync_Returns_Error_OnException()
         {
             var ex = new Exception("async boom");
-            var r = await Try.RunAsync<string>(async () => { await Task.Delay(1); throw ex; });
-            r.Should().BeOfType<Result<string, Exception>.Error>();
-            ((Result<string, Exception>.Error)r).Reason.Should().Be(ex);
+            Result<string, Exception> r = await Try.RunAsync<string>(async () => { await Task.Delay(1); throw ex; });
+            r.ShouldBeOfType<Result<string, Exception>.Error>();
+            ((Result<string, Exception>.Error)r).Reason.ShouldBe(ex);
         }
 
         [Fact]
@@ -47,7 +47,7 @@ namespace AStar.Dev.OneDrive.Client.Tests.Unit
         {
             var r = new Result<int, Exception>.Ok(99);
             var matched = r.Match(v => v + 1, e => -1);
-            matched.Should().Be(100);
+            matched.ShouldBe(100);
         }
 
         [Fact]
@@ -55,7 +55,7 @@ namespace AStar.Dev.OneDrive.Client.Tests.Unit
         {
             var r = new Result<int, Exception>.Ok(10);
             var outv = await r.MatchAsync(async v => { await Task.Delay(1); return v * 2; }, e => -1);
-            outv.Should().Be(20);
+            outv.ShouldBe(20);
         }
     }
 }

@@ -1,6 +1,6 @@
 namespace AStar.Dev.Functional.Extensions.Tests.Unit;
 
-public sealed class TryTests
+public class TryTests
 {
     [Fact]
     public void RunShouldReturnOkResultWhenFunctionSucceeds()
@@ -16,14 +16,17 @@ public sealed class TryTests
 
         return;
 
-        static int SuccessFunc() => expectedValue;
+        int SuccessFunc()
+        {
+            return expectedValue;
+        }
     }
 
     [Fact]
     public void RunShouldReturnErrorResultWhenFunctionThrows()
     {
-        const string exceptionMessage  = "Test exception";
-        Exception    expectedException = new InvalidOperationException(exceptionMessage);
+        const string exceptionMessage = "Test exception";
+        Exception expectedException = new InvalidOperationException(exceptionMessage);
 
         Result<int, Exception> result = Try.Run(FailingFunc);
 
@@ -35,7 +38,10 @@ public sealed class TryTests
 
         return;
 
-        int FailingFunc() => throw expectedException;
+        int FailingFunc()
+        {
+            throw expectedException;
+        }
     }
 
     [Fact]
@@ -49,7 +55,10 @@ public sealed class TryTests
 
         return;
 
-        static int ArgNullFunc() => throw new ArgumentNullException("testParam");
+        static int ArgNullFunc()
+        {
+            throw new ArgumentNullException("testParam");
+        }
     }
 
     [Fact]
@@ -66,14 +75,17 @@ public sealed class TryTests
 
         return;
 
-        static Task<string> SuccessFunc() => Task.FromResult(expectedValue);
+        Task<string> SuccessFunc()
+        {
+            return Task.FromResult(expectedValue);
+        }
     }
 
     [Fact]
     public async Task RunAsyncShouldReturnErrorResultWhenAsyncFunctionThrowsAsync()
     {
-        const string exceptionMessage  = "Async test exception";
-        Exception    expectedException = new InvalidOperationException(exceptionMessage);
+        const string exceptionMessage = "Async test exception";
+        Exception expectedException = new InvalidOperationException(exceptionMessage);
 
         Result<string, Exception> result = await Try.RunAsync(FailingFunc);
 
@@ -85,7 +97,10 @@ public sealed class TryTests
 
         return;
 
-        Task<string> FailingFunc() => Task.FromException<string>(expectedException);
+        Task<string> FailingFunc()
+        {
+            return Task.FromException<string>(expectedException);
+        }
     }
 
     [Fact]

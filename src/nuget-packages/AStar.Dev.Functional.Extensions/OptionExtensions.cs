@@ -5,14 +5,14 @@ namespace AStar.Dev.Functional.Extensions;
 /// </summary>
 public static class OptionExtensions
 {
-    static readonly private string UnreachableMessage = "It should not be possible to reach this point.";
+    private static readonly string UnreachableMessage = "It should not be possible to reach this point.";
 
     /// <summary>
     ///     Attempts to extract the value from an <see cref="Option{T}" />.
     /// </summary>
     public static bool TryGetValue<T>(this Option<T> option, out T value)
     {
-        if(option is Option<T>.Some some)
+        if (option is Option<T>.Some some)
         {
             value = some.Value;
 
@@ -29,32 +29,32 @@ public static class OptionExtensions
     /// </summary>
     public static Option<T> ToOption<T>(this T value)
         => EqualityComparer<T>.Default.Equals(value, default!)
-               ? Option.None<T>()
-               : new Option<T>.Some(value);
+            ? Option.None<T>()
+            : new Option<T>.Some(value);
 
     /// <summary>
     ///     Converts a value to an <see cref="Option{T}" /> if it satisfies the predicate.
     /// </summary>
     public static Option<T> ToOption<T>(this T value, Func<T, bool> predicate)
         => predicate(value)
-               ? new Option<T>.Some(value)
-               : Option.None<T>();
+            ? new Option<T>.Some(value)
+            : Option.None<T>();
 
     /// <summary>
     ///     Converts a nullable value type to an <see cref="Option{T}" />.
     /// </summary>
     public static Option<T> ToOption<T>(this T? nullable) where T : struct
         => nullable.HasValue
-               ? new Option<T>.Some(nullable.Value)
-               : Option.None<T>();
+            ? new Option<T>.Some(nullable.Value)
+            : Option.None<T>();
 
     /// <summary>
     ///     Transforms the value inside an <see cref="Option{T}" /> if present.
     /// </summary>
     public static Option<TResult> Map<T, TResult>(this Option<T> option, Func<T, TResult> map)
         => option.Match(
-                        some => new Option<TResult>.Some(map(some)),
-                        Option.None<TResult>);
+            some => new Option<TResult>.Some(map(some)),
+            Option.None<TResult>);
 
     /// <summary>
     ///     Chains another <see cref="Option{T}" />-producing function.
@@ -66,8 +66,8 @@ public static class OptionExtensions
     /// </summary>
     public static Result<T, TError> ToResult<T, TError>(this Option<T> option, Func<TError> errorFactory)
         => option.Match<Result<T, TError>>(
-                                           some => new Result<T, TError>.Ok(some),
-                                           () => new Result<T, TError>.Error(errorFactory()));
+            some => new Result<T, TError>.Ok(some),
+            () => new Result<T, TError>.Error(errorFactory()));
 
     /// <summary>
     ///     Determines whether the option contains a value.
@@ -171,8 +171,8 @@ public static class OptionExtensions
     /// </summary>
     public static async Task<Result<T, TError>> ToResultAsync<T, TError>(this Option<T> option, Func<Task<TError>> errorFactoryAsync)
         => await option.Match<Task<Result<T, TError>>>(
-                                                       some => Task.FromResult<Result<T, TError>>(new Result<T, TError>.Ok(some)),
-                                                       async () => new Result<T, TError>.Error(await errorFactoryAsync()));
+            some => Task.FromResult<Result<T, TError>>(new Result<T, TError>.Ok(some)),
+            async () => new Result<T, TError>.Error(await errorFactoryAsync()));
 
     /// <summary>
     ///     Asynchronously converts a Task of <see cref="Option{T}" /> to a <see cref="Result{T, TError}" />.
@@ -195,8 +195,7 @@ public static class OptionExtensions
     /// </summary>
     public static Option<T> Tap<T>(this Option<T> option, Action<T> action)
     {
-        if(option is Option<T>.Some some)
-            action(some.Value);
+        if (option is Option<T>.Some some) action(some.Value);
 
         return option;
     }
@@ -206,8 +205,7 @@ public static class OptionExtensions
     /// </summary>
     public static async Task<Option<T>> TapAsync<T>(this Option<T> option, Func<T, Task> actionAsync)
     {
-        if(option is Option<T>.Some some)
-            await actionAsync(some.Value);
+        if (option is Option<T>.Some some) await actionAsync(some.Value);
 
         return option;
     }
@@ -298,9 +296,9 @@ public static class OptionExtensions
     /// </summary>
     public static IEnumerable<T> Values<T>(this IEnumerable<Option<T>> options)
     {
-        foreach(Option<T> option in options)
+        foreach (Option<T>? option in options)
         {
-            if(option is Option<T>.Some some)
+            if (option is Option<T>.Some some)
                 yield return some.Value;
         }
     }
@@ -318,12 +316,11 @@ public static class OptionExtensions
     /// </summary>
     public static IEnumerable<TResult> Choose<T, TResult>(this IEnumerable<T> source, Func<T, Option<TResult>> chooser)
     {
-        foreach(T? item in source)
+        foreach (T item in source)
         {
-            Option<TResult> option = chooser(item);
+            Option<TResult>? option = chooser(item);
 
-            if(option is Option<TResult>.Some some)
-                yield return some.Value;
+            if (option is Option<TResult>.Some some) yield return some.Value;
         }
     }
 
@@ -332,8 +329,8 @@ public static class OptionExtensions
     /// </summary>
     public static Option<T> Filter<T>(this Option<T> option, Func<T, bool> predicate)
         => option.Match(
-                        some => predicate(some) ? option : Option.None<T>(),
-                        Option.None<T>);
+            some => predicate(some) ? option : Option.None<T>(),
+            Option.None<T>);
 
     /// <summary>
     ///     Maps the value if present, or returns a default value.

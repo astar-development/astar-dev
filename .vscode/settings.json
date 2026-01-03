@@ -3,6 +3,7 @@
         "appsettings",
         "Avalonia",
         "Kiota",
+        "Mvvm",
         "onedrive"
     ]
 }

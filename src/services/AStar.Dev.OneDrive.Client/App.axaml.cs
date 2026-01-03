@@ -15,13 +15,10 @@ public sealed class App : Application
 
     public override void OnFrameworkInitializationCompleted()
     {
-        if(ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+        if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
             // Prefer resolving MainWindow from DI so dependencies can be injected.
-            if(Services is null)
-            {
-                throw new InvalidOperationException("DI Services not initialized. Ensure Program.ConfigureServices sets App.Services before starting.");
-            }
+            if (Services is null) throw new InvalidOperationException("DI Services not initialized. Ensure Program.ConfigureServices sets App.Services before starting.");
 
             MainWindow window = Services.GetRequiredService<MainWindow>();
             desktop.MainWindow = window;
