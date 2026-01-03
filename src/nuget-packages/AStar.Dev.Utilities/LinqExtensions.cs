@@ -11,6 +11,6 @@ public static class LinqExtensions
     /// <typeparam name="T"></typeparam>
     public static void ForEach<T>(this IEnumerable<T> enumerable, Action<T> action)
     {
-        foreach(T? item in enumerable) action(item);
+        foreach (T item in enumerable) action(item);
     }
 }

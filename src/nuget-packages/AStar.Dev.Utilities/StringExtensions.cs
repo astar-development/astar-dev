@@ -42,13 +42,13 @@ public static class StringExtensions
         => !value.IsNullOrWhiteSpace();
 
     /// <summary>
-    ///     The FromJson method, as you might expect, converts the supplied JSON to the specified object
+    ///     The FromJson method, as you might expect, converts the supplied JSON to the specified object - using the web default settings
     /// </summary>
     /// <param name="json">The JSON representation of the object</param>
     /// <typeparam name="T">The required type of the object to deserialise to</typeparam>
     /// <returns>A deserialised object based on the original JSON</returns>
     public static T FromJson<T>(this string json)
-        => JsonSerializer.Deserialize<T>(json)!;
+        => JsonSerializer.Deserialize<T>(json, Constants.WebDeserialisationSettings)!;
 
     /// <summary>
     ///     The FromJson method, as you might expect, converts the supplied JSON to the specified object
@@ -85,10 +85,10 @@ public static class StringExtensions
     ///     The TruncateIfRequired method will, as the name suggests, truncate the string if the length exceeds the specified length
     /// </summary>
     /// <param name="truncateLength">The maximum length the string should be truncated to if required</param>
-    /// <param name="json">The JSON representation of the object</param>
+    /// <param name="target">The string to truncate if required</param>
     /// <returns>The specified string or the truncated version</returns>
-    public static string TruncateIfRequired(this string json, int truncateLength)
-        => json.Length > truncateLength ? json[..truncateLength] : json;
+    public static string TruncateIfRequired(this string target, int truncateLength)
+        => target.Length > truncateLength ? target[..truncateLength] : target;
 
     /// <summary>
     ///     The RemoveTrailing method will, as the name suggests, remove the specified character from the end if it exists

@@ -48,10 +48,7 @@ public static class GraphClientFactory
     {
         private readonly Action<string>? _logAction;
 
-        public LoggingHandler(Action<string>? logAction = null)
-        {
-            _logAction = logAction;
-        }
+Fo        public LoggingHandler(Action<string>? logAction = null) => _logAction = logAction;
 
         protected override async Task<HttpResponseMessage> SendAsync(
             HttpRequestMessage request,

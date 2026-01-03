@@ -1,5 +1,8 @@
-using AStar.Dev.OneDrive.Client.Services;
+using System.IO.Abstractions;
+using AStar.Dev.OneDrive.Client.ApplicationConfiguration;
+using AStar.Dev.OneDrive.Client.Login;
 using AStar.Dev.OneDrive.Client.Theme;
+using AStar.Dev.OneDrive.Client.User;
 using AStar.Dev.OneDrive.Client.ViewModels;
 using AStar.Dev.OneDrive.Client.Views;
 using Avalonia;
@@ -48,9 +51,9 @@ public static class Program
             .ConfigureAppConfiguration((ctx, cfg) =>
             {
                 // Load project-local config first, then fallback to a centralized config at repo/src/appsettings.json
-                _ = cfg.AddJsonFile("appsettings.json", optional: true, reloadOnChange: false);
-                _ = cfg.AddJsonFile("../../appsettings.json", optional: true, reloadOnChange: false);
-                _ = cfg.AddUserSecrets<App>(optional: true);
+                _ = cfg.AddJsonFile("appsettings.json", true, false);
+                _ = cfg.AddJsonFile("../../appsettings.json", true, false);
+                _ = cfg.AddUserSecrets<App>(true);
             })
             .UseSerilog((ctx, services, loggerConfig) =>
             {
@@ -66,15 +69,13 @@ public static class Program
                 {
                     string baseDir;
 
-                    if(OperatingSystem.IsWindows())
+                    if (OperatingSystem.IsWindows())
                         baseDir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
                     else
-                    {
                         // Prefer XDG_STATE_HOME, then XDG_CONFIG_HOME, then ~/.config
                         baseDir = Environment.GetEnvironmentVariable("XDG_STATE_HOME")
                                   ?? Environment.GetEnvironmentVariable("XDG_CONFIG_HOME")
                                   ?? Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), ".config");
-                    }
 
                     var logDir = Path.Combine(baseDir, "astar-dev", "astar-dev-onedrive-client", "logs");
                     _ = Directory.CreateDirectory(logDir);
@@ -90,16 +91,16 @@ public static class Program
             .ConfigureServices((ctx, services) =>
             {
                 IConfiguration config = ctx.Configuration;
-                AppSettings appSettings = config.GetSection("Azure").Get<AppSettings>()!;
+                ApplicationSettings appSettings = config.GetSection("Azure").Get<ApplicationSettings>()!;
 
                 _ = services.AddSingleton(appSettings);
+                _ = services.AddSingleton<UserPreferenceService>();
+                _ = services.AddSingleton<ThemeService>();
+                _ = services.AddSingleton<IFileSystem, FileSystem>();
                 _ = services.AddSingleton<ILoginService, LoginService>();
                 _ = services.AddSingleton<MainWindowViewModel>();
-                _ = services.AddSingleton<UserSettings.UserPreferences>();
-                _ = services.AddSingleton<OneDriveService>();
-                _ = services.AddSingleton<ThemeService>();
-                _ = services.AddSingleton<UserSettings. UserPreferencesService>();
                 _ = services.AddSingleton<MainWindow>();
+                _ = services.AddSingleton<IOneDriveService,OneDriveService>();
             });
 
     public static AppBuilder BuildAvaloniaApp()

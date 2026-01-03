@@ -95,15 +95,15 @@ namespace AStar.Dev.OneDrive.Client.Tests.Unit
 
             Task<object?> Responder(RequestInformation req, Type responseType, CancellationToken ct)
             {
-                if (responseType == typeof(Microsoft.Graph.Models.Drive))
+                if (responseType == typeof(Drive))
                     return Task.FromResult<object?>(drive);
-                if (responseType == typeof(Microsoft.Graph.Models.DriveItem))
+                if (responseType == typeof(DriveItem))
                     return Task.FromResult<object?>(uploaded);
                 return Task.FromResult<object?>(null);
             }
 
             GraphServiceClient graphClient = TestUtilities.CreateGraphClient(Responder);
-            var login = new Fakes.FakeLoginService(graphClient);
+            var login = new FakeLoginService(graphClient);
             var svc = new OneDriveService(login, new(), NullLogger<OneDriveService>.Instance);
 
             // Act
@@ -126,15 +126,15 @@ namespace AStar.Dev.OneDrive.Client.Tests.Unit
 
             Task<object?> Responder(RequestInformation req, Type responseType, CancellationToken ct)
             {
-                if (responseType == typeof(Microsoft.Graph.Models.Drive))
+                if (responseType == typeof(Drive))
                     return Task.FromResult<object?>(drive);
-                if (responseType == typeof(Microsoft.Graph.Models.DriveItem))
+                if (responseType == typeof(DriveItem))
                     return Task.FromResult<object?>(created);
                 return Task.FromResult<object?>(null);
             }
 
             GraphServiceClient graphClient = TestUtilities.CreateGraphClient(Responder);
-            var login = new Fakes.FakeLoginService(graphClient);
+            var login = new FakeLoginService(graphClient);
             var svc = new OneDriveService(login, new(), NullLogger<OneDriveService>.Instance);
 
             // Act

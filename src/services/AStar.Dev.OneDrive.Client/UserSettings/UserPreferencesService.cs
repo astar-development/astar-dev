@@ -74,8 +74,8 @@ public sealed class UserPreferencesService
     }
 
     // Functional result-based saver (returns the saved settings on success)
-    public async Task<AStar.Dev.Functional.Extensions.Result<UserPreferences, Exception>> SaveResultAsync(UserPreferences preferences)
-        => await Functional.Extensions.Try.RunAsync(async () =>
+    public Result<UserPreferences, Exception> SaveResult(UserPreferences preferences)
+        =>  Functional.Extensions.Try.Run( () =>
                                                             {
                                                                 Save(preferences);
                                                                 return preferences;

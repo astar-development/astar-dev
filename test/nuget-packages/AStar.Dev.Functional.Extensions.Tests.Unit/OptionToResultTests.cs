@@ -1,11 +1,11 @@
 namespace AStar.Dev.Functional.Extensions.Tests.Unit;
 
-public sealed class OptionToResultTests
+public class OptionToResultTests
 {
     [Fact]
     public void ToResultFromSomeReturnsOk()
     {
-        var opt    = new Option<int>.Some(42);
+        var opt = new Option<int>.Some(42);
         var result = opt.ToResult(() => "missing");
         Assert.True(result is Result<int, string>.Ok { Value: 42 });
     }
@@ -13,7 +13,7 @@ public sealed class OptionToResultTests
     [Fact]
     public void ToResultFromNoneReturnsError()
     {
-        var opt    = Option.None<int>();
+        var opt = Option.None<int>();
         var result = opt.ToResult(() => "missing");
         Assert.True(result is Result<int, string>.Error { Reason: "missing" });
     }

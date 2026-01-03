@@ -15522,7 +15522,8 @@ Thanks for confirming that, Jason. If the .nocae file still stays at 0 bytes eve
 🔍 Why no cache is written
 
     InteractiveBrowserCredential only persists if the token response includes a refresh token.
-
+eTransaction tx = await conn.BeginTransactionAsync(token);
+doesnt compile - BeginTransactionAsync returns a DbTransaction, not an SqliteTransaction
     Even with offline_access in your scopes, Azure AD will not issue refresh tokens unless the app is correctly configured as a public client with desktop redirect URIs.
 
     If the app registration is missing or mis‑configured, you’ll get access tokens but no refresh token → nothing to cache → empty .nocae.

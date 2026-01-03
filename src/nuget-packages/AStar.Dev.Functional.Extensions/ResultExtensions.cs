@@ -55,9 +55,9 @@ public static class ResultExtensions
     /// </returns>
     public static Result<TNew, TError> Map<TSuccess, TError, TNew>(this Result<TSuccess, TError> result, Func<TSuccess, TNew> map)
         => result.Match<Result<TNew, TError>>(
-                                              ok => new Result<TNew, TError>.Ok(map(ok)),
-                                              err => new Result<TNew, TError>.Error(err)
-                                             );
+            ok => new Result<TNew, TError>.Ok(map(ok)),
+            err => new Result<TNew, TError>.Error(err)
+        );
 
     /// <summary>
     ///     Asynchronously transforms the success value of a <see cref="Result{TSuccess, TError}" /> using the specified mapping function.
@@ -73,9 +73,9 @@ public static class ResultExtensions
     /// </returns>
     public static async Task<Result<TNew, TError>> MapAsync<TSuccess, TError, TNew>(this Result<TSuccess, TError> result, Func<TSuccess, Task<TNew>> mapAsync)
         => await result.MatchAsync<Result<TNew, TError>>(
-                                                         async ok => new Result<TNew, TError>.Ok(await mapAsync(ok)),
-                                                         err => new Result<TNew, TError>.Error(err)
-                                                        );
+            async ok => new Result<TNew, TError>.Ok(await mapAsync(ok)),
+            err => new Result<TNew, TError>.Error(err)
+        );
 
     /// <summary>
     ///     Asynchronously transforms the success value of a <see cref="Result{TSuccess, TError}" /> using the specified mapping function.
@@ -125,9 +125,9 @@ public static class ResultExtensions
     /// </returns>
     public static Result<TSuccess, TNewError> MapFailure<TSuccess, TError, TNewError>(this Result<TSuccess, TError> result, Func<TError, TNewError> mapError)
         => result.Match<Result<TSuccess, TNewError>>(
-                                                     ok => new Result<TSuccess, TNewError>.Ok(ok),
-                                                     err => new Result<TSuccess, TNewError>.Error(mapError(err))
-                                                    );
+            ok => new Result<TSuccess, TNewError>.Ok(ok),
+            err => new Result<TSuccess, TNewError>.Error(mapError(err))
+        );
 
     /// <summary>
     ///     Asynchronously transforms the error value of a <see cref="Result{TSuccess, TError}" /> using the specified mapping function.
@@ -143,9 +143,9 @@ public static class ResultExtensions
     /// </returns>
     public static async Task<Result<TSuccess, TNewError>> MapFailureAsync<TSuccess, TError, TNewError>(this Result<TSuccess, TError> result, Func<TError, Task<TNewError>> mapErrorAsync)
         => await result.MatchAsync<Result<TSuccess, TNewError>>(
-                                                                ok => new Result<TSuccess, TNewError>.Ok(ok),
-                                                                async err => new Result<TSuccess, TNewError>.Error(await mapErrorAsync(err))
-                                                               );
+            ok => new Result<TSuccess, TNewError>.Ok(ok),
+            async err => new Result<TSuccess, TNewError>.Error(await mapErrorAsync(err))
+        );
 
     /// <summary>
     ///     Asynchronously transforms the error value of a <see cref="Result{TSuccess, TError}" /> using the specified mapping function.
@@ -195,9 +195,9 @@ public static class ResultExtensions
     /// </returns>
     public static Result<TNew, TError> Bind<TSuccess, TError, TNew>(this Result<TSuccess, TError> result, Func<TSuccess, Result<TNew, TError>> bind)
         => result.Match(
-                        bind,
-                        err => new Result<TNew, TError>.Error(err)
-                       );
+            bind,
+            err => new Result<TNew, TError>.Error(err)
+        );
 
     /// <summary>
     ///     Asynchronously chains the current result to another <see cref="Result{TNew, TError}" />-producing function,
@@ -213,9 +213,9 @@ public static class ResultExtensions
     /// </returns>
     public static async Task<Result<TNew, TError>> BindAsync<TSuccess, TError, TNew>(this Result<TSuccess, TError> result, Func<TSuccess, Task<Result<TNew, TError>>> bindAsync)
         => await result.MatchAsync<Result<TNew, TError>>(
-                                                         bindAsync,
-                                                         err => new Result<TNew, TError>.Error(err)
-                                                        );
+            bindAsync,
+            err => new Result<TNew, TError>.Error(err)
+        );
 
     /// <summary>
     ///     Asynchronously chains the current result to another <see cref="Result{TNew, TError}" />-producing function,
@@ -264,7 +264,7 @@ public static class ResultExtensions
     /// </returns>
     public static Result<TSuccess, TError> Tap<TSuccess, TError>(this Result<TSuccess, TError> result, Action<TSuccess> action)
     {
-        if(result is Result<TSuccess, TError>.Ok ok) action(ok.Value);
+        if (result is Result<TSuccess, TError>.Ok ok) action(ok.Value);
 
         return result;
     }
@@ -282,7 +282,7 @@ public static class ResultExtensions
     /// </returns>
     public static Result<TSuccess, TError> TapError<TSuccess, TError>(this Result<TSuccess, TError> result, Action<TError> action)
     {
-        if(result is Result<TSuccess, TError>.Error err) action(err.Reason);
+        if (result is Result<TSuccess, TError>.Error err) action(err.Reason);
 
         return result;
     }
@@ -300,7 +300,7 @@ public static class ResultExtensions
     /// </returns>
     public static async Task<Result<TSuccess, TError>> TapAsync<TSuccess, TError>(this Result<TSuccess, TError> result, Func<TSuccess, Task> actionAsync)
     {
-        if(result is Result<TSuccess, TError>.Ok ok) await actionAsync(ok.Value);
+        if (result is Result<TSuccess, TError>.Ok ok) await actionAsync(ok.Value);
 
         return result;
     }
@@ -354,7 +354,7 @@ public static class ResultExtensions
     /// </returns>
     public static async Task<Result<TSuccess, TError>> TapErrorAsync<TSuccess, TError>(this Result<TSuccess, TError> result, Func<TError, Task> actionAsync)
     {
-        if(result is Result<TSuccess, TError>.Error err) await actionAsync(err.Reason);
+        if (result is Result<TSuccess, TError>.Error err) await actionAsync(err.Reason);
 
         return result;
     }

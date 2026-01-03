@@ -1,0 +1,18 @@
+﻿{
+  "theme": 0,
+  "windowSettings": {
+    "width": 800,
+    "height": 600,
+    "windowX": 100,
+    "windowY": 100
+  },
+  "lastAction": null,
+  "uiSettings": {
+    "rememberMe": true,
+    "downloadFilesAfterSync": false,
+    "followLog": true
+  },
+  "maxParallelDownloads": 2,
+  "downloadBatchSize": 100,
+  "cacheTag": 1
+}

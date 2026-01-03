@@ -1,6 +1,6 @@
 ﻿namespace AStar.Dev.Functional.Extensions.Tests.Unit;
 
-public sealed class ResultShould
+public class ResultShould
 {
     [Fact]
     public void MatchToSuccessHandlerWhenResultIsOk()
@@ -8,8 +8,8 @@ public sealed class ResultShould
         var result = new Result<string, int>.Ok("success");
 
         var matched = result.Match(
-                                   success => $"Success: {success}",
-                                   error => $"Error: {error}");
+            success => $"Success: {success}",
+            error => $"Error: {error}");
 
         matched.ShouldBe("Success: success");
     }
@@ -20,8 +20,8 @@ public sealed class ResultShould
         var result = new Result<string, int>.Error(42);
 
         var matched = result.Match(
-                                   success => $"Success: {success}",
-                                   error => $"Error: {error}");
+            success => $"Success: {success}",
+            error => $"Error: {error}");
 
         matched.ShouldBe("Error: 42");
     }
@@ -32,8 +32,8 @@ public sealed class ResultShould
         var result = new Result<string, int>.Ok("success");
 
         var matched = await result.MatchAsync(
-                                              success => Task.FromResult($"Success: {success}"),
-                                              error => $"Error: {error}");
+            success => Task.FromResult($"Success: {success}"),
+            error => $"Error: {error}");
 
         matched.ShouldBe("Success: success");
     }
@@ -44,8 +44,8 @@ public sealed class ResultShould
         var result = new Result<string, int>.Error(42);
 
         var matched = await result.MatchAsync(
-                                              success => Task.FromResult($"Success: {success}"),
-                                              error => $"Error: {error}");
+            success => Task.FromResult($"Success: {success}"),
+            error => $"Error: {error}");
 
         matched.ShouldBe("Error: 42");
     }
@@ -56,8 +56,8 @@ public sealed class ResultShould
         var result = new Result<string, int>.Ok("success");
 
         var matched = await result.MatchAsync(
-                                              success => $"Success: {success}",
-                                              error => Task.FromResult($"Error: {error}"));
+            success => $"Success: {success}",
+            error => Task.FromResult($"Error: {error}"));
 
         matched.ShouldBe("Success: success");
     }
@@ -68,8 +68,8 @@ public sealed class ResultShould
         var result = new Result<string, int>.Error(42);
 
         var matched = await result.MatchAsync(
-                                              success => $"Success: {success}",
-                                              error => Task.FromResult($"Error: {error}"));
+            success => $"Success: {success}",
+            error => Task.FromResult($"Error: {error}"));
 
         matched.ShouldBe("Error: 42");
     }
@@ -80,8 +80,8 @@ public sealed class ResultShould
         var result = new Result<string, int>.Ok("success");
 
         var matched = await result.MatchAsync(
-                                              success => Task.FromResult($"Success: {success}"),
-                                              error => Task.FromResult($"Error: {error}"));
+            success => Task.FromResult($"Success: {success}"),
+            error => Task.FromResult($"Error: {error}"));
 
         matched.ShouldBe("Success: success");
     }
@@ -92,8 +92,8 @@ public sealed class ResultShould
         var result = new Result<string, int>.Error(42);
 
         var matched = await result.MatchAsync(
-                                              success => Task.FromResult($"Success: {success}"),
-                                              error => Task.FromResult($"Error: {error}"));
+            success => Task.FromResult($"Success: {success}"),
+            error => Task.FromResult($"Error: {error}"));
 
         matched.ShouldBe("Error: 42");
     }

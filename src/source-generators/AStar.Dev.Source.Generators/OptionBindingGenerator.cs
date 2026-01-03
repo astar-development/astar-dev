@@ -261,16 +261,13 @@ public sealed class OptionsBindingGenerator : IIncrementalGenerator
 
     // ---- small models -------------------------------------------------------
 
-    private static SimpleKind GetSimpleKind(ITypeSymbol t)
+    private static SimpleKind GetSimpleKind(ITypeSymbol t) => t switch
     {
-        return t switch
-        {
-            { SpecialType: SpecialType.System_String } => SimpleKind.String,
-            { SpecialType: SpecialType.System_Int32 } => SimpleKind.Int32,
-            { SpecialType: SpecialType.System_Boolean } => SimpleKind.Boolean,
-            _ => SimpleKind.Other,
-        };
-    }
+        { SpecialType: SpecialType.System_String } => SimpleKind.String,
+        { SpecialType: SpecialType.System_Int32 } => SimpleKind.Int32,
+        { SpecialType: SpecialType.System_Boolean } => SimpleKind.Boolean,
+        _ => SimpleKind.Other,
+    };
 
     private enum SimpleKind
     {

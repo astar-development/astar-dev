@@ -9,7 +9,7 @@ namespace AStar.Dev.Utilities;
 public static class EncryptionExtensions
 {
     private const string Key = "oe3QnEe&@NnJ$$^L$1N@4WVKFayaAAOb";
-    private const string Iv  = "sBA&3z*4cQf%$!ww";
+    private const string Iv = "sBA&3z*4cQf%$!ww";
 
     /// <summary>
     ///     The Encrypt extension method will encrypt the specified string (using AES encryption)
@@ -36,7 +36,10 @@ public static class EncryptionExtensions
         using var msEncrypt = new MemoryStream();
         using var csEncrypt = new CryptoStream(msEncrypt, encryptor, CryptoStreamMode.Write);
 
-        using(var swEncrypt = new StreamWriter(csEncrypt)) swEncrypt.Write(plainText);
+        using (var swEncrypt = new StreamWriter(csEncrypt))
+        {
+            swEncrypt.Write(plainText);
+        }
 
         return Convert.ToBase64String(msEncrypt.ToArray());
     }

@@ -3,7 +3,7 @@
     <PropertyGroup>
         <TargetFramework>netstandard2.1</TargetFramework>
         <AnalysisLevel>latest-recommended</AnalysisLevel>
-		<LangVersion>13.0</LangVersion>
+        <LangVersion>13.0</LangVersion>
         <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
     </PropertyGroup>
 

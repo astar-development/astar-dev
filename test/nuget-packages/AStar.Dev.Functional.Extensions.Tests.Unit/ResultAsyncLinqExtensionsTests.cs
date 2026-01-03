@@ -3,7 +3,7 @@
 // namespace AStar.Dev.Functional.Extensions.Tests.Unit;
 //
 // [SuppressMessage("Reliability", "CA2012:Use ValueTasks correctly")]
-// public sealed class ResultAsyncLinqExtensionsTests
+// public class ResultAsyncLinqExtensionsTests
 // {
 //     private static Result<int, string>.Ok Ok(int value) => new(value);
 //
@@ -51,4 +51,5 @@
 //         Assert.Equal(-1, output);
 //     }
 // }
+
 

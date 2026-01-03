@@ -1,0 +1,10 @@
+﻿{
+  "clientId": "",
+  "tenantId": "",
+  "maxParallelDownloads": 2,
+  "downloadBatchSize": 100,
+  "cacheTag": 1,
+  "applicationVersion": "1.0.0",
+  "userPreferencesPath": "/home/jason/Documents/.config/astar-dev/AStar.OneDrive.Client.settings.json",
+  "scopes": []
+}
