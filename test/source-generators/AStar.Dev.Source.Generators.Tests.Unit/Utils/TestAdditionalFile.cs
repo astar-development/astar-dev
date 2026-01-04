@@ -1,9 +1,9 @@
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.Text;
 
-namespace AStar.Dev.SourceGenerators.Test.Unit.Utils;
+namespace AStar.Dev.Source.Generators.Tests.Unit.Utils;
 
-public sealed class TestAdditionalFile : AdditionalText
+public class TestAdditionalFile : AdditionalText
 {
     private readonly SourceText _text;
 
@@ -13,7 +13,7 @@ public sealed class TestAdditionalFile : AdditionalText
         _text = SourceText.From(text);
     }
 
-    public override string Path { get; }
-
     public override SourceText GetText(CancellationToken cancellationToken = new()) => _text;
+
+    public override string Path { get; }
 }

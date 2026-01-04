@@ -1,4 +1,4 @@
-<Project Sdk="Aspire.AppHost.Sdk/13.0.0">
+<Project Sdk="Aspire.AppHost.Sdk/13.1.0">
 
     <PropertyGroup>
         <OutputType>Exe</OutputType>
@@ -9,8 +9,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\modules\apis\AStar.Web.ApiService\AStar.Web.ApiService.csproj"/>
-        <ProjectReference Include="..\..\uis\AStar.Dev.Web\AStar.Dev.Web.csproj"/>
+        <ProjectReference Include="..\..\modules\apis\AStar.Web.ApiService\AStar.Web.ApiService.csproj" />
+        <ProjectReference Include="..\..\uis\AStar.Dev.Web\AStar.Dev.Web.csproj" />
     </ItemGroup>
 
     <ItemGroup>
@@ -18,7 +18,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Using Include="JetBrains.Annotations"/>
+        <Using Include="JetBrains.Annotations" />
     </ItemGroup>
     
 </Project>

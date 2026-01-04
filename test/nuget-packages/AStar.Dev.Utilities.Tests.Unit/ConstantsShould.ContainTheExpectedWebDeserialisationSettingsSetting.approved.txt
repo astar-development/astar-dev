@@ -24,7 +24,7 @@
   "indentCharacter": " ",
   "indentSize": 2,
   "referenceHandler": null,
-  "newLine": "\n",
+  "newLine": "\r\n",
   "respectNullableAnnotations": false,
   "respectRequiredConstructorParameters": false,
   "allowDuplicateProperties": true,

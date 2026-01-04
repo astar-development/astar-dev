@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "C#: AStar Dev Aspire Debug",
+            "name": "C#: AStar Dev Aspire Debug (AppHost only)",
             "type": "coreclr",
             "request": "launch",
             "program": "${workspaceFolder}/src/aspire/AStar.Dev.Web.AppHost/bin/Debug/net10.0/AStar.Dev.Web.AppHost.dll",
@@ -23,5 +23,6 @@
             "cwd": "${workspaceFolder}/src/services/AStar.Dev.OneDrive.Client",
             "stopAtEntry": false
         }
-    ]
+    ],
+    "compounds": []
 }

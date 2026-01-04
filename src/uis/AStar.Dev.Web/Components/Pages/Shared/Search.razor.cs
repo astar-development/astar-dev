@@ -17,8 +17,7 @@ public partial class Search : ComponentBase
 
     [Inject] private AuthenticationStateProvider AuthStateProvider { get; set; } = null!;
 
-    [SupplyParameterFromForm(FormName = "search")]
-    // ReSharper disable once AutoPropertyCanBeMadeGetOnly.Local
+    [Parameter]
     public required SearchModel SearchModel { get; set; }
 
     [Parameter] public EventCallback<SearchModel> OnValidSubmit { get; set; }

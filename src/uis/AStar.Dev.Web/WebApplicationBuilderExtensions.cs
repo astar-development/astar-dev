@@ -3,6 +3,8 @@
 // using AStar.Dev.Files.Classifications.Api;
 // using AStar.Dev.ServiceDefaults;
 
+using AStar.Dev.Web.ServiceDefaults;
+using AStar.Dev.Web.Services;
 using Azure.Monitor.OpenTelemetry.AspNetCore;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.FluentUI.AspNetCore.Components;
@@ -42,11 +44,10 @@ public static class WebApplicationBuilderExtensions
 
         _ = builder.Services.AddAuthorization(options => options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin")));
         _ = builder.Services.AddHealthChecks();
-        // _ = builder.Services.AddOpenApi();
 
         _ = builder.Services.AddControllersWithViews()
             .AddMicrosoftIdentityUI();
-        // _ = builder.Services.AddScoped<IFileClassificationsService, FileClassificationsService>();
+        _ = builder.Services.AddScoped<IFileClassificationsService, FileClassificationsService>();
         // _ = builder.AddFileClassificationsApplicationServices();
         // _ = builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
         _ = builder.Services.AddProblemDetails(options => options.CustomizeProblemDetails =

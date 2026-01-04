@@ -6,6 +6,12 @@ namespace AStar.Dev.Web.Components.Pages.Images;
 [UsedImplicitly]
 public partial class DuplicateImages(ILogger<DuplicateImages> logger) : ComponentBase
 {
+    public SearchModel SearchModel { get; set; } = new()
+    {
+        SearchType = SearchType.DuplicateImages.ToString(),
+        SortOrder = SortOrder.SizeDescending.ToString()
+    };
+
     private void HandleValidSubmit(SearchModel model)
     {
         var excludeDays = int.TryParse(model.ExcludeViewedWithinDays, out var days) ? days : 0;

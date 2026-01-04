@@ -1,11 +1,9 @@
-using AngleSharp.Dom;
 using AStar.Dev.Web.Components.Pages.Shared;
 using Bunit;
-using TestContext = Bunit.TestContext;
 
-namespace AStar.Dev.Web.UI.Tests.Unit.Components.Pages.Shared;
+namespace AStar.Dev.Web.Tests.Unit.Components.Pages.Shared;
 
-public sealed class SearchShould : TestContext
+public sealed class SearchShould : BunitContext
 {
 
     [Fact(Skip = "UI is different now")]
@@ -14,23 +12,10 @@ public sealed class SearchShould : TestContext
         // Arrange
 
         // Act
-        IRenderedComponent<Search> cut = RenderComponent<Search>();
+        IRenderedComponent<Search> cut = Render<Search>();
 
         // Assert
         cut.FindAll("fluent-select").Count.ShouldBeGreaterThan(0);
-    }
-
-    [Fact(Skip = "UI is different now")]
-    public void RenderAndOrSwitch()
-    {
-        // Arrange
-
-        // Act
-        IRenderedComponent<Search> cut = RenderComponent<Search>();
-
-        // Assert
-        IRefreshableElementCollection<IElement> switches = cut.FindAll("fluent-switch");
-        switches.ShouldContain(s => s.TextContent.Contains("AND") || s.TextContent.Contains("OR"));
     }
 
     [Fact(Skip = "UI is different now")]
@@ -39,7 +24,7 @@ public sealed class SearchShould : TestContext
         // Arrange
 
         // Act
-        IRenderedComponent<Search> cut = RenderComponent<Search>();
+        IRenderedComponent<Search> cut = Render<Search>();
 
         // Assert
         cut.Markup.ShouldContain("AND");
@@ -51,7 +36,7 @@ public sealed class SearchShould : TestContext
         // Arrange
 
         // Act
-        IRenderedComponent<Search> cut = RenderComponent<Search>();
+        IRenderedComponent<Search> cut = Render<Search>();
 
         // Assert
         cut.Markup.ShouldContain("Documents");
@@ -66,7 +51,7 @@ public sealed class SearchShould : TestContext
         // Arrange
 
         // Act
-        IRenderedComponent<Search> cut = RenderComponent<Search>();
+        IRenderedComponent<Search> cut = Render<Search>();
 
         // Assert
         cut.Markup.ShouldContain("-- Select --");

@@ -4,6 +4,7 @@
 // using AStar.Dev.ServiceDefaults;
 
 using AStar.Dev.Web.Components;
+using AStar.Dev.Web.ServiceDefaults;
 using Scalar.AspNetCore;
 
 namespace AStar.Dev.Web;

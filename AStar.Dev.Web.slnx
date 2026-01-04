@@ -32,11 +32,8 @@
         <Project Path="src/nuget-packages/AStar.Dev.Functional.Extensions/AStar.Dev.Functional.Extensions.csproj" />
         <Project Path="src/nuget-packages/AStar.Dev.Utilities/AStar.Dev.Utilities.csproj" />
     </Folder>
-    <Folder Name="/src/services/">
-        <Project Path="src/services/AStar.Dev.OneDrive.Client/AStar.Dev.OneDrive.Client.csproj" />
-    </Folder>
     <Folder Name="/src/source-generators/">
-        <Project Path="src/source-generators/AStar.Dev.Annotations/AStar.Dev.Annotations.csproj" />
+        <Project Path="src/source-generators/AStar.Dev.Source.Generators.Attributes/AStar.Dev.Source.Generators.Attributes.csproj" />
         <Project Path="src/source-generators/AStar.Dev.Source.Generators/AStar.Dev.Source.Generators.csproj" />
     </Folder>
     <Folder Name="/src/uis/">
@@ -50,11 +47,9 @@
         <Project Path="test/nuget-packages/AStar.Dev.Functional.Extensions.Tests.Unit/AStar.Dev.Functional.Extensions.Tests.Unit.csproj" />
         <Project Path="test/nuget-packages/AStar.Dev.Utilities.Tests.Unit/AStar.Dev.Utilities.Tests.Unit.csproj" />
     </Folder>
-    <Folder Name="/test/services/">
-        <Project Path="test/services/AStar.Dev.OneDrive.Client.Tests.Unit/AStar.Dev.OneDrive.Client.Tests.Unit.csproj" />
-    </Folder>
     <Folder Name="/test/source-generators/">
-        <Project Path="test/source-generators/AStar.Dev.Source.Generators.Tests.Unit/AStar.Dev.Source.Generators.Test.Unit.csproj" />
+        <Project Path="test/source-generators/AStar.Dev.Source.Generators.Attributes.Tests.Unit/AStar.Dev.Source.Generators.Attributes.Tests.Unit.csproj" />
+        <Project Path="test/source-generators/AStar.Dev.Source.Generators.Tests.Unit/AStar.Dev.Source.Generators.Tests.Unit.csproj" />
     </Folder>
     <Folder Name="/test/uis/">
         <Project Path="test/uis/AStar.Dev.Web.Tests.Unit/AStar.Dev.Web.Tests.Unit.csproj" />

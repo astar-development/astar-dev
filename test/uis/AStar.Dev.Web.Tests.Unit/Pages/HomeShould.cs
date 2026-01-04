@@ -2,11 +2,10 @@ using AngleSharp.Dom;
 using AStar.Dev.Web.Components.Pages;
 using Bunit;
 using Microsoft.AspNetCore.Authorization;
-using TestContext = Bunit.TestContext;
 
 namespace AStar.Dev.Web.Tests.Unit.Pages;
 
-public sealed class HomeShould : TestContext
+public sealed class HomeShould : BunitContext
 {
     [Fact]
     public void HaveTheAllowAnonymousAttribute()
@@ -17,7 +16,7 @@ public sealed class HomeShould : TestContext
     [Fact]
     public void ContainTheWelcomeHeading()
     {
-        IRenderedComponent<Home> cut = RenderComponent<Home>();
+        IRenderedComponent<Home> cut = Render<Home>();
 
         IElement heading = cut.Find("h1");
         Assert.Equal("Welcome to the AStar Development website!", heading.TextContent);
@@ -26,7 +25,7 @@ public sealed class HomeShould : TestContext
     [Fact]
     public void ContainTheFluentUiLink()
     {
-        IRenderedComponent<Home> cut = RenderComponent<Home>();
+        IRenderedComponent<Home> cut = Render<Home>();
 
         IElement link = cut.Find("a[href='https://www.fluentui-blazor.net']");
 
@@ -35,5 +34,5 @@ public sealed class HomeShould : TestContext
     }
 
     [Fact]
-    public void ContainTheEnhancementsList() => RenderComponent<Home>().FindAll("ul > li").Count.ShouldBeGreaterThanOrEqualTo(3);
+    public void ContainTheEnhancementsList() => Render<Home>().FindAll("ul > li").Count.ShouldBeGreaterThanOrEqualTo(3);
 }
