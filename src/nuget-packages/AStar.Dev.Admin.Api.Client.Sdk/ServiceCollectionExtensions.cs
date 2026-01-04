@@ -26,7 +26,7 @@ public static class ServiceCollectionExtensions
                     .ValidateDataAnnotations()
                     .ValidateOnStart();
 
-        services.AddScoped<IApiClient, AdminApiClient>();
+        _ = services.AddScoped<IApiClient, AdminApiClient>();
 
         // _ = services.AddHttpClient<AdminApiClient>()
         //             .ConfigureHttpClient((serviceProvider, client) =>
@@ -41,7 +41,7 @@ public static class ServiceCollectionExtensions
         //                                                                                                                                .Json));
         //                                  });
 
-        services.AddDownstreamApi(nameof(AdminApiClient), configuration.GetSection(AdminApiConfiguration.SectionLocation));
+        _ = services.AddDownstreamApi(nameof(AdminApiClient), configuration.GetSection(AdminApiConfiguration.SectionLocation));
 
         return services;
     }

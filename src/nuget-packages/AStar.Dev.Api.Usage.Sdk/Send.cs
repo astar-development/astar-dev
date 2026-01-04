@@ -19,7 +19,7 @@ public sealed class Send(IConnection connection, IOptions<ApiUsageConfiguration>
 
         await using IChannel channel = await connection.CreateChannelAsync(cancellationToken: cancellationToken);
 
-        await channel.QueueDeclareAsync(config.QueueName, true, false, false, cancellationToken: cancellationToken);
+        _ = await channel.QueueDeclareAsync(config.QueueName, true, false, false, cancellationToken: cancellationToken);
 
         var body = Encoding.UTF8.GetBytes(usageEvent.ToJson());
 

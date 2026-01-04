@@ -17,17 +17,17 @@ public sealed class MarkFileForSoftDeletionEndpoint(WebApplication app) : IEndpo
                                     .MapGroup(EndpointConstants.SoftDeleteMarkEndpoint)
                                     .HasApiVersion(1.0);
 
-        apiGroup
+        _ = apiGroup
            .MapPut("/",
-                   async (MarkFileForSoftDeletionCommand           fileId,
-                          FilesContext                             filesContext,
+                   async (MarkFileForSoftDeletionCommand fileId,
+                          FilesContext filesContext,
                           ILogger<MarkFileForSoftDeletionEndpoint> logger,
-                          CancellationToken                        cancellationToken) => await Handle(fileId, filesContext, logger, cancellationToken))
+                          CancellationToken cancellationToken) => await Handle(fileId, filesContext, logger, cancellationToken))
            .AddBasicProduces<MarkFileForSoftDeletionCommandResponse>()
            .WithDescription("MarkFileForSoftDeletionEndpoint")
            .WithSummary("MarkFileForSoftDeletionEndpoint")
 
-            // .RequireAuthorization()
+           // .RequireAuthorization()
            .WithTags(EndpointConstants.SoftDeleteTag);
     }
 
@@ -48,7 +48,7 @@ public sealed class MarkFileForSoftDeletionEndpoint(WebApplication app) : IEndpo
         }
 
         details.DeletionStatus.SoftDeletePending = DateTimeOffset.UtcNow; // Get from DI
-        await filesContext.SaveChangesAsync(cancellationToken);
+        _ = await filesContext.SaveChangesAsync(cancellationToken);
 
         logger.LogDebug("Mark for soft deletion requested for fileId: {FileId} completed successfully", fileId.FileId);
 

@@ -17,17 +17,17 @@ public sealed class UnMarkFileForMovingEndpoint(WebApplication app) : IEndpoint
                                     .MapGroup(EndpointConstants.MoveUnMarkEndpoint)
                                     .HasApiVersion(1.0);
 
-        apiGroup
+        _ = apiGroup
            .MapPut("/",
-                   async (UnMarkFileForMovingCommand           fileId,
-                          FilesContext                         filesContext,
+                   async (UnMarkFileForMovingCommand fileId,
+                          FilesContext filesContext,
                           ILogger<UnMarkFileForMovingEndpoint> logger,
-                          CancellationToken                    cancellationToken) => await Handle(fileId, filesContext, logger, cancellationToken))
+                          CancellationToken cancellationToken) => await Handle(fileId, filesContext, logger, cancellationToken))
            .AddBasicProduces<UnMarkFileForMovingCommandResponse>()
            .WithDescription("UnMarkFileForMovingEndpoint")
            .WithSummary("UnMarkFileForMovingEndpoint")
 
-            // .RequireAuthorization()
+           // .RequireAuthorization()
            .WithTags(EndpointConstants.MoveTag);
     }
 
@@ -45,7 +45,7 @@ public sealed class UnMarkFileForMovingEndpoint(WebApplication app) : IEndpoint
         }
 
         details.FileAccessDetail.MoveRequired = false;
-        await filesContext.SaveChangesAsync(cancellationToken);
+        _ = await filesContext.SaveChangesAsync(cancellationToken);
 
         logger.LogDebug("UnMark for moving of FileId: {FileId} completed successfully", fileId.FileId);
 

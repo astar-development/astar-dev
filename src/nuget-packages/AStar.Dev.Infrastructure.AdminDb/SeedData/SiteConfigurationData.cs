@@ -14,22 +14,22 @@ public static class SiteConfigurationData
     /// <param name="context">The <see cref="DbContext" /> to populate</param>
     public static void Seed(DbContext context)
     {
-        context.SaveChanges();
+        _ = context.SaveChanges();
         DbSet<SiteConfiguration> siteConfiguration = context.Set<SiteConfiguration>();
 
         if(siteConfiguration.Any()) return;
 
-        context.Set<SiteConfiguration>()
+        _ = context.Set<SiteConfiguration>()
                .Add(new SiteConfiguration
-                    {
-                        BaseUrl               = "https://wallhaven.cc",
-                        LoginUrl              = "login",
-                        LoginEmailAddress     = "jason.j.barden2@outlook.com",
-                        Password              = "E0CfdJnTMl04OzxqWnxsb0gQutz5dFTyD/0b/KkfDbU=",
-                        Username              = "jbarden",
-                        SiteConfigurationSlug = "https---wallhaven-cc",
-                    });
+               {
+                   BaseUrl = "https://wallhaven.cc",
+                   LoginUrl = "login",
+                   LoginEmailAddress = "jason.j.barden2@outlook.com",
+                   Password = "E0CfdJnTMl04OzxqWnxsb0gQutz5dFTyD/0b/KkfDbU=",
+                   Username = "jbarden",
+                   SiteConfigurationSlug = "https---wallhaven-cc",
+               });
 
-        context.SaveChanges();
+        _ = context.SaveChanges();
     }
 }

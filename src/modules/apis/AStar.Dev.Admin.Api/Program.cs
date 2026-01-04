@@ -3,7 +3,6 @@ using System.Text.Json.Serialization;
 using AStar.Dev.Admin.Api;
 using AStar.Dev.Api.Usage.Sdk;
 using AStar.Dev.Api.Usage.Sdk.Metrics;
-using AStar.Dev.Aspire.Common;
 using AStar.Dev.AspNet.Extensions.PipelineExtensions;
 using AStar.Dev.AspNet.Extensions.RootEndpoint;
 using AStar.Dev.AspNet.Extensions.ServiceCollectionExtensions;
@@ -12,7 +11,8 @@ using AStar.Dev.Auth.Extensions;
 using AStar.Dev.Infrastructure.AdminDb;
 using AStar.Dev.Infrastructure.Data;
 using AStar.Dev.Logging.Extensions;
-using AStar.Dev.ServiceDefaults;
+using AStar.Dev.Web.Aspire.Common;
+using AStar.Dev.Web.ServiceDefaults;
 using Microsoft.AspNetCore.Http.Json;
 using Serilog;
 
@@ -21,7 +21,7 @@ var applicationName = typeof(IAssemblyMarker).Assembly.GetName().Name!;
 try
 {
     WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
-    builder.AddServiceDefaults();
+    _ = builder.AddServiceDefaults();
 
     _ = builder
        .DisableServerHeader()
@@ -36,7 +36,7 @@ try
     _ = services.AddScoped(_ => new AdminContext(new ConnectionString { Value = connectionString, }, new AStarDbContextOptions()));
     _ = services.AddScoped<JwtEvents>();
 
-    services.AddUsageServices(builder.Configuration, typeof(IAssemblyMarker).Assembly);
+    _ = services.AddUsageServices(builder.Configuration, typeof(IAssemblyMarker).Assembly);
 
     // #pragma warning disable ASP0000
     // var buildServiceProvider = services.BuildServiceProvider();
@@ -71,28 +71,28 @@ try
 
     JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
 
-    services.Configure<JsonOptions>(options =>
+    _ = services.Configure<JsonOptions>(options =>
                                     {
-                                        options.SerializerOptions.ReferenceHandler            = ReferenceHandler.IgnoreCycles;
+                                        options.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
                                         options.SerializerOptions.PropertyNameCaseInsensitive = true;
                                     });
 
     // services.AddAuthorization();
     builder.AddRabbitMQClient(AspireConstants.Common.AstarMessaging);
-    services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+    _ = services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
     WebApplication app = builder.Build()
                                 .UseApiServices();
 
-//app.MapDefaultEndpoints();
+    //app.MapDefaultEndpoints();
     app.ConfigureRootPage(applicationName.Replace(".", " "))
        .UseMetrics();
 
-    app.MapDefaultEndpoints();
+    _ = app.MapDefaultEndpoints();
 
     app.AddApplicationEndpoints();
 
-    app.Run();
+    await app.RunAsync();
 }
 catch(Exception ex)
 {
@@ -100,5 +100,5 @@ catch(Exception ex)
 }
 finally
 {
-    Log.CloseAndFlush();
+    await Log.CloseAndFlushAsync();
 }

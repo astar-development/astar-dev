@@ -17,17 +17,17 @@ public sealed class MarkFileForHardDeletionEndpoint(WebApplication app) : IEndpo
                                     .MapGroup(EndpointConstants.HardDeleteMarkEndpoint)
                                     .HasApiVersion(1.0);
 
-        apiGroup
+        _ = apiGroup
            .MapPut("/",
-                   async (MarkFileForHardDeletionCommand           fileId,
-                          FilesContext                             filesContext,
+                   async (MarkFileForHardDeletionCommand fileId,
+                          FilesContext filesContext,
                           ILogger<MarkFileForHardDeletionEndpoint> logger,
-                          CancellationToken                        cancellationToken) => await Handle(fileId, filesContext, logger, cancellationToken))
+                          CancellationToken cancellationToken) => await Handle(fileId, filesContext, logger, cancellationToken))
            .AddBasicProduces<MarkFileForHardDeletionCommandResponse>()
            .WithDescription("MarkFileForHardDeletionEndpoint")
            .WithSummary("MarkFileForHardDeletionEndpoint")
 
-            // .RequireAuthorization()
+           // .RequireAuthorization()
            .WithTags(EndpointConstants.HardDeleteTag);
     }
 
@@ -47,7 +47,7 @@ public sealed class MarkFileForHardDeletionEndpoint(WebApplication app) : IEndpo
 
         details.DeletionStatus.HardDeletePending = DateTime.UtcNow; // need to get TimeProvide from DI
 
-        await filesContext.SaveChangesAsync(cancellationToken);
+        _ = await filesContext.SaveChangesAsync(cancellationToken);
 
         logger.LogDebug("Mark for hard deletion requested for fileId: {FileId} completed successfully", fileId.FileId);
 

@@ -3,7 +3,6 @@ using System.IO.Abstractions;
 using System.Text.Json.Serialization;
 using AStar.Dev.Api.Usage.Sdk;
 using AStar.Dev.Api.Usage.Sdk.Metrics;
-using AStar.Dev.Aspire.Common;
 using AStar.Dev.AspNet.Extensions.PipelineExtensions;
 using AStar.Dev.AspNet.Extensions.RootEndpoint;
 using AStar.Dev.AspNet.Extensions.ServiceCollectionExtensions;
@@ -12,7 +11,8 @@ using AStar.Dev.Auth.Extensions;
 using AStar.Dev.Files.Api;
 using AStar.Dev.Infrastructure.FilesDb.Data;
 using AStar.Dev.Logging.Extensions;
-using AStar.Dev.ServiceDefaults;
+using AStar.Dev.Web.Aspire.Common;
+using AStar.Dev.Web.ServiceDefaults;
 using Microsoft.AspNetCore.Http.Json;
 using Serilog;
 
@@ -21,7 +21,7 @@ var applicationName = typeof(IAssemblyMarker).Assembly.GetName().Name!;
 try
 {
     WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
-    builder.AddServiceDefaults();
+    _ = builder.AddServiceDefaults();
 
     _ = builder
        .DisableServerHeader()
@@ -33,9 +33,9 @@ try
 
     builder.AddSqlServerDbContext<FilesContext>(AspireConstants.Sql.FilesDb);
 
-    services.AddUsageServices(builder.Configuration, typeof(IAssemblyMarker).Assembly);
+    _ = services.AddUsageServices(builder.Configuration, typeof(IAssemblyMarker).Assembly);
 
-    services.AddScoped<IFileSystem, FileSystem>();
+    _ = services.AddScoped<IFileSystem, FileSystem>();
     _ = services.AddScoped<JwtEvents>();
 
     // #pragma warning disable ASP0000
@@ -71,16 +71,16 @@ try
 
     JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
 
-    services.Configure<JsonOptions>(options =>
+    _ = services.Configure<JsonOptions>(options =>
                                     {
-                                        options.SerializerOptions.ReferenceHandler            = ReferenceHandler.IgnoreCycles;
+                                        options.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
                                         options.SerializerOptions.PropertyNameCaseInsensitive = true;
                                     });
 
     // services.AddAuthorization();
     builder.AddRabbitMQClient(AspireConstants.Common.AstarMessaging);
 
-    services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+    _ = services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
     WebApplication app = builder.Build()
                                 .UseApiServices();
@@ -89,9 +89,9 @@ try
        .UseMetrics();
 
     app.AddApplicationEndpoints();
-    app.MapDefaultEndpoints();
+    _ = app.MapDefaultEndpoints();
 
-    app.Run();
+    await app.RunAsync();
 }
 catch(Exception ex)
 {
@@ -99,5 +99,5 @@ catch(Exception ex)
 }
 finally
 {
-    Log.CloseAndFlush();
+    await Log.CloseAndFlushAsync();
 }

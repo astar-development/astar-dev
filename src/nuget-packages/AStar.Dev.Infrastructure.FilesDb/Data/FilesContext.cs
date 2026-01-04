@@ -77,11 +77,11 @@ public sealed class FilesContext : DbContext
         _ = modelBuilder.HasDefaultSchema(Constants.SchemaName);
         _ = modelBuilder.ApplyConfigurationsFromAssembly(typeof(FilesContext).Assembly);
 
-        modelBuilder
+        _ = modelBuilder
            .Entity<DuplicatesDetails>(eb =>
                                       {
-                                          eb.HasNoKey();
-                                          eb.ToView("vw_DuplicatesDetails");
+                                          _ = eb.HasNoKey();
+                                          _ = eb.ToView("vw_DuplicatesDetails");
                                       });
     }
 }

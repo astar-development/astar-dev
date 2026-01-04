@@ -21,7 +21,7 @@ public sealed class GetAllSiteConfigurationsEndpoint(WebApplication app) : IEndp
                                     .MapGroup(EndpointConstants.SiteConfigurationsEndpoint)
                                     .HasApiVersion(1.0);
 
-        apiGroup
+        _ = apiGroup
            .MapGet("/",
                    async (HttpContext context, AdminContext adminContext, CancellationToken cancellationToken) =>
                        await Handle(new GetAllSiteConfigurationsQuery(context.User), adminContext, cancellationToken))
@@ -29,7 +29,7 @@ public sealed class GetAllSiteConfigurationsEndpoint(WebApplication app) : IEndp
            .WithDescription("Gets all of the site configurations available")
            .WithSummary("Get all site configurations")
 
-            // .RequireAuthorization()
+           // .RequireAuthorization()
            .WithTags(EndpointConstants.SiteConfigurationTag);
     }
 

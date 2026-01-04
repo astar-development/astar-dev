@@ -18,17 +18,17 @@ public sealed class GetDuplicatesCountEndpoint(WebApplication app) : IEndpoint
                                     .MapGroup(EndpointConstants.DuplicatesCountEndpoint)
                                     .HasApiVersion(1.0);
 
-        apiGroup
+        _ = apiGroup
            .MapGet("/",
                    async ([AsParameters] GetDuplicatesCountQuery parameters,
-                          FilesContext                           filesContext,
-                          ILogger<GetDuplicatesEndpoint>         logger,
-                          CancellationToken                      cancellationToken) => await Handle(parameters, filesContext, logger, cancellationToken))
+                          FilesContext filesContext,
+                          ILogger<GetDuplicatesEndpoint> logger,
+                          CancellationToken cancellationToken) => await Handle(parameters, filesContext, logger, cancellationToken))
            .AddBasicProduces<GetDuplicatesCountQueryResponse>()
            .WithDescription("Get all file duplicates matching the specified search criteria")
            .WithSummary("Get all file duplicates")
 
-            // .RequireAuthorization()
+           // .RequireAuthorization()
            .WithTags(EndpointConstants.DuplicatesTag);
     }
 

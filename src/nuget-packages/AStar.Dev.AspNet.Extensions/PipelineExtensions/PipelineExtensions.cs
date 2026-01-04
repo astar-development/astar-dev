@@ -24,12 +24,13 @@ public static class PipelineExtensions
     /// </returns>
     public static WebApplication UseApiServices(this WebApplication app, bool enableSwaggerDarkMode = true)
     {
-        app.UseExceptionHandler();
-        app.ConfigureHealthCheckEndpoints().UseSwagger();
+        _ = app.UseExceptionHandler();
+        _ = app.ConfigureHealthCheckEndpoints().UseSwagger();
 
-        if(enableSwaggerDarkMode) app.UseStaticFiles();
+        if(enableSwaggerDarkMode)
+            _ = app.UseStaticFiles();
 
-        app.UseSwaggerUI(SetupAction(app, enableSwaggerDarkMode));
+        _ = app.UseSwaggerUI(SetupAction(app, enableSwaggerDarkMode));
 
 //           .UseAuthentication()
         //         .UseAuthorization();

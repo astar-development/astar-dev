@@ -21,7 +21,7 @@ public sealed class GetSearchCategoriesByIdEndpoint(WebApplication app) : IEndpo
                                     .MapGroup(EndpointConstants.SearchCategoriesEndpoint)
                                     .HasApiVersion(1.0);
 
-        apiGroup
+        _ = apiGroup
            .MapGet("/{searchCategoryId:guid}",
                    async (Guid searchCategoryId, HttpContext context, AdminContext adminContext, CancellationToken cancellationToken) =>
                        await Handle(new GetSearchCategoriesByIdQuery(searchCategoryId, context.User), adminContext, cancellationToken))
@@ -29,7 +29,7 @@ public sealed class GetSearchCategoriesByIdEndpoint(WebApplication app) : IEndpo
            .WithSummary("Get the search categories by id")
            .WithName("GetSearchCategoriesById")
 
-            // .RequireAuthorization()
+           // .RequireAuthorization()
            .AddBasicProduces<GetSearchCategoriesByIdResponse>()
            .Produces(404)
            .WithTags(EndpointConstants.SearchCategoriesTag);

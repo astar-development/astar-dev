@@ -23,19 +23,19 @@ public sealed class UpdateSearchCategoryEndpoint(WebApplication app) : IEndpoint
                                     .HasDeprecatedApiVersion(0.9)
                                     .HasApiVersion(1.0);
 
-        apiGroup
+        _ = apiGroup
            .MapPut("/{searchCategoryId:guid}",
-                   async ([FromRoute] Guid                        searchCategoryId,
-                          [FromBody]  UpdateSearchCategoryCommand updateSearchCategoriesCommand,
-                          HttpContext                             context,
-                          AdminContext                            adminContext,
+                   async ([FromRoute] Guid searchCategoryId,
+                          [FromBody] UpdateSearchCategoryCommand updateSearchCategoriesCommand,
+                          HttpContext context,
+                          AdminContext adminContext,
                           CancellationToken cancellationToken) => await Handle(new UpdateSearchCategoryCommandForDb(searchCategoryId, context.User, updateSearchCategoriesCommand), adminContext,
                                                                                cancellationToken))
            .AddBasicWithAdditionalProduces<UpdateSearchCategoryResponse>()
            .WithDescription("Updates the search category for the specified slug")
            .WithSummary("Update the search category")
 
-            // .RequireAuthorization()
+           // .RequireAuthorization()
            .WithTags(EndpointConstants.SearchCategoriesTag)
            .MapToApiVersion(1.0);
     }
@@ -62,8 +62,8 @@ public sealed class UpdateSearchCategoryEndpoint(WebApplication app) : IEndpoint
                                LastKnownImageCount = request.LastKnownImageCount,
                            };
 
-        adminContext.SearchCategory.Add(insertConfig);
-        await adminContext.SaveChangesAsync(cancellationToken);
+        _ = adminContext.SearchCategory.Add(insertConfig);
+        _ = await adminContext.SaveChangesAsync(cancellationToken);
 
         var apiVersion = new ApiVersion { Version = "1.0", };
 

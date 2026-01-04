@@ -1,7 +1,7 @@
 // using Asp.Versioning;
 // using AStar.Dev.AspNet.Extensions.Handlers;
 // using AStar.Dev.Files.Classifications.Api;
-// using AStar.Dev.ServiceDefaults;
+// using AStar.Dev.Web.ServiceDefaults;
 
 using AStar.Dev.Web.ServiceDefaults;
 using AStar.Dev.Web.Services;

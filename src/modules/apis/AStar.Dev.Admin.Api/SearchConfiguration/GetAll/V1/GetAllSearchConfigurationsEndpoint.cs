@@ -20,7 +20,7 @@ public sealed class GetAllSearchConfigurationsEndpoint(WebApplication app) : IEn
                                     .MapGroup(EndpointConstants.SearchConfigurationEndpoint)
                                     .HasApiVersion(1.0);
 
-        apiGroup
+        _ = apiGroup
            .MapGet("/",
                    async (HttpContext context, AdminContext adminContext, CancellationToken cancellationToken) =>
                        await Handle(new GetAllSearchConfigurationsQuery(context.User), adminContext, cancellationToken))
@@ -28,7 +28,7 @@ public sealed class GetAllSearchConfigurationsEndpoint(WebApplication app) : IEn
            .WithDescription("Get all the available Search Configurations")
            .WithSummary("Get all Search Configurations")
 
-            // .RequireAuthorization()
+           // .RequireAuthorization()
            .WithTags(EndpointConstants.SearchConfigurationTag);
     }
 

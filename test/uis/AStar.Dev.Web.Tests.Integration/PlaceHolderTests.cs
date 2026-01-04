@@ -1,7 +1,6 @@
-using System.Net;
 using Microsoft.AspNetCore.Mvc.Testing;
 
-namespace AStar.Dev.Web.UI;
+namespace AStar.Dev.Web.Tests.Integration;
 
 public class BasicTests(CustomWebApplicationFactory<Program> webApplicationFactory) : IClassFixture<CustomWebApplicationFactory<Program>>
 {

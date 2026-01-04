@@ -24,19 +24,19 @@ public sealed class GetImageEndpoint(WebApplication app) : IEndpoint
                                     .MapGroup(EndpointConstants.ImageEndpoint)
                                     .HasApiVersion(1.0);
 
-        apiGroup
+        _ = apiGroup
            .MapGet("/", async (
                             [FromServices] ILogger<GetImageEndpoint> logger,
-                            [FromServices] IFileSystem               fileSystem,
-                            [FromServices] FilesContext              context,
-                            [FromQuery]    string                    imagePath,
-                            [FromQuery]    int                       maximumSizeInPixels = MaximumHeightAndWidthForThumbnail,
-                            CancellationToken                        cancellationToken   = default) => await Handle(imagePath, maximumSizeInPixels, fileSystem, context, logger, cancellationToken))
+                            [FromServices] IFileSystem fileSystem,
+                            [FromServices] FilesContext context,
+                            [FromQuery] string imagePath,
+                            [FromQuery] int maximumSizeInPixels = MaximumHeightAndWidthForThumbnail,
+                            CancellationToken cancellationToken = default) => await Handle(imagePath, maximumSizeInPixels, fileSystem, context, logger, cancellationToken))
            .AddBasicProduces<FileStream>()
            .WithDescription("Get the file Image matching the specified criteria.")
            .WithSummary("Get the file Image")
 
-            // .RequireAuthorization()
+           // .RequireAuthorization()
            .WithTags(EndpointConstants.ImageTag);
     }
 
@@ -107,7 +107,7 @@ public sealed class GetImageEndpoint(WebApplication app) : IEndpoint
         var             outputStream  = new MemoryStream();
 
         resizedImage.Encode(SKEncodedImageFormat.Jpeg, 100).SaveTo(outputStream);
-        outputStream.Seek(0, SeekOrigin.Begin);
+        _ = outputStream.Seek(0, SeekOrigin.Begin);
 
         return outputStream;
     }

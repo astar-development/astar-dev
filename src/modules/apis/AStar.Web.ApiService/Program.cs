@@ -51,7 +51,7 @@ app.MapGet("/weatherforecast", () =>
 
 app.MapDefaultEndpoints();
 
-app.Run();
+await app.RunAsync();
 
 namespace AStar.Web.ApiService
 {

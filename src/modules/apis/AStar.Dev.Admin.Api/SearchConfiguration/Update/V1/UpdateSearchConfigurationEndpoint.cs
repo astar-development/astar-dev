@@ -22,12 +22,12 @@ public sealed class UpdateSearchConfigurationEndpoint(WebApplication app) : IEnd
                                     .HasDeprecatedApiVersion(0.9)
                                     .HasApiVersion(1.0);
 
-        apiGroup
+        _ = apiGroup
            .MapPut("/{slug}",
-                   async ([FromRoute] string                           slug,
-                          [FromBody]  UpdateSearchConfigurationCommand updateSearchConfigurationCommand,
-                          HttpContext                                  context,
-                          AdminContext                                 adminContext,
+                   async ([FromRoute] string slug,
+                          [FromBody] UpdateSearchConfigurationCommand updateSearchConfigurationCommand,
+                          HttpContext context,
+                          AdminContext adminContext,
                           CancellationToken cancellationToken) => await Handle(new UpdateSearchConfigurationCommandForDb(slug, context.User, updateSearchConfigurationCommand), adminContext,
                                                                                cancellationToken))
            .WithDescription("Update the search configuration matching the supplied slug")
@@ -35,7 +35,7 @@ public sealed class UpdateSearchConfigurationEndpoint(WebApplication app) : IEnd
            .AddBasicWithAdditionalProduces<UpdateSearchConfigurationResponse>()
            .WithName("UpdateSearchConfiguration")
 
-            // .RequireAuthorization()
+           // .RequireAuthorization()
            .WithTags(EndpointConstants.SearchConfigurationTag)
            .MapToApiVersion(1.0);
     }
@@ -71,8 +71,8 @@ public sealed class UpdateSearchConfigurationEndpoint(WebApplication app) : IEnd
                                UpdatedBy                       = request.UpdatedBy,
                            };
 
-        adminContext.SearchConfiguration.Add(insertConfig);
-        await adminContext.SaveChangesAsync(cancellationToken);
+        _ = adminContext.SearchConfiguration.Add(insertConfig);
+        _ = await adminContext.SaveChangesAsync(cancellationToken);
 
         var apiVersion = new ApiVersion { Version = "1.0", };
 

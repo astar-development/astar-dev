@@ -11,10 +11,10 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.EnsureSchema(
+            _ = migrationBuilder.EnsureSchema(
                 name: "files");
 
-            migrationBuilder.CreateTable(
+            _ = migrationBuilder.CreateTable(
                 name: "Event",
                 schema: "files",
                 columns: table => new
@@ -36,10 +36,10 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Event", x => x.Id);
+                    _ = table.PrimaryKey("PK_Event", x => x.Id);
                 });
 
-            migrationBuilder.CreateTable(
+            _ = migrationBuilder.CreateTable(
                 name: "FileAccessDetail",
                 schema: "files",
                 columns: table => new
@@ -56,10 +56,10 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FileAccessDetail", x => x.Id);
+                    _ = table.PrimaryKey("PK_FileAccessDetail", x => x.Id);
                 });
 
-            migrationBuilder.CreateTable(
+            _ = migrationBuilder.CreateTable(
                 name: "FileClassification",
                 schema: "files",
                 columns: table => new
@@ -74,10 +74,10 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FileClassification", x => x.Id);
+                    _ = table.PrimaryKey("PK_FileClassification", x => x.Id);
                 });
 
-            migrationBuilder.CreateTable(
+            _ = migrationBuilder.CreateTable(
                 name: "ModelToIgnore",
                 schema: "files",
                 columns: table => new
@@ -88,10 +88,10 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ModelToIgnore", x => x.Id);
+                    _ = table.PrimaryKey("PK_ModelToIgnore", x => x.Id);
                 });
 
-            migrationBuilder.CreateTable(
+            _ = migrationBuilder.CreateTable(
                 name: "TagToIgnore",
                 schema: "files",
                 columns: table => new
@@ -103,10 +103,10 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TagToIgnore", x => x.Id);
+                    _ = table.PrimaryKey("PK_TagToIgnore", x => x.Id);
                 });
 
-            migrationBuilder.CreateTable(
+            _ = migrationBuilder.CreateTable(
                 name: "FileDetail",
                 schema: "files",
                 columns: table => new
@@ -126,8 +126,8 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FileDetail", x => x.Id);
-                    table.ForeignKey(
+                    _ = table.PrimaryKey("PK_FileDetail", x => x.Id);
+                    _ = table.ForeignKey(
                         name: "FK_FileDetail_FileAccessDetail_FileAccessDetailId",
                         column: x => x.FileAccessDetailId,
                         principalSchema: "files",
@@ -136,7 +136,7 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
+            _ = migrationBuilder.CreateTable(
                 name: "FileNamePart",
                 schema: "files",
                 columns: table => new
@@ -151,8 +151,8 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FileNamePart", x => x.Id);
-                    table.ForeignKey(
+                    _ = table.PrimaryKey("PK_FileNamePart", x => x.Id);
+                    _ = table.ForeignKey(
                         name: "FK_FileNamePart_FileClassification_FileClassificationId",
                         column: x => x.FileClassificationId,
                         principalSchema: "files",
@@ -160,7 +160,7 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                         principalColumn: "Id");
                 });
 
-            migrationBuilder.CreateTable(
+            _ = migrationBuilder.CreateTable(
                 name: "FileClassificationFileDetail",
                 schema: "files",
                 columns: table => new
@@ -170,15 +170,15 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_FileClassificationFileDetail", x => new { x.FileClassificationsId, x.FileDetailsId });
-                    table.ForeignKey(
+                    _ = table.PrimaryKey("PK_FileClassificationFileDetail", x => new { x.FileClassificationsId, x.FileDetailsId });
+                    _ = table.ForeignKey(
                         name: "FK_FileClassificationFileDetail_FileClassification_FileClassificationsId",
                         column: x => x.FileClassificationsId,
                         principalSchema: "files",
                         principalTable: "FileClassification",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
+                    _ = table.ForeignKey(
                         name: "FK_FileClassificationFileDetail_FileDetail_FileDetailsId",
                         column: x => x.FileDetailsId,
                         principalSchema: "files",
@@ -187,45 +187,45 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateIndex(
+            _ = migrationBuilder.CreateIndex(
                 name: "IX_FileClassification_Name",
                 schema: "files",
                 table: "FileClassification",
                 column: "Name",
                 unique: true);
 
-            migrationBuilder.CreateIndex(
+            _ = migrationBuilder.CreateIndex(
                 name: "IX_FileClassificationFileDetail_FileDetailsId",
                 schema: "files",
                 table: "FileClassificationFileDetail",
                 column: "FileDetailsId");
 
-            migrationBuilder.CreateIndex(
+            _ = migrationBuilder.CreateIndex(
                 name: "IX_FileDetail_DuplicateImages",
                 schema: "files",
                 table: "FileDetail",
                 columns: new[] { "IsImage", "FileSize" });
 
-            migrationBuilder.CreateIndex(
+            _ = migrationBuilder.CreateIndex(
                 name: "IX_FileDetail_FileAccessDetailId",
                 schema: "files",
                 table: "FileDetail",
                 column: "FileAccessDetailId");
 
-            migrationBuilder.CreateIndex(
+            _ = migrationBuilder.CreateIndex(
                 name: "IX_FileDetail_FileHandle",
                 schema: "files",
                 table: "FileDetail",
                 column: "FileHandle",
                 unique: true);
 
-            migrationBuilder.CreateIndex(
+            _ = migrationBuilder.CreateIndex(
                 name: "IX_FileDetail_FileSize",
                 schema: "files",
                 table: "FileDetail",
                 column: "FileSize");
 
-            migrationBuilder.CreateIndex(
+            _ = migrationBuilder.CreateIndex(
                 name: "IX_FileNamePart_FileClassificationId",
                 schema: "files",
                 table: "FileNamePart",
@@ -235,35 +235,35 @@ namespace AStar.Dev.Infrastructure.FilesDb.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropTable(
+            _ = migrationBuilder.DropTable(
                 name: "Event",
                 schema: "files");
 
-            migrationBuilder.DropTable(
+            _ = migrationBuilder.DropTable(
                 name: "FileClassificationFileDetail",
                 schema: "files");
 
-            migrationBuilder.DropTable(
+            _ = migrationBuilder.DropTable(
                 name: "FileNamePart",
                 schema: "files");
 
-            migrationBuilder.DropTable(
+            _ = migrationBuilder.DropTable(
                 name: "ModelToIgnore",
                 schema: "files");
 
-            migrationBuilder.DropTable(
+            _ = migrationBuilder.DropTable(
                 name: "TagToIgnore",
                 schema: "files");
 
-            migrationBuilder.DropTable(
+            _ = migrationBuilder.DropTable(
                 name: "FileDetail",
                 schema: "files");
 
-            migrationBuilder.DropTable(
+            _ = migrationBuilder.DropTable(
                 name: "FileClassification",
                 schema: "files");
 
-            migrationBuilder.DropTable(
+            _ = migrationBuilder.DropTable(
                 name: "FileAccessDetail",
                 schema: "files");
         }

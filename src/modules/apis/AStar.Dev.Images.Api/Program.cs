@@ -4,14 +4,14 @@ using System.IO.Abstractions;
 using System.Text.Json.Serialization;
 using AStar.Dev.Api.Usage.Sdk;
 using AStar.Dev.Api.Usage.Sdk.Metrics;
-using AStar.Dev.Aspire.Common;
 using AStar.Dev.AspNet.Extensions.PipelineExtensions;
 using AStar.Dev.AspNet.Extensions.RootEndpoint;
 using AStar.Dev.AspNet.Extensions.ServiceCollectionExtensions;
 using AStar.Dev.AspNet.Extensions.WebApplicationBuilderExtensions;
 using AStar.Dev.Auth.Extensions;
 using AStar.Dev.Logging.Extensions;
-using AStar.Dev.ServiceDefaults;
+using AStar.Dev.Web.Aspire.Common;
+using AStar.Dev.Web.ServiceDefaults;
 using Microsoft.AspNetCore.Http.Json;
 using Serilog;
 
@@ -23,13 +23,11 @@ namespace AStar.Dev.Images.Api;
 [ExcludeFromCodeCoverage]
 public static class Program
 {
-    private const int MaximumHeightAndWidthForThumbnail = 350;
-
     /// <summary>
     ///     The Main method controls the startup process.
     /// </summary>
     /// <param name="args"></param>
-    public static void Main(string[] args)
+    public static async Task Main(string[] args)
     {
         WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -37,7 +35,7 @@ public static class Program
 
         try
         {
-            builder.AddServiceDefaults();
+            _ = builder.AddServiceDefaults();
 
             _ = builder
                .DisableServerHeader()
@@ -49,7 +47,8 @@ public static class Program
 
             IServiceCollection services = builder.Services;
             _ = services.AddScoped<JwtEvents>();
-            services.AddUsageServices(builder.Configuration, typeof(IAssemblyMarker).Assembly);
+            _ = services.AddUsageServices(builder.Configuration, typeof(IAssemblyMarker).Assembly);
+            _ = ConfigureServices(services);
 
             // #pragma warning disable ASP0000
             // var buildServiceProvider = services.BuildServiceProvider();
@@ -84,15 +83,15 @@ public static class Program
 
             JwtSecurityTokenHandler.DefaultMapInboundClaims = false;
 
-            services.Configure<JsonOptions>(options =>
+            _ = services.Configure<JsonOptions>(options =>
                                             {
-                                                options.SerializerOptions.ReferenceHandler            = ReferenceHandler.IgnoreCycles;
+                                                options.SerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
                                                 options.SerializerOptions.PropertyNameCaseInsensitive = true;
                                             });
 
             // services.AddAuthorization();
             builder.AddRabbitMQClient(AspireConstants.Common.AstarMessaging);
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            _ = services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
             _ = services.AddSingleton<IFileSystem, FileSystem>();
 
@@ -103,9 +102,9 @@ public static class Program
             _ = ConfigurePipeline(app, applicationName);
 
             app.AddApplicationEndpoints();
-            app.MapDefaultEndpoints();
+            _ = app.MapDefaultEndpoints();
 
-            app.Run();
+            await app.RunAsync();
         }
         catch(Exception ex)
         {
@@ -113,7 +112,7 @@ public static class Program
         }
         finally
         {
-            Log.CloseAndFlush();
+            await Log.CloseAndFlushAsync();
         }
     }
 

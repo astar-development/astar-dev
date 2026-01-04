@@ -19,10 +19,10 @@ public sealed class ScrapeDirectoryConfiguration : IEntityTypeConfiguration<Scra
         _ = builder
            .ToTable("ScrapeDirectory", "admin").HasKey(scrapeDirectory => scrapeDirectory.Id);
 
-        builder.Property(p => p.RootDirectory).HasMaxLength(300);
-        builder.Property(p => p.BaseDirectory).HasMaxLength(300);
-        builder.Property(p => p.BaseSaveDirectory).HasMaxLength(300);
-        builder.Property(p => p.BaseDirectoryFamous).HasMaxLength(300);
-        builder.Property(p => p.SubDirectoryName).HasMaxLength(300);
+        _ = builder.Property(p => p.RootDirectory).HasMaxLength(300);
+        _ = builder.Property(p => p.BaseDirectory).HasMaxLength(300);
+        _ = builder.Property(p => p.BaseSaveDirectory).HasMaxLength(300);
+        _ = builder.Property(p => p.BaseDirectoryFamous).HasMaxLength(300);
+        _ = builder.Property(p => p.SubDirectoryName).HasMaxLength(300);
     }
 }

@@ -14,7 +14,7 @@ public sealed class GetAllDirectoriesEndpoint(WebApplication app) : IEndpoint
                                     .MapGroup(EndpointConstants.DirectoriesEndpoint)
                                     .HasApiVersion(1.0);
 
-        apiGroup
+        _ = apiGroup
            .MapGet("/{rootDirectory}",
                    async (string rootDirectory, IFileSystem fileSystem, HttpContext context, ILogger<GetAllDirectoriesEndpoint> logger, CancellationToken cancellationToken) =>
                        await Handle(new GetAllDirectoriesQuery(rootDirectory, context.User), fileSystem, logger, cancellationToken))
@@ -24,7 +24,7 @@ public sealed class GetAllDirectoriesEndpoint(WebApplication app) : IEndpoint
            .WithDescription("Get all scrape directories - shared across all sites")
            .WithSummary("Get all scrape directories")
 
-            // .RequireAuthorization()
+           // .RequireAuthorization()
            .WithTags(EndpointConstants.DirectoriesTag);
     }
 

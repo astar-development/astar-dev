@@ -15,27 +15,27 @@ public sealed class Startup(IConfiguration configuration)
 {
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddMicrosoftIdentityWebApiAuthentication(configuration);
+        _ = services.AddMicrosoftIdentityWebApiAuthentication(configuration);
 
         // services.AddAuthorization();
-        services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
-        services.AddControllers();
+        _ = services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+        _ = services.AddControllers();
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
     {
         if(env.IsDevelopment())
-            app.UseDeveloperExceptionPage();
+            _ = app.UseDeveloperExceptionPage();
         else
-            app.UseHsts();
+            _ = app.UseHsts();
 
         // app.UseHttpsRedirection();
 
-        app.UseRouting();
+        _ = app.UseRouting();
 
         //app.UseAuthentication();
         //app.UseAuthorization();
 
-        app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
+        _ = app.UseEndpoints(endpoints => { _ = endpoints.MapControllers(); });
     }
 }

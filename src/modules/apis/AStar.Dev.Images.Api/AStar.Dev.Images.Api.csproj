@@ -23,14 +23,17 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\aspire\AStar.Dev.Aspire.Common\AStar.Dev.Aspire.Common.csproj" />
-        <ProjectReference Include="..\..\aspire\AStar.Dev.ServiceDefaults\AStar.Dev.ServiceDefaults.csproj" />
-        <ProjectReference Include="..\..\nuget-packages\AStar.Dev.AspNet.Extensions\AStar.Dev.AspNet.Extensions.csproj" />
-        <ProjectReference Include="..\..\nuget-packages\AStar.Dev.Auth.Extensions\AStar.Dev.Auth.Extensions.csproj" />
-        <ProjectReference Include="..\..\nuget-packages\AStar.Dev.Infrastructure.FilesDb\AStar.Dev.Infrastructure.FilesDb.csproj" />
-        <ProjectReference Include="..\..\nuget-packages\AStar.Dev.Logging.Extensions\AStar.Dev.Logging.Extensions.csproj" />
-        <ProjectReference Include="..\..\nuget-packages\AStar.Dev.Minimal.Api.Extensions\AStar.Dev.Minimal.Api.Extensions.csproj" />
-        <ProjectReference Include="..\..\nuget-packages\AStar.Dev.Restful.Root.Document\AStar.Dev.Restful.Root.Document.csproj" />
+        <ProjectReference Include="..\..\..\aspire\AStar.Dev.Web.Aspire.Common\AStar.Dev.Web.Aspire.Common.csproj" />
+        <ProjectReference Include="..\..\..\aspire\AStar.Dev.Web.ServiceDefaults\AStar.Dev.Web.ServiceDefaults.csproj" />
+        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Api.Usage.Sdk\AStar.Dev.Api.Usage.Sdk.csproj" />
+        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Api.HealthChecks\AStar.Dev.Api.HealthChecks.csproj" />
+        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.AspNet.Extensions\AStar.Dev.AspNet.Extensions.csproj" />
+        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Auth.Extensions\AStar.Dev.Auth.Extensions.csproj" />
+        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Infrastructure.FilesDb\AStar.Dev.Infrastructure.FilesDb.csproj" />
+        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Logging.Extensions\AStar.Dev.Logging.Extensions.csproj" />
+        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Minimal.Api.Extensions\AStar.Dev.Minimal.Api.Extensions.csproj" />
+        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Technical.Debt.Reporting\AStar.Dev.Technical.Debt.Reporting.csproj" />
+        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Utilities\AStar.Dev.Utilities.csproj" />
     </ItemGroup>
 
     <ItemGroup>

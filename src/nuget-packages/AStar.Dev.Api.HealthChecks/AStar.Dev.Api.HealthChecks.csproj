@@ -4,16 +4,15 @@
         <TargetFramework>net10.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
-        <GenerateDocumentationFile>True</GenerateDocumentationFile>
-        <DocumentationFile>$(MSBuildProjectName).xml</DocumentationFile>
         <IsPackable>true</IsPackable>
     </PropertyGroup>
 
     <PropertyGroup>
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
         <Title>AStar API HealthChecks</Title>
-        <Company>AStar</Company>
-        <Copyright>AStar Development, 2025</Copyright>
+		<Authors>AStar Development, Jason Barden</Authors>
+		<Company>AStar Development</Company>
+		<Copyright>AStar Development, 2026</Copyright>
         <PackageReadmeFile>Readme.md</PackageReadmeFile>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>

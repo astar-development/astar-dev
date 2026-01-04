@@ -21,7 +21,7 @@ public sealed class GetAllSearchCategoriesEndpoint(WebApplication app) : IEndpoi
                                     .MapGroup(EndpointConstants.SearchCategoriesEndpoint)
                                     .HasApiVersion(1.0);
 
-        apiGroup
+        _ = apiGroup
            .MapGet("/",
                    async (HttpContext context, AdminContext adminContext, CancellationToken cancellationToken) =>
                        await Handle(new GetAllSearchCategoriesQuery(context.User), adminContext, cancellationToken))
@@ -29,7 +29,7 @@ public sealed class GetAllSearchCategoriesEndpoint(WebApplication app) : IEndpoi
            .WithDescription("Get all available search categories")
            .WithSummary("Get all search categories")
 
-            // .RequireAuthorization()
+           // .RequireAuthorization()
            .WithTags(EndpointConstants.SearchCategoriesTag);
     }
 

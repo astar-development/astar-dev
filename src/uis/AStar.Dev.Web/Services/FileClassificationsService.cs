@@ -1,9 +1,8 @@
-﻿using AStar.Dev.Source.Generators.Attributes;
-using AStar.Dev.Web.Models;
+﻿using AStar.Dev.Web.Models;
 
 namespace AStar.Dev.Web.Services;
 
-[Service]
+//[Service]
 public sealed class FileClassificationsService : IFileClassificationsService
 {
     /// <inheritdoc/>

@@ -23,12 +23,12 @@ public sealed class UpdateScrapeDirectoriesEndpoint(WebApplication app) : IEndpo
                                     .HasDeprecatedApiVersion(0.9)
                                     .HasApiVersion(1.0);
 
-        apiGroup
+        _ = apiGroup
            .MapPut("/{scrapeDirectoryId:guid}",
-                   async ([FromRoute] Guid                           scrapeDirectoryId,
-                          [FromBody]  UpdateScrapeDirectoriesCommand updateScrapeDirectoriesCommand,
-                          HttpContext                                context,
-                          AdminContext                               adminContext,
+                   async ([FromRoute] Guid scrapeDirectoryId,
+                          [FromBody] UpdateScrapeDirectoriesCommand updateScrapeDirectoriesCommand,
+                          HttpContext context,
+                          AdminContext adminContext,
                           CancellationToken cancellationToken) => await Handle(new UpdateScrapeDirectoriesCommandForDb(scrapeDirectoryId, context.User, updateScrapeDirectoriesCommand), adminContext,
                                                                                cancellationToken))
            .AddBasicWithAdditionalProduces<UpdateScrapeDirectoriesResponse>()
@@ -36,7 +36,7 @@ public sealed class UpdateScrapeDirectoriesEndpoint(WebApplication app) : IEndpo
            .WithSummary("Update the Scrape Directories")
            .WithName("UpdateScrapeDirectories")
 
-            // .RequireAuthorization()
+           // .RequireAuthorization()
            .WithTags(EndpointConstants.ScrapeDirectoriesTag)
            .MapToApiVersion(1.0);
     }
@@ -63,8 +63,8 @@ public sealed class UpdateScrapeDirectoriesEndpoint(WebApplication app) : IEndpo
                                ScrapeDirectoryId   = request.ScrapeDirectoryId,
                            };
 
-        adminContext.ScrapeDirectories.Add(insertConfig);
-        await adminContext.SaveChangesAsync(cancellationToken);
+        _ = adminContext.ScrapeDirectories.Add(insertConfig);
+        _ = await adminContext.SaveChangesAsync(cancellationToken);
 
         var apiVersion = new ApiVersion { Version = "1.0", };
 

@@ -22,9 +22,9 @@ public static class ServiceCollectionExtensions
         //                            .AddOpenBehavior(typeof(UsageMetricHandler<,>));
         //                     });
 
-        services.AddSingleton<Send>();
+        _ = services.AddSingleton<Send>();
 
-        services
+        _ = services
            .AddOptions<ApiUsageConfiguration>()
            .Bind(configurationManager.GetSection(ApiUsageConfiguration.ConfigurationSectionName));
 

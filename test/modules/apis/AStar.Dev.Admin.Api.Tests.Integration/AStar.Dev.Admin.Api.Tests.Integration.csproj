@@ -17,6 +17,7 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.1" />
         <PackageReference Include="Shouldly" Version="4.3.0" />
         <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="9.0.10" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.0" />
@@ -29,12 +30,14 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Using Include="Xunit" />
-        <Using Include="Shouldly" />
+      <ProjectReference Include="..\..\..\..\src\modules\apis\AStar.Dev.Admin.Api\AStar.Dev.Admin.Api.csproj" />
+      <ProjectReference Include="..\..\..\..\src\nuget-packages\AStar.Dev.Infrastructure.AdminDb\AStar.Dev.Infrastructure.AdminDb.csproj" />
+      <ProjectReference Include="..\..\..\..\src\nuget-packages\AStar.Dev.Infrastructure\AStar.Dev.Infrastructure.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\src\apis\AStar.Dev.Admin.Api\AStar.Dev.Admin.Api.csproj" />
+        <Using Include="Xunit" />
+        <Using Include="Shouldly" />
     </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

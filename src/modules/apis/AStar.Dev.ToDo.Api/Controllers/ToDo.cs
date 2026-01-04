@@ -6,5 +6,5 @@ public sealed class ToDo
 
     public required string Title { get; set; }
 
-    public required string Owner { get; set; }
+    public required string? Owner { get; set; }
 }

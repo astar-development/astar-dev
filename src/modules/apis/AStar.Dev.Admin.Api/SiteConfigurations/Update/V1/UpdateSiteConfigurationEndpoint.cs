@@ -23,19 +23,19 @@ public sealed class UpdateSiteConfigurationEndpoint(WebApplication app) : IEndpo
                                     .HasDeprecatedApiVersion(0.9)
                                     .HasApiVersion(1.0);
 
-        apiGroup
+        _ = apiGroup
            .MapPut("/{slug}",
-                   async ([FromRoute] string                        slug,
-                          HttpContext                               context,
+                   async ([FromRoute] string slug,
+                          HttpContext context,
                           [FromBody] UpdateSiteConfigurationCommand updateSiteConfigurationCommand,
-                          AdminContext                              adminContext,
+                          AdminContext adminContext,
                           CancellationToken cancellationToken) => await Handle(new UpdateSiteConfigurationCommandForDb(slug, context.User, updateSiteConfigurationCommand), adminContext,
                                                                                cancellationToken))
            .WithDescription("Update the site configuration matching the specified ScrapeDirectoryId")
            .WithSummary("Update the site configuration")
            .AddBasicWithAdditionalProduces<UpdateSiteConfigurationResponse>()
 
-            // .RequireAuthorization()
+           // .RequireAuthorization()
            .WithTags(EndpointConstants.SiteConfigurationTag)
            .MapToApiVersion(1.0);
     }
@@ -62,8 +62,8 @@ public sealed class UpdateSiteConfigurationEndpoint(WebApplication app) : IEndpo
                                Username              = request.Username,
                            };
 
-        adminContext.SiteConfiguration.Add(insertConfig);
-        await adminContext.SaveChangesAsync(cancellationToken);
+        _ = adminContext.SiteConfiguration.Add(insertConfig);
+        _ = await adminContext.SaveChangesAsync(cancellationToken);
 
         var apiVersion = new ApiVersion { Version = "1.0", };
 

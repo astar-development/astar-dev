@@ -19,17 +19,17 @@ public sealed class GetAllFilesEndpoint(WebApplication app) : IEndpoint
                                     .MapGroup(EndpointConstants.AllFilesEndpoint)
                                     .HasApiVersion(1.0);
 
-        apiGroup
+        _ = apiGroup
            .MapGet("/",
                    async ([AsParameters] GetAllFilesQuery parameters,
-                          FilesContext                    filesContext,
-                          ILogger<GetAllFilesEndpoint>    logger,
-                          CancellationToken               cancellationToken) => await Handle(parameters, filesContext, logger, cancellationToken))
+                          FilesContext filesContext,
+                          ILogger<GetAllFilesEndpoint> logger,
+                          CancellationToken cancellationToken) => await Handle(parameters, filesContext, logger, cancellationToken))
            .AddBasicProduces<IEnumerable<GetAllFilesQueryResponse>>()
            .WithDescription("Get all files matching the specified search criteria.")
            .WithSummary("Get all files")
 
-            // .RequireAuthorization()
+           // .RequireAuthorization()
            .WithTags(EndpointConstants.AllFilesTag);
     }
 

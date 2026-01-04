@@ -10,7 +10,7 @@ namespace AStar.Dev.Api.Usage.Logger.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.CreateIndex(
+            _ = migrationBuilder.CreateIndex(
                 name: "UpdatedDate_IX",
                 schema: "usage",
                 table: "ApiUsageEvent",
@@ -20,7 +20,7 @@ namespace AStar.Dev.Api.Usage.Logger.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropIndex(
+            _ = migrationBuilder.DropIndex(
                 name: "UpdatedDate_IX",
                 schema: "usage",
                 table: "ApiUsageEvent");

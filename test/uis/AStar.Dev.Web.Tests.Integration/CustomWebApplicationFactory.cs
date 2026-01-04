@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 
-namespace AStar.Dev.Web.UI;
+namespace AStar.Dev.Web.Tests.Integration;
 
 public class CustomWebApplicationFactory<TProgram>
     : WebApplicationFactory<TProgram>
@@ -9,7 +9,7 @@ public class CustomWebApplicationFactory<TProgram>
 {
     protected override void ConfigureWebHost(IWebHostBuilder builder)
     {
-        builder.ConfigureServices(services =>
+        _ = builder.ConfigureServices(services =>
                                   {
                                       // var dbContextDescriptor = services.SingleOrDefault(d => d.ServiceType ==
                                       //                                                         typeof(IDbContextOptionsConfiguration<ApplicationDbContext>));
@@ -37,6 +37,6 @@ public class CustomWebApplicationFactory<TProgram>
                                       //                                             });
                                   });
 
-        builder.UseEnvironment("Development");
+        _ = builder.UseEnvironment("Development");
     }
 }

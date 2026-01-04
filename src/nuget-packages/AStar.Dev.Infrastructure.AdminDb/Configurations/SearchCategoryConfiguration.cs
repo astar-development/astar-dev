@@ -19,7 +19,7 @@ public sealed class SearchCategoryConfiguration : IEntityTypeConfiguration<Searc
         _ = builder
            .ToTable("SearchCategory", "admin").HasKey(searchCategory => searchCategory.Id);
 
-        builder.Property(p => p.Name).HasMaxLength(300);
-        builder.Property(category => category.Id).ValueGeneratedNever();
+        _ = builder.Property(p => p.Name).HasMaxLength(300);
+        _ = builder.Property(category => category.Id).ValueGeneratedNever();
     }
 }

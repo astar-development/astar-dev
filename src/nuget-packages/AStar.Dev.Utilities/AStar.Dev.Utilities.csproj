@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <AnalysisLevel>latest-recommended</AnalysisLevel>
@@ -6,12 +6,11 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <Authors>AStar Development, Jason Barden</Authors>
-        <Company>AStar Development</Company>
-        <Copyright>AStar Development, 2025</Copyright>
+		<Authors>AStar Development, Jason Barden</Authors>
+		<Company>AStar Development</Company>
+		<Copyright>AStar Development, 2026</Copyright>
         <Description>A collection of useful utilities that do not fit within any of the other, more targeted, AStar Dev NuGet packages.</Description>
-        <DocumentationFile>$(AssemblyName).xml</DocumentationFile>
-        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <GenerateDocumentationFile>True</GenerateDocumentationFile>
         <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
         <IncludeSymbols>true</IncludeSymbols>
         <IsPackable>true</IsPackable>
@@ -21,7 +20,6 @@
         <PackageProjectUrl>https://github.com/astar-development/astar-dev-utilities</PackageProjectUrl>
         <PackageReadmeFile>Readme.md</PackageReadmeFile>
         <PackageReleaseNotes>Add RemoveTrailing extension and fix bug in truncate so length specified is honoured.</PackageReleaseNotes>
-
         <PackageTags>AStar C# Utilities</PackageTags>
         <PublishRepositoryUrl>true</PublishRepositoryUrl>
         <RepositoryType>git</RepositoryType>

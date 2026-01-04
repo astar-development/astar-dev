@@ -16,7 +16,7 @@ public sealed class GetAllClassificationsForFileEndpoint(WebApplication app) : I
                                     .MapGroup(EndpointConstants.ClassificationsEndpoint)
                                     .HasApiVersion(1.0);
 
-        apiGroup
+        _ = apiGroup
            .MapGet("/{handle}",
                    async (string handle, FilesContext filesContext, ILogger<GetAllClassificationsForFileEndpoint> logger, CancellationToken cancellationToken) =>
                        await Handle(handle, filesContext, logger, cancellationToken))
@@ -26,7 +26,7 @@ public sealed class GetAllClassificationsForFileEndpoint(WebApplication app) : I
            .WithDescription("Gets all current File Classifications for the specified file handle")
            .WithSummary("Get the current File Classifications for a file")
 
-            //// .RequireAuthorization()
+           //// .RequireAuthorization()
            .WithTags(EndpointConstants.ClassificationsTag);
     }
 
