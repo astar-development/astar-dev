@@ -1,0 +1,7 @@
+﻿{
+  "user": {
+    "claims": [],
+    "identities": [],
+    "identity": null
+  }
+}

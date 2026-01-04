@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <ApplicationIcon>astar.ico</ApplicationIcon>
+        <UserSecretsId>c9c4d19b-f3d5-417e-ac9f-972862d0ded6</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.6" />
+        <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="9.0.6" />
+        <PackageReference Include="Microsoft.Identity.Web" Version="4.0.1" />
+        <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.10" />
+        <PackageReference Include="SkiaSharp" Version="3.119.1" />
+        <PackageReference Include="SkiaSharp.NativeAssets.Linux.NoDependencies" Version="3.119.1" />
+        <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="9.0.6" />
+        <PackageReference Include="TestableIO.System.IO.Abstractions" Version="22.0.16" />
+        <PackageReference Include="TestableIO.System.IO.Abstractions.Wrappers" Version="22.0.16" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\aspire\AStar.Dev.Aspire.Common\AStar.Dev.Aspire.Common.csproj" />
+        <ProjectReference Include="..\..\aspire\AStar.Dev.ServiceDefaults\AStar.Dev.ServiceDefaults.csproj" />
+        <ProjectReference Include="..\..\nuget-packages\AStar.Dev.AspNet.Extensions\AStar.Dev.AspNet.Extensions.csproj" />
+        <ProjectReference Include="..\..\nuget-packages\AStar.Dev.Auth.Extensions\AStar.Dev.Auth.Extensions.csproj" />
+        <ProjectReference Include="..\..\nuget-packages\AStar.Dev.Infrastructure.FilesDb\AStar.Dev.Infrastructure.FilesDb.csproj" />
+        <ProjectReference Include="..\..\nuget-packages\AStar.Dev.Logging.Extensions\AStar.Dev.Logging.Extensions.csproj" />
+        <ProjectReference Include="..\..\nuget-packages\AStar.Dev.Minimal.Api.Extensions\AStar.Dev.Minimal.Api.Extensions.csproj" />
+        <ProjectReference Include="..\..\nuget-packages\AStar.Dev.Restful.Root.Document\AStar.Dev.Restful.Root.Document.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="..\..\..\.dockerignore">
+            <Link>.dockerignore</Link>
+        </Content>
+    </ItemGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+        <NoWarn>1701;1702;</NoWarn>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
+        <NoWarn>1701;1702;</NoWarn>
+    </PropertyGroup>
+
+</Project>

@@ -1,0 +1,10 @@
+﻿{
+  "fileSize": -1,
+  "fileSizeForDisplay": "-0.00 Kb",
+  "fileGrouping": {
+    "fileSize": 0,
+    "height": 0,
+    "width": 0
+  },
+  "duplicates": []
+}

@@ -1,0 +1,1 @@
+﻿SearchFolder=&CurrentPage=1&ItemsPerPage=10&SearchType=Images&Recursive=True&IncludeSoftDeleted=False&IncludeMarkedForDeletion=False&ExcludeViewed=True&SortOrder=SizeDescending&MaximumSizeOfThumbnail=850&MaximumSizeOfImage=1500&ExcludeViewedPeriodInDays=7&SearchText=

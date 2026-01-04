@@ -1,0 +1,17 @@
+﻿using System.Text.Json.Serialization;
+using AStar.Dev.Api.Usage.Sdk.Metrics;
+
+namespace AStar.Dev.Files.Api.SoftDelete.V1;
+
+/// <summary>
+/// </summary>
+public sealed record UnMarkFileForSoftDeletionCommand(int FileId) : IEndpointName
+{
+    /// <inheritdoc />
+    [JsonIgnore]
+    public string Name => EndpointConstants.AllFilesEndpoint;
+
+    /// <inheritdoc />
+    [JsonIgnore]
+    public string HttpMethod => HttpMethods.Get;
+}

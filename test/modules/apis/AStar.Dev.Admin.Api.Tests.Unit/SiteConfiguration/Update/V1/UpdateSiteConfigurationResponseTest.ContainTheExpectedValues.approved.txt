@@ -1,0 +1,8 @@
+﻿{
+  "slug": "",
+  "baseUrl": "",
+  "loginUrl": "",
+  "loginEmailAddress": "",
+  "username": "",
+  "password": ""
+}

@@ -1,0 +1,22 @@
+﻿{
+  "fileClassifications": [],
+  "id": 0,
+  "fileAccessDetail": {
+    "id": 0,
+    "detailsLastUpdated": null,
+    "lastViewed": null,
+    "softDeleted": false,
+    "softDeletePending": false,
+    "moveRequired": false,
+    "hardDeletePending": false,
+    "hardDeleted": false
+  },
+  "fileName": "",
+  "directoryName": "",
+  "fullNameWithPath": "",
+  "height": 0,
+  "width": 0,
+  "fileSize": 0,
+  "isImage": false,
+  "fileHandle": ""
+}
