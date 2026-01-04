@@ -6,16 +6,17 @@ namespace AStar.Dev.Infrastructure.FilesDb.Configurations;
 /// </summary>
 public static class ComplexPropertyBuilderConfiguration
 {
-    /// <summary>
-    /// </summary>
-    /// <param name="propertyBuilder"></param>
-    /// <param name="configuration"></param>
-    /// <typeparam name="TEntity"></typeparam>
-    /// <returns></returns>
-    public static ComplexPropertyBuilder<TEntity> Configure<TEntity>(this ComplexPropertyBuilder<TEntity> propertyBuilder, IComplexPropertyConfiguration<TEntity> configuration)
+    extension<TEntity>(ComplexPropertyBuilder<TEntity> propertyBuilder) where TEntity : notnull
     {
-        configuration.Configure(propertyBuilder);
+        /// <summary>
+        /// </summary>
+        /// <param name="configuration"></param>
+        /// <returns></returns>
+        public ComplexPropertyBuilder<TEntity> Configure(IComplexPropertyConfiguration<TEntity> configuration)
+        {
+            configuration.Configure(propertyBuilder);
 
-        return propertyBuilder;
+            return propertyBuilder;
+        }
     }
 }

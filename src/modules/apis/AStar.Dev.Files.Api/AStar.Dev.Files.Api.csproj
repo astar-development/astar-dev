@@ -13,8 +13,8 @@
         <PackageReference Include="Asp.Versioning.Mvc" Version="8.1.0" />
         <PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="8.1.0" />
         <PackageReference Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer" Version="9.5.2" />
-        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.10" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.10">
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.1" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.1">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
@@ -24,8 +24,8 @@
         <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.6" />
         <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="9.0.6" />
         <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="9.0.6" />
-        <PackageReference Include="TestableIO.System.IO.Abstractions" Version="22.0.16" />
-        <PackageReference Include="TestableIO.System.IO.Abstractions.Wrappers" Version="22.0.16" />
+        <PackageReference Include="TestableIO.System.IO.Abstractions" Version="22.1.0" />
+        <PackageReference Include="TestableIO.System.IO.Abstractions.Wrappers" Version="22.1.0" />
         <PackageReference Include="Z.Linq.Async" Version="1.0.3" />
         <PackageReference Include="ZLinq" Version="1.5.3" />
     </ItemGroup>
