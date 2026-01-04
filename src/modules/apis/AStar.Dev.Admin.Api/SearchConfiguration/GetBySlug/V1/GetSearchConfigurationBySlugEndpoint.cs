@@ -16,7 +16,7 @@ public sealed class GetSearchConfigurationBySlugEndpoint(WebApplication app) : I
                                     .MapGroup(EndpointConstants.SearchConfigurationEndpoint)
                                     .HasApiVersion(1.0);
 
-        apiGroup
+        _ = apiGroup
            .MapGet("/{slug}",
                    async (string slug, HttpContext context, AdminContext adminContext, CancellationToken cancellationToken) =>
                        await Handle(new GetSearchConfigurationBySlugQuery(slug, context.User), adminContext, cancellationToken))
@@ -24,7 +24,7 @@ public sealed class GetSearchConfigurationBySlugEndpoint(WebApplication app) : I
            .WithSummary("Get the search configuration matching the given slug")
            .WithName("GetSearchConfigurationBySlug")
 
-            // .RequireAuthorization()
+           // .RequireAuthorization()
            .AddBasicProduces<GetSearchConfigurationBySlugResponse>()
            .Produces(404)
            .WithTags(EndpointConstants.SearchConfigurationTag);

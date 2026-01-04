@@ -10,7 +10,7 @@ namespace AStar.Dev.Api.Usage.Logger.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<DateTime>(
+            _ = migrationBuilder.AlterColumn<DateTime>(
                 name: "Timestamp",
                 schema: "usage",
                 table: "ApiUsageEvent",
@@ -23,7 +23,7 @@ namespace AStar.Dev.Api.Usage.Logger.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<DateTime>(
+            _ = migrationBuilder.AlterColumn<DateTime>(
                 name: "Timestamp",
                 schema: "usage",
                 table: "ApiUsageEvent",

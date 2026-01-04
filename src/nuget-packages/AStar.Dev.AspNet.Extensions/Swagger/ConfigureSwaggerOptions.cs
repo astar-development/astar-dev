@@ -46,20 +46,21 @@ public sealed class ConfigureSwaggerOptions(
     {
         var text = new StringBuilder(apiDescription);
 
-        if(description.IsDeprecated) text.Append(" **** This API version has been deprecated. **** ");
+        if(description.IsDeprecated)
+            _ = text.Append(" **** This API version has been deprecated. **** ");
 
         if(description.SunsetPolicy is { } policy)
         {
             if(policy.Date is { } when)
             {
-                text.Append(" The API will be sunset on ")
+                _ = text.Append(" The API will be sunset on ")
                     .Append(when.Date.ToShortDateString())
                     .Append('.');
             }
 
             if(policy.HasLinks)
             {
-                text.AppendLine();
+                _ = text.AppendLine();
 
                 var rendered = false;
 
@@ -69,27 +70,28 @@ public sealed class ConfigureSwaggerOptions(
 
                     if(!rendered)
                     {
-                        text.Append("<h4>Links</h4><ul>");
+                        _ = text.Append("<h4>Links</h4><ul>");
                         rendered = true;
                     }
 
-                    text.Append("<li><a href=\"");
-                    text.Append(link.LinkTarget.OriginalString);
-                    text.Append("\">");
+                    _ = text.Append("<li><a href=\"");
+                    _ = text.Append(link.LinkTarget.OriginalString);
+                    _ = text.Append("\">");
 
-                    text.Append(
+                    _ = text.Append(
                                 StringSegment.IsNullOrEmpty(link.Title)
                                     ? link.LinkTarget.OriginalString
                                     : link.Title.ToString());
 
-                    text.Append("</a></li>");
+                    _ = text.Append("</a></li>");
                 }
 
-                if(rendered) text.Append("</ul>");
+                if(rendered)
+                    _ = text.Append("</ul>");
             }
         }
 
-        text.Append("<h4>Additional Information</h4>");
+        _ = text.Append("<h4>Additional Information</h4>");
         apiConfiguration.Value.OpenApiInfo.Description = text.ToString();
 
         return apiConfiguration.Value.OpenApiInfo;

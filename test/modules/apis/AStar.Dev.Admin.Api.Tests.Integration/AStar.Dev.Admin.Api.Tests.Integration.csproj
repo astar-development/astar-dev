@@ -17,6 +17,7 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.1" />
         <PackageReference Include="Shouldly" Version="4.3.0" />
         <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="9.0.10" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.0" />
@@ -29,22 +30,14 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Using Include="Xunit" />
-        <Using Include="Shouldly" />
+      <ProjectReference Include="..\..\..\..\src\modules\apis\AStar.Dev.Admin.Api\AStar.Dev.Admin.Api.csproj" />
+      <ProjectReference Include="..\..\..\..\src\nuget-packages\AStar.Dev.Infrastructure.AdminDb\AStar.Dev.Infrastructure.AdminDb.csproj" />
+      <ProjectReference Include="..\..\..\..\src\nuget-packages\AStar.Dev.Infrastructure\AStar.Dev.Infrastructure.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\aspire\AStar.Dev.Web.Aspire.Common\AStar.Dev.Web.Aspire.Common.csproj"/>
-        <ProjectReference Include="..\..\..\aspire\AStar.Dev.Web.ServiceDefaults\AStar.Dev.Web.ServiceDefaults.csproj"/>
-        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Api.Usage.Sdk\AStar.Dev.Api.Usage.Sdk.csproj"/>
-        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Api.HealthChecks\AStar.Dev.Api.HealthChecks.csproj"/>
-        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.AspNet.Extensions\AStar.Dev.AspNet.Extensions.csproj"/>
-        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Auth.Extensions\AStar.Dev.Auth.Extensions.csproj"/>
-        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Infrastructure\AStar.Dev.Infrastructure.csproj"/>
-        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Infrastructure.AdminDb\AStar.Dev.Infrastructure.AdminDb.csproj"/>
-        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Logging.Extensions\AStar.Dev.Logging.Extensions.csproj"/>
-        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Technical.Debt.Reporting\AStar.Dev.Technical.Debt.Reporting.csproj"/>
-        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Utilities\AStar.Dev.Utilities.csproj"/>
+        <Using Include="Xunit" />
+        <Using Include="Shouldly" />
     </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

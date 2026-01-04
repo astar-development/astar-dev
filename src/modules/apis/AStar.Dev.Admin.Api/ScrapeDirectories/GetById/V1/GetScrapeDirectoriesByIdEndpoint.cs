@@ -21,7 +21,7 @@ public sealed class GetScrapeDirectoriesByIdEndpoint(WebApplication app) : IEndp
                                     .MapGroup(EndpointConstants.ScrapeDirectoriesEndpoint)
                                     .HasApiVersion(1.0);
 
-        apiGroup
+        _ = apiGroup
            .MapGet("/{scrapeDirectoryId}",
                    async (Guid scrapeDirectoryId, HttpContext context, AdminContext adminContext, CancellationToken cancellationToken) =>
                        await Handle(new GetScrapeDirectoriesByIdQuery(scrapeDirectoryId, context.User), adminContext, cancellationToken))
@@ -29,7 +29,7 @@ public sealed class GetScrapeDirectoriesByIdEndpoint(WebApplication app) : IEndp
            .WithSummary("Get the scrape directories by site slug")
            .WithName("GetScrapeDirectoriesById")
 
-            // .RequireAuthorization()
+           // .RequireAuthorization()
            .AddBasicProduces<GetScrapeDirectoriesByIdResponse>()
            .Produces(404)
            .WithTags(EndpointConstants.ScrapeDirectoriesTag);

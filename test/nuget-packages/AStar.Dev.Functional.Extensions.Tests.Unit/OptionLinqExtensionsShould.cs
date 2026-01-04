@@ -26,7 +26,7 @@ public class OptionLinqExtensionsShould
         Option<int> projected = none.Select(x => x * 2);
 
         // Assert
-        projected.ShouldBeOfType<Option<int>.None>();
+        _ = projected.ShouldBeOfType<Option<int>.None>();
     }
 
     [Fact]
@@ -57,7 +57,7 @@ public class OptionLinqExtensionsShould
             (x, y) => $"{x}:{y}");
 
         // Assert
-        result.ShouldBeOfType<Option<string>.None>();
+        _ = result.ShouldBeOfType<Option<string>.None>();
     }
 
     [Fact]
@@ -72,7 +72,7 @@ public class OptionLinqExtensionsShould
             (x, y) => $"{x}:{y}");
 
         // Assert
-        result.ShouldBeOfType<Option<string>.None>();
+        _ = result.ShouldBeOfType<Option<string>.None>();
     }
 
     [Fact]
@@ -107,6 +107,6 @@ public class OptionLinqExtensionsShould
         });
 
         // Assert
-        projected.ShouldBeOfType<Option<int>.None>();
+        _ = projected.ShouldBeOfType<Option<int>.None>();
     }
 }

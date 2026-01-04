@@ -6,8 +6,9 @@
         <Nullable>enable</Nullable>
         <ApplicationIcon>astar.ico</ApplicationIcon>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Authors>AStar Development, Jason Barden</Authors>
-        <Copyright>AStar Development, 2025</Copyright>
+		<Authors>AStar Development, Jason Barden</Authors>
+		<Company>AStar Development</Company>
+		<Copyright>AStar Development, 2026</Copyright>
         <PackageProjectUrl>https://github.com/astar-development/</PackageProjectUrl>
         <RepositoryUrl>https://github.com/astar-development/</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
@@ -16,7 +17,7 @@
         <PackageReadmeFile>Readme.md</PackageReadmeFile>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
-        <DocumentationFile>$(AssemblyName).xml</DocumentationFile>
+		<GenerateDocumentationFile>True</GenerateDocumentationFile>
         <UserSecretsId>3a340cb0-60ee-4e38-93ac-0f8829c7193d</UserSecretsId>
     </PropertyGroup>
 

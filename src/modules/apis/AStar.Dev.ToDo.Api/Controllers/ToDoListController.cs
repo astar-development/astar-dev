@@ -53,7 +53,7 @@ public sealed class TodoListController : Controller
 
         if(TodoStore.Values.FirstOrDefault(x => x.Id == id) == null) return NotFound();
 
-        TodoStore.Remove(id);
+        _ = TodoStore.Remove(id);
         TodoStore.Add(id, toDo);
 
         return Ok(toDo);

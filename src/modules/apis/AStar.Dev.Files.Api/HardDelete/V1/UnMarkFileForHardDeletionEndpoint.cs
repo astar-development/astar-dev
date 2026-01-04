@@ -17,17 +17,17 @@ public sealed class UnMarkFileForHardDeletionEndpoint(WebApplication app) : IEnd
                                     .MapGroup(EndpointConstants.HardDeleteUnMarkEndpoint)
                                     .HasApiVersion(1.0);
 
-        apiGroup
+        _ = apiGroup
            .MapPut("/",
-                   async (UnMarkFileForHardDeletionCommand           fileId,
-                          FilesContext                               filesContext,
+                   async (UnMarkFileForHardDeletionCommand fileId,
+                          FilesContext filesContext,
                           ILogger<UnMarkFileForHardDeletionEndpoint> logger,
-                          CancellationToken                          cancellationToken) => await Handle(fileId, filesContext, logger, cancellationToken))
+                          CancellationToken cancellationToken) => await Handle(fileId, filesContext, logger, cancellationToken))
            .AddBasicProduces<UnMarkFileForHardDeletionCommandResponse>()
            .WithDescription("UnMarkFileForHardDeletionEndpoint")
            .WithSummary("UnMarkFileForHardDeletionEndpoint")
 
-            // .RequireAuthorization()
+           // .RequireAuthorization()
            .WithTags(EndpointConstants.HardDeleteTag);
     }
 
@@ -46,7 +46,7 @@ public sealed class UnMarkFileForHardDeletionEndpoint(WebApplication app) : IEnd
         }
 
         details.DeletionStatus.HardDeletePending = null;
-        await filesContext.SaveChangesAsync(cancellationToken);
+        _ = await filesContext.SaveChangesAsync(cancellationToken);
 
         logger.LogDebug("UnMark for hard deletion requested for fileId: {FileId} completed successfully", fileId.FileId);
 

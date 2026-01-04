@@ -13,6 +13,11 @@ public static class AspireConstants
         public const string UsageApi  = "usage-api";
     }
 
+    public static class Common
+    {
+        public const string AstarMessaging  = "astar-messaging";
+    }
+
     public static class Sql
     {
         public const string SqlServer                  = "sql1";
@@ -21,6 +26,7 @@ public static class AspireConstants
         public const string SqlAdminUserPasswordParameter = "admin-user-password";
         public const string SqlUsageUserPasswordParameter = "usage-user-password";
         public const string AStarDb                    = "astar-db";
+        public const string FilesDb                    = "astar-db";
     }
 
     public static class Services

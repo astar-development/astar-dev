@@ -19,11 +19,11 @@ public sealed class SearchConfigurationConfiguration : IEntityTypeConfiguration<
         _ = builder
            .ToTable("SearchConfiguration", "admin").HasKey(searchConfiguration => searchConfiguration.Id);
 
-        builder.Property(p => p.SearchString).HasMaxLength(300);
-        builder.Property(p => p.TopWallpapers).HasMaxLength(300);
-        builder.Property(p => p.SearchStringPrefix).HasMaxLength(300);
-        builder.Property(p => p.SearchStringSuffix).HasMaxLength(300);
-        builder.Property(p => p.Subscriptions).HasMaxLength(300);
-        builder.Property(p => p.SiteConfigurationSlug).HasMaxLength(300);
+        _ = builder.Property(p => p.SearchString).HasMaxLength(300);
+        _ = builder.Property(p => p.TopWallpapers).HasMaxLength(300);
+        _ = builder.Property(p => p.SearchStringPrefix).HasMaxLength(300);
+        _ = builder.Property(p => p.SearchStringSuffix).HasMaxLength(300);
+        _ = builder.Property(p => p.Subscriptions).HasMaxLength(300);
+        _ = builder.Property(p => p.SiteConfigurationSlug).HasMaxLength(300);
     }
 }

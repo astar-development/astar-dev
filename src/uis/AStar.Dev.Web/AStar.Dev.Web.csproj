@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Azure.Monitor.OpenTelemetry.AspNetCore" Version="1.4.0" />
+		<PackageReference Include="Azure.Monitor.OpenTelemetry.AspNetCore" Version="1.4.0" />
         <PackageReference Include="FluentUI.Demo.Shared" Version="4.10.4" />
         <PackageReference Include="JetBrains.Annotations" Version="2025.2.4" />
         <PackageReference Include="Markdig" Version="0.44.0" />
@@ -36,12 +36,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\aspire\AStar.Dev.Web.Aspire.Common\AStar.Dev.Web.Aspire.Common.csproj" />
-        <ProjectReference Include="..\..\..\aspire\AStar.Dev.Web.ServiceDefaults\AStar.Dev.Web.ServiceDefaults.csproj" />
         <ProjectReference Include="..\..\modules\apis\AStar.Dev.Files.Classifications.Api\AStar.Dev.Files.Classifications.Api.csproj" />
         <ProjectReference Include="..\..\modules\apis\AStar.Web.ApiService\AStar.Web.ApiService.csproj" />
-        <ProjectReference Include="..\..\source-generators\AStar.Dev.Source.Generators.Attributes\AStar.Dev.Source.Generators.Attributes.csproj" />
-        <ProjectReference Include="..\..\source-generators\AStar.Dev.Source.Generators\AStar.Dev.Source.Generators.csproj" />
     </ItemGroup>
 
 </Project>

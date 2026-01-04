@@ -19,8 +19,9 @@
     <PropertyGroup>
         <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
         <Title>AStar Dev AspNet Extensions</Title>
-        <Company>AStar Development</Company>
-        <Copyright>AStar Development, 2024</Copyright>
+		<Authors>AStar Development, Jason Barden</Authors>
+		<Company>AStar Development</Company>
+		<Copyright>AStar Development, 2026</Copyright>
         <PackageReadmeFile>Readme.md</PackageReadmeFile>
         <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <IncludeSymbols>True</IncludeSymbols>
@@ -31,8 +32,6 @@
         <PackageProjectUrl>https://github.com/astar-development/astar-dev-aspnet-extensions</PackageProjectUrl>
         <Description>A collection of AspNet Extensions</Description>
         <Version>0.7.30</Version>
-        <Authors>AStar Development, Jason Barden</Authors>
-        <DocumentationFile>$(AssemblyName).xml</DocumentationFile>
         <PackageIcon>astar.png</PackageIcon>
         <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
         <PackageReleaseNotes>Version 0.7.30 - remove the sunset policies frpm AppSettings - currently, it is ignored.</PackageReleaseNotes>

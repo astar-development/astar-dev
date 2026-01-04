@@ -17,7 +17,7 @@ public sealed class GetAllScrapeDirectoriesEndpoint(WebApplication app) : IEndpo
                                     .MapGroup(EndpointConstants.ScrapeDirectoriesEndpoint)
                                     .HasApiVersion(1.0);
 
-        apiGroup
+        _ = apiGroup
            .MapGet("/",
                    async (HttpContext context, AdminContext adminContext, ILogger<GetAllScrapeDirectoriesEndpoint> logger, CancellationToken cancellationToken) =>
                        await DoStuff(new GetAllScrapeDirectoriesQuery(context.User), adminContext, logger, cancellationToken))
@@ -25,14 +25,14 @@ public sealed class GetAllScrapeDirectoriesEndpoint(WebApplication app) : IEndpo
            .WithDescription("Get all scrape directories - shared across all sites")
            .WithSummary("Get all scrape directories")
 
-            // .RequireAuthorization()
+           // .RequireAuthorization()
            .WithTags(EndpointConstants.ScrapeDirectoriesTag);
     }
 
-    private async Task<IResult> DoStuff(GetAllScrapeDirectoriesQuery             getAllScrapeDirectoriesQuery,
-                                        AdminContext                             adminContext,
+    private static async Task<IResult> DoStuff(GetAllScrapeDirectoriesQuery getAllScrapeDirectoriesQuery,
+                                        AdminContext adminContext,
                                         ILogger<GetAllScrapeDirectoriesEndpoint> logger,
-                                        CancellationToken                        cancellationToken)
+                                        CancellationToken cancellationToken)
     {
         logger.LogDebug("Getting all scrape directories by {User}", getAllScrapeDirectoriesQuery.User.Identity?.Name);
 

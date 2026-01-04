@@ -1,7 +1,7 @@
 // using AStar.Dev.Files.Api.Endpoints.Add.V1;
 // using AStar.Dev.Files.Api.Endpoints.Get.V1;
 // using AStar.Dev.Files.Classifications.Api;
-// using AStar.Dev.ServiceDefaults;
+// using AStar.Dev.Web.ServiceDefaults;
 
 using AStar.Dev.Web.Components;
 using AStar.Dev.Web.ServiceDefaults;

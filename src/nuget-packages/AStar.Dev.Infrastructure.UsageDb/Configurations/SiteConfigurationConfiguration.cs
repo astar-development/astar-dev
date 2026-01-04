@@ -20,11 +20,11 @@ public sealed class ApiUsageEventConfiguration : IEntityTypeConfiguration<ApiUsa
            .ToTable("ApiUsageEvent", "usage")
            .HasKey(apiUsageEvent => apiUsageEvent.Id);
 
-        builder.Property(usageEvent => usageEvent.ApiName).HasMaxLength(300);
-        builder.Property(usageEvent => usageEvent.ApiEndpoint).HasMaxLength(300);
-        builder.HasIndex(usageEvent => usageEvent.ApiName);
+        _ = builder.Property(usageEvent => usageEvent.ApiName).HasMaxLength(300);
+        _ = builder.Property(usageEvent => usageEvent.ApiEndpoint).HasMaxLength(300);
+        _ = builder.HasIndex(usageEvent => usageEvent.ApiName);
 
-        builder.HasIndex(usageEvent => usageEvent.Timestamp, "UpdatedDate_IX")
+        _ = builder.HasIndex(usageEvent => usageEvent.Timestamp, "UpdatedDate_IX")
                .IsClustered();
     }
 }

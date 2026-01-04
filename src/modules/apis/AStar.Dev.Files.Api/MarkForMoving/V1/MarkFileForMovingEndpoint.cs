@@ -17,17 +17,17 @@ public sealed class MarkFileForMovingEndpoint(WebApplication app) : IEndpoint
                                     .MapGroup(EndpointConstants.MoveMarkEndpoint)
                                     .HasApiVersion(1.0);
 
-        apiGroup
+        _ = apiGroup
            .MapPut("/",
-                   async (MarkFileForMovingCommand           fileId,
-                          FilesContext                       filesContext,
+                   async (MarkFileForMovingCommand fileId,
+                          FilesContext filesContext,
                           ILogger<MarkFileForMovingEndpoint> logger,
-                          CancellationToken                  cancellationToken) => await Handle(fileId, filesContext, logger, cancellationToken))
+                          CancellationToken cancellationToken) => await Handle(fileId, filesContext, logger, cancellationToken))
            .AddBasicProduces<MarkFileForMovingCommandResponse>()
            .WithDescription("MarkFileForMovingEndpoint")
            .WithSummary("MarkFileForMovingEndpoint")
 
-            // .RequireAuthorization()
+           // .RequireAuthorization()
            .WithTags(EndpointConstants.MoveTag);
     }
 
@@ -45,7 +45,7 @@ public sealed class MarkFileForMovingEndpoint(WebApplication app) : IEndpoint
         }
 
         details.FileAccessDetail.MoveRequired = true;
-        await filesContext.SaveChangesAsync(cancellationToken);
+        _ = await filesContext.SaveChangesAsync(cancellationToken);
 
         logger.LogDebug("Mark for moving requested for fileId: {FileId} completed successfully", fileId.FileId);
 

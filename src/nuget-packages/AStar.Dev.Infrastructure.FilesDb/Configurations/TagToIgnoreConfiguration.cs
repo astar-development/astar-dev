@@ -15,6 +15,6 @@ public class TagToIgnoreConfiguration : IEntityTypeConfiguration<TagToIgnore>
            .ToTable(nameof(TagToIgnore), Constants.SchemaName)
            .HasKey(fileDetail => fileDetail.Id);
 
-        builder.Property(fileDetail => fileDetail.Value).HasMaxLength(300);
+        _ = builder.Property(fileDetail => fileDetail.Value).HasMaxLength(300);
     }
 }

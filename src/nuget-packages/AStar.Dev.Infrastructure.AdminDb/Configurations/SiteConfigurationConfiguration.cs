@@ -20,11 +20,11 @@ public sealed class SiteConfigurationConfiguration : IEntityTypeConfiguration<Si
            .ToTable("SiteConfiguration", "admin")
            .HasKey(siteConfiguration => siteConfiguration.Id);
 
-        builder.Property(p => p.LoginEmailAddress).HasMaxLength(255);
-        builder.Property(p => p.Username).HasMaxLength(50);
-        builder.Property(p => p.Password).HasMaxLength(50);
-        builder.Property(p => p.BaseUrl).HasMaxLength(300);
-        builder.Property(p => p.LoginUrl).HasMaxLength(300);
-        builder.Property(p => p.SiteConfigurationSlug).HasMaxLength(300);
+        _ = builder.Property(p => p.LoginEmailAddress).HasMaxLength(255);
+        _ = builder.Property(p => p.Username).HasMaxLength(50);
+        _ = builder.Property(p => p.Password).HasMaxLength(50);
+        _ = builder.Property(p => p.BaseUrl).HasMaxLength(300);
+        _ = builder.Property(p => p.LoginUrl).HasMaxLength(300);
+        _ = builder.Property(p => p.SiteConfigurationSlug).HasMaxLength(300);
     }
 }

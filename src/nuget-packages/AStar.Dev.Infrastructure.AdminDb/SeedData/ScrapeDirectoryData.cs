@@ -18,14 +18,14 @@ public static class ScrapeDirectoryData
 
         if(scrapeDirectories.Any()) return;
 
-        context.Set<ScrapeDirectory>()
+        _ = context.Set<ScrapeDirectory>()
                .Add(new ScrapeDirectory
-                    {
-                        RootDirectory       = @"C:\Users\jason_17jx22b",
-                        BaseSaveDirectory   = @"/home/jason-barden/snap/onedrive-cli/current/OneDrive/Wallpapers\",
-                        BaseDirectory       = @"/home/jason-barden/snap/onedrive-cli/current/OneDrive/Wallpapers\Wallhaven\",
-                        BaseDirectoryFamous = @"/home/jason-barden/snap/onedrive-cli/current/OneDrive/Famous\",
-                        SubDirectoryName    = "New-Subscription-Wallpapers",
-                    });
+               {
+                   RootDirectory = @"C:\Users\jason_17jx22b",
+                   BaseSaveDirectory = @"/home/jason-barden/snap/onedrive-cli/current/OneDrive/Wallpapers\",
+                   BaseDirectory = @"/home/jason-barden/snap/onedrive-cli/current/OneDrive/Wallpapers\Wallhaven\",
+                   BaseDirectoryFamous = @"/home/jason-barden/snap/onedrive-cli/current/OneDrive/Famous\",
+                   SubDirectoryName = "New-Subscription-Wallpapers",
+               });
     }
 }

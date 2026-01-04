@@ -22,7 +22,7 @@ public sealed class GetSiteConfigurationBySlugEndpoint(WebApplication app) : IEn
                                     .MapGroup(EndpointConstants.SiteConfigurationsEndpoint)
                                     .HasApiVersion(1.0);
 
-        apiGroup
+        _ = apiGroup
            .MapGet("/{slug}",
                    async ([FromRoute] string slug, HttpContext context, AdminContext adminContext, CancellationToken cancellationToken) =>
                        await Handle(new GetSiteConfigurationBySlugQuery(slug, context.User), adminContext, cancellationToken))
@@ -30,7 +30,7 @@ public sealed class GetSiteConfigurationBySlugEndpoint(WebApplication app) : IEn
            .WithSummary("Get site configuration by slug")
            .WithName("GetSiteConfigurationBySlug")
 
-            // .RequireAuthorization()
+           // .RequireAuthorization()
            .AddBasicProduces<GetSiteConfigurationBySlugResponse>()
            .Produces(404)
            .WithTags(EndpointConstants.SiteConfigurationTag);

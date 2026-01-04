@@ -10,7 +10,7 @@ namespace AStar.Dev.Api.Usage.Logger.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.AlterColumn<double>(
+            _ = migrationBuilder.AlterColumn<double>(
                 name: "ElapsedMilliseconds",
                 schema: "usage",
                 table: "ApiUsageEvent",
@@ -19,7 +19,7 @@ namespace AStar.Dev.Api.Usage.Logger.Migrations
                 oldClrType: typeof(long),
                 oldType: "bigint");
 
-            migrationBuilder.AddColumn<string>(
+            _ = migrationBuilder.AddColumn<string>(
                 name: "HttpMethod",
                 schema: "usage",
                 table: "ApiUsageEvent",
@@ -31,12 +31,12 @@ namespace AStar.Dev.Api.Usage.Logger.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropColumn(
+            _ = migrationBuilder.DropColumn(
                 name: "HttpMethod",
                 schema: "usage",
                 table: "ApiUsageEvent");
 
-            migrationBuilder.AlterColumn<long>(
+            _ = migrationBuilder.AlterColumn<long>(
                 name: "ElapsedMilliseconds",
                 schema: "usage",
                 table: "ApiUsageEvent",
