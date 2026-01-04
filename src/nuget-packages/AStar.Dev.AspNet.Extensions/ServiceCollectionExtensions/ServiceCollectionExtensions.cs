@@ -1,15 +1,11 @@
 ﻿using System.Net;
-using System.Text.Json.Serialization;
 using Asp.Versioning;
 using AStar.Dev.Api.Usage.Sdk;
 using AStar.Dev.AspNet.Extensions.Handlers;
-using AStar.Dev.AspNet.Extensions.Swagger;
 using AStar.Dev.Technical.Debt.Reporting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Microsoft.OpenApi.Models;
-using Swashbuckle.AspNetCore.SwaggerGen;
 
 namespace AStar.Dev.AspNet.Extensions.ServiceCollectionExtensions;
 
@@ -20,9 +16,12 @@ namespace AStar.Dev.AspNet.Extensions.ServiceCollectionExtensions;
 public static class ServiceCollectionExtensions
 {
     private static ApiUsageConfiguration ApiUsageConfiguration { get; set; } = new()
-                                                                               {
-                                                                                   UserName = "NotSet", Password = "NotSet", HostName = "NotSet", QueueName = "NotSet",
-                                                                               };
+    {
+        UserName = "NotSet",
+        Password = "NotSet",
+        HostName = "NotSet",
+        QueueName = "NotSet",
+    };
 
     /// <summary>
     ///     The <see cref="ConfigureUi" /> will do exactly what it says on the tin...this time around, this is for the UI
@@ -87,44 +86,13 @@ public static class ServiceCollectionExtensions
                                 })
                 .EnableApiVersionBinding();
 
-        _ = services.AddTransient<IConfigureOptions<SwaggerGenOptions>, ConfigureSwaggerOptions>();
-        _ = services.AddControllers().AddJsonOptions(jsonoptions => { jsonoptions.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()); });
-
-        _ = services.AddSwaggerGen(options =>
-                               {
-                                   options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                                   {
-                                       Description = """
-                                                                                             JWT Authorization header using the Bearer scheme. \r\n\r\n 
-                                                                                                                   Enter 'just' your token in the text input below.
-                                                                                                                   \r\n\r\nExample: '12345etc'
-                                                                                             """,
-                                       Name = "Authorization",
-                                       In = ParameterLocation.Header,
-                                       Type = SecuritySchemeType.Http,
-                                       Scheme = "Bearer",
-                                   });
-
-                                   options.AddSecurityRequirement(new OpenApiSecurityRequirement
-                                                                  {
-                                                                      {
-                                                                          new OpenApiSecurityScheme
-                                                                          {
-                                                                              Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer", },
-                                                                              Scheme    = "oauth2",
-                                                                              Name      = "Bearer",
-                                                                              In        = ParameterLocation.Header,
-                                                                          },
-                                                                          new List<string>()
-                                                                      },
-                                                                  });
-                               });
+        _ = services.AddControllers();
 
         return services;
     }
 
     private static void CreateValidatedApiConfiguration(this IServiceCollection services,
-                                                        ConfigurationManager    configurationManager)
+                                                        ConfigurationManager configurationManager)
         => services
           .AddOptions<ApiConfiguration>()
           .Bind(configurationManager.GetSection(ApiConfiguration.ConfigurationSectionName))
