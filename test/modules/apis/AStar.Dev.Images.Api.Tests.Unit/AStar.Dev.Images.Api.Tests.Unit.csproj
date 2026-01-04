@@ -33,6 +33,17 @@
 
     <ItemGroup>
         <ProjectReference Include="..\..\..\src\apis\AStar.Dev.Images.Api\AStar.Dev.Images.Api.csproj" />
+        <ProjectReference Include="..\..\..\aspire\AStar.Dev.Web.Aspire.Common\AStar.Dev.Web.Aspire.Common.csproj"/>
+        <ProjectReference Include="..\..\..\aspire\AStar.Dev.Web.ServiceDefaults\AStar.Dev.Web.ServiceDefaults.csproj"/>
+        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Api.Usage.Sdk\AStar.Dev.Api.Usage.Sdk.csproj"/>
+        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Api.HealthChecks\AStar.Dev.Api.HealthChecks.csproj"/>
+        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.AspNet.Extensions\AStar.Dev.AspNet.Extensions.csproj"/>
+        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Auth.Extensions\AStar.Dev.Auth.Extensions.csproj"/>
+        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Infrastructure\AStar.Dev.Infrastructure.csproj"/>
+        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Infrastructure.AdminDb\AStar.Dev.Infrastructure.AdminDb.csproj"/>
+        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Logging.Extensions\AStar.Dev.Logging.Extensions.csproj"/>
+        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Technical.Debt.Reporting\AStar.Dev.Technical.Debt.Reporting.csproj"/>
+        <ProjectReference Include="..\..\..\nuget-packages\AStar.Dev.Utilities\AStar.Dev.Utilities.csproj"/>
     </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

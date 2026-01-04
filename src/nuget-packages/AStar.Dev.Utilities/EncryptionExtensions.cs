@@ -48,7 +48,7 @@ public static class EncryptionExtensions
     ///     The Decrypt extension method will encrypt the specified string (using AES encryption)
     /// </summary>
     /// <param name="key">
-    ///     The optional key to use for the encryption. If supplied, it must be 16, 24, or 32 bytes long. If not
+    ///     The optional key to use for the encryption. If supplied, it must be 16, 24, or 32 bytes-long. If not
     ///     specified, an internal default (32 bytes) will be used
     /// </param>
     /// <param name="iv">

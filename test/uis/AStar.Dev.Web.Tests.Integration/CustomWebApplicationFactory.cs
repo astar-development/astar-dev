@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Testing;
 
-namespace AStar.Dev.Web.UI;
+namespace AStar.Dev.Web.Tests.Integration;
 
 public class CustomWebApplicationFactory<TProgram>
     : WebApplicationFactory<TProgram>

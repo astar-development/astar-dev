@@ -24,7 +24,7 @@ public sealed class TodoListController : Controller
 
     // GET: api/values
     [HttpGet("{id:int}", Name = "GetById")]
-    public ToDo Get(int id)
+    public ToDo? Get(int id)
         => TodoStore.Values.FirstOrDefault(t => t.Id == id);
 
     [HttpDelete("{id:int}")]
@@ -39,7 +39,7 @@ public sealed class TodoListController : Controller
 
         if(TodoStore.Count > 0) id = TodoStore.Values.OrderByDescending(x => x.Id).FirstOrDefault()?.Id + 1 ?? 0;
 
-        var toDo = new ToDo { Id = id, Owner = HttpContext?.User?.Claims.FirstOrDefault(c => c.Type == "name")?.Value, Title = todo.Title, };
+        var toDo = new ToDo { Id = id, Owner = HttpContext.User.Claims.FirstOrDefault(c => c.Type == "name")?.Value, Title = todo.Title, };
         TodoStore.Add(id, toDo);
 
         return CreatedAtRoute("GetById", todo);
