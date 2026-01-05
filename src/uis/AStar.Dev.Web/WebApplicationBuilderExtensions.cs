@@ -1,10 +1,4 @@
-// using Asp.Versioning;
-// using AStar.Dev.AspNet.Extensions.Handlers;
-// using AStar.Dev.Files.Classifications.Api;
-// using AStar.Dev.Web.ServiceDefaults;
-
 using AStar.Dev.Web.ServiceDefaults;
-using AStar.Dev.Web.Services;
 using Azure.Monitor.OpenTelemetry.AspNetCore;
 using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.FluentUI.AspNetCore.Components;
@@ -47,9 +41,7 @@ public static class WebApplicationBuilderExtensions
 
         _ = builder.Services.AddControllersWithViews()
             .AddMicrosoftIdentityUI();
-        _ = builder.Services.AddScoped<IFileClassificationsService, FileClassificationsService>();
-        // _ = builder.AddFileClassificationsApplicationServices();
-        // _ = builder.Services.AddExceptionHandler<GlobalExceptionHandler>();
+        _ = builder.Services.AddAnnotatedServices();
         _ = builder.Services.AddProblemDetails(options => options.CustomizeProblemDetails =
             ctx => ctx.ProblemDetails.Extensions.Add("nodeId", Environment.MachineName));
 

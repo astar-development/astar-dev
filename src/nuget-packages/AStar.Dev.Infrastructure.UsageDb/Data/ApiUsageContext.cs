@@ -24,7 +24,7 @@ public sealed class ApiUsageContext : DbContext
 
     /// <summary>
     /// </summary>
-    public DbSet<ApiUsageEvent> ApiUsage { get; set; }
+    public DbSet<ApiUsageEvent> ApiUsage { get; set; } = null!;
 
     /// <summary>
     ///     The overridden OnModelCreating method.
