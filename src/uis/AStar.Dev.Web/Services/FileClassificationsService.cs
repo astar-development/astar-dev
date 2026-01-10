@@ -1,4 +1,5 @@
-﻿using AStar.Dev.Source.Generators.Attributes;
+﻿using AStar.Dev.Functional.Extensions;
+using AStar.Dev.Source.Generators.Attributes;
 using AStar.Dev.Web.Models;
 
 namespace AStar.Dev.Web.Services;
@@ -7,6 +8,6 @@ namespace AStar.Dev.Web.Services;
 public sealed class FileClassificationsService : IFileClassificationsService
 {
     /// <inheritdoc/>
-    public async Task<IList<FileClassification>> GetFileClassificationsAsync()
-        => Enumerable.Empty<FileClassification>().ToList();
+    public async Task<Result<IList<FileClassification>, ErrorResponse>> GetFileClassificationsAsync()
+        => new Result<IList<FileClassification>, ErrorResponse>.Ok(await Task.FromResult(Enumerable.Empty<FileClassification>().ToList()));
 }

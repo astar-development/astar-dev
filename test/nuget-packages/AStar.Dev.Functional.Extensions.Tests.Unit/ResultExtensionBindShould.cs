@@ -62,7 +62,7 @@ public class ResultExtensionBindShould
 
         _ = bound.ShouldBeOfType<Result<string, string>.Ok>();
 
-        var matchResult = bound.Match(
+        var matchResult = await bound.MatchAsync(
             ok => ok,
             _ => throw new InvalidOperationException("Should not be error")
         );
@@ -79,7 +79,7 @@ public class ResultExtensionBindShould
 
         _ = bound.ShouldBeOfType<Result<string, string>.Error>();
 
-        var matchResult = bound.Match(
+        var matchResult =await bound.MatchAsync(
             _ => throw new InvalidOperationException("Should not be success"),
             err => err
         );

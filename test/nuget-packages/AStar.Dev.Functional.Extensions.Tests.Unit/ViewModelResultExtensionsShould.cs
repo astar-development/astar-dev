@@ -53,7 +53,7 @@ public class ViewModelResultExtensionsShould
     public async Task ApplyAsyncWithActionHandlersInvokesSuccessForOk()
     {
         // Arrange
-        Task<Result<int, Exception>> TaskOk()
+        static Task<Result<int, Exception>> TaskOk()
         {
             return Task.FromResult<Result<int, Exception>>(new Result<int, Exception>.Ok(7));
         }
@@ -95,7 +95,7 @@ public class ViewModelResultExtensionsShould
     public async Task ApplyAsyncWithAsyncHandlersInvokesSuccessForOk()
     {
         // Arrange
-        Task<Result<string, Exception>> TaskOk()
+        static Task<Result<string, Exception>> TaskOk()
         {
             return Task.FromResult<Result<string, Exception>>(new Result<string, Exception>.Ok("ok"));
         }
@@ -153,7 +153,7 @@ public class ViewModelResultExtensionsShould
     public async Task ApplyAsyncWithAsyncHandlersDoNothingOnErrorWhenNoOnErrorProvided()
     {
         // Arrange
-        Task<Result<int, Exception>> TaskErr()
+        static Task<Result<int, Exception>> TaskErr()
         {
             return Task.FromResult<Result<int, Exception>>(new Result<int, Exception>.Error(new Exception("err")));
         }

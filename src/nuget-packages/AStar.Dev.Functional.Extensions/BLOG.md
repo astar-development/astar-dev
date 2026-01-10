@@ -349,6 +349,7 @@ Let’s put several pieces together. Suppose we need to load items from an API, 
 
 ```csharp
 // Service method returns a Result wrapped in a Task
+// Maybe it would if TryAsync actually existed!!! WTH is this???
 Task<Result<IEnumerable<Item>, Exception>> LoadItemsAsync() =>
     TryAsync(async () =>
     {

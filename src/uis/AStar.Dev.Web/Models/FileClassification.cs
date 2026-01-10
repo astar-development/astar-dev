@@ -7,16 +7,6 @@ namespace AStar.Dev.Web.Models;
 /// </summary>
 public sealed class FileClassification
 {
-    public FileClassification(FileClassification fc)
-    {
-        Id = fc.Id;
-        Name = fc.Name;
-        Celebrity = fc.Celebrity;
-        IncludeInSearch = fc.IncludeInSearch;
-        SearchLevel = fc.SearchLevel;
-        ParentId = fc.ParentId;
-    }
-
     /// <summary>
     ///     Gets or sets the unique identifier for the file classification.
     ///     This property serves as the primary key for the <see cref="FileClassification" /> entity.

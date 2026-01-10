@@ -1,4 +1,5 @@
-﻿using AStar.Dev.Web.Models;
+﻿using AStar.Dev.Functional.Extensions;
+using AStar.Dev.Web.Models;
 
 namespace AStar.Dev.Web.Services;
 
@@ -11,5 +12,5 @@ public interface IFileClassificationsService
     ///     Retrieves a list of distinct file classifications.
     /// </summary>
     /// <returns>A collection of file classification names.</returns>
-    Task<IList<FileClassification>> GetFileClassificationsAsync();
+    Task<Result<IList<FileClassification>, ErrorResponse>> GetFileClassificationsAsync();
 }

@@ -16,7 +16,7 @@ public class TryTests
 
         return;
 
-        int SuccessFunc()
+        static int SuccessFunc()
         {
             return expectedValue;
         }
@@ -57,7 +57,9 @@ public class TryTests
 
         static int ArgNullFunc()
         {
+#pragma warning disable S3928 // Parameter names used into ArgumentException constructors should match an existing one 
             throw new ArgumentNullException("testParam");
+#pragma warning restore S3928 // Parameter names used into ArgumentException constructors should match an existing one 
         }
     }
 
@@ -75,7 +77,7 @@ public class TryTests
 
         return;
 
-        Task<string> SuccessFunc()
+        static Task<string> SuccessFunc()
         {
             return Task.FromResult(expectedValue);
         }

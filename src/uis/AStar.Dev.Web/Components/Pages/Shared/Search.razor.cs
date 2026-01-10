@@ -1,3 +1,4 @@
+using AStar.Dev.Functional.Extensions;
 using AStar.Dev.Web.Models;
 using AStar.Dev.Web.Services;
 using Microsoft.AspNetCore.Components;
@@ -50,12 +51,21 @@ public partial class Search : ComponentBase
     {
         FileClassifications =
         [
-            // new FileClassification(new Dev.Files.Classifications.Api.FileClassification(Guid.Empty, 1, "-- Select (Optional) --", null,null, false, false)
-            // )
+            new FileClassification
+            {   Id = Guid.Empty, Name = "All Classifications", IncludeInSearch = true, Celebrity = false, SearchLevel = 0, ParentId = null }
         ];
 
-        IEnumerable<FileClassification> classifications = await FileClassificationsService.GetFileClassificationsAsync();
-        FileClassifications.AddRange(classifications);
+        _ = await FileClassificationsService.GetFileClassificationsAsync()
+           .MatchAsync(fileClassifications =>
+               {
+                   FileClassifications.AddRange(fileClassifications);
+                   return Task.CompletedTask;
+               },
+               _ =>
+               {
+                   FileClassifications.AddRange([]);
+                   return Task.CompletedTask;
+               });
     }
 
     private async Task HandleFormSubmit(EditContext context) => await OnValidSubmit.InvokeAsync(SearchModel);

@@ -10,7 +10,7 @@ public class CollectionAndStatusExtensionsShould
         // Arrange
         var target = new ObservableCollection<int> { 1, 2, 3 };
 
-        Task<Result<IEnumerable<int>, Exception>> ResultTask()
+        static Task<Result<IEnumerable<int>, Exception>> ResultTask()
         {
             return Task.FromResult<Result<IEnumerable<int>, Exception>>(new Result<IEnumerable<int>, Exception>.Ok([10, 20]));
         }
@@ -50,7 +50,7 @@ public class CollectionAndStatusExtensionsShould
         // Arrange
         var target = new ObservableCollection<int> { 1, 2, 3 };
 
-        Task<Result<IEnumerable<int>, Exception>> ResultTask()
+        static Task<Result<IEnumerable<int>, Exception>> ResultTask()
         {
             return Task.FromResult<Result<IEnumerable<int>, Exception>>(new Result<IEnumerable<int>, Exception>.Ok(null!));
         }

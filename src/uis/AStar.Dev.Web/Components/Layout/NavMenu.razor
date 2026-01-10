@@ -21,8 +21,12 @@
             {
                 <FluentNavGroup Title="Admin" Icon="@(new Size20.EarthLeaf())" Tooltip="Access the Admin Menu" IconColor="Color.Accent">
                     <ChildContent>
+                        <FluentNavLink Href="/Scalar" Icon="@(new Size20.People())" Tooltip="View the current Scalar document"
+                                       IconColor="Color.Accent">Scalar Document
+                        </FluentNavLink>
                         <FluentNavLink Href="/admin/add-files-to-database" Icon="@(new Size20.People())" Tooltip="Add any new Files to the AStar Database"
-                                       IconColor="Color.Accent">Add Files To Database
+                                       IconColor="Color.Accent">
+                            Add Files To Database
                         </FluentNavLink>
                         <FluentNavLink Href="/admin/api-usage" Icon="@(new Size20.People())" IconColor="Color.Accent" Tooltip="View API Usage">
                             Api Usage

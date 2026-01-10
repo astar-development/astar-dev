@@ -37,8 +37,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\modules\apis\AStar.Dev.Files.Classifications.Api\AStar.Dev.Files.Classifications.Api.csproj" />
         <ProjectReference Include="..\..\modules\apis\AStar.Web.ApiService\AStar.Web.ApiService.csproj" />
+        <ProjectReference Include="..\..\nuget-packages\AStar.Dev.Functional.Extensions\AStar.Dev.Functional.Extensions.csproj" />
     </ItemGroup>
 
 </Project>

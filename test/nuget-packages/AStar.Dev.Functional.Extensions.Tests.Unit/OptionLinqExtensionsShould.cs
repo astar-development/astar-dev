@@ -96,17 +96,14 @@ public class OptionLinqExtensionsShould
     [Fact]
     public async Task SelectAwaitPreservesNone()
     {
-        // Arrange
         var task = Task.FromResult(Option.None<int>());
 
-        // Act
         Option<int> projected = await task.SelectAwait(async x =>
         {
             await Task.Delay(1);
             return x * 3;
         });
 
-        // Assert
         _ = projected.ShouldBeOfType<Option<int>.None>();
     }
 }

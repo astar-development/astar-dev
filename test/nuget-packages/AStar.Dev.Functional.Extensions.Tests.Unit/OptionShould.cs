@@ -422,7 +422,7 @@ public class OptionShould
     {
         var option = Option.Some(42);
 
-        var (isSome, value) = option;
+        (var isSome, var value) = option;
 
         isSome.ShouldBeTrue();
         value.ShouldBe(42);
@@ -433,7 +433,7 @@ public class OptionShould
     {
         var option = Option.None<int>();
 
-        var (isSome, value) = option;
+        (var isSome, var value) = option;
 
         isSome.ShouldBeFalse();
         value.ShouldBe(default);

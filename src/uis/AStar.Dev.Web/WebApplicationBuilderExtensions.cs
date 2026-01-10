@@ -41,6 +41,7 @@ public static class WebApplicationBuilderExtensions
 
         _ = builder.Services.AddControllersWithViews()
             .AddMicrosoftIdentityUI();
+            
         _ = builder.Services.AddAnnotatedServices();
         _ = builder.Services.AddProblemDetails(options => options.CustomizeProblemDetails =
             ctx => ctx.ProblemDetails.Extensions.Add("nodeId", Environment.MachineName));

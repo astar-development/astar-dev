@@ -33,7 +33,7 @@ public class ConvenienceResultExtensionsShould
     public async Task ReturnTheValueFromGetOrThrowAsyncOnSuccess()
     {
         // Arrange
-        Task<Result<string, Exception>> ResultTask()
+        static Task<Result<string, Exception>> ResultTask()
         {
             return Task.FromResult<Result<string, Exception>>(new Result<string, Exception>.Ok("ok"));
         }
