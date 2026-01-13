@@ -34,12 +34,12 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.Identity.Web" Version="4.2.0" />
-        <PackageReference Include="Microsoft.Identity.Web.DownstreamApi" Version="4.2.0" />
+        <PackageReference Include="Microsoft.Identity.Web.DownstreamApi" Version="4.3.0" />
         <PackageReference Include="Microsoft.Identity.Web.UI" Version="4.2.0" />
         <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.1" />
         <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.1" />
         <PackageReference Include="Microsoft.Extensions.Http.Resilience" Version="10.1.0" />
-        <PackageReference Include="Microsoft.Identity.Web.TokenAcquisition" Version="4.2.0" />
+        <PackageReference Include="Microsoft.Identity.Web.TokenAcquisition" Version="4.3.0" />
     </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
