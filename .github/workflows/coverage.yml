@@ -25,14 +25,14 @@ jobs:
 
       - name: Test with Coverage
         run: |
-          dotnet test                 --collect:"XPlat Code Coverage"                 --results-directory "coverage"                 --configuration Release
+          dotnet test --coverage --coverage-output-format cobertura --coverage-output ./coverage/coverage.cobertura.xml --configuration Release
 
       - name: Install ReportGenerator
         run: dotnet tool install -g dotnet-reportgenerator-globaltool
 
       - name: Generate HTML & Cobertura Reports
         run: |
-          reportgenerator                 -reports:"coverage/**/coverage.cobertura.xml"                 -targetdir:"coverage-report"                 -reporttypes:Html;HtmlSummary;MarkdownSummary;Cobertura
+          reportgenerator -reports:"coverage/coverage.cobertura.xml" -targetdir:"coverage-report" -reporttypes:Html;HtmlSummary;MarkdownSummary;Cobertura
 
       - name: Upload HTML Report
         uses: actions/upload-artifact@v4
