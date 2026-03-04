@@ -1,0 +1,29 @@
+
+{
+  "folders": [
+    { "name": "apps", "path": "apps" },
+    { "name": "web", "path": "web" },
+    { "name": "libraries", "path": "libs" },
+    { "name": "tests", "path": "tests" },
+    { "name": "build", "path": "build" }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/bin": true,
+      "**/obj": true,
+      "**/.vs": true,
+      "**/.idea": true
+    },
+    "dotnet.server.useOmnisharp": false,
+    "dotnet.server.includePrereleases": true,
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": true,
+      "source.organizeImports": true
+    },
+    "omnisharp.enableRoslynAnalyzers": true,
+    "omnisharp.enableEditorConfigSupport": true,
+    "omnisharp.enableDecompilationSupport": false,
+    "task.allowAutomaticTasks": "on"
+  }
+}

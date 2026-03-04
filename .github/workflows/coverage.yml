@@ -1,0 +1,53 @@
+
+name: Code Coverage
+
+on:
+  pull_request:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+jobs:
+  coverage:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.x
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Test with Coverage
+        run: |
+          dotnet test                 --collect:"XPlat Code Coverage"                 --results-directory "coverage"                 --configuration Release
+
+      - name: Install ReportGenerator
+        run: dotnet tool install -g dotnet-reportgenerator-globaltool
+
+      - name: Generate HTML & Cobertura Reports
+        run: |
+          reportgenerator                 -reports:"coverage/**/coverage.cobertura.xml"                 -targetdir:"coverage-report"                 -reporttypes:Html;HtmlSummary;MarkdownSummary;Cobertura
+
+      - name: Upload HTML Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-html-report
+          path: coverage-report
+
+      - name: Publish Coverage Badge (JSON)
+        run: |
+          TOTAL=$(grep -oPm1 "(?<=line-rate=")[^"]*" coverage-report/Cobertura.xml)
+          PERCENT=$(printf "%.0f" "$(echo "$TOTAL * 100" | bc)")
+          echo "{ "schemaVersion": 1, "label": "coverage", "message": "$PERCENT%", "color": "green" }" > coverage-badge.json
+
+      - name: Upload Coverage Badge
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-badge
+          path: coverage-badge.json

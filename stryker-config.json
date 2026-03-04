@@ -1,0 +1,14 @@
+
+{
+  "$schema": "https://raw.githubusercontent.com/stryker-mutator/stryker-net/master/schemas/stryker-config.schema.json",
+  "logLevel": "info",
+  "reporters": ["html", "progress", "dashboard", "json"],
+  "mutate": ["!**/bin/**", "!**/obj/**", "!**/*Tests.cs", "**/*.cs"],
+  "coverageAnalysis": "perTest",
+  "concurrency": 4,
+  "timeoutMS": 20000,
+  "breakOnKill": false,
+  "reportFileName": "stryker-report",
+  "ignoreMethods": ["Configure", "Main"],
+  "thresholds": {"high": 85, "low": 70, "break": 60}
+}

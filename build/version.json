@@ -1,0 +1,14 @@
+
+{
+  "version": "1.0",
+  "publicReleaseRefSpec": [
+    "^refs/tags/v\d+\.\d+\.\d+$"
+  ],
+  "assemblyVersion": "1.0",
+  "nugetPackageVersion": {
+    "semVer": 2
+  },
+  "cloudBuild": {
+    "setVersionVariables": true
+  }
+}

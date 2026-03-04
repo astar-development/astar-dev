@@ -1,0 +1,76 @@
+
+<Project>
+
+  <PropertyGroup>
+    <LangVersion>preview</LangVersion>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <AnalysisLevel>latest</AnalysisLevel>
+    <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <RunAnalyzersDuringBuild>true</RunAnalyzersDuringBuild>
+    <RunAnalyzersDuringLiveAnalysis>true</RunAnalyzersDuringLiveAnalysis>
+
+    <Deterministic>true</Deterministic>
+    <ContinuousIntegrationBuild Condition="'$(GITHUB_ACTIONS)' == 'true'">true</ContinuousIntegrationBuild>
+    <DebugType>portable</DebugType>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <Configuration Condition="'$(Configuration)' == ''">Release</Configuration>
+    <ConsoleLoggerFormat>Detailed</ConsoleLoggerFormat>
+    <NoWarn>$(NoWarn);CA1416</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Nerdbank.GitVersioning" Version="3.*" PrivateAssets="all" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <Version>$(GitVersion_NuGetVersionV2)</Version>
+    <AssemblyVersion>$(GitVersion_AssemblyVersion)</AssemblyVersion>
+    <FileVersion>$(GitVersion_FileVersion)</FileVersion>
+    <InformationalVersion>$(GitVersion_InformationalVersion)</InformationalVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <IsPackable Condition="'$(IsPackable)' == '' and '$(OutputType)' == 'Library'">true</IsPackable>
+    <Authors>Jason B</Authors>
+    <Company>Jason B</Company>
+    <Product>$(MSBuildProjectName)</Product>
+    <PackageId>$(MSBuildProjectName)</PackageId>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>https://github.com/your-org/your-monorepo</RepositoryUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.*" PrivateAssets="all" />
+  </ItemGroup>
+
+  <PropertyGroup Condition="'$(MSBuildProjectName)' EndsWith('.Tests') Or $(IsTestProject) == 'true'">
+    <IsPackable>false</IsPackable>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(OutputType)' != 'Library'">
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AdditionalFiles Include="$(MSBuildThisFileDirectory).editorconfig" Condition="Exists('$(MSBuildThisFileDirectory).editorconfig')" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <PathMap>$(MSBuildProjectDirectory)=/src/$(MSBuildProjectName)</PathMap>
+  </PropertyGroup>
+
+</Project>
