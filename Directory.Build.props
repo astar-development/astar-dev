@@ -52,7 +52,7 @@
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="8.*" PrivateAssets="all" />
   </ItemGroup>
 
-  <PropertyGroup Condition="'$(MSBuildProjectName)' EndsWith('.Tests') Or $(IsTestProject) == 'true'">
+  <PropertyGroup Condition="$(MSBuildProjectName.EndsWith('.Tests')) or $(IsTestProject) == 'true'">
     <IsPackable>false</IsPackable>
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
   </PropertyGroup>
