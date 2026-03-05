@@ -44,7 +44,7 @@ jobs:
 
       - name: Publish Coverage Badge (JSON)
         run: |
-          TOTAL=$(grep -oPm1 "(?<=line-rate=")[^"]*" coverage-report/Cobertura.xml)
+          TOTAL=$(grep -oPm1 '(?<=line-rate=")[^"]*' coverage-report/Cobertura.xml)
           PERCENT=$(printf "%.0f" "$(echo "$TOTAL * 100" | bc)")
           echo "{ \"schemaVersion\": 1, \"label\": \"coverage\", \"message\": \"$PERCENT%\", \"color\": \"green\" }" > coverage-badge.json
 
