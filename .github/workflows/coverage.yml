@@ -44,6 +44,10 @@ jobs:
 
       - name: Publish Coverage Badge (JSON)
         run: |
+          if [ ! -f coverage-report/Cobertura.xml ]; then
+            echo "Cobertura.xml not found, skipping badge generation"
+            exit 0
+          fi
           TOTAL=$(grep -oPm1 '(?<=line-rate=")[^"]*' coverage-report/Cobertura.xml)
           PERCENT=$(printf "%.0f" "$(echo "$TOTAL * 100" | bc)")
           echo "{ \"schemaVersion\": 1, \"label\": \"coverage\", \"message\": \"$PERCENT%\", \"color\": \"green\" }" > coverage-badge.json
