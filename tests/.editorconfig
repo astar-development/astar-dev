@@ -1,7 +1,3 @@
-
-# Top-level EditorConfig for entire monorepo
-root = true
-
 [*]
 charset = utf-8
 end_of_line = lf
@@ -51,6 +47,7 @@ csharp_new_line_between_query_expression_clauses = true
 # Analyzer Configuration
 dotnet_analyzer_diagnostic.severity = warning
 
+dotnet_diagnostic.CS1591.severity = silent
 dotnet_diagnostic.CA1062.severity = error
 dotnet_diagnostic.CA1822.severity = warning
 dotnet_diagnostic.CA2000.severity = error

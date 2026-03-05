@@ -24,9 +24,12 @@ jobs:
           for f in $FILES; do
             if [[ $f == libs/* ]]; then
               L=$(echo $f | cut -d/ -f2)
-              LIBS="$LIBS $L"
+              if [ -d "libs/$L" ] && [ -d "tests/${L}.Tests" ]; then
+                LIBS="$LIBS $L"
+              fi
             fi
           done
+          LIBS=$(echo $LIBS | tr ' ' '\n' | sort -u | tr '\n' ' ')
           echo "changed-libs=$LIBS" >> $GITHUB_OUTPUT
 
       - name: Setup .NET
@@ -82,7 +85,8 @@ jobs:
         id: diff
         run: |
           mkdir -p mutation-diff
-          for lib in mutation-results/*; do
+          touch mutation-diff/delta.txt
+          for lib in mutation-results/*/; do
             L=$(basename $lib)
             BASEFILE="mutation-baseline/$L/reports/stryker-report.json"
             CURFILE="$lib/reports/stryker-report.json"
