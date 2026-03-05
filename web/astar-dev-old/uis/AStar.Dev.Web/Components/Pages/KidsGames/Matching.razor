@@ -1,0 +1,39 @@
+@page "/kids-games/matching"
+@using Microsoft.FluentUI.AspNetCore.Components.Icons.Regular
+@attribute [AllowAnonymous]
+
+<PageTitle>@App.PageTitle("Matching")</PageTitle>
+
+<FluentBreadcrumb>
+    <FluentBreadcrumbItem Href="#">
+        Home
+        <FluentIcon Value="@(new Size16.Home())" Color="@Color.Neutral" Slot="start"/>
+    </FluentBreadcrumbItem>
+    <FluentBreadcrumbItem Href="#">
+        Kids Games
+        <FluentIcon Value="@(new Size16.Games())" Color="@Color.Neutral" Slot="start"/>
+    </FluentBreadcrumbItem>
+    <FluentBreadcrumbItem>
+        Breadcrumb item 3
+        <FluentIcon Value="@(new Size16.Money())" Color="@Color.Neutral" Slot="start"/>
+    </FluentBreadcrumbItem>
+</FluentBreadcrumb>
+
+<h1>What do you want to match?</h1>
+
+<div style="height: 50px;"></div>
+
+<table>
+    <tr>
+        <td style="width: 100px">
+            <NavLink class="btn btn-success" href="kids-games/match-animals">
+                Animals
+            </NavLink>
+        </td>
+        <td style="width: 100px">
+            <NavLink class="btn btn-success" href="kids-games/match-houses">
+                Houses
+            </NavLink>
+        </td>
+    </tr>
+</table>

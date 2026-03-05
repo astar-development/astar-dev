@@ -1,0 +1,11 @@
+﻿{
+  "cacheTag": 42,
+  "applicationVersion": "1.2.3",
+  "userPreferencesPath": "TestUserPreferencesPath",
+  "userPreferencesFile": "TestUserPreferencesFile",
+  "databaseName": "MockDatabaseName",
+  "oneDriveRootDirectory": "TestOneDriveRootPath",
+  "cachePrefix": "TestCachePrefix_",
+  "redirectUri": "http://localhost",
+  "graphUri": "https://graph.microsoft.com/v1.0/me/drive"
+}

@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>preview</LangVersion>
+  </PropertyGroup>
+	
+	<ItemGroup>
+    <ProjectReference Include="..\nuget-packages\AStar.Dev.Functional.Extensions\AStar.Dev.Functional.Extensions.csproj" />
+		<PackageReference Include="TestableIO.System.IO.Abstractions" Version="22.1.0" />
+		<PackageReference Include="TestableIO.System.IO.Abstractions.Wrappers" Version="22.1.0" />
+	</ItemGroup>
+</Project>

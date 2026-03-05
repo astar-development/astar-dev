@@ -1,0 +1,4 @@
+﻿{
+  "excludeViewedPeriodInDays": 7,
+  "excludeViewed": true
+}

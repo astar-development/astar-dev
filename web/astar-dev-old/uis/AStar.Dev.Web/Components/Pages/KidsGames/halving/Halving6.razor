@@ -1,0 +1,100 @@
+@page "/kids-games/halving-six"
+@using Microsoft.FluentUI.AspNetCore.Components.Icons.Regular
+@attribute [AllowAnonymous]
+
+<link href="./games/halving/css/halving.css" rel="stylesheet" type="text/css">
+<link href="./games/css/grid.css" rel="stylesheet" type="text/css">
+<link href="./games/css/menu.css" rel="stylesheet" type="text/css">
+
+<PageTitle>@App.PageTitle("Halving 6")</PageTitle>
+
+<FluentBreadcrumb>
+    <FluentBreadcrumbItem Href="#">
+        Home
+        <FluentIcon Value="@(new Size16.Home())" Color="@Color.Neutral" Slot="start"/>
+    </FluentBreadcrumbItem>
+    <FluentBreadcrumbItem Href="#">
+        Kids Games
+        <FluentIcon Value="@(new Size16.Games())" Color="@Color.Neutral" Slot="start"/>
+    </FluentBreadcrumbItem>
+    <FluentBreadcrumbItem>
+        Breadcrumb item 3
+        <FluentIcon Value="@(new Size16.Money())" Color="@Color.Neutral" Slot="start"/>
+    </FluentBreadcrumbItem>
+</FluentBreadcrumb>
+
+<h1>Halving Six</h1>
+
+<h2>Half of <span style="color: green;">6</span> = <span id="correctAnswer" style="color: green;"></span><span
+        id="result" style="padding-left: 200px;"></span></h2>
+
+<table>
+    <tr>
+        <td>
+            <div class="grid">
+                <div class="child">
+                        <span>
+                            <img alt="icecream" id="icecream1" src="./games/halving/images/icecream.png" style="position: absolute;"
+                            />
+                        </span>
+                </div>
+                <div class="child">
+                        <span>
+                            <img alt="icecream" id="icecream2" src="./games/halving/images/icecream.png" style="position: absolute;"
+                            />
+                        </span>
+                </div>
+                <div class="child">
+                        <span>
+                    <img alt="icecream" id="icecream3" src="./games/halving/images/icecream.png" style="position: absolute;"
+                    />
+                        </span>
+                </div>
+                <div class="child">
+                        <span><img alt="icecream" id="icecream4" src="./games/halving/images/icecream.png" style="position: absolute;"
+                            />
+                        </span>
+                </div>
+                <div class="child">
+                        <span>
+                            <img alt="icecream" id="icecream5" src="./games/halving/images/icecream.png" style="position: absolute;"
+                            />
+                        </span>
+                </div>
+                <div class="child">
+                        <span>
+                            <img alt="icecream" id="icecream6" src="./games/halving/images/icecream.png" style="position: absolute;"
+                            />
+                        </span>
+                </div>
+            </div>
+        </td>
+        <td>
+            <img alt="monsters-at-the-table" src="./games/halving/images/monsters-at-the-table.png"/>
+            <div id="monster1"
+                 style="position: absolute; top: 330px; left: 880px; height: 150px; width: 250px; border-style: none;"></div>
+            <div id="monster2"
+                 style="position: absolute; top: 330px; left: 1210px; height: 150px; width: 250px; border-style: none;"></div>
+        </td>
+    </tr>
+</table>
+
+<div class="menu">
+    <div class="item">
+        <span>
+            <button class="btn btn-success btn-lg" id="check" onclick="checkResults()">Check your results</button>
+        </span>
+    </div>
+    <div class="item">
+        <span>
+            <button class="btn btn-primary btn-lg" id="reload" onclick="location.reload()">Try again</button>
+        </span>
+    </div>
+</div>
+
+<div>
+    <strong>Please Note:</strong> This game works on touch screen devices only. You can select using your mouse, but
+    you will not be able to position correctly. Sorry for the inconvenience.
+</div>
+
+<script src="./games/halving/js/halving-6.js"></script>

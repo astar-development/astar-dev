@@ -1,0 +1,6 @@
+@AStar.Dev.Usage.Logger_HostAddress = http://localhost:5149
+
+GET {{AStar.Dev.Usage.Logger_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+        <UserSecretsId>464c1a20-14c6-4953-9009-5b4ea78f6b00</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.1" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.1">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="10.0.01" />
+        <PackageReference Include="Aspire.RabbitMQ.Client.v7" Version="9.5.2" />
+        <PackageReference Include="Serilog.Extensions.Hosting" Version="10.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\aspire\AStar.Dev.Web.Aspire.Common\AStar.Dev.Web.Aspire.Common.csproj" />
+        <ProjectReference Include="..\..\aspire\AStar.Dev.Web.ServiceDefaults\AStar.Dev.Web.ServiceDefaults.csproj" />
+        <ProjectReference Include="..\..\nuget-packages\AStar.Dev.Api.Usage.Sdk\AStar.Dev.Api.Usage.Sdk.csproj" />
+        <ProjectReference Include="..\..\nuget-packages\AStar.Dev.AspNet.Extensions\AStar.Dev.AspNet.Extensions.csproj" />
+        <ProjectReference Include="..\..\nuget-packages\AStar.Dev.Auth.Extensions\AStar.Dev.Auth.Extensions.csproj" />
+        <ProjectReference Include="..\..\nuget-packages\AStar.Dev.Infrastructure.UsageDb\AStar.Dev.Infrastructure.UsageDb.csproj" />
+        <ProjectReference Include="..\..\nuget-packages\AStar.Dev.Infrastructure\AStar.Dev.Infrastructure.csproj" />
+        <ProjectReference Include="..\..\nuget-packages\AStar.Dev.Logging.Extensions\AStar.Dev.Logging.Extensions.csproj" />
+        <ProjectReference Include="..\..\nuget-packages\AStar.Dev.Minimal.Api.Extensions\AStar.Dev.Minimal.Api.Extensions.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="..\..\..\.dockerignore">
+            <Link>.dockerignore</Link>
+        </Content>
+    </ItemGroup>
+
+</Project>

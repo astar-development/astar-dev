@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+		<AnalysisLevel>latest-recommended</AnalysisLevel>
+        <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Authors>AStar Developement, Jason Barden</Authors>
+        <Company>AStar Development</Company>
+        <Copyright>AStar Developement, 2025</Copyright>
+        <Description>A collection of extensions to configure EntraId authentication.</Description>
+        <DocumentationFile>$(AssemblyName).xml</DocumentationFile>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <IncludeSymbols>true</IncludeSymbols>
+        <IsPackable>true</IsPackable>
+        <PackageIcon>astar.png</PackageIcon>
+        <PackageId>AStar.Dev.Auth.Extensions</PackageId>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageProjectUrl>https://github.com/astar-development/astar-dev-auth-extensions</PackageProjectUrl>
+        <PackageReadmeFile>Readme.md</PackageReadmeFile>
+        <PackageReleaseNotes>Initial creation.</PackageReleaseNotes>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <PackageTags>EntraId Extensions</PackageTags>
+        <PublishRepositoryUrl>true</PublishRepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/astar-development/astar-dev-auth-extensions.git</RepositoryUrl>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+        <Title>AStar.Dev.Auth.Extensions</Title>
+        <Version>0.1.0</Version>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="../../LICENSE" Pack="true" PackagePath=""/>
+        <None Include="../../Readme.md" Pack="true" PackagePath=""/>
+        <None Include="../../astar.png" Pack="true" PackagePath=""/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="AStar.Dev.Utilities" Version="1.6.2"/>
+        <PackageReference Include="AStar.Dev.Technical.Debt.Reporting" Version="0.2.1"/>
+        <PackageReference Include="AStar.Dev.Api.Usage.Sdk" Version="0.1.0"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.8"/>
+    </ItemGroup>
+
+</Project>

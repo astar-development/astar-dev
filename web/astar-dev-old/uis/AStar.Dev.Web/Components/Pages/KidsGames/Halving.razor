@@ -1,0 +1,54 @@
+@page "/kids-games/halving"
+@using Microsoft.FluentUI.AspNetCore.Components.Icons.Regular
+@attribute [AllowAnonymous]
+
+<PageTitle>@App.PageTitle("Halving")</PageTitle>
+
+<FluentBreadcrumb>
+    <FluentBreadcrumbItem Href="#">
+        Home
+        <FluentIcon Value="@(new Size16.Home())" Color="@Color.Neutral" Slot="start"/>
+    </FluentBreadcrumbItem>
+    <FluentBreadcrumbItem Href="#">
+        Kids Games
+        <FluentIcon Value="@(new Size16.Games())" Color="@Color.Neutral" Slot="start"/>
+    </FluentBreadcrumbItem>
+    <FluentBreadcrumbItem>
+        Breadcrumb item 3
+        <FluentIcon Value="@(new Size16.Money())" Color="@Color.Neutral" Slot="start"/>
+    </FluentBreadcrumbItem>
+</FluentBreadcrumb>
+
+<h1>What number do you want to halve?</h1>
+
+<div style="height: 50px;"></div>
+
+<table>
+    <tr>
+        <td style="width: 100px">
+            <NavLink class="btn btn-success" href="kids-games/halving-two">
+                Two
+            </NavLink>
+        </td>
+        <td style="width: 100px">
+            <NavLink class="btn btn-success" href="kids-games/halving-four">
+                Four
+            </NavLink>
+        </td>
+        <td style="width: 100px">
+            <NavLink class="btn btn-success" href="kids-games/halving-six">
+                Six
+            </NavLink>
+        </td>
+        <td style="width: 100px">
+            <NavLink class="btn btn-success" href="kids-games/halving-eight">
+                Eight
+            </NavLink>
+        </td>
+        <td style="width: 100px">
+            <NavLink class="btn btn-success" href="kids-games/halving-ten">
+                Ten
+            </NavLink>
+        </td>
+    </tr>
+</table>
