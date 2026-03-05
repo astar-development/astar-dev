@@ -25,13 +25,13 @@ public sealed class OptionsTypeInfo : IEquatable<OptionsTypeInfo>
     /// </summary>
     public Location Location { get; }
 
-/// <summary>
-/// Initializes a new instance of the OptionsTypeInfo class with the specified type name, full type name, configuration section name, and source code location. This constructor is typically called by the source generator when it identifies a class or struct that should be treated as an options type based on the presence of the AutoRegisterOptionsAttribute, allowing the generator to capture all relevant metadata about the options type for later use in code generation and diagnostics.
-/// </summary>
-/// <param name="typeName">The simple name of the options type (without namespace).</param>
-/// <param name="fullTypeName">The fully qualified name of the options type, including its namespace.</param>
-/// <param name="sectionName">The name of the configuration section associated with this options type.</param>
-/// <param name="location">The source code location where this options type is defined. This information can be used for diagnostics, such as reporting errors or warnings related to the options type during source generation, by pointing back to the exact location in the user's code.</param>
+    /// <summary>
+    /// Initializes a new instance of the OptionsTypeInfo class with the specified type name, full type name, configuration section name, and source code location. This constructor is typically called by the source generator when it identifies a class or struct that should be treated as an options type based on the presence of the AutoRegisterOptionsAttribute, allowing the generator to capture all relevant metadata about the options type for later use in code generation and diagnostics.
+    /// </summary>
+    /// <param name="typeName">The simple name of the options type (without namespace).</param>
+    /// <param name="fullTypeName">The fully qualified name of the options type, including its namespace.</param>
+    /// <param name="sectionName">The name of the configuration section associated with this options type.</param>
+    /// <param name="location">The source code location where this options type is defined. This information can be used for diagnostics, such as reporting errors or warnings related to the options type during source generation, by pointing back to the exact location in the user's code.</param>
     public OptionsTypeInfo(string typeName, string fullTypeName, string sectionName, Location location)
     {
         TypeName = typeName ?? string.Empty;
@@ -40,18 +40,18 @@ public sealed class OptionsTypeInfo : IEquatable<OptionsTypeInfo>
         Location = location;
     }
 
-/// <summary>
-/// Determines whether the specified object is equal to the current OptionsTypeInfo instance by comparing their type names, full type names, section names, and source code locations. This method is used to ensure that two OptionsTypeInfo instances are considered equal if they represent the same options type with the same metadata, which can be important for avoiding duplicate code generation or for correctly identifying options types during the source generation process.
-/// </summary>
-/// <param name="obj">The object to compare with the current OptionsTypeInfo instance.</param>
-/// <returns>true if the specified object is equal to the current OptionsTypeInfo instance; otherwise, false.</returns>
+    /// <summary>
+    /// Determines whether the specified object is equal to the current OptionsTypeInfo instance by comparing their type names, full type names, section names, and source code locations. This method is used to ensure that two OptionsTypeInfo instances are considered equal if they represent the same options type with the same metadata, which can be important for avoiding duplicate code generation or for correctly identifying options types during the source generation process.
+    /// </summary>
+    /// <param name="obj">The object to compare with the current OptionsTypeInfo instance.</param>
+    /// <returns>true if the specified object is equal to the current OptionsTypeInfo instance; otherwise, false.</returns>
     public override bool Equals(object obj) => Equals((OptionsTypeInfo)obj);
 
-/// <summary>
-/// Determines whether the specified OptionsTypeInfo instance is equal to the current instance by comparing their type names, full type names, section names, and source code locations. This method is used to ensure that two OptionsTypeInfo instances are considered equal if they represent the same options type with the same metadata, which can be important for avoiding duplicate code generation or for correctly identifying options types during the source generation process.
-/// </summary>
-/// <param name="other">The OptionsTypeInfo instance to compare with the current instance.</param>
-/// <returns>true if the specified OptionsTypeInfo instance is equal to the current instance; otherwise, false.</returns>
+    /// <summary>
+    /// Determines whether the specified OptionsTypeInfo instance is equal to the current instance by comparing their type names, full type names, section names, and source code locations. This method is used to ensure that two OptionsTypeInfo instances are considered equal if they represent the same options type with the same metadata, which can be important for avoiding duplicate code generation or for correctly identifying options types during the source generation process.
+    /// </summary>
+    /// <param name="other">The OptionsTypeInfo instance to compare with the current instance.</param>
+    /// <returns>true if the specified OptionsTypeInfo instance is equal to the current instance; otherwise, false.</returns>
     public bool Equals(OptionsTypeInfo other) => ReferenceEquals(this, other) || (other is not null && string.Equals(TypeName, other.TypeName, System.StringComparison.Ordinal)
             && string.Equals(FullTypeName, other.FullTypeName, System.StringComparison.Ordinal)
             && string.Equals(SectionName, other.SectionName, System.StringComparison.Ordinal)

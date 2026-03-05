@@ -11,7 +11,7 @@ namespace AStar.Dev.Admin.Api.Client.Sdk;
 /// </summary>
 public static class ServiceCollectionExtensions
 {
-   # pragma warning disable IDE0060 // Remove unused parameter
+#pragma warning disable IDE0060 // Remove unused parameter
     /// <summary>
     /// </summary>
     /// <param name="services"></param>
@@ -46,5 +46,5 @@ public static class ServiceCollectionExtensions
 
         return services;
     }
-    #pragma warning restore IDE0060 // Remove unused parameter
+#pragma warning restore IDE0060 // Remove unused parameter
 }

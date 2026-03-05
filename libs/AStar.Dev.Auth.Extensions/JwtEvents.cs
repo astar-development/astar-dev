@@ -10,7 +10,7 @@ namespace AStar.Dev.Auth.Extensions;
 /// </summary>
 public sealed class JwtEvents(ILogger<JwtEvents> logger)
 {
-    #pragma warning disable CA1848 // Use the LoggerMessage delegates instead of calling logger.Log* directly. --- IGNORE ---
+#pragma warning disable CA1848 // Use the LoggerMessage delegates instead of calling logger.Log* directly. --- IGNORE ---
     /// <summary>
     /// </summary>
     /// <param name="send"></param>

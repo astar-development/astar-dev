@@ -15,10 +15,10 @@ public sealed partial class OptionsBindingGenerator : IIncrementalGenerator
 {
     private const string AttrFqn = "AStar.Dev.Source.Generators.Attributes.AutoRegisterOptionsAttribute";
 
-/// <summary>
-/// Initializes the source generator by setting up the syntax provider to scan for classes or structs decorated with the AutoRegisterOptionsAttribute, extracting relevant information about those types (such as their names, full type names, associated configuration section names, and source code locations), and registering a source output that generates the necessary code to bind those types to configuration sections. The generator also includes error handling to report diagnostics when required information is missing, such as a section name, to assist developers in correctly using the attribute and ensuring that the generated code can function properly at runtime.
-/// </summary>
-/// <param name="context"></param>
+    /// <summary>
+    /// Initializes the source generator by setting up the syntax provider to scan for classes or structs decorated with the AutoRegisterOptionsAttribute, extracting relevant information about those types (such as their names, full type names, associated configuration section names, and source code locations), and registering a source output that generates the necessary code to bind those types to configuration sections. The generator also includes error handling to report diagnostics when required information is missing, such as a section name, to assist developers in correctly using the attribute and ensuring that the generated code can function properly at runtime.
+    /// </summary>
+    /// <param name="context"></param>
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
         IncrementalValueProvider<ImmutableArray<OptionsTypeInfo?>> optionsTypes = context.SyntaxProvider.ForAttributeWithMetadataName(
