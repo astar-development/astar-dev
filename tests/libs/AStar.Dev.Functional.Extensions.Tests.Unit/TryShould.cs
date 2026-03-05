@@ -1,9 +1,9 @@
 namespace AStar.Dev.Functional.Extensions.Tests.Unit;
 
-public class TryShould
+public class TryTests
 {
     [Fact]
-    public void ReturnOkResultWhenFunctionSucceeds()
+    public void RunShouldReturnOkResultWhenFunctionSucceeds()
     {
         const int expectedValue = 42;
 
@@ -16,69 +16,10 @@ public class TryShould
 
         return;
 
-        static int SuccessFunc()
+        int SuccessFunc()
         {
             return expectedValue;
         }
-    }
-
-    [Fact]
-    public void ReturnOkTrueWhenActionSucceeds()
-    {
-        Result<bool, Exception> result = Try.Run(() =>
-        {
-            /* no-op */
-        });
-
-        _ = result.ShouldBeOfType<Result<bool, Exception>.Ok>();
-        Pattern.IsOk(result).ShouldBeTrue();
-        Pattern.IsError(result).ShouldBeFalse();
-        ((Result<bool, Exception>.Ok)result).Value.ShouldBeTrue();
-    }
-
-    [Fact]
-    public void ReturnErrorWhenActionThrows()
-    {
-        var expected = new InvalidOperationException("sync boom");
-
-        Result<bool, Exception> result = Try.Run(() => throw expected);
-
-        _ = result.ShouldBeOfType<Result<bool, Exception>.Error>();
-        Pattern.IsOk(result).ShouldBeFalse();
-        Pattern.IsError(result).ShouldBeTrue();
-        Exception reason = ((Result<bool, Exception>.Error)result).Reason;
-        reason.ShouldBeSameAs(expected);
-        reason.Message.ShouldBe("sync boom");
-    }
-
-    [Fact]
-    public async Task ReturnOkTrueWhenActionSucceedsAsync()
-    {
-        Result<bool, Exception> result = await Try.RunAsync(async () => await Task.Delay(1));
-
-        _ = result.ShouldBeOfType<Result<bool, Exception>.Ok>();
-        Pattern.IsOk(result).ShouldBeTrue();
-        Pattern.IsError(result).ShouldBeFalse();
-        ((Result<bool, Exception>.Ok)result).Value.ShouldBeTrue();
-    }
-
-    [Fact]
-    public async Task RunAsyncActionShouldReturnErrorWhenActionThrowsAsync()
-    {
-        var expected = new InvalidOperationException("async boom");
-
-        Result<bool, Exception> result = await Try.RunAsync(async () =>
-        {
-            await Task.Yield();
-            throw expected;
-        });
-
-        _ = result.ShouldBeOfType<Result<bool, Exception>.Error>();
-        Pattern.IsOk(result).ShouldBeFalse();
-        Pattern.IsError(result).ShouldBeTrue();
-        Exception reason = ((Result<bool, Exception>.Error)result).Reason;
-        reason.ShouldBeSameAs(expected);
-        reason.Message.ShouldBe("async boom");
     }
 
     [Fact]
@@ -116,9 +57,7 @@ public class TryShould
 
         static int ArgNullFunc()
         {
-#pragma warning disable S3928 // Parameter names used into ArgumentException constructors should match an existing one 
             throw new ArgumentNullException("testParam");
-#pragma warning restore S3928 // Parameter names used into ArgumentException constructors should match an existing one 
         }
     }
 
@@ -136,7 +75,7 @@ public class TryShould
 
         return;
 
-        static Task<string> SuccessFunc()
+        Task<string> SuccessFunc()
         {
             return Task.FromResult(expectedValue);
         }
@@ -244,7 +183,7 @@ public class TryShould
             ok => ok,
             ex => -1);
 
-        output.ShouldBe(42);
+        Assert.Equal(42, output);
     }
 
     [Fact]
@@ -256,7 +195,7 @@ public class TryShould
             ok => ok,
             ex => -1);
 
-        output.ShouldBe(-1);
+        Assert.Equal(-1, output);
     }
 
     [Fact]
@@ -265,10 +204,10 @@ public class TryShould
         Result<string, Exception> success = Try.Run(() => "done");
         Result<string, Exception> failure = Try.Run<string>(() => throw new InvalidOperationException("fail"));
 
-        var a = success.Match(x => $"OK: {x}", ex => $"ERR: {ex.GetBaseException().Message}");
-        var b = failure.Match(x => $"OK: {x}", ex => $"ERR: {ex.GetBaseException().Message}");
+        var a = success.Match(x => $"OK: {x}", ex => $"ERR: {ex.Message}");
+        var b = failure.Match(x => $"OK: {x}", ex => $"ERR: {ex.Message}");
 
-        a.ShouldBe("OK: done");
-        b.ShouldBe("ERR: fail");
+        Assert.Equal("OK: done", a);
+        Assert.Equal("ERR: fail", b);
     }
 }

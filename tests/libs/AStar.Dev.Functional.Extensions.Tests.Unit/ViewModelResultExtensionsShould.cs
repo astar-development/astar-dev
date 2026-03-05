@@ -5,12 +5,15 @@ public class ViewModelResultExtensionsShould
     [Fact]
     public void ApplyInvokeOnSuccessForOk()
     {
+        // Arrange
         var ok = new Result<string, Exception>.Ok("value");
         string? captured = null;
         var errorCalled = false;
 
+        // Act
         ok.Apply(v => captured = v, _ => errorCalled = true);
 
+        // Assert
         captured.ShouldBe("value");
         errorCalled.ShouldBeFalse();
     }
@@ -18,13 +21,16 @@ public class ViewModelResultExtensionsShould
     [Fact]
     public void ApplyInvokeOnErrorWhenErrorAndHandlerProvided()
     {
+        // Arrange
         var ex = new InvalidOperationException("boom");
         var err = new Result<int, Exception>.Error(ex);
         Exception? captured = null;
         var successCalled = false;
 
+        // Act
         err.Apply(_ => successCalled = true, e => captured = e);
 
+        // Assert
         successCalled.ShouldBeFalse();
         captured.ShouldBeSameAs(ex);
     }
@@ -32,18 +38,22 @@ public class ViewModelResultExtensionsShould
     [Fact]
     public void ApplyDoNothingOnErrorWhenNoOnErrorProvided()
     {
+        // Arrange
         var err = new Result<int, Exception>.Error(new Exception("x"));
         var successCalled = false;
 
+        // Act
         err.Apply(_ => successCalled = true);
 
+        // Assert
         successCalled.ShouldBeFalse();
     }
 
     [Fact]
     public async Task ApplyAsyncWithActionHandlersInvokesSuccessForOk()
     {
-        static Task<Result<int, Exception>> TaskOk()
+        // Arrange
+        Task<Result<int, Exception>> TaskOk()
         {
             return Task.FromResult<Result<int, Exception>>(new Result<int, Exception>.Ok(7));
         }
@@ -51,8 +61,10 @@ public class ViewModelResultExtensionsShould
         var captured = 0;
         var errorCalled = false;
 
+        // Act
         await TaskOk().ApplyAsync(v => captured = v, _ => errorCalled = true);
 
+        // Assert
         captured.ShouldBe(7);
         errorCalled.ShouldBeFalse();
     }
@@ -60,6 +72,7 @@ public class ViewModelResultExtensionsShould
     [Fact]
     public async Task ApplyAsyncWithActionHandlersInvokesErrorForError()
     {
+        // Arrange
         var ex = new Exception("bad");
 
         Task<Result<int, Exception>> TaskErr()
@@ -70,8 +83,10 @@ public class ViewModelResultExtensionsShould
         Exception? captured = null;
         var successCalled = false;
 
+        // Act
         await TaskErr().ApplyAsync(_ => successCalled = true, e => captured = e);
 
+        // Assert
         successCalled.ShouldBeFalse();
         captured.ShouldBeSameAs(ex);
     }
@@ -79,7 +94,8 @@ public class ViewModelResultExtensionsShould
     [Fact]
     public async Task ApplyAsyncWithAsyncHandlersInvokesSuccessForOk()
     {
-        static Task<Result<string, Exception>> TaskOk()
+        // Arrange
+        Task<Result<string, Exception>> TaskOk()
         {
             return Task.FromResult<Result<string, Exception>>(new Result<string, Exception>.Ok("ok"));
         }
@@ -87,6 +103,7 @@ public class ViewModelResultExtensionsShould
         string? captured = null;
         var errorCalled = false;
 
+        // Act
         await TaskOk().ApplyAsync(async v =>
         {
             await Task.Delay(1);
@@ -97,6 +114,7 @@ public class ViewModelResultExtensionsShould
             errorCalled = true;
         });
 
+        // Assert
         captured.ShouldBe("ok");
         errorCalled.ShouldBeFalse();
     }
@@ -104,6 +122,7 @@ public class ViewModelResultExtensionsShould
     [Fact]
     public async Task ApplyAsyncWithAsyncHandlersInvokesErrorWhenProvided()
     {
+        // Arrange
         var ex = new InvalidOperationException("nope");
 
         Task<Result<bool, Exception>> TaskErr()
@@ -114,6 +133,7 @@ public class ViewModelResultExtensionsShould
         Exception? captured = null;
         var successCalled = false;
 
+        // Act
         await TaskErr().ApplyAsync(async _ =>
         {
             await Task.Delay(1);
@@ -124,6 +144,7 @@ public class ViewModelResultExtensionsShould
             captured = e;
         });
 
+        // Assert
         successCalled.ShouldBeFalse();
         captured.ShouldBeSameAs(ex);
     }
@@ -131,19 +152,22 @@ public class ViewModelResultExtensionsShould
     [Fact]
     public async Task ApplyAsyncWithAsyncHandlersDoNothingOnErrorWhenNoOnErrorProvided()
     {
-        static Task<Result<int, Exception>> TaskErr()
+        // Arrange
+        Task<Result<int, Exception>> TaskErr()
         {
             return Task.FromResult<Result<int, Exception>>(new Result<int, Exception>.Error(new Exception("err")));
         }
 
         var successCalled = false;
 
+        // Act
         await TaskErr().ApplyAsync(async _ =>
         {
             await Task.Delay(1);
             successCalled = true;
         });
 
+        // Assert
         successCalled.ShouldBeFalse();
     }
 }

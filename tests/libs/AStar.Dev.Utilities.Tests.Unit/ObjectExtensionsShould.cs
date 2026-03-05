@@ -3,7 +3,8 @@
 public sealed class ObjectExtensionsShould
 {
     [Fact]
-    public void ContainTheToJsonMethodWhichReturnsTheExpectedString() => new AnyClass()
-                .ToJson()
-                .ShouldMatchApproved();
+    public void ContainTheToJsonMethodWhichReturnsTheExpectedString()
+        => new AnyClass()
+            .ToJson()
+            .ShouldMatchApproved();
 }

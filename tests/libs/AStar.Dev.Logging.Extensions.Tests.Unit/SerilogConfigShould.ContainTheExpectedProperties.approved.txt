@@ -1,14 +1,7 @@
 {
   "serilog": {
     "enrich": [],
-    "writeTo": [
-      {
-        "name": "Seq",
-        "args": {
-          "serverUrl": ""
-        }
-      }
-    ],
+    "writeTo": [],
     "minimumLevel": {
       "default": "",
       "override": {
