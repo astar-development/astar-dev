@@ -1,0 +1,199 @@
+@page "/admin/file-classifications"
+@using FluentUI.Demo.Shared
+@using FluentUI.Demo.Shared.SampleData
+@using Microsoft.FluentUI.AspNetCore.Components.Icons.Filled
+@using App = App
+@using Size16 = Microsoft.FluentUI.AspNetCore.Components.Icons.Regular.Size16
+@using Size20 = Microsoft.FluentUI.AspNetCore.Components.Icons.Regular.Size20
+
+@inject HttpClient Http
+
+@inject NavigationManager NavManager
+
+<PageTitle>@App.PageTitle("File Classifications")</PageTitle>
+
+<h1>File Classifications</h1>
+<FluentPaginator State="@_pagination" SummaryTemplate="@_template"/>
+
+<FluentDataGrid Items="@_people" Pagination="@_pagination">
+    <PropertyColumn Property="@(p => p.PersonId)" Sortable="true"/>
+    <PropertyColumn Property="@(p => p.Name)" Sortable="true"/>
+    <PropertyColumn Property="@(p => p.BirthDate)" Format="yyyy-MM-dd" Sortable="true"/>
+</FluentDataGrid>
+
+<FluentPaginator State="@_pagination"/>
+
+<div style="height: 400px; max-width: 800px; overflow-y: scroll;">
+    <FluentDataGrid @ref="_grid" Items="@_items" Virtualize="true" DisplayMode="DataGridDisplayMode.Table" Style="width: 100%;" ItemSize="54" GenerateHeader="@GenerateHeaderOption.Sticky">
+        <ChildContent>
+            <PropertyColumn Width="25%" Property="@(c => c.Item1)" Sortable="true"/>
+            <PropertyColumn Width="25%" Property="@(c => c.Item2)"/>
+            <PropertyColumn Width="25%" Property="@(c => c.Item3)" Align="Align.Center"/>
+            <PropertyColumn Width="25%" Property="@(c => c.Item4)" Align="Align.End"/>
+        </ChildContent>
+        <EmptyContent>
+            <FluentIcon Value="@(new Size24.Crown())" Color="@Color.Accent"/>&nbsp; Nothing to see here. Carry on!
+        </EmptyContent>
+        <LoadingContent>
+            <FluentStack Orientation="Orientation.Vertical" HorizontalAlignment="HorizontalAlignment.Center">
+                Loading...<br/>
+                <FluentProgress Width="240px"/>
+            </FluentStack>
+        </LoadingContent>
+    </FluentDataGrid>
+</div>
+<br/>
+<FluentSwitch @ref="_clearToggle"
+              @bind-Value="@_clearItems"
+              @bind-Value:after="ToggleItems"
+              UncheckedMessage="Clear all results"
+              CheckedMessage="Restore all results">
+</FluentSwitch>
+<FluentButton OnClick="SimulateDataLoading">Simulate data loading</FluentButton>
+
+<FluentAccordion>
+    <FluentAccordionItem Heading="Filter(s)" Expanded="true">
+        <FluentIcon Value="@(new Size20.FilterAdd())" Color="@Color.Neutral" Slot="start"/>
+        <FluentGrid Spacing="1" Justify="JustifyContent.FlexStart" Style="padding: 5px;">
+            <FluentGridItem xs="12" sm="6" md="4">
+                <FluentTextField @bind-Value="_stateFilter" Label="State Filter"></FluentTextField>
+            </FluentGridItem>
+        </FluentGrid>
+        <FluentStack Orientation="Orientation.Horizontal" HorizontalAlignment="HorizontalAlignment.End">
+            <FluentButton IconStart="@(new Size16.Broom())"
+                          Disabled="_loading"
+                          OnClick="ClearFilters">
+                Clear
+            </FluentButton>
+            <FluentButton IconStart="@(new Size16.ArrowClockwise())"
+                          Appearance="Appearance.Accent"
+                          Loading="_loading"
+                          OnClick="DataGridRefreshDataAsync">
+                Search
+            </FluentButton>
+        </FluentStack>
+    </FluentAccordionItem>
+</FluentAccordion>
+<br/>
+<div style="height: 484px; overflow:auto;" tabindex="-1">
+    <FluentDataGrid @ref="_dataGrid"
+                    Items="_foodRecallItems"
+                    RefreshItems="RefreshItemsAsync"
+                    OnRowDoubleClick="@(() => DemoLogger.WriteLine("Row double clicked!"))"
+                    RowSize="DataGridRowSize.Small"
+                    GenerateHeader="GenerateHeaderOption.Sticky"
+                    TGridItem="FoodRecall"
+                    Loading="_loading"
+                    Pagination="_pagination2">
+        <PropertyColumn Title="ID" Property="@(c => c!.Event_Id)"/>
+        <PropertyColumn Property="@(c => c!.State)" Style="color: #af5f00 ;"/>
+        <PropertyColumn Property="@(c => c!.City)"/>
+        <PropertyColumn Title="Company" Property="@(c => c!.Recalling_Firm)" Tooltip="true"/>
+        <PropertyColumn Property="@(c => c!.Status)"/>
+        <PropertyColumn Title="Recalling Firm" Property="@(c => c!.Recalling_Firm)" SortBy="@(new ColumnKeyGridSort<FoodRecall>("recalling_firm"))" Sortable="true"/>
+        <TemplateColumn Title="Actions" Align="@Align.End">
+            <FluentButton aria-label="Edit item" IconEnd="@(new Size16.Edit())" OnClick="@(() => DemoLogger.WriteLine("Edit clicked"))"/>
+            <FluentButton aria-label="Delete item" IconEnd="@(new Size16.Delete())" OnClick="@(() => DemoLogger.WriteLine("Delete clicked"))"/>
+        </TemplateColumn>
+    </FluentDataGrid>
+</div>
+<FluentPaginator State="@_pagination2"/>
+
+@code {
+
+    FluentDataGrid<FoodRecall> _dataGrid = null!;
+    IQueryable<FoodRecall> _foodRecallItems = null!;
+    bool _loading = true;
+    readonly PaginationState _pagination2 = new() { ItemsPerPage = 10 };
+    string? _stateFilter = "NY";
+
+    protected async Task RefreshItemsAsync(GridItemsProviderRequest<FoodRecall> req)
+    {
+        _loading = true;
+        await InvokeAsync(StateHasChanged);
+
+        var filters = new Dictionary<string, object?>
+        {
+            { "skip", req.StartIndex },
+            { "limit", req.Count }
+        };
+
+        if (!string.IsNullOrWhiteSpace(_stateFilter))
+            filters.Add("search", $"state:{_stateFilter}");
+
+        var s = req.GetSortByProperties().FirstOrDefault();
+        if (req.SortByColumn != null && !string.IsNullOrEmpty(s.PropertyName))
+        {
+            filters.Add("sort", s.PropertyName + (s.Direction == SortDirection.Ascending ? ":asc" : ":desc"));
+        }
+
+        var url = NavManager.GetUriWithQueryParameters("https://api.fda.gov/food/enforcement.json", filters);
+
+        var response = await Http.GetFromJsonAsync<FoodRecallQueryResult>(url);
+
+        _foodRecallItems = response!.Results.AsQueryable();
+        await _pagination2.SetTotalItemCountAsync(response!.Meta.Results.Total);
+
+        _loading = false;
+        await InvokeAsync(StateHasChanged);
+    }
+
+    public void ClearFilters() => _stateFilter = null;
+
+    public async Task DataGridRefreshDataAsync() => await _dataGrid.RefreshDataAsync(true);
+
+    readonly PaginationState _pagination = new() { ItemsPerPage = 4 };
+
+    record Person(int PersonId, string Name, DateOnly BirthDate);
+
+    readonly IQueryable<Person> _people = new[]
+    {
+        new Person(10895, "Jean Martin", new DateOnly(1985, 3, 16)),
+        new Person(10944, "António Langa", new DateOnly(1991, 12, 1)),
+        new Person(11203, "Julie Smith", new DateOnly(1958, 10, 10)),
+        new Person(11205, "Nur Sari", new DateOnly(1922, 4, 27)),
+        new Person(11898, "Jose Hernandez", new DateOnly(2011, 5, 3)),
+        new Person(12130, "Kenji Sato", new DateOnly(2004, 1, 9))
+    }.AsQueryable();
+
+    private readonly RenderFragment _template = @<span/>;
+
+    FluentDataGrid<SampleGridData>? _grid;
+    FluentSwitch? _clearToggle;
+
+    bool _clearItems;
+
+    public record SampleGridData(string Item1, string Item2, string Item3, string Item4);
+
+    IQueryable<SampleGridData>? _items = Enumerable.Empty<SampleGridData>().AsQueryable();
+
+    private IQueryable<SampleGridData> GenerateSampleGridData(int size)
+    {
+        var data = new SampleGridData[size];
+
+        for (var i = 0; i < size; i++)
+        {
+            data[i] = new SampleGridData($"value {i}-1", $"value {i}-2", $"value {i}-3", $"value {i}-4");
+        }
+
+        return data.AsQueryable();
+    }
+
+    protected override void OnInitialized() => _items = GenerateSampleGridData(5000);
+
+    private void ToggleItems() => _items = _clearItems ? null : GenerateSampleGridData(5000);
+
+    private async Task SimulateDataLoading()
+    {
+        _clearItems = false;
+
+        _items = null;
+        _grid?.SetLoadingState(true);
+
+        await Task.Delay(1500);
+
+        _items = GenerateSampleGridData(5000);
+        _grid?.SetLoadingState(false);
+    }
+
+}

@@ -1,0 +1,39 @@
+@page "/kids-games"
+@using Microsoft.FluentUI.AspNetCore.Components.Icons.Regular
+@attribute [AllowAnonymous]
+
+<PageTitle>@App.PageTitle("Kids Games")</PageTitle>
+
+<FluentBreadcrumb>
+    <FluentBreadcrumbItem Href="#">
+        Home
+        <FluentIcon Value="@(new Size16.Home())" Color="@Color.Neutral" Slot="start"/>
+    </FluentBreadcrumbItem>
+    <FluentBreadcrumbItem Href="#">
+        Kids Games
+        <FluentIcon Value="@(new Size16.Clipboard())" Color="@Color.Neutral" Slot="start"/>
+    </FluentBreadcrumbItem>
+    <FluentBreadcrumbItem>
+        Breadcrumb item 3
+        <FluentIcon Value="@(new Size16.Money())" Color="@Color.Neutral" Slot="start"/>
+    </FluentBreadcrumbItem>
+</FluentBreadcrumb>
+
+<h1>Please select the game you want to play</h1>
+
+<div style="height: 50px;"></div>
+
+<div class="menu">
+    <div class="item">
+        <NavLink class="nav-link" href="kids-games/halving">
+            🍎 / 🍎
+            <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Halving
+        </NavLink>
+    </div>
+    <div class="item">
+        <NavLink class="nav-link" href="kids-games/matching">
+            🏆 = 🏆
+            <span class="bi bi-plus-square-fill-nav-menu" aria-hidden="true"></span> Matching
+        </NavLink>
+    </div>
+</div>
