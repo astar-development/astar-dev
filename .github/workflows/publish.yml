@@ -1,5 +1,7 @@
-
 name: Publish NuGet Packages (Selective)
+permissions:
+  pull-requests: write
+  contents: read
 
 on:
   push:

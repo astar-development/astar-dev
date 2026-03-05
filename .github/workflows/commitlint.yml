@@ -1,5 +1,7 @@
-
 name: Commit Message Lint
+permissions:
+  pull-requests: write
+  contents: read
 on:
   pull_request:
 
