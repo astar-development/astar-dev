@@ -39,16 +39,21 @@ jobs:
         id: maincov
         with:
           script: |
-            const res = await github.rest.repos.getContent({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              ref: "gh-pages",
-              path: "coverage/latest/Cobertura.xml"
-            });
-            const xml = Buffer.from(res.data.content, 'base64').toString();
-            const match = xml.match(/line-rate="([^"]+)"/);
-            const rate = match ? match[1] : 0;
-            const percent = Math.round(parseFloat(rate) * 100);
+            let percent = 0;
+            try {
+              const res = await github.rest.repos.getContent({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: "gh-pages",
+                path: "coverage/latest/Cobertura.xml"
+              });
+              const xml = Buffer.from(res.data.content, 'base64').toString();
+              const match = xml.match(/line-rate="([^"]+)"/);
+              const rate = match ? match[1] : 0;
+              percent = Math.round(parseFloat(rate) * 100);
+            } catch (error) {
+              console.log("gh-pages branch not found or file missing, using default coverage of 0%");
+            }
             core.setOutput("maincov", percent);
 
       - name: Apply Labels
