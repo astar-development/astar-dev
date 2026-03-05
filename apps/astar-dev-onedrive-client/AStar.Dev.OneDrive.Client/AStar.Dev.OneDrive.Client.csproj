@@ -38,12 +38,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="../nuget-packages/AStar.Dev.Logging.Extensions.Serilog/AStar.Dev.Logging.Extensions.Serilog.csproj" />
-    <ProjectReference Include="../nuget-packages/AStar.Dev.Logging.Extensions/AStar.Dev.Logging.Extensions.csproj" />
+    <ProjectReference Include="../libs/AStar.Dev.Logging.Extensions.Serilog/AStar.Dev.Logging.Extensions.Serilog.csproj" />
+    <ProjectReference Include="../libs/AStar.Dev.Logging.Extensions/AStar.Dev.Logging.Extensions.csproj" />
     <ProjectReference Include="..\AStar.Dev.OneDrive.Client.Core\AStar.Dev.OneDrive.Client.Core.csproj" />
     <ProjectReference Include="..\AStar.Dev.OneDrive.Client.Infrastructure\AStar.Dev.OneDrive.Client.Infrastructure.csproj" />
     <ProjectReference Include="..\AStar.Dev.OneDrive.Client.Services\AStar.Dev.OneDrive.Client.Services.csproj" />
-    <ProjectReference Include="..\nuget-packages\AStar.Dev.Functional.Extensions\AStar.Dev.Functional.Extensions.csproj" />
+    <ProjectReference Include="..\libs\AStar.Dev.Functional.Extensions\AStar.Dev.Functional.Extensions.csproj" />
 	<PackageReference Include="AStar.Dev.Source.Generators" Version="0.1.6" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
   </ItemGroup>
 

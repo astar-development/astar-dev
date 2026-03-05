@@ -18,7 +18,7 @@ public sealed class DuplicateGroup
     public string FileSizeForDisplay
         => FileSize / 1024 / 1024 > 0
                ? (FileSize / 1024D / 1024D).ToString("N2") + " Mb"
-               : (FileSize / 1024D).ToString("N2")         + " Kb";
+               : (FileSize / 1024D).ToString("N2") + " Kb";
 
     /// <summary>
     /// </summary>

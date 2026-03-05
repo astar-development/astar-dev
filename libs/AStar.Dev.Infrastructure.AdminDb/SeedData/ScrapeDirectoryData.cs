@@ -16,7 +16,8 @@ public static class ScrapeDirectoryData
     {
         DbSet<ScrapeDirectory> scrapeDirectories = context.Set<ScrapeDirectory>();
 
-        if(scrapeDirectories.Any()) return;
+        if(scrapeDirectories.Any())
+            return;
 
         _ = context.Set<ScrapeDirectory>()
                .Add(new ScrapeDirectory

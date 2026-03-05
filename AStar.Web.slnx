@@ -1,8 +1,0 @@
-<Solution>
-  <Folder Name="/tests/">
-    <Project Path="tests/AStar.Dev.Web.Tests.Unit/AStar.Dev.Web.Tests.Unit.csproj" />
-  </Folder>
-  <Folder Name="/web/">
-    <Project Path="web/AStar.Dev.Web/AStar.Dev.Web.csproj" />
-  </Folder>
-</Solution>

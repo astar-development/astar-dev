@@ -11,6 +11,7 @@ namespace AStar.Dev.Functional.Extensions;
 /// </summary>
 public static class CollectionAndStatusExtensions
 {
+    #pragma warning disable CS8625
     /// <summary>
     ///     Awaits a task that returns a Result of an enumerable and replaces the contents of
     ///     the target collection on success, or invokes the onError handler on failure.
@@ -44,4 +45,5 @@ public static class CollectionAndStatusExtensions
         Result<T, Exception>.Error err => (errorFormatter ?? (e => e.Message))(err.Reason),
         _ => string.Empty
     };
+    #pragma warning restore CS8625
 }

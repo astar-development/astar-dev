@@ -15,6 +15,6 @@
     <ItemGroup>
         <ProjectReference Include="..\..\aspire\AStar.Dev.Web.Aspire.Common\AStar.Dev.Web.Aspire.Common.csproj" />
         <ProjectReference Include="..\..\aspire\AStar.Dev.Web.ServiceDefaults\AStar.Dev.Web.ServiceDefaults.csproj" />
-        <ProjectReference Include="..\..\nuget-packages\AStar.Dev.Infrastructure.FilesDb\AStar.Dev.Infrastructure.FilesDb.csproj" />
+        <ProjectReference Include="..\..\libs\AStar.Dev.Infrastructure.FilesDb\AStar.Dev.Infrastructure.FilesDb.csproj" />
     </ItemGroup>
 </Project>

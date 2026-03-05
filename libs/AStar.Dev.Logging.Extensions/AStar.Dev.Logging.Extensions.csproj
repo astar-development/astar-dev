@@ -18,7 +18,6 @@
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <PackageReadmeFile>Readme.md</PackageReadmeFile>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-        <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <DocumentationFile>$(AssemblyName).xml</DocumentationFile>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <Version>0.1.0</Version>

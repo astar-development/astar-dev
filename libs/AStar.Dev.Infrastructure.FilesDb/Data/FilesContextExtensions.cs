@@ -39,33 +39,38 @@ public static class FilesContextExtensions
     ///     The original list of files for further filtering.
     /// </returns>
     public static IEnumerable<FileDetail> GetMatchingFiles(this DbSet<FileDetail> files,
-                                                           string                 startingFolder,
-                                                           bool                   recursive,
-                                                           string                 searchType,
-                                                           bool                   includeSoftDeleted,
-                                                           bool                   includeMarkedForDeletion,
-                                                           bool                   excludeViewed,
-                                                           CancellationToken      cancellationToken)
+                                                           string startingFolder,
+                                                           bool recursive,
+                                                           string searchType,
+                                                           bool includeSoftDeleted,
+                                                           bool includeMarkedForDeletion,
+                                                           bool excludeViewed,
+                                                           CancellationToken cancellationToken)
     {
         IQueryable<FileDetail> filesToReturn = files.Include(fileDetail => fileDetail.FileAccessDetail).AsNoTracking().AsQueryable();
 
-        if(cancellationToken.IsCancellationRequested) return [];
+        if(cancellationToken.IsCancellationRequested)
+            return [];
 
         filesToReturn = recursive
                             ? filesToReturn.Where(file => file.DirectoryName.Value.StartsWith(startingFolder))
                             : filesToReturn.Where(file => file.DirectoryName.Equals(startingFolder));
 
-        if(cancellationToken.IsCancellationRequested) return [];
+        if(cancellationToken.IsCancellationRequested)
+            return [];
 
         filesToReturn = includeSoftDeleted
                             ? filesToReturn
                             : filesToReturn.Where(file => file.DeletionStatus.SoftDeleted == null);
 
-        if(cancellationToken.IsCancellationRequested) return [];
+        if(cancellationToken.IsCancellationRequested)
+            return [];
 
-        if(!includeMarkedForDeletion) filesToReturn = filesToReturn.Where(file => file.DeletionStatus.SoftDeletePending != null && file.DeletionStatus.HardDeletePending != null);
+        if(!includeMarkedForDeletion)
+            filesToReturn = filesToReturn.Where(file => file.DeletionStatus.SoftDeletePending != null && file.DeletionStatus.HardDeletePending != null);
 
-        if(cancellationToken.IsCancellationRequested) return [];
+        if(cancellationToken.IsCancellationRequested)
+            return [];
 
         if(searchType == "Images")
         {
@@ -78,7 +83,8 @@ public static class FilesContextExtensions
                                                         || file.FileName.Value.EndsWith("gif"));
         }
 
-        if(cancellationToken.IsCancellationRequested) return [];
+        if(cancellationToken.IsCancellationRequested)
+            return [];
 
         if(excludeViewed)
         {

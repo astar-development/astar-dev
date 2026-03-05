@@ -19,7 +19,7 @@ public record FileSizeDetail(int FileSize, int Height, int Width)
     public string FileSizeForDisplay
         => FileSize / 1024 / 1024 > 0
                ? (FileSize / 1024D / 1024D).ToString("N2") + " Mb"
-               : (FileSize / 1024D).ToString("N2")         + " Kb";
+               : (FileSize / 1024D).ToString("N2") + " Kb";
 }
 
 /// <summary>
@@ -41,22 +41,22 @@ public record FileSizeDetail(int FileSize, int Height, int Width)
 /// <param name="MoveRequired"></param>
 /// <param name="HardDeletePending"></param>
 public record Duplicates(
-    int             Id,
-    int             FileAccessDetailId,
-    string          FileName,
-    string          DirectoryName,
-    int             Height,
-    int             Width,
-    int             FileSize,
-    string          FileHandle,
-    bool            IsImage,
-    int             Instances,
-    DateTimeOffset  DetailsLastUpdated,
+    int Id,
+    int FileAccessDetailId,
+    string FileName,
+    string DirectoryName,
+    int Height,
+    int Width,
+    int FileSize,
+    string FileHandle,
+    bool IsImage,
+    int Instances,
+    DateTimeOffset DetailsLastUpdated,
     DateTimeOffset? LastViewed,
-    bool            SoftDeleted,
-    bool            SoftDeletePending,
-    bool            MoveRequired,
-    bool            HardDeletePending
+    bool SoftDeleted,
+    bool SoftDeletePending,
+    bool MoveRequired,
+    bool HardDeletePending
 )
 {
     /// <summary>

@@ -28,7 +28,7 @@ public sealed class FileDimensionsWithSize
     public string FileSizeForDisplay
         => FileLength / 1024 / 1024 > 0
                ? (FileLength / 1024D / 1024D).ToString("N2") + " Mb"
-               : (FileLength / 1024D).ToString("N2")         + " Kb";
+               : (FileLength / 1024D).ToString("N2") + " Kb";
 
     /// <summary>
     ///     Returns this object in JSON format

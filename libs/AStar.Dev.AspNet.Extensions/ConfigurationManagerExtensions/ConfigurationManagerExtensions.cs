@@ -19,7 +19,7 @@ public static class ConfigurationManagerExtensions
     /// <typeparam name="T">The type of the configuration settings to configure and return</typeparam>
     /// <returns>The original <see cref="IConfigurationManager" /> to facilitate further call chaining</returns>
     public static T? GetValidatedConfigurationSection<T>(this IConfigurationManager configuration,
-                                                         string                     configurationSectionKey)
+                                                         string configurationSectionKey)
         where T : class, new()
         => new ServiceCollection()
           .AddOptions()

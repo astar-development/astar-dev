@@ -16,7 +16,8 @@ public static class SearchCategoryData
     {
         DbSet<SearchCategory> searchCategories = context.Set<SearchCategory>();
 
-        if(searchCategories.Any()) return;
+        if(searchCategories.Any())
+            return;
 
         _ = context.Set<SearchCategory>()
                .Add(new SearchCategory { Id = 2401, Name = "Initial Category", });

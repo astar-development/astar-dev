@@ -2,6 +2,9 @@
 
 namespace AStar.Dev.Source.Generators.StrongIdCodeGeneration;
 
+/// <summary>
+/// Provides extension methods for processing StrongId attributes, including extracting the underlying type specified in the attribute or defaulting to System.Guid when not provided.
+/// </summary>
 public static partial class StrongIdModelExtensions
 {
     /// <summary>

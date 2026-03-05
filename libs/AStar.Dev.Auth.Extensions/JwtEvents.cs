@@ -1,4 +1,5 @@
-﻿using AStar.Dev.Api.Usage.Sdk;
+﻿using System.Security.Claims;
+using AStar.Dev.Api.Usage.Sdk;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
@@ -9,18 +10,19 @@ namespace AStar.Dev.Auth.Extensions;
 /// </summary>
 public sealed class JwtEvents(ILogger<JwtEvents> logger)
 {
+    #pragma warning disable CA1848 // Use the LoggerMessage delegates instead of calling logger.Log* directly. --- IGNORE ---
     /// <summary>
     /// </summary>
     /// <param name="send"></param>
     /// <param name="applicationName"></param>
     /// <returns></returns>
-    public JwtBearerEvents AddJwtEvents(Send send, string applicationName) =>
-        new()
+    public JwtBearerEvents AddJwtEvents(Send send, string applicationName)
+        => new()
         {
             OnAuthenticationFailed = async context => await LogAuthenticationFailureAsync(send, applicationName, context),
-            OnForbidden            = async context => await LogAuthorisationFailedAsync(send, applicationName, context),
-            OnTokenValidated       = ValidateUserIdIsPopulates,
-            OnChallenge            = async context => await LogChallengeFailureAsync(send, applicationName, context)
+            OnForbidden = async context => await LogAuthorisationFailedAsync(send, applicationName, context),
+            OnTokenValidated = ValidateUserIdIsPopulates,
+            OnChallenge = async context => await LogChallengeFailureAsync(send, applicationName, context)
         };
 
     private async Task LogAuthenticationFailureAsync(Send send, string applicationName, AuthenticationFailedContext context)
@@ -43,7 +45,7 @@ public sealed class JwtEvents(ILogger<JwtEvents> logger)
 
     private static Task ValidateUserIdIsPopulates(TokenValidatedContext context)
     {
-        var claimsPrincipal = context.Principal;
+        ClaimsPrincipal? claimsPrincipal = context.Principal;
         var userId          = claimsPrincipal?.FindFirst(t => t.Type == "name")?.Value;
 
         if(string.IsNullOrEmpty(userId))
@@ -64,3 +66,4 @@ public sealed class JwtEvents(ILogger<JwtEvents> logger)
                                  CancellationToken.None);
     }
 }
+#pragma warning restore CA1848 // Use the LoggerMessage delegates instead of calling logger.Log* directly. --- IGNORE ---

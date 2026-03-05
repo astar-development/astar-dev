@@ -34,7 +34,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\src\nuget-packages\AStar.Dev.AspNet.Extensions\AStar.Dev.AspNet.Extensions.csproj" />
+        <ProjectReference Include="..\..\..\src\libs\AStar.Dev.AspNet.Extensions\AStar.Dev.AspNet.Extensions.csproj" />
     </ItemGroup>
 
     <ItemGroup>

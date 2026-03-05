@@ -31,7 +31,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\src\nuget-packages\AStar.Dev.Utilities\AStar.Dev.Utilities.csproj" />
+        <ProjectReference Include="..\..\..\src\libs\AStar.Dev.Utilities\AStar.Dev.Utilities.csproj" />
     </ItemGroup>
 
 </Project>

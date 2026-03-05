@@ -6,10 +6,14 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace AStar.Dev.Source.Generators.ServiceRegistrationGeneration;
 
+/// <summary>
+/// A source generator that scans for classes decorated with the AutoRegisterServiceAttribute and generates extension methods to register those classes as services in a dependency injection container, based on the specified service lifetime and interface implementation (if any).
+/// </summary>
 [Generator]
 [System.Diagnostics.CodeAnalysis.SuppressMessage("MicrosoftCodeAnalysisCorrectness", "RS1038:Compiler extensions should be implemented in assemblies with compiler-provided references", Justification = "<Pending>")]
 public sealed partial class ServiceRegistrationGenerator : IIncrementalGenerator
 {
+    /// <inheritdoc />
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
         IncrementalValuesProvider<INamedTypeSymbol?> classSyntax = CreateClassSyntaxProvider(context);

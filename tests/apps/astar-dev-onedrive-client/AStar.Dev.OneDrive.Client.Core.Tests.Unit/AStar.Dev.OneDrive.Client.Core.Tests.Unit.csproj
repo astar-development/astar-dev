@@ -43,7 +43,7 @@
       <ProjectReference Include="..\..\src\AStar.Dev.OneDrive.Client.Core\AStar.Dev.OneDrive.Client.Core.csproj" />
       <ProjectReference Include="..\..\src\AStar.Dev.OneDrive.Client.Infrastructure\AStar.Dev.OneDrive.Client.Infrastructure.csproj" />
       <ProjectReference Include="..\..\src\AStar.Dev.OneDrive.Client\AStar.Dev.OneDrive.Client.csproj" />
-      <ProjectReference Include="..\..\src\nuget-packages\AStar.Dev.Utilities\AStar.Dev.Utilities.csproj" />
+      <ProjectReference Include="..\..\src\libs\AStar.Dev.Utilities\AStar.Dev.Utilities.csproj" />
     </ItemGroup>
 
     <ItemGroup>

@@ -8,10 +8,14 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace AStar.Dev.Source.Generators.StrongIdCodeGeneration;
 
+/// <summary>
+/// A source generator that processes record structs marked with the StrongId attribute to generate strongly-typed identifier code based on the specified underlying type (or defaulting to Guid).
+/// </summary>
 [Generator]
 [System.Diagnostics.CodeAnalysis.SuppressMessage("MicrosoftCodeAnalysisCorrectness", "RS1038:Compiler extensions should be implemented in assemblies with compiler-provided references", Justification = "<Pending>")]
 public class StrongIdGenerator : IIncrementalGenerator
 {
+    /// <inheritdoc />
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
         // Find all readonly partial record structs with attributes

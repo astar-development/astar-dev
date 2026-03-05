@@ -6,12 +6,19 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace AStar.Dev.Source.Generators.OptionsBindingGeneration;
 
+/// <summary>
+/// A source generator that scans for classes or structs decorated with the AutoRegisterOptionsAttribute and generates extension methods to bind those types to configuration sections in an application's configuration system, based on the specified section name either from the attribute constructor or from a static SectionName field within the type. The generator also includes diagnostics to report errors when required information is missing, such as a section name, to help developers correctly use the attribute and ensure that the generated code can function properly at runtime.
+/// </summary>
 [Generator]
 [System.Diagnostics.CodeAnalysis.SuppressMessage("MicrosoftCodeAnalysisCorrectness", "RS1038:Compiler extensions should be implemented in assemblies with compiler-provided references", Justification = "<Pending>")]
 public sealed partial class OptionsBindingGenerator : IIncrementalGenerator
 {
     private const string AttrFqn = "AStar.Dev.Source.Generators.Attributes.AutoRegisterOptionsAttribute";
 
+/// <summary>
+/// Initializes the source generator by setting up the syntax provider to scan for classes or structs decorated with the AutoRegisterOptionsAttribute, extracting relevant information about those types (such as their names, full type names, associated configuration section names, and source code locations), and registering a source output that generates the necessary code to bind those types to configuration sections. The generator also includes error handling to report diagnostics when required information is missing, such as a section name, to assist developers in correctly using the attribute and ensuring that the generated code can function properly at runtime.
+/// </summary>
+/// <param name="context"></param>
     public void Initialize(IncrementalGeneratorInitializationContext context)
     {
         IncrementalValueProvider<ImmutableArray<OptionsTypeInfo?>> optionsTypes = context.SyntaxProvider.ForAttributeWithMetadataName(

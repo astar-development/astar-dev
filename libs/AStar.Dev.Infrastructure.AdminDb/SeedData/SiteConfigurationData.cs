@@ -17,7 +17,8 @@ public static class SiteConfigurationData
         _ = context.SaveChanges();
         DbSet<SiteConfiguration> siteConfiguration = context.Set<SiteConfiguration>();
 
-        if(siteConfiguration.Any()) return;
+        if(siteConfiguration.Any())
+            return;
 
         _ = context.Set<SiteConfiguration>()
                .Add(new SiteConfiguration

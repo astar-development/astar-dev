@@ -39,8 +39,8 @@
 
     <ItemGroup>
         <ProjectReference Include="..\..\src\AStar.Dev.OneDrive.Sync.Client.Core\AStar.Dev.OneDrive.Sync.Client.Core.csproj" />
-        <ProjectReference Include="..\..\src\nuget-packages\AStar.Dev.Source.Generators.Attributes\AStar.Dev.Source.Generators.Attributes.csproj" />
-        <ProjectReference Include="..\..\src\nuget-packages\AStar.Dev.Source.Generators\AStar.Dev.Source.Generators.csproj" />
+        <ProjectReference Include="..\..\src\libs\AStar.Dev.Source.Generators.Attributes\AStar.Dev.Source.Generators.Attributes.csproj" />
+        <ProjectReference Include="..\..\src\libs\AStar.Dev.Source.Generators\AStar.Dev.Source.Generators.csproj" />
     </ItemGroup>
 
     <ItemGroup>

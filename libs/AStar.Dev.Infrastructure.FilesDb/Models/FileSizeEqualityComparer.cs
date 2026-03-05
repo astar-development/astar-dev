@@ -19,7 +19,7 @@ public sealed class FileSizeEqualityComparer : IEqualityComparer<FileSize>
     ///     <c>true</c> if the files are deemed to be the same size, <c>false</c> otherwise
     /// </returns>
     public bool Equals(FileSize? leftFileSize, FileSize? rightFileSize)
-        => rightFileSize == null && leftFileSize == null
+        => (rightFileSize == null && leftFileSize == null)
            || CompareFileSizes(leftFileSize, rightFileSize);
 
     /// <summary>
@@ -36,9 +36,9 @@ public sealed class FileSizeEqualityComparer : IEqualityComparer<FileSize>
         => HashCode.Combine(fileSize.Height, fileSize.Width, fileSize.FileLength);
 
     private static bool CompareFileSizes(FileSize? leftFileSize, FileSize? rightFileSize)
-        => leftFileSize               != null
-           && rightFileSize           != null
-           && leftFileSize.Height     == rightFileSize.Height
+        => leftFileSize != null
+           && rightFileSize != null
+           && leftFileSize.Height == rightFileSize.Height
            && leftFileSize.FileLength == rightFileSize.FileLength
-           && leftFileSize.Width      == rightFileSize.Width;
+           && leftFileSize.Width == rightFileSize.Width;
 }

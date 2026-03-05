@@ -97,7 +97,9 @@ public static class OptionExtensions
     /// <summary>
     ///     Gets the value of the option or throws an exception if absent.
     /// </summary>
+    #pragma warning disable CS8625
     public static T OrThrow<T>(this Option<T> option, Exception ex = null) => option is Option<T>.Some some ? some.Value : throw ex ?? new InvalidOperationException("No value present");
+    #pragma warning restore CS8625
 
     /// <summary>
     ///     Enables deconstruction of an option into a boolean and value pair.
@@ -106,11 +108,13 @@ public static class OptionExtensions
     /// <param name="isSome"></param>
     /// <param name="value"></param>
     /// <typeparam name="T"></typeparam>
+    #pragma warning disable CS8601
     public static void Deconstruct<T>(this Option<T> option, out bool isSome, out T value)
     {
         isSome = option is Option<T>.Some;
         value = isSome ? ((Option<T>.Some)option).Value : default;
     }
+    #pragma warning restore CS8601
 
     /// <summary>
     ///     Asynchronously transforms the value inside an <see cref="Option{T}" /> if present.

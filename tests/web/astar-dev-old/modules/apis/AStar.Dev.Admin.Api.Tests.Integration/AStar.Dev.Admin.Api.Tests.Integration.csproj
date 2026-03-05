@@ -31,8 +31,8 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\..\src\modules\apis\AStar.Dev.Admin.Api\AStar.Dev.Admin.Api.csproj" />
-      <ProjectReference Include="..\..\..\..\src\nuget-packages\AStar.Dev.Infrastructure.AdminDb\AStar.Dev.Infrastructure.AdminDb.csproj" />
-      <ProjectReference Include="..\..\..\..\src\nuget-packages\AStar.Dev.Infrastructure\AStar.Dev.Infrastructure.csproj" />
+      <ProjectReference Include="..\..\..\..\src\libs\AStar.Dev.Infrastructure.AdminDb\AStar.Dev.Infrastructure.AdminDb.csproj" />
+      <ProjectReference Include="..\..\..\..\src\libs\AStar.Dev.Infrastructure\AStar.Dev.Infrastructure.csproj" />
     </ItemGroup>
 
     <ItemGroup>

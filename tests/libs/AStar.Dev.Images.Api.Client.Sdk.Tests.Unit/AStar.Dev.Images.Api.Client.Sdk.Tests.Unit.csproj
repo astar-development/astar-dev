@@ -33,8 +33,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\src\nuget-packages\AStar.Dev.Api.HealthChecks\AStar.Dev.Api.HealthChecks.csproj" />
-        <ProjectReference Include="..\..\..\src\nuget-packages\AStar.Dev.Images.Api.Client.SDK\AStar.Dev.Images.Api.Client.SDK.csproj" />
+        <ProjectReference Include="..\..\..\src\libs\AStar.Dev.Api.HealthChecks\AStar.Dev.Api.HealthChecks.csproj" />
+        <ProjectReference Include="..\..\..\src\libs\AStar.Dev.Images.Api.Client.SDK\AStar.Dev.Images.Api.Client.SDK.csproj" />
     </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

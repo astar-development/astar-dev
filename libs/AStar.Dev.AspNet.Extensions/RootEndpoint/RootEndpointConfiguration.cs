@@ -31,8 +31,8 @@ public static class RootEndpointConfiguration
 
         return
             $"<h1>Welcome to the {apiOrApplicationName}.</h1>To access the V09 documentation, please use the: <a href='{swaggerV1Json}'>Swagger v1 json</a> link. <br /><br />" +
-            $"Please be aware that more versions may be supported. <br /><br />"                                                                                                +
-            $"If the Swagger UI is supported in this environment, please use the <a href='swagger/index.html'>Swagger UI</a> URL instead."                                      +
+            $"Please be aware that more versions may be supported. <br /><br />" +
+            $"If the Swagger UI is supported in this environment, please use the <a href='swagger/index.html'>Swagger UI</a> URL instead." +
             $"<style>\nbody {{\n  background-color: black; color: white;\n}}\n</style>";
     }
 }

@@ -23,7 +23,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\nuget-packages\AStar.Dev.Source.Analyzers\AStar.Dev.Source.Analyzers.csproj" />
+    <ProjectReference Include="..\..\..\src\libs\AStar.Dev.Source.Analyzers\AStar.Dev.Source.Analyzers.csproj" />
   </ItemGroup>
 
   <ItemGroup>

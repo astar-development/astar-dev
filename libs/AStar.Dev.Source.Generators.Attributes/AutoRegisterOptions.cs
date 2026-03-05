@@ -3,7 +3,7 @@
 namespace AStar.Dev.Source.Generators.Attributes;
 
 /// <summary>
-/// Attribute used to indicate that a class or struct should be automatically registered as an <see cref="IOptions{T}"/>,
+/// Attribute used to indicate that a class or struct should be automatically registered as an IOptions{T},
 /// with an optional section name provided for configuration purposes.
 /// </summary>
 /// <remarks>

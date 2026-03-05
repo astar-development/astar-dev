@@ -23,9 +23,9 @@ public sealed class FileDetail
     /// </param>
     public FileDetail(IFileInfo fileInfo)
     {
-        FileName      = new FileName(fileInfo.Name);
+        FileName = new FileName(fileInfo.Name);
         DirectoryName = new DirectoryName(fileInfo.DirectoryName!);
-        FileSize      = fileInfo.Length;
+        FileSize = fileInfo.Length;
     }
 
     /// <summary>

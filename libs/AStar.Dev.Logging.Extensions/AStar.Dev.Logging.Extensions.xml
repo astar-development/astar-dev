@@ -4,6 +4,22 @@
         <name>AStar.Dev.Logging.Extensions</name>
     </assembly>
     <members>
+        <member name="T:AStar.Dev.Logging.Extensions.AStarEventIds">
+            <summary>
+                The <see cref="T:AStar.Dev.Logging.Extensions.AStarEventIds" /> class contains the defined <see cref="T:Microsoft.Extensions.Logging.EventId" /> events available for logging
+                Stand-alone <see cref="T:Microsoft.Extensions.Logging.EventId" /> events can be defined but care should be taken to avoid reusing the values used here
+            </summary>
+        </member>
+        <member name="T:AStar.Dev.Logging.Extensions.AStarEventIds.Website">
+            <summary>
+               The <see cref="T:AStar.Dev.Logging.Extensions.AStarEventIds.Website" /> class contains the <see cref="T:Microsoft.Extensions.Logging.EventId" /> events related to website logging
+            </summary>
+        </member>
+        <member name="P:AStar.Dev.Logging.Extensions.AStarEventIds.Website.PageView">
+            <summary>
+                Gets the <see cref="T:Microsoft.Extensions.Logging.EventId" /> preconfigured for logging a page view
+            </summary>
+        </member>
         <member name="T:AStar.Dev.Logging.Extensions.AStarLogger`1">
             <summary>
             </summary>

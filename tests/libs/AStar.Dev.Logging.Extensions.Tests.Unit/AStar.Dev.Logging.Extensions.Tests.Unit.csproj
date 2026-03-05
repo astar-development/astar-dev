@@ -32,8 +32,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\src\nuget-packages\AStar.Dev.Logging.Extensions\AStar.Dev.Logging.Extensions.csproj" />
-        <ProjectReference Include="..\..\..\src\nuget-packages\AStar.Dev.Utilities\AStar.Dev.Utilities.csproj" />
+        <ProjectReference Include="..\..\..\src\libs\AStar.Dev.Logging.Extensions\AStar.Dev.Logging.Extensions.csproj" />
+        <ProjectReference Include="..\..\..\src\libs\AStar.Dev.Utilities\AStar.Dev.Utilities.csproj" />
     </ItemGroup>
 
     <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

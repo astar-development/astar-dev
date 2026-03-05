@@ -16,7 +16,8 @@ public static class SearchConfigurationData
     {
         DbSet<SearchConfiguration> searchCategories = context.Set<SearchConfiguration>();
 
-        if(searchCategories.Any()) return;
+        if(searchCategories.Any())
+            return;
 
         _ = context.Set<SearchConfiguration>()
                .Add(new SearchConfiguration

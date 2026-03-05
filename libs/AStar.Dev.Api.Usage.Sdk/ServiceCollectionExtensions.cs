@@ -12,16 +12,9 @@ public static class ServiceCollectionExtensions
     /// </summary>
     /// <param name="services"></param>
     /// <param name="configurationManager"></param>
-    /// <param name="executingAssembly"></param>
     /// <returns></returns>
-    public static IServiceCollection AddUsageServices(this IServiceCollection services, ConfigurationManager configurationManager, Assembly executingAssembly)
+    public static IServiceCollection AddUsageServices(this IServiceCollection services, ConfigurationManager configurationManager)
     {
-        // services.AddMediatR(cfg =>
-        //                     {
-        //                         cfg.RegisterServicesFromAssembly(executingAssembly)
-        //                            .AddOpenBehavior(typeof(UsageMetricHandler<,>));
-        //                     });
-
         _ = services.AddSingleton<Send>();
 
         _ = services

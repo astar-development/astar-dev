@@ -11,11 +11,11 @@ namespace AStar.Dev.Api.HealthChecks;
 public static class HealthCheckExtensions
 {
     private static readonly JsonSerializerOptions JsonSerializerOptions = new()
-                                                                          {
-                                                                              WriteIndented          = true,
-                                                                              DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
-                                                                              PropertyNamingPolicy   = JsonNamingPolicy.CamelCase,
-                                                                          };
+    {
+        WriteIndented          = true,
+        DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingNull,
+        PropertyNamingPolicy   = JsonNamingPolicy.CamelCase,
+    };
 
     /// <summary>
     ///     The <see cref="ConfigureHealthCheckEndpoints" /> method will add a basic health/live and health/ready endpoint.
@@ -54,28 +54,28 @@ public static class HealthCheckExtensions
     }
 
     private static Task WriteHealthCheckResponseAsync(
-        HttpContext  httpContext,
+        HttpContext httpContext,
         HealthReport healthReport)
     {
         httpContext.Response.ContentType = "application/json; charset=utf-8";
 
         IEnumerable<HealthStatusResponse> dependencyHealthChecks = healthReport.Entries.Select(static entry => new HealthStatusResponse
-                                                                                                               {
-                                                                                                                   Name        = entry.Key,
-                                                                                                                   Description = entry.Value.Description,
-                                                                                                                   Status      = entry.Value.Status.ToString(),
-                                                                                                                   DurationInMilliseconds = entry.Value.Duration
+        {
+            Name        = entry.Key,
+            Description = entry.Value.Description,
+            Status      = entry.Value.Status.ToString(),
+            DurationInMilliseconds = entry.Value.Duration
                                                                                                                                                  .TotalMilliseconds,
-                                                                                                                   Data      = entry.Value.Data,
-                                                                                                                   Exception = entry.Value.Exception?.Message,
-                                                                                                               });
+            Data      = entry.Value.Data,
+            Exception = entry.Value.Exception?.Message,
+        });
 
         var healthCheckResponse = new
-                                  {
-                                      Status                                = healthReport.Status.ToString(),
-                                      TotalCheckExecutionTimeInMilliseconds = healthReport.TotalDuration.TotalMilliseconds,
-                                      DependencyHealthChecks                = dependencyHealthChecks,
-                                  };
+        {
+            Status                                = healthReport.Status.ToString(),
+            TotalCheckExecutionTimeInMilliseconds = healthReport.TotalDuration.TotalMilliseconds,
+            DependencyHealthChecks                = dependencyHealthChecks,
+        };
 
         var responseString = JsonSerializer.Serialize(healthCheckResponse, JsonSerializerOptions);
 

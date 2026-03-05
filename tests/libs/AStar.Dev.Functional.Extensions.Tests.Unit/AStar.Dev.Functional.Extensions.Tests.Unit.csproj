@@ -30,8 +30,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\src\nuget-packages\AStar.Dev.Functional.Extensions\AStar.Dev.Functional.Extensions.csproj" />
-        <ProjectReference Include="..\..\..\src\nuget-packages\AStar.Dev.Utilities\AStar.Dev.Utilities.csproj" />
+        <ProjectReference Include="..\..\..\src\libs\AStar.Dev.Functional.Extensions\AStar.Dev.Functional.Extensions.csproj" />
+        <ProjectReference Include="..\..\..\src\libs\AStar.Dev.Utilities\AStar.Dev.Utilities.csproj" />
     </ItemGroup>
 
 </Project>

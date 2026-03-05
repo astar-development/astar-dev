@@ -8,6 +8,7 @@ namespace AStar.Dev.Functional.Extensions;
 /// </summary>
 public static class ViewModelResultExtensions
 {
+    #pragma warning disable CS8625
     /// <summary>
     ///     Applies a Result to onSuccess/onError handlers.
     /// </summary>
@@ -49,4 +50,5 @@ public static class ViewModelResultExtensions
                 break;
         }
     }
+    #pragma warning restore CS8625
 }

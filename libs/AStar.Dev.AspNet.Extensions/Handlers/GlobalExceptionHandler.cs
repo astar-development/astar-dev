@@ -32,8 +32,8 @@ public sealed class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logge
     ///     An instance of <see cref="bool" /> of type <see cref="IExceptionHandler" /> as defined by the
     ///     <see cref="HttpContext" /> interface.
     /// </returns>
-    public async ValueTask<bool> TryHandleAsync(HttpContext       httpContext,
-                                                Exception         exception,
+    public async ValueTask<bool> TryHandleAsync(HttpContext httpContext,
+                                                Exception exception,
                                                 CancellationToken cancellationToken)
     {
         try
@@ -47,11 +47,11 @@ public sealed class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> logge
             await httpContext.Response.WriteAsJsonAsync(
                                                         new ProblemDetails
                                                         {
-                                                            Status     = (int)HttpStatusCode.InternalServerError,
-                                                            Type       = "Internal Server Error",
-                                                            Title      = "An unexpected error occurred",
-                                                            Detail     = detailMessage,
-                                                            Instance   = $"{httpContext.Request.Method} {httpContext.Request.Path}",
+                                                            Status = (int)HttpStatusCode.InternalServerError,
+                                                            Type = "Internal Server Error",
+                                                            Title = "An unexpected error occurred",
+                                                            Detail = detailMessage,
+                                                            Instance = $"{httpContext.Request.Method} {httpContext.Request.Path}",
                                                             Extensions = { { "traceId", Activity.Current?.Id ?? httpContext.TraceIdentifier }, },
                                                         }, cancellationToken);
 

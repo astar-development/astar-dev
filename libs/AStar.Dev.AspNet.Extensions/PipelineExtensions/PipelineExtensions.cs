@@ -32,14 +32,14 @@ public static class PipelineExtensions
 
         _ = app.UseSwaggerUI(SetupAction(app, enableSwaggerDarkMode));
 
-//           .UseAuthentication()
+        //           .UseAuthentication()
         //         .UseAuthorization();
 
         return app;
     }
 
     private static Action<SwaggerUIOptions> SetupAction(WebApplication webApplication,
-                                                        bool           enableSwaggerDarkMode = true)
+                                                        bool enableSwaggerDarkMode = true)
         => options =>
            {
                IReadOnlyList<ApiVersionDescription> descriptions = webApplication.DescribeApiVersions();
@@ -50,7 +50,8 @@ public static class PipelineExtensions
                    var name = description.GroupName.ToUpperInvariant();
                    options.SwaggerEndpoint(url, name);
 
-                   if(enableSwaggerDarkMode) options.InjectStylesheet("/swagger-ui/SwaggerDark.css");
+                   if(enableSwaggerDarkMode)
+                       options.InjectStylesheet("/swagger-ui/SwaggerDark.css");
                }
            };
 }

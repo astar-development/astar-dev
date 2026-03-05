@@ -2,6 +2,11 @@
 
 namespace AStar.Dev.Source.Generators.Attributes;
 
+/// <summary>
+/// Attribute used to indicate that a class should be automatically registered as a service in the dependency injection container,
+/// with a specified lifetime and optional interface registration.
+/// </summary>
+/// <param name="lifetime"></param>
 [AttributeUsage(AttributeTargets.Class, Inherited = false, AllowMultiple = false)]
 public sealed class AutoRegisterServiceAttribute(ServiceLifetime lifetime = ServiceLifetime.Scoped) : Attribute
 {

@@ -33,7 +33,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\src\nuget-packages\AStar.Dev.Source.Generators.Attributes\AStar.Dev.Source.Generators.Attributes.csproj" />
+    <ProjectReference Include="..\..\..\src\libs\AStar.Dev.Source.Generators.Attributes\AStar.Dev.Source.Generators.Attributes.csproj" />
   </ItemGroup>
 
     <ItemGroup>

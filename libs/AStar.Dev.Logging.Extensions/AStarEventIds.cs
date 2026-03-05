@@ -9,7 +9,13 @@ namespace AStar.Dev.Logging.Extensions;
 public static class AStarEventIds
 {
     /// <summary>
-    ///     Gets the <see cref="EventId" /> preconfigured for logging a page view
+    ///    The <see cref="Website" /> class contains the <see cref="Microsoft.Extensions.Logging.EventId" /> events related to website logging
     /// </summary>
-    public static EventId PageView => new(1_000, "Page view");
+    public static class Website
+    {
+        /// <summary>
+        ///     Gets the <see cref="EventId" /> preconfigured for logging a page view
+        /// </summary>
+        public static EventId PageView => new(1_000, "Page view");
+    }
 }

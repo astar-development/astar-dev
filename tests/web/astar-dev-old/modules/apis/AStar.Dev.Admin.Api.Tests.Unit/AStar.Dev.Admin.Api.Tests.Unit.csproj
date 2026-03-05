@@ -30,8 +30,8 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\..\..\src\modules\apis\AStar.Dev.Admin.Api\AStar.Dev.Admin.Api.csproj" />
-      <ProjectReference Include="..\..\..\..\src\nuget-packages\AStar.Dev.Api.Usage.Sdk\AStar.Dev.Api.Usage.Sdk.csproj" />
-      <ProjectReference Include="..\..\..\..\src\nuget-packages\AStar.Dev.Utilities\AStar.Dev.Utilities.csproj" />
+      <ProjectReference Include="..\..\..\..\src\libs\AStar.Dev.Api.Usage.Sdk\AStar.Dev.Api.Usage.Sdk.csproj" />
+      <ProjectReference Include="..\..\..\..\src\libs\AStar.Dev.Utilities\AStar.Dev.Utilities.csproj" />
     </ItemGroup>
 
     <ItemGroup>

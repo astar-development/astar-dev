@@ -15,7 +15,6 @@
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <PackageReadmeFile>Readme.md</PackageReadmeFile>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-        <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
     </PropertyGroup>
 

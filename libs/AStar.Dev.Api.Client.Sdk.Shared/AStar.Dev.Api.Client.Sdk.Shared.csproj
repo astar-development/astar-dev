@@ -17,7 +17,6 @@
         <SymbolPackageFormat>snupkg</SymbolPackageFormat>
         <PackageReadmeFile>Readme.md</PackageReadmeFile>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-        <PackageLicenseFile>LICENSE</PackageLicenseFile>
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
         <UserSecretsId>5b2a14cf-7e6b-4012-babe-f57facd457d2</UserSecretsId>
     </PropertyGroup>

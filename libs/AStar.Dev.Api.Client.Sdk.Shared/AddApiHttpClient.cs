@@ -29,7 +29,7 @@ public static class AddApiHttpClient
         _ = services.AddHttpClient<TApiClient>()
                     .AddMicrosoftIdentityUserAuthenticationHandler(
                                                                    nameof(TApiClient),
-                                                                   options => { options.Scopes = optionsScopes; })
+                                                                   options => options.Scopes = optionsScopes)
                     .ConfigureHttpClient((serviceProvider, client) =>
                                          {
                                              client.BaseAddress = serviceProvider.GetRequiredService<IOptions<TApiConfiguration>>().Value
@@ -39,12 +39,12 @@ public static class AddApiHttpClient
                                          })
                     .AddResilienceHandler($"{nameof(TApiClient)}Handler",
                                           b => b.AddFallback(new FallbackStrategyOptions<HttpResponseMessage>
-                                                             {
-                                                                 FallbackAction = _ => Outcome.FromResultAsValueTask(
-                                                                                                                     new
-                                                                                                                         HttpResponseMessage(HttpStatusCode
-                                                                                                                                                .ServiceUnavailable)),
-                                                             })
+                                          {
+                                              FallbackAction = _ => Outcome.FromResultAsValueTask(
+                                                                                                  new
+                                                                                                      HttpResponseMessage(HttpStatusCode
+                                                                                                                             .ServiceUnavailable)),
+                                          })
                                                 .AddConcurrencyLimiter(100)
                                                 .AddRetry(new HttpRetryStrategyOptions())
                                                 .AddCircuitBreaker(new HttpCircuitBreakerStrategyOptions())
