@@ -1,3 +1,7 @@
-# Shipped analyzer releases
+## Release 1.0
 
-No shipped analyzers yet.
+### New Rules
+
+Rule ID | Category | Severity | Notes
+--------|----------|----------|------
+

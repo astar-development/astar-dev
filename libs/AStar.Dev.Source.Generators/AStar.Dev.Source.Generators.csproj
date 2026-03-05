@@ -11,8 +11,8 @@
         <PackageId>AStar.Dev.Source.Generators</PackageId>
         <!-- <IncludeReferencedProjects>true</IncludeReferencedProjects> -->
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <IncludeBuildOutput>false</IncludeBuildOutput>
-        <NoWarn>$(NoWarn);NU5128</NoWarn>
+        <IncludeBuildOutput>true</IncludeBuildOutput>
+        <NoWarn>$(NoWarn);NU5128;NU5100</NoWarn>
 
         <!-- Package metadata -->
         <Version>0.1.7</Version>
@@ -25,6 +25,7 @@
         <RepositoryType>git</RepositoryType>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <DevelopmentDependency>true</DevelopmentDependency>
 		<PackageReleaseNotes>
 			v0.1.7 - Fix bug in AutoRegisterServiceAttribute detection/code generation.
 			v0.1.6 - Fix build and packaging issues.
