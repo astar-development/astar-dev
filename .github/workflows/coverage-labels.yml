@@ -23,7 +23,7 @@ jobs:
 
       - name: Run PR Coverage
         run: |
-          dotnet test --coverage --coverage-output-format cobertura --coverage-output ./prcov/coverage.cobertura.xml --report-xunit-trx
+          dotnet test --coverage --coverage-output-format cobertura --coverage-output coverage.cobertura.xml --results-directory ./prcov --report-xunit-trx
           dotnet tool install -g dotnet-reportgenerator-globaltool
           reportgenerator -reports:"prcov/coverage.cobertura.xml" -targetdir:"prcov" -reporttypes:Cobertura
 
