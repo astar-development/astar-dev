@@ -15,7 +15,7 @@ jobs:
     outputs:
       libs: ${{ steps.set.outputs.libs }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - id: set
         run: |
           LIBS=$(ls libs)
@@ -30,8 +30,8 @@ jobs:
         lib: ${{ fromJson('["' + join(needs.discover-libs.outputs.libs, '","') + '"]') }}
 
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-dotnet@v5
         with:
           dotnet-version: 10.x
 
@@ -54,12 +54,12 @@ jobs:
     needs: mutate
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           ref: gh-pages
 
       - name: Download Matrix Reports
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           name: mutation-matrix
           path: mutation-baseline
@@ -117,9 +117,3 @@ EOF
           git add mutation-baseline mutation-dashboard.html mutation-heatmap || true
           git commit -m "Nightly mutation baseline & dashboard" || true
           git push origin gh-pages
-
-
-
-Capgemini is a trading name used by the Capgemini Group of companies which includes Capgemini UK plc, a company registered in England and Wales (number 943935) whose registered office is at 95 Queen Victoria Street, London, UK, EC4V 4HN.
-
-This message contains information that may be privileged or confidential and is the property of the Capgemini Group. It is intended only for the person to whom it is addressed. If you are not the intended recipient, you are not authorized to read, print, retain, copy, disseminate, distribute, or use this message or any part thereof. If you receive this message in error, please notify the sender immediately and delete all copies of this message.

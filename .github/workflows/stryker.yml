@@ -1,5 +1,7 @@
-
 name: Mutation Testing
+permissions:
+  pull-requests: write
+  contents: read
 
 on:
   pull_request:
@@ -11,7 +13,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -33,7 +35,7 @@ jobs:
           echo "changed-libs=$LIBS" >> $GITHUB_OUTPUT
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v5
         with:
           dotnet-version: 10.x
 
@@ -85,19 +87,24 @@ jobs:
         id: diff
         run: |
           mkdir -p mutation-diff
-          touch mutation-diff/delta.txt
-          for lib in mutation-results/*/; do
-            L=$(basename $lib)
-            BASEFILE="mutation-baseline/$L/reports/stryker-report.json"
-            CURFILE="$lib/reports/stryker-report.json"
-            if [[ -f "$BASEFILE" ]]; then BASE=$(jq ".score" "$BASEFILE"); else BASE=0; fi
-            if [[ -f "$CURFILE" ]]; then CUR=$(jq ".score" "$CURFILE"); else CUR=0; fi
-            DELTA=$(echo "$CUR - $BASE" | bc)
-            echo "$L: $BASE → $CUR (Δ ${DELTA})" >> mutation-diff/delta.txt
-            jq -n --arg lib "$L" --argjson before "$BASE" --argjson after "$CUR" '{library:$lib, before:$before, after:$after, delta:($after-$before)}' > mutation-diff/$L-diff.json
-          done
+          > mutation-diff/delta.txt
+          if [ ! -d "mutation-results" ] || [ -z "$(find mutation-results -type f -name 'stryker-report.json')" ]; then
+            echo "No mutation results to compare" > mutation-diff/delta.txt
+          else
+            for lib in mutation-results/*/; do
+              L=$(basename $lib)
+              BASEFILE="mutation-baseline/$L/reports/stryker-report.json"
+              CURFILE="$lib/reports/stryker-report.json"
+              if [[ -f "$BASEFILE" ]]; then BASE=$(jq ".score" "$BASEFILE"); else BASE=0; fi
+              if [[ -f "$CURFILE" ]]; then CUR=$(jq ".score" "$CURFILE"); else CUR=0; fi
+              DELTA=$(echo "$CUR - $BASE" | bc)
+              echo "$L: $BASE → $CUR (Δ ${DELTA})" >> mutation-diff/delta.txt
+              jq -n --arg lib "$L" --argjson before "$BASE" --argjson after "$CUR" '{library:$lib, before:$before, after:$after, delta:($after-$before)}' > mutation-diff/$L-diff.json
+            done
+          fi
 
       - name: Upload Mutation Diff
+        if: hashFiles('mutation-diff/delta.txt') != ''
         uses: actions/upload-artifact@v4
         with:
           name: mutation-diff
@@ -110,10 +117,11 @@ jobs:
           path: mutation-diff/delta.txt
 
       - name: Fail PR on regression for protected libraries
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request' && hashFiles('mutation-diff/*-diff.json') != ''
         run: |
           PROTECTED=("Core" "Security" "CriticalLibraryA" "CriticalLibraryB")
           for f in mutation-diff/*-diff.json; do
+            [ -f "$f" ] || continue
             L=$(basename $f -diff.json)
             SCORE=$(jq ".after" $f)
             BASE=$(jq ".before" $f)
