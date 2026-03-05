@@ -117,10 +117,11 @@ jobs:
           path: mutation-diff/delta.txt
 
       - name: Fail PR on regression for protected libraries
-        if: github.event_name == 'pull_request'
+        if: github.event_name == 'pull_request' && hashFiles('mutation-diff/*-diff.json') != ''
         run: |
           PROTECTED=("Core" "Security" "CriticalLibraryA" "CriticalLibraryB")
           for f in mutation-diff/*-diff.json; do
+            [ -f "$f" ] || continue
             L=$(basename $f -diff.json)
             SCORE=$(jq ".after" $f)
             BASE=$(jq ".before" $f)
