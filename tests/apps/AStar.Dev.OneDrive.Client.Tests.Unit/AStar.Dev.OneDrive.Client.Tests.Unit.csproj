@@ -4,7 +4,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <OutputType>Exe</OutputType>
-        <RootNamespace>AStar.Dev.Utilities.Tests.Unit</RootNamespace>
+        <RootNamespace>AStar.Dev.OneDrive.Client.Tests.Unit</RootNamespace>
         <TargetFramework>net10.0</TargetFramework>
     </PropertyGroup>
 
@@ -21,7 +21,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\..\src\libs\AStar.Dev.Utilities\AStar.Dev.Utilities.csproj" />
+      <ProjectReference Include="..\..\..\src\apps\AStar.Dev.OneDrive.Client\AStar.Dev.OneDrive.Client.csproj" />
     </ItemGroup>
 
 </Project>

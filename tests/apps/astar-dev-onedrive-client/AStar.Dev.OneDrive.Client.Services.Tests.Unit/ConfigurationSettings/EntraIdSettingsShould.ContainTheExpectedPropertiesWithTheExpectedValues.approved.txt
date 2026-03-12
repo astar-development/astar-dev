@@ -1,8 +1,0 @@
-﻿{
-  "clientId": "TestClientId",
-  "scopes": [
-    "TestScope",
-    "TestScope1"
-  ],
-  "redirectUri": "TestRedirectUri"
-}

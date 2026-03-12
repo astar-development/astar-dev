@@ -1,147 +1,48 @@
 <Solution>
-  <Folder Name="/apps/">
-    <Folder Name="astar-dev-onedrive-client/">
-      <Project Path="apps/astar-dev-onedrive-client/AStar.Dev.OneDrive.Client/AStar.Dev.OneDrive.Client.csproj" />
-      <Project Path="apps/astar-dev-onedrive-client/AStar.Dev.OneDrive.Client.Core/AStar.Dev.OneDrive.Client.Core.csproj" />
-      <Project Path="apps/astar-dev-onedrive-client/AStar.Dev.OneDrive.Client.Infrastructure/AStar.Dev.OneDrive.Client.Infrastructure.csproj" />
-      <Project Path="apps/astar-dev-onedrive-client/AStar.Dev.OneDrive.Client.Services/AStar.Dev.OneDrive.Client.Services.csproj" />
-    </Folder>
-    <Folder Name="astar-dev-onedrive-sync-client/">
-      <Project Path="apps/astar-dev-onedrive-sync-client/AStar.Dev.OneDrive.Sync.Client/AStar.Dev.OneDrive.Sync.Client.csproj" />
-      <Project Path="apps/astar-dev-onedrive-sync-client/AStar.Dev.OneDrive.Sync.Client.Core/AStar.Dev.OneDrive.Sync.Client.Core.csproj" />
-      <Project Path="apps/astar-dev-onedrive-sync-client/AStar.Dev.OneDrive.Sync.Client.Infrastructure/AStar.Dev.OneDrive.Sync.Client.Infrastructure.csproj" />
-    </Folder>
-    <Folder Name="astar-dev-onedrive-sync-client-v2/">
-      <Project Path="apps/astar-dev-onedrive-sync-client-v2/AStar.Dev.OneDrive.Sync.Client.Application/AStar.Dev.OneDrive.Sync.Client.Application.csproj" />
-      <Project Path="apps/astar-dev-onedrive-sync-client-v2/AStar.Dev.OneDrive.Sync.Client.Domain/AStar.Dev.OneDrive.Sync.Client.Domain.csproj" />
-      <Project Path="apps/astar-dev-onedrive-sync-client-v2/AStar.Dev.OneDrive.Sync.Client.Infrastructure/AStar.Dev.OneDrive.Sync.Client.Infrastructure.csproj" />
-      <Project Path="apps/astar-dev-onedrive-sync-client-v2/AStar.Dev.OneDrive.Sync.Client.UI/AStar.Dev.OneDrive.Sync.Client.UI.csproj" />
-      <Project Path="apps/astar-dev-onedrive-sync-client-v2/AstarOneDrive.Infrastructure/AstarOneDrive.Infrastructure.csproj" />
-    </Folder>
+  <Folder Name="/docs/" />
+  <Folder Name="/src/" />
+  <Folder Name="/src/apps/" />
+  <Folder Name="/src/apps/astar-dev-onedrive-client/">
+    <Project Path="src/apps/AStar.Dev.OneDrive.Client/AStar.Dev.OneDrive.Client.csproj" />
   </Folder>
-  <Folder Name="/libs/">
-    <Project Path="libs/AStar.Dev.Admin.Api.Client.Sdk/AStar.Dev.Admin.Api.Client.Sdk.csproj" />
-    <Project Path="libs/AStar.Dev.Api.Client.Sdk.Shared/AStar.Dev.Api.Client.Sdk.Shared.csproj" />
-    <Project Path="libs/AStar.Dev.Api.HealthChecks/AStar.Dev.Api.HealthChecks.csproj" />
-    <Project Path="libs/AStar.Dev.Api.Usage.Sdk/AStar.Dev.Api.Usage.Sdk.csproj" />
-    <Project Path="libs/AStar.Dev.AspNet.Extensions/AStar.Dev.AspNet.Extensions.csproj" />
-    <Project Path="libs/AStar.Dev.Auth.Extensions/AStar.Dev.Auth.Extensions.csproj" />
-    <Project Path="libs/AStar.Dev.Files.Api.Client.SDK/AStar.Dev.Files.Api.Client.SDK.csproj" />
-    <Project Path="libs/AStar.Dev.Fluent.Assignments/AStar.Dev.Fluent.Assignments.csproj" />
-    <Project Path="libs/AStar.Dev.Functional.Extensions/AStar.Dev.Functional.Extensions.csproj" />
-    <Project Path="libs/AStar.Dev.Guard.Clauses/AStar.Dev.Guard.Clauses.csproj" />
-    <Project Path="libs/AStar.Dev.Images.Api.Client.SDK/AStar.Dev.Images.Api.Client.SDK.csproj" />
-    <Project Path="libs/AStar.Dev.Infrastructure/AStar.Dev.Infrastructure.csproj" />
-    <Project Path="libs/AStar.Dev.Infrastructure.AdminDb/AStar.Dev.Infrastructure.AdminDb.csproj" />
-    <Project Path="libs/AStar.Dev.Infrastructure.FilesDb/AStar.Dev.Infrastructure.FilesDb.csproj" />
-    <Project Path="libs/AStar.Dev.Infrastructure.UsageDb/AStar.Dev.Infrastructure.UsageDb.csproj" />
-    <Project Path="libs/AStar.Dev.Logging.Extensions/AStar.Dev.Logging.Extensions.csproj" />
-    <Project Path="libs/AStar.Dev.Minimal.Api.Extensions/AStar.Dev.Minimal.Api.Extensions.csproj" />
-    <Project Path="libs/AStar.Dev.Source.Analyzers/AStar.Dev.Source.Analyzers.csproj" />
-    <Project Path="libs/AStar.Dev.Source.Generators/AStar.Dev.Source.Generators.csproj" />
-    <Project Path="libs/AStar.Dev.Source.Generators.Attributes/AStar.Dev.Source.Generators.Attributes.csproj" />
-    <Project Path="libs/AStar.Dev.Source.Generators.Sample/AStar.Dev.Source.Generators.Sample.csproj" />
-    <Project Path="libs/AStar.Dev.Technical.Debt.Reporting/AStar.Dev.Technical.Debt.Reporting.csproj" />
-    <Project Path="libs/AStar.Dev.Test.Helpers/AStar.Dev.Test.Helpers.csproj" />
-    <Project Path="libs/AStar.Dev.Test.Helpers.EndToEnd/AStar.Dev.Test.Helpers.EndToEnd.csproj" />
-    <Project Path="libs/AStar.Dev.Test.Helpers.Integration/AStar.Dev.Test.Helpers.Integration.csproj" />
-    <Project Path="libs/AStar.Dev.Test.Helpers.Unit/AStar.Dev.Test.Helpers.Unit.csproj" />
-    <Project Path="libs/AStar.Dev.Usage.Api.Client.SDK/AStar.Dev.Usage.Api.Client.SDK.csproj" />
-    <Project Path="libs/AStar.Dev.Utilities/AStar.Dev.Utilities.csproj" />
+  <Folder Name="/src/apps/astar-dev-onedrive-sync-client-v2/">
   </Folder>
+  <Folder Name="/src/apps/astar-dev-onedrive-sync-client/">
+  </Folder>
+  <Folder Name="/src/libs/">
+    <Project Path="src/libs/AStar.Dev.Utilities/AStar.Dev.Utilities.csproj" />
+  </Folder>
+  <Folder Name="/src/web/" />
   <Folder Name="/tests/">
     <Folder Name="apps/astar-dev-onedrive-client/">
-      <Project Path="tests/apps/astar-dev-onedrive-client/AStar.Dev.OneDrive.Client.Tests.Unit/AStar.Dev.OneDrive.Client.Tests.Unit.csproj" />
-      <Project Path="tests/apps/astar-dev-onedrive-client/AStar.Dev.OneDrive.Client.Core.Tests.Unit/AStar.Dev.OneDrive.Client.Core.Tests.Unit.csproj" />
-      <Project Path="tests/apps/astar-dev-onedrive-client/AStar.Dev.OneDrive.Client.Services.Tests.Unit/AStar.Dev.OneDrive.Client.Services.Tests.Unit.csproj" />
-      <Project Path="tests/apps/astar-dev-onedrive-client/AStar.Dev.OneDrive.Client.Services.Tests.Integration/AStar.Dev.OneDrive.Client.Services.Tests.Integration.csproj" />
-      <Project Path="tests/apps/astar-dev-onedrive-client/AStar.Dev.OneDrive.Client.Infrastructure.Tests.Unit/AStar.Dev.OneDrive.Client.Infrastructure.Tests.Unit.csproj" />
-      <Project Path="tests/apps/astar-dev-onedrive-client/AStar.Dev.OneDrive.Client.Infrastructure.Tests.Integration/AStar.Dev.OneDrive.Client.Infrastructure.Tests.Integration.csproj" />
     </Folder>
     <Folder Name="apps/astar-dev-onedrive-sync-client/">
-      <Project Path="tests/apps/astar-dev-onedrive-sync-client/AStar.Dev.OneDrive.Sync.Client.Core.Tests.Unit/AStar.Dev.OneDrive.Sync.Client.Core.Tests.Unit.csproj" />
-      <Project Path="tests/apps/astar-dev-onedrive-sync-client/AStar.Dev.OneDrive.Sync.Client.Tests.Unit/AStar.Dev.OneDrive.Sync.Client.Tests.Unit.csproj" />
-      <Project Path="tests/apps/astar-dev-onedrive-sync-client/AStar.Dev.OneDrive.Sync.Client.Tests.Integration/AStar.Dev.OneDrive.Sync.Client.Tests.Integration.csproj" />
-      <Project Path="tests/apps/astar-dev-onedrive-sync-client/AStar.Dev.OneDrive.Sync.Client.Infrastructure.Tests.Unit/AStar.Dev.OneDrive.Sync.Client.Infrastructure.Tests.Unit.csproj" />
     </Folder>
     <Folder Name="apps/astar-dev-onedrive-sync-client-v2/">
-      <Project Path="tests/apps/astar-dev-onedrive-sync-client-v2/AStar.Dev.OneDrive.Sync.Client.Application.Tests/AStar.Dev.OneDrive.Sync.Client.Application.Tests.csproj" />
-      <Project Path="tests/apps/astar-dev-onedrive-sync-client-v2/AStar.Dev.OneDrive.Sync.Client.Domain.Tests/AStar.Dev.OneDrive.Sync.Client.Domain.Tests.csproj" />
-      <Project Path="tests/apps/astar-dev-onedrive-sync-client-v2/AStar.Dev.OneDrive.Sync.Client.Infrastructure.Tests/AStar.Dev.OneDrive.Sync.Client.Infrastructure.Tests.csproj" />
-      <Project Path="tests/apps/astar-dev-onedrive-sync-client-v2/AStar.Dev.OneDrive.Sync.Client.UI.Tests/AStar.Dev.OneDrive.Sync.Client.UI.Tests.csproj" />
-      <Project Path="tests/apps/astar-dev-onedrive-sync-client-v2/AstarOneDrive.Infrastructure.Tests/AstarOneDrive.Infrastructure.Tests.csproj" />
     </Folder>
     <Folder Name="libs/">
-      <Project Path="tests/libs/AStar.Dev.Admin.Api.Client.Sdk.Tests.Unit/AStar.Dev.Admin.Api.Client.Sdk.Tests.Unit.csproj" />
-      <Project Path="tests/libs/AStar.Dev.AspNet.Extensions.Tests.Unit/AStar.Dev.AspNet.Extensions.Tests.Unit.csproj" />
-      <Project Path="tests/libs/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit/AStar.Dev.Files.Api.Client.Sdk.Tests.Unit.csproj" />
-      <Project Path="tests/libs/AStar.Dev.Fluent.Assignments.Tests.Unit/AStar.Dev.Fluent.Assignments.Tests.Unit.csproj" />
-      <Project Path="tests/libs/AStar.Dev.Functional.Extensions.Tests.Unit/AStar.Dev.Functional.Extensions.Tests.Unit.csproj" />
-      <Project Path="tests/libs/AStar.Dev.Guard.Clauses.Tests.Unit/AStar.Dev.Guard.Clauses.Tests.Unit.csproj" />
-      <Project Path="tests/libs/AStar.Dev.Images.Api.Client.Sdk.Tests.Unit/AStar.Dev.Images.Api.Client.Sdk.Tests.Unit.csproj" />
-      <Project Path="tests/libs/AStar.Dev.Infrastructure.Tests.Unit/AStar.Dev.Infrastructure.Tests.Unit.csproj" />
-      <Project Path="tests/libs/AStar.Dev.Infrastructure.AdminDb.Tests.Unit/AStar.Dev.Infrastructure.AdminDb.Tests.Unit.csproj" />
-      <Project Path="tests/libs/AStar.Dev.Infrastructure.FilesDb.Tests.Unit/AStar.Dev.Infrastructure.FilesDb.Tests.Unit.csproj" />
-      <Project Path="tests/libs/AStar.Dev.Logging.Extensions.Tests.Unit/AStar.Dev.Logging.Extensions.Tests.Unit.csproj" />
-      <Project Path="tests/libs/AStar.Dev.Source.Analyzers.Tests.Unit/AStar.Dev.Source.Analyzers.Tests.Unit.csproj" />
-      <Project Path="tests/libs/AStar.Dev.Source.Generators.Tests.Unit/AStar.Dev.Source.Generators.Tests.Unit.csproj" />
-      <Project Path="tests/libs/AStar.Dev.Source.Generators.Attributes.Tests.Unit/AStar.Dev.Source.Generators.Attributes.Tests.Unit.csproj" />
-      <Project Path="tests/libs/AStar.Dev.Technical.Debt.Reporting.Tests.Unit/AStar.Dev.Technical.Debt.Reporting.Tests.Unit.csproj" />
-      <Project Path="tests/libs/AStar.Dev.Test.Helpers.Tests.Unit/AStar.Dev.Test.Helpers.Tests.Unit.csproj" />
-      <Project Path="tests/libs/AStar.Dev.Test.Helpers.Tests.Unit.Unit/AStar.Dev.Test.Helpers.Tests.Unit.Unit.csproj" />
-      <Project Path="tests/libs/AStar.Dev.Test.Helpers.EndToEnd.Tests.Unit/AStar.Dev.Test.Helpers.EndToEnd.Tests.Unit.csproj" />
-      <Project Path="tests/libs/AStar.Dev.Test.Helpers.Integration.Tests.Unit/AStar.Dev.Test.Helpers.Integration.Tests.Unit.csproj" />
-      <Project Path="tests/libs/AStar.Dev.Utilities.Tests.Unit/AStar.Dev.Utilities.Tests.Unit.csproj" />
-      <Project Path="tests/libs/AStar.Dev.Api.HealthChecks.Tests.Unit/AStar.Dev.Api.HealthChecks.Tests.Unit.csproj" />
     </Folder>
     <Folder Name="web/">
-      <Project Path="tests/web/AStar.Dev.Web.Tests.Unit/AStar.Dev.Web.Tests.Unit.csproj" />
-      <Folder Name="astar-dev-old/">
-        <Folder Name="modules/apis/">
-          <Project Path="tests/web/astar-dev-old/modules/apis/AStar.Dev.Admin.Api.Tests.Unit/AStar.Dev.Admin.Api.Tests.Unit.csproj" />
-          <Project Path="tests/web/astar-dev-old/modules/apis/AStar.Dev.Admin.Api.Tests.Integration/AStar.Dev.Admin.Api.Tests.Integration.csproj" />
-          <Project Path="tests/web/astar-dev-old/modules/apis/AStar.Dev.Admin.Api.Tests.EndToEnd/AStar.Dev.Admin.Api.Tests.EndToEnd.csproj" />
-          <Project Path="tests/web/astar-dev-old/modules/apis/AStar.Dev.Files.Api.Tests.Unit/AStar.Dev.Files.Api.Tests.Unit.csproj" />
-          <Project Path="tests/web/astar-dev-old/modules/apis/AStar.Dev.Files.Api.Tests.Integration/AStar.Dev.Files.Api.Tests.Integration.csproj" />
-          <Project Path="tests/web/astar-dev-old/modules/apis/AStar.Dev.Files.Api.Tests.EndToEnd/AStar.Dev.Files.Api.Tests.EndToEnd.csproj" />
-          <Project Path="tests/web/astar-dev-old/modules/apis/AStar.Dev.Images.Api.Tests.Unit/AStar.Dev.Images.Api.Tests.Unit.csproj" />
-          <Project Path="tests/web/astar-dev-old/modules/apis/AStar.Dev.Images.Api.Tests.Integration/AStar.Dev.Images.Api.Tests.Integration.csproj" />
-          <Project Path="tests/web/astar-dev-old/modules/apis/AStar.Dev.Images.Api.Tests.EndToEnd/AStar.Dev.Images.Api.Tests.EndToEnd.csproj" />
-        </Folder>
-        <Folder Name="services/">
-          <Project Path="tests/web/astar-dev-old/services/AStar.Dev.FilesDb.MigrationService.Tests.Unit/AStar.Dev.FilesDb.MigrationService.Tests.Unit.csproj" />
-          <Project Path="tests/web/astar-dev-old/services/AStar.Dev.Usage.Logger.Tests.Unit/AStar.Dev.Usage.Logger.Tests.Unit.csproj" />
-        </Folder>
-        <Folder Name="uis/">
-          <Project Path="tests/web/astar-dev-old/uis/AStar.Dev.Web.Tests.Unit/AStar.Dev.Web.Tests.Unit.csproj" />
-          <Project Path="tests/web/astar-dev-old/uis/AStar.Dev.Web.Tests.Integration/AStar.Dev.Web.Tests.Integration.csproj" />
-        </Folder>
-      </Folder>
     </Folder>
   </Folder>
-  <Folder Name="/web/">
-    <Project Path="web/AStar.Dev.Web/AStar.Dev.Web.csproj" />
-    <Folder Name="astar-dev-old/">
-      <Folder Name="aspire/">
-        <Project Path="web/astar-dev-old/aspire/AStar.Dev.Web.AppHost/AStar.Dev.Web.AppHost.csproj" />
-        <Project Path="web/astar-dev-old/aspire/AStar.Dev.Web.Aspire.Common/AStar.Dev.Web.Aspire.Common.csproj" />
-        <Project Path="web/astar-dev-old/aspire/AStar.Dev.Web.ServiceDefaults/AStar.Dev.Web.ServiceDefaults.csproj" />
-      </Folder>
-      <Folder Name="modules/apis/">
-        <Project Path="web/astar-dev-old/modules/apis/AStar.Dev.Admin.Api/AStar.Dev.Admin.Api.csproj" />
-        <Project Path="web/astar-dev-old/modules/apis/AStar.Dev.Files.Api/AStar.Dev.Files.Api.csproj" />
-        <Project Path="web/astar-dev-old/modules/apis/AStar.Dev.Files.Classifications.Api/AStar.Dev.Files.Classifications.Api.csproj" />
-        <Project Path="web/astar-dev-old/modules/apis/AStar.Dev.Images.Api/AStar.Dev.Images.Api.csproj" />
-        <Project Path="web/astar-dev-old/modules/apis/AStar.Dev.ToDo.Api/AStar.Dev.ToDo.Api.csproj" />
-        <Project Path="web/astar-dev-old/modules/apis/AStar.Web.ApiService/AStar.Web.ApiService.csproj" />
-      </Folder>
-      <Folder Name="services/">
-        <Project Path="web/astar-dev-old/services/AStar.Dev.FilesDb.MigrationService/AStar.Dev.FilesDb.MigrationService.csproj" />
-        <Project Path="web/astar-dev-old/services/AStar.Dev.Usage.Logger/AStar.Dev.Usage.Logger.csproj" />
-      </Folder>
-      <Folder Name="uis/">
-        <Project Path="web/astar-dev-old/uis/AStar.Dev.Web/AStar.Dev.Web.csproj" />
-      </Folder>
-    </Folder>
+  <Folder Name="/tests/apps/" />
+  <Folder Name="/tests/apps/astar-dev-onedrive-client/">
+    <Project Path="tests/apps/AStar.Dev.OneDrive.Client.Tests.Unit/AStar.Dev.OneDrive.Client.Tests.Unit.csproj" />
+  </Folder>
+  <Folder Name="/tests/apps/astar-dev-onedrive-sync-client-v2/">
+  </Folder>
+  <Folder Name="/tests/apps/astar-dev-onedrive-sync-client/">
+  </Folder>
+  <Folder Name="/tests/libs/">
+    <Project Path="tests/libs/AStar.Dev.Utilities.Tests.Unit/AStar.Dev.Utilities.Tests.Unit.csproj" />
+  </Folder>
+  <Folder Name="/tests/web/" />
+  <Folder Name="/_solution folder/">
+    <File Path="CODE_OF_CONDUCT.md" />
+    <File Path="CONTRIBUTING.md" />
+    <File Path="delete.md" />
+    <File Path="PROJECTREFERENCE_ANALYSIS.md" />
+    <File Path="README.md" />
+    <File Path="SECURITY.md" />
   </Folder>
 </Solution>
