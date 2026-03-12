@@ -1,9 +1,0 @@
-﻿{
-  "id": 0,
-  "detailsLastUpdated": null,
-  "lastViewed": null,
-  "softDeleted": false,
-  "softDeletePending": false,
-  "moveRequired": false,
-  "hardDeletePending": false
-}

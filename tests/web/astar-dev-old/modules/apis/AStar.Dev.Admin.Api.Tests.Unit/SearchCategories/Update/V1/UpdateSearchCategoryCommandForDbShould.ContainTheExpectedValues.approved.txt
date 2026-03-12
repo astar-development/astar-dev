@@ -1,9 +1,0 @@
-﻿{
-  "searchCategoryId": "00000000-0000-0000-0000-000000000000",
-  "order": 0,
-  "categoryName": "",
-  "lastKnownImageCount": 0,
-  "lastPageVisited": 0,
-  "totalPages": 0,
-  "updatedBy": "me"
-}

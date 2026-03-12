@@ -70,6 +70,12 @@ To build everything:
 dotnet build
 ```
 
+To install Nerdbank.GitVersioning:
+
+```bash
+dotnet tool install --global nbgv --version 3.9.50
+```
+
 To run all tests:
 
 ```bash
