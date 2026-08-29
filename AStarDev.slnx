@@ -5,6 +5,11 @@
     <Project Path="apps/desktop/AStarDev.Clock/AStarDev.Clock.TestsUnit/AStarDev.Clock.TestsUnit.csproj" />
     <Project Path="apps/desktop/AStarDev.Clock/AStarDev.Clock/AStarDev.Clock.csproj" />
   </Folder>
+  <Folder Name="/apps/desktop/AStarDev.FileApp/">
+    <Project Path="apps/desktop/AStarDev.FileApp/AStarDev.FileApp.TestsIntegration/AStarDev.FileApp.TestsIntegration.csproj" />
+    <Project Path="apps/desktop/AStarDev.FileApp/AStarDev.FileApp.TestsUnit/AStarDev.FileApp.TestsUnit.csproj" />
+    <Project Path="apps/desktop/AStarDev.FileApp/AStarDev.FileApp/AStarDev.FileApp.csproj" />
+  </Folder>
   <Folder Name="/apps/desktop/AStarDev.OneDriveSyncClient/">
     <Project Path="apps/desktop/AStarDev.OneDriveSyncClient/AStarDev.OneDriveSyncClient.TestsIntegration/AStarDev.OneDriveSyncClient.TestsIntegration.csproj" />
     <Project Path="apps/desktop/AStarDev.OneDriveSyncClient/AStarDev.OneDriveSyncClient.TestsUnit/AStarDev.OneDriveSyncClient.TestsUnit.csproj" />
