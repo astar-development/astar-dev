@@ -59,6 +59,9 @@ jobs:
         uses: actions/setup-dotnet@v6.0.0
         with:
           global-json-file: global.json
+          source-url: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # ── Derive package name and version from the tag ───────────────────────
       # Tag:            AStarDev.Utilities/v1.7.0
@@ -106,9 +109,6 @@ jobs:
           restore-keys: |
             nuget-${{ runner.os }}-
           lookup-only: true
-
-      - name: Authenticate GitHub Packages source
-        run: dotnet nuget update source github --username ${{ github.repository_owner }} --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text
 
       - name: Restore
         run: dotnet restore "${CSPROJ}"

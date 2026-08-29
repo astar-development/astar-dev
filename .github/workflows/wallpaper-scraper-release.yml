@@ -43,6 +43,7 @@ on:
 
 permissions:
   contents: write
+  packages: write
 
 concurrency:
   group: wallpaper-scraper-release-${{ github.ref }}
@@ -74,6 +75,9 @@ jobs:
         uses: actions/setup-dotnet@v6.0.0
         with:
           global-json-file: global.json
+          source-url: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # ── Derive version from the tag ────────────────────────────────────────
       # Tag:     wallpaper-scraper-v0.1.0
@@ -95,9 +99,6 @@ jobs:
 
       - name: Install vpk
         run: dotnet tool install -g vpk --version ${{ env.VELOPACK_VERSION }}
-
-      - name: Authenticate GitHub Packages source
-        run: dotnet nuget update source github --username ${{ github.repository_owner }} --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text
 
       - name: Restore
         run: dotnet restore "${{ env.PROJECT_PATH }}"
@@ -215,6 +216,9 @@ jobs:
         uses: actions/setup-dotnet@v6.0.0
         with:
           global-json-file: global.json
+          source-url: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Extract version from tag
         id: tag
@@ -233,9 +237,6 @@ jobs:
 
       - name: Install vpk
         run: dotnet tool install -g vpk --version ${{ env.VELOPACK_VERSION }}
-
-      - name: Authenticate GitHub Packages source
-        run: dotnet nuget update source github --username ${{ github.repository_owner }} --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text
 
       - name: Restore
         run: dotnet restore "${{ env.PROJECT_PATH }}"

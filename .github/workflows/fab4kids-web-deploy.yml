@@ -20,6 +20,7 @@ on:
 
 permissions:
   contents: read
+  packages: write
 
 concurrency:
   group: fab4kids-web-deploy-${{ github.ref }}
@@ -53,9 +54,9 @@ jobs:
         uses: actions/setup-dotnet@v6.0.0
         with:
           global-json-file: global.json
-
-      - name: Authenticate GitHub Packages source
-        run: dotnet nuget update source github --username ${{ github.repository_owner }} --password ${{ secrets.GITHUB_TOKEN }} --store-password-in-clear-text
+          source-url: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Restore
         run: dotnet restore ${{ env.PROJECT_PATH }}
