@@ -26,17 +26,17 @@
     <Project Path="apps/web/Fab4Kids/Fab4Kids.Web.TestsUnit/Fab4Kids.Web.TestsUnit.csproj" />
     <Project Path="apps/web/Fab4Kids/Fab4Kids.Web/Fab4Kids.Web.csproj" />
   </Folder>
-  <Folder Name="/packages/" />
-  <Folder Name="/packages/functional/">
-    <Project Path="packages/functional/AStarDev.FunctionalParadigm.TestsUnit/AStarDev.FunctionalParadigm.TestsUnit.csproj" />
-    <Project Path="packages/functional/AStarDev.FunctionalParadigm/AStarDev.FunctionalParadigm.csproj" />
+  <Folder Name="/nuget-packages/" />
+  <Folder Name="/nuget-packages/functional/">
+    <Project Path="nuget-packages/functional/AStarDev.FunctionalParadigm.TestsUnit/AStarDev.FunctionalParadigm.TestsUnit.csproj" />
+    <Project Path="nuget-packages/functional/AStarDev.FunctionalParadigm/AStarDev.FunctionalParadigm.csproj" />
   </Folder>
-  <Folder Name="/packages/logging/">
-    <Project Path="packages/logging/AStarDev.LoggingOTel.TestsUnit/AStarDev.LoggingOTel.TestsUnit.csproj" />
-    <Project Path="packages/logging/AStarDev.LoggingOTel/AStarDev.LoggingOTel.csproj" />
+  <Folder Name="/nuget-packages/logging/">
+    <Project Path="nuget-packages/logging/AStarDev.LoggingOTel.TestsUnit/AStarDev.LoggingOTel.TestsUnit.csproj" />
+    <Project Path="nuget-packages/logging/AStarDev.LoggingOTel/AStarDev.LoggingOTel.csproj" />
   </Folder>
-  <Folder Name="/packages/utilities/">
-    <Project Path="packages/utilities/AStarDev.Utilities.TestsUnit/AStarDev.Utilities.TestsUnit.csproj" />
-    <Project Path="packages/utilities/AStarDev.Utilities/AStarDev.Utilities.csproj" />
+  <Folder Name="/nuget-packages/utilities/">
+    <Project Path="nuget-packages/utilities/AStarDev.Utilities.TestsUnit/AStarDev.Utilities.TestsUnit.csproj" />
+    <Project Path="nuget-packages/utilities/AStarDev.Utilities/AStarDev.Utilities.csproj" />
   </Folder>
 </Solution>
