@@ -67,15 +67,14 @@ jobs:
 
       - name: Test
         run: |
-          dotnet test ${{ env.TEST_PROJECT_PATH }} \
+          dotnet test --project ${{ env.TEST_PROJECT_PATH }} \
             --no-build \
-            --configuration Release \
-            --logger "trx;LogFileName=AStarDev.Web.TestsUnit.trx" \
-            --results-directory "$GITHUB_WORKSPACE/TestResults"
+            --configuration Release
 
       - name: Publish test results
         uses: EnricoMi/publish-unit-test-result-action@v2.24.0
         if: always()
+        continue-on-error: true
         with:
           files: TestResults/**/*.trx
           check_name: AStarDev.Web test results

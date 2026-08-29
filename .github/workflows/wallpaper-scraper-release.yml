@@ -115,10 +115,8 @@ jobs:
       - name: Test
         shell: bash
         run: |
-          dotnet test "${{ env.TEST_PROJECT_PATH }}" \
-            --configuration Release \
-            --logger "trx;LogFileName=linux-results.trx" \
-            --results-directory "$GITHUB_WORKSPACE/TestResults"
+          dotnet test --project "${{ env.TEST_PROJECT_PATH }}" \
+            --configuration Release
 
       - name: Publish self-contained linux-x64
         shell: bash
@@ -253,10 +251,8 @@ jobs:
       - name: Test
         shell: bash
         run: |
-          dotnet test "${{ env.TEST_PROJECT_PATH }}" \
-            --configuration Release \
-            --logger "trx;LogFileName=${{ matrix.channel }}-results.trx" \
-            --results-directory "$GITHUB_WORKSPACE/TestResults"
+          dotnet test --project "${{ env.TEST_PROJECT_PATH }}" \
+            --configuration Release
 
       - name: Publish self-contained ${{ matrix.rid }}
         shell: bash

@@ -107,7 +107,7 @@ jobs:
             /o:"${{ env.SONAR_ORG }}" \
             /d:sonar.token="${{ secrets.SONAR_TOKEN }}" \
             /d:sonar.host.url="https://sonarcloud.io" \
-            /d:sonar.cs.cobertura.reportsPaths="TestResults/**/coverage.cobertura.xml" \
+            /d:sonar.cs.cobertura.reportsPaths="TestResults/**/*.cobertura.xml" \
             /d:sonar.scanner.scanAll=false \
             /d:sonar.scanner.skipJreProvisioning=true
 
@@ -118,29 +118,23 @@ jobs:
             --configuration Release \
             -p:TreatWarningsAsErrors=true
 
-      - name: 🧪 Test (per project)
+      - name: Install dotnet-coverage
+        run: dotnet tool install -g dotnet-coverage
+
+      - name: 🧪 Test & collect coverage (per project)
         run: |
           mkdir -p TestResults
 
           mapfile -t projects < <(find . -name '*.Tests*.csproj' ! -name '*.TestsIntegration.csproj')
 
           for proj in "${projects[@]}"; do
-            echo "Running tests for $proj"
-
-            proj_dir=$(dirname "$proj")
             proj_name=$(basename "$proj" .csproj)
+            echo "Running tests & coverage for $proj"
 
-            cd "$proj_dir"
-
-            dotnet test \
-              --no-build \
-              --configuration Release \
-              --logger "trx;LogFileName=$proj_name.trx" \
-              --results-directory "$GITHUB_WORKSPACE/TestResults" \
-              --collect:"XPlat Code Coverage" \
-              -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=cobertura
-
-            cd "$GITHUB_WORKSPACE"
+            dotnet-coverage collect \
+              "dotnet test --project \"$proj\" --no-build --configuration Release" \
+              -f cobertura \
+              -o "TestResults/$proj_name.cobertura.xml"
           done
 
       - name: 🏁 End ☁️ SonarCloud scan

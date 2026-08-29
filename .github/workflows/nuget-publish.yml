@@ -131,10 +131,8 @@ jobs:
             echo "No test project found for ${PACKAGE_NAME} — skipping"
           else
             echo "Running tests: ${TEST_PROJ}"
-            dotnet test "${TEST_PROJ}" \
-              --configuration Release \
-              --logger "trx;LogFileName=results.trx" \
-              --results-directory ./TestResults
+            dotnet test --project "${TEST_PROJ}" \
+              --configuration Release
           fi
 
       - name: Publish test results
