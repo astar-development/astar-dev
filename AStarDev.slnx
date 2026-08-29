@@ -1,0 +1,42 @@
+<Solution>
+  <Folder Name="/apps/" />
+  <Folder Name="/apps/desktop/" />
+  <Folder Name="/apps/desktop/AStarDev.Clock/">
+    <Project Path="apps/desktop/AStarDev.Clock/AStarDev.Clock.TestsUnit/AStarDev.Clock.TestsUnit.csproj" />
+    <Project Path="apps/desktop/AStarDev.Clock/AStarDev.Clock/AStarDev.Clock.csproj" />
+  </Folder>
+  <Folder Name="/apps/desktop/AStarDev.OneDriveSyncClient/">
+    <Project Path="apps/desktop/AStarDev.OneDriveSyncClient/AStarDev.OneDriveSyncClient.TestsIntegration/AStarDev.OneDriveSyncClient.TestsIntegration.csproj" />
+    <Project Path="apps/desktop/AStarDev.OneDriveSyncClient/AStarDev.OneDriveSyncClient.TestsUnit/AStarDev.OneDriveSyncClient.TestsUnit.csproj" />
+    <Project Path="apps/desktop/AStarDev.OneDriveSyncClient/AStarDev.OneDriveSyncClient/AStarDev.OneDriveSyncClient.csproj" />
+  </Folder>
+  <Folder Name="/apps/desktop/AStarDev.WallpaperScraper/">
+    <Project Path="apps/desktop/AStarDev.WallpaperScraper/AStarDev.WallpaperScraper.TestsIntegration/AStarDev.WallpaperScraper.TestsIntegration.csproj" />
+    <Project Path="apps/desktop/AStarDev.WallpaperScraper/AStarDev.WallpaperScraper.TestsUnit/AStarDev.WallpaperScraper.TestsUnit.csproj" />
+    <Project Path="apps/desktop/AStarDev.WallpaperScraper/AStarDev.WallpaperScraper/AStarDev.WallpaperScraper.csproj" />
+  </Folder>
+  <Folder Name="/apps/web/" />
+  <Folder Name="/apps/web/AStarDev.Web/">
+    <Project Path="apps/web/AStarDev.Web/AStarDev.Web.TestsIntegration/AStarDev.Web.TestsIntegration.csproj" />
+    <Project Path="apps/web/AStarDev.Web/AStarDev.Web.TestsUnit/AStarDev.Web.TestsUnit.csproj" />
+    <Project Path="apps/web/AStarDev.Web/AStarDev.Web/AStarDev.Web.csproj" />
+  </Folder>
+  <Folder Name="/apps/web/Fab4Kids/">
+    <Project Path="apps/web/Fab4Kids/Fab4Kids.Web.TestsIntegration/Fab4Kids.Web.TestsIntegration.csproj" />
+    <Project Path="apps/web/Fab4Kids/Fab4Kids.Web.TestsUnit/Fab4Kids.Web.TestsUnit.csproj" />
+    <Project Path="apps/web/Fab4Kids/Fab4Kids.Web/Fab4Kids.Web.csproj" />
+  </Folder>
+  <Folder Name="/packages/" />
+  <Folder Name="/packages/functional/">
+    <Project Path="packages/functional/AStarDev.FunctionalParadigm.TestsUnit/AStarDev.FunctionalParadigm.TestsUnit.csproj" />
+    <Project Path="packages/functional/AStarDev.FunctionalParadigm/AStarDev.FunctionalParadigm.csproj" />
+  </Folder>
+  <Folder Name="/packages/logging/">
+    <Project Path="packages/logging/AStarDev.LoggingOTel.TestsUnit/AStarDev.LoggingOTel.TestsUnit.csproj" />
+    <Project Path="packages/logging/AStarDev.LoggingOTel/AStarDev.LoggingOTel.csproj" />
+  </Folder>
+  <Folder Name="/packages/utilities/">
+    <Project Path="packages/utilities/AStarDev.Utilities.TestsUnit/AStarDev.Utilities.TestsUnit.csproj" />
+    <Project Path="packages/utilities/AStarDev.Utilities/AStarDev.Utilities.csproj" />
+  </Folder>
+</Solution>
