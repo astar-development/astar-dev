@@ -1,0 +1,103 @@
+.site-footer {
+    background: var(--color-bg-alt);
+    margin-top: auto;
+}
+
+.site-footer__inner {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 2rem;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 56px 2rem 40px;
+}
+
+.site-footer__brand {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.site-footer__logo {
+    text-decoration: none;
+    width: fit-content;
+}
+
+.site-footer__logo-text {
+    font-family: var(--font-family-display);
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.site-footer__logo-syllable--fab {
+    color: var(--color-subject-english);
+}
+
+.site-footer__logo-syllable--4 {
+    color: var(--color-subject-history);
+}
+
+.site-footer__logo-syllable--kids {
+    color: var(--color-subject-geography);
+}
+
+.site-footer__tagline {
+    color: var(--color-text-muted);
+    font-size: 0.9375rem;
+    line-height: 1.5;
+}
+
+.site-footer__heading {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    margin-bottom: 0.75rem;
+}
+
+.site-footer__list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    list-style: none;
+}
+
+.site-footer__link {
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    transition: color 0.15s ease;
+}
+
+.site-footer__link:hover {
+    color: var(--color-primary);
+}
+
+.site-footer__bottom {
+    border-top: 2px solid #F0E4CC;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 20px 2rem 28px;
+}
+
+.site-footer__copyright {
+    color: var(--color-text-muted);
+    font-size: 13px;
+}
+
+@media (max-width: 900px) {
+    .site-footer__inner {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .site-footer__brand {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 540px) {
+    .site-footer__inner {
+        grid-template-columns: 1fr;
+    }
+}

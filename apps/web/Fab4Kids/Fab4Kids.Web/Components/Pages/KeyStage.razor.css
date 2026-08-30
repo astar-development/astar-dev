@@ -1,0 +1,111 @@
+.hero {
+    padding-block: 3rem 2rem;
+    border-bottom: 2px solid var(--color-border);
+}
+
+.breadcrumb ol {
+    display: flex;
+    gap: 0.5rem;
+    list-style: none;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.breadcrumb li + li::before {
+    content: '→';
+    margin-right: 0.5rem;
+}
+
+.breadcrumb a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
+    color: var(--color-primary);
+}
+
+.hero__title-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+}
+
+.hero__badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-md);
+    color: var(--color-primary-contrast);
+    font-family: var(--font-family-display);
+    font-size: 20px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+.hero__title {
+    font-family: var(--font-family-display);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--color-text);
+    margin: 0;
+}
+
+.hero__subtitle {
+    color: var(--color-text-secondary);
+    font-size: 1.0625rem;
+}
+
+.catalogue {
+    padding-block: 2.5rem;
+}
+
+.catalogue__header {
+    margin-bottom: 1.5rem;
+}
+
+.back-link {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.back-link:hover {
+    color: var(--color-primary);
+}
+
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.empty-state {
+    text-align: center;
+    padding-block: 4rem;
+    color: var(--color-text-secondary);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+@media (max-width: 900px) {
+    .resource-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 540px) {
+    .resource-grid {
+        grid-template-columns: 1fr;
+    }
+}

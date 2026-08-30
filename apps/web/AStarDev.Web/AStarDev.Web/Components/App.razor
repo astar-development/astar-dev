@@ -6,11 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <base href="/" />
     <ResourcePreloader />
-    <link rel="stylesheet" href="@Assets["lib/bootstrap/dist/css/bootstrap.min.css"]" />
+
+    <!-- No-flash theme script: must be inline, before stylesheets, synchronous -->
+    <script>
+        (function () {
+            var valid = ['dark', 'light', 'metal', 'polished'];
+            var stored;
+            try { stored = localStorage.getItem('theme'); } catch (_) { }
+            var theme = valid.indexOf(stored) !== -1 ? stored : 'dark';
+            document.documentElement.className = 'theme-' + theme;
+        })();
+    </script>
+
+    <link rel="stylesheet" href="@Assets["css/themes.css"]" />
+    <link rel="stylesheet" href="@Assets["css/global.css"]" />
     <link rel="stylesheet" href="@Assets["app.css"]" />
     <link rel="stylesheet" href="@Assets["AStarDev.Web.styles.css"]" />
+    <link rel="icon" type="image/png" href="@Assets["favicon.png"]" />
     <ImportMap />
-    <link rel="icon" type="image/png" href="favicon.png" />
     <HeadOutlet />
 </head>
 
@@ -18,6 +31,10 @@
     <Routes />
     <ReconnectModal />
     <script src="@Assets["_framework/blazor.web.js"]"></script>
+    <script src="@Assets["js/theme.js"]"></script>
+    <script src="@Assets["js/mobile-menu.js"]"></script>
+    <script src="@Assets["js/cookie-consent.js"]"></script>
+    <script src="@Assets["js/clipboard.js"]"></script>
 </body>
 
 </html>
