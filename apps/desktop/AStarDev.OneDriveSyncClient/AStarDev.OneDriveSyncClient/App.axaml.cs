@@ -1,3 +1,5 @@
+using System;
+using System.Threading.Tasks;
 using AStarDev.OneDriveSyncClient.Home;
 using AStarDev.OneDriveSyncClient.Persistence;
 using Avalonia;
@@ -24,7 +26,22 @@ public partial class App : Application
 
         if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
         {
-            desktop.MainWindow = new MainWindow();
+            var splashWindow = new SplashWindow();
+            desktop.MainWindow = splashWindow;
+
+            splashWindow.Opened += async (_, _) =>
+            {
+                for (var seconds = 5; seconds >= 1; seconds--)
+                {
+                    splashWindow.SetCountdown(seconds);
+                    await Task.Delay(TimeSpan.FromSeconds(1));
+                }
+
+                var mainWindow = new MainWindow();
+                desktop.MainWindow = mainWindow;
+                mainWindow.Show();
+                splashWindow.Close();
+            };
         }
 
         base.OnFrameworkInitializationCompleted();
