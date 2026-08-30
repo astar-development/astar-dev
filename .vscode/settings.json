@@ -1,5 +1,10 @@
 {
     "cSpell.words": [
         "Graphify"
-    ]
+    ],
+    "chat.tools.terminal.autoApprove": {
+        "command": true,
+        "graphify": true,
+        "printf": true
+    }
 }

@@ -1,0 +1,43 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "AStarDev.Clock",
+      "type": "dotnet",
+      "request": "launch",
+      "projectPath": "${workspaceFolder}/apps/desktop/AStarDev.Clock/AStarDev.Clock/AStarDev.Clock.csproj"
+    },
+    {
+      "name": "AStarDev.FileApp",
+      "type": "dotnet",
+      "request": "launch",
+      "projectPath": "${workspaceFolder}/apps/desktop/AStarDev.FileApp/AStarDev.FileApp/AStarDev.FileApp.csproj"
+    },
+    {
+      "name": "AStarDev.OneDriveSyncClient",
+      "type": "dotnet",
+      "request": "launch",
+      "projectPath": "${workspaceFolder}/apps/desktop/AStarDev.OneDriveSyncClient/AStarDev.OneDriveSyncClient/AStarDev.OneDriveSyncClient.csproj"
+    },
+    {
+      "name": "AStarDev.WallpaperScraper",
+      "type": "dotnet",
+      "request": "launch",
+      "projectPath": "${workspaceFolder}/apps/desktop/AStarDev.WallpaperScraper/AStarDev.WallpaperScraper/AStarDev.WallpaperScraper.csproj"
+    },
+    {
+      "name": "AStarDev.Web",
+      "type": "dotnet",
+      "request": "launch",
+      "projectPath": "${workspaceFolder}/apps/web/AStarDev.Web/AStarDev.Web/AStarDev.Web.csproj",
+      "launchSettingsProfile": "http"
+    },
+    {
+      "name": "Fab4Kids.Web",
+      "type": "dotnet",
+      "request": "launch",
+      "projectPath": "${workspaceFolder}/apps/web/Fab4Kids/Fab4Kids.Web/Fab4Kids.Web.csproj",
+      "launchSettingsProfile": "http"
+    }
+  ]
+}

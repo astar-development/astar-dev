@@ -5,33 +5,11 @@ on:
     branches:
       - main
       - 'release/**'
-    paths:
-      - 'apps/**/*.cs'
-      - 'apps/**/*.csproj'
-      - 'apps/**/*.axaml'
-      - 'apps/**/*.razor'
-      - 'nuget-packages/**/*.cs'
-      - 'nuget-packages/**/*.csproj'
-      - 'AStarDev.slnx'
-      - 'global.json'
-      - 'local-setup.md'
-      - '.github/workflows/dotnet-ci.yml'
 
   pull_request:
     branches:
       - main
       - 'release/**'
-    paths:
-      - 'apps/**/*.cs'
-      - 'apps/**/*.csproj'
-      - 'apps/**/*.axaml'
-      - 'apps/**/*.razor'
-      - 'nuget-packages/**/*.cs'
-      - 'nuget-packages/**/*.csproj'
-      - 'AStarDev.slnx'
-      - 'global.json'
-      - 'local-setup.md'
-      - '.github/workflows/dotnet-ci.yml'
 
 permissions:
   contents: read
@@ -56,7 +34,7 @@ env:
 
 jobs:
   build-and-test:
-    name: Build & test
+    name: Full solution build & test
     runs-on: ubuntu-latest
 
     steps:

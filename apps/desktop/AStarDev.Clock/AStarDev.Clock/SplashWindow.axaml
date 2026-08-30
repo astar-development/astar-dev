@@ -1,0 +1,32 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="AStarDev.Clock.SplashWindow"
+        Width="400"
+        Height="260"
+        CanResize="False"
+        ShowInTaskbar="False"
+        WindowDecorations="None"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        TransparencyLevelHint="Transparent">
+  <Border Padding="32"
+          Background="{DynamicResource SystemControlBackgroundBaseLowBrush}"
+          BorderBrush="{DynamicResource SystemControlForegroundBaseMediumBrush}"
+          BorderThickness="1"
+          CornerRadius="8">
+    <StackPanel HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Spacing="12">
+      <TextBlock Text="AStar Development Clock"
+                 FontSize="20"
+                 FontWeight="SemiBold"
+                 HorizontalAlignment="Center" />
+      <TextBlock Text="Starting in"
+                 HorizontalAlignment="Center" />
+      <TextBlock x:Name="CountdownText"
+                 FontSize="48"
+                 FontWeight="Bold"
+                 HorizontalAlignment="Center" />
+    </StackPanel>
+  </Border>
+</Window>

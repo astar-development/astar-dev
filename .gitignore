@@ -209,6 +209,14 @@ DocProject/Help/html
 # Click-Once directory
 publish/
 
+# Old directory
+old/
+
+# Local application database
+/astar-dev.db
+/astar-dev.db-shm
+/astar-dev.db-wal
+
 # Publish Web Output
 *.[Pp]ublish.xml
 *.azurePubxml
