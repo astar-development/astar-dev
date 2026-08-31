@@ -53,7 +53,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Set up JDK
+      - name: 🛠 Set up JDK
         uses: actions/setup-java@v6.0.0
         with:
           java-version: 25
@@ -65,7 +65,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
-      - name: Setup .NET 10
+      - name: 🛠 Setup .NET 10
         uses: actions/setup-dotnet@v6.0.0
         with:
           global-json-file: global.json
@@ -94,7 +94,7 @@ jobs:
           mkdir -p ./.sonar/scanner
           dotnet tool update dotnet-sonarscanner --tool-path ./.sonar/scanner
 
-      - name: Restore
+      - name: 🛠 Dotnet Restore
         run: dotnet restore
 
       - name: 🔍 Begin ☁️ SonarCloud scan
@@ -118,7 +118,7 @@ jobs:
             --configuration Release \
             -p:TreatWarningsAsErrors=true
 
-      - name: Install dotnet-coverage
+      - name: 🛠 Install dotnet-coverage
         run: dotnet tool install -g dotnet-coverage
 
       - name: 🧪 Test & collect coverage (per project)

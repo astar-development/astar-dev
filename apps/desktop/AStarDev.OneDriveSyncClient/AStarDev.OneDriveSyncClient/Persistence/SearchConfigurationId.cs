@@ -1,5 +1,3 @@
-using System;
-
 namespace AStarDev.OneDriveSyncClient.Persistence;
 
 public readonly record struct SearchConfigurationId(Guid Value)

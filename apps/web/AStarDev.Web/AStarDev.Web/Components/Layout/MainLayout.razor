@@ -1,20 +1,17 @@
 ﻿@inherits LayoutComponentBase
+@using AStarDev.Web.Components.Common
 
-<div class="page">
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <main>
-        <div class="top-row px-4">
-            <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
-        </div>
+<NavMenu />
 
-        <article class="content px-4">
-            @Body
-        </article>
-    </main>
-</div>
+<main id="main-content">
+    @Body
+</main>
+
+<Footer />
+
+<CookieConsent />
 
 <div id="blazor-error-ui" data-nosnippet>
     An unhandled error has occurred.

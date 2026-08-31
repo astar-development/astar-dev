@@ -1,0 +1,89 @@
+@page "/{subject}"
+@using Fab4Kids.Web.Catalogue
+@using Fab4Kids.Web.Components.Common
+
+@if (category is not null)
+{
+    <PageTitle>@category.Name Resources | fab4kids</PageTitle>
+
+    <section class="subject-hero" style="background-color:@(accent?.Color is null ? "var(--color-bg-alt)" : TintedBackground(accent.Color))">
+        <div class="watermark-shape watermark-shape--circle" style="top:-30px;right:6%;width:140px;height:140px;background:@(accent?.Color ?? "var(--color-primary)");opacity:0.14;"></div>
+        <div class="watermark-shape watermark-shape--triangle" style="bottom:-20px;left:8%;width:90px;height:90px;background:@(accent?.Color ?? "var(--color-primary)");opacity:0.12;transform:rotate(-8deg);"></div>
+
+        <div class="container subject-hero__inner">
+            <nav class="breadcrumb" aria-label="Breadcrumb">
+                <ol>
+                    <li><a href="/">Home</a></li>
+                    <li aria-current="page">@category.Name</li>
+                </ol>
+            </nav>
+            <div class="subject-hero__title-row">
+                <span class="subject-hero__badge" style="background-color:@(accent?.Color ?? "var(--color-primary)")">@(accent?.Letter ?? category.Name[..1])</span>
+                <h1 class="subject-hero__title">@category.Name</h1>
+            </div>
+            <p class="subject-hero__subtitle">@(accent?.Description ?? $"Browse all {category.Name} resources.")</p>
+        </div>
+    </section>
+
+    <section class="catalogue">
+        <div class="container">
+            @if (allItems.Count == 0)
+            {
+                <div class="empty-state">
+                    <p>No @category.Name resources available yet. Check back soon!</p>
+                    <a href="/" class="btn btn--secondary">Back to home</a>
+                </div>
+            }
+            else
+            {
+                <div class="filter-bar" role="group" aria-label="Filter by key stage or format">
+                    @foreach (var filter in filterOptions)
+                    {
+                        <button
+                            type="button"
+                            class="filter-pill @(selectedFilter == filter ? "filter-pill--active" : "")"
+                            style="@(selectedFilter == filter ? $"background-color:{accent?.Color ?? "var(--color-primary)"};border-color:{accent?.Color ?? "var(--color-primary)"}" : "")"
+                            aria-pressed="@(selectedFilter == filter ? "true" : "false")"
+                            @onclick="() => SelectFilter(filter)">
+                            @filter
+                        </button>
+                    }
+                </div>
+
+                @if (VisibleItems.Count == 0)
+                {
+                    <div class="empty-state">
+                        <p>No @category.Name resources match this filter.</p>
+                        <button type="button" class="btn btn--secondary" @onclick="ClearFilter">Clear filter</button>
+                    </div>
+                }
+                else
+                {
+                    <div class="resource-grid">
+                        @foreach (var item in VisibleItems)
+                        {
+                            <PdfCard
+                                File="item.File"
+                                Href="@ResourceRoutes.DetailHref(subject, item.File.Id)"
+                                SubjectName="@category.Name"
+                                SubjectColor="@(accent?.Color ?? "var(--color-primary)")"
+                                Format="@item.Format"
+                                KeyStageLabel="@item.KeyStage" />
+                        }
+                    </div>
+
+                    @if (HasMoreItems)
+                    {
+                        <div class="load-more">
+                            <button type="button" class="load-more__btn" @onclick="LoadMore">Load more resources</button>
+                        </div>
+                    }
+                }
+            }
+        </div>
+    </section>
+}
+
+@code {
+    private static string TintedBackground(string hexColor) => $"color-mix(in srgb, {hexColor} 10%, var(--color-bg))";
+}

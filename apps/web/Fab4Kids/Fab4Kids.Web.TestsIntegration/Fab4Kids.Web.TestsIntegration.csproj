@@ -14,11 +14,13 @@
 
   <ItemGroup>
     <Using Include="Xunit" />
+    <Using Include="Shouldly" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="xunit.v3.mtp-v2" Version="4.0.0" />
-    <PackageReference Include="Shouldly" Version="4.2.1" />
+    <PackageReference Include="Microsoft.Playwright" />
+    <PackageReference Include="xunit.v3.mtp-v2" />
+    <PackageReference Include="Shouldly" />
   </ItemGroup>
 
   <ItemGroup>
