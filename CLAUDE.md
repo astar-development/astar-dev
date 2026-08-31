@@ -65,6 +65,7 @@ Release pipelines tag-triggered, each artifact type owns disjoint tag namespace 
 
 ## Working conventions
 
+- Never commit directly to `main`. Before making any changes, create a feature branch (`git checkout -b <branch-name>`) off `main`; commit there, push it, and raise a PR — do not push `main` or commit straight to it.
 - Prefer modern C#/.NET 10 idioms: nullable reference types, implicit usings, file-scoped namespaces, minimal/straightforward DI.
 - Prefer small focused changes over broad refactors; keep public APIs stable unless task changes them; update matching `.TestsUnit`/`.TestsIntegration` project when behavior changes.
 - Favor minimal dependencies; don't add new frameworks/patterns without clear need.
