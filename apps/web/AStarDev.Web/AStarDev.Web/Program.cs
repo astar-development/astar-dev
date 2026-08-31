@@ -1,4 +1,3 @@
-using AStarDev.LoggingOTel;
 using AStarDev.Web.CaseStudies;
 using AStarDev.Web.Components;
 using AStarDev.Web.Consent;

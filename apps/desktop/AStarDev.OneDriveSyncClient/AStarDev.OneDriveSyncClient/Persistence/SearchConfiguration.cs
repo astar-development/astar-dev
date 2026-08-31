@@ -1,6 +1,3 @@
-using System;
-using System.Collections.Generic;
-
 namespace AStarDev.OneDriveSyncClient.Persistence;
 
 public class SearchConfiguration

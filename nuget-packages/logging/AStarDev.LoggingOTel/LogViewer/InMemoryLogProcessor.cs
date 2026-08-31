@@ -1,6 +1,5 @@
 using System.Collections.Concurrent;
 using System.Reactive.Subjects;
-using Microsoft.Extensions.Logging;
 using OpenTelemetry;
 using OpenTelemetry.Logs;
 

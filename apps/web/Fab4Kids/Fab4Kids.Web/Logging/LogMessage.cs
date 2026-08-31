@@ -1,5 +1,3 @@
-using Microsoft.Extensions.Logging;
-
 namespace Fab4Kids.Web.Logging;
 
 /// <summary>

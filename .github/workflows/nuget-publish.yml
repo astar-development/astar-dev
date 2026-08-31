@@ -55,7 +55,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
 
-      - name: Setup .NET 10
+      - name: 🛠 Setup .NET 10
         uses: actions/setup-dotnet@v6.0.0
         with:
           global-json-file: global.json
@@ -68,7 +68,7 @@ jobs:
       # PACKAGE_NAME  → AStarDev.Utilities
       # PACKAGE_VERSION → 1.7.0  (leading 'v' stripped)
       # IS_PRERELEASE → true if version contains a hyphen
-      - name: Extract package name and version from tag
+      - name: 🛠 Extract package name and version from tag
         id: tag
         run: |
           RAW_TAG="${GITHUB_REF_NAME}"
@@ -101,7 +101,7 @@ jobs:
           echo "csproj=${CSPROJ}" >> $GITHUB_OUTPUT
           echo "Found : ${CSPROJ}"
 
-      - name: Cache NuGet packages
+      - name: 🛠 Cache NuGet packages
         uses: actions/cache@v6.1.0
         with:
           path: ~/.nuget/packages
@@ -110,11 +110,11 @@ jobs:
             nuget-${{ runner.os }}-
           lookup-only: true
 
-      - name: Restore
+      - name: 🛠 Dotnet Restore
         run: dotnet restore "${CSPROJ}"
 
       # ── Build — version stamped directly from the tag ─────────────────────
-      - name: Build
+      - name: 🛠 Build
         run: |
           dotnet build "${CSPROJ}" \
             --no-restore \

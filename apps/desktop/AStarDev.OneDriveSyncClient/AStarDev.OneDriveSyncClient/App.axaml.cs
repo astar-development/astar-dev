@@ -1,6 +1,3 @@
-using System;
-using System.Threading.Tasks;
-using AStarDev.OneDriveSyncClient.Home;
 using AStarDev.OneDriveSyncClient.Persistence;
 using Avalonia;
 using Avalonia.Controls.ApplicationLifetimes;
