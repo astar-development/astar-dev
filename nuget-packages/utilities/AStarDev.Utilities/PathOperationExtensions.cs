@@ -9,6 +9,10 @@ namespace AStarDev.Utilities;
 /// </remarks>
 public static class PathOperationExtensions
 {
+    // CombinePath keeps the classic `this`-parameter form: a `params` array on an extension-block
+    // member currently triggers a spurious CS8620 nullability mismatch at every call site (a known
+    // C# 14 extension-member limitation), so it can't move into the CleanPath extension block below.
+
     /// <summary>
     ///     Combines a base path with one or more relative segments while preventing rooted segments from overriding earlier parts.
     /// </summary>
@@ -29,21 +33,23 @@ public static class PathOperationExtensions
         return combined;
     }
 
-    /// <summary>
-    ///
-    /// </summary>
-    /// <param name="path"></param>
-    /// <returns></returns>
-    public static string CleanPath(this string path)
+    extension(string path)
     {
-        char[] invalidFileChars = Path.GetInvalidPathChars();
-        path = Regex.Replace(path, """[^\u0000-\u007F]+""", string.Empty, RegexOptions.Compiled, TimeSpan.FromSeconds(1));
+        /// <summary>
+        ///
+        /// </summary>
+        /// <returns></returns>
+        public string CleanPath()
+        {
+            char[] invalidFileChars = Path.GetInvalidPathChars();
+            string cleaned = Regex.Replace(path, """[^\u0000-\u007F]+""", string.Empty, RegexOptions.Compiled, TimeSpan.FromSeconds(1));
 
-        foreach (char invalidFileChar in invalidFileChars) path = path.Replace(invalidFileChar, ' ');
+            foreach (char invalidFileChar in invalidFileChars) cleaned = cleaned.Replace(invalidFileChar, ' ');
 
-        return
-            path.Replace("\"", "'", StringComparison.OrdinalIgnoreCase)
-            .Replace("|", string.Empty, StringComparison.OrdinalIgnoreCase)
-            .Replace("煙", string.Empty, StringComparison.OrdinalIgnoreCase).Trim();
+            return
+                cleaned.Replace("\"", "'", StringComparison.OrdinalIgnoreCase)
+                .Replace("|", string.Empty, StringComparison.OrdinalIgnoreCase)
+                .Replace("煙", string.Empty, StringComparison.OrdinalIgnoreCase).Trim();
+        }
     }
 }
