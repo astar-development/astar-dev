@@ -33,7 +33,7 @@ An overload additionally accepts an `InMemoryLogProcessor`, routing log records 
 
 ## Build
 
-This package lives inside the [astar-dev-mono](https://github.com/astar-development/astar-dev-mono) mono-repo and inherits all build configuration from the root `Directory.Build.props`.
+This package lives inside the [astar-dev](https://github.com/astar-development/astar-dev) mono-repo and inherits all build configuration from the root `Directory.Build.props`.
 
 ```bash
 # From the repo root — builds everything

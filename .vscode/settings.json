@@ -1,7 +1,8 @@
 {
     "cSpell.words": [
         "Avalonia",
-        "Graphify"
+        "Graphify",
+        "LINQ"
     ],
     "chat.tools.terminal.autoApprove": {
         "command": true,
