@@ -1,4 +1,5 @@
 using Avalonia.Controls;
+using System.Globalization;
 
 namespace AStarDev.OneDriveSyncClient;
 
@@ -9,5 +10,5 @@ public partial class SplashWindow : Window
         InitializeComponent();
     }
 
-    public void SetCountdown(int seconds) => CountdownText.Text = seconds.ToString();
+    public void SetCountdown(int seconds) => CountdownText.Text = seconds.ToString(CultureInfo.InvariantCulture);
 }
